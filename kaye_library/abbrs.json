@@ -1,1 +1,1272 @@
-{}
+{
+  "Friday": {
+    "abbrs": {
+      "R": {
+        "priority": 5,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Monday": {
+    "abbrs": {
+      "A": {
+        "priority": 1,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "1st letter, 1st workday"
+      }
+    }
+  },
+  "Saturday": {
+    "abbrs": {
+      "S": {
+        "priority": 5,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Sunday": {
+    "abbrs": {
+      "U": {
+        "priority": 7,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Thursday": {
+    "abbrs": {
+      "H": {
+        "priority": 4,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Tuesday": {
+    "abbrs": {
+      "D": {
+        "priority": 2,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "in Dienstag"
+      }
+    }
+  },
+  "Wednesday": {
+    "abbrs": {
+      "E": {
+        "priority": 3,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "against": {
+    "abbrs": {
+      "vs.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "agent/AI instruction edits": {
+    "abbrs": {
+      "🤖": {
+        "priority": 13,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions"
+      }
+    }
+  },
+  "and": {
+    "abbrs": {
+      "&": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "and the others": {
+    "abbrs": {
+      "~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg a, b, ~"
+      },
+      "~~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg a, b, ~~; use when ~ is ambiguous"
+      }
+    }
+  },
+  "because,caused by,result of": {
+    "abbrs": {
+      "⇐": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "become/change/transform from": {
+    "abbrs": {
+      "<-": {
+        "priority": 6,
+        "tags": [
+          "ascii_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "symbol"
+      },
+      "←": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "become/change/transform into": {
+    "abbrs": {
+      "->": {
+        "priority": 6,
+        "tags": [
+          "ascii_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "symbol"
+      },
+      "→": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "between": {
+    "abbrs": {
+      "b/t": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "bit": {
+    "abbrs": {
+      "b": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "branch": {
+    "abbrs": {
+      "branch": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "build/make": {
+    "abbrs": {
+      "🔨": {
+        "priority": 17,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions"
+      }
+    }
+  },
+  "byte": {
+    "abbrs": {
+      "B": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "changelog file": {
+    "abbrs": {
+      "🪧": {
+        "priority": 10,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg CHANGELOG.md"
+      }
+    }
+  },
+  "code comments": {
+    "abbrs": {
+      "📝": {
+        "priority": 6,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only edits, eg comment bodies, banners, docstrings"
+      }
+    }
+  },
+  "command": {
+    "abbrs": {
+      "cmd": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "confer,compare": {
+    "abbrs": {
+      "cf.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "copy": {
+    "abbrs": {
+      "cp": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "decrease,decrement": {
+    "abbrs": {
+      "↓": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "development log files": {
+    "abbrs": {
+      "🪵": {
+        "priority": 11,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg DEVLOG.md"
+      }
+    }
+  },
+  "ditto,repetitive as above/before": {
+    "abbrs": {
+      "do.": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "〃": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "document Title": {
+    "abbrs": {
+      "h1": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "one per file, naming the whole document"
+      }
+    }
+  },
+  "document headings nested below": {
+    "abbrs": {
+      "h3,h4,~": {
+        "priority": 3,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "at the depth the content actually reaches"
+      }
+    }
+  },
+  "document,documentation;reference": {
+    "abbrs": {
+      "doc": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "documentation/reference related edit": {
+    "abbrs": {
+      "📖": {
+        "priority": 12,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg anything under docs/"
+      }
+    }
+  },
+  "entire file added": {
+    "abbrs": {
+      "📄": {
+        "priority": 2,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "entire file deleted": {
+    "abbrs": {
+      "🗑️": {
+        "priority": 3,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "example": {
+    "abbrs": {
+      "e.g.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "example related edits": {
+    "abbrs": {
+      "🧸": {
+        "priority": 15,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "standalone usage examples/demos/toys, eg files under examples/"
+      }
+    }
+  },
+  "file mode": {
+    "abbrs": {
+      "🔒": {
+        "priority": 1,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only change, eg permission bits, executable bit"
+      }
+    }
+  },
+  "file relocated": {
+    "abbrs": {
+      "📂": {
+        "priority": 21,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits"
+      }
+    }
+  },
+  "file renamed": {
+    "abbrs": {
+      "📛": {
+        "priority": 22,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "file renamed in place; content unchanged besides minor edits"
+      }
+    }
+  },
+  "foot": {
+    "abbrs": {
+      "ft": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "function": {
+    "remark": "may include method, but implies standalone function",
+    "abbrs": {
+      "fx": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "gallon": {
+    "abbrs": {
+      "gal": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "git commit then continue": {
+    "abbrs": {
+      "cc": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "hour": {
+    "abbrs": {
+      "h": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "hr": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit",
+        "remark": "use when h is ambagious"
+      }
+    }
+  },
+  "hundredweight": {
+    "abbrs": {
+      "cwt": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "if and only if": {
+    "abbrs": {
+      "iff": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "in the matter of,concerning,regarding": {
+    "abbrs": {
+      "re": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "inch": {
+    "abbrs": {
+      "in": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "in.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "increase,increment": {
+    "abbrs": {
+      "↑": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "index": {
+    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\"",
+    "abbrs": {
+      "idx": {
+        "priority": 4,
+        "tags": [
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "local heading": {
+    "abbrs": {
+      "hl": {
+        "priority": 4,
+        "tags": [
+          "letters_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "skipping levels to label a sub-case read against its parent alone"
+      }
+    }
+  },
+  "mile": {
+    "abbrs": {
+      "mi": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "minute": {
+    "abbrs": {
+      "min": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "miscellaneous": {
+    "abbrs": {
+      "misc.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "month": {
+    "abbrs": {
+      "mo": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "nautical mile": {
+    "abbrs": {
+      "nmi": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "no;false": {
+    "abbrs": {
+      "❌": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "non-text content": {
+    "abbrs": {
+      "🔢": {
+        "priority": 20,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "file edits, eg binary, compressed archive, database, encrypted blob"
+      }
+    }
+  },
+  "not applicable": {
+    "abbrs": {
+      "n/a": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "➖": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "number": {
+    "abbrs": {
+      "№": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "of": {
+    "abbrs": {
+      "\\": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "or": {
+    "abbrs": {
+      "/": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "package,packaging": {
+    "abbrs": {
+      "📦": {
+        "priority": 18,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml"
+      }
+    }
+  },
+  "pint": {
+    "abbrs": {
+      "pt": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "pt.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "pound": {
+    "abbrs": {
+      "lb": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "lb.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "project": {
+    "abbrs": {
+      "proj": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "range": {
+    "abbrs": {
+      "~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg 1~5, a~f, ii~iv"
+      }
+    }
+  },
+  "readme file": {
+    "abbrs": {
+      "🔰": {
+        "priority": 8,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg README.md"
+      }
+    }
+  },
+  "refactorization edit": {
+    "abbrs": {
+      "♻️": {
+        "priority": 4,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted"
+      }
+    }
+  },
+  "same as cell above": {
+    "abbrs": {
+      "〃": {
+        "priority": 51,
+        "tags": [
+          "single_character",
+          "briefness-shorthand",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "same as cell to left": {
+    "abbrs": {
+      "☚": {
+        "priority": 52,
+        "tags": [
+          "single_character",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "second": {
+    "abbrs": {
+      "s": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "sec": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit",
+        "remark": "use when s is ambagious"
+      }
+    }
+  },
+  "setting edits for third-party tools current project uses": {
+    "abbrs": {
+      "⚙️": {
+        "priority": 19,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg linter, formatter configuration, ignore files"
+      }
+    }
+  },
+  "setting,preference,configuration": {
+    "abbrs": {
+      "config": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "stash": {
+    "abbrs": {
+      "stash": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "strict watch day": {
+    "abbrs": {
+      "SWD": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-day-abbr"
+        ],
+        "wrap": "word",
+        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one"
+      }
+    }
+  },
+  "test related edits": {
+    "abbrs": {
+      "🧪": {
+        "priority": 14,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg test suites, fixtures, snapshots, test helpers"
+      }
+    }
+  },
+  "that is,in other words": {
+    "abbrs": {
+      "i.e.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "ie": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "therefore,causing,resulting": {
+    "abbrs": {
+      "⇒": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "top-level heading": {
+    "abbrs": {
+      "h2": {
+        "priority": 2,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "marking a primary section directly under the Title"
+      }
+    }
+  },
+  "triage tag": {
+    "abbrs": {
+      "TT": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "🔖": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation"
+      }
+    }
+  },
+  "unit": {
+    "abbrs": {
+      "u": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "utility or maintenance scripts edits": {
+    "remark": "not part of main codebase, eg files under scripts/",
+    "abbrs": {
+      "🐚": {
+        "priority": 16,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "watch day": {
+    "abbrs": {
+      "WD": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-day-abbr"
+        ],
+        "wrap": "word",
+        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it"
+      }
+    }
+  },
+  "watch week": {
+    "abbrs": {
+      "WWk": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-week-abbr"
+        ],
+        "wrap": "word",
+        "remark": "forward range from today through the close of a terminal Sunday"
+      }
+    }
+  },
+  "which see,reference to": {
+    "abbrs": {
+      "※": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "whitespace edit": {
+    "abbrs": {
+      "📏": {
+        "priority": 7,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only edits: indentation, tabs, blank lines added or removed"
+      }
+    }
+  },
+  "with": {
+    "abbrs": {
+      "w/": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "within": {
+    "abbrs": {
+      "w/i": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "without": {
+    "abbrs": {
+      "w/o": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "workspace": {
+    "remark": "local/on-disk files",
+    "abbrs": {
+      "ws": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "worktree": {
+    "abbrs": {
+      "wt": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word",
+        "remark": "main worktree unless a linked one is named"
+      }
+    }
+  },
+  "yard": {
+    "abbrs": {
+      "yd": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "yes;true": {
+    "abbrs": {
+      "✔️": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  }
+}
