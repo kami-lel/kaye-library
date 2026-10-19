@@ -1,0 +1,261 @@
+// #############################################################################
+// # .hupy.config.jsonc
+// #
+// # per-repository HUPy config;
+// # commit it so every clone shares the same behavior;
+// # project homepage & docs q.v. https://github.com/kami-lel/hupy
+// #############################################################################
+{
+  // HUPy version, do not edit
+  "hupy_version": "3.2.2",
+  "vg": { // VerGrep  ##########################################################
+    // grep repo's version string
+    //
+    // disable VerGrep
+    "is_disabled": false,
+    // Version Uniformity: on a release merge (into main), assert the
+    // version also appears correctly in every configured occurrence
+    // below
+    //
+    // disable Version Uniformity (VerGrep itself stays enabled)
+    "disable_version_uniformity": false,
+    // let a drifted occurrence warn instead of blocking the commit
+    "allow_version_uniformity_failure": false,
+    // the FIRST entry is the canonical version source (what VerGrep
+    // greps); every entry after it is checked for uniformity against
+    // that canonical value
+    //
+    // a single occurrence entry includes fields:
+    //
+    // - "file": required, file path relative to repo root
+    // - "glob": required, regex matched line-by-line against "file";
+    //   first capture group `( )` is the version on that line
+    // - "remark" (optional, string): description/name of entry,
+    //   strictly used in logger
+    "version_occurrences": [
+      {
+        "remark": "canonical version",
+        "file": "pyproject.toml",
+        "glob": "^version = \"(.*)\""
+      }
+      // example entry:
+      // {
+      //   "remark": "README badge",
+      //   "file": "README.md",
+      //   "glob": "version-(\\S+)-blue"
+      // }
+    ]
+  },
+  "cbm": { // ##################################################################
+    // exact name of main branch
+    "main_branch_name": "main",
+    // exact name of dev branch
+    "dev_branch_name": "dev",
+    // branch name prefix (before `/`) marking hotfix branch
+    "hotfix_branch_prefix": "hotfix",
+    // branch name prefix (before `/`) marking release branch
+    "release_branch_prefix": "release"
+  },
+  "bdc": { // Ban Direct Commit ################################################
+    // block direct commits to protected branches,
+    // allowing only merging into these branches
+    //
+    // disable BDC
+    "is_disabled": false,
+    // whether blocking direct commit to main branch
+    "ban_commit_to_main": true,
+    // whether blocking direct commit to dev branch
+    "ban_commit_to_dev": false,
+    // additional branches' names to block
+    "ban_commit_to_branches": []
+  },
+  "ttg": { // Triage Tag Gating ################################################
+    // blocks merging gated Triage Tags into protected branches
+    //
+    // disable TTG
+    "is_disabled": false,
+    // whether match TT anywhere in the line instead of requiring
+    // the comment leader for the file's extension (eg `//`, `#`, `<!--`)
+    "disable_tt_detect_by_type": false,
+    // glob patterns excluded from TT scanning
+    "ignored_path_globs": []
+  },
+  "pt": { // Paper Trail #######################################################
+    // assert files matching a glob were changed in this commit;
+    // fails the commit if an applicable paper trail's glob matches nothing
+    // changed
+    //
+    // a single PT entry ("paper trail") includes fields:
+    //
+    // - "glob": required, single file glob to match against files
+    //   changed in this commit
+    // - "allow_commit_types" (optional, list of string):
+    //   commit/merge types this paper trail applies to
+    // - "remark" (optional, string): description/name of entry,
+    //   strictly used in logger
+    //
+    // "allow_commit_types" include all commit types which
+    // this command should be ran, possible values:
+    //
+    // - non-merge commits
+    //   - "REGULAR_COMMIT",
+    //   - "OTHER_COMMIT",
+    // - merge commits:
+    //   - "FEATURE_LANDING"
+    //   - "VERSION_RELEASE"
+    //   - "SYNC_BACKPORT"
+    //   - "CATCH_UP"
+    //   - "HOTFIX_RELEASE"
+    //   - "HOTFIX_BACKPORT"
+    //   - "RELEASE_CUT"
+    //   - "RELEASE_BACKPORT"
+    //   - "OTHER_MERGE"
+    // - merge categories (union of merge subtypes above):
+    //   - "MERGE" (all merge commits)
+    //   - "RELEASE": VERSION_RELEASE | HOTFIX_RELEASE | RELEASE_CUT
+    //   - "BACKPORT": SYNC_BACKPORT | HOTFIX_BACKPORT | RELEASE_BACKPORT
+    //   - "INTEGRATION": RELEASE | FEATURE_LANDING
+    //
+    //
+    // disable PT
+    "is_disabled": false,
+    "trails": [
+      {
+        "remark": "Changelog Entry Required on Feature Landing",
+        "glob": "CHANGELOG.md",
+        "allow_commit_types": ["FEATURE_LANDING"]
+      }
+    ]
+  },
+  "pch": { // Prepend Commit Header ############################################
+    // adds a short header line to the top of the commit message
+    //
+    // disable PCH
+    "is_disabled": false,
+    // enable the Vertical Slice header:
+    // recognize 0.4.0~0.9.0 as Vertical Slice (instead of Prototype)
+    "enable_vertical_slice": false,
+    // enable the Pre-Alpha header:
+    // recognize 0.9.0 as Pre-Alpha (instead of Prototype/Vertical Slice)
+    "enable_pre_alpha": true,
+    // version suffix identifying Alpha release:
+    // if this string is present as part of version, consider it Alpha;
+    // leave empty string to disable Alpha header
+    "alpha_tag": "-alpha",
+    // version suffix identifying Beta release, v.s. Alpha
+    "beta_tag": "-beta",
+    // version suffix identifying Release Candidate, v.s. Alpha
+    "release_candidate_tag": "-rc"
+  },
+  "hb": { // Hook Bracket ######################################################
+    // run extra commands around HUPy's own hook logic
+    //
+    // a single HB command entry include fields:
+    //
+    // - "cmd": shell command to be ran (at repository root)
+    // - "allow_commit_types" (optional, list of string):
+    //   commit/merge types this command applies to;
+    //   v.s. same field in "pt"
+    // - "allow_failure" (optional, boolean):
+    //   allowing failed command proceeded with committing
+    // - "timeout" (optional, float): max seconds to let command run
+    // - "remark" (optional, string): description/name of entry,
+    //   strictly used in logger
+    //
+    //
+    // disable HB
+    "is_disabled": false,
+    "pre_commit": {
+      // run before pre-commit's core logic
+      "lead": [
+        // example entry:
+        // {
+        //   "remark": "Pre-Feature Landing Unit Test",
+        //   "cmd": "npm test",
+        //   "allow_commit_types": ["FEATURE_LANDING"],
+        //   "allow_failure": false,
+        //   "timeout": 600.0
+        // }
+      ],
+      // run after pre-commit's core logic
+      "trail": [
+        {
+          "cmd": "pytest tests/",
+          "allow_commit_types": ["INTEGRATION"],
+          "allow_failure": false,
+          "remark": "Integration UTs"
+        }
+      ]
+    },
+    "prepare_commit_msg": {
+      // run before pre-merge-commit's core logic
+      "lead": [],
+      // run after pre-merge-commit's core logic
+      "trail": []
+    },
+    "commit_msg": {
+      // run before commit-msg's core logic
+      "lead": [],
+      // run after commit-msg's core logic
+      "trail": []
+    },
+    "post_commit": {
+      // run before post-commit's core logic
+      "lead": [],
+      // run after post-commit's core logic
+      "trail": []
+    },
+    "pre_merge_commit": {
+      "lead": [],
+      "trail": []
+    },
+    "post_merge": {
+      "lead": [],
+      "trail": []
+    },
+    "pre_rebase": {
+      "lead": [],
+      "trail": []
+    },
+    "post_rewrite": {
+      "lead": [],
+      "trail": []
+    },
+    "applypatch_msg": {
+      "lead": [],
+      "trail": []
+    },
+    "pre_applypatch": {
+      "lead": [],
+      "trail": []
+    },
+    "post_applypatch": {
+      "lead": [],
+      "trail": []
+    },
+    "pre_auto_gc": {
+      "lead": [],
+      "trail": []
+    },
+    "post_index_change": {
+      "lead": [],
+      "trail": []
+    },
+    "sendemail_validate": {
+      "lead": [],
+      "trail": []
+    },
+    "fsmonitor_watchman": {
+      "lead": [],
+      "trail": []
+    },
+    "post_checkout": {
+      "lead": [],
+      "trail": []
+    },
+    "pre_push": {
+      "lead": [],
+      "trail": []
+    }
+  }
+}
