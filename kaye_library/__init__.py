@@ -52,6 +52,8 @@ _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 _CORPUS_SOURCES = [
     "style/style.md",
     "element/element.md",
+    "project/project.md",
+    "repo/repo.md",
 ]
 
 
