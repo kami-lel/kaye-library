@@ -747,7 +747,7 @@ On Plan file preface; on instruction to begin or continue; on any *continue* sho
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-For each Movement's git commit, invoke `perform-commit-sense` via `Skill` tool.
+For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
 
 #### {[ClaudeCode:Enter/ExitPlanMode] Usage}
 
