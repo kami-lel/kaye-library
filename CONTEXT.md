@@ -50,7 +50,9 @@ A host calls the steps in this order, or `setup_kaye_library_for_kaye_engine()` 
 
 Standalone setup then names `kaye-library` the entry consumer and configures the Claude and Hermes CLIs with no chat, coder, or soul name; a subcommand needing one exits 1 with a clear message. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
-Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` over the library's internal building blocks (`commit-sense-core`, `coder-core`); the skill then moves to the host's plugin.
+Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` over the library's internal building blocks: `commit-sense` over `commit-sense-core`, `coder` over `coder-core`; the skill keeps its name and moves to the host's plugin.
+
+The console command builds on the engine's `register_cli_main_parser(PACKAGE_NAME, PROGRAM_NAME)`, so its `--help` text is the engine's and only the usage line and `--version` name `kaye-library`. `KAYE_LIBRARY_DISPLAY_NAME` (`Kaye Library`) names both the consumer record and the comment line.
 
 ## Corpus Structure
 
@@ -77,7 +79,7 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
 - stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
 - `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
-- the `Coder` root carries no conversation rules: `coder-core` is the building block, and a host adds the conversation and persona around it
+- the `Coder` root carries no conversation rules: the `coder` skill is `coder-core` alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around `coder-core`
 
 ## Abbreviation Database
 

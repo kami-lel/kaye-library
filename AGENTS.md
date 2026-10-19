@@ -51,10 +51,15 @@ Scope each run to the area touched; run everything only before a merge.
 | a glossary or `abbrs.json` | `pytest tests/glossary_test.py tests/abbr` |
 | setup, `__main__.py`, the consumer record | `pytest tests/library_setup_test.py tests/console_test.py tests/third_consumer_test.py` |
 | any shipped file | `pytest tests/privacy_test.py` |
+| an `Invoke ... skill` line in a corpus `.md` | `pytest tests/invocation_test.py` |
+| `README.md`, `AGENTS.md`, `CONTEXT.md`, `docs/` | `pytest tests/docs_test.py` |
 | before a merge | `pytest tests` |
 
 - `tests/data.py` holds the wording each skill must render; update it in the same change as the text
 - `tests/console_test.py` runs `kaye-library` as a subprocess: install the package first
+- `tests/invocation_test.py` fails when library text tells the assistant to invoke a skill the library does not register: point it at a library skill, never at one a downstream package supplies
+- `tests/docs_test.py` checks every relative link and anchor in the root documents and `docs/`
+- never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`
 
 ## PR & Commit Instructions
 
@@ -68,8 +73,8 @@ Scope each run to the area touched; run everything only before a merge.
 
 ## Documentation Maintenance
 
-- `README.md`: overview, install, commands
-- `CONTEXT.md`: architecture and the root node ownership; refresh its `Last updated` line
+- [README.md](README.md): overview, install, commands
+- [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
 - [docs/blueprint-doc.md](docs/blueprint-doc.md): every skill and internal blueprint; update on any blueprint added, renamed, or re-wired
 - [docs/glossary-doc.md](docs/glossary-doc.md): every glossary and its usage; update on any glossary added or re-wired
 - [docs/corpus-registration-doc.md](docs/corpus-registration-doc.md): how sources attach to the tree; update when `_CORPUS_SOURCES` or the registration rules change
