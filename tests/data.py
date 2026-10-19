@@ -4,7 +4,165 @@ tests/data.py
 wording the library's own skills must render, by canonical name
 """
 
-FILE_CONTENT = {'commit-sense': ['### primary summary',
+FILE_CONTENT = {'coder-bash-script': ['## Bash',
+                       'You write **Bash** targeting Debian GNU/Linux, '
+                       'using only the standard GNU',
+                       '### Coder Bash Script',
+                       'open every script file with a **shebang** on the '
+                       'first line',
+                       '#### Function Header Comment'],
+ 'coder-bash-shell': ['## Bash',
+                      'You write **Bash** targeting Debian GNU/Linux, '
+                      'using only the standard GNU',
+                      '### Coder Bash Shell',
+                      'Return the command alone, with no surrounding '
+                      'explanation.',
+                      '`sudo` is allowed, and so are destructive commands '
+                      'whenever they are what'],
+ 'coder-c': ['## Coder C',
+             'Use **C99** standard',
+             '## Brace Style',
+             'opening `{` on the **same line**',
+             'closing `}` on its **own line**'],
+ 'coder-c-sharp': ['## Coder C Sharp',
+                   '## Brace Style',
+                   'opening `{` on the **same line**',
+                   'closing `}` on its **own line**',
+                   '/// <summary>',
+                   'Documentation: Use XML comments'],
+ 'coder-comment-banner-in-code-comment': ['## Comment Banner',
+                                          '**Levels** — six ranks, highest '
+                                          '(`CB0`) to lowest (`CB5`)',
+                                          '### CB in Code Comment',
+                                          'Use CB to mark sections of long '
+                                          'source files.',
+                                          '`CB0` boxes the file title, '
+                                          '`CB1` marks top-level sections'],
+ 'coder-comment-banner-in-print-out': ['## Comment Banner',
+                                       '**Levels** — six ranks, highest '
+                                       '(`CB0`) to lowest (`CB5`)',
+                                       '### CB in Print Out',
+                                       'Use CB to divide logging / demo / '
+                                       'test phases',
+                                       '`CB0` boxes the run title, `CB1C` '
+                                       '(`#`) marks each phase'],
+ 'coder-cpp': ['## Brace Style',
+               'opening `{` on the **same line**',
+               'closing `}` on its **own line**',
+               '## Coder C',
+               'Use **C99** standard',
+               '## Coder CPP',
+               'Use **C++17** standard'],
+ 'coder-gdscript': ['## Coder GDScript',
+                    'Writing code based on [Coder](#coder)'],
+ 'coder-html': ['## Coder HTML', 'Version: **HTML5** standard'],
+ 'coder-javascript-and-typescript': ['## Brace Style',
+                                     'opening `{` on the **same line**',
+                                     'closing `}` on its **own line**',
+                                     '## Coder JavaScript and TypeScript',
+                                     'These standards are applicable '
+                                     'exclusively',
+                                     '**ES11** standard',
+                                     '#### Naming Conventions',
+                                     '- Use **camelCase** for naming '
+                                     'variables',
+                                     '### Documentation and Comments',
+                                     '- Ensure the code is accompanied by',
+                                     'Use **JSDoc**',
+                                     '*Example of JSDoc documentation:*',
+                                     'globalNS.method1 = function (a, b)'],
+ 'coder-python': ['## Coder Python',
+                  'Adhere to the **PEP8** style guide, ensuring clarity '
+                  'and consistency.',
+                  '- do **not** use type hints anywhere (no variable '
+                  'annotations,',
+                  '- prefer `str.format()` for string formatting, dont '
+                  'use'],
+ 'coder-python-docstring-style': ['### Coder Python Docstring Style',
+                                  'Write all docstrings in Sphinx style '
+                                  'using reStructuredText.',
+                                  '#### Which Fields They Carry',
+                                  '"""banned single-line docstring"""',
+                                  '| public API function | S, D, A, R, E |',
+                                  '| class function, public or private | '
+                                  'S, A, R |',
+                                  '| auxiliary / helper function | S *or* '
+                                  'R, never Both |',
+                                  'Never pad a docstring with an empty or '
+                                  'placeholder field.',
+                                  '`:param:` / `:type:` per argument',
+                                  '#### Which Callables Carry a Docstring',
+                                  'Public Functions and Methods: always '
+                                  'carry One',
+                                  '`__init__`: **never** carries one',
+                                  '#### Module & Script Docstrings',
+                                  'first line is the filename',
+                                  '#### Field Rules',
+                                  '- `Iterable(str)`',
+                                  '- `dict{str: int}`',
+                                  'Optional Arguments: for a parameter '
+                                  'with a default',
+                                  'Raises: one `:raises:` entry per '
+                                  'distinct scenario',
+                                  'Wrapping: when a field line runs long'],
+ 'coder-python-testing-guidelines': ['### Coder Python Testing Guidelines',
+                                     'This section pertains specifically '
+                                     'to Python test code',
+                                     '`pytest` module',
+                                     'test class names should start with '
+                                     '`Test`',
+                                     'test function names should begin '
+                                     'with `test_`',
+                                     'strive to create as many separate '
+                                     'test functions',
+                                     'do **not** require docstrings',
+                                     '**Each test file**',
+                                     '*Example of tests for the `add` '
+                                     'function:*',
+                                     'TestAdd',
+                                     'class TestAdd:'],
+ 'coder-u3d': ['## Brace Style',
+               'opening `{` on the **same line**',
+               'closing `}` on its **own line**',
+               '## Coder C Sharp',
+               'Documentation: Use XML comments',
+               '## Coder Unity Engine',
+               'Follows [Coder C Sharp](#coder-c-sharp)',
+               '##### Logging',
+               'Open every message with the owning subsystem or module '
+               'name',
+               'Debug.isDebugBuild'],
+ 'coder-u3d-assets-management': ['### Assets Management',
+                                 'Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs',
+                                 '##### Type Folders'],
+ 'coder-u3d-mb': ['### MonoBehaviour',
+                  'Section order, formatting, and accessors follow the '
+                  'example exactly.',
+                  'public class PlayerController: MonoBehaviour',
+                  'public static PlayerController FindInScene()',
+                  'private const string LOAD_TRIGGER_TAG',
+                  '- guard **every** `[SerializeField] private` field '
+                  'carrying no declaration default',
+                  '// Public Members',
+                  '// Inspector Fields',
+                  '- **one block, at the top** of `Awake()`, under exactly '
+                  'one `// Inspector Assignment Guard` line, never '
+                  'scattered, never repeated',
+                  'Inspector Assignment Guard:',
+                  'if (nextSceneName == null) {',
+                  '"MinigameRacing:\\tmust assign Inspector Field: '
+                  'nextSceneName",'],
+ 'coder-u3d-so': ['### Scriptable Object'],
+ 'coder-ue': ['## Coder Unreal Engine',
+              'Follows [Coder C](#coder-c) and [Coder CPP](#coder-cpp)',
+              '## Brace Style',
+              'opening `{` on the **same line**',
+              'closing `}` on its **own line**',
+              '## Coder C',
+              'Use **C99** standard',
+              '## Coder CPP',
+              'Use **C++17** standard'],
+ 'commit-sense': ['### primary summary',
                   '### per-file change sigil',
                   '### per-file summary',
                   '### Perform Commit Sense',
@@ -95,6 +253,17 @@ FILE_CONTENT = {'commit-sense': ['### primary summary',
                                          '- Thousands Separator:',
                                          'Use a space character as the '
                                          'thousands separator'],
+ 'glossary-programming-language-codes': ['- bash:Bash',
+                                         '- c:C language',
+                                         '- cpp:C++',
+                                         '- csharp:C Sharp',
+                                         '- gdscript:GDScript used by '
+                                         'Godot Engine',
+                                         '- js:JavaScript',
+                                         '- py:Python',
+                                         '- ts:TypeScript',
+                                         '- u3d:Unity Engine code',
+                                         '- ue:Unreal Engine code'],
  'glossary-units-of-measure': ['- b:bit',
                                '- B:byte',
                                '- ft:foot',
@@ -158,6 +327,18 @@ FILE_CONTENT = {'commit-sense': ['### primary summary',
                                 '#### Output',
                                 'Update the affected files in place, '
                                 'leaving unrelated files untouched.'],
+ 'plan-for-suite': ['## Plan for Suite',
+                    'Do **not** start editing.',
+                    '#### Bar 1: Gather',
+                    '#### Bar 2: Write the Plan',
+                    '### Plan for Suite: Bar 3: Execution'],
+ 'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
+                              'Starts only after the user approves the '
+                              'Plan.',
+                              'ask whether to run under '
+                              '`cascade-all-movements` or '
+                              '`halt-each-movement`.',
+                              '##### Reworking the Plan'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -298,6 +479,12 @@ FILE_CONTENT = {'commit-sense': ['### primary summary',
                             'You resolve a **halted Git merge**.',
                             '#### Resolve',
                             '#### Output'],
+ 'review-gaps': ['## Gap Review',
+                 'Inspect the repository and surface every inconsistency, '
+                 'gap, or unfinished seam',
+                 '#### Categories',
+                 '#### Using Triage Tags',
+                 '#### Findings'],
  'style-briefness-style': ['## Style Guide Briefness Style',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
@@ -321,7 +508,37 @@ FILE_CONTENT = {'commit-sense': ['### primary summary',
                                   '- keep proper nouns, acronyms, and '
                                   'brand styling as written']}
 
-DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
+DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions, and sourced '
+                      'libraries for Debian GNU/Linux under a fixed house '
+                      'style.',
+ 'coder-bash-shell': 'answers Bash command requests for Debian GNU/Linux '
+                     'with the bare terminal line',
+ 'coder-c': 'Writes, edits, and reviews all C code.',
+ 'coder-c-sharp': 'Writes, edits, and reviews all C# code.',
+ 'coder-comment-banner-in-code-comment': 'writes comment banners inside '
+                                         'source code',
+ 'coder-comment-banner-in-print-out': 'writes banners into printed program '
+                                      'output',
+ 'coder-cpp': 'Writes, edits, and reviews all C++ code.',
+ 'coder-gdscript': 'GDScript code for Godot 4',
+ 'coder-html': 'apply HTML5 standards for structure, semantics, and '
+               'markup.',
+ 'coder-javascript-and-typescript': 'Writes, edits, and reviews all '
+                                    'JavaScript and TypeScript code, '
+                                    'targeting the ES11 standard with '
+                                    'camelCase naming and JSDoc '
+                                    'documentation conventions.',
+ 'coder-python': 'scripts, modules, packages, functions, classes, inline '
+                 'snippets',
+ 'coder-python-docstring-style': 'writes, formats Python docstrings in '
+                                 'Sphinx/reStructuredText',
+ 'coder-python-testing-guidelines': 'writes, reviews Python `pytest` test '
+                                    'code per project conventions',
+ 'coder-u3d': 'Writes, edits & reviews all Unity 6 C# code under house '
+              'conventions: class-role suffixes, singleton & event idioms, '
+              'member order, subsystem-prefixed logging',
+ 'coder-ue': 'C++ code for Unreal Engine',
+ 'commit-sense': 'Commits the indexed diff',
  'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
                                 'pair',
  'condense-changelog': 'rewords its entries into concise, high-level '
@@ -354,6 +571,8 @@ DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
  'element-triage-tags': 'defect/note labels spanning code and docs across '
                         '3 case tiers (Loud/Steady/Quiet), with per-tag '
                         'meanings and raise/lower tier shifts',
+ 'glossary-programming-language-codes': 'Glossary '
+                                        'programming-language-codes',
  'land-feature': 'tmp description Perform Feature Landing',
  'maintain-changelog': 'Use this skill when the user wants to add, fix, or '
                        'reorganize entries in an existing CHANGELOG — '
@@ -369,6 +588,8 @@ DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
                        'what changed',
  'maintenance-before-compact': "Logs a session's durable changes before "
                                'context compaction',
+ 'plan-for-suite': 'Splits oversized task into ordered, numbered '
+                   'Movements, then runs them under review',
  'proj-agents-writer': 'Writes & maintains `AGENTS.md` for generic '
                        'AI-ready projects: rules & constraints telling '
                        'agents how to work on project',
@@ -396,6 +617,7 @@ DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
+ 'review-gaps': 'Audits whole repository for gaps, drift, unfinished seams',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
                               'blocks — tier from Loud to Quiet, then '
                               'meaning from bug to fixme, todo, hack.',
@@ -409,7 +631,49 @@ DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
  'style-letter-case-commentary-case': 'define Commentary Case',
  'style-letter-case-title-case': 'define Title Case'}
 
-WHEN_TO_USE_CONTENT = {'commit-sense': 'write a commit message',
+WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `.sh`, `.bash`, '
+                      '`bashrc`, function definitions',
+ 'coder-bash-shell': 'fires when the user wants something run now, not a '
+                     'file kept',
+ 'coder-c': 'Use for any C code work, requests for C.',
+ 'coder-c-sharp': 'Use for any C# code work, requests for C#, mentions of '
+                  '.NET.',
+ 'coder-comment-banner-in-code-comment': 'Any long source file needing '
+                                         'structural markers: section '
+                                         'dividers, boxed file-title '
+                                         'blocks, or banner comments.',
+ 'coder-comment-banner-in-print-out': 'any script or program emitting '
+                                      'multi-phase terminal output: run '
+                                      'headers, stage separators, '
+                                      'log-section dividers',
+ 'coder-cpp': 'Use for any C++ code work, requests for C++.',
+ 'coder-javascript-and-typescript': 'Use for any JavaScript or TypeScript '
+                                    'work, inline JS/TS code blocks, '
+                                    'requests for JavaScript, TypeScript, '
+                                    'or Node.',
+ 'coder-python': 'files, code blocks, '
+                 'writing/fixing/refactoring/optimizing/reviewing Python, '
+                 'or bare code requests with no language stated in a '
+                 'Python context. Not for docstring-only or test-only '
+                 'requests, route those to the dedicated skills',
+ 'coder-python-docstring-style': 'trigger whenever a Python function, '
+                                 'method, class, or module is written or '
+                                 'edited',
+ 'coder-python-testing-guidelines': 'trigger on `test_*.py`/`*_test.py` '
+                                    'files, pytest, fixtures, mocks, '
+                                    'parametrize, assertions, or requests '
+                                    'like write/add/fix a unit test or '
+                                    'test case. Not for non-test Python '
+                                    'code',
+ 'coder-u3d': 'Any C# in a Unity project, even when user never says '
+              '"Unity": gameplay systems, managers, controllers, editor '
+              'tools, UI, input, save/load, scene logic. Triggers: Unity, '
+              '`UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, '
+              'singleton, manager, event. Load together w/ `coder-u3d-mb` '
+              'for `MonoBehaviour` scripts, `coder-u3d-so` for '
+              '`ScriptableObject` classes; asset placement & naming belong '
+              'to `coder-u3d-assets-management`',
+ 'commit-sense': 'write a commit message',
  'element-dt-month-day-format': 'Any output date stated without a year: '
                                 'anniversaries, birthdays, recurring '
                                 'schedules, near-term plans, entries '
@@ -452,7 +716,11 @@ WHEN_TO_USE_CONTENT = {'commit-sense': 'write a commit message',
                                       'code comment',
  'style-letter-case-title-case': 'for document titles and section headings'}
 
-CLAUDE_TOOL_CONTENT = {'ready-release-version': ['if version number or release date is '
+CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so all discovery '
+                    'runs before any edit is possible',
+                    'delivers the finished Plan through `ExitPlanMode` '
+                    'tool, which is where the user approves it'],
+ 'ready-release-version': ['if version number or release date is '
                            '**missing**, use `AskUserQuestion` to ask user '
                            'before proceeding'],
  'resolve-merge-conflict': ['track resolution with the `TodoWrite` tool — '

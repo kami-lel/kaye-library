@@ -48,15 +48,27 @@ CONSUMER_DISPLAY_NAME = "Kaye Library"
 _CORPUS_DIR = Path(__file__).resolve().parent / "registrations"
 _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 
-# corpus files, in registration order; each registers under the root
+# corpus files, in registration order: (node path, file), a file's top
+# headings sitting one level below its node
 _CORPUS_SOURCES = [
-    "dynamic_nodes/dynamic_nodes.md",
-    "agent/agent.md",
-    "style/style.md",
-    "element/element.md",
-    "project/project.md",
-    "repo/repo.md",
-    "git/git.md",
+    ((), "dynamic_nodes/dynamic_nodes.md"),
+    ((), "agent/agent.md"),
+    ((), "style/style.md"),
+    ((), "element/element.md"),
+    ((), "project/project.md"),
+    ((), "repo/repo.md"),
+    ((), "git/git.md"),
+    ((), "coder/coder.md"),
+    (("Coder",), "coder/coder-bash.md"),
+    (("Coder",), "coder/coder-powershell.md"),
+    (("Coder",), "coder/coder-c-and-cpp.md"),
+    (("Coder",), "coder/coder-unreal-engine.md"),
+    (("Coder",), "coder/coder-c-sharp.md"),
+    (("Coder",), "coder/coder-u3d.md"),
+    (("Coder",), "coder/coder-gdscript.md"),
+    (("Coder",), "coder/coder-html.md"),
+    (("Coder",), "coder/coder-javascript-and-typescript.md"),
+    (("Coder",), "coder/coder-python.md"),
 ]
 
 
@@ -106,8 +118,9 @@ def register_kaye_library_dynamic_substitutions():
 
 def register_kaye_library_corpus():
     """
-    record every kaye-library corpus file under the root of the tree;
-    the caller loads the tree once every consumer has registered
+    record every kaye-library corpus file under its node of the tree, the
+    root or its own Coder node; the caller loads the tree once every
+    consumer has registered
 
 
     :raises ValueError: the corpus tree is already loaded
@@ -116,8 +129,8 @@ def register_kaye_library_corpus():
         register_corpus_under_node,
     )
 
-    for source in _CORPUS_SOURCES:
-        register_corpus_under_node((), _CORPUS_DIR / source)
+    for node_path, source in _CORPUS_SOURCES:
+        register_corpus_under_node(node_path, _CORPUS_DIR / source)
 
 
 def register_kaye_library_blueprints():
