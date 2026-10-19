@@ -29,4 +29,4 @@ class TestContent:
             ["kaye-library", "--help"], capture_output=True, text=True
         )
         assert result.returncode == 0
-        assert "kaye-library" in result.stdout
+        assert "Kaye Engine CLI: " in result.stdout

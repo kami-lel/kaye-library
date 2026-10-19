@@ -29,7 +29,7 @@ class TestHelp:
         result = _run("--help", command=command)
 
         assert result.returncode == 0
-        assert "kaye-library" in result.stdout
+        assert "Kaye Engine CLI: " in result.stdout
 
     def test_version(_):
         result = _run("--version")
