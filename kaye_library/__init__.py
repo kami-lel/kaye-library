@@ -50,6 +50,7 @@ _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 
 # corpus files, in registration order; each registers under the root
 _CORPUS_SOURCES = [
+    "agent/agent.md",
     "style/style.md",
     "element/element.md",
     "project/project.md",
