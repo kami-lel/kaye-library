@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "kaye-library"
 version = "0.1.0-alpha"
-description = "Shareable structured source of truth for LLM instructions: style guides, elements, git, repository, agent, and coder prompts, powered by kaye-engine"
+description = "A ready-to-install library of reusable LLM instructions: shared rules for writing, git, repositories, and coding, authored once in Markdown and ready to use as skills, plugins, or plain prompts, so any agent works to the same high standard from its first prompt, powered by kaye-engine"
 readme = "README.md"
 authors = [
     { name = "kamiLeL", email = "77594253+kami-lel@users.noreply.github.com" },
