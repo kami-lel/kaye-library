@@ -1216,7 +1216,7 @@ Invoke `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, a
 
 ### {[git] Usage}
 
-Invoke `clean-up-branches` as Movement 5, if any branch needs pruning. Movements 5~7 renumber to 6~8
+Invoke `prune-merged-branches` as Movement 5, if any branch needs pruning. Movements 5~7 renumber to 6~8
 
 
 

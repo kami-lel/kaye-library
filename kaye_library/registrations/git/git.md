@@ -44,7 +44,7 @@ Run only when the user names the exact action in the same turn:
 
 ### {[ClaudeCode:Skill] Usage}
 
-To commit, invoke the `perform-commit-sense` skill via the `Skill` tool.
+To commit, invoke the `commit-sense` skill via the `Skill` tool.
 Never devise your own commit message format, nor run `git commit` outside it.
 
 
