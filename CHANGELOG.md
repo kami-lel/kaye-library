@@ -10,10 +10,12 @@
 - Git: `commit-sense` w/ per-file ledger & optional co-author trailer, `resolve-merge-conflict`, `prune-merged-branches`, `submit-pr` stub
 - Repositories & Projects: README, CHANGELOG, AGENTS, CONTEXT, docs writers, `ready-land-feature`, `ready-release-version`, `land-feature` & `release-version` stubs
 - Agentic: Movement & Suite, `halt-each-movement`, `cascade-all-movements`, Turn Progress Dispatch
-- Coder: `# Coder` rules, `coder-core`, plan, sync-test & `review-gaps` workflows, 12 language profiles
+- Coder: `# Coder` rules, `coder-core`, persona-free `coder` skill over it, plan, sync-test & `review-gaps` workflows, 12 language profiles
 - `rapid` blueprint, `(today)` node, 10+ glossaries w/ own `abbrs.json`
+- console command on engine main parser: shared `--help` text, own usage line & `--version`; `KAYE_LIBRARY_DISPLAY_NAME` names consumer record & comment line
 - `claude plugin`, `claude marketplace`, `skill`, `blueprint` & other engine subcommands work standalone; chat-bound ones exit 1 w/ clear message
-- tests: skill export as folders & zips, standalone setup, third-consumer registration, privacy scan
+- tests: skill export as folders & zips, standalone setup, third-consumer registration, privacy scan, skill invocations resolve, doc links resolve
+- docs: README, AGENTS, CONTEXT, blueprint, glossary, corpus registration & boundary documents
 
 ### Changed
 
