@@ -1,0 +1,2970 @@
+{
+  "Bar finished": {
+    "abbrs": {
+      "🚩": {
+        "priority": 11,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "one per Bar, used often, the Turn continuing past it"
+      }
+    }
+  },
+  "Bash": {
+    "abbrs": {
+      "bash": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "C Sharp": {
+    "abbrs": {
+      "csharp": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "C language": {
+    "abbrs": {
+      "c": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "C++": {
+    "abbrs": {
+      "cpp": {
+        "priority": 7,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "CSS": {
+    "abbrs": {
+      "css": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Friday": {
+    "abbrs": {
+      "R": {
+        "priority": 5,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "GDScript used by Godot Engine": {
+    "abbrs": {
+      "gdscript": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "GameObject": {
+    "abbrs": {
+      "GO": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "HTML": {
+    "abbrs": {
+      "html": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "JavaScript": {
+    "abbrs": {
+      "js": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Material": {
+    "abbrs": {
+      "Mat": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Monday": {
+    "abbrs": {
+      "A": {
+        "priority": 1,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "1st letter, 1st workday"
+      }
+    }
+  },
+  "MonoBehavior": {
+    "abbrs": {
+      "MB": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Movement finished": {
+    "abbrs": {
+      "🎏": {
+        "priority": 12,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)"
+      }
+    }
+  },
+  "Prefab": {
+    "abbrs": {
+      "pfb": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Private": {
+    "abbrs": {
+      "priv": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Public": {
+    "abbrs": {
+      "pub": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Python": {
+    "abbrs": {
+      "py": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Rigidbody": {
+    "abbrs": {
+      "Rb": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Saturday": {
+    "abbrs": {
+      "S": {
+        "priority": 5,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "ScriptableObject": {
+    "abbrs": {
+      "SO": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Sunday": {
+    "abbrs": {
+      "U": {
+        "priority": 7,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Thursday": {
+    "abbrs": {
+      "H": {
+        "priority": 4,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Tuesday": {
+    "abbrs": {
+      "D": {
+        "priority": 2,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "in Dienstag"
+      }
+    }
+  },
+  "TypeScript": {
+    "abbrs": {
+      "ts": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Unity Engine code": {
+    "abbrs": {
+      "u3d": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Unreal Engine code": {
+    "abbrs": {
+      "ue": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Wednesday": {
+    "abbrs": {
+      "E": {
+        "priority": 3,
+        "tags": [
+          "element-dt-days-of-week",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "abstract class": {
+    "abbrs": {
+      "AC": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "abstract,abstraction": {
+    "abbrs": {
+      "abs": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "against": {
+    "abbrs": {
+      "vs.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "agent/AI instruction edits": {
+    "abbrs": {
+      "🤖": {
+        "priority": 13,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions"
+      }
+    }
+  },
+  "algorithm": {
+    "abbrs": {
+      "algo": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "amount": {
+    "abbrs": {
+      "amt": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "and": {
+    "abbrs": {
+      "&": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "and the others": {
+    "abbrs": {
+      "~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg a, b, ~"
+      },
+      "~~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg a, b, ~~; use when ~ is ambiguous"
+      }
+    }
+  },
+  "argument/param": {
+    "abbrs": {
+      "a": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "arg": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word",
+        "remark": "value provided to function at call time; interchangeable w/ parameter casually"
+      }
+    }
+  },
+  "attribute": {
+    "remark": "variable owned by object; similar to field",
+    "abbrs": {
+      "attr": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "auxiliary": {
+    "abbrs": {
+      "aux": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "average": {
+    "abbrs": {
+      "avg": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "because,caused by,result of": {
+    "abbrs": {
+      "⇐": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "become/change/transform from": {
+    "abbrs": {
+      "<-": {
+        "priority": 6,
+        "tags": [
+          "ascii_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "symbol"
+      },
+      "←": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "become/change/transform into": {
+    "abbrs": {
+      "->": {
+        "priority": 6,
+        "tags": [
+          "ascii_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "symbol"
+      },
+      "→": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "between": {
+    "abbrs": {
+      "b/t": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "bit": {
+    "abbrs": {
+      "b": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "branch": {
+    "abbrs": {
+      "branch": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "build/make": {
+    "abbrs": {
+      "🔨": {
+        "priority": 17,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions"
+      }
+    }
+  },
+  "byte": {
+    "abbrs": {
+      "B": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "calculate,calculation": {
+    "abbrs": {
+      "calc": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "changelog file": {
+    "abbrs": {
+      "🪧": {
+        "priority": 10,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg CHANGELOG.md"
+      }
+    }
+  },
+  "character": {
+    "abbrs": {
+      "char": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "child": {
+    "remark": "object",
+    "abbrs": {
+      "C": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "class": {
+    "abbrs": {
+      "cls": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "code comments": {
+    "abbrs": {
+      "📝": {
+        "priority": 6,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only edits, eg comment bodies, banners, docstrings"
+      }
+    }
+  },
+  "collider": {
+    "abbrs": {
+      "collr": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "collision": {
+    "abbrs": {
+      "colln": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "command": {
+    "abbrs": {
+      "cmd": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "comment,commentary": {
+    "abbrs": {
+      "cmt": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "component": {
+    "abbrs": {
+      "cpn": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "confer,compare": {
+    "abbrs": {
+      "cf.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "constant": {
+    "abbrs": {
+      "const": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "constructor": {
+    "abbrs": {
+      "ctor": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "continue": {
+    "abbrs": {
+      "🥁": {
+        "priority": 1,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended"
+      }
+    }
+  },
+  "copy": {
+    "abbrs": {
+      "cp": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "count,counting": {
+    "abbrs": {
+      "cnt": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "decrease,decrement": {
+    "abbrs": {
+      "↓": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "default": {
+    "abbrs": {
+      "dft": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "delete,deleted,deletion;remove": {
+    "abbrs": {
+      "rm": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "demonstrate,demonstration": {
+    "abbrs": {
+      "demo": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "derived class": {
+    "remark": "ie subclass, child class",
+    "abbrs": {
+      "DC": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "description field": {
+    "abbrs": {
+      "d": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "destructor": {
+    "abbrs": {
+      "dtor": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "develop,development": {
+    "abbrs": {
+      "dev": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "development log files": {
+    "abbrs": {
+      "🪵": {
+        "priority": 11,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg DEVLOG.md"
+      }
+    }
+  },
+  "ditto,repetitive as above/before": {
+    "abbrs": {
+      "do.": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "〃": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "document Title": {
+    "abbrs": {
+      "h1": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "one per file, naming the whole document"
+      }
+    }
+  },
+  "document headings nested below": {
+    "abbrs": {
+      "h3,h4,~": {
+        "priority": 3,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "at the depth the content actually reaches"
+      }
+    }
+  },
+  "document,documentation;reference": {
+    "abbrs": {
+      "doc": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "documentation/reference related edit": {
+    "abbrs": {
+      "📖": {
+        "priority": 12,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg anything under docs/"
+      }
+    }
+  },
+  "dynamic": {
+    "abbrs": {
+      "dyn": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "else": {
+    "abbrs": {
+      "el": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "else-if": {
+    "abbrs": {
+      "ei": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "entire file added": {
+    "abbrs": {
+      "📄": {
+        "priority": 2,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "entire file deleted": {
+    "abbrs": {
+      "🗑️": {
+        "priority": 3,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "environment": {
+    "abbrs": {
+      "env": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "equal,equality,equivalent,equivalence": {
+    "abbrs": {
+      "eq": {
+        "priority": 6,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "error": {
+    "abbrs": {
+      "err": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "evaluate,evaluable": {
+    "abbrs": {
+      "eval": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "example": {
+    "abbrs": {
+      "e": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "e.g.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "example related edits": {
+    "abbrs": {
+      "🧸": {
+        "priority": 15,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "standalone usage examples/demos/toys, eg files under examples/"
+      }
+    }
+  },
+  "except,exception": {
+    "abbrs": {
+      "xcp": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "explore,exploration": {
+    "abbrs": {
+      "xpr": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "export": {
+    "abbrs": {
+      "xpt": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "express,expression": {
+    "abbrs": {
+      "expr": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "feature": {
+    "abbrs": {
+      "feat": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "field": {
+    "remark": "variable declared inside an object, implies primitive data type; similar to attribute",
+    "abbrs": {
+      "field": {
+        "priority": 5,
+        "tags": [
+          "term_definition",
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "file mode": {
+    "abbrs": {
+      "🔒": {
+        "priority": 1,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only change, eg permission bits, executable bit"
+      }
+    }
+  },
+  "file relocated": {
+    "abbrs": {
+      "📂": {
+        "priority": 21,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits"
+      }
+    }
+  },
+  "file renamed": {
+    "abbrs": {
+      "📛": {
+        "priority": 22,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "file renamed in place; content unchanged besides minor edits"
+      }
+    }
+  },
+  "foot": {
+    "abbrs": {
+      "ft": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "format,formatting": {
+    "abbrs": {
+      "fmt": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "function": {
+    "remark": "may include method, but implies standalone function",
+    "abbrs": {
+      "fx": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "gallon": {
+    "abbrs": {
+      "gal": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "general,generalization": {
+    "abbrs": {
+      "gnl": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "generate,generation,generative": {
+    "abbrs": {
+      "gen": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "git commit then continue": {
+    "abbrs": {
+      "cc": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "greater than": {
+    "abbrs": {
+      "gt": {
+        "priority": 6,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "greater than or equal to": {
+    "abbrs": {
+      "ge": {
+        "priority": 6,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "hour": {
+    "abbrs": {
+      "h": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "hr": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit",
+        "remark": "use when h is ambagious"
+      }
+    }
+  },
+  "hundredweight": {
+    "abbrs": {
+      "cwt": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "identity,identification": {
+    "abbrs": {
+      "id": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "if and only if": {
+    "abbrs": {
+      "iff": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "implement,implementation": {
+    "abbrs": {
+      "mpl": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "import": {
+    "abbrs": {
+      "mp": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "in the matter of,concerning,regarding": {
+    "abbrs": {
+      "re": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "inch": {
+    "abbrs": {
+      "in": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "in.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "increase,increment": {
+    "abbrs": {
+      "↑": {
+        "priority": 5,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "index": {
+    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\"",
+    "abbrs": {
+      "idx": {
+        "priority": 4,
+        "tags": [
+          "coder-identifier-shorthand",
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "input": {
+    "abbrs": {
+      "ipt": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "inspector field": {
+    "abbrs": {
+      "IF": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "instance": {
+    "abbrs": {
+      "inst": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "integer": {
+    "abbrs": {
+      "int": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "interface": {
+    "abbrs": {
+      "iface": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "keyword": {
+    "abbrs": {
+      "kw": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "keyword argument/param": {
+    "abbrs": {
+      "kwarg": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "length": {
+    "abbrs": {
+      "len": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "less than": {
+    "abbrs": {
+      "lt": {
+        "priority": 6,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "less than or equal to": {
+    "abbrs": {
+      "le": {
+        "priority": 6,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "level": {
+    "abbrs": {
+      "Lv": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "library": {
+    "abbrs": {
+      "lib": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "list": {
+    "abbrs": {
+      "ls": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "local heading": {
+    "abbrs": {
+      "hl": {
+        "priority": 4,
+        "tags": [
+          "letters_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "skipping levels to label a sub-case read against its parent alone"
+      }
+    }
+  },
+  "maximum,maximize": {
+    "abbrs": {
+      "max": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-identifier-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "mean,meaning": {
+    "abbrs": {
+      "mn": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "member": {
+    "remark": "of object, include fields/attributes, properties, & methods",
+    "abbrs": {
+      "mbr": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "mile": {
+    "abbrs": {
+      "mi": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "minimum,minimize": {
+    "abbrs": {
+      "min": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-identifier-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "minute": {
+    "abbrs": {
+      "min": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "miscellaneous": {
+    "abbrs": {
+      "misc.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "modify,modification": {
+    "abbrs": {
+      "mod": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "module": {
+    "abbrs": {
+      "mod": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "month": {
+    "abbrs": {
+      "mo": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "move": {
+    "abbrs": {
+      "mv": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "multiply,multiple": {
+    "abbrs": {
+      "mux": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "nautical mile": {
+    "abbrs": {
+      "nmi": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "need approval": {
+    "abbrs": {
+      "✍️": {
+        "priority": 23,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "actions still to perform"
+      }
+    }
+  },
+  "need input": {
+    "abbrs": {
+      "🙋": {
+        "priority": 22,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "a question or a clarification from the user"
+      }
+    }
+  },
+  "need review": {
+    "abbrs": {
+      "🔍": {
+        "priority": 24,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "a task already performed"
+      }
+    }
+  },
+  "next": {
+    "abbrs": {
+      "🧭": {
+        "priority": 21,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "what is planned, or likely, for the next Round"
+      }
+    }
+  },
+  "no;false": {
+    "abbrs": {
+      "F": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "boolean value"
+      },
+      "❌": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "non-text content": {
+    "abbrs": {
+      "🔢": {
+        "priority": 20,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "file edits, eg binary, compressed archive, database, encrypted blob"
+      }
+    }
+  },
+  "not applicable": {
+    "abbrs": {
+      "n/a": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "➖": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "not equal": {
+    "abbrs": {
+      "ne": {
+        "priority": 6,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "number": {
+    "abbrs": {
+      "№": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "object": {
+    "abbrs": {
+      "obj": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "of": {
+    "abbrs": {
+      "\\": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "operate,operation,operator": {
+    "abbrs": {
+      "op": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "optimal": {
+    "abbrs": {
+      "opm": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "optimize,optimization": {
+    "abbrs": {
+      "opmz": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "option,optional": {
+    "abbrs": {
+      "opn": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "or": {
+    "abbrs": {
+      "/": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "output": {
+    "abbrs": {
+      "opt": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "override": {
+    "remark": "in inheritance",
+    "abbrs": {
+      "oride": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "overwrite": {
+    "abbrs": {
+      "owr": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "package,packaging": {
+    "abbrs": {
+      "pkg": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      },
+      "📦": {
+        "priority": 18,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml"
+      }
+    }
+  },
+  "parameter": {
+    "remark": "name in function, placeholder for value; interchangeable w/ argument casually",
+    "abbrs": {
+      "param": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "parent": {
+    "remark": "object",
+    "abbrs": {
+      "P": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "parent class": {
+    "remark": "ie superclass, base class",
+    "abbrs": {
+      "PC": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "pint": {
+    "abbrs": {
+      "pt": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "pt.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "pointer": {
+    "abbrs": {
+      "pt": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "pound": {
+    "abbrs": {
+      "lb": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "lb.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "prerequisite field": {
+    "abbrs": {
+      "p": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "problem": {
+    "abbrs": {
+      "pbm": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "program,programming,programme": {
+    "abbrs": {
+      "prog": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "programming language": {
+    "abbrs": {
+      "PL": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "project": {
+    "abbrs": {
+      "proj": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "property": {
+    "remark": "field/attribute with accessor, like a getter or setter",
+    "abbrs": {
+      "prp": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "random,randomize": {
+    "abbrs": {
+      "rand": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "range": {
+    "abbrs": {
+      "~": {
+        "priority": 1,
+        "tags": [
+          "ascii_only",
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol",
+        "remark": "eg 1~5, a~f, ii~iv"
+      }
+    }
+  },
+  "readme file": {
+    "abbrs": {
+      "🔰": {
+        "priority": 8,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits, eg README.md"
+      }
+    }
+  },
+  "refactorization edit": {
+    "abbrs": {
+      "♻️": {
+        "priority": 4,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted"
+      }
+    }
+  },
+  "regression": {
+    "remark": "unit test revision, part of TDD, finding bugs introduced by new implementation or refactoring, then Fixing Codebase so existing Unit Tests pass again",
+    "abbrs": {
+      "rgs": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "representation": {
+    "abbrs": {
+      "repr": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "requirement": {
+    "abbrs": {
+      "req": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "return field": {
+    "abbrs": {
+      "r": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "return,returning,returned": {
+    "abbrs": {
+      "rtn": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "same as cell above": {
+    "abbrs": {
+      "〃": {
+        "priority": 51,
+        "tags": [
+          "single_character",
+          "briefness-shorthand",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "same as cell to left": {
+    "abbrs": {
+      "☚": {
+        "priority": 52,
+        "tags": [
+          "single_character",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "search": {
+    "abbrs": {
+      "sch": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "second": {
+    "abbrs": {
+      "s": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      },
+      "sec": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit",
+        "remark": "use when s is ambagious"
+      }
+    }
+  },
+  "sequence": {
+    "abbrs": {
+      "sq": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "setting edits for third-party tools current project uses": {
+    "abbrs": {
+      "⚙️": {
+        "priority": 19,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg linter, formatter configuration, ignore files"
+      }
+    }
+  },
+  "setting,preference,configuration": {
+    "abbrs": {
+      "config": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "commit-sense-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "source": {
+    "abbrs": {
+      "src": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "stash": {
+    "abbrs": {
+      "stash": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "strict watch day": {
+    "abbrs": {
+      "SWD": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-day-abbr"
+        ],
+        "wrap": "word",
+        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one"
+      }
+    }
+  },
+  "string": {
+    "abbrs": {
+      "str": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "summary field": {
+    "abbrs": {
+      "s": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "system": {
+    "abbrs": {
+      "sys": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "task/Suite completed": {
+    "abbrs": {
+      "🏁": {
+        "priority": 14,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one"
+      }
+    }
+  },
+  "test": {
+    "abbrs": {
+      "UT": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word",
+        "remark": "unit test"
+      }
+    }
+  },
+  "test related edits": {
+    "abbrs": {
+      "🧪": {
+        "priority": 14,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "eg test suites, fixtures, snapshots, test helpers"
+      }
+    }
+  },
+  "that is,in other words": {
+    "abbrs": {
+      "i.e.": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "ie": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "therefore,causing,resulting": {
+    "abbrs": {
+      "⇒": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "top-level heading": {
+    "abbrs": {
+      "h2": {
+        "priority": 2,
+        "tags": [
+          "ascii_only",
+          "style-md-heading-abbr"
+        ],
+        "wrap": "word",
+        "remark": "marking a primary section directly under the Title"
+      }
+    }
+  },
+  "transform": {
+    "abbrs": {
+      "xfm": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "triage tag": {
+    "abbrs": {
+      "TT": {
+        "priority": 1,
+        "tags": [
+          "coder-abbr",
+          "letters_only",
+          "commit-sense-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "🔖": {
+        "priority": 5,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation"
+      }
+    }
+  },
+  "trigger": {
+    "abbrs": {
+      "trg": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "unit": {
+    "abbrs": {
+      "u": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "units-of-measure",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "usage field": {
+    "abbrs": {
+      "u": {
+        "priority": 5,
+        "tags": [
+          "coder-documentation-field-shorthand",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "utility or maintenance scripts edits": {
+    "remark": "not part of main codebase, eg files under scripts/",
+    "abbrs": {
+      "🐚": {
+        "priority": 16,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "utility,utilize": {
+    "abbrs": {
+      "util": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "value": {
+    "abbrs": {
+      "val": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "variable": {
+    "abbrs": {
+      "var": {
+        "priority": 5,
+        "tags": [
+          "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "waiting": {
+    "abbrs": {
+      "💤": {
+        "priority": 25,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party"
+      }
+    }
+  },
+  "watch day": {
+    "abbrs": {
+      "WD": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-day-abbr"
+        ],
+        "wrap": "word",
+        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it"
+      }
+    }
+  },
+  "watch week": {
+    "abbrs": {
+      "WWk": {
+        "priority": 1,
+        "tags": [
+          "letters_only",
+          "element-dt-watch-week-abbr"
+        ],
+        "wrap": "word",
+        "remark": "forward range from today through the close of a terminal Sunday"
+      }
+    }
+  },
+  "which see,reference to": {
+    "abbrs": {
+      "※": {
+        "priority": 3,
+        "tags": [
+          "single_character",
+          "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "whitespace edit": {
+    "abbrs": {
+      "📏": {
+        "priority": 7,
+        "tags": [
+          "commit-sense-sigil",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "as only edits: indentation, tabs, blank lines added or removed"
+      }
+    }
+  },
+  "with": {
+    "abbrs": {
+      "w/": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "within": {
+    "abbrs": {
+      "w/i": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "without": {
+    "abbrs": {
+      "w/o": {
+        "priority": 5,
+        "tags": [
+          "ascii_only",
+          "briefness-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "workspace": {
+    "remark": "local/on-disk files",
+    "abbrs": {
+      "ws": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "worktree": {
+    "abbrs": {
+      "wt": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word",
+        "remark": "main worktree unless a linked one is named"
+      }
+    }
+  },
+  "yard": {
+    "abbrs": {
+      "yd": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "units-of-measure"
+        ],
+        "wrap": "unit"
+      }
+    }
+  },
+  "yes;true": {
+    "abbrs": {
+      "T": {
+        "priority": 5,
+        "tags": [
+          "coder-abbr",
+          "letters_only",
+          "single_character"
+        ],
+        "wrap": "word",
+        "remark": "boolean value"
+      },
+      "✔️": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "table-cell-values-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  }
+}
