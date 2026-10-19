@@ -28,6 +28,15 @@ def register_kaye_library_blueprints():
     from .element.element_bp import (  # pylint: disable=C0415
         register_element_blueprints,
     )
+    from .project.project_bp import (  # pylint: disable=C0415
+        register_project_blueprints,
+    )
+    from .repo.repo_bp import (  # pylint: disable=C0415
+        register_repo_blueprints,
+    )
+    from .repo.workflows_bp import (  # pylint: disable=C0415
+        register_repo_workflow_blueprints,
+    )
     from .letter_case.letter_case_bp import (  # pylint: disable=C0415
         register_letter_case_blueprints,
     )
@@ -38,6 +47,9 @@ def register_kaye_library_blueprints():
     register_style_blueprints()
     register_letter_case_blueprints()
     register_element_blueprints()
+    register_project_blueprints()
+    register_repo_blueprints()
+    register_repo_workflow_blueprints()
 
 
 def register_kaye_library_abbr_glossaries():
