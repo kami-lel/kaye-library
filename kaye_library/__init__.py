@@ -49,7 +49,9 @@ _CORPUS_DIR = Path(__file__).resolve().parent / "registrations"
 _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 
 # corpus files, in registration order; each registers under the root
-_CORPUS_SOURCES = []
+_CORPUS_SOURCES = [
+    "style/style.md",
+]
 
 
 # Public API  ##################################################################
