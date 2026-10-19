@@ -48,7 +48,7 @@ class TestEngineSubcommands:
         assert "commit-sense" in names
         assert "coder-core" in names
         assert "chat" not in names
-        assert "coder" not in names
+        assert "kaye-chat" not in names
 
     def test_skill_all_exports_every_skill(_, tmp_path):
         result = _run("skill", "--all", str(tmp_path))

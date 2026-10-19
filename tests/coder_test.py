@@ -28,7 +28,10 @@ _CODER_SKILLS = sorted(
     name
     for name, entry in exportable_registry.items()
     if entry.consumer == "kaye-library"
-    and (name.startswith("coder-") or name in {"review-gaps", "sync-unit-test"})
+    and (
+        name.startswith("coder-")
+        or name in {"coder", "review-gaps", "sync-unit-test"}
+    )
 )
 
 
@@ -60,8 +63,13 @@ class TestBlueprints:
         assert "coder-core" in blueprint_registry
         assert "coder-core" not in exportable_registry
 
-    def test_no_persona_coder_skill(_):
-        assert "coder" not in exportable_registry
+    def test_coder_skill_is_persona_free_and_the_library_s(_):
+        entry = exportable_registry["coder"]
+
+        assert entry.consumer == "kaye-library"
+        assert entry.blueprint.dependencies == ("coder-core",)
+        assert entry.display_name == "Coder"
+        assert not entry.always_apply
 
     def test_gap_review_has_its_final_name(_):
         assert "review-gaps" in exportable_registry

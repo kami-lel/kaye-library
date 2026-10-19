@@ -7,6 +7,7 @@ register Coder related blueprints
 from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
+    create_blueprint,
     create_blueprint_from_node,
     get_corpus_node,
     merge_blueprints,
@@ -26,11 +27,12 @@ __all__ = ("register_coder_blueprints",)
 
 def register_coder_blueprints():
     """
-    register the persona-free Coder: the internal ``coder-core``, its
-    workflows, and every per-language coder profile
+    register the persona-free Coder: the internal ``coder-core``, the
+    ``coder`` skill over it, its workflows, and every per-language coder
+    profile
 
-    a package may build its own coder skill on ``coder-core``, adding the
-    conversation rules and persona it wants around it
+    a package may take ``coder`` over with ``override_exportable``, adding
+    the conversation rules and persona it wants around ``coder-core``
 
 
     :raises KeyError: a depended-on blueprint is not yet registered
@@ -59,6 +61,19 @@ def register_coder_blueprints():
             display_name="Coder Core",
         ),
         is_exportable=False,
+    )
+
+    # Coder
+    # the Coder rules as a skill, naming no persona; a package may take it
+    # over with its own conversation rules around coder-core
+    register_exportable(
+        "coder",
+        replace_meta(
+            create_blueprint(dependencies=["coder-core"]),
+            display_name="Coder",
+            description_node=("Coder", "{description}"),
+            when_to_use_node=("Coder", "{when_to_use}"),
+        ),
     )
 
     # Plan for Suite
