@@ -13,7 +13,16 @@ corpus, then blueprints once the corpus tree is loaded
 from importlib.metadata import version
 from pathlib import Path
 
-from kaye_engine import register_comment_line, register_consumer
+import kamilog
+from kaye_engine import (
+    load_corpus_tree,
+    populate_abbr_data_with_json_file,
+    register_comment_line,
+    register_consumer,
+    set_entry_consumer,
+    setup_claude_cli,
+    setup_hermes_cli,
+)
 
 __all__ = (
     "CONSUMER_DISPLAY_NAME",
@@ -26,6 +35,7 @@ __all__ = (
     "register_kaye_library_consumer",
     "register_kaye_library_corpus",
     "register_kaye_library_dynamic_substitutions",
+    "setup_kaye_library_for_kaye_engine",
 )
 
 
@@ -94,7 +104,9 @@ def register_kaye_library_corpus():
 
     :raises ValueError: the corpus tree is already loaded
     """
-    from kaye_engine import register_corpus_under_node  # pylint: disable=C0415
+    from kaye_engine import (  # pylint: disable=C0415
+        register_corpus_under_node,
+    )
 
     for source in _CORPUS_SOURCES:
         register_corpus_under_node((), _CORPUS_DIR / source)
@@ -114,3 +126,46 @@ def register_kaye_library_blueprints():
     )
 
     register_blueprints()
+
+
+def setup_kaye_library_for_kaye_engine():
+    """
+    load, in this order, everything the library supplies on its own:
+
+    1. the consumer record and its ``Kaye Library vX`` comment line
+    2. every abbr glossary, registered into ``abbr_glossary_registry``
+    3. abbr database
+    4. every dynamic substitution
+    5. prompt corpus tree, built from the sources registered under the
+       root
+    6. every library blueprint, registered into ``blueprint_registry``
+    7. the entry consumer, via ``set_entry_consumer``
+    8. the Claude CLI and Hermes CLI configuration, naming no chat or
+       coder exportable and no Hermes soul
+
+    a process runs exactly one setup function: a package building on the
+    library calls the six steps instead, and never this one
+    """
+    logger = kamilog.getLogger(LOGGER_NAME)
+
+    register_kaye_library_consumer()
+
+    try:
+        register_kaye_library_abbr_glossaries()
+        populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())
+        register_kaye_library_dynamic_substitutions()
+        register_kaye_library_corpus()
+        load_corpus_tree()
+    except OSError as err:
+        logger.critical("cannot load library corpus/abbr data:\t" + str(err))
+        raise SystemExit(1) from err
+
+    try:
+        register_kaye_library_blueprints()
+    except (KeyError, AttributeError) as err:
+        logger.critical("failed to register library blueprints:\t" + str(err))
+        raise SystemExit(1) from err
+
+    set_entry_consumer(PACKAGE_NAME)
+    setup_claude_cli()
+    setup_hermes_cli()
