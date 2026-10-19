@@ -25,7 +25,7 @@ from kaye_engine import (
 )
 
 __all__ = (
-    "CONSUMER_DISPLAY_NAME",
+    "KAYE_LIBRARY_DISPLAY_NAME",
     "LOGGER_NAME",
     "PACKAGE_NAME",
     "PROGRAM_NAME",
@@ -43,7 +43,7 @@ __all__ = (
 PROGRAM_NAME = "kaye-library"
 PACKAGE_NAME = "kaye-library"
 LOGGER_NAME = "kaye.library"
-CONSUMER_DISPLAY_NAME = "Kaye Library"
+KAYE_LIBRARY_DISPLAY_NAME = "Kaye Library"
 
 _CORPUS_DIR = Path(__file__).resolve().parent / "registrations"
 _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
@@ -80,8 +80,10 @@ def register_kaye_library_consumer():
     prompt comment
     """
     package_version = version(PACKAGE_NAME)
-    register_consumer(CONSUMER_DISPLAY_NAME, PACKAGE_NAME, package_version)
-    register_comment_line("Kaye Library v{}".format(package_version))
+    register_consumer(KAYE_LIBRARY_DISPLAY_NAME, PACKAGE_NAME, package_version)
+    register_comment_line(
+        "{} v{}".format(KAYE_LIBRARY_DISPLAY_NAME, package_version)
+    )
 
 
 def register_kaye_library_abbr_glossaries():
