@@ -41,6 +41,9 @@ def register_kaye_library_blueprints():
     from .repo.workflows_bp import (  # pylint: disable=C0415
         register_repo_workflow_blueprints,
     )
+    from .general.general_bp import (  # pylint: disable=C0415
+        register_general_blueprints,
+    )
     from .git.git_bp import (  # pylint: disable=C0415
         register_git_blueprints,
     )
@@ -58,6 +61,7 @@ def register_kaye_library_blueprints():
     register_project_blueprints()
     register_repo_blueprints()
     register_repo_workflow_blueprints()
+    register_general_blueprints()
     register_git_blueprints()
 
 
