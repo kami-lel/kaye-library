@@ -8,6 +8,7 @@ import pytest
 from kaye_engine.abbr_collection import abbr_glossary_registry
 
 _LIBRARY_GLOSSARIES = (
+    "agent-chat-turn-progress-dispatch-decorative",
     "briefness-shorthand",
     "commit-sense-shorthand",
     "commit-sense-sigil",

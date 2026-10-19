@@ -1,4 +1,17 @@
 {
+  "Bar finished": {
+    "abbrs": {
+      "🚩": {
+        "priority": 11,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "one per Bar, used often, the Turn continuing past it"
+      }
+    }
+  },
   "Friday": {
     "abbrs": {
       "R": {
@@ -23,6 +36,19 @@
         ],
         "wrap": "word",
         "remark": "1st letter, 1st workday"
+      }
+    }
+  },
+  "Movement finished": {
+    "abbrs": {
+      "🎏": {
+        "priority": 12,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)"
       }
     }
   },
@@ -316,6 +342,19 @@
           "briefness-shorthand"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "continue": {
+    "abbrs": {
+      "🥁": {
+        "priority": 1,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended"
       }
     }
   },
@@ -741,6 +780,58 @@
       }
     }
   },
+  "need approval": {
+    "abbrs": {
+      "✍️": {
+        "priority": 23,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "actions still to perform"
+      }
+    }
+  },
+  "need input": {
+    "abbrs": {
+      "🙋": {
+        "priority": 22,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "a question or a clarification from the user"
+      }
+    }
+  },
+  "need review": {
+    "abbrs": {
+      "🔍": {
+        "priority": 24,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "a task already performed"
+      }
+    }
+  },
+  "next": {
+    "abbrs": {
+      "🧭": {
+        "priority": 21,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "what is planned, or likely, for the next Round"
+      }
+    }
+  },
   "no;false": {
     "abbrs": {
       "❌": {
@@ -1027,6 +1118,19 @@
       }
     }
   },
+  "task/Suite completed": {
+    "abbrs": {
+      "🏁": {
+        "priority": 14,
+        "tags": [
+          "emoji",
+          "agent-chat-turn-progress-dispatch-decorative"
+        ],
+        "wrap": "symbol",
+        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one"
+      }
+    }
+  },
   "test related edits": {
     "abbrs": {
       "🧪": {
@@ -1129,6 +1233,19 @@
           "emoji"
         ],
         "wrap": "symbol"
+      }
+    }
+  },
+  "waiting": {
+    "abbrs": {
+      "💤": {
+        "priority": 25,
+        "tags": [
+          "agent-chat-turn-progress-dispatch-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol",
+        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party"
       }
     }
   },
