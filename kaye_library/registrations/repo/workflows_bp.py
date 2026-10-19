@@ -142,8 +142,9 @@ def register_repo_workflow_blueprints():
         dependencies=["style-good-writing"],
     )
 
+    # todo land feature & release version hold placeholder text
+
     # Land Feature
-    # TODO the section holds placeholder text; write Perform Feature Landing
     register_node(
         register_prompt,
         "land-feature",
@@ -152,7 +153,6 @@ def register_repo_workflow_blueprints():
     )
 
     # Release Version
-    # TODO the section holds placeholder text; write Perform Version Release
     register_node(
         register_prompt,
         "release-version",
