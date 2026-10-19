@@ -2,10 +2,7 @@
 kaye_library.__main__.py
 """
 
-from argparse import ArgumentParser
-from importlib.metadata import version
-
-from kaye_engine.cli.cli_main import register_cli_subcommands
+from kaye_engine.cli.cli_main import register_cli_main_parser
 
 from kaye_library import (
     PACKAGE_NAME,
@@ -13,28 +10,14 @@ from kaye_library import (
     setup_kaye_library_for_kaye_engine,
 )
 
-# constants  ###################################################################
-_DOC = (
-    "entry point for kaye-library's console script: registers this"
-    " package's corpus, abbr data, and blueprints, then hands off to"
-    " kaye-engine's CLI dispatcher"
-)
-
 
 # auxiliaries  #################################################################
 def main():
     setup_kaye_library_for_kaye_engine()
 
-    cli_parser = ArgumentParser(prog=PROGRAM_NAME, description=_DOC)
-    cli_parser.add_argument(
-        "--version",
-        action="version",
-        version=str(version(PACKAGE_NAME)),
+    cli_parser, _ = register_cli_main_parser(
+        PACKAGE_NAME, PROGRAM_NAME
     )
-    cli_parser.set_defaults(func=lambda _: cli_parser.print_help())
-    cli_subparser = cli_parser.add_subparsers(title="subcommands")
-
-    register_cli_subcommands(cli_subparser)
 
     parsed_args = cli_parser.parse_args()
     parsed_args.func(parsed_args)  # call respective main function
