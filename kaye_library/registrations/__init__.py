@@ -37,6 +37,9 @@ def register_kaye_library_blueprints():
     from .repo.workflows_bp import (  # pylint: disable=C0415
         register_repo_workflow_blueprints,
     )
+    from .git.git_bp import (  # pylint: disable=C0415
+        register_git_blueprints,
+    )
     from .letter_case.letter_case_bp import (  # pylint: disable=C0415
         register_letter_case_blueprints,
     )
@@ -50,6 +53,7 @@ def register_kaye_library_blueprints():
     register_project_blueprints()
     register_repo_blueprints()
     register_repo_workflow_blueprints()
+    register_git_blueprints()
 
 
 def register_kaye_library_abbr_glossaries():

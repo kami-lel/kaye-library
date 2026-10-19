@@ -4,7 +4,13 @@ tests/data.py
 wording the library's own skills must render, by canonical name
 """
 
-FILE_CONTENT = {'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
+FILE_CONTENT = {'commit-sense': ['### primary summary',
+                  '### per-file change sigil',
+                  '### per-file summary',
+                  '### Perform Commit Sense',
+                  'Commit the indexed changes: draw the message from the '
+                  'conversation'],
+ 'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
                                  'You work from the **files alone**: no '
                                  'change set, no conversation to draw on, '
                                  'nothing new to add.',
@@ -288,6 +294,10 @@ FILE_CONTENT = {'condense-agents-and-context': ['## Condense AGENTS and CONTEXT'
                     'code',
                     '- `tools/`: project-specific developer tooling, '
                     'distinct from `scripts/`'],
+ 'resolve-merge-conflict': ['## Resolve Merge Conflict',
+                            'You resolve a **halted Git merge**.',
+                            '#### Resolve',
+                            '#### Output'],
  'style-briefness-style': ['## Style Guide Briefness Style',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
@@ -311,7 +321,8 @@ FILE_CONTENT = {'condense-agents-and-context': ['## Condense AGENTS and CONTEXT'
                                   '- keep proper nouns, acronyms, and '
                                   'brand styling as written']}
 
-DESCRIPTION_CONTENT = {'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
+DESCRIPTION_CONTENT = {'commit-sense': 'Commits the indexed diff',
+ 'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
                                 'pair',
  'condense-changelog': 'rewords its entries into concise, high-level '
                        'changelog style and adds Admonitions for Breaks '
@@ -384,6 +395,7 @@ DESCRIPTION_CONTENT = {'condense-agents-and-context': 'Shrinks an existing AGENT
  'repo-structure': 'naming conventions and placement for top-level '
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
+ 'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
                               'blocks — tier from Loud to Quiet, then '
                               'meaning from bug to fixme, todo, hack.',
@@ -397,7 +409,8 @@ DESCRIPTION_CONTENT = {'condense-agents-and-context': 'Shrinks an existing AGENT
  'style-letter-case-commentary-case': 'define Commentary Case',
  'style-letter-case-title-case': 'define Title Case'}
 
-WHEN_TO_USE_CONTENT = {'element-dt-month-day-format': 'Any output date stated without a year: '
+WHEN_TO_USE_CONTENT = {'commit-sense': 'write a commit message',
+ 'element-dt-month-day-format': 'Any output date stated without a year: '
                                 'anniversaries, birthdays, recurring '
                                 'schedules, near-term plans, entries '
                                 'inside the current year',
@@ -441,4 +454,8 @@ WHEN_TO_USE_CONTENT = {'element-dt-month-day-format': 'Any output date stated wi
 
 CLAUDE_TOOL_CONTENT = {'ready-release-version': ['if version number or release date is '
                            '**missing**, use `AskUserQuestion` to ask user '
-                           'before proceeding']}
+                           'before proceeding'],
+ 'resolve-merge-conflict': ['track resolution with the `TodoWrite` tool — '
+                            'one todo per unmerged path',
+                            '`git add` each path as soon as it is '
+                            'resolved']}

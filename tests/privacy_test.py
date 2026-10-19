@@ -23,6 +23,9 @@ _FORBIDDEN = (
     "yangyi",
     "lu164457053",
     "盧仰一",
+    "kaye lel",
+    "kaye-lel",
+    "persona trailer",
 )
 
 _SHIPPED_FILES = sorted(
