@@ -4,6 +4,22 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.0.0...dev
+
+## [1.0.0] - 2026-10-19
+
+### Added
+
 - library package on kaye-engine: `kaye-library` command, standalone setup, no persona anywhere
 - Style: Markdown format, heading separation, letter cases, briefness, good writing
 - Elements: date-time formats, units, triage tags, ASCII only, phonetic alphabet, sequence numbering
@@ -17,14 +33,4 @@
 - tests: skill export as folders & zips, standalone setup, third-consumer registration, privacy scan, skill invocations resolve, doc links resolve
 - docs: README, AGENTS, CONTEXT, blueprint, glossary, corpus registration & boundary documents
 
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
-
-[unreleased]: https://github.com/kami-lel/kaye-library/commits/dev
+[1.0.0]: https://github.com/kami-lel/kaye-library/releases/tag/v1.0.0
