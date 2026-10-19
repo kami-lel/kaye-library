@@ -23,6 +23,9 @@ _FORBIDDEN = (
     "REDACTED",
     "REDACTED",
     "REDACTED",
+    "persona-name",
+    "persona-name",
+    "persona trailer",
 )
 
 _SHIPPED_FILES = sorted(

@@ -54,6 +54,7 @@ _CORPUS_SOURCES = [
     "element/element.md",
     "project/project.md",
     "repo/repo.md",
+    "git/git.md",
 ]
 
 
