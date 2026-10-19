@@ -44,10 +44,10 @@ kaye-library skill --all ./skills            # every skill into ./skills
 kaye-library skill commit-sense ./skills     # one skill
 kaye-library claude plugin                   # ~/.claude/plugins/kaye-library/
 kaye-library claude plugin -z                # upload-ready .zip
-kaye-library claude marketplace              # a marketplace holding the plugin
+kaye-library claude marketplace              # ~/.claude/kaye-engine/ marketplace
 ```
 
-Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; every skill and its dependencies are listed in the [blueprint document](docs/blueprint-doc.md), and the abbreviation glossaries behind them in the [glossary document](docs/glossary-doc.md).
+Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; the `coder` skill carries the shared coding rules every language profile builds on; every skill and its dependencies are listed in the [blueprint document](docs/blueprint-doc.md), and the abbreviation glossaries behind them in the [glossary document](docs/glossary-doc.md).
 
 Subcommands that need a chat persona, a coder profile, or a Hermes soul (`claude code`, `claude user-system-prompt`, `claude vs-code-extension`, `hermes`) exit with code 1 and say what is missing: the library names none of them.
 
