@@ -16,6 +16,18 @@
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.0.0...dev
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## [1.0.0] - 2026-10-19
 
 ### Added
