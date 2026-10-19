@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kaye-library"
+version = "0.1.0-alpha"
+description = "Shareable structured source of truth for LLM instructions: style guides, elements, git, repository, agent, and coder prompts, powered by kaye-engine"
+readme = "README.md"
+authors = [
+    { name = "kamiLeL", email = "77594253+kami-lel@users.noreply.github.com" },
+]
+requires-python = ">=3.11"
+dependencies = [
+    "kaye-engine",
+    "kamilog @ git+https://github.com/kami-lel/kamilog.git",
+]
+
+[project.urls]
+homepage = "https://github.com/kami-lel/kaye-library/blob/main/README.md"
+Repository = "https://github.com/kami-lel/kaye-library"
+
+[project.optional-dependencies]
+dev = [
+    "pydantic",
+    "pytest",
+    "pyyaml",
+]
+
+[project.scripts]
+kaye-library = "kaye_library.__main__:main"
+
+[tool.setuptools]
+include-package-data = false
+package-dir = { "" = "." }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kaye_library*"]
+exclude = ["build*", "tests*"]
+
+[tool.setuptools.package-data]
+"*" = ["registrations/**/*.md", "abbrs.json"]
