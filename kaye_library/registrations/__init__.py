@@ -25,6 +25,9 @@ def register_kaye_library_blueprints():
 
     :raises ValueError: the default corpus tree is not yet loaded
     """
+    from .element.element_bp import (  # pylint: disable=C0415
+        register_element_blueprints,
+    )
     from .letter_case.letter_case_bp import (  # pylint: disable=C0415
         register_letter_case_blueprints,
     )
@@ -34,6 +37,7 @@ def register_kaye_library_blueprints():
 
     register_style_blueprints()
     register_letter_case_blueprints()
+    register_element_blueprints()
 
 
 def register_kaye_library_abbr_glossaries():
