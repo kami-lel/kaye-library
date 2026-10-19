@@ -51,7 +51,7 @@ bp = replace_meta(
 override_exportable("commit-sense", bp, consumer="my-package")
 ```
 
-The library's own `commit-sense` shows an optional, generic co-author trailer; the override adds whatever rules and identity the package wants, so the library's plugin never carries them. `coder-core` works the same way for the Coder rules, which carry no conversation rules.
+The library's own `commit-sense` shows an optional, generic co-author trailer; the override adds whatever rules and identity the package wants, so the library's plugin never carries them. `coder` works the same way: the library's skill is `coder-core` alone, and a package's override adds its conversation rules around `coder-core`, optionally with `always_apply=True`. Every language profile that tells the assistant to invoke `coder` then reaches the package's version.
 
 ## Abbreviation Layers
 
