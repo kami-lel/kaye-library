@@ -90,6 +90,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | depends on |
 |---|---|
+| `coder` | internal `coder-core`; a package may replace it with `override_exportable` |
 | `plan-for-suite` | `agent-movement-and-suite` |
 | `plan-for-suite-execution` | `agent-movement-and-suite` |
 | `sync-unit-test` | `agent-movement-and-suite-with-count`, `element-triage-tags` |
@@ -121,6 +122,6 @@ Never exported; they exist for a skill, or a package, to build on.
 | `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
 | `commit-sense-core` | the commit sense skill's text, without any co-author persona |
 | `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |
-| `coder-core` | the Coder rules, glossaries, and triage tags, with no conversation rules |
+| `coder-core` | the Coder rules, glossaries, and triage tags, with no conversation rules; the `coder` skill renders it alone |
 
 A package builds its own skill over an internal blueprint by listing it as a dependency, as in [the boundary document](boundary-doc.md#taking-a-skill-over).
