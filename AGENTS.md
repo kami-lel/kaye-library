@@ -70,5 +70,8 @@ Scope each run to the area touched; run everything only before a merge.
 
 - `README.md`: overview, install, commands
 - `CONTEXT.md`: architecture and the root node ownership; refresh its `Last updated` line
-- `docs/*-doc.md`: one file per topic; update the one a change touches
+- [docs/blueprint-doc.md](docs/blueprint-doc.md): every skill and internal blueprint; update on any blueprint added, renamed, or re-wired
+- [docs/glossary-doc.md](docs/glossary-doc.md): every glossary and its usage; update on any glossary added or re-wired
+- [docs/corpus-registration-doc.md](docs/corpus-registration-doc.md): how sources attach to the tree; update when `_CORPUS_SOURCES` or the registration rules change
+- [docs/boundary-doc.md](docs/boundary-doc.md): what crosses the boundary; update when a rule about consumers, overrides, or abbreviation layers changes
 - `CHANGELOG.md`: notable changes per release

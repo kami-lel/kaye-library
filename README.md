@@ -47,7 +47,7 @@ kaye-library claude plugin -z                # upload-ready .zip
 kaye-library claude marketplace              # a marketplace holding the plugin
 ```
 
-Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`.
+Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; every skill and its dependencies are listed in the [blueprint document](docs/blueprint-doc.md), and the abbreviation glossaries behind them in the [glossary document](docs/glossary-doc.md).
 
 Subcommands that need a chat persona, a coder profile, or a Hermes soul (`claude code`, `claude user-system-prompt`, `claude vs-code-extension`, `hermes`) exit with code 1 and say what is missing: the library names none of them.
 
@@ -63,6 +63,8 @@ The suite loads the library alone, exports every skill as a folder and as a `.zi
 ## Contributing
 
 Put new prompts in `kaye_library/registrations/<group>/`, one folder per feature group, holding the corpus `.md` beside the code that registers its blueprints. Keep every prompt free of personal data and of any persona.
+
+Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files are listed and attached to the tree is in the [corpus registration document](docs/corpus-registration-doc.md); what may cross the boundary between the library and a package building on it, including taking a skill over, is in the [boundary document](docs/boundary-doc.md).
 
 ## Acknowledgments
 
