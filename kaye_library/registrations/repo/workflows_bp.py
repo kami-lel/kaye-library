@@ -142,7 +142,7 @@ def register_repo_workflow_blueprints():
         dependencies=["style-good-writing"],
     )
 
-    # todo land feature & release version hold placeholder text
+    # Todo land feature & release version hold placeholder text
 
     # Land Feature
     register_node(
