@@ -7,7 +7,9 @@ conversation-persona rules
 """
 
 import pytest
+from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt import get_corpus_tree
+from kaye_engine.prompt.blueprint.registry import blueprint_registry
 
 
 def _agentic():
@@ -51,3 +53,17 @@ class TestTurnProgressDispatch:
 
         assert "em dash" not in text
         assert "DNT" not in text
+
+
+class TestUnreachableTaskWorkaround:
+
+    def test_node_under_agentic(_):
+        names = {c.name for c in _agentic().children}
+
+        assert "Unreachable Task Workaround" in names
+
+    def test_blueprint_is_internal(_):
+        entry = blueprint_registry["agent-unreachable-task-workaround"]
+
+        assert not entry.is_exportable
+        assert "agent-unreachable-task-workaround" not in exportable_registry

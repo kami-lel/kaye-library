@@ -4,6 +4,8 @@
 
 ### Added
 
+- internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained
+
 ### Changed
 
 ### Deprecated
