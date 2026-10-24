@@ -119,6 +119,7 @@ Never exported; they exist for a skill, or a package, to build on.
 | `proj-agents`, `proj-docs`, `proj-context-engineering` | text shared by the writers and workflows above |
 | `element-alphabetical-sequence-numbering-in-chat` | the chat form of sequence numbering |
 | `git-feature-branch` | the feature branch definition |
+| `agent-unreachable-task-workaround` | the procedure for a task whose needed information cannot be obtained |
 | `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
 | `commit-sense-core` | the commit sense skill's text, without any co-author persona |
 | `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |

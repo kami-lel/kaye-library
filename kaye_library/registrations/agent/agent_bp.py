@@ -4,6 +4,9 @@ kaye_library.registrations.agent.agent_bp.py
 register Agent Behavior related blueprints
 """
 
+import functools
+
+from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint_from_node,
@@ -11,9 +14,13 @@ from kaye_engine.prompt.blueprint import (
     replace_meta,
 )
 
-from .._common import register_exportable
+from .._common import register_exportable, register_node
 
 __all__ = ("register_agent_blueprints",)
+
+# internal, not exportable: the unreachable task procedure, for a skill or
+# package to build on
+_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_agent_blueprints():
@@ -71,4 +78,13 @@ def register_agent_blueprints():
             ),
             display_name="Cascade All Movements",
         ),
+    )
+
+    # Unreachable Task Workaround
+    register_node(
+        _register_internal,
+        "agent-unreachable-task-workaround",
+        agent_behavior_node,
+        "Unreachable Task Workaround",
+        recursively=True,
     )
