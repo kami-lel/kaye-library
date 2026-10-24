@@ -768,6 +768,18 @@
       }
     }
   },
+  "commit the indexed, then continue": {
+    "abbrs": {
+      "cci": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "component": {
     "abbrs": {
       "cpn": {
@@ -1375,8 +1387,7 @@
         "priority": 5,
         "tags": [
           "git-abbr",
-          "letters_only",
-          "single_character"
+          "letters_only"
         ],
         "wrap": "word"
       }
@@ -1539,6 +1550,18 @@
         "priority": 4,
         "tags": [
           "coder-identifier-shorthand",
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "index workspace, commit, then continue": {
+    "abbrs": {
+      "icc": {
+        "priority": 5,
+        "tags": [
           "git-abbr",
           "letters_only"
         ],
