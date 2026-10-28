@@ -1062,6 +1062,18 @@
       }
     }
   },
+  "effective": {
+    "abbrs": {
+      "efx": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "else": {
     "abbrs": {
       "el": {
