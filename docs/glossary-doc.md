@@ -20,8 +20,8 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `coder-abbr` | Coder | `glossary-coder-abbr` | Coder | 51 |
 | `coder-identifier-shorthand` | Coder | none | variable naming | 55 |
 | `coder-documentation-field-shorthand` | Coder | none | Coder Python Docstring Style | 7 |
-| `coder-u3d-abbr` | Coder | none | Coder Unity Engine | 9 |
-| `coder-u3d-identifier` | Coder | none | Coder Unity Engine | 7 |
+| `coder-u3d-abbr` | Coder | none | Coder Unity Engine | 11 |
+| `coder-u3d-identifier` | Coder | none | Coder Unity Engine | 10 |
 | `programming-language-codes` | Coder | `glossary-programming-language-codes` | code format | 12 |
 
 Counts are entries carrying the glossary in `abbrs.json`; an entry may carry several glossaries.
