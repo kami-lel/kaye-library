@@ -611,15 +611,7 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Statement: what changes and why, in a line or two — never a code dump
 - **End State**: what *Working* means once the Movement closes, so review can stop there
 - Order: what it depends on, which may only be Movements already done
-- Party: who performs it, you or another party, named
-
-A Movement may belong to a party other than you, most often the user, when the work lies beyond your reach: a step in a GUI, a login, a physical device, a decision or approval only they can give. For such a Movement:
-
-- name the party in Party, and read Scope as the application, screen, or device they work in rather than files
-- list the steps they perform, one line each, concrete enough to follow without asking you
-- write its End State as what the party confirms back or what you can verify afterward, so you know when to continue
-
-Keep these Movements few and place each where the Plan truly cannot go on without it, since every one halts the run until that party finishes. Never fold your own work into a Movement that belongs to another party; split it into a Movement of yours.
+- Party (who performs it): you, the user, or another party by name; give the user what lies beyond your reach, eg a GUI step, a login, a device, an approval
 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
@@ -692,7 +684,23 @@ If not already answered, ask whether to run under `cascade-all-movements` or `ha
 3. [Movement Recap](#movement-recap)
 4. Movement Out: return control to user
 
+Check the Movement's Party at Movement In. Your own Movements run as above; any other party follows [Movement Parties in Execution](#movement-parties-in-execution).
+
 Movement order binds your judgement, not the user's. Out of sequence, several at once, one skipped, the Plan set aside — obey without protest, noting which Movements are left.
+
+
+
+##### Movement Parties in Execution
+
+For a user Movement, never do the work yourself. Guide interactively:
+
+1. Movement In: say the Movement is theirs and its goal
+2. give one step at a time; wait for their report before the next
+3. halt per [Reworking the Plan](#reworking-the-plan) if a report contradicts the Plan
+4. settle the End State by their confirmation or your check, and say which
+5. Movement Out once it holds
+
+For another party, hand over steps and End State, await its report, then verify.
 
 
 
@@ -767,9 +775,11 @@ and present the revised plan to user thru `ExitPlanMode` tool
 
 use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
 
+and to confirm each step or the End State of a user Movement, carrying likely replies as options
+
 #### {[git] Usage}
 
-Each Movement lands as one git commit, performed as the chosen skill directs.
+Each Movement lands as one git commit, performed as the chosen skill directs. A Movement that changes no workspace file, such as a user Movement, commits nothing.
 
 
 

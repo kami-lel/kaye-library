@@ -338,6 +338,8 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                               'ask whether to run under '
                               '`cascade-all-movements` or '
                               '`halt-each-movement`.',
+                              '##### Movement Parties in '
+                              'Execution',
                               '##### Reworking the Plan'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
