@@ -331,6 +331,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                     'Do **not** start editing.',
                     '### Bar 1: Gather',
                     '### Bar 2: Write the Plan',
+                    '##### Movement Heading',
                     '### Plan for Suite: Bar 3: Execution'],
  'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
                               'Starts only after the user approves the '

@@ -623,7 +623,17 @@ Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and fo
 
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
 
+##### Movement Heading
 
+In the Plan file, head each Movement as `🧩a\b: Title`, plus, in order and only when they apply:
+
+- `[workspace]`: when the task spans several workspaces or repositories
+- `(party)`: for a Movement that is not yours, never for your own
+
+```
+🧩5\8: Wire Up the Config Loader [api]
+🧩6\8: Approve the Staging Deploy [api] (user)
+```
 
 
 
