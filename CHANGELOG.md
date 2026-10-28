@@ -1,6 +1,13 @@
 # kaye-library CHANGELOG
 
-<!-- Todo add gh release script -->
+<!--
+
+TODO add u3d abbr: editor
+TODO mvmt in plan heading structure
+
+Todo add gh release script
+
+-->
 
 ## [Unreleased]
 
