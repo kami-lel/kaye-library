@@ -11,6 +11,7 @@ Todo add gh release script
 - internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained
 - `plan-for-suite`: a Party per Movement, so a Movement can belong to the user or another party, and a `Movement Heading` format for the Plan file
 - `plan-for-suite-execution`: guides the user step by step through a user Movement before it closes
+- `coder-u3d`: owner-driven activation pattern, with apply and don't-apply cases and rules
 
 ### Changed
 

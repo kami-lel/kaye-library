@@ -395,6 +395,18 @@
       }
     }
   },
+  "activate": {
+    "abbrs": {
+      "acv": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "against": {
     "abbrs": {
       "vs.": {
@@ -873,6 +885,18 @@
         "tags": [
           "coder-identifier-shorthand",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "deactivate": {
+    "abbrs": {
+      "dcv": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
         ],
         "wrap": "word"
       }
