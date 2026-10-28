@@ -611,6 +611,15 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Statement: what changes and why, in a line or two — never a code dump
 - **End State**: what *Working* means once the Movement closes, so review can stop there
 - Order: what it depends on, which may only be Movements already done
+- Party: who performs it, you or another party, named
+
+A Movement may belong to a party other than you, most often the user, when the work lies beyond your reach: a step in a GUI, a login, a physical device, a decision or approval only they can give. For such a Movement:
+
+- name the party in Party, and read Scope as the application, screen, or device they work in rather than files
+- list the steps they perform, one line each, concrete enough to follow without asking you
+- write its End State as what the party confirms back or what you can verify afterward, so you know when to continue
+
+Keep these Movements few and place each where the Plan truly cannot go on without it, since every one halts the run until that party finishes. Never fold your own work into a Movement that belongs to another party; split it into a Movement of yours.
 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
