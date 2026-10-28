@@ -322,6 +322,18 @@
       }
     }
   },
+  "Unity Editor": {
+    "abbrs": {
+      "edr": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Unity Engine code": {
     "abbrs": {
       "u3d": {
