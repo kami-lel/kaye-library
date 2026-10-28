@@ -329,8 +329,9 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                 'leaving unrelated files untouched.'],
  'plan-for-suite': ['## Plan for Suite',
                     'Do **not** start editing.',
-                    '#### Bar 1: Gather',
-                    '#### Bar 2: Write the Plan',
+                    '### Bar 1: Gather',
+                    '### Bar 2: Write the Plan',
+                    '##### Movement Heading',
                     '### Plan for Suite: Bar 3: Execution'],
  'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
                               'Starts only after the user approves the '
@@ -338,6 +339,8 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                               'ask whether to run under '
                               '`cascade-all-movements` or '
                               '`halt-each-movement`.',
+                              '##### Movement Parties in '
+                              'Execution',
                               '##### Reworking the Plan'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',

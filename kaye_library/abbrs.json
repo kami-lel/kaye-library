@@ -3,12 +3,12 @@
     "abbrs": {
       "🚩": {
         "priority": 11,
+        "remark": "one per Bar, used often, the Turn continuing past it",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "one per Bar, used often, the Turn continuing past it"
+        "wrap": "symbol"
       }
     }
   },
@@ -150,13 +150,13 @@
     "abbrs": {
       "A": {
         "priority": 1,
+        "remark": "1st letter, 1st workday",
         "tags": [
           "element-dt-days-of-week",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "1st letter, 1st workday"
+        "wrap": "word"
       }
     }
   },
@@ -176,12 +176,12 @@
     "abbrs": {
       "🎏": {
         "priority": 12,
+        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)"
+        "wrap": "symbol"
       }
     }
   },
@@ -300,13 +300,13 @@
     "abbrs": {
       "D": {
         "priority": 2,
+        "remark": "in Dienstag",
         "tags": [
           "element-dt-days-of-week",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "in Dienstag"
+        "wrap": "word"
       }
     }
   },
@@ -317,6 +317,18 @@
         "tags": [
           "letters_only",
           "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Unity Editor": {
+    "abbrs": {
+      "edr": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -399,12 +411,12 @@
     "abbrs": {
       "🤖": {
         "priority": 13,
+        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions"
+        "wrap": "symbol"
       }
     }
   },
@@ -449,22 +461,22 @@
     "abbrs": {
       "~": {
         "priority": 1,
+        "remark": "eg a, b, ~",
         "tags": [
           "ascii_only",
           "single_character",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg a, b, ~"
+        "wrap": "symbol"
       },
       "~~": {
         "priority": 1,
+        "remark": "eg a, b, ~~; use when ~ is ambiguous",
         "tags": [
           "ascii_only",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg a, b, ~~; use when ~ is ambiguous"
+        "wrap": "symbol"
       }
     }
   },
@@ -481,17 +493,16 @@
       },
       "arg": {
         "priority": 5,
+        "remark": "value provided to function at call time; interchangeable w/ parameter casually",
         "tags": [
           "coder-identifier-shorthand",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "value provided to function at call time; interchangeable w/ parameter casually"
+        "wrap": "word"
       }
     }
   },
   "attribute": {
-    "remark": "variable owned by object; similar to field",
     "abbrs": {
       "attr": {
         "priority": 5,
@@ -501,7 +512,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "variable owned by object; similar to field"
   },
   "auxiliary": {
     "abbrs": {
@@ -621,12 +633,12 @@
     "abbrs": {
       "🔨": {
         "priority": 17,
+        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions"
+        "wrap": "symbol"
       }
     }
   },
@@ -659,12 +671,12 @@
     "abbrs": {
       "🪧": {
         "priority": 10,
+        "remark": "edits, eg CHANGELOG.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg CHANGELOG.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -681,7 +693,6 @@
     }
   },
   "child": {
-    "remark": "object",
     "abbrs": {
       "C": {
         "priority": 5,
@@ -692,7 +703,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "object"
   },
   "class": {
     "abbrs": {
@@ -710,12 +722,12 @@
     "abbrs": {
       "📝": {
         "priority": 6,
+        "remark": "as only edits, eg comment bodies, banners, docstrings",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only edits, eg comment bodies, banners, docstrings"
+        "wrap": "symbol"
       }
     }
   },
@@ -832,12 +844,12 @@
     "abbrs": {
       "🥁": {
         "priority": 1,
+        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended"
+        "wrap": "symbol"
       }
     }
   },
@@ -916,7 +928,6 @@
     }
   },
   "derived class": {
-    "remark": "ie subclass, child class",
     "abbrs": {
       "DC": {
         "priority": 5,
@@ -926,7 +937,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "ie subclass, child class"
   },
   "description field": {
     "abbrs": {
@@ -969,12 +981,12 @@
     "abbrs": {
       "🪵": {
         "priority": 11,
+        "remark": "edits, eg DEVLOG.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg DEVLOG.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -1002,12 +1014,12 @@
     "abbrs": {
       "h1": {
         "priority": 1,
+        "remark": "one per file, naming the whole document",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "one per file, naming the whole document"
+        "wrap": "word"
       }
     }
   },
@@ -1015,12 +1027,12 @@
     "abbrs": {
       "h3,h4,~": {
         "priority": 3,
+        "remark": "at the depth the content actually reaches",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "at the depth the content actually reaches"
+        "wrap": "word"
       }
     }
   },
@@ -1041,12 +1053,12 @@
     "abbrs": {
       "📖": {
         "priority": 12,
+        "remark": "eg anything under docs/",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg anything under docs/"
+        "wrap": "symbol"
       }
     }
   },
@@ -1057,6 +1069,18 @@
         "tags": [
           "coder-abbr",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "effect": {
+    "abbrs": {
+      "efx": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -1185,12 +1209,12 @@
     "abbrs": {
       "🧸": {
         "priority": 15,
+        "remark": "standalone usage examples/demos/toys, eg files under examples/",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "standalone usage examples/demos/toys, eg files under examples/"
+        "wrap": "symbol"
       }
     }
   },
@@ -1255,7 +1279,6 @@
     }
   },
   "field": {
-    "remark": "variable declared inside an object, implies primitive data type; similar to attribute",
     "abbrs": {
       "field": {
         "priority": 5,
@@ -1266,18 +1289,19 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "variable declared inside an object, implies primitive data type; similar to attribute"
   },
   "file mode": {
     "abbrs": {
       "🔒": {
         "priority": 1,
+        "remark": "as only change, eg permission bits, executable bit",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only change, eg permission bits, executable bit"
+        "wrap": "symbol"
       }
     }
   },
@@ -1285,12 +1309,12 @@
     "abbrs": {
       "📂": {
         "priority": 21,
+        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits"
+        "wrap": "symbol"
       }
     }
   },
@@ -1298,12 +1322,12 @@
     "abbrs": {
       "📛": {
         "priority": 22,
+        "remark": "file renamed in place; content unchanged besides minor edits",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "file renamed in place; content unchanged besides minor edits"
+        "wrap": "symbol"
       }
     }
   },
@@ -1332,7 +1356,6 @@
     }
   },
   "function": {
-    "remark": "may include method, but implies standalone function",
     "abbrs": {
       "fx": {
         "priority": 5,
@@ -1343,7 +1366,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "may include method, but implies standalone function"
   },
   "gallon": {
     "abbrs": {
@@ -1417,6 +1441,18 @@
       }
     }
   },
+  "hierarchy": {
+    "abbrs": {
+      "hrcy": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "hour": {
     "abbrs": {
       "h": {
@@ -1430,12 +1466,12 @@
       },
       "hr": {
         "priority": 6,
+        "remark": "use when h is ambagious",
         "tags": [
           "letters_only",
           "units-of-measure"
         ],
-        "wrap": "unit",
-        "remark": "use when h is ambagious"
+        "wrap": "unit"
       }
     }
   },
@@ -1544,7 +1580,6 @@
     }
   },
   "index": {
-    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\"",
     "abbrs": {
       "idx": {
         "priority": 4,
@@ -1555,7 +1590,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\""
   },
   "index workspace, commit, then continue": {
     "abbrs": {
@@ -1729,12 +1765,12 @@
     "abbrs": {
       "hl": {
         "priority": 4,
+        "remark": "skipping levels to label a sub-case read against its parent alone",
         "tags": [
           "letters_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "skipping levels to label a sub-case read against its parent alone"
+        "wrap": "word"
       }
     }
   },
@@ -1763,7 +1799,6 @@
     }
   },
   "member": {
-    "remark": "of object, include fields/attributes, properties, & methods",
     "abbrs": {
       "mbr": {
         "priority": 5,
@@ -1773,7 +1808,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "of object, include fields/attributes, properties, & methods"
   },
   "mile": {
     "abbrs": {
@@ -1899,12 +1935,12 @@
     "abbrs": {
       "✍️": {
         "priority": 23,
+        "remark": "actions still to perform",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "actions still to perform"
+        "wrap": "symbol"
       }
     }
   },
@@ -1912,12 +1948,12 @@
     "abbrs": {
       "🙋": {
         "priority": 22,
+        "remark": "a question or a clarification from the user",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "a question or a clarification from the user"
+        "wrap": "symbol"
       }
     }
   },
@@ -1925,12 +1961,12 @@
     "abbrs": {
       "🔍": {
         "priority": 24,
+        "remark": "a task already performed",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "a task already performed"
+        "wrap": "symbol"
       }
     }
   },
@@ -1938,12 +1974,12 @@
     "abbrs": {
       "🧭": {
         "priority": 21,
+        "remark": "what is planned, or likely, for the next Round",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "what is planned, or likely, for the next Round"
+        "wrap": "symbol"
       }
     }
   },
@@ -1951,13 +1987,13 @@
     "abbrs": {
       "F": {
         "priority": 5,
+        "remark": "boolean value",
         "tags": [
           "coder-abbr",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "boolean value"
+        "wrap": "word"
       },
       "❌": {
         "priority": 6,
@@ -1973,12 +2009,12 @@
     "abbrs": {
       "🔢": {
         "priority": 20,
+        "remark": "file edits, eg binary, compressed archive, database, encrypted blob",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "file edits, eg binary, compressed archive, database, encrypted blob"
+        "wrap": "symbol"
       }
     }
   },
@@ -2125,7 +2161,6 @@
     }
   },
   "override": {
-    "remark": "in inheritance",
     "abbrs": {
       "oride": {
         "priority": 5,
@@ -2135,7 +2170,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "in inheritance"
   },
   "overwrite": {
     "abbrs": {
@@ -2161,17 +2197,16 @@
       },
       "📦": {
         "priority": 18,
+        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml"
+        "wrap": "symbol"
       }
     }
   },
   "parameter": {
-    "remark": "name in function, placeholder for value; interchangeable w/ argument casually",
     "abbrs": {
       "param": {
         "priority": 5,
@@ -2181,10 +2216,10 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "name in function, placeholder for value; interchangeable w/ argument casually"
   },
   "parent": {
-    "remark": "object",
     "abbrs": {
       "P": {
         "priority": 5,
@@ -2195,10 +2230,10 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "object"
   },
   "parent class": {
-    "remark": "ie superclass, base class",
     "abbrs": {
       "PC": {
         "priority": 5,
@@ -2208,7 +2243,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "ie superclass, base class"
   },
   "pint": {
     "abbrs": {
@@ -2325,7 +2361,6 @@
     }
   },
   "property": {
-    "remark": "field/attribute with accessor, like a getter or setter",
     "abbrs": {
       "prp": {
         "priority": 5,
@@ -2335,7 +2370,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "field/attribute with accessor, like a getter or setter"
   },
   "random,randomize": {
     "abbrs": {
@@ -2353,13 +2389,13 @@
     "abbrs": {
       "~": {
         "priority": 1,
+        "remark": "eg 1~5, a~f, ii~iv",
         "tags": [
           "ascii_only",
           "single_character",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg 1~5, a~f, ii~iv"
+        "wrap": "symbol"
       }
     }
   },
@@ -2367,12 +2403,12 @@
     "abbrs": {
       "🔰": {
         "priority": 8,
+        "remark": "edits, eg README.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg README.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -2380,17 +2416,16 @@
     "abbrs": {
       "♻️": {
         "priority": 4,
+        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted"
+        "wrap": "symbol"
       }
     }
   },
   "regression": {
-    "remark": "unit test revision, part of TDD, finding bugs introduced by new implementation or refactoring, then Fixing Codebase so existing Unit Tests pass again",
     "abbrs": {
       "rgs": {
         "priority": 5,
@@ -2400,7 +2435,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "unit test revision, part of TDD, finding bugs introduced by new implementation or refactoring, then Fixing Codebase so existing Unit Tests pass again"
   },
   "representation": {
     "abbrs": {
@@ -2501,12 +2537,12 @@
       },
       "sec": {
         "priority": 6,
+        "remark": "use when s is ambagious",
         "tags": [
           "letters_only",
           "units-of-measure"
         ],
-        "wrap": "unit",
-        "remark": "use when s is ambagious"
+        "wrap": "unit"
       }
     }
   },
@@ -2526,12 +2562,12 @@
     "abbrs": {
       "⚙️": {
         "priority": 19,
+        "remark": "eg linter, formatter configuration, ignore files",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg linter, formatter configuration, ignore files"
+        "wrap": "symbol"
       }
     }
   },
@@ -2543,6 +2579,18 @@
           "coder-abbr",
           "commit-sense-shorthand",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "sound effects": {
+    "abbrs": {
+      "SFX": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -2577,12 +2625,12 @@
     "abbrs": {
       "SWD": {
         "priority": 1,
+        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one",
         "tags": [
           "letters_only",
           "element-dt-watch-day-abbr"
         ],
-        "wrap": "word",
-        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one"
+        "wrap": "word"
       }
     }
   },
@@ -2627,12 +2675,12 @@
     "abbrs": {
       "🏁": {
         "priority": 14,
+        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one"
+        "wrap": "symbol"
       }
     }
   },
@@ -2640,12 +2688,12 @@
     "abbrs": {
       "UT": {
         "priority": 5,
+        "remark": "unit test",
         "tags": [
           "coder-abbr",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "unit test"
+        "wrap": "word"
       }
     }
   },
@@ -2653,12 +2701,12 @@
     "abbrs": {
       "🧪": {
         "priority": 14,
+        "remark": "eg test suites, fixtures, snapshots, test helpers",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg test suites, fixtures, snapshots, test helpers"
+        "wrap": "symbol"
       }
     }
   },
@@ -2698,12 +2746,12 @@
     "abbrs": {
       "h2": {
         "priority": 2,
+        "remark": "marking a primary section directly under the Title",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "marking a primary section directly under the Title"
+        "wrap": "word"
       }
     }
   },
@@ -2732,12 +2780,12 @@
       },
       "🔖": {
         "priority": 5,
+        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation"
+        "wrap": "symbol"
       }
     }
   },
@@ -2781,7 +2829,6 @@
     }
   },
   "utility or maintenance scripts edits": {
-    "remark": "not part of main codebase, eg files under scripts/",
     "abbrs": {
       "🐚": {
         "priority": 16,
@@ -2791,7 +2838,8 @@
         ],
         "wrap": "symbol"
       }
-    }
+    },
+    "remark": "not part of main codebase, eg files under scripts/"
   },
   "utility,utilize": {
     "abbrs": {
@@ -2829,16 +2877,28 @@
       }
     }
   },
+  "visual effects": {
+    "abbrs": {
+      "VFX": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "waiting": {
     "abbrs": {
       "💤": {
         "priority": 25,
+        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party"
+        "wrap": "symbol"
       }
     }
   },
@@ -2846,12 +2906,12 @@
     "abbrs": {
       "WD": {
         "priority": 1,
+        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it",
         "tags": [
           "letters_only",
           "element-dt-watch-day-abbr"
         ],
-        "wrap": "word",
-        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it"
+        "wrap": "word"
       }
     }
   },
@@ -2859,12 +2919,12 @@
     "abbrs": {
       "WWk": {
         "priority": 1,
+        "remark": "forward range from today through the close of a terminal Sunday",
         "tags": [
           "letters_only",
           "element-dt-watch-week-abbr"
         ],
-        "wrap": "word",
-        "remark": "forward range from today through the close of a terminal Sunday"
+        "wrap": "word"
       }
     }
   },
@@ -2884,12 +2944,12 @@
     "abbrs": {
       "📏": {
         "priority": 7,
+        "remark": "as only edits: indentation, tabs, blank lines added or removed",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only edits: indentation, tabs, blank lines added or removed"
+        "wrap": "symbol"
       }
     }
   },
@@ -2930,7 +2990,6 @@
     }
   },
   "workspace": {
-    "remark": "local/on-disk files",
     "abbrs": {
       "ws": {
         "priority": 5,
@@ -2941,18 +3000,19 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "local/on-disk files"
   },
   "worktree": {
     "abbrs": {
       "wt": {
         "priority": 5,
+        "remark": "main worktree unless a linked one is named",
         "tags": [
           "git-abbr",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "main worktree unless a linked one is named"
+        "wrap": "word"
       }
     }
   },
@@ -2972,13 +3032,13 @@
     "abbrs": {
       "T": {
         "priority": 5,
+        "remark": "boolean value",
         "tags": [
           "coder-abbr",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "boolean value"
+        "wrap": "word"
       },
       "✔️": {
         "priority": 6,
