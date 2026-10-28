@@ -1417,6 +1417,18 @@
       }
     }
   },
+  "hierarchy": {
+    "abbrs": {
+      "hrcy": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "hour": {
     "abbrs": {
       "h": {
