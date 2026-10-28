@@ -1,14 +1,21 @@
 # kaye-library CHANGELOG
 
-<!-- Todo add gh release script -->
+<!--
+Todo add gh release script
+-->
 
 ## [Unreleased]
 
 ### Added
 
 - internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained
+- `plan-for-suite`: a Party per Movement, so a Movement can belong to the user or another party, and a `Movement Heading` format for the Plan file
+- `plan-for-suite-execution`: guides the user step by step through a user Movement before it closes
 
 ### Changed
+
+- `coder-u3d-abbr` and `coder-u3d-identifier` gain abbreviations for effects, hierarchy, and editor terms
+- `plan-for-suite`: Bar 1 and Bar 2 headings rise from h4 to h3
 
 ### Deprecated
 
