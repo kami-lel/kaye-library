@@ -90,6 +90,35 @@ Authored Data:
 
 
 
+##### owner-driven activation pattern
+
+Save a GameObject inactive when it lives for only a stretch of the run; let an owner call `SetActive`, with no `Update` flag guards
+
+Apply to:
+
+- UI: pause screen, game over screen, settings panel, tutorial overlay, popup, toast, tooltip
+- spawned or pooled: enemy, projectile, pickup, hit flash, particle effect, decal
+- scripted: cutscene prop, event actor, boss arena gate, tutorial arrow
+- mode-specific: alternate camera, debug panel, editor-only stand-in
+- streamed: level section loaded in and out by distance or progress
+
+Don't apply to:
+
+- manager, singleton, event hub, listener
+- camera follow, input reader, audio mixer
+- the owner itself
+
+Rules:
+
+- hold each target in a `[SerializeField]` reference on the owner, never find it by search
+- subscribe and reset in `OnEnable`, unsubscribe in `OnDisable`
+- give each target one entry point (`Show`, `Hide`), and call only that from the owner
+- assign each toggled group exactly one owner
+- toggle component `enabled`, a child visual, or `CanvasGroup` instead when the object must stay findable or listening
+- play a hide state before `SetActive(false)` when the object needs an exit animation
+
+
+
 ##### Logging
 
 Log every meaningful state change so a debug session reads as a sequence of events: lifecycle transitions, branch decisions, external calls (network, save/load, scene loads).
