@@ -587,7 +587,7 @@ Three *Bars*:
 
 
 
-#### Bar 1: Gather
+### Bar 1: Gather
 
 Do **not** start editing. Read before you plan.
 
@@ -601,7 +601,7 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 
 
-#### Bar 2: Write the Plan
+### Bar 2: Write the Plan
 
 The Plan divides the task into Movements.
 
