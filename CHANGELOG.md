@@ -3,6 +3,9 @@
 <!--
 Fixme email category: Commercial, Entertainment
 
+Todo workaround: how to deal w/ mux items
+Todo add p4v instruction, use git terms
+
 todo add gh release script
 -->
 
