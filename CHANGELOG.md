@@ -1,6 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
+Fixme email category: Commercial, Entertainment
+
 todo add gh release script
 -->
 
