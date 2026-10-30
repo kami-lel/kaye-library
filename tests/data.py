@@ -260,6 +260,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                          '- gdscript:GDScript used by '
                                          'Godot Engine',
                                          '- js:JavaScript',
+                                         '- p4v:Perforce',
                                          '- py:Python',
                                          '- ts:TypeScript',
                                          '- u3d:Unity Engine code',

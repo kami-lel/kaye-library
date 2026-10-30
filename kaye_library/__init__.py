@@ -58,6 +58,7 @@ _CORPUS_SOURCES = [
     ((), "project/project.md"),
     ((), "repo/repo.md"),
     ((), "git/git.md"),
+    ((), "git/p4v.md"),
     ((), "meta_prompt/meta_prompt.md"),
     ((), "amanuensis/amanuensis.md"),
     ((), "secretary/secretary.md"),
