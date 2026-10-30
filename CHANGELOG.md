@@ -2,7 +2,6 @@
 
 <!--
 TODO workaround: how to deal w/ mux items
-TODO add p4v instruction, use git terms
 
 todo add gh release script
 -->
@@ -11,6 +10,7 @@ todo add gh release script
 
 ### Added
 
+- `p4v:Perforce` joins the `programming-language-codes` glossary
 - `hunt-job-opportunity`, `good-morning`, `good-week`: the job hunt and the daily and weekly check-ins join the Secretary skills
 - Secretary skills: `draft-email`, `sweep-email-inbox`, `scan-event-radar-daily`/`-weekly`, `secretary-event-brief-format`, calendar and GTD push/pull, `recap-yesterday`/`-today`, with the Common Report Info Field leaves and the `secretary-common-shorthand`, `secretary-eisenhower-matrix-quadrant`, `secretary-eisenhower-matrix-quadrant-base` glossaries; a skill that splices a personal glossary or substitution renders that placeholder literally until a consumer registers it
 - Amanuensis writers: Chicago Citation, `bibliographer`, `assemble-bibliography`, `redactor`, `dispositor`, `scholiast`, `config-writer`, `keybinding-writer`, `minutes-clerk`, with the `amanuensis-config-writer-shorthand` and `amanuensis-keybinding-writer-shorthand` glossaries and their abbreviation entries

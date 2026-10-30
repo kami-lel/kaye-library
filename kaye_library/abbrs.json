@@ -415,6 +415,18 @@
       }
     }
   },
+  "Perforce": {
+    "abbrs": {
+      "p4v": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Prefab": {
     "abbrs": {
       "pfb": {
