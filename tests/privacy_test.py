@@ -23,6 +23,7 @@ _FORBIDDEN = (
     "REDACTED",
     "REDACTED",
     "REDACTED",
+    "REDACTED",
     "persona-name",
     "persona-name",
     "persona trailer",

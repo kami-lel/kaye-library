@@ -104,6 +104,20 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 | `coder-u3d-mb` | `style-briefness-style` |
 | `coder-u3d-assets-management`, `coder-u3d-so` | none |
 
+### Secretary
+
+Every skill is called by the user only. A personal glossary or substitution a skill splices (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-work-color-legend`, `secretary-email-category`, `secretary-email-authuser`) is registered by a consumer; run alone, the library leaves that placeholder literal.
+
+| skill | depends on |
+|---|---|
+| `draft-email` | none; drafts and processes emails and messages |
+| `sweep-email-inbox` | the report info fields deadline, link, source; reads unread mail, marks it read, sorts it |
+| `scan-event-radar-daily`, `scan-event-radar-weekly` | `secretary-event-brief-format`, `agent-unreachable-task-workaround`; format the day's or week's events |
+| `secretary-event-brief-format` | `style-briefness-style`, the date-time, location, link, ticket fields; the shared event brief rules |
+| `push-event-to-calendar`, `pull-event-from-calendar` | none; add or retrieve calendar events |
+| `push-task-to-gtd`, `pull-task-from-gtd` | none; add or retrieve tasks in a GTD app |
+| `recap-yesterday`, `recap-today` | `style-briefness-style`, `element-dt-watch-day`; one-line daily recaps |
+
 ### Meta Prompt
 
 | skill | depends on |
@@ -145,6 +159,7 @@ Never exported; they exist for a skill, or a package, to build on.
 | `agent-unreachable-task-workaround` | the procedure for a task whose needed information cannot be obtained |
 | `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
 | `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |
+| `secretary-report-info-field-date-time`, `-deadline`, `-location`, `-link`, `-ticket`, `-source` | the Common Report Info Field leaves the Secretary reports merge |
 | `meta-prompt`, `write-for-skill` | shared bases of the Meta Prompt writers and the skill-metadata writers |
 
 A package builds its own skill over an internal blueprint by listing it as a dependency, or over an exportable's blueprint object for a skill it takes over, as in [the boundary document](boundary-doc.md#taking-a-skill-over).

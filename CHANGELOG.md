@@ -10,6 +10,7 @@ todo add gh release script
 
 ### Added
 
+- Secretary skills: `draft-email`, `sweep-email-inbox`, `scan-event-radar-daily`/`-weekly`, `secretary-event-brief-format`, calendar and GTD push/pull, `recap-yesterday`/`-today`, with the Common Report Info Field leaves and the `secretary-common-shorthand`, `secretary-eisenhower-matrix-quadrant`, `secretary-eisenhower-matrix-quadrant-base` glossaries; a skill that splices a personal glossary or substitution renders that placeholder literally until a consumer registers it
 - Amanuensis writers: Chicago Citation, `bibliographer`, `assemble-bibliography`, `redactor`, `dispositor`, `scholiast`, `config-writer`, `keybinding-writer`, `minutes-clerk`, with the `amanuensis-config-writer-shorthand` and `amanuensis-keybinding-writer-shorthand` glossaries and their abbreviation entries
 - Meta Prompt: `write-llm-prompt` and the `write-skill-description`, `write-skill-when-to-use`, `write-skill-description-and-when-to-use` writers, with the internal `meta-prompt` and `write-for-skill` bases
 - internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained
