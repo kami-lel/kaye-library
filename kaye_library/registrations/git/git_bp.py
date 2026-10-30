@@ -87,7 +87,6 @@ def _register_commit_sense_leaf(
     dependencies,
     extra_checkmarks=(),
     is_recursive=True,
-    display_name=None,
     description_node=None,
     when_to_use_node=None,
     **register_kwargs,
@@ -101,9 +100,6 @@ def _register_commit_sense_leaf(
     :param is_recursive: whether the leaf takes every descendant; if not,
             only the descendants in ``extra_checkmarks`` render
     :type is_recursive: bool, optional
-    :param display_name: name the blueprint is shown under; ``None`` uses
-            ``leaf_name``
-    :type display_name: str, optional
     :param description_node: node path of the skill description; ``None``
             keeps the default naming lookup
     :type description_node: tuple[str, ...], optional
@@ -127,9 +123,7 @@ def _register_commit_sense_leaf(
         meta_kwargs["when_to_use_node"] = when_to_use_node
     register_fn(
         slug,
-        replace_meta(
-            bp, display_name=display_name or leaf_name, **meta_kwargs
-        ),
+        replace_meta(bp, display_name=leaf_name, **meta_kwargs),
         **register_kwargs,
     )
 
@@ -178,22 +172,24 @@ def register_git_commit_sense_blueprints():
             is_recursive=is_recursive,
         )
 
-    # the skill itself: the core section, under the skill's own name and
-    # the descriptors beside it
-    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
+    # the skill itself: the procedure section, with the descriptors in
+    # the sibling section beside it
+    descriptor_path = (
+        *_COMMIT_SENSE_PATH,
+        "Perform Commit Sense Personalized",
+    )
     _register_commit_sense_leaf(
         register_exportable,
         "commit-sense",
-        "Perform Commit Sense Core",
-        display_name="Perform Commit Sense",
+        "Perform Commit Sense",
         dependencies=[
             "git-sense-primary-summary",
             "git-sense-per-file-change-sigil",
             "git-sense-per-file-summary",
         ],
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
-        description_node=(*commit_sense_path, "{description}"),
-        when_to_use_node=(*commit_sense_path, "{when_to_use}"),
+        description_node=(*descriptor_path, "{description}"),
+        when_to_use_node=(*descriptor_path, "{when_to_use}"),
     )
 
     # Dify prompts
