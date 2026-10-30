@@ -8,22 +8,7 @@ todo add gh release script
 
 ### Added
 
-- `p4v:Perforce` joins the `programming-language-codes` glossary
-- `hunt-job-opportunity`, `good-morning`, `good-week`: the job hunt and the daily and weekly check-ins join the Secretary skills
-- Secretary skills: `draft-email`, `sweep-email-inbox`, `scan-event-radar-daily`/`-weekly`, `secretary-event-brief-format`, calendar and GTD push/pull, `recap-yesterday`/`-today`, with the Common Report Info Field leaves and the `secretary-common-shorthand`, `secretary-eisenhower-matrix-quadrant`, `secretary-eisenhower-matrix-quadrant-base` glossaries; a skill that splices a personal glossary or substitution renders that placeholder literally until a consumer registers it
-- Amanuensis writers: Chicago Citation, `bibliographer`, `assemble-bibliography`, `redactor`, `dispositor`, `scholiast`, `config-writer`, `keybinding-writer`, `minutes-clerk`, with the `amanuensis-config-writer-shorthand` and `amanuensis-keybinding-writer-shorthand` glossaries and their abbreviation entries
-- Meta Prompt: `write-llm-prompt` and the `write-skill-description`, `write-skill-when-to-use`, `write-skill-description-and-when-to-use` writers, with the internal `meta-prompt` and `write-for-skill` bases
-- internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained; its reply gives one 🚧 line per blockage and a closing 🙋 line asking for what clears the first
-- `plan-for-suite`: a Party per Movement, so a Movement can belong to the user or another party, and a `Movement Heading` format for the Plan file
-- `plan-for-suite-execution`: guides the user step by step through a user Movement before it closes
-- `coder-u3d`: owner-driven activation pattern, with apply and don't-apply cases and rules
-- `secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category` glossaries: the calendar, GTD, and email skills resolve those placeholders without a consumer; `Entertainment` and `Commercial` join the email categories
-
 ### Changed
-
-- `commit-sense` and `coder`: each registered once under its own name, with no separate `-core` blueprint; a package takes a skill over by building on the library blueprint object
-- `coder-u3d-abbr` and `coder-u3d-identifier` gain abbreviations for effects, hierarchy, and editor terms
-- `plan-for-suite`: Bar 1 and Bar 2 headings rise from h4 to h3
 
 ### Deprecated
 
@@ -31,11 +16,49 @@ todo add gh release script
 
 ### Fixed
 
-- `commit-sense`: file ledger names file w/ extension, not directory path
-
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.0.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.1.0...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.1.0] - 2026-10-30
+
+### Added
+
+- Secretary skills: email drafting and sweeping, daily and weekly event radar, calendar and GTD push and pull, daily recaps, job hunt, morning and weekly check-ins, with their report-field blueprints and glossaries; personal placeholders render literally until a consumer registers them
+- Amanuensis writers: Chicago citation, bibliographer, bibliography assembly, redactor, dispositor, scholiast, config, keybinding, minutes clerk, with their glossaries
+- Meta Prompt writers: LLM prompt and skill `description` / `when_to_use` writers
+- `agent-unreachable-task-workaround` blueprint: one 🚧 line per blockage, closing 🙋 line asking for what clears it
+- `plan-for-suite`: a Party per Movement and a Movement Heading format; `plan-for-suite-execution` guides the user through a user Movement
+- `coder-u3d`: owner-driven activation pattern
+- `p4v:Perforce` joins the programming language codes glossary
+
+### Changed
+
+- `commit-sense` and `coder`: one registration each, no `-core` blueprint; a package takes either over by building on the library blueprint object
+- `coder-u3d` abbreviations extended for effects, hierarchy, and editor terms
+- `plan-for-suite`: Bar 1 and Bar 2 headings rise from h4 to h3
+
+> [!WARNING]
+> `commit-sense-core` and `coder-core` blueprints are gone; packages building on them must take the library `commit-sense` / `coder` blueprint object instead
+
+### Fixed
+
+- `commit-sense`: file ledger names the file with its extension, not the directory path
+
+[1.1.0]: https://github.com/kami-lel/kaye-library/compare/v1.0.0...v1.1.0
 
 
 
