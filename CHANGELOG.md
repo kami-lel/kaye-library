@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO email category: Commercial
 TODO workaround: how to deal w/ mux items
 TODO add p4v instruction, use git terms
 
@@ -20,7 +19,7 @@ todo add gh release script
 - `plan-for-suite`: a Party per Movement, so a Movement can belong to the user or another party, and a `Movement Heading` format for the Plan file
 - `plan-for-suite-execution`: guides the user step by step through a user Movement before it closes
 - `coder-u3d`: owner-driven activation pattern, with apply and don't-apply cases and rules
-- `secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category` glossaries: the calendar, GTD, and email skills resolve those placeholders without a consumer; `Entertainment` joins the email categories
+- `secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category` glossaries: the calendar, GTD, and email skills resolve those placeholders without a consumer; `Entertainment` and `Commercial` join the email categories
 
 ### Changed
 
