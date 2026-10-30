@@ -54,6 +54,9 @@ def register_kaye_library_blueprints():
     from .letter_case.letter_case_bp import (  # pylint: disable=C0415
         register_letter_case_blueprints,
     )
+    from .meta_prompt.meta_prompt_bp import (  # pylint: disable=C0415
+        register_meta_prompt_blueprints,
+    )
     from .style.style_bp import (  # pylint: disable=C0415
         register_style_blueprints,
     )
@@ -68,6 +71,7 @@ def register_kaye_library_blueprints():
     register_general_blueprints()
     register_git_blueprints()
     register_coder_blueprints()
+    register_meta_prompt_blueprints()
 
 
 def register_kaye_library_abbr_glossaries():
