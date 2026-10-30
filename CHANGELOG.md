@@ -18,7 +18,28 @@ todo add gh release script
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.1.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.1.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.1.1] - 2026-10-30
+
+### Changed
+
+- `agent-unreachable-task-workaround`: the several-items example links the release page
+
+[1.1.1]: https://github.com/kami-lel/kaye-library/compare/v1.1.0...v1.1.1
 
 
 
