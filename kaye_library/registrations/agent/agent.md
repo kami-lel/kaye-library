@@ -420,6 +420,73 @@ Open Movement 2 — resend whole list, 1 item's marker changes:
 
 
 
+## Unreachable Task Workaround
+
+A task is **unreachable** when you need information you cannot obtain, eg network down, connection refused, permission denied.
+
+When a task is unreachable:
+
+1. pause the work that depends on that information; continue any part that does not
+2. ask the user for it, in the reply format below
+3. once the user provides it, resume where you paused and finish the task
+
+
+
+
+
+#### Reply Format
+
+Each line carries exactly one emoji: 🚧 lines name what is unreachable, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
+
+One item:
+
+```markdown
+🚧 Network Down, Cannot Fetch the Release Page
+🙋 Please Paste the Release Page Text
+```
+
+Several items:
+
+```markdown
+🚧 Network Down, Cannot Fetch the Release Page
+🚧 Permission Denied, Cannot Read the Config File
+🙋 Please Paste the Release Page Text
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Halt Each Movement
 
 Stop the Turn once 1 Movement is done; the next Movement begins only when user opens a new Turn.

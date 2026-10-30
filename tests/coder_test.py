@@ -2,7 +2,7 @@
 coder_test.py
 
 Unit Tests (using pytest) for: the Coder corpus and skills the library
-ships -- persona-free, the rules in an internal ``coder-core``, every
+ships -- persona-free, the rules in the one ``coder`` entry, every
 language profile under the ``Coder`` node
 """
 
@@ -59,15 +59,14 @@ class TestCorpus:
 
 class TestBlueprints:
 
-    def test_core_is_internal(_):
-        assert "coder-core" in blueprint_registry
-        assert "coder-core" not in exportable_registry
+    def test_no_separate_core_entry(_):
+        assert "coder-core" not in blueprint_registry
 
     def test_coder_skill_is_persona_free_and_the_library_s(_):
         entry = exportable_registry["coder"]
 
         assert entry.consumer == "kaye-library"
-        assert entry.blueprint.dependencies == ("coder-core",)
+        assert "element-triage-tags" in entry.blueprint.dependencies
         assert entry.display_name == "Coder"
         assert not entry.always_apply
 
@@ -78,8 +77,8 @@ class TestBlueprints:
     def test_sync_unit_test_ships(_):
         assert "sync-unit-test" in exportable_registry
 
-    def test_core_depends_on_no_conversation_rules(_):
-        dependencies = blueprint_registry["coder-core"].blueprint.dependencies
+    def test_coder_depends_on_no_conversation_rules(_):
+        dependencies = blueprint_registry["coder"].blueprint.dependencies
 
         assert "chat" not in dependencies
         assert "element-triage-tags" in dependencies
@@ -87,8 +86,8 @@ class TestBlueprints:
 
 class TestRender:
 
-    def test_core_renders_the_rules(_):
-        content = blueprint_registry["coder-core"].content()
+    def test_coder_renders_the_rules(_):
+        content = blueprint_registry["coder"].content()
 
         assert "# Coder" in content
         assert "explore first, per [Project Context Engineering]" in content
@@ -97,8 +96,8 @@ class TestRender:
     @pytest.mark.parametrize(
         "needle", ["Kaye", "Personality", "Persona", "Kami", "Sir"]
     )
-    def test_core_names_no_persona(_, needle):
-        assert needle not in blueprint_registry["coder-core"].content()
+    def test_coder_names_no_persona(_, needle):
+        assert needle not in blueprint_registry["coder"].content()
 
     @pytest.mark.parametrize("name", _CODER_SKILLS)
     def test_skill_renders_without_persona(_, name):
