@@ -113,6 +113,20 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 | `write-skill-when-to-use` | `write-for-skill`; writes a skill's `when_to_use` field |
 | `write-skill-description-and-when-to-use` | `write-skill-description`, `write-skill-when-to-use` |
 
+### Amanuensis
+
+| skill | depends on |
+|---|---|
+| `amanuensis-chicago-note` | `style-markdown-footnotes`; Chicago-style notes-bibliography footnotes |
+| `amanuensis-chicago-bibliography` | none; Chicago-style bibliography entries |
+| `bibliographer` | `style-markdown-footnotes`; coordinates citation and bibliography assembly, called by the user only |
+| `assemble-bibliography` | `amanuensis-chicago-bibliography`; gathers and creates a bibliography list |
+| `dispositor` | `style-heading-separation`, `style-good-writing`; maintains structured, hierarchical notes |
+| `scholiast`, `minutes-clerk` | `dispositor`; academic reading notes, meeting minutes |
+| `config-writer` | `dispositor`, `style-briefness-style`; transcribes an app's or system's configuration into a structured note |
+| `keybinding-writer` | `config-writer`; transcribes keybindings into a structured note |
+| `redactor` | none; revises text while preserving intent and style |
+
 ### Glossary Groups
 
 Each exportable glossary is also a skill named `glossary-<name>`; see the [glossary document](glossary-doc.md).

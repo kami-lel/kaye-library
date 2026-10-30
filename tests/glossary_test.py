@@ -9,6 +9,8 @@ from kaye_engine.abbr_collection import abbr_glossary_registry
 
 _LIBRARY_GLOSSARIES = (
     "agent-chat-turn-progress-dispatch-decorative",
+    "amanuensis-config-writer-shorthand",
+    "amanuensis-keybinding-writer-shorthand",
     "briefness-shorthand",
     "coder-abbr",
     "coder-documentation-field-shorthand",
