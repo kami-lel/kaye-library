@@ -130,6 +130,19 @@
       }
     }
   },
+  "Commercial": {
+    "abbrs": {
+      "🛒": {
+        "priority": 10,
+        "remark": "unsolicited sales and marketing from businesses: offers, ads, and cold outreach",
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Education": {
     "abbrs": {
       "🎓": {
