@@ -450,10 +450,8 @@ Several items:
 ```markdown
 🚧 Network Down, Cannot Fetch the Release Page
 🚧 Permission Denied, Cannot Read the Config File
-🙋 Please Paste the Release Page Text
+🙋 Please Paste the Text of the [Release Page](https://example.com/releases/latest)
 ```
-
-<!-- Fixme provide url -->
 
 
 
