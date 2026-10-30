@@ -27,6 +27,9 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `secretary-common-shorthand` | Secretary | none | calendar and GTD push | 3 |
 | `secretary-eisenhower-matrix-quadrant` | Secretary | none | the Secretary report skills | 10 |
 | `secretary-eisenhower-matrix-quadrant-base` | Secretary | none | the Secretary report skills | 3 |
+| `secretary-calendar-name` | Secretary | none | calendar push and pull | 8 |
+| `secretary-gtd-project` | Secretary | none | GTD push | 9 |
+| `secretary-email-category` | Secretary | none | Sweep Email Inbox | 9 |
 | `programming-language-codes` | Coder | `glossary-programming-language-codes` | code format | 12 |
 
 Counts are entries carrying the glossary in `abbrs.json`; an entry may carry several glossaries.

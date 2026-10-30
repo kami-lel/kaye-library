@@ -106,7 +106,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 ### Secretary
 
-Every skill is called by the user only. A personal glossary or substitution a skill splices (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-work-color-legend`, `secretary-email-category`, `secretary-email-authuser`) is registered by a consumer; run alone, the library leaves that placeholder literal.
+Every skill is called by the user only. The glossaries `secretary-calendar-name`, `secretary-gtd-project` and `secretary-email-category` ship with the library as generic defaults, so those placeholders resolve when a skill runs alone. A glossary or substitution that holds a value only a consumer can know (`secretary-work-color-legend`, `secretary-email-authuser`) is registered by that consumer; run alone, the library leaves that placeholder literal.
 
 | skill | depends on |
 |---|---|
