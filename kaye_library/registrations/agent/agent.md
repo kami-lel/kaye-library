@@ -436,10 +436,21 @@ When a task is unreachable:
 
 #### Reply Format
 
-Reply with one line: 🙋🚧, then what is unreachable and what you need from the user.
+Each line carries exactly one emoji: 🚧 lines name what is unreachable, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
+
+One item:
 
 ```markdown
-🙋🚧 Network Down, Please Paste the Page Text
+🚧 Network Down, Cannot Fetch the Release Page
+🙋 Please Paste the Release Page Text
+```
+
+Several items:
+
+```markdown
+🚧 Network Down, Cannot Fetch the Release Page
+🚧 Permission Denied, Cannot Read the Config File
+🙋 Please Paste the Release Page Text
 ```
 
 
