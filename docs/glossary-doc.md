@@ -24,6 +24,9 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `coder-u3d-identifier` | Coder | none | Coder Unity Engine | 10 |
 | `amanuensis-config-writer-shorthand` | Amanuensis | none | Config Writer | 8 |
 | `amanuensis-keybinding-writer-shorthand` | Amanuensis | none | Keybinding Writer | 18 |
+| `secretary-common-shorthand` | Secretary | none | calendar and GTD push | 3 |
+| `secretary-eisenhower-matrix-quadrant` | Secretary | none | the Secretary report skills | 10 |
+| `secretary-eisenhower-matrix-quadrant-base` | Secretary | none | the Secretary report skills | 3 |
 | `programming-language-codes` | Coder | `glossary-programming-language-codes` | code format | 12 |
 
 Counts are entries carrying the glossary in `abbrs.json`; an entry may carry several glossaries.

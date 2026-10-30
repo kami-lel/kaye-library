@@ -73,6 +73,19 @@
       }
     }
   },
+  "Einsenhower Matrix Quadrant": {
+    "abbrs": {
+      "EMQ": {
+        "priority": 1,
+        "remark": "categorize tasks/todos into 1 of 4 quadrants",
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Friday": {
     "abbrs": {
       "R": {
@@ -119,6 +132,61 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Important": {
+    "abbrs": {
+      "💎": {
+        "priority": 2,
+        "remark": "carries significant consequence or value toward a goal or priority, independent of timing: long-term impact, alignment with a core objective, or work that enables or unblocks other work",
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Important & Urgent": {
+    "abbrs": {
+      "EMQ I": {
+        "priority": 11,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "💎🚨": {
+        "priority": 21,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Important & not Urgent": {
+    "abbrs": {
+      "EMQ II": {
+        "priority": 12,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "💎": {
+        "priority": 22,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -322,6 +390,18 @@
       }
     }
   },
+  "Unimportant & not Urgent": {
+    "abbrs": {
+      "EMQ IV": {
+        "priority": 14,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Unity Editor": {
     "abbrs": {
       "edr": {
@@ -355,6 +435,40 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Urgent": {
+    "abbrs": {
+      "🚨": {
+        "priority": 3,
+        "remark": "demands prompt action because delay itself imposes a cost: a closing time window, an escalating consequence, or a dependency that leaves other work blocked while it waits",
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Urgent & Unimportant": {
+    "abbrs": {
+      "EMQ III": {
+        "priority": 13,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "🚨": {
+        "priority": 23,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -520,6 +634,18 @@
         "remark": "value provided to function at call time; interchangeable w/ parameter casually",
         "tags": [
           "coder-identifier-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "assign,assignment": {
+    "abbrs": {
+      "asgn": {
+        "priority": 5,
+        "tags": [
+          "secretary-common-shorthand",
           "letters_only"
         ],
         "wrap": "word"
@@ -1585,6 +1711,18 @@
       }
     }
   },
+  "homework": {
+    "abbrs": {
+      "hw": {
+        "priority": 5,
+        "tags": [
+          "secretary-common-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "hour": {
     "abbrs": {
       "h": {
@@ -1936,6 +2074,18 @@
         "priority": 5,
         "tags": [
           "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "meeting": {
+    "abbrs": {
+      "mtg": {
+        "priority": 1,
+        "tags": [
+          "secretary-common-shorthand",
           "letters_only"
         ],
         "wrap": "word"

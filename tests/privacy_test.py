@@ -21,6 +21,7 @@ _FORBIDDEN = (
     "kamilel",
     "kami-lel",
     "yangyi",
+    "erikyy",
     "lu164457053",
     "盧仰一",
     "kaye lel",
