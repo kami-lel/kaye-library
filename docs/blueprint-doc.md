@@ -82,7 +82,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | notes |
 |---|---|
-| `commit-sense` | the `Perform Commit Sense` section's text, without any co-author persona, its description and when-to-use kept in the `Perform Commit Sense Personalized` section beside it; a package may replace it with `override_exportable` |
+| `commit-sense` | the `Perform Commit Sense` section's text, without any co-author persona; a package may replace it with `override_exportable` |
 | `resolve-merge-conflict`, `prune-merged-branches` | called by the user only |
 | `submit-pr` | stub awaiting text |
 

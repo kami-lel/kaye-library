@@ -172,12 +172,8 @@ def register_git_commit_sense_blueprints():
             is_recursive=is_recursive,
         )
 
-    # the skill itself: the procedure section, with the descriptors in
-    # the sibling section beside it
-    descriptor_path = (
-        *_COMMIT_SENSE_PATH,
-        "Perform Commit Sense Personalized",
-    )
+    # the skill itself: the procedure section, with its own descriptors
+    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
     _register_commit_sense_leaf(
         register_exportable,
         "commit-sense",
@@ -188,8 +184,8 @@ def register_git_commit_sense_blueprints():
             "git-sense-per-file-summary",
         ],
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
-        description_node=(*descriptor_path, "{description}"),
-        when_to_use_node=(*descriptor_path, "{when_to_use}"),
+        description_node=(*commit_sense_path, "{description}"),
+        when_to_use_node=(*commit_sense_path, "{when_to_use}"),
     )
 
     # Dify prompts
