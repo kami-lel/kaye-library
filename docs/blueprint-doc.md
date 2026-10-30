@@ -116,6 +116,8 @@ Every skill is called by the user only. A personal glossary or substitution a sk
 | `secretary-event-brief-format` | `style-briefness-style`, the date-time, location, link, ticket fields; the shared event brief rules |
 | `push-event-to-calendar`, `pull-event-from-calendar` | none; add or retrieve calendar events |
 | `push-task-to-gtd`, `pull-task-from-gtd` | none; add or retrieve tasks in a GTD app |
+| `hunt-job-opportunity` | `agent-unreachable-task-workaround`, `style-briefness-style`, the date-time, deadline, location, link, source fields; gathers job openings into per-job briefs |
+| `good-morning`, `good-week` | none; the daily morning and weekly look-ahead check-ins that invoke the other Secretary skills |
 | `recap-yesterday`, `recap-today` | `style-briefness-style`, `element-dt-watch-day`; one-line daily recaps |
 
 ### Meta Prompt
