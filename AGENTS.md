@@ -36,7 +36,8 @@ Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_
 
 ## Content Rules
 
-- keep every prompt persona-free and free of personal data: no names, contact data, accounts, or schedules; a personal taste expressed as a rule ships as a default any consumer can override
+- keep every prompt persona-free and free of personal data: no names, contact data, accounts, or schedules; a personal taste expressed as a rule ships as a default a consumer overrides with `override_exportable`; a personal value spliced by a `(((placeholder)))` is registered by the consumer only, since a second registration of a glossary or substitution raises `ValueError`, so the library skill renders that placeholder literally when run alone
+- a skill that splices such a consumer-registered placeholder is listed in `_PERSONAL_PLACEHOLDER_SKILLS` (`tests/skill_export_test.py`), which exempts it from the unresolved-placeholder check
 - never name a downstream package in code, corpus, docs, tests, or commit messages
 - an abbreviation entry belongs in `kaye_library/abbrs.json` only when a glossary that library text splices needs it; name only glossaries this package registers
 - `tests/privacy_test.py` scans every shipped file for private strings: extend its list, never trim it
