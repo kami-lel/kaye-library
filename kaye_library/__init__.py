@@ -2,7 +2,7 @@
 kaye_library.__init__.py
 
 the shareable layer over kaye-engine: style, element, git, repository,
-agent, and coder prompts; importing this module alone loads nothing
+agent, coder, meta, Amanuensis, and Secretary prompts; importing this module alone loads nothing
 
 a consumer package, or ``setup_kaye_library_for_kaye_engine`` standalone,
 calls the six steps below in this order: consumer, abbr glossaries, abbr
@@ -58,6 +58,9 @@ _CORPUS_SOURCES = [
     ((), "project/project.md"),
     ((), "repo/repo.md"),
     ((), "git/git.md"),
+    ((), "meta_prompt/meta_prompt.md"),
+    ((), "amanuensis/amanuensis.md"),
+    ((), "secretary/secretary.md"),
     ((), "coder/coder.md"),
     (("Coder",), "coder/coder-bash.md"),
     (("Coder",), "coder/coder-powershell.md"),

@@ -20,13 +20,14 @@ class TestOwnership:
     def test_skill_belongs_to_the_library(_):
         assert exportable_registry["commit-sense"].consumer == "kaye-library"
 
-    def test_core_is_internal(_):
-        assert not blueprint_registry["commit-sense-core"].is_exportable
+    def test_no_separate_core_entry(_):
+        assert "commit-sense-core" not in blueprint_registry
 
-    def test_skill_builds_on_the_core(_):
-        blueprint = blueprint_registry["commit-sense"].blueprint
-
-        assert blueprint.dependencies == ("commit-sense-core",)
+    def test_skill_is_the_one_exportable_entry(_):
+        assert blueprint_registry["commit-sense"].is_exportable
+        assert exportable_registry["commit-sense"] is (
+            blueprint_registry["commit-sense"]
+        )
 
 
 class TestContent:
