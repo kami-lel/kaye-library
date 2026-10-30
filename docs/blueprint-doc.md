@@ -104,6 +104,15 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 | `coder-u3d-mb` | `style-briefness-style` |
 | `coder-u3d-assets-management`, `coder-u3d-so` | none |
 
+### Meta Prompt
+
+| skill | depends on |
+|---|---|
+| `write-llm-prompt` | `meta-prompt`; drafts and improves LLM system prompts, called by the user only |
+| `write-skill-description` | `write-for-skill`; writes a skill's `description` field |
+| `write-skill-when-to-use` | `write-for-skill`; writes a skill's `when_to_use` field |
+| `write-skill-description-and-when-to-use` | `write-skill-description`, `write-skill-when-to-use` |
+
 ### Glossary Groups
 
 Each exportable glossary is also a skill named `glossary-<name>`; see the [glossary document](glossary-doc.md).
@@ -122,5 +131,6 @@ Never exported; they exist for a skill, or a package, to build on.
 | `agent-unreachable-task-workaround` | the procedure for a task whose needed information cannot be obtained |
 | `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
 | `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |
+| `meta-prompt`, `write-for-skill` | shared bases of the Meta Prompt writers and the skill-metadata writers |
 
 A package builds its own skill over an internal blueprint by listing it as a dependency, or over an exportable's blueprint object for a skill it takes over, as in [the boundary document](boundary-doc.md#taking-a-skill-over).
