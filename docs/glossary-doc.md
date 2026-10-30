@@ -30,7 +30,7 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `secretary-calendar-name` | Secretary | none | calendar push and pull | 8 |
 | `secretary-gtd-project` | Secretary | none | GTD push | 9 |
 | `secretary-email-category` | Secretary | none | Sweep Email Inbox | 10 |
-| `programming-language-codes` | Coder | `glossary-programming-language-codes` | code format | 12 |
+| `programming-language-codes` | Coder | `glossary-programming-language-codes` | code format | 13 |
 
 Counts are entries carrying the glossary in `abbrs.json`; an entry may carry several glossaries.
 
