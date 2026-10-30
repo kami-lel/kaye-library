@@ -24,7 +24,6 @@ todo add gh release script
 
 ### Changed
 
-- `Perform Commit Sense Personalized` corpus section: holds the commit skill's `{description}` and `{when_to_use}`; `Perform Commit Sense` keeps the persona-free procedure body, so the rendered skill is unchanged
 - `commit-sense` and `coder`: each registered once under its own name, with no separate `-core` blueprint; a package takes a skill over by building on the library blueprint object
 - `coder-u3d-abbr` and `coder-u3d-identifier` gain abbreviations for effects, hierarchy, and editor terms
 - `plan-for-suite`: Bar 1 and Bar 2 headings rise from h4 to h3

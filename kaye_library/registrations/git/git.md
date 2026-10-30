@@ -280,8 +280,6 @@ Reply in one line with the short hash. If git rejects the commit, report its out
 
 
 
-### Perform Commit Sense Personalized
-
 #### {description}
 
 Commits the indexed diff with a primary summary and a per-file ledger.
