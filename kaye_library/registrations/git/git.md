@@ -235,7 +235,7 @@ document retry-budget behavior in scheduler README
 
 
 
-### Perform Commit Sense Core
+### Perform Commit Sense
 
 Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached`, then run `git commit` once with the whole message as a single `-m` argument.
 
@@ -280,7 +280,7 @@ Reply in one line with the short hash. If git rejects the commit, report its out
 
 
 
-### Perform Commit Sense
+### Perform Commit Sense Personalized
 
 #### {description}
 

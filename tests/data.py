@@ -165,7 +165,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
  'commit-sense': ['### primary summary',
                   '### per-file change sigil',
                   '### per-file summary',
-                  '### Perform Commit Sense Core',
+                  '### Perform Commit Sense',
                   'Commit the indexed changes: draw the message from the '
                   'conversation'],
  'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
