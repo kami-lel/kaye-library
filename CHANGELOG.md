@@ -24,6 +24,8 @@ todo add gh release script
 
 ### Fixed
 
+- `commit-sense`: file ledger names file w/ extension, not directory path
+
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.0.0...dev

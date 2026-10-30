@@ -239,7 +239,6 @@ document retry-budget behavior in scheduler README
 
 <!--
 Todo a "core" version of commit sense skill in library
-Bug should contains filename, not path
 -->
 
 Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached`, then run `git commit` once with the whole message as a single `-m` argument.
@@ -247,7 +246,7 @@ Commit the indexed changes: draw the message from the conversation so far, optio
 The message has up to three parts, in order, separated by blank lines:
 
 1. Primary Message: follow [Primary Summary](#primary-summary) over the whole diff
-2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked name, a space, its [summary](#per-file-summary); for a single file, sigil and name only
+2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked filename with extension (eg `git.md`, never the directory path), a space, its [summary](#per-file-summary); for a single file, sigil and name only
 3. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
 
 Keep the trailer last.
