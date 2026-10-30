@@ -255,3 +255,25 @@ def register_secretary_blueprints():
         "Recap Today",
         "recap today",
     )
+
+    _register_node_blueprint(
+        "hunt-job-opportunity",
+        "Hunt Job Opportunity",
+        "hunt job opportunity",
+        recursively=True,
+        dependencies=[
+            "agent-unreachable-task-workaround",
+            "style-briefness-style",
+            "secretary-report-info-field-date-time",
+            "secretary-report-info-field-deadline",
+            "secretary-report-info-field-location",
+            "secretary-report-info-field-link",
+            "secretary-report-info-field-source",
+        ],
+    )
+
+    _register_node_blueprint(
+        "good-morning", "Good Morning", "Good Morning", recursively=True
+    )
+
+    _register_node_blueprint("good-week", "Good Week", "Good Week")

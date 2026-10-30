@@ -966,3 +966,292 @@ Recaps what user has finished today so far as one warm, encouraging Recap Line: 
 #### {when_to_use}
 
 Trigger on "what have I done today," "recap today so far," a mid-day or end-of-day check on today's progress, or any ask for today's finished work. Not for yesterday's record, nor Good Morning's full inbox-plus-event check-in.
+
+
+
+
+## hunt job opportunity
+
+You gather job opportunities and present them as briefs, one per job.
+
+
+
+
+
+#### Bar 1: Gather job information
+
+Gather job opportunity information. Sources may include job opportunities mentioned in this conversation.
+
+
+
+
+
+#### Job Opportunity Report
+
+Collect the briefs under one `## 🪜 Job Opportunity` heading. Render each job as a [local heading](#heading-format), followed by key details, each a [report info field](#common-report-info-field), then an overview in [briefness style](#style-briefness-style).
+
+Example:
+
+```md
+# 🪜 JOB OPPORTUNITY [2]
+
+### Senior Backend Engineer at Acme Corp
+
+📅 A 08-17
+🎯 U 08-30
+📍 Remote
+🔗 [Job Posting](https://example.com/jobs/123)
+📮 LinkedIn
+
+> Seeking a **backend engineer** 🖥️ with **5+ years** in distributed systems.
+> **Remote-first**.
+
+### Product Designer at Nova Studio
+
+📅 E 08-19
+📍 San Francisco, CA
+🔗 [Job Posting](https://example.com/jobs/456)
+📮 LinkedIn
+
+> Seeking a **product designer** 🎨 to lead the **mobile redesign**.
+> Portfolio required, **on-site** 3 days a week.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+### {description}
+
+Gathers job opportunity information from any available source and formats it into briefs, one per job, each with a title-and-company heading, key details, and a briefness-style overview.
+
+### {when_to_use}
+
+Trigger on "job hunt," "find me a job," "what job opportunities are there," or any ask to gather and present job openings, including openings already mentioned in this conversation. Not for revising a single job posting or listing calendar events.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Good Morning
+
+You run the user's daily morning check in one pass: sweep the unread inbox, recap what yesterday came to, scan the event radar, hunt job opportunities, and deliver a single report. You follow [sweep email inbox](#sweep-email-inbox), [recap yesterday](#recap-yesterday), [scan event radar](#scan-event-radar), and [hunt job opportunity](#hunt-job-opportunity) as written, including every Judgment Note and Safety Constraint each carries.
+
+Mail is itself an event and job source. Some messages carry an invitation, a talk announcement, an opening, or a dated deadline; Bar 8 takes events out of the mail, Bar 9 takes job openings out of the mail, and Bar 10 presents both alongside the radar's and hunt's own.
+
+
+
+
+#### Procedure
+
+Bar 1~10, in strict order: each fully finished, with nothing skipped or reordered, before the next begins.
+
+- Bar 1~6: Sweep. Run Bar 1~6 of [sweep email inbox](#sweep-email-inbox), with one change at Bar 6: raise no separate report, and hold the swept, categorized, flagged result for Bar 10
+- Bar 7: Recap yesterday. Run [recap yesterday](#recap-yesterday) whole, and hold its lines for Bar 10
+- Bar 8: Gather events. Run Bar 1: Gather event for today of [scan event radar](#scan-event-radar) over the radar's own Info Feed, then add every event carried by mail read in Bar 2. Keep each mail-borne event tied to its message, so Bar 10 can attribute and link it
+- Bar 9: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity) over everything gathered in Bar 1~8, mail included. Keep each mail-borne opportunity tied to its message, so Bar 10 can attribute and link it
+- Bar 10: Report. Run Bar 2 of [scan event radar](#scan-event-radar) to format the gathered events and the Job Opportunity Report of [hunt job opportunity](#hunt-job-opportunity) to format the gathered opportunities, then emit the single report per [Good Morning Reporting](#good-morning-reporting)
+
+----
+
+An event or job opportunity may appear in a message of any category, an Automated newsletter as readily as a Private note. Categorizing a message never excuses it from Bar 8 or Bar 9.
+
+A mail-borne event or job opportunity never replaces its message in the mail half: the message is still reported where its category places it.
+
+
+
+
+#### Good Morning Reporting
+
+One Markdown document: yesterday's recap first, job opportunities second, events third, mail last. A mail-borne event or job opportunity carries `📨` sender and `🪧` message link among its key details; the mail report then follows entire, its headings demoted one level.
+
+Example, abridged: only the heading structure is shown; `...` replaces each entry's key details and overview.
+
+```md
+# 🌅 Good Morning Report
+
+# 🌙 YESTERDAY RECAP
+
+...
+
+----
+
+# 🪜 JOB OPPORTUNITY [1]
+
+### Backend Engineer at Acme Corp
+
+...
+
+----
+
+# 📡 EVENT RADAR [2]
+
+### Rooftop Mixer This Saturday
+
+...
+
+----
+
+# 📬 EMAIL INBOX SWEPT [15]
+
+# 🏦 Admin [2\15]
+
+### 💎🚨 Tuition due Friday
+
+...
+```
+
+
+
+
+### {description}
+
+Runs the user's daily morning check in one pass, closing with a single combined report.
+
+### {when_to_use}
+
+Trigger on "good morning," a daily or morning check-in request, or an ask to catch up on daily admin and housekeeping. Not for a single one-off task or an ad-hoc lookup.
+
+
+
+
+
+### {[ClaudeCode:Skill] Usage}
+
+Invoke `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hunt-job-opportunity`, via `Skill` tool.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Good Week
+
+You run the user's weekly look ahead: scan the event radar across the coming week, hunt job opportunities with sources cited, and report what survives the filter. You follow [scan event radar](#scan-event-radar) and [hunt job opportunity](#hunt-job-opportunity), sourced from the [job feed websites](#job-feed-websites), as written.
+
+This run works the radar and the job hunt: [Good Morning](#good-morning) owns the inbox.
+
+
+
+
+#### Procedure
+
+Bar 1~3, in strict order: each fully finished, with nothing skipped or reordered, before the next begins.
+
+- Bar 1: Gather events. Run Bar 1: Gather event of week of [scan event radar](#scan-event-radar)
+- Bar 2: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity), searching the [job feed websites](#job-feed-websites) and citing every source
+- Bar 3: Report. Run Bar 2 of [scan event radar](#scan-event-radar) to format the gathered events and the Job Opportunity Report of [hunt job opportunity](#hunt-job-opportunity) to format the gathered opportunities, then emit the report per [Good Week Reporting](#good-week-reporting)
+
+----
+
+The weekly view carries the whole week entire, an event or job opportunity a daily run already surfaced included.
+
+
+
+
+#### Good Week Reporting
+
+One Markdown document: the event briefs entire, ordered by date, soonest first, job opportunities following, each with its sources cited.
+
+Example, abridged: only the heading structure is shown; `...` replaces each entry's key details and overview.
+
+```md
+# 🗓️ Good Week Report
+
+# 📡 EVENT RADAR [4]
+
+### Rooftop Mixer This Saturday
+
+...
+
+----
+
+# 🪜 JOB OPPORTUNITY [1]
+
+### Backend Engineer at Acme Corp
+
+...
+```
+
+
+
+
+
+### {description}
+
+Runs the user's weekly look ahead, events and job opportunities alike, closing with a single report.
+
+### {when_to_use}
+
+Trigger on "good week," a weekly or start-of-week check-in request, or an ask for what is coming up this week.
+
+
+
+
+
+### {[ClaudeCode:Skill] Usage}
+
+Invoke `scan-event-radar-weekly`, then `hunt-job-opportunity`, via `Skill` tool.
