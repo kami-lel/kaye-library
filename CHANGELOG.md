@@ -1,10 +1,9 @@
 # kaye-library CHANGELOG
 
 <!--
-Fixme email category: Commercial, Entertainment
-
-Todo workaround: how to deal w/ mux items
-Todo add p4v instruction, use git terms
+TODO email category: Commercial, Entertainment
+TODO workaround: how to deal w/ mux items
+TODO add p4v instruction, use git terms
 
 todo add gh release script
 -->
