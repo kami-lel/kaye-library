@@ -87,6 +87,8 @@ def _register_commit_sense_leaf(
     dependencies,
     extra_checkmarks=(),
     is_recursive=True,
+    description_node=None,
+    when_to_use_node=None,
     **register_kwargs,
 ):
     """
@@ -98,6 +100,12 @@ def _register_commit_sense_leaf(
     :param is_recursive: whether the leaf takes every descendant; if not,
             only the descendants in ``extra_checkmarks`` render
     :type is_recursive: bool, optional
+    :param description_node: node path of the skill description; ``None``
+            keeps the default naming lookup
+    :type description_node: tuple[str, ...], optional
+    :param when_to_use_node: node path of the skill when-to-use text;
+            ``None`` keeps the default naming lookup
+    :type when_to_use_node: tuple[str, ...], optional
     """
     bp = create_blueprint(dependencies=dependencies)
     bp = checkmark_nodes(bp, _COMMIT_SENSE_PATH)
@@ -108,18 +116,26 @@ def _register_commit_sense_leaf(
         bp = mark_as_leaf(bp, leaf_path)
     else:
         bp = checkmark_nodes(bp, leaf_path)
+    meta_kwargs = {}
+    if description_node is not None:
+        meta_kwargs["description_node"] = description_node
+    if when_to_use_node is not None:
+        meta_kwargs["when_to_use_node"] = when_to_use_node
     register_fn(
-        slug, replace_meta(bp, display_name=leaf_name), **register_kwargs
+        slug,
+        replace_meta(bp, display_name=leaf_name, **meta_kwargs),
+        **register_kwargs,
     )
 
 
 def register_git_commit_sense_blueprints():
     """
-    register the internal ``git-sense-*`` and ``commit-sense-core``
-    blueprints and the exportable ``commit-sense`` skill built on them
+    register the internal ``git-sense-*`` blueprints and the exportable
+    ``commit-sense`` skill built on them
 
     a package building on the library may take the skill over with
-    ``override_exportable("commit-sense", ...)`` over ``commit-sense-core``
+    ``override_exportable("commit-sense", ...)``, building its own blueprint
+    over the blueprint object ``get_blueprint("commit-sense").blueprint``
     """
     core_bp = create_blueprint()
     for path in (
@@ -156,9 +172,11 @@ def register_git_commit_sense_blueprints():
             is_recursive=is_recursive,
         )
 
+    # the skill itself, under the leaf's own descriptors
+    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
     _register_commit_sense_leaf(
-        _register_internal,
-        "commit-sense-core",
+        register_exportable,
+        "commit-sense",
         "Perform Commit Sense",
         dependencies=[
             "git-sense-primary-summary",
@@ -166,18 +184,8 @@ def register_git_commit_sense_blueprints():
             "git-sense-per-file-summary",
         ],
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
-    )
-
-    # the skill itself: the core, under the leaf's own descriptors
-    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
-    register_exportable(
-        "commit-sense",
-        replace_meta(
-            create_blueprint(dependencies=["commit-sense-core"]),
-            display_name="Perform Commit Sense",
-            description_node=(*commit_sense_path, "{description}"),
-            when_to_use_node=(*commit_sense_path, "{when_to_use}"),
-        ),
+        description_node=(*commit_sense_path, "{description}"),
+        when_to_use_node=(*commit_sense_path, "{when_to_use}"),
     )
 
     # Dify prompts

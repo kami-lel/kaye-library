@@ -82,7 +82,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | notes |
 |---|---|
-| `commit-sense` | over the internal `commit-sense-core`; a package may replace it with `override_exportable` |
+| `commit-sense` | the commit sense skill's text, without any co-author persona; a package may replace it with `override_exportable` |
 | `resolve-merge-conflict`, `prune-merged-branches` | called by the user only |
 | `submit-pr` | stub awaiting text |
 
@@ -90,7 +90,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | depends on |
 |---|---|
-| `coder` | internal `coder-core`; a package may replace it with `override_exportable` |
+| `coder` | the Coder rules, glossaries, and triage tags, with no conversation rules; a package may replace it with `override_exportable` |
 | `plan-for-suite` | `agent-movement-and-suite` |
 | `plan-for-suite-execution` | `agent-movement-and-suite` |
 | `sync-unit-test` | `agent-movement-and-suite-with-count`, `element-triage-tags` |
@@ -121,8 +121,6 @@ Never exported; they exist for a skill, or a package, to build on.
 | `git-feature-branch` | the feature branch definition |
 | `agent-unreachable-task-workaround` | the procedure for a task whose needed information cannot be obtained |
 | `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
-| `commit-sense-core` | the commit sense skill's text, without any co-author persona |
 | `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |
-| `coder-core` | the Coder rules, glossaries, and triage tags, with no conversation rules; the `coder` skill renders it alone |
 
-A package builds its own skill over an internal blueprint by listing it as a dependency, as in [the boundary document](boundary-doc.md#taking-a-skill-over).
+A package builds its own skill over an internal blueprint by listing it as a dependency, or over an exportable's blueprint object for a skill it takes over, as in [the boundary document](boundary-doc.md#taking-a-skill-over).

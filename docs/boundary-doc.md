@@ -35,15 +35,16 @@ A process runs exactly one setup: the standalone `setup_kaye_library_for_kaye_en
 
 ## Taking a Skill Over
 
-A package that wants its own version of a library skill builds it over the library's internal blueprint and registers it with `override_exportable`, which validates the blueprint, moves the skill to the package's plugin, and keeps the other flags:
+A package that wants its own version of a library skill builds it over the library skill's own blueprint object and registers it with `override_exportable`, which validates the blueprint, moves the skill to the package's plugin, and keeps the other flags:
 
 ```python
 from kaye_engine import override_exportable
 from kaye_engine.prompt.blueprint import create_blueprint, get_blueprint, replace_meta
 
-meta = get_blueprint("commit-sense").blueprint.meta
+library_bp = get_blueprint("commit-sense").blueprint
+meta = library_bp.meta
 bp = replace_meta(
-    create_blueprint(dependencies=["commit-sense-core", "my-trailer-rules"]),
+    create_blueprint(dependencies=[library_bp, "my-trailer-rules"]),
     display_name=meta.display_name,
     description_node=meta.description_node,
     when_to_use_node=meta.when_to_use_node,
@@ -51,7 +52,7 @@ bp = replace_meta(
 override_exportable("commit-sense", bp, consumer="my-package")
 ```
 
-The library's own `commit-sense` shows an optional, generic co-author trailer; the override adds whatever rules and identity the package wants, so the library's plugin never carries them. `coder` works the same way: the library's skill is `coder-core` alone, and a package's override adds its conversation rules around `coder-core`, optionally with `always_apply=True`. Every language profile that tells the assistant to invoke `coder` then reaches the package's version.
+Take the blueprint object, never the string name `commit-sense`: `override_exportable` rejects a blueprint that depends on the name it replaces, as a cycle. The library's own `commit-sense` shows an optional, generic co-author trailer; the override adds whatever rules and identity the package wants, so the library's plugin never carries them. `coder` works the same way: the library's skill carries the Coder rules alone, and a package's override adds its conversation rules around the library's `coder` blueprint object, optionally with `always_apply=True`. Every language profile that tells the assistant to invoke `coder` then reaches the package's version.
 
 ## Abbreviation Layers
 
