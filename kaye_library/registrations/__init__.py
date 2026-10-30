@@ -7,9 +7,11 @@ tree is loaded
 """
 
 from .agent.agent_glossary import register_agent_abbr_glossaries
+from .amanuensis.amanuensis_glossary import register_amanuensis_abbr_glossaries
 from .coder.coder_glossary import register_coder_abbr_glossaries
 from .element.element_glossary import register_element_abbr_glossaries
 from .git.git_glossary import register_git_abbr_glossaries
+from .secretary.secretary_glossary import register_secretary_abbr_glossaries
 from .style.style_glossary import register_style_abbr_glossaries
 
 __all__ = (
@@ -29,6 +31,9 @@ def register_kaye_library_blueprints():
     """
     from .agent.agent_bp import (  # pylint: disable=C0415
         register_agent_blueprints,
+    )
+    from .amanuensis.amanuensis_bp import (  # pylint: disable=C0415
+        register_amanuensis_blueprints,
     )
     from .coder.coder_bp import (  # pylint: disable=C0415
         register_coder_blueprints,
@@ -54,6 +59,12 @@ def register_kaye_library_blueprints():
     from .letter_case.letter_case_bp import (  # pylint: disable=C0415
         register_letter_case_blueprints,
     )
+    from .meta_prompt.meta_prompt_bp import (  # pylint: disable=C0415
+        register_meta_prompt_blueprints,
+    )
+    from .secretary.secretary_bp import (  # pylint: disable=C0415
+        register_secretary_blueprints,
+    )
     from .style.style_bp import (  # pylint: disable=C0415
         register_style_blueprints,
     )
@@ -68,6 +79,9 @@ def register_kaye_library_blueprints():
     register_general_blueprints()
     register_git_blueprints()
     register_coder_blueprints()
+    register_meta_prompt_blueprints()
+    register_amanuensis_blueprints()
+    register_secretary_blueprints()
 
 
 def register_kaye_library_abbr_glossaries():
@@ -76,9 +90,11 @@ def register_kaye_library_abbr_glossaries():
     group, order-independent
     """
     register_agent_abbr_glossaries()
+    register_amanuensis_abbr_glossaries()
     register_coder_abbr_glossaries()
     register_element_abbr_glossaries()
     register_git_abbr_glossaries()
+    register_secretary_abbr_glossaries()
     register_style_abbr_glossaries()
 
 

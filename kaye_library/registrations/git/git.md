@@ -237,10 +237,6 @@ document retry-budget behavior in scheduler README
 
 ### Perform Commit Sense
 
-<!--
-Todo a "core" version of commit sense skill in library
--->
-
 Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached`, then run `git commit` once with the whole message as a single `-m` argument.
 
 The message has up to three parts, in order, separated by blank lines:
@@ -279,8 +275,6 @@ Reply in one line with the short hash. If git rejects the commit, report its out
 <post-commit-output-example>
 🚩🐙 Commit `a3f9c21`
 </post-commit-output-example>
-
-
 
 
 

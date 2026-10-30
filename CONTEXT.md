@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-10-19, v1.0.0. History lives in `CHANGELOG.md` and `git log`, not here.
+**Last updated:** 2026-10-30, v1.0.1a0. History lives in `CHANGELOG.md` and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside `AGENTS.md`.
 
@@ -50,7 +50,7 @@ A host calls the steps in this order, or `setup_kaye_library_for_kaye_engine()` 
 
 Standalone setup then names `kaye-library` the entry consumer and configures the Claude and Hermes CLIs with no chat, coder, or soul name; a subcommand needing one exits 1 with a clear message. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
-Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` over the library's internal building blocks: `commit-sense` over `commit-sense-core`, `coder` over `coder-core`; the skill keeps its name and moves to the host's plugin.
+Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
 The console command builds on the engine's `register_cli_main_parser(PACKAGE_NAME, PROGRAM_NAME)`, so its `--help` text is the engine's and only the usage line and `--version` name `kaye-library`. `KAYE_LIBRARY_DISPLAY_NAME` (`Kaye Library`) names both the consumer record and the comment line.
 
@@ -67,6 +67,9 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 | Repositories | Repository Structure, README, CHANGELOG, CONTEXT writers, create and maintain workflows, landing and release workflows |
 | Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
+| Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
+| Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |
+| Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
 | `(today)`, `(element-dt-days-of-week)` | dynamic placements carrying authored preface text |
 
 - the language files register under `("Coder",)`; every other file registers under the root
@@ -79,7 +82,7 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
 - stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
 - `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
-- the `Coder` root carries no conversation rules: the `coder` skill is `coder-core` alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around `coder-core`
+- the `Coder` root carries no conversation rules: the `coder` skill carries the rules alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around the `coder` blueprint object
 
 ## Abbreviation Database
 
@@ -97,6 +100,7 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 ## Known Gaps & Constraints
 
+- **personal placeholders in Secretary skills**: `sweep-email-inbox`, the calendar and GTD skills, and the event radar splice glossaries or substitutions the library does not register (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-work-color-legend`, `secretary-email-category`, `secretary-email-authuser`); run alone, their placeholders render literally, and a consumer registers them
 - **stubs**: `land-feature`, `release-version`, and `submit-pr` render placeholder text until their sections are written
 - **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[ClaudeCode:...]}` sidecars never render under the standalone command, only their fallbacks
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link
