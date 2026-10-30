@@ -1,7 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo add gh release script
+todo add gh release script
 -->
 
 ## [Unreleased]
