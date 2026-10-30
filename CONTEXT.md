@@ -67,6 +67,7 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 | Repositories | Repository Structure, README, CHANGELOG, CONTEXT writers, create and maintain workflows, landing and release workflows |
 | Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
+| Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
 | `(today)`, `(element-dt-days-of-week)` | dynamic placements carrying authored preface text |
 

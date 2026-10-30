@@ -444,6 +444,18 @@
       }
     }
   },
+  "alt/option": {
+    "abbrs": {
+      "⌥": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "amount": {
     "abbrs": {
       "amt": {
@@ -548,6 +560,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "backspace": {
+    "abbrs": {
+      "⌫": {
+        "priority": 9,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -676,6 +700,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "caps lock": {
+    "abbrs": {
+      "⇪": {
+        "priority": 6,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -865,6 +901,18 @@
       }
     }
   },
+  "control/command": {
+    "abbrs": {
+      "⌘": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "copy": {
     "abbrs": {
       "cp": {
@@ -923,6 +971,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "delete": {
+    "abbrs": {
+      "⌦": {
+        "priority": 10,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1086,6 +1146,18 @@
       }
     }
   },
+  "down arrow": {
+    "abbrs": {
+      "↓": {
+        "priority": 18,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "dynamic": {
     "abbrs": {
       "dyn": {
@@ -1133,6 +1205,18 @@
           "single_character"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "end": {
+    "abbrs": {
+      "⇲": {
+        "priority": 14,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1193,6 +1277,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "escape": {
+    "abbrs": {
+      "⎋": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1477,6 +1573,18 @@
       }
     }
   },
+  "home": {
+    "abbrs": {
+      "⇱": {
+        "priority": 13,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "hour": {
     "abbrs": {
       "h": {
@@ -1710,6 +1818,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "left arrow": {
+    "abbrs": {
+      "←": {
+        "priority": 17,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2052,6 +2172,14 @@
         ],
         "wrap": "word"
       },
+      "∅": {
+        "priority": 4,
+        "tags": [
+          "single_character",
+          "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "symbol"
+      },
       "➖": {
         "priority": 6,
         "tags": [
@@ -2225,6 +2353,30 @@
         "tags": [
           "commit-sense-sigil",
           "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "page down": {
+    "abbrs": {
+      "⇟": {
+        "priority": 11,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "page up": {
+    "abbrs": {
+      "⇞": {
+        "priority": 12,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
         ],
         "wrap": "symbol"
       }
@@ -2511,6 +2663,30 @@
       }
     }
   },
+  "return/enter": {
+    "abbrs": {
+      "⏎": {
+        "priority": 8,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right arrow": {
+    "abbrs": {
+      "→": {
+        "priority": 16,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "same as cell above": {
     "abbrs": {
       "〃": {
@@ -2570,6 +2746,46 @@
       }
     }
   },
+  "selected": {
+    "abbrs": {
+      "◎": {
+        "priority": 3,
+        "remark": "bullseye",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "●": {
+        "priority": 4,
+        "remark": "filled circle",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☑": {
+        "priority": 1,
+        "remark": "checkbox with a tick",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☒": {
+        "priority": 2,
+        "remark": "checkbox with a cross",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "sequence": {
     "abbrs": {
       "sq": {
@@ -2608,6 +2824,18 @@
       }
     }
   },
+  "shift": {
+    "abbrs": {
+      "⇧": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "sound effects": {
     "abbrs": {
       "SFX": {
@@ -2629,6 +2857,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "space": {
+    "abbrs": {
+      "␣": {
+        "priority": 7,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2692,6 +2932,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "tab": {
+    "abbrs": {
+      "⇥": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2836,6 +3088,52 @@
           "coder-u3d-identifier"
         ],
         "wrap": "unit"
+      }
+    }
+  },
+  "unknown": {
+    "abbrs": {
+      "??": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "unselected": {
+    "abbrs": {
+      "○": {
+        "priority": 6,
+        "remark": "empty circle",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☐": {
+        "priority": 6,
+        "remark": "empty checkbox",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "up arrow": {
+    "abbrs": {
+      "↑": {
+        "priority": 15,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },

@@ -8,6 +8,7 @@ todo add gh release script
 
 ### Added
 
+- Amanuensis writers: Chicago Citation, `bibliographer`, `assemble-bibliography`, `redactor`, `dispositor`, `scholiast`, `config-writer`, `keybinding-writer`, `minutes-clerk`, with the `amanuensis-config-writer-shorthand` and `amanuensis-keybinding-writer-shorthand` glossaries and their abbreviation entries
 - Meta Prompt: `write-llm-prompt` and the `write-skill-description`, `write-skill-when-to-use`, `write-skill-description-and-when-to-use` writers, with the internal `meta-prompt` and `write-for-skill` bases
 - internal `agent-unreachable-task-workaround` blueprint: the procedure for a task whose needed information cannot be obtained
 - `plan-for-suite`: a Party per Movement, so a Movement can belong to the user or another party, and a `Movement Heading` format for the Plan file
