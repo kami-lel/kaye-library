@@ -22,6 +22,12 @@ SKILL_NAMES = sorted(
     if entry.consumer == "kaye-library"
 )
 
+# skills splicing a personal glossary or substitution a consumer registers;
+# standalone, the placeholder stays literal
+_PERSONAL_PLACEHOLDER_SKILLS = frozenset(
+    ("sweep-email-inbox",)
+)
+
 
 def _read(folder, name):
     return (folder / name / "SKILL.md").read_text(encoding="utf-8")
@@ -76,6 +82,9 @@ class TestStructure:
 
     @pytest.mark.parametrize("name", SKILL_NAMES)
     def test_no_unresolved_placeholder(_, skills_folder, name):
+        if name in _PERSONAL_PLACEHOLDER_SKILLS:
+            pytest.skip("a consumer registers the personal glossary")
+
         assert "(((" not in _read(skills_folder, name)
 
 

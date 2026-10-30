@@ -1,14 +1,41 @@
 {
+  "Admin": {
+    "abbrs": {
+      "🏦": {
+        "priority": 5,
+        "remark": "Administration: government correspondence, visa/immigration, tax filings, legal notices, and banking; medical and insurance matters; school enrollment and tuition; and company HR, payroll, and benefits",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Automated": {
+    "abbrs": {
+      "🤖": {
+        "priority": 9,
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    },
+    "remark": "bot-generated or no-reply senders: system alerts, policy and terms-of-use updates, security notifications, receipts, shipping confirmations, password resets, CI/build notifications, auto-replies, and out-of-office replies"
+  },
   "Bar finished": {
     "abbrs": {
       "🚩": {
         "priority": 11,
+        "remark": "one per Bar, used often, the Turn continuing past it",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "one per Bar, used often, the Turn continuing past it"
+        "wrap": "symbol"
       }
     }
   },
@@ -21,6 +48,21 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Business": {
+    "abbrs": {
+      "💼": {
+        "priority": 2,
+        "remark": "work matters at the user's own workplace: in-team information, vendor and client dealings, invoicing and billing, contracts and partnerships, and project and deal coordination",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -73,6 +115,89 @@
       }
     }
   },
+  "Career": {
+    "abbrs": {
+      "🪜": {
+        "priority": 4,
+        "remark": "job search and professional advancement: applications, recruiter outreach, interviews, offers, and job market activity",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Commercial": {
+    "abbrs": {
+      "🛒": {
+        "priority": 10,
+        "remark": "unsolicited sales and marketing from businesses: offers, ads, and cold outreach",
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Education": {
+    "abbrs": {
+      "🎓": {
+        "priority": 3,
+        "remark": "academic life: coursework, instruction, evaluation, and the institutional matters that surround them",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-calendar-name",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Einsenhower Matrix Quadrant": {
+    "abbrs": {
+      "EMQ": {
+        "priority": 1,
+        "remark": "categorize tasks/todos into 1 of 4 quadrants",
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Entertainment": {
+    "abbrs": {
+      "🎬": {
+        "priority": 8,
+        "remark": "leisure and recreation consumed or attended for enjoyment, not tied to a specific relationship; example: a concert, a movie screening, a board game night",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Faith": {
+    "abbrs": {
+      "⛪": {
+        "priority": 6,
+        "remark": "religious and fellowship life: worship, spiritual growth, and the practices that carry them",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Friday": {
     "abbrs": {
       "R": {
@@ -122,6 +247,73 @@
       }
     }
   },
+  "Important": {
+    "abbrs": {
+      "💎": {
+        "priority": 2,
+        "remark": "carries significant consequence or value toward a goal or priority, independent of timing: long-term impact, alignment with a core objective, or work that enables or unblocks other work",
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Important & Urgent": {
+    "abbrs": {
+      "EMQ I": {
+        "priority": 11,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "💎🚨": {
+        "priority": 21,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Important & not Urgent": {
+    "abbrs": {
+      "EMQ II": {
+        "priority": 12,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "💎": {
+        "priority": 22,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Inbox": {
+    "abbrs": {
+      "Inbox": {
+        "priority": 8,
+        "remark": "default entry: anything that fits none of the entries above",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "JavaScript": {
     "abbrs": {
       "js": {
@@ -131,6 +323,18 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Learn": {
+    "abbrs": {
+      "🌱": {
+        "priority": 1,
+        "remark": "self-directed learning of a skill or tool set outside institutions: self-teaching, tutorials, books, and courses",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -150,13 +354,13 @@
     "abbrs": {
       "A": {
         "priority": 1,
+        "remark": "1st letter, 1st workday",
         "tags": [
           "element-dt-days-of-week",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "1st letter, 1st workday"
+        "wrap": "word"
       }
     }
   },
@@ -176,12 +380,50 @@
     "abbrs": {
       "🎏": {
         "priority": 12,
+        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)"
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Newsletter": {
+    "abbrs": {
+      "📬": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    },
+    "remark": "recurring subscriptions and digests: mailing lists, blog updates, product announcements, promotional campaigns, and event or entertainment listings"
+  },
+  "Optional": {
+    "abbrs": {
+      "🎈": {
+        "priority": 1,
+        "remark": "events the user may attend or skip without consequence, not yet firmly committed; example: a coffee invite with no RSVP given, a neighbor's open house",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Perforce": {
+    "abbrs": {
+      "p4v": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
       }
     }
   },
@@ -206,6 +448,16 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🏠": {
+        "priority": 1,
+        "remark": "personal life with a real individual, not a bot or organization: relationships, one-on-one contact, and the exchanges shared with them",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -218,6 +470,27 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🏛️": {
+        "priority": 1,
+        "remark": "fallback sub-calendar for an event that matches no more specific sub-calendar; example: a city's fireworks show, a library's public lecture",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Purchase": {
+    "abbrs": {
+      "🛍️": {
+        "priority": 6,
+        "remark": "a list of things the user wants to buy",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -233,6 +506,19 @@
       }
     }
   },
+  "Receipt": {
+    "abbrs": {
+      "🛍️": {
+        "priority": 7,
+        "remark": "merchant correspondence about a specific purchase: store and online order receipts, invoices paid as a customer, purchase confirmations, and shipping and delivery updates",
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Rigidbody": {
     "abbrs": {
       "Rb": {
@@ -240,6 +526,18 @@
         "tags": [
           "letters_only",
           "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Routine": {
+    "abbrs": {
+      "Routine": {
+        "priority": 7,
+        "remark": "recurring, repetitive tasks that fit none of the specific entries above",
+        "tags": [
+          "secretary-gtd-project"
         ],
         "wrap": "word"
       }
@@ -300,13 +598,13 @@
     "abbrs": {
       "D": {
         "priority": 2,
+        "remark": "in Dienstag",
         "tags": [
           "element-dt-days-of-week",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "in Dienstag"
+        "wrap": "word"
       }
     }
   },
@@ -317,6 +615,30 @@
         "tags": [
           "letters_only",
           "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Unimportant & not Urgent": {
+    "abbrs": {
+      "EMQ IV": {
+        "priority": 14,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Unity Editor": {
+    "abbrs": {
+      "edr": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -346,6 +668,40 @@
       }
     }
   },
+  "Urgent": {
+    "abbrs": {
+      "🚨": {
+        "priority": 3,
+        "remark": "demands prompt action because delay itself imposes a cost: a closing time window, an escalating consequence, or a dependency that leaves other work blocked while it waits",
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant",
+          "secretary-eisenhower-matrix-quadrant-base"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Urgent & Unimportant": {
+    "abbrs": {
+      "EMQ III": {
+        "priority": 13,
+        "tags": [
+          "letters_only",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      },
+      "🚨": {
+        "priority": 23,
+        "tags": [
+          "emoji",
+          "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Wednesday": {
     "abbrs": {
       "E": {
@@ -356,6 +712,18 @@
           "single_character"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Work": {
+    "abbrs": {
+      "🧰": {
+        "priority": 1,
+        "remark": "non-institutional work that makes something: the user's own development projects, prototypes, tooling, and interest-driven pursuits; learning a skill or tool for it belongs to Learn",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -383,6 +751,18 @@
       }
     }
   },
+  "activate": {
+    "abbrs": {
+      "acv": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "against": {
     "abbrs": {
       "vs.": {
@@ -399,12 +779,12 @@
     "abbrs": {
       "🤖": {
         "priority": 13,
+        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg AGENTS.md, AGENTS.local.md, CONTEXT.md, CONTEXT.local.md, skill and command definitions"
+        "wrap": "symbol"
       }
     }
   },
@@ -417,6 +797,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "alt/option": {
+    "abbrs": {
+      "⌥": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -449,22 +841,22 @@
     "abbrs": {
       "~": {
         "priority": 1,
+        "remark": "eg a, b, ~",
         "tags": [
           "ascii_only",
           "single_character",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg a, b, ~"
+        "wrap": "symbol"
       },
       "~~": {
         "priority": 1,
+        "remark": "eg a, b, ~~; use when ~ is ambiguous",
         "tags": [
           "ascii_only",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg a, b, ~~; use when ~ is ambiguous"
+        "wrap": "symbol"
       }
     }
   },
@@ -481,17 +873,28 @@
       },
       "arg": {
         "priority": 5,
+        "remark": "value provided to function at call time; interchangeable w/ parameter casually",
         "tags": [
           "coder-identifier-shorthand",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "value provided to function at call time; interchangeable w/ parameter casually"
+        "wrap": "word"
+      }
+    }
+  },
+  "assign,assignment": {
+    "abbrs": {
+      "asgn": {
+        "priority": 5,
+        "tags": [
+          "secretary-common-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
       }
     }
   },
   "attribute": {
-    "remark": "variable owned by object; similar to field",
     "abbrs": {
       "attr": {
         "priority": 5,
@@ -501,7 +904,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "variable owned by object; similar to field"
   },
   "auxiliary": {
     "abbrs": {
@@ -524,6 +928,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "backspace": {
+    "abbrs": {
+      "⌫": {
+        "priority": 9,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -621,12 +1037,12 @@
     "abbrs": {
       "🔨": {
         "priority": 17,
+        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "process files edits, eg compiler or bundler scripts, CI pipeline definitions"
+        "wrap": "symbol"
       }
     }
   },
@@ -655,16 +1071,28 @@
       }
     }
   },
+  "caps lock": {
+    "abbrs": {
+      "⇪": {
+        "priority": 6,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "changelog file": {
     "abbrs": {
       "🪧": {
         "priority": 10,
+        "remark": "edits, eg CHANGELOG.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg CHANGELOG.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -681,7 +1109,6 @@
     }
   },
   "child": {
-    "remark": "object",
     "abbrs": {
       "C": {
         "priority": 5,
@@ -692,7 +1119,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "object"
   },
   "class": {
     "abbrs": {
@@ -710,12 +1138,12 @@
     "abbrs": {
       "📝": {
         "priority": 6,
+        "remark": "as only edits, eg comment bodies, banners, docstrings",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only edits, eg comment bodies, banners, docstrings"
+        "wrap": "symbol"
       }
     }
   },
@@ -762,6 +1190,18 @@
         "priority": 5,
         "tags": [
           "coder-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "commit the indexed, then continue": {
+    "abbrs": {
+      "cci": {
+        "priority": 5,
+        "tags": [
+          "git-abbr",
           "letters_only"
         ],
         "wrap": "word"
@@ -820,12 +1260,24 @@
     "abbrs": {
       "🥁": {
         "priority": 1,
+        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "your own interrupted Turn resumes, or a 💤 wait has ended"
+        "wrap": "symbol"
+      }
+    }
+  },
+  "control/command": {
+    "abbrs": {
+      "⌘": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -849,6 +1301,18 @@
         "tags": [
           "coder-identifier-shorthand",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "deactivate": {
+    "abbrs": {
+      "dcv": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -878,6 +1342,18 @@
       }
     }
   },
+  "delete": {
+    "abbrs": {
+      "⌦": {
+        "priority": 10,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "delete,deleted,deletion;remove": {
     "abbrs": {
       "rm": {
@@ -904,7 +1380,6 @@
     }
   },
   "derived class": {
-    "remark": "ie subclass, child class",
     "abbrs": {
       "DC": {
         "priority": 5,
@@ -914,7 +1389,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "ie subclass, child class"
   },
   "description field": {
     "abbrs": {
@@ -957,12 +1433,12 @@
     "abbrs": {
       "🪵": {
         "priority": 11,
+        "remark": "edits, eg DEVLOG.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg DEVLOG.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -990,12 +1466,12 @@
     "abbrs": {
       "h1": {
         "priority": 1,
+        "remark": "one per file, naming the whole document",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "one per file, naming the whole document"
+        "wrap": "word"
       }
     }
   },
@@ -1003,12 +1479,12 @@
     "abbrs": {
       "h3,h4,~": {
         "priority": 3,
+        "remark": "at the depth the content actually reaches",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "at the depth the content actually reaches"
+        "wrap": "word"
       }
     }
   },
@@ -1029,12 +1505,24 @@
     "abbrs": {
       "📖": {
         "priority": 12,
+        "remark": "eg anything under docs/",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg anything under docs/"
+        "wrap": "symbol"
+      }
+    }
+  },
+  "down arrow": {
+    "abbrs": {
+      "↓": {
+        "priority": 18,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1045,6 +1533,18 @@
         "tags": [
           "coder-abbr",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "effect": {
+    "abbrs": {
+      "efx": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -1073,6 +1573,18 @@
           "single_character"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "end": {
+    "abbrs": {
+      "⇲": {
+        "priority": 14,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1136,6 +1648,18 @@
       }
     }
   },
+  "escape": {
+    "abbrs": {
+      "⎋": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "evaluate,evaluable": {
     "abbrs": {
       "eval": {
@@ -1173,12 +1697,12 @@
     "abbrs": {
       "🧸": {
         "priority": 15,
+        "remark": "standalone usage examples/demos/toys, eg files under examples/",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "standalone usage examples/demos/toys, eg files under examples/"
+        "wrap": "symbol"
       }
     }
   },
@@ -1243,7 +1767,6 @@
     }
   },
   "field": {
-    "remark": "variable declared inside an object, implies primitive data type; similar to attribute",
     "abbrs": {
       "field": {
         "priority": 5,
@@ -1254,18 +1777,19 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "variable declared inside an object, implies primitive data type; similar to attribute"
   },
   "file mode": {
     "abbrs": {
       "🔒": {
         "priority": 1,
+        "remark": "as only change, eg permission bits, executable bit",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only change, eg permission bits, executable bit"
+        "wrap": "symbol"
       }
     }
   },
@@ -1273,12 +1797,12 @@
     "abbrs": {
       "📂": {
         "priority": 21,
+        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "to a different directory, and filename may change as well; content unchanged besides minor edits"
+        "wrap": "symbol"
       }
     }
   },
@@ -1286,12 +1810,12 @@
     "abbrs": {
       "📛": {
         "priority": 22,
+        "remark": "file renamed in place; content unchanged besides minor edits",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "file renamed in place; content unchanged besides minor edits"
+        "wrap": "symbol"
       }
     }
   },
@@ -1320,7 +1844,6 @@
     }
   },
   "function": {
-    "remark": "may include method, but implies standalone function",
     "abbrs": {
       "fx": {
         "priority": 5,
@@ -1331,7 +1854,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "may include method, but implies standalone function"
   },
   "gallon": {
     "abbrs": {
@@ -1375,8 +1899,7 @@
         "priority": 5,
         "tags": [
           "git-abbr",
-          "letters_only",
-          "single_character"
+          "letters_only"
         ],
         "wrap": "word"
       }
@@ -1406,6 +1929,42 @@
       }
     }
   },
+  "hierarchy": {
+    "abbrs": {
+      "hrcy": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "home": {
+    "abbrs": {
+      "⇱": {
+        "priority": 13,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "homework": {
+    "abbrs": {
+      "hw": {
+        "priority": 5,
+        "tags": [
+          "secretary-common-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "hour": {
     "abbrs": {
       "h": {
@@ -1419,12 +1978,12 @@
       },
       "hr": {
         "priority": 6,
+        "remark": "use when h is ambagious",
         "tags": [
           "letters_only",
           "units-of-measure"
         ],
-        "wrap": "unit",
-        "remark": "use when h is ambagious"
+        "wrap": "unit"
       }
     }
   },
@@ -1533,12 +2092,24 @@
     }
   },
   "index": {
-    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\"",
     "abbrs": {
       "idx": {
         "priority": 4,
         "tags": [
           "coder-identifier-shorthand",
+          "git-abbr",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    },
+    "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\""
+  },
+  "index workspace, commit, then continue": {
+    "abbrs": {
+      "icc": {
+        "priority": 5,
+        "tags": [
           "git-abbr",
           "letters_only"
         ],
@@ -1630,6 +2201,18 @@
       }
     }
   },
+  "left arrow": {
+    "abbrs": {
+      "←": {
+        "priority": 17,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "length": {
     "abbrs": {
       "len": {
@@ -1706,12 +2289,12 @@
     "abbrs": {
       "hl": {
         "priority": 4,
+        "remark": "skipping levels to label a sub-case read against its parent alone",
         "tags": [
           "letters_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "skipping levels to label a sub-case read against its parent alone"
+        "wrap": "word"
       }
     }
   },
@@ -1739,8 +2322,19 @@
       }
     }
   },
+  "meeting": {
+    "abbrs": {
+      "mtg": {
+        "priority": 1,
+        "tags": [
+          "secretary-common-shorthand",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "member": {
-    "remark": "of object, include fields/attributes, properties, & methods",
     "abbrs": {
       "mbr": {
         "priority": 5,
@@ -1750,7 +2344,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "of object, include fields/attributes, properties, & methods"
   },
   "mile": {
     "abbrs": {
@@ -1876,12 +2471,12 @@
     "abbrs": {
       "✍️": {
         "priority": 23,
+        "remark": "actions still to perform",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "actions still to perform"
+        "wrap": "symbol"
       }
     }
   },
@@ -1889,12 +2484,12 @@
     "abbrs": {
       "🙋": {
         "priority": 22,
+        "remark": "a question or a clarification from the user",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "a question or a clarification from the user"
+        "wrap": "symbol"
       }
     }
   },
@@ -1902,12 +2497,12 @@
     "abbrs": {
       "🔍": {
         "priority": 24,
+        "remark": "a task already performed",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "a task already performed"
+        "wrap": "symbol"
       }
     }
   },
@@ -1915,12 +2510,12 @@
     "abbrs": {
       "🧭": {
         "priority": 21,
+        "remark": "what is planned, or likely, for the next Round",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "what is planned, or likely, for the next Round"
+        "wrap": "symbol"
       }
     }
   },
@@ -1928,13 +2523,13 @@
     "abbrs": {
       "F": {
         "priority": 5,
+        "remark": "boolean value",
         "tags": [
           "coder-abbr",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "boolean value"
+        "wrap": "word"
       },
       "❌": {
         "priority": 6,
@@ -1950,12 +2545,12 @@
     "abbrs": {
       "🔢": {
         "priority": 20,
+        "remark": "file edits, eg binary, compressed archive, database, encrypted blob",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "file edits, eg binary, compressed archive, database, encrypted blob"
+        "wrap": "symbol"
       }
     }
   },
@@ -1968,6 +2563,14 @@
           "briefness-shorthand"
         ],
         "wrap": "word"
+      },
+      "∅": {
+        "priority": 4,
+        "tags": [
+          "single_character",
+          "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "symbol"
       },
       "➖": {
         "priority": 6,
@@ -2102,7 +2705,6 @@
     }
   },
   "override": {
-    "remark": "in inheritance",
     "abbrs": {
       "oride": {
         "priority": 5,
@@ -2112,7 +2714,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "in inheritance"
   },
   "overwrite": {
     "abbrs": {
@@ -2138,17 +2741,40 @@
       },
       "📦": {
         "priority": 18,
+        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits of packaging or release metadata for current project, eg version field, lockfiles, package.json, pyproject.toml, Cargo.toml"
+        "wrap": "symbol"
+      }
+    }
+  },
+  "page down": {
+    "abbrs": {
+      "⇟": {
+        "priority": 11,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "page up": {
+    "abbrs": {
+      "⇞": {
+        "priority": 12,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
   "parameter": {
-    "remark": "name in function, placeholder for value; interchangeable w/ argument casually",
     "abbrs": {
       "param": {
         "priority": 5,
@@ -2158,10 +2784,10 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "name in function, placeholder for value; interchangeable w/ argument casually"
   },
   "parent": {
-    "remark": "object",
     "abbrs": {
       "P": {
         "priority": 5,
@@ -2172,10 +2798,10 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "object"
   },
   "parent class": {
-    "remark": "ie superclass, base class",
     "abbrs": {
       "PC": {
         "priority": 5,
@@ -2185,7 +2811,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "ie superclass, base class"
   },
   "pint": {
     "abbrs": {
@@ -2302,7 +2929,6 @@
     }
   },
   "property": {
-    "remark": "field/attribute with accessor, like a getter or setter",
     "abbrs": {
       "prp": {
         "priority": 5,
@@ -2312,7 +2938,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "field/attribute with accessor, like a getter or setter"
   },
   "random,randomize": {
     "abbrs": {
@@ -2330,13 +2957,13 @@
     "abbrs": {
       "~": {
         "priority": 1,
+        "remark": "eg 1~5, a~f, ii~iv",
         "tags": [
           "ascii_only",
           "single_character",
           "briefness-shorthand"
         ],
-        "wrap": "symbol",
-        "remark": "eg 1~5, a~f, ii~iv"
+        "wrap": "symbol"
       }
     }
   },
@@ -2344,12 +2971,12 @@
     "abbrs": {
       "🔰": {
         "priority": 8,
+        "remark": "edits, eg README.md",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits, eg README.md"
+        "wrap": "symbol"
       }
     }
   },
@@ -2357,17 +2984,16 @@
     "abbrs": {
       "♻️": {
         "priority": 4,
+        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "not change behavior, eg lines moved, symbols renamed, blocks extracted"
+        "wrap": "symbol"
       }
     }
   },
   "regression": {
-    "remark": "unit test revision, part of TDD, finding bugs introduced by new implementation or refactoring, then Fixing Codebase so existing Unit Tests pass again",
     "abbrs": {
       "rgs": {
         "priority": 5,
@@ -2377,7 +3003,8 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "unit test revision, part of TDD, finding bugs introduced by new implementation or refactoring, then Fixing Codebase so existing Unit Tests pass again"
   },
   "representation": {
     "abbrs": {
@@ -2425,6 +3052,30 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "return/enter": {
+    "abbrs": {
+      "⏎": {
+        "priority": 8,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right arrow": {
+    "abbrs": {
+      "→": {
+        "priority": 16,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2478,12 +3129,52 @@
       },
       "sec": {
         "priority": 6,
+        "remark": "use when s is ambagious",
         "tags": [
           "letters_only",
           "units-of-measure"
         ],
-        "wrap": "unit",
-        "remark": "use when s is ambagious"
+        "wrap": "unit"
+      }
+    }
+  },
+  "selected": {
+    "abbrs": {
+      "◎": {
+        "priority": 3,
+        "remark": "bullseye",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "●": {
+        "priority": 4,
+        "remark": "filled circle",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☑": {
+        "priority": 1,
+        "remark": "checkbox with a tick",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☒": {
+        "priority": 2,
+        "remark": "checkbox with a cross",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2503,12 +3194,12 @@
     "abbrs": {
       "⚙️": {
         "priority": 19,
+        "remark": "eg linter, formatter configuration, ignore files",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg linter, formatter configuration, ignore files"
+        "wrap": "symbol"
       }
     }
   },
@@ -2525,6 +3216,30 @@
       }
     }
   },
+  "shift": {
+    "abbrs": {
+      "⇧": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "sound effects": {
+    "abbrs": {
+      "SFX": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "source": {
     "abbrs": {
       "src": {
@@ -2534,6 +3249,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "space": {
+    "abbrs": {
+      "␣": {
+        "priority": 7,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2554,12 +3281,12 @@
     "abbrs": {
       "SWD": {
         "priority": 1,
+        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one",
         "tags": [
           "letters_only",
           "element-dt-watch-day-abbr"
         ],
-        "wrap": "word",
-        "remark": "a 24-hour span, running 06:00 to 06:00 the next natural day; consecutive strict Watch Days tile without gap or overlap, so every instant belongs to exactly one"
+        "wrap": "word"
       }
     }
   },
@@ -2600,16 +3327,28 @@
       }
     }
   },
+  "tab": {
+    "abbrs": {
+      "⇥": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "task/Suite completed": {
     "abbrs": {
       "🏁": {
         "priority": 14,
+        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
         ],
-        "wrap": "symbol",
-        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one"
+        "wrap": "symbol"
       }
     }
   },
@@ -2617,12 +3356,12 @@
     "abbrs": {
       "UT": {
         "priority": 5,
+        "remark": "unit test",
         "tags": [
           "coder-abbr",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "unit test"
+        "wrap": "word"
       }
     }
   },
@@ -2630,12 +3369,12 @@
     "abbrs": {
       "🧪": {
         "priority": 14,
+        "remark": "eg test suites, fixtures, snapshots, test helpers",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "eg test suites, fixtures, snapshots, test helpers"
+        "wrap": "symbol"
       }
     }
   },
@@ -2675,12 +3414,12 @@
     "abbrs": {
       "h2": {
         "priority": 2,
+        "remark": "marking a primary section directly under the Title",
         "tags": [
           "ascii_only",
           "style-md-heading-abbr"
         ],
-        "wrap": "word",
-        "remark": "marking a primary section directly under the Title"
+        "wrap": "word"
       }
     }
   },
@@ -2709,12 +3448,12 @@
       },
       "🔖": {
         "priority": 5,
+        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "edits of tag itself or line it annotates, regardless of if in code or documentation"
+        "wrap": "symbol"
       }
     }
   },
@@ -2744,6 +3483,52 @@
       }
     }
   },
+  "unknown": {
+    "abbrs": {
+      "??": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "unselected": {
+    "abbrs": {
+      "○": {
+        "priority": 6,
+        "remark": "empty circle",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      },
+      "☐": {
+        "priority": 6,
+        "remark": "empty checkbox",
+        "tags": [
+          "amanuensis-config-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "up arrow": {
+    "abbrs": {
+      "↑": {
+        "priority": 15,
+        "tags": [
+          "amanuensis-keybinding-writer-shorthand",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "usage field": {
     "abbrs": {
       "u": {
@@ -2758,7 +3543,6 @@
     }
   },
   "utility or maintenance scripts edits": {
-    "remark": "not part of main codebase, eg files under scripts/",
     "abbrs": {
       "🐚": {
         "priority": 16,
@@ -2768,7 +3552,8 @@
         ],
         "wrap": "symbol"
       }
-    }
+    },
+    "remark": "not part of main codebase, eg files under scripts/"
   },
   "utility,utilize": {
     "abbrs": {
@@ -2806,16 +3591,28 @@
       }
     }
   },
+  "visual effects": {
+    "abbrs": {
+      "VFX": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "waiting": {
     "abbrs": {
       "💤": {
         "priority": 25,
+        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party",
         "tags": [
           "agent-chat-turn-progress-dispatch-decorative",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "anything outside your own Turn: a long-running process, an API request, a dispatched subagent, a separate workflow, another party"
+        "wrap": "symbol"
       }
     }
   },
@@ -2823,12 +3620,12 @@
     "abbrs": {
       "WD": {
         "priority": 1,
+        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it",
         "tags": [
           "letters_only",
           "element-dt-watch-day-abbr"
         ],
-        "wrap": "word",
-        "remark": "a 30-hour span, running 00:00 to 06:00 the next natural day; consecutive Watch Days overlap across 00:00~06:00, so a task logged at 03:00 belongs to both this Watch Day and the one before it"
+        "wrap": "word"
       }
     }
   },
@@ -2836,12 +3633,12 @@
     "abbrs": {
       "WWk": {
         "priority": 1,
+        "remark": "forward range from today through the close of a terminal Sunday",
         "tags": [
           "letters_only",
           "element-dt-watch-week-abbr"
         ],
-        "wrap": "word",
-        "remark": "forward range from today through the close of a terminal Sunday"
+        "wrap": "word"
       }
     }
   },
@@ -2861,12 +3658,12 @@
     "abbrs": {
       "📏": {
         "priority": 7,
+        "remark": "as only edits: indentation, tabs, blank lines added or removed",
         "tags": [
           "commit-sense-sigil",
           "emoji"
         ],
-        "wrap": "symbol",
-        "remark": "as only edits: indentation, tabs, blank lines added or removed"
+        "wrap": "symbol"
       }
     }
   },
@@ -2907,7 +3704,6 @@
     }
   },
   "workspace": {
-    "remark": "local/on-disk files",
     "abbrs": {
       "ws": {
         "priority": 5,
@@ -2918,18 +3714,19 @@
         ],
         "wrap": "word"
       }
-    }
+    },
+    "remark": "local/on-disk files"
   },
   "worktree": {
     "abbrs": {
       "wt": {
         "priority": 5,
+        "remark": "main worktree unless a linked one is named",
         "tags": [
           "git-abbr",
           "letters_only"
         ],
-        "wrap": "word",
-        "remark": "main worktree unless a linked one is named"
+        "wrap": "word"
       }
     }
   },
@@ -2949,13 +3746,13 @@
     "abbrs": {
       "T": {
         "priority": 5,
+        "remark": "boolean value",
         "tags": [
           "coder-abbr",
           "letters_only",
           "single_character"
         ],
-        "wrap": "word",
-        "remark": "boolean value"
+        "wrap": "word"
       },
       "✔️": {
         "priority": 6,

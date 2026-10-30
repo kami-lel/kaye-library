@@ -4,7 +4,6 @@ kaye_library.registrations.coder.coder_bp.py
 register Coder related blueprints
 """
 
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
@@ -27,22 +26,24 @@ __all__ = ("register_coder_blueprints",)
 
 def register_coder_blueprints():
     """
-    register the persona-free Coder: the internal ``coder-core``, the
-    ``coder`` skill over it, its workflows, and every per-language coder
-    profile
+    register the persona-free Coder: the ``coder`` skill, its workflows,
+    and every per-language coder profile
 
     a package may take ``coder`` over with ``override_exportable``, adding
-    the conversation rules and persona it wants around ``coder-core``
+    the conversation rules and persona it wants around the blueprint
+    object ``get_blueprint("coder").blueprint``
 
 
     :raises KeyError: a depended-on blueprint is not yet registered
     """
     coder_node = get_corpus_node("Coder")
 
-    # Coder Core
-    # the Coder rules and glossaries, with no conversation rules
-    register_blueprint(
-        "coder-core",
+    # Coder
+    # the Coder rules and glossaries as a skill, with no conversation
+    # rules and no persona; a package may take it over with its own
+    # conversation rules around this blueprint
+    register_exportable(
+        "coder",
         replace_meta(
             merge_blueprints(
                 create_blueprint_from_node(
@@ -58,18 +59,6 @@ def register_coder_blueprints():
                 ),
                 glossary_blueprint("coder-abbr", "coder-identifier-shorthand"),
             ),
-            display_name="Coder Core",
-        ),
-        is_exportable=False,
-    )
-
-    # Coder
-    # the Coder rules as a skill, naming no persona; a package may take it
-    # over with its own conversation rules around coder-core
-    register_exportable(
-        "coder",
-        replace_meta(
-            create_blueprint(dependencies=["coder-core"]),
             display_name="Coder",
             description_node=("Coder", "{description}"),
             when_to_use_node=("Coder", "{when_to_use}"),

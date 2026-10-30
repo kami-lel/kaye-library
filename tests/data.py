@@ -260,6 +260,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                          '- gdscript:GDScript used by '
                                          'Godot Engine',
                                          '- js:JavaScript',
+                                         '- p4v:Perforce',
                                          '- py:Python',
                                          '- ts:TypeScript',
                                          '- u3d:Unity Engine code',
@@ -329,8 +330,9 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                 'leaving unrelated files untouched.'],
  'plan-for-suite': ['## Plan for Suite',
                     'Do **not** start editing.',
-                    '#### Bar 1: Gather',
-                    '#### Bar 2: Write the Plan',
+                    '### Bar 1: Gather',
+                    '### Bar 2: Write the Plan',
+                    '##### Movement Heading',
                     '### Plan for Suite: Bar 3: Execution'],
  'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
                               'Starts only after the user approves the '
@@ -338,6 +340,8 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                               'ask whether to run under '
                               '`cascade-all-movements` or '
                               '`halt-each-movement`.',
+                              '##### Movement Parties in '
+                              'Execution',
                               '##### Reworking the Plan'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
@@ -726,4 +730,17 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
  'resolve-merge-conflict': ['track resolution with the `TodoWrite` tool — '
                             'one todo per unmerged path',
                             '`git add` each path as soon as it is '
-                            'resolved']}
+                            'resolved'],
+ 'write-llm-prompt': ['## Write Large Language Model Prompt',
+                      'You draft new **textual prompts** and edit existing '
+                      'ones, usually a system message',
+                      '- Draft: build a complete prompt from any description, '
+                      'however short',
+                      'the prompt itself is the deliverable, never a '
+                      'paraphrase or summary'],
+ 'write-skill-description': ['## Write Skill Description',
+                             '`description` decides whether the skill is '
+                             'selected at all, so treat it as the '
+                             'highest-stakes text.',
+                             'Label the heading literally `{description}`, '
+                             "one level below the skill's own."]}

@@ -46,7 +46,7 @@ class TestEngineSubcommands:
         assert result.returncode == 0
         names = result.stdout.split()
         assert "commit-sense" in names
-        assert "coder-core" in names
+        assert "coder" in names
         assert "chat" not in names
         assert "kaye-chat" not in names
 

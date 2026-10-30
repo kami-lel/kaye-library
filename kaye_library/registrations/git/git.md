@@ -1,8 +1,8 @@
 # Git
 
-<!-- 
-todo working w/ git worktree main & linked
+<!--
 todo git branch merge skill: handling landing/release/catch up ~
+todo working w/ git worktree main & linked
 -->
 
 ## Working with Git
@@ -242,7 +242,7 @@ Commit the indexed changes: draw the message from the conversation so far, optio
 The message has up to three parts, in order, separated by blank lines:
 
 1. Primary Message: follow [Primary Summary](#primary-summary) over the whole diff
-2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked name, a space, its [summary](#per-file-summary); for a single file, sigil and name only
+2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked filename with extension (eg `git.md`, never the directory path), a space, its [summary](#per-file-summary); for a single file, sigil and name only
 3. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
 
 Keep the trailer last.
@@ -275,8 +275,6 @@ Reply in one line with the short hash. If git rejects the commit, report its out
 <post-commit-output-example>
 🚩🐙 Commit `a3f9c21`
 </post-commit-output-example>
-
-
 
 
 
