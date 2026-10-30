@@ -25,12 +25,7 @@ SKILL_NAMES = sorted(
 # skills splicing a personal glossary or substitution a consumer registers;
 # standalone, the placeholder stays literal
 _PERSONAL_PLACEHOLDER_SKILLS = frozenset(
-    (
-        "pull-event-from-calendar",
-        "push-event-to-calendar",
-        "push-task-to-gtd",
-        "sweep-email-inbox",
-    )
+    ("sweep-email-inbox",)
 )
 
 

@@ -1,4 +1,31 @@
 {
+  "Admin": {
+    "abbrs": {
+      "🏦": {
+        "priority": 5,
+        "remark": "Administration: government correspondence, visa/immigration, tax filings, legal notices, and banking; medical and insurance matters; school enrollment and tuition; and company HR, payroll, and benefits",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Automated": {
+    "abbrs": {
+      "🤖": {
+        "priority": 9,
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    },
+    "remark": "bot-generated or no-reply senders: system alerts, policy and terms-of-use updates, security notifications, receipts, shipping confirmations, password resets, CI/build notifications, auto-replies, and out-of-office replies"
+  },
   "Bar finished": {
     "abbrs": {
       "🚩": {
@@ -21,6 +48,21 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Business": {
+    "abbrs": {
+      "💼": {
+        "priority": 2,
+        "remark": "work matters at the user's own workplace: in-team information, vendor and client dealings, invoicing and billing, contracts and partnerships, and project and deal coordination",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -73,6 +115,49 @@
       }
     }
   },
+  "Career": {
+    "abbrs": {
+      "🪜": {
+        "priority": 4,
+        "remark": "job search and professional advancement: applications, recruiter outreach, interviews, offers, and job market activity",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Commercial": {
+    "abbrs": {
+      "🛒": {
+        "priority": 10,
+        "remark": "unsolicited sales and marketing from businesses: offers, ads, and cold outreach",
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Education": {
+    "abbrs": {
+      "🎓": {
+        "priority": 3,
+        "remark": "academic life: coursework, instruction, evaluation, and the institutional matters that surround them",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-calendar-name",
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Einsenhower Matrix Quadrant": {
     "abbrs": {
       "EMQ": {
@@ -83,6 +168,33 @@
           "secretary-eisenhower-matrix-quadrant"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Entertainment": {
+    "abbrs": {
+      "🎬": {
+        "priority": 8,
+        "remark": "leisure and recreation consumed or attended for enjoyment, not tied to a specific relationship; example: a concert, a movie screening, a board game night",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Faith": {
+    "abbrs": {
+      "⛪": {
+        "priority": 6,
+        "remark": "religious and fellowship life: worship, spiritual growth, and the practices that carry them",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -190,6 +302,18 @@
       }
     }
   },
+  "Inbox": {
+    "abbrs": {
+      "Inbox": {
+        "priority": 8,
+        "remark": "default entry: anything that fits none of the entries above",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "JavaScript": {
     "abbrs": {
       "js": {
@@ -199,6 +323,18 @@
           "programming-language-codes"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Learn": {
+    "abbrs": {
+      "🌱": {
+        "priority": 1,
+        "remark": "self-directed learning of a skill or tool set outside institutions: self-teaching, tutorials, books, and courses",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -253,6 +389,44 @@
       }
     }
   },
+  "Newsletter": {
+    "abbrs": {
+      "📬": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    },
+    "remark": "recurring subscriptions and digests: mailing lists, blog updates, product announcements, promotional campaigns, and event or entertainment listings"
+  },
+  "Optional": {
+    "abbrs": {
+      "🎈": {
+        "priority": 1,
+        "remark": "events the user may attend or skip without consequence, not yet firmly committed; example: a coffee invite with no RSVP given, a neighbor's open house",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Perforce": {
+    "abbrs": {
+      "p4v": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "programming-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Prefab": {
     "abbrs": {
       "pfb": {
@@ -274,6 +448,16 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🏠": {
+        "priority": 1,
+        "remark": "personal life with a real individual, not a bot or organization: relationships, one-on-one contact, and the exchanges shared with them",
+        "tags": [
+          "emoji",
+          "secretary-email-category",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -286,6 +470,27 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🏛️": {
+        "priority": 1,
+        "remark": "fallback sub-calendar for an event that matches no more specific sub-calendar; example: a city's fireworks show, a library's public lecture",
+        "tags": [
+          "emoji",
+          "secretary-calendar-name"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "Purchase": {
+    "abbrs": {
+      "🛍️": {
+        "priority": 6,
+        "remark": "a list of things the user wants to buy",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -301,6 +506,19 @@
       }
     }
   },
+  "Receipt": {
+    "abbrs": {
+      "🛍️": {
+        "priority": 7,
+        "remark": "merchant correspondence about a specific purchase: store and online order receipts, invoices paid as a customer, purchase confirmations, and shipping and delivery updates",
+        "tags": [
+          "emoji",
+          "secretary-email-category"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Rigidbody": {
     "abbrs": {
       "Rb": {
@@ -308,6 +526,18 @@
         "tags": [
           "letters_only",
           "coder-u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "Routine": {
+    "abbrs": {
+      "Routine": {
+        "priority": 7,
+        "remark": "recurring, repetitive tasks that fit none of the specific entries above",
+        "tags": [
+          "secretary-gtd-project"
         ],
         "wrap": "word"
       }
@@ -482,6 +712,18 @@
           "single_character"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "Work": {
+    "abbrs": {
+      "🧰": {
+        "priority": 1,
+        "remark": "non-institutional work that makes something: the user's own development projects, prototypes, tooling, and interest-driven pursuits; learning a skill or tool for it belongs to Learn",
+        "tags": [
+          "secretary-gtd-project"
+        ],
+        "wrap": "symbol"
       }
     }
   },
