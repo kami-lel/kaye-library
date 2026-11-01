@@ -1,7 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
-todo add gh release script
+Todo add gh release script
+Todo support layered CONTEXT/AGENTS
 -->
 
 ## [Unreleased]
@@ -9,6 +10,8 @@ todo add gh release script
 ### Added
 
 ### Changed
+
+- `plan-for-suite`: Movement Heading marks a non-own party in `<>` instead of `()`
 
 ### Deprecated
 
