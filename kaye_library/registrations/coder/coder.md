@@ -625,16 +625,16 @@ Hand the Plan to the user and **stop**. The codebase stays exactly as it is unti
 
 ##### Movement Heading
 
-In the Plan file, head each Movement as `🧩a\b: Title`, plus, in order and only when they apply:
+In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, between number and colon, in order and only when they apply:
 
-- `[workspace]`: when the task spans several workspaces or repositories
 - `{party}`: for a Movement that is not yours, never for your own
+- `[workspace]`: when the task spans several workspaces or repositories
 
 The user is a party too, by their own name, eg `{John}`.
 
 ```
-🧩5\8: Wire Up the Config Loader [api]
-🧩6\8: Approve the Staging Deploy [api] {John}
+### 🧩5\8 [api]: Wire Up the Config Loader
+### 🧩6\8 {John} [api]: Approve the Staging Deploy
 ```
 
 
