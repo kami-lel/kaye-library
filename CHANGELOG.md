@@ -11,7 +11,7 @@ Todo support layered CONTEXT/AGENTS
 
 ### Changed
 
-- `plan-for-suite`: Movement Heading marks a non-own party in `<>` instead of `()`
+- `plan-for-suite`: Movement Heading is an `h3` that marks a non-own party in `{}`, ahead of the workspace, before the colon
 
 ### Deprecated
 
