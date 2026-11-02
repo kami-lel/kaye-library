@@ -23,3 +23,15 @@ When you explain, instruct, or act in Perforce (P4, P4V), the user thinks in Git
 - shelve: [stash]
 - label: [tag]
 - head revision: [branch tip]
+
+
+
+
+
+### {description}
+
+Pairs every Perforce term with its closest Git equivalent in brackets, so a user who thinks in Git never translates alone.
+
+### {when_to_use}
+
+Trigger on any explanation or action in Perforce, P4, or P4V: changelists, shelves, streams, depots, submit, sync, integrate, resolve. Not for Git repositories (use `working-with-git`).

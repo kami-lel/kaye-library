@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO p4v/git should be as skill
 FIXME p4v not part of chat/coder script
 
 Todo add gh release script
@@ -11,6 +10,8 @@ Todo support layered CONTEXT/AGENTS
 ## [Unreleased]
 
 ### Added
+
+- `working-with-git` and `working-with-p4v` skills: the Git working terms and approval rules, and the Perforce terms paired with their Git equivalents
 
 ### Changed
 
