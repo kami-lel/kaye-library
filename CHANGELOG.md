@@ -13,6 +13,7 @@ Todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- `commit-sense`: diff check uses `git diff --cached --numstat`, line counts settle sigil Lean & Size
 - `plan-for-suite`: Movement Heading is an `h3` that marks a non-own party in `{}`, ahead of the workspace, before the colon
 
 ### Deprecated
