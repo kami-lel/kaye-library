@@ -3,7 +3,6 @@
 <!--
 TODO p4v/git should be as skill
 FIXME p4v not part of chat/coder script
-FIXME git: use line count flag for commit sense
 
 Todo add gh release script
 Todo support layered CONTEXT/AGENTS
