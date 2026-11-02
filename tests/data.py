@@ -515,6 +515,10 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                       'Use these Git terms, no synonyms.',
                       '#### Actions Needing Explicit Approval',
                       '- Publish: `git push`, `git push --force`'],
+ 'working-with-p4v': ['## Working with Perforce',
+                      '> Shelve [stash] your changelist [index] first.',
+                      '#### Reference Pairs',
+                      '- changelist: [index]'],
 }
 
 DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions, and sourced '
@@ -640,6 +644,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'style-letter-case-commentary-case': 'define Commentary Case',
  'style-letter-case-title-case': 'define Title Case',
  'working-with-git': 'Sets the Git working terms',
+ 'working-with-p4v': 'Pairs every Perforce term',
 }
 
 WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `.sh`, `.bash`, '
@@ -727,6 +732,7 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
                                       'code comment',
  'style-letter-case-title-case': 'for document titles and section headings',
  'working-with-git': 'Trigger on any work in a Git repository',
+ 'working-with-p4v': 'Trigger on any explanation or action in Perforce',
 }
 
 CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so all discovery '

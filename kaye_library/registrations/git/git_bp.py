@@ -49,6 +49,15 @@ def register_git_blueprints():
         recursively=True,
     )
 
+    # Working with Perforce
+    register_node(
+        register_exportable,
+        "working-with-p4v",
+        get_corpus_node("Perforce"),
+        "Working with Perforce",
+        recursively=True,
+    )
+
     # Clean Up Branches
     register_node(
         register_prompt,
