@@ -510,7 +510,16 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                   'pronouns, verbs, adjectives, adverbs, '
                                   'numerals',
                                   '- keep proper nouns, acronyms, and '
-                                  'brand styling as written']}
+                                  'brand styling as written'],
+ 'working-with-git': ['## Working with Git',
+                      'Use these Git terms, no synonyms.',
+                      '#### Actions Needing Explicit Approval',
+                      '- Publish: `git push`, `git push --force`'],
+ 'working-with-p4v': ['## Working with Perforce',
+                      '> Shelve (stash) your changelist (index) first.',
+                      '#### Examples',
+                      '- changelist (index)'],
+}
 
 DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions, and sourced '
                       'libraries for Debian GNU/Linux under a fixed house '
@@ -633,7 +642,10 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                        'while preserving the original meaning, voice, and '
                        'wording.',
  'style-letter-case-commentary-case': 'define Commentary Case',
- 'style-letter-case-title-case': 'define Title Case'}
+ 'style-letter-case-title-case': 'define Title Case',
+ 'working-with-git': 'Sets the Git working terms',
+ 'working-with-p4v': 'Pairs every Perforce term',
+}
 
 WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `.sh`, `.bash`, '
                       '`bashrc`, function definitions',
@@ -718,7 +730,10 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
                        'summarizing, or tone changes.',
  'style-letter-case-commentary-case': 'for list items, table cell content, '
                                       'code comment',
- 'style-letter-case-title-case': 'for document titles and section headings'}
+ 'style-letter-case-title-case': 'for document titles and section headings',
+ 'working-with-git': 'Trigger on any work in a Git repository',
+ 'working-with-p4v': 'Trigger on any explanation or action in Perforce',
+}
 
 CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so all discovery '
                     'runs before any edit is possible',

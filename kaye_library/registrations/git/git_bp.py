@@ -40,6 +40,24 @@ def register_git_blueprints():
     """
     git_node = get_corpus_node("Git")
 
+    # Working with Git
+    register_node(
+        register_exportable,
+        "working-with-git",
+        git_node,
+        "Working with Git",
+        recursively=True,
+    )
+
+    # Working with Perforce
+    register_node(
+        register_exportable,
+        "working-with-p4v",
+        get_corpus_node("Perforce"),
+        "Working with Perforce",
+        recursively=True,
+    )
+
     # Clean Up Branches
     register_node(
         register_prompt,
