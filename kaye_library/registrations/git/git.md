@@ -237,7 +237,7 @@ document retry-budget behavior in scheduler README
 
 ### Perform Commit Sense
 
-Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached`, then run `git commit` once with the whole message as a single `-m` argument.
+Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached --numstat`, whose added and deleted counts per file settle each sigil's Lean and Size, then run `git commit` once with the whole message as a single `-m` argument.
 
 The message has up to three parts, in order, separated by blank lines:
 
