@@ -51,6 +51,18 @@ Never devise your own commit message format, nor run `git commit` outside it.
 
 
 
+### {description}
+
+Sets the Git working terms and the actions that need explicit approval, so edits stay in the workspace beside the user.
+
+### {when_to_use}
+
+Trigger on any work in a Git repository: editing files, indexing, committing, branching, stashing, or running `git` commands. Not for writing the commit message itself (use `commit-sense`).
+
+
+
+
+
 
 
 

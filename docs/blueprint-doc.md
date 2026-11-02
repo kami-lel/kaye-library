@@ -82,6 +82,7 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | notes |
 |---|---|
+| `working-with-git` | the `Working with Git` section: Git terms, working alongside the user, actions needing explicit approval |
 | `commit-sense` | the `Perform Commit Sense` section's text, without any co-author persona; a package may replace it with `override_exportable` |
 | `resolve-merge-conflict`, `prune-merged-branches` | called by the user only |
 | `submit-pr` | stub awaiting text |
