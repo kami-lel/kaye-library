@@ -9,8 +9,11 @@ Todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `working-with-git` and `working-with-p4v` skills: the Git working terms and approval rules, and the Perforce terms paired with their Git equivalents
+
 ### Changed
 
+- `commit-sense`: diff check uses `git diff --cached --numstat`, line counts settle sigil Lean & Size
 - `plan-for-suite`: Movement Heading is an `h3` that marks a non-own party in `{}`, ahead of the workspace, before the colon
 
 ### Deprecated
