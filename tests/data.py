@@ -516,9 +516,9 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                       '#### Actions Needing Explicit Approval',
                       '- Publish: `git push`, `git push --force`'],
  'working-with-p4v': ['## Working with Perforce',
-                      '> Shelve [stash] your changelist [index] first.',
-                      '#### Reference Pairs',
-                      '- changelist: [index]'],
+                      '> Shelve (stash) your changelist (index) first.',
+                      '#### Examples',
+                      '- changelist (index)'],
 }
 
 DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions, and sourced '

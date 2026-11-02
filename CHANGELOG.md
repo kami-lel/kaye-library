@@ -1,8 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-FIXME p4v not part of chat/coder script
-
 Todo add gh release script
 Todo support layered CONTEXT/AGENTS
 -->
