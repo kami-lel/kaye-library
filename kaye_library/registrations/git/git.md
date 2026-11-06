@@ -47,6 +47,11 @@ Run only when the user names the exact action in the same turn:
 To commit, invoke the `commit-sense` skill via the `Skill` tool.
 Never devise your own commit message format, nor run `git commit` outside it.
 
+### {[Hermes:skill_view] Usage}
+
+To commit, load the `commit-sense` skill with `skill_view`.
+Never devise your own commit message format, nor run `git commit` outside it.
+
 
 
 
@@ -423,6 +428,12 @@ Triggers on a halted merge, rebase, cherry-pick, or pull; `<<<<<<<`/`=======`/`>
 ### {[Claude:TodoWrite] Usage}
 
 track resolution with the `TodoWrite` tool — one todo per unmerged path, marked complete only after its markers are gone and the file parses
+
+### {[Hermes:todo_list] Usage}
+
+track resolution with the `todo_list` tool — one todo per unmerged path, marked complete only after its markers are gone and the file parses
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 
 

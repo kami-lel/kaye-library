@@ -164,6 +164,10 @@ Any C# in a Unity project, even when user never says "Unity": gameplay systems, 
 
 Invoke `coder` skill via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
+
 
 
 

@@ -308,6 +308,10 @@ Use when creating, updating, or adding entries to a CHANGELOG, or recording chan
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `sync-unit-test` skill with `skill_view`.
+
 
 
 
@@ -524,6 +528,10 @@ When a bare repo needs its documentation scaffolded all at once — "set up docs
 ### {[Claude:Skill] Usage}
 
 Invoke `create-readme`, `create-changelog`, `create-repo-agents`, and `create-repo-docs` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `create-readme`, `create-changelog`, `create-repo-agents`, and `create-repo-docs` skills with `skill_view`.
 
 
 
@@ -948,6 +956,10 @@ Logs a session's durable changes before context compaction — recording them in
 
 Invoke `maintain-changelog` and `maintain-repo-agents` skills via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `maintain-changelog` and `maintain-repo-agents` skills with `skill_view`.
+
 
 
 
@@ -999,6 +1011,10 @@ If the project has unit tests, run [Sync Unit Test](#sync-unit-test) first.
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
+##### {[Hermes:skill_view] Usage}
+
+Load `sync-unit-test` skill with `skill_view`.
+
 
 
 
@@ -1048,6 +1064,10 @@ Reach for this when wrapping up or merging a feature branch — "prep for merge,
 ### {[Claude:Skill] Usage}
 
 Invoke `sync-unit-test`, `maintain-changelog`, and `maintain-repo-agents` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `sync-unit-test`, `maintain-changelog`, and `maintain-repo-agents` skills with `skill_view`.
 
 
 
@@ -1206,9 +1226,17 @@ Reach for this on release requests — "ship v1.2.3," "cut a release," "tag a ve
 
 Invoke `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills with `skill_view`.
+
 ### {[Claude:AskUserQuestion] Usage}
 
 - if version number or release date is **missing**, use `AskUserQuestion` to ask user before proceeding
+
+### {[Hermes:clarify] Usage}
+
+- if version number or release date is **missing**, use `clarify` to ask user before proceeding
 
 
 

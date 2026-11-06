@@ -693,3 +693,7 @@ Setting up or updating agent instructions for a generic project. Triggers: "equi
 ### {[Claude:Skill] Usage}
 
 Invoke `proj-agents-writer` skill via `Skill` tool, asking it to create or maintain the project's `AGENTS.md`.
+
+### {[Hermes:skill_view] Usage}
+
+Load `proj-agents-writer` skill with `skill_view`, to create or maintain the project's `AGENTS.md`.

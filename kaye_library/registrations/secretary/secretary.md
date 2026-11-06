@@ -764,6 +764,10 @@ Call `event_search_v0` scoped to the recapped day's date range. Fold every event
 
 Invoke `pull-task-from-gtd` via `Skill` tool for the recapped day's completed tasks
 
+### {[Hermes:skill_view] Usage}
+
+Load `pull-task-from-gtd` with `skill_view` for the recapped day's completed tasks
+
 
 
 
@@ -1029,6 +1033,10 @@ Trigger on "good morning," a daily or morning check-in request, or an ask to cat
 
 Invoke `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hunt-job-opportunity`, via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hunt-job-opportunity`, with `skill_view`.
+
 
 
 
@@ -1128,3 +1136,7 @@ Trigger on "good week," a weekly or start-of-week check-in request, or an ask fo
 ### {[Claude:Skill] Usage}
 
 Invoke `scan-event-radar-weekly`, then `hunt-job-opportunity`, via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `scan-event-radar-weekly`, then `hunt-job-opportunity`, with `skill_view`.

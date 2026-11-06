@@ -43,6 +43,10 @@ trigger for any Python task — `.py` files, code blocks, writing/fixing/refacto
 
 Invoke `coder` skill via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
+
 
 
 
