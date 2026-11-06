@@ -10,6 +10,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- a `{[Hermes:TOOL] Usage}` node beside every Claude usage node whose tool Hermes has (`skill_view`, `todo_list`, `clarify`, `delegate_task`, `write_file`), so a `hermes` render carries Hermes tool instructions; `todo_list` nodes name the `tool_search`, `tool_describe`, `tool_call` route
 - `working-with-git` and `working-with-p4v` skills: the Git working terms and approval rules, and the Perforce terms paired with their Git equivalents
 
 ### Changed

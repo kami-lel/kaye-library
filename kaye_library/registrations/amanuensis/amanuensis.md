@@ -177,6 +177,10 @@ Tracks sources mentioned in conversation, rendering each as a Chicago Note.
 
 Invoke `amanuensis-chicago-note` skill via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `amanuensis-chicago-note` skill with `skill_view`.
+
 
 
 

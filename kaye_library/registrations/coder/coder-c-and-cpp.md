@@ -33,6 +33,10 @@ Use for any C code work, requests for C.
 
 Invoke `coder` skill via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
+
 ## Coder CPP
 
 Use **C++17** standard, follows [Coder C](#coder-c)
@@ -68,3 +72,7 @@ Use for any C++ code work, requests for C++.
 ### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

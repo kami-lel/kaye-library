@@ -51,6 +51,10 @@ fires when the user wants something run now, not a file kept: "give me a command
 
 Invoke `coder` skill via `Skill` tool.
 
+#### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
+
 
 
 
@@ -186,3 +190,7 @@ fires on durable shell artifacts: `.sh`, `.bash`, `bashrc`, function definitions
 #### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

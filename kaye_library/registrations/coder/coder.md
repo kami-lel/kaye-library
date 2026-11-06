@@ -220,6 +220,10 @@ Trigger on any code writing, editing, debugging, or programming question.
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
+## {[Hermes:skill_view] Usage}
+
+Load `sync-unit-test` skill with `skill_view`.
+
 
 
 
@@ -655,6 +659,10 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
+
 ### {[Claude:Enter/ExitPlanMode] Usage}
 
 in Bar 1:
@@ -670,6 +678,12 @@ in Bar 2:
 in Bar 1:
 
 - use `AskUserQuestion` tool to ask user
+
+### {[Hermes:clarify] Usage}
+
+in Bar 1:
+
+- use `clarify` tool to ask user
 
 
 
@@ -778,6 +792,12 @@ Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-m
 
 For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
 
+#### {[Hermes:skill_view] Usage}
+
+Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
+
+For each Movement's git commit, load `commit-sense` with `skill_view`.
+
 #### {[Claude:Enter/ExitPlanMode] Usage}
 
 Immediate `EnterPlanMode` tool when [Reworking the Plan](#reworking-the-plan),
@@ -786,6 +806,12 @@ and present the revised plan to user thru `ExitPlanMode` tool
 #### {[Claude:AskUserQuestion] Usage}
 
 use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
+
+and to confirm each step or the End State of a user Movement, carrying likely replies as options
+
+#### {[Hermes:clarify] Usage}
+
+use `clarify` tool during [Reworking the Plan](#reworking-the-plan)
 
 and to confirm each step or the End State of a user Movement, carrying likely replies as options
 
@@ -917,6 +943,10 @@ Trigger when tests fail after a refactor, API change, or redesign — "tests bro
 
 Run Movement 2 through the `AskUserQuestion` tool, carrying plausible resolutions as options.
 
+### {[Hermes:clarify] Usage}
+
+Run Movement 2 through the `clarify` tool, carrying plausible resolutions as options.
+
 ### {[Claude:ReportFindings] Usage}
 
 At end of Movement 1, use `ReportFindings` tool to report all failed tests.
@@ -934,6 +964,15 @@ During Movement 3: call `TodoWrite` when:
 
 - Seed: before Movement 1 opens, show all repairing Movements
 - after finish any Movement: present user the current status
+
+### {[Hermes:todo_list] Usage}
+
+During Movement 3: call `todo_list` when:
+
+- Seed: before Movement 1 opens, show all repairing Movements
+- after finish any Movement: present user the current status
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 

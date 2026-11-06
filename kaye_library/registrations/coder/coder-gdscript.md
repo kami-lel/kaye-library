@@ -15,3 +15,7 @@ GDScript code for Godot 4
 ### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

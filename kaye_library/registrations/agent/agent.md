@@ -4,6 +4,10 @@
 
 Only invoke `Agent` skill on: explicit user request, explicit workflow call, or common agent use case. Avoid defaulting to `Agent` for ordinary task — delegating hides step-by-step progress from user.
 
+## {[Hermes:delegate_task] Usage}
+
+Only invoke `delegate_task` on: explicit user request, explicit workflow call, or common agent use case. Avoid defaulting to `delegate_task` for ordinary task — delegating hides step-by-step progress from user.
+
 
 
 
@@ -153,6 +157,21 @@ Rules:
 - exactly 1 entry `in_progress` at a time
 - Movement added or dropped mid-Suite: edit the array in the call that closes the current Movement, and rewrite every prefix to the new `b`
 
+### {[Hermes:todo_list] Usage}
+
+One `todo_list` item per Movement in the Suite — 1:1, never merged or split. Item index gives Movement number `a`; list length gives total `b`.
+
+- item text: prefix + Movement imperative
+
+Status flow: not started at Seed (before Movement 1 opens) → in progress on Open → done on Close, once Working state is verified.
+
+Rules:
+
+- exactly 1 item in progress at a time
+- Movement added or dropped mid-Suite: edit the list in the call that closes the current Movement, and rewrite every prefix to the new `b`
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
+
 ### {[task-tracking] Fallback}
 
 One markdown task-list item per Movement in the Suite — 1:1, never merged or split. Item index gives Movement number `a`; list length gives total `b`.
@@ -247,6 +266,24 @@ Open Movement 2 — resend whole array, 1 status changes:
   ]
 }
 ```
+
+#### {[Hermes:todo_list] Usage}
+
+`todo_list` Examples, with prefix `🧩a\b SUMMARY`
+
+Seed:
+
+- 🧩1\3 Rewrite the Entry Point
+- 🧩2\3 Move the Parser to Its Own Module
+- 🧩3\3 Update the Test Fixtures
+
+Open Movement 2 — resend whole list, 1 item's status changes (Movement 1 done, Movement 2 in progress):
+
+- 🧩1\3 Rewrite the Entry Point (done)
+- 🧩2\3 🥁 Move the Parser to Its Own Module (in progress)
+- 🧩3\3 Update the Test Fixtures
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 #### {[task-tracking] Fallback}
 
@@ -366,6 +403,24 @@ Open Movement 2 — resend whole array, 1 status changes:
   ]
 }
 ```
+
+#### {[Hermes:todo_list] Usage}
+
+`todo_list` Examples, with prefix `a\b🧩c\d SUMMARY`
+
+Seed:
+
+- 4\12🧩1\3 Rewrite the Entry Point
+- 9\12🧩2\3 Move the Parser to Its Own Module
+- 12\12🧩3\3 Update the Test Fixtures
+
+Open Movement 2 — resend whole list, 1 item's status changes (Movement 1 done, Movement 2 in progress):
+
+- 4\12🧩1\3 Rewrite the Entry Point (done)
+- 9\12🧩2\3 🥁 Move the Parser to Its Own Module (in progress)
+- 12\12🧩3\3 Update the Test Fixtures
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 #### {[task-tracking] Fallback}
 
@@ -540,6 +595,15 @@ Invoke `TodoWrite` when:
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
 
+### {[Hermes:todo_list] Usage}
+
+Invoke `todo_list` when:
+
+- when Turn start, before Movement start; often directly after user continue
+- after Movement finished, before the Movement-Turn Dispatch
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
+
 ### {[task-tracking] Fallback}
 
 Update the markdown task list when:
@@ -630,6 +694,12 @@ Index and commit at each Movement's close, before its Movement Dispatch: 1 commi
 ### {[Claude:TodoWrite] Usage}
 
 Invoke `TodoWrite` **every time** after Movement finished, before the Movement Dispatch
+
+### {[Hermes:todo_list] Usage}
+
+Invoke `todo_list` **every time** after Movement finished, before the Movement Dispatch
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 

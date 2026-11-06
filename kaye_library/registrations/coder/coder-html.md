@@ -17,3 +17,7 @@ Use this skill when writing or generating HTML — apply HTML5 standards for str
 ### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

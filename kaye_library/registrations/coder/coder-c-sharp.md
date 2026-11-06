@@ -33,3 +33,7 @@ Use for any C# code work, requests for C#, mentions of .NET.
 ### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
