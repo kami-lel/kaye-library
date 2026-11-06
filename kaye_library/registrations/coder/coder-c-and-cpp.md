@@ -29,7 +29,7 @@ Use for any C code work, requests for C.
 **/*.{c,h}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
 
@@ -65,6 +65,6 @@ Use for any C++ code work, requests for C++.
 **/*.{cpp,cc,cxx,hpp,hh,hxx}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.

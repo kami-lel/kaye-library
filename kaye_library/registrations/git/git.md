@@ -42,7 +42,7 @@ Run only when the user names the exact action in the same turn:
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 To commit, invoke the `commit-sense` skill via the `Skill` tool.
 Never devise your own commit message format, nor run `git commit` outside it.
@@ -420,7 +420,7 @@ Triggers on a halted merge, rebase, cherry-pick, or pull; `<<<<<<<`/`=======`/`>
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 track resolution with the `TodoWrite` tool — one todo per unmerged path, marked complete only after its markers are gone and the file parses
 

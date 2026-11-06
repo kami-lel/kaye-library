@@ -14,6 +14,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- every conditional sidecar reference to a Claude tool takes the single `Claude:` prefix; the Chat and Cowork twins of the Gmail, TickTick and Google Calendar usage nodes merge into one node each, and the iOS calendar nodes become `Claude:iOS:Calendar:*`
 - `commit-sense`: diff check uses `git diff --cached --numstat`, line counts settle sigil Lean & Size
 - `plan-for-suite`: Movement Heading is an `h3` that marks a non-own party in `{}`, ahead of the workspace, before the colon
 

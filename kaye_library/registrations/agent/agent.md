@@ -1,6 +1,6 @@
 # Agentic
 
-## {[ClaudeCode:Agent~] Usage}
+## {[Claude:Agent~] Usage}
 
 Only invoke `Agent` skill on: explicit user request, explicit workflow call, or common agent use case. Avoid defaulting to `Agent` for ordinary task — delegating hides step-by-step progress from user.
 
@@ -139,7 +139,7 @@ A single Movement often corresponds to one git commit.
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 One `TodoWrite` entry per Movement in the Suite — 1:1, never merged or split. Entry index gives Movement number `a`; array length gives total `b`.
 
@@ -196,7 +196,7 @@ Except in a markdown heading: spell out `Movement a` instead, eg `## Movement 5`
 
 
 
-#### {[ClaudeCode:TodoWrite] Usage}
+#### {[Claude:TodoWrite] Usage}
 
 `TodoWrite` Examples, with prefix `🧩a\b SUMMARY`
 
@@ -315,7 +315,7 @@ When work is split into Movements or Counts, or either is announced, numbered, t
 
 
 
-#### {[ClaudeCode:TodoWrite] Usage}
+#### {[Claude:TodoWrite] Usage}
 
 `TodoWrite` Examples, with prefix `a\b🧩c\d SUMMARY`
 
@@ -533,7 +533,7 @@ Index the Movement's edits before the Turn stop. Commit them at the next Turn st
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 Invoke `TodoWrite` when:
 
@@ -627,7 +627,7 @@ Index and commit at each Movement's close, before its Movement Dispatch: 1 commi
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 Invoke `TodoWrite` **every time** after Movement finished, before the Movement Dispatch
 
