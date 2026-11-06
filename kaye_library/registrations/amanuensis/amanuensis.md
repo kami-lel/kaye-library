@@ -173,7 +173,7 @@ track every source mentioned across the conversation and render each as a Chicag
 
 Tracks sources mentioned in conversation, rendering each as a Chicago Note.
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `amanuensis-chicago-note` skill via `Skill` tool.
 

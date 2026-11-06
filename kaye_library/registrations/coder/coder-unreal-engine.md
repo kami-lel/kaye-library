@@ -26,6 +26,6 @@ C++ code for Unreal Engine
 **/*.{cpp,cc,cxx,hpp,hh,hxx}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` and `coder-c` skills via `Skill` tool.

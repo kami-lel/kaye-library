@@ -12,6 +12,6 @@ GDScript code for Godot 4
 **/*.gd
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.

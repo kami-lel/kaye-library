@@ -216,7 +216,7 @@ Handles coding tasks — expansion, adjustment, debugging, and support — follo
 
 Trigger on any code writing, editing, debugging, or programming question.
 
-## {[ClaudeCode:Skill] Usage}
+## {[Claude:Skill] Usage}
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
@@ -651,11 +651,11 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-### {[ClaudeCode:Enter/ExitPlanMode] Usage}
+### {[Claude:Enter/ExitPlanMode] Usage}
 
 in Bar 1:
 
@@ -665,7 +665,7 @@ in Bar 2:
 
 - delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
 
-### {[ClaudeCode:AskUserQuestion] Usage}
+### {[Claude:AskUserQuestion] Usage}
 
 in Bar 1:
 
@@ -772,18 +772,18 @@ On Plan file preface; on instruction to begin or continue; on any *continue* sho
 
 
 
-#### {[ClaudeCode:Skill] Usage}
+#### {[Claude:Skill] Usage}
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
 For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
 
-#### {[ClaudeCode:Enter/ExitPlanMode] Usage}
+#### {[Claude:Enter/ExitPlanMode] Usage}
 
 Immediate `EnterPlanMode` tool when [Reworking the Plan](#reworking-the-plan),
 and present the revised plan to user thru `ExitPlanMode` tool
 
-#### {[ClaudeCode:AskUserQuestion] Usage}
+#### {[Claude:AskUserQuestion] Usage}
 
 use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
 
@@ -913,11 +913,11 @@ Trigger when tests fail after a refactor, API change, or redesign — "tests bro
 
 
 
-### {[ClaudeCode:AskUserQuestion] Usage}
+### {[Claude:AskUserQuestion] Usage}
 
 Run Movement 2 through the `AskUserQuestion` tool, carrying plausible resolutions as options.
 
-### {[ClaudeCode:ReportFindings] Usage}
+### {[Claude:ReportFindings] Usage}
 
 At end of Movement 1, use `ReportFindings` tool to report all failed tests.
 
@@ -928,7 +928,7 @@ At end of Movement 1, use `ReportFindings` tool to report all failed tests.
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 During Movement 3: call `TodoWrite` when:
 

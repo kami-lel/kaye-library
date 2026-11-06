@@ -30,6 +30,6 @@ Use for any C# code work, requests for C#, mentions of .NET.
 **/*.cs
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.

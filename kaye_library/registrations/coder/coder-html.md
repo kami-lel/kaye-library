@@ -14,6 +14,6 @@ Use this skill when writing or generating HTML — apply HTML5 standards for str
 **/*.{html,htm}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.

@@ -158,50 +158,11 @@ Trigger on any email or message drafting, revision, or parsing task.
 
 
 
-#### {[ClaudeChat:Gmail] Usage}
+#### {[Claude:Gmail] Usage}
 
 Always start working with **drafts** using `Gmail:create_draft`, `Gmail:list_drafts`, and `Gmail:update_draft`.
 
 Use `Gmail:send_message` only when user explicit Approved it.
-
-#### {[ClaudeCowork:Gmail] Usage}
-
-Always start working with **drafts** using `mcp__gmail__create_draft`, `mcp__gmail__list_drafts`, and `mcp__gmail__update_draft`
-
-Use `mcp__gmail__send_message` only when user explicit Approved it.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### sweep email inbox
 
@@ -327,7 +288,7 @@ Triage, sweep, sort, clear inbox: "go through my unread mail," "categorize my in
 
 
 
-#### {[ClaudeChat:Gmail] Usage}
+#### {[Claude:Gmail] Usage}
 
 Bar 1: `Gmail:search_threads`, scoped to `in:inbox is:unread`.
 
@@ -341,54 +302,6 @@ Bar 5: Per message, one `Gmail:update_message_labels` call combining every label
 Assume the category label already exists. Only on failure, `Gmail:list_labels` to confirm, then `Gmail:create_label` to create it (name matches the category, no emoji), then retry the call.
 
 Never call any other tool.
-
-#### {[ClaudeCowork:Gmail] Usage}
-
-Bar 1: `mcp__gmail__search_threads`, scoped to `in:inbox is:unread`.
-
-Bar 2: `mcp__gmail__get_message` on each.
-
-Bar 5: Per message, one `mcp__gmail__update_message_labels` call combining every label:
-
-- `addLabelIds`: the category label, plus `STARRED` if Urgent, plus `IMPORTANT` if Important
-- `removeLabelIds`: `UNREAD`
-
-Assume the category label already exists. Only on failure, `mcp__gmail__list_labels` to confirm, then `mcp__gmail__create_label` to create it (name matches the category, no emoji), then retry the call.
-
-Never call any other tool.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## scan event radar
 
@@ -602,19 +515,13 @@ Example:
 
 
 
-#### {[ClaudeChat:GoogleCalendar:EventEdit] Usage}
+#### {[Claude:GoogleCalendar:EventEdit] Usage}
 
 Movement 2: Call `GoogleCalendar:create_event` per new event: carry date, time, location & brief description from source.
 
 Event exists already, detail only changed: call `GoogleCalendar:update_event` instead
 
-#### {[ClaudeCowork:GoogleCalendar:EventEdit] Usage}
-
-Movement 2: Call `mcp__Google_Calendar__create_event` per new event: carry date, time, location & brief description from source.
-
-Event exists already, detail only changed: call `mcp__Google_Calendar__update_event` instead
-
-#### {[ClaudeiOSChat:Calendar:EventEdit] Usage}
+#### {[Claude:iOS:Calendar:EventEdit] Usage}
 
 Movement 2: Call `event_create_v1` per new event: carry date, time, location & brief description from source.
 
@@ -643,19 +550,13 @@ Trigger on "add this to my calendar," "put these events on my calendar," "schedu
 
 ### Pull Event from Calendar
 
-#### {[ClaudeChat:GoogleCalendar:EventInfo] Usage}
+#### {[Claude:GoogleCalendar:EventInfo] Usage}
 
 Call `GoogleCalendar:search_events` per request scope: date range, keyword, or both.
 
 Single known event needing full detail: call `GoogleCalendar:get_event` instead
 
-#### {[ClaudeCowork:GoogleCalendar:EventInfo] Usage}
-
-Call `mcp__Google_Calendar__search_events` per request scope: date range, keyword, or both.
-
-Single known event needing full detail: call `mcp__Google_Calendar__get_event` instead
-
-#### {[ClaudeiOSChat:Calendar:EventInfo] Usage}
+#### {[Claude:iOS:Calendar:EventInfo] Usage}
 
 Call `event_search_v0` per request scope: date range, keyword, or both.
 
@@ -757,7 +658,7 @@ Example:
 
 
 
-#### {[ClaudeChat:TickTick] Usage}
+#### {[Claude:TickTick] Usage}
 
 Movement 2: Call `TickTick:create_task` per new task: carry title, due date, project, quadrant & brief description from source. Quadrant sets `priority`: 💎🚨 → 5, 💎 → 3, 🚨 → 1, ➖ → 0; same on batch & update calls.
 
@@ -766,19 +667,6 @@ Several new tasks at once: call `TickTick:batch_add_tasks` instead
 Task exists already, detail only changed: call `TickTick:update_task` instead; several at once: `TickTick:batch_update_tasks`
 
 Project unknown: call `TickTick:list_projects` first
-
-#### {[ClaudeCowork:TickTick] Usage}
-
-Movement 2: Call `mcp__TickTick__create_task` per new task: carry title, due date, project, quadrant & brief description from source. Quadrant sets `priority`: 💎🚨 → 5, 💎 → 3, 🚨 → 1, ➖ → 0; same on batch & update calls.
-
-Several new tasks at once: call `mcp__TickTick__batch_add_tasks` instead
-
-Task exists already, detail only changed: call `mcp__TickTick__update_task` instead; several at once: `mcp__TickTick__batch_update_tasks`
-
-Project unknown: call `mcp__TickTick__list_projects` first
-
-
-
 
 #### {description}
 
@@ -802,24 +690,13 @@ Trigger on "add to my tasks," "put on my to-do list," "remind me to," or once a 
 
 ### Pull Task from GTD
 
-#### {[ClaudeChat:TickTick] Usage}
+#### {[Claude:TickTick] Usage}
 
 Call `TickTick:filter_tasks` per request scope: date, project, priority, tag, or any combination.
 
 Keyword given: call `TickTick:search_task` instead
 
 Single known task needing full detail: call `TickTick:get_task_by_id` instead
-
-#### {[ClaudeCowork:TickTick] Usage}
-
-Call `mcp__TickTick__filter_tasks` per request scope: date, project, priority, tag, or any combination.
-
-Keyword given: call `mcp__TickTick__search_task` instead
-
-Single known task needing full detail: call `mcp__TickTick__get_task_by_id` instead
-
-
-
 
 #### {description}
 
@@ -871,15 +748,11 @@ You report what a [Watch Day](#watch-day) came to, as one warm **Recap Line** pe
 
 
 
-### {[ClaudeChat:GoogleCalendar:EventInfo] Usage}
+### {[Claude:GoogleCalendar:EventInfo] Usage}
 
 Call `GoogleCalendar:search_events` scoped to the recapped day's date range. Fold every event returned into the Recap Line; none returned, name no event.
 
-### {[ClaudeCowork:GoogleCalendar:EventInfo] Usage}
-
-Call `mcp__Google_Calendar__search_events` scoped to the recapped day's date range. Fold every event returned into the Recap Line; none returned, name no event.
-
-### {[ClaudeiOSChat:Calendar:EventInfo] Usage}
+### {[Claude:iOS:Calendar:EventInfo] Usage}
 
 Call `event_search_v0` scoped to the recapped day's date range. Fold every event returned into the Recap Line; none returned, name no event.
 
@@ -887,7 +760,7 @@ Call `event_search_v0` scoped to the recapped day's date range. Fold every event
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `pull-task-from-gtd` via `Skill` tool for the recapped day's completed tasks
 
@@ -1152,7 +1025,7 @@ Trigger on "good morning," a daily or morning check-in request, or an ask to cat
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hunt-job-opportunity`, via `Skill` tool.
 
@@ -1252,6 +1125,6 @@ Trigger on "good week," a weekly or start-of-week check-in request, or an ask fo
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `scan-event-radar-weekly`, then `hunt-job-opportunity`, via `Skill` tool.

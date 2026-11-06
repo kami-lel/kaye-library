@@ -304,7 +304,7 @@ Use when creating, updating, or adding entries to a CHANGELOG, or recording chan
 **/{CHANGELOG,Changelog,changelog}{,.md,.txt}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
@@ -521,7 +521,7 @@ Bootstraps a repository's entire baseline documentation set in one pass — `REA
 
 When a bare repo needs its documentation scaffolded all at once — "set up docs," "set up this project/repo," "document this project," "create the docs from scratch." Not for updating or fixing existing docs.
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `create-readme`, `create-changelog`, `create-repo-agents`, and `create-repo-docs` skills via `Skill` tool.
 
@@ -944,7 +944,7 @@ Update the affected files in place, leaving unrelated files untouched.
 
 Logs a session's durable changes before context compaction — recording them in `CHANGELOG.md` and syncing `AGENTS.md` and `CONTEXT.md` — identifying the change set once from the conversation, working diffs, and existing `[Unreleased]` entries.
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `maintain-changelog` and `maintain-repo-agents` skills via `Skill` tool.
 
@@ -995,7 +995,7 @@ If the project has unit tests, run [Sync Unit Test](#sync-unit-test) first.
 
 
 
-##### {[ClaudeCode:Skill] Usage}
+##### {[Claude:Skill] Usage}
 
 Invoke `sync-unit-test` skill via `Skill` tool.
 
@@ -1045,7 +1045,7 @@ Reach for this when wrapping up or merging a feature branch — "prep for merge,
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `sync-unit-test`, `maintain-changelog`, and `maintain-repo-agents` skills via `Skill` tool.
 
@@ -1202,11 +1202,11 @@ Reach for this on release requests — "ship v1.2.3," "cut a release," "tag a ve
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills via `Skill` tool.
 
-### {[ClaudeCode:AskUserQuestion] Usage}
+### {[Claude:AskUserQuestion] Usage}
 
 - if version number or release date is **missing**, use `AskUserQuestion` to ask user before proceeding
 
