@@ -2,7 +2,8 @@
 
 <!--
 Todo add gh release script
-Todo support layered CONTEXT/AGENTS
+
+todo support layered CONTEXT/AGENTS
 -->
 
 ## [Unreleased]
