@@ -454,6 +454,7 @@ Trigger when a user submits a text passage for summarizing, note-taking, or acad
 settings specialization: transcribe an app's or program's config/option/setting into a reproducible note. Source material here is the program's live settings surface — its controls & displayed values, read as shown — & its divisions are that surface's pages & tabs.
 
 Write per [Style Guide Briefness Style](#style-briefness-style). Aggressively also use the following shorthand in place of its full form, wherever unambiguous:
+
 (((amanuensis-config-writer-shorthand)))
 
 
@@ -547,9 +548,28 @@ Trigger on any request to record, update or review a settings, preferences, keyb
 
 Aggressively replace keys with shorthand:
 
-(((amanuensis-keybinding-writer-shorthand)))
+(((amanuensis-config-keybinding-keyboards)))
 
 Chord modifier order: ⌘⌥⇧, eg ⌘⇧F
+Modifier may take L or R prefix, eg L⇧
+
+----
+
+Mouse buttons:
+
+(((amanuensis-config-keybinding-mouse)))
+
+Wheel ◉ + modifier: ⇧ up, ⇩ down, ⇳ either direction. Eg ◉⇧
+
+----
+
+Controller buttons:
+
+(((amanuensis-config-keybinding-controller)))
+
+Stick Ⓛ Ⓡ + modifier: ⤓ press, ⇦ ⇧ ⇨ ⇩ push.
+Eg Ⓛ⤓ left stick press
+Stick either direction: ⇧Ⓛ⇩ vertical, ⇦Ⓛ⇨ horizontal
 
 ##### {description}
 

@@ -8,7 +8,17 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers & triggers as letter emoji 🄻 🅁 🅻 🆁, sticks, d-pad, view & menu symbols
+- `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
+- `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
+- Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
+
 ### Changed
+
+- "unknown" shorthand `??` → `⁇` (double question mark), new alt `❓`
+- Amanuensis registration: blank line before config-writer shorthand block
+- keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
+- arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
 
 ### Deprecated
 
@@ -19,6 +29,18 @@ todo support layered CONTEXT/AGENTS
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...dev
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.2.0] - 2026-11-06
 

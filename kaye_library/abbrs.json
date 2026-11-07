@@ -727,6 +727,18 @@
       }
     }
   },
+  "a button": {
+    "abbrs": {
+      "Ⓐ": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "abstract class": {
     "abbrs": {
       "AC": {
@@ -803,9 +815,9 @@
   "alt/option": {
     "abbrs": {
       "⌥": {
-        "priority": 2,
+        "priority": 3,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -931,12 +943,24 @@
       }
     }
   },
+  "b button": {
+    "abbrs": {
+      "Ⓑ": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "backspace": {
     "abbrs": {
       "⌫": {
-        "priority": 9,
+        "priority": 10,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1074,9 +1098,9 @@
   "caps lock": {
     "abbrs": {
       "⇪": {
-        "priority": 6,
+        "priority": 7,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1272,9 +1296,9 @@
   "control/command": {
     "abbrs": {
       "⌘": {
-        "priority": 1,
+        "priority": 2,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1303,6 +1327,66 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "d-pad": {
+    "abbrs": {
+      "✚": {
+        "priority": 11,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad down": {
+    "abbrs": {
+      "▼": {
+        "priority": 15,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad left": {
+    "abbrs": {
+      "◀": {
+        "priority": 14,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad right": {
+    "abbrs": {
+      "▶": {
+        "priority": 13,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad up": {
+    "abbrs": {
+      "▲": {
+        "priority": 12,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1345,9 +1429,9 @@
   "delete": {
     "abbrs": {
       "⌦": {
-        "priority": 10,
+        "priority": 11,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1516,10 +1600,10 @@
   },
   "down arrow": {
     "abbrs": {
-      "↓": {
-        "priority": 18,
+      "⮟": {
+        "priority": 19,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1579,9 +1663,9 @@
   "end": {
     "abbrs": {
       "⇲": {
-        "priority": 14,
+        "priority": 15,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1651,9 +1735,9 @@
   "escape": {
     "abbrs": {
       "⎋": {
-        "priority": 4,
+        "priority": 5,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1944,9 +2028,9 @@
   "home": {
     "abbrs": {
       "⇱": {
-        "priority": 13,
+        "priority": 14,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2203,10 +2287,58 @@
   },
   "left arrow": {
     "abbrs": {
-      "←": {
-        "priority": 17,
+      "⮜": {
+        "priority": 18,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "left bumper": {
+    "abbrs": {
+      "🄻": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "left click": {
+    "abbrs": {
+      "◖": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "left stick": {
+    "abbrs": {
+      "Ⓛ": {
+        "priority": 9,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "left trigger": {
+    "abbrs": {
+      "🅻": {
+        "priority": 7,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2347,6 +2479,18 @@
     },
     "remark": "of object, include fields/attributes, properties, & methods"
   },
+  "menu button": {
+    "abbrs": {
+      "☰": {
+        "priority": 17,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "mile": {
     "abbrs": {
       "mi": {
@@ -2428,6 +2572,42 @@
           "units-of-measure"
         ],
         "wrap": "unit"
+      }
+    }
+  },
+  "mouse button 4": {
+    "abbrs": {
+      "④": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "mouse button 5": {
+    "abbrs": {
+      "⑤": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "mouse,mouse movement": {
+    "abbrs": {
+      "🖰": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-config-keybinding-keyboards",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2753,9 +2933,9 @@
   "page down": {
     "abbrs": {
       "⇟": {
-        "priority": 11,
+        "priority": 12,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2765,9 +2945,9 @@
   "page up": {
     "abbrs": {
       "⇞": {
-        "priority": 12,
+        "priority": 13,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3058,9 +3238,9 @@
   "return/enter": {
     "abbrs": {
       "⏎": {
-        "priority": 8,
+        "priority": 9,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3069,10 +3249,58 @@
   },
   "right arrow": {
     "abbrs": {
-      "→": {
-        "priority": 16,
+      "⮞": {
+        "priority": 17,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right bumper": {
+    "abbrs": {
+      "🅁": {
+        "priority": 6,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right click": {
+    "abbrs": {
+      "◗": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right stick": {
+    "abbrs": {
+      "Ⓡ": {
+        "priority": 10,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right trigger": {
+    "abbrs": {
+      "🆁": {
+        "priority": 8,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3219,9 +3447,9 @@
   "shift": {
     "abbrs": {
       "⇧": {
-        "priority": 3,
+        "priority": 4,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3255,9 +3483,9 @@
   "space": {
     "abbrs": {
       "␣": {
-        "priority": 7,
+        "priority": 8,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3330,9 +3558,9 @@
   "tab": {
     "abbrs": {
       "⇥": {
-        "priority": 5,
+        "priority": 6,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3485,7 +3713,15 @@
   },
   "unknown": {
     "abbrs": {
-      "??": {
+      "⁇": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "❓": {
         "priority": 5,
         "tags": [
           "letters_only",
@@ -3519,10 +3755,10 @@
   },
   "up arrow": {
     "abbrs": {
-      "↑": {
-        "priority": 15,
+      "⮝": {
+        "priority": 16,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3591,6 +3827,18 @@
       }
     }
   },
+  "view button": {
+    "abbrs": {
+      "⧉": {
+        "priority": 16,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "visual effects": {
     "abbrs": {
       "VFX": {
@@ -3639,6 +3887,18 @@
           "element-dt-watch-week-abbr"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "wheel, middle click": {
+    "abbrs": {
+      "◉": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -3727,6 +3987,30 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "x button": {
+    "abbrs": {
+      "Ⓧ": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "y button": {
+    "abbrs": {
+      "Ⓨ": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
