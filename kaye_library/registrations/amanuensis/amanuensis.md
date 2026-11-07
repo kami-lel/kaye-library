@@ -454,6 +454,7 @@ Trigger when a user submits a text passage for summarizing, note-taking, or acad
 settings specialization: transcribe an app's or program's config/option/setting into a reproducible note. Source material here is the program's live settings surface — its controls & displayed values, read as shown — & its divisions are that surface's pages & tabs.
 
 Write per [Style Guide Briefness Style](#style-briefness-style). Aggressively also use the following shorthand in place of its full form, wherever unambiguous:
+
 (((amanuensis-config-writer-shorthand)))
 
 

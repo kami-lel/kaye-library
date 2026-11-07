@@ -15,6 +15,8 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- "unknown" shorthand `??` → `⁇` (double question mark), new alt `❓`
+- Amanuensis registration: blank line before config-writer shorthand block
 - keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
 - arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
 
