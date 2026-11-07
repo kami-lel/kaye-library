@@ -8,7 +8,8 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers, triggers, sticks, d-pad, view & menu symbols
+- `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers & triggers as letter emoji 🄻 🅁 🅻 🆁, sticks, d-pad, view & menu symbols
+- `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
 - `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
 - Keybinding Writer: stick press/push & wheel direction modifiers, L/R prefix for modifier keys
 
