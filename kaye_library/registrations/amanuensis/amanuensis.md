@@ -557,6 +557,9 @@ Controller buttons:
 
 (((amanuensis-config-keybinding-controller)))
 
+Stick Ⓛ Ⓡ + modifier: ⤓ press, ⇦ ⇧ ⇨ ⇩ push.
+Eg Ⓛ⤓ left stick press
+
 ##### {description}
 
 Records an app's, game's or system's keybindings as a reproducible note in compact key symbols.
