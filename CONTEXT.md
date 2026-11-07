@@ -103,6 +103,6 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 - **consumer placeholders in Secretary skills**: `sweep-email-inbox` and the event radar splice a glossary or substitution the library does not register (`secretary-work-color-legend`, `secretary-email-authuser`); run alone, their placeholders render literally, and a consumer registers them. The calendar, GTD, and email category glossaries (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category`) ship with the library
 - **stubs**: `land-feature`, `release-version`, and `submit-pr` render placeholder text until their sections are written
-- **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[ClaudeCode:...]}` sidecars never render under the standalone command, only their fallbacks
+- **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[Claude:...]}` sidecars never render under the standalone command, only their fallbacks
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link
 - **pre-existing broken links**: `#style-briefness-style` in several sections and `#movement-2-write-the-plan` in `Plan for Suite` point at no heading

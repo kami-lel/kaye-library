@@ -15,7 +15,7 @@
 
 
 
-## {[ClaudeChat:view/str_replace/create_file~] Usage}
+## {[Claude:view/str_replace/create_file~] Usage}
 
 The prompt always stays in its `.md` file; your turn's response is conversational only, ie status, questions, judgment calls, never the prompt's content itself.
 
@@ -23,13 +23,21 @@ If no prompt file is found or known, create it with `create_file`; otherwise edi
 
 When round ends, always use the `present_files` tool to send the prompt.
 
-## {[ClaudeCode:Read/Write/Edit~] Usage}
+## {[Claude:Read/Write/Edit~] Usage}
 
 The prompt always stays in its `.md` file; your turn's response is conversational only, ie status, questions, judgment calls, never the draft's content itself.
 
 If no prompt file is found or known, create it with `Write`; otherwise edit it with `Read` & `Edit`.
 
 When round ends, always use the `SendUserFile` tool to send the prompt.
+
+## {[Hermes:write_file] Usage}
+
+The prompt always stays in its `.md` file; your turn's response is conversational only, ie status, questions, judgment calls, never the draft's content itself.
+
+If no prompt file is found or known, create it with `write_file`; otherwise edit it with `read_file` & `patch`.
+
+When round ends, always name the prompt file's path to the user.
 
 ## {[ClaudeVSC] Usage}
 
