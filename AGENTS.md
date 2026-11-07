@@ -80,4 +80,5 @@ Scope each run to the area touched; run everything only before a merge.
 - [docs/glossary-doc.md](docs/glossary-doc.md): every glossary and its usage; update on any glossary added or re-wired
 - [docs/corpus-registration-doc.md](docs/corpus-registration-doc.md): how sources attach to the tree; update when `_CORPUS_SOURCES` or the registration rules change
 - [docs/boundary-doc.md](docs/boundary-doc.md): what crosses the boundary; update when a rule about consumers, overrides, or abbreviation layers changes
+- [docs/release-doc.md](docs/release-doc.md): the tag-to-release workflow; update when `.github/workflows/release.yml` changes
 - `CHANGELOG.md`: notable changes per release
