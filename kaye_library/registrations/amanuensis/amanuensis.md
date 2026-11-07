@@ -550,6 +550,7 @@ Aggressively replace keys with shorthand:
 (((amanuensis-config-keybinding-keyboards)))
 
 Chord modifier order: ⌘⌥⇧, eg ⌘⇧F
+Modifier may take L or R prefix, eg L⇧
 
 ----
 
