@@ -24,3 +24,9 @@ def register_amanuensis_abbr_glossaries():
         is_dyn_substitution=True,
         is_sorted=True,
     )
+    register_abbr_glossary(
+        "amanuensis-config-keybinding-controller",
+        False,
+        is_dyn_substitution=True,
+        is_sorted=True,
+    )

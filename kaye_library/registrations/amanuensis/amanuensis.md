@@ -551,6 +551,12 @@ Aggressively replace keys with shorthand:
 
 Chord modifier order: ⌘⌥⇧, eg ⌘⇧F
 
+----
+
+Controller buttons:
+
+(((amanuensis-config-keybinding-controller)))
+
 ##### {description}
 
 Records an app's, game's or system's keybindings as a reproducible note in compact key symbols.

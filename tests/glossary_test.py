@@ -11,6 +11,7 @@ _LIBRARY_GLOSSARIES = (
     "agent-chat-turn-progress-dispatch-decorative",
     "amanuensis-config-writer-shorthand",
     "amanuensis-config-keybinding-keyboards",
+    "amanuensis-config-keybinding-controller",
     "briefness-shorthand",
     "coder-abbr",
     "coder-documentation-field-shorthand",
