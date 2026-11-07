@@ -558,6 +558,8 @@ Mouse buttons:
 
 (((amanuensis-config-keybinding-mouse)))
 
+Wheel ◉ + modifier: ⇧ up, ⇩ down, ⇳ either direction. Eg ◉⇧
+
 ----
 
 Controller buttons:
