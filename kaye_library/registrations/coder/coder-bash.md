@@ -47,9 +47,13 @@ answers Bash command requests for Debian GNU/Linux with the bare terminal line
 
 fires when the user wants something run now, not a file kept: "give me a command", "one-liner", ad hoc `grep`, `sed`, `awk`, `find`, `apt`, `systemctl`. Hands off to Coder Bash Script once the deliverable is a `.sh` file, function, or sourced library
 
-#### {[ClaudeCode:Skill] Usage}
+#### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
 
 
 
@@ -183,6 +187,10 @@ writes Bash script files, functions, and sourced libraries for Debian GNU/Linux 
 
 fires on durable shell artifacts: `.sh`, `.bash`, `bashrc`, function definitions, scripts to extend, refactor, or document. Cues: "write a script", "add a function", header comment, exit status. Not for throwaway terminal lines — those go to Coder Bash Shell
 
-#### {[ClaudeCode:Skill] Usage}
+#### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

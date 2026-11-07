@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-10-30, v1.1.1. History lives in `CHANGELOG.md` and `git log`, not here.
+**Last updated:** 2026-11-06, v1.2.0. History lives in `CHANGELOG.md` and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside `AGENTS.md`.
 
@@ -21,7 +21,8 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 |---|---|
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
-| runtime dependencies | `kaye-engine`, `kamilog` |
+| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, default branch) |
+| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version builds the plugin zip with `build-github-release` and attaches it to a GitHub Release, a pre-release for `-alpha` and `-beta` |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
 ## Repository Layout
@@ -36,6 +37,7 @@ kaye_library/
     _dynamic_substitution.py  md-file dynamic substitution helper
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
 docs/               per-topic reference
+.github/workflows/  tag-triggered release build
 ```
 
 ## Integration Points
@@ -66,6 +68,7 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Repositories | Repository Structure, README, CHANGELOG, CONTEXT writers, create and maintain workflows, landing and release workflows |
 | Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
+| Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |
@@ -102,6 +105,6 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 - **consumer placeholders in Secretary skills**: `sweep-email-inbox` and the event radar splice a glossary or substitution the library does not register (`secretary-work-color-legend`, `secretary-email-authuser`); run alone, their placeholders render literally, and a consumer registers them. The calendar, GTD, and email category glossaries (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category`) ship with the library
 - **stubs**: `land-feature`, `release-version`, and `submit-pr` render placeholder text until their sections are written
-- **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[ClaudeCode:...]}` sidecars never render under the standalone command, only their fallbacks
+- **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[Claude:...]}` and `{[Hermes:...]}` sidecars never render under the standalone command, only their fallbacks
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link
 - **pre-existing broken links**: `#style-briefness-style` in several sections and `#movement-2-write-the-plan` in `Plan for Suite` point at no heading

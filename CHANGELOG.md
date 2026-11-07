@@ -1,7 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
-todo add gh release script
+todo support layered CONTEXT/AGENTS
 -->
 
 ## [Unreleased]
@@ -18,20 +18,27 @@ todo add gh release script
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.1.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...dev
 
+## [1.2.0] - 2026-11-06
 
+### Added
 
+- GitHub Release workflow: a `v*` tag builds the plugin zip and attaches it to a release, a pre-release for `-alpha` and `-beta` tags
+- Hermes tool usage nodes beside the Claude ones, so a `hermes` render carries Hermes tool instructions
+- `working-with-git` and `working-with-p4v` skills: Git working terms and approval rules, Perforce terms paired with Git equivalents
 
+### Changed
 
+- `kaye-engine` dependency is a git reference at tag `v11.0.0`, as it is not on PyPI
+- Claude tool sidecars take the single `Claude:` prefix; Chat and Cowork twins of the Gmail, TickTick, and Google Calendar usage nodes merge
+- `commit-sense`: line counts from `git diff --cached --numstat` settle sigil Lean and Size
+- `plan-for-suite`: Movement Heading is an `h3` marking a non-own party in `{}`
 
+> [!WARNING]
+> requires `kaye-engine` v11.0.0; packages building on the library must upgrade their engine pin before updating
 
-
-
-
-
-
-
+[1.2.0]: https://github.com/kami-lel/kaye-library/compare/v1.1.1...v1.2.0
 
 ## [1.1.1] - 2026-10-30
 
