@@ -12,6 +12,7 @@ _LIBRARY_GLOSSARIES = (
     "amanuensis-config-writer-shorthand",
     "amanuensis-config-keybinding-keyboards",
     "amanuensis-config-keybinding-controller",
+    "amanuensis-config-keybinding-mouse",
     "briefness-shorthand",
     "coder-abbr",
     "coder-documentation-field-shorthand",
