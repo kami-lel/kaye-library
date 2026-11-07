@@ -12,7 +12,7 @@ Pushing a version tag publishes the plugin `.zip` as a GitHub Release asset. The
 
 ## Installed Versions
 
-- the engine installs from its GitHub tag `v<X>`, with `<X>` read from the `kaye-engine==X` pin in `pyproject.toml`; raising the pin changes the release build, and that engine tag must exist first
+- the engine pin is a major range, `kaye-engine>=11,<12`; the workflow reads the major, lists the engine's GitHub tags, and installs the newest stable `v11.x.y` (pre-release tags are skipped); it fails when no such tag exists
 - `kamilog` installs from its default branch, as it carries no pin
 - the package itself installs with `--no-deps`, so the pins above are the only source of dependency versions
 
