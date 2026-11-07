@@ -3724,7 +3724,8 @@
       "❓": {
         "priority": 5,
         "tags": [
-          "letters_only"
+          "letters_only",
+          "amanuensis-config-writer-shorthand"
         ],
         "wrap": "word"
       }
