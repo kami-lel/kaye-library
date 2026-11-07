@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check tag matches pyproject version
+      - name: check Tag matches pyproject Version
         run: |
           version=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
           if [ "${GITHUB_REF_NAME}" != "v${version}" ]; then
@@ -26,15 +26,15 @@ jobs:
             exit 1
           fi
 
-      - name: Install this package with its pinned dependencies
+      - name: install Package with its pinned Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install .
 
-      - name: Build plugin zip
+      - name: build Plugin Zip
         run: kaye-library build-github-release kaye-library -o dist
 
-      - name: Create GitHub release
+      - name: create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
