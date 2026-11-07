@@ -2479,18 +2479,6 @@
       }
     }
   },
-  "middle click": {
-    "abbrs": {
-      "◉": {
-        "priority": 3,
-        "tags": [
-          "amanuensis-config-keybinding-mouse",
-          "single_character"
-        ],
-        "wrap": "symbol"
-      }
-    }
-  },
   "mile": {
     "abbrs": {
       "mi": {
@@ -2578,7 +2566,7 @@
   "mouse button 4": {
     "abbrs": {
       "④": {
-        "priority": 7,
+        "priority": 4,
         "tags": [
           "amanuensis-config-keybinding-mouse",
           "single_character"
@@ -2590,7 +2578,7 @@
   "mouse button 5": {
     "abbrs": {
       "⑤": {
-        "priority": 8,
+        "priority": 5,
         "tags": [
           "amanuensis-config-keybinding-mouse",
           "single_character"
@@ -3870,34 +3858,13 @@
       }
     }
   },
-  "wheel down": {
+  "wheel, middle click": {
     "abbrs": {
-      "◉⇩": {
-        "priority": 5,
+      "◉": {
+        "priority": 3,
         "tags": [
-          "amanuensis-config-keybinding-mouse"
-        ],
-        "wrap": "symbol"
-      }
-    }
-  },
-  "wheel either direction": {
-    "abbrs": {
-      "◉⇳": {
-        "priority": 6,
-        "tags": [
-          "amanuensis-config-keybinding-mouse"
-        ],
-        "wrap": "symbol"
-      }
-    }
-  },
-  "wheel up": {
-    "abbrs": {
-      "◉⇧": {
-        "priority": 4,
-        "tags": [
-          "amanuensis-config-keybinding-mouse"
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
         ],
         "wrap": "symbol"
       }
