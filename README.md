@@ -67,7 +67,7 @@ The suite loads the library alone, exports every skill as a folder and as a `.zi
 
 Put new prompts in `kaye_library/registrations/<group>/`, one folder per feature group, holding the corpus `.md` beside the code that registers its blueprints. Keep every prompt free of personal data and of any persona.
 
-Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files are listed and attached to the tree is in the [corpus registration document](docs/corpus-registration-doc.md); what may cross the boundary between the library and a package building on it, including taking a skill over, is in the [boundary document](docs/boundary-doc.md). Publishing a tagged release with its plugin zip is in the [release document](docs/release-doc.md).
+Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files are listed and attached to the tree is in the [corpus registration document](docs/corpus-registration-doc.md); what may cross the boundary between the library and a package building on it, including taking a skill over, is in the [boundary document](docs/boundary-doc.md).
 
 ## Acknowledgments
 

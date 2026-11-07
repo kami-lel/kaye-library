@@ -12,7 +12,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "kaye-engine>=11,<12",
+    "kaye-engine @ git+https://github.com/kami-lel/kaye-engine.git@v11.0.0",
     "kamilog @ git+https://github.com/kami-lel/kamilog.git",
 ]
 
