@@ -3713,11 +3713,18 @@
   },
   "unknown": {
     "abbrs": {
-      "??": {
+      "⁇": {
         "priority": 5,
         "tags": [
           "letters_only",
           "amanuensis-config-writer-shorthand"
+        ],
+        "wrap": "word"
+      },
+      "❓": {
+        "priority": 5,
+        "tags": [
+          "letters_only"
         ],
         "wrap": "word"
       }
