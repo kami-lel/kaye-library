@@ -26,6 +26,18 @@ todo support layered CONTEXT/AGENTS
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...dev
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## [1.2.0] - 2026-11-06
 
 ### Added

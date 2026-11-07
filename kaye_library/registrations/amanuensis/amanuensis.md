@@ -554,6 +554,12 @@ Modifier may take L or R prefix, eg L⇧
 
 ----
 
+Mouse buttons:
+
+(((amanuensis-config-keybinding-mouse)))
+
+----
+
 Controller buttons:
 
 (((amanuensis-config-keybinding-controller)))

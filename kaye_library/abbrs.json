@@ -2297,6 +2297,18 @@
       }
     }
   },
+  "left click": {
+    "abbrs": {
+      "◖": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "left stick": {
     "abbrs": {
       "Ⓛ": {
@@ -2467,6 +2479,18 @@
       }
     }
   },
+  "middle click": {
+    "abbrs": {
+      "◉": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "mile": {
     "abbrs": {
       "mi": {
@@ -2548,6 +2572,30 @@
           "units-of-measure"
         ],
         "wrap": "unit"
+      }
+    }
+  },
+  "mouse button 4": {
+    "abbrs": {
+      "④": {
+        "priority": 7,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "mouse button 5": {
+    "abbrs": {
+      "⑤": {
+        "priority": 8,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -3211,6 +3259,18 @@
       }
     }
   },
+  "right click": {
+    "abbrs": {
+      "◗": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-config-keybinding-mouse",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "right stick": {
     "abbrs": {
       "Ⓡ": {
@@ -3807,6 +3867,39 @@
           "element-dt-watch-week-abbr"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "wheel down": {
+    "abbrs": {
+      "◉⇩": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-config-keybinding-mouse"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "wheel either direction": {
+    "abbrs": {
+      "◉⇳": {
+        "priority": 6,
+        "tags": [
+          "amanuensis-config-keybinding-mouse"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "wheel up": {
+    "abbrs": {
+      "◉⇧": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-config-keybinding-mouse"
+        ],
+        "wrap": "symbol"
       }
     }
   },
