@@ -42,10 +42,27 @@ Run only when the user names the exact action in the same turn:
 
 
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 To commit, invoke the `commit-sense` skill via the `Skill` tool.
 Never devise your own commit message format, nor run `git commit` outside it.
+
+### {[Hermes:skill_view] Usage}
+
+To commit, load the `commit-sense` skill with `skill_view`.
+Never devise your own commit message format, nor run `git commit` outside it.
+
+
+
+
+
+### {description}
+
+Sets the Git working terms and the actions that need explicit approval, so edits stay in the workspace beside the user.
+
+### {when_to_use}
+
+Trigger on any work in a Git repository: editing files, indexing, committing, branching, stashing, or running `git` commands. Not for writing the commit message itself (use `commit-sense`).
 
 
 
@@ -237,7 +254,7 @@ document retry-budget behavior in scheduler README
 
 ### Perform Commit Sense
 
-Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached`, then run `git commit` once with the whole message as a single `-m` argument.
+Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached --numstat`, whose added and deleted counts per file settle each sigil's Lean and Size, then run `git commit` once with the whole message as a single `-m` argument.
 
 The message has up to three parts, in order, separated by blank lines:
 
@@ -408,9 +425,15 @@ Triggers on a halted merge, rebase, cherry-pick, or pull; `<<<<<<<`/`=======`/`>
 
 
 
-### {[ClaudeCode:TodoWrite] Usage}
+### {[Claude:TodoWrite] Usage}
 
 track resolution with the `TodoWrite` tool — one todo per unmerged path, marked complete only after its markers are gone and the file parses
+
+### {[Hermes:todo_list] Usage}
+
+track resolution with the `todo_list` tool — one todo per unmerged path, marked complete only after its markers are gone and the file parses
+
+`todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 
 

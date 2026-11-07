@@ -13,7 +13,8 @@ Prescriptive rules for agents working in this project.
 ## Setup Commands
 
 ```bash
-pip install -e ../kaye-engine -e '.[dev]'   # engine from the sibling checkout
+pip install -e '.[dev]'                     # engine installs from its pinned git tag
+pip install -e ../kaye-engine               # then swap in the sibling checkout
 kaye-library --help                         # verify the console script resolves
 kaye-library blueprint list                 # every registered blueprint
 ```
@@ -66,6 +67,7 @@ Scope each run to the area touched; run everything only before a merge.
 
 - branch from `dev`; work lands on `dev`
 - record every notable change under `[Unreleased]` in `CHANGELOG.md`
+- a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; the engine tag named in `pyproject.toml` must exist first
 
 ## Security Considerations
 

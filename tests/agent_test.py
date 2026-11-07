@@ -38,7 +38,7 @@ class TestStructure:
     def test_agent_sidecar_stays_under_agentic(_):
         names = {c.name for c in _agentic().children}
 
-        assert "{[ClaudeCode:Agent~] Usage}" in names
+        assert "{[Claude:Agent~] Usage}" in names
 
 
 class TestTurnProgressDispatch:

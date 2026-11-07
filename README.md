@@ -12,7 +12,7 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 
 - Style: Markdown format, heading separation, every letter case, briefness, good writing
 - Elements: date and time formats, units, triage tags, ASCII only, phonetic alphabet
-- Git: commit messages with a per-file ledger, merge conflict resolution, branch pruning
+- Git: commit messages with a per-file ledger, Git and Perforce working terms, merge conflict resolution, branch pruning
 - Repositories: README, CHANGELOG, AGENTS, CONTEXT, and docs writers, landing and release workflows
 - Agentic: Movement and Suite workflows, Turn Progress Dispatch, file and folder naming
 - Meta Prompt: writers for LLM system prompts and for a skill's description and when-to-use text
@@ -29,10 +29,10 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 
 ## Getting Started
 
-Install the engine and the library, then check that the command resolves:
+Install the library, which pulls `kaye-engine` from its pinned git tag, then check that the command resolves:
 
 ```bash
-pip install -e ../kaye-engine -e .
+pip install .
 kaye-library --help
 ```
 
@@ -64,6 +64,8 @@ pytest tests
 The suite loads the library alone, exports every skill as a folder and as a `.zip`, and scans the shipped files for private strings.
 
 ## Contributing
+
+Pushing a `v<version>` tag, equal to the version in `pyproject.toml`, publishes the plugin `.zip` as a GitHub Release asset, a pre-release for `-alpha` and `-beta` tags.
 
 Put new prompts in `kaye_library/registrations/<group>/`, one folder per feature group, holding the corpus `.md` beside the code that registers its blueprints. Keep every prompt free of personal data and of any persona.
 

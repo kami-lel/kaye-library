@@ -10,6 +10,10 @@ enforces a powershell code style standard
 
 trigger whenever PowerShell code is written, edited, or reviewed
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.
