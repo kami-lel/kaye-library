@@ -547,7 +547,7 @@ Trigger on any request to record, update or review a settings, preferences, keyb
 
 Aggressively replace keys with shorthand:
 
-(((amanuensis-keybinding-writer-shorthand)))
+(((amanuensis-config-keybinding-keyboards)))
 
 Chord modifier order: ⌘⌥⇧, eg ⌘⇧F
 

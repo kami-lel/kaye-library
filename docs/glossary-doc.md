@@ -23,7 +23,7 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `coder-u3d-abbr` | Coder | none | Coder Unity Engine | 11 |
 | `coder-u3d-identifier` | Coder | none | Coder Unity Engine | 10 |
 | `amanuensis-config-writer-shorthand` | Amanuensis | none | Config Writer | 8 |
-| `amanuensis-keybinding-writer-shorthand` | Amanuensis | none | Keybinding Writer | 18 |
+| `amanuensis-config-keybinding-keyboards` | Amanuensis | none | Keybinding Writer | 18 |
 | `secretary-common-shorthand` | Secretary | none | calendar and GTD push | 3 |
 | `secretary-eisenhower-matrix-quadrant` | Secretary | none | the Secretary report skills | 10 |
 | `secretary-eisenhower-matrix-quadrant-base` | Secretary | none | the Secretary report skills | 3 |

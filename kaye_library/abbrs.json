@@ -805,7 +805,7 @@
       "⌥": {
         "priority": 2,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -936,7 +936,7 @@
       "⌫": {
         "priority": 9,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1076,7 +1076,7 @@
       "⇪": {
         "priority": 6,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1274,7 +1274,7 @@
       "⌘": {
         "priority": 1,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1347,7 +1347,7 @@
       "⌦": {
         "priority": 10,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1516,10 +1516,10 @@
   },
   "down arrow": {
     "abbrs": {
-      "↓": {
+      "⮟": {
         "priority": 18,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1581,7 +1581,7 @@
       "⇲": {
         "priority": 14,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1653,7 +1653,7 @@
       "⎋": {
         "priority": 4,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -1946,7 +1946,7 @@
       "⇱": {
         "priority": 13,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2203,10 +2203,10 @@
   },
   "left arrow": {
     "abbrs": {
-      "←": {
+      "⮜": {
         "priority": 17,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2755,7 +2755,7 @@
       "⇟": {
         "priority": 11,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -2767,7 +2767,7 @@
       "⇞": {
         "priority": 12,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3060,7 +3060,7 @@
       "⏎": {
         "priority": 8,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3069,10 +3069,10 @@
   },
   "right arrow": {
     "abbrs": {
-      "→": {
+      "⮞": {
         "priority": 16,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3221,7 +3221,7 @@
       "⇧": {
         "priority": 3,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3257,7 +3257,7 @@
       "␣": {
         "priority": 7,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3332,7 +3332,7 @@
       "⇥": {
         "priority": 5,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
@@ -3519,10 +3519,10 @@
   },
   "up arrow": {
     "abbrs": {
-      "↑": {
+      "⮝": {
         "priority": 15,
         "tags": [
-          "amanuensis-keybinding-writer-shorthand",
+          "amanuensis-config-keybinding-keyboards",
           "single_character"
         ],
         "wrap": "symbol"
