@@ -19,7 +19,7 @@ def register_amanuensis_abbr_glossaries():
         is_dyn_substitution=True,
     )
     register_abbr_glossary(
-        "amanuensis-keybinding-writer-shorthand",
+        "amanuensis-config-keybinding-keyboards",
         False,
         is_dyn_substitution=True,
         is_sorted=True,
