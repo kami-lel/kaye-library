@@ -569,6 +569,7 @@ Controller buttons:
 
 Stick Ⓛ Ⓡ + modifier: ⤓ press, ⇦ ⇧ ⇨ ⇩ push.
 Eg Ⓛ⤓ left stick press
+Stick either direction: ⇧Ⓛ⇩ vertical, ⇦Ⓛ⇨ horizontal
 
 ##### {description}
 
