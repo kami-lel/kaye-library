@@ -26,6 +26,10 @@ C++ code for Unreal Engine
 **/*.{cpp,cc,cxx,hpp,hh,hxx}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` and `coder-c` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` and `coder-c` skills with `skill_view`.

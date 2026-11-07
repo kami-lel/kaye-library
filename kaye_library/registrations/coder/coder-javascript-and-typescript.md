@@ -71,6 +71,10 @@ Use for any JavaScript or TypeScript work, inline JS/TS code blocks, requests fo
 **/*.{js,ts,jsx,tsx,mjs,cjs}
 ```
 
-### {[ClaudeCode:Skill] Usage}
+### {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `coder` skill with `skill_view`.

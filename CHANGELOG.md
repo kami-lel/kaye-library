@@ -10,10 +10,12 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- a `{[Hermes:TOOL] Usage}` node beside every Claude usage node whose tool Hermes has (`skill_view`, `todo_list`, `clarify`, `delegate_task`, `write_file`), so a `hermes` render carries Hermes tool instructions; `todo_list` nodes name the `tool_search`, `tool_describe`, `tool_call` route
 - `working-with-git` and `working-with-p4v` skills: the Git working terms and approval rules, and the Perforce terms paired with their Git equivalents
 
 ### Changed
 
+- every conditional sidecar reference to a Claude tool takes the single `Claude:` prefix; the Chat and Cowork twins of the Gmail, TickTick and Google Calendar usage nodes merge into one node each, and the iOS calendar nodes become `Claude:iOS:Calendar:*`
 - `commit-sense`: diff check uses `git diff --cached --numstat`, line counts settle sigil Lean & Size
 - `plan-for-suite`: Movement Heading is an `h3` that marks a non-own party in `{}`, ahead of the workspace, before the colon
 
