@@ -8,7 +8,13 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers, triggers, sticks, d-pad, view & menu symbols
+- Keybinding Writer: stick press/push modifiers, L/R prefix for modifier keys
+
 ### Changed
+
+- keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
+- arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
 
 ### Deprecated
 
