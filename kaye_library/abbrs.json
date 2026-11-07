@@ -727,6 +727,18 @@
       }
     }
   },
+  "a button": {
+    "abbrs": {
+      "Ⓐ": {
+        "priority": 1,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "abstract class": {
     "abbrs": {
       "AC": {
@@ -928,6 +940,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "b button": {
+    "abbrs": {
+      "Ⓑ": {
+        "priority": 2,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1303,6 +1327,54 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "d-pad down": {
+    "abbrs": {
+      "▼": {
+        "priority": 14,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad left": {
+    "abbrs": {
+      "◀": {
+        "priority": 13,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad right": {
+    "abbrs": {
+      "▶": {
+        "priority": 12,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "d-pad up": {
+    "abbrs": {
+      "▲": {
+        "priority": 11,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -2213,6 +2285,42 @@
       }
     }
   },
+  "left bumper": {
+    "abbrs": {
+      "LB": {
+        "priority": 5,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "left stick": {
+    "abbrs": {
+      "Ⓛ": {
+        "priority": 9,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "left trigger": {
+    "abbrs": {
+      "LT": {
+        "priority": 7,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "length": {
     "abbrs": {
       "len": {
@@ -2346,6 +2454,18 @@
       }
     },
     "remark": "of object, include fields/attributes, properties, & methods"
+  },
+  "menu button": {
+    "abbrs": {
+      "☰": {
+        "priority": 16,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
   },
   "mile": {
     "abbrs": {
@@ -3079,6 +3199,42 @@
       }
     }
   },
+  "right bumper": {
+    "abbrs": {
+      "RB": {
+        "priority": 6,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "right stick": {
+    "abbrs": {
+      "Ⓡ": {
+        "priority": 10,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "right trigger": {
+    "abbrs": {
+      "RT": {
+        "priority": 8,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "same as cell above": {
     "abbrs": {
       "〃": {
@@ -3591,6 +3747,18 @@
       }
     }
   },
+  "view button": {
+    "abbrs": {
+      "⧉": {
+        "priority": 15,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "visual effects": {
     "abbrs": {
       "VFX": {
@@ -3727,6 +3895,30 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "x button": {
+    "abbrs": {
+      "Ⓧ": {
+        "priority": 3,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "y button": {
+    "abbrs": {
+      "Ⓨ": {
+        "priority": 4,
+        "tags": [
+          "amanuensis-config-keybinding-controller",
+          "single_character"
+        ],
+        "wrap": "symbol"
       }
     }
   },
