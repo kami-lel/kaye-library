@@ -1,6 +1,9 @@
 # kaye-library CHANGELOG
 
 <!--
+TODO u3d add instruction of pfb etc.
+TODO u3d add instruction based on current project
+
 todo support layered CONTEXT/AGENTS
 -->
 
