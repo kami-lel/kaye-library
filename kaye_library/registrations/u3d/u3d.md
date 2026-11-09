@@ -433,6 +433,54 @@ Any Unity script attached to a GameObject, the default shape of most gameplay co
 
 ## Scriptable Object
 
+Section order, formatting, and accessors follow the example exactly.
+
+Menu Path:
+
+- one `[CreateAssetMenu]` per class, `menuName` always `"Scriptable Objects/<ClassName>"`
+
+Data Access:
+
+- every serialized field is `private`, exposed through a read-only `=>` getter under Public Members, documented with `<returns>`
+- no public mutable field and no setter: asset data is read-only at runtime, since an edit made in Play mode would persist in the asset
+
+Inspector Fields:
+
+- prefer `[Tooltip]` on each field, worded per [Briefness Style](#style-briefness-style), ending with its unit, and `[Header]` dividing them into groups
+- simple bounds go in `[Min]` or `[Range]`
+
+Editor Validation:
+
+- `OnValidate` sits last under an `// Editor Validation` banner, keeping a rule an attribute cannot state (a cross-field bound)
+- no `Awake` and no Inspector Assignment Guard: a Config's fields all carry declaration defaults
+
+```csharp
+[CreateAssetMenu(menuName = "Scriptable Objects/PlayerBalanceConfig")]
+public class PlayerBalanceConfig: ScriptableObject {
+    // Public Members  #########################################################
+    /// <returns>slowest allowed speed; u/s</returns>
+    public float MinSpeed => minSpeed;
+    /// <returns>top speed; u/s</returns>
+    public float MaxSpeed => maxSpeed;
+
+    // Inspector Fields  #######################################################
+    [Header("Movement")]
+    [SerializeField]
+    [Tooltip("slowest allowed speed; u/s")]
+    [Min(0f)]
+    private float minSpeed = 1f;
+
+    [SerializeField]
+    [Tooltip("top speed; u/s")]
+    private float maxSpeed = 5f;
+
+    // Editor Validation  ######################################################
+    private void OnValidate() {
+        maxSpeed = Mathf.Max(minSpeed, maxSpeed);
+    }
+}
+```
+
 ### {description}
 
 Writes & edits Unity `ScriptableObject` classes & their `.asset` data instances
