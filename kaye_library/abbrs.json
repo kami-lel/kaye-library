@@ -229,7 +229,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -344,7 +344,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -370,7 +370,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -433,7 +433,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -525,7 +525,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -562,7 +562,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -638,7 +638,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -769,7 +769,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1139,7 +1139,7 @@
         "tags": [
           "letters_only",
           "single_character",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1177,7 +1177,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1189,7 +1189,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1238,7 +1238,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1396,7 +1396,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -1628,7 +1628,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -2019,7 +2019,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -2219,7 +2219,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -2387,7 +2387,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -2974,7 +2974,7 @@
         "tags": [
           "letters_only",
           "single_character",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -3462,7 +3462,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }
@@ -3657,7 +3657,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -3691,7 +3691,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-abbr"
+          "u3d-abbr"
         ],
         "wrap": "word"
       }
@@ -3705,7 +3705,7 @@
           "letters_only",
           "single_character",
           "units-of-measure",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "unit"
       }
@@ -3845,7 +3845,7 @@
         "priority": 5,
         "tags": [
           "letters_only",
-          "coder-u3d-identifier"
+          "u3d-identifier"
         ],
         "wrap": "word"
       }

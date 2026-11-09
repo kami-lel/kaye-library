@@ -1,4 +1,4 @@
-## Coder Unity Engine
+# Unity Engine
 
 Follows [Coder C Sharp](#coder-c-sharp)
 
@@ -6,15 +6,15 @@ Writing code based on [Coder](#coder)
 
 Decode-only, never output the shorthand:
 
-(((coder-u3d-abbr)))
+(((u3d-abbr)))
 
 When naming an identifier, always use shorthand below over full word; decode any user writes:
 
-(((coder-u3d-identifier)))
+(((u3d-identifier)))
 
 
 
-##### coding for unity engine
+#### coding for unity engine
 
 - `var` only for a `foreach` local or a long generic right-hand side
 - singleton: expose the instance through a static member named exactly `I` (`GamepadManager.I`)
@@ -24,7 +24,7 @@ When naming an identifier, always use shorthand below over full word; decode any
 
 
 
-##### class naming
+#### class naming
 
 Suffix each class name by its role:
 
@@ -90,7 +90,7 @@ Authored Data:
 
 
 
-##### owner-driven activation pattern
+#### owner-driven activation pattern
 
 Save a GameObject inactive when it lives for only a stretch of the run; let an owner call `SetActive`, with no `Update` flag guards
 
@@ -119,7 +119,7 @@ Rules:
 
 
 
-##### Logging
+#### Logging
 
 Log every meaningful state change so a debug session reads as a sequence of events: lifecycle transitions, branch decisions, external calls (network, save/load, scene loads).
 
@@ -146,25 +146,25 @@ private void Awake() {
 
 
 
-### {description}
+## {description}
 
 Writes, edits & reviews all Unity 6 C# code under house conventions: class-role suffixes, singleton & event idioms, member order, subsystem-prefixed logging
 
-### {when_to_use}
+## {when_to_use}
 
-Any C# in a Unity project, even when user never says "Unity": gameplay systems, managers, controllers, editor tools, UI, input, save/load, scene logic. Triggers: Unity, `UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, singleton, manager, event. Load together w/ `coder-u3d-mb` for `MonoBehaviour` scripts, `coder-u3d-so` for `ScriptableObject` classes; asset placement & naming belong to `coder-u3d-assets-management`
+Any C# in a Unity project, even when user never says "Unity": gameplay systems, managers, controllers, editor tools, UI, input, save/load, scene logic. Triggers: Unity, `UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, singleton, manager, event. Load together w/ `u3d-mb` for `MonoBehaviour` scripts, `u3d-so` for `ScriptableObject` classes; asset placement & naming belong to `u3d-assets-management`
 
-### {globs}
+## {globs}
 
 ```glob
 **/*.cs
 ```
 
-### {[Claude:Skill] Usage}
+## {[Claude:Skill] Usage}
 
 Invoke `coder` skill via `Skill` tool.
 
-### {[Hermes:skill_view] Usage}
+## {[Hermes:skill_view] Usage}
 
 Load `coder` skill with `skill_view`.
 
@@ -180,7 +180,7 @@ Load `coder` skill with `skill_view`.
 
 
 
-### Assets Management
+## Assets Management
 
 Everything authored lives under one underscore-prefixed root named for the game, `Assets/_MyGame/`, sorting above Unity's own and vendor folders. Paths below are relative to it, and that prefix repeats on any folder that should lead its listing.
 
@@ -191,7 +191,7 @@ Assets/_MyGame/Textures/MinigameRacing/StartFlag.png
 
 
 
-##### Type Folders
+#### Type Folders
 
 One level under the root:
 
@@ -216,7 +216,7 @@ One level under the root:
 
 
 
-##### Module Folders
+#### Module Folders
 
 One short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reused identically in every type folder holding its assets: the module name is the constant, the type folder changes around it. Spell it out, never abbreviate. Where modules form a family, the family word leads so the family sorts together:
 
@@ -228,7 +228,7 @@ One short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reus
 
 
 
-##### Asset File Naming
+#### Asset File Naming
 
 Keep external art, raw downloads, and DAW exports under the filenames they arrived with.
 
@@ -258,11 +258,11 @@ By type:
 
 
 
-#### {description}
+### {description}
 
 Places & names Unity project assets & folders across the `Assets/` tree
 
-#### {when_to_use}
+### {when_to_use}
 
 Creating, moving, renaming, importing any Unity asset, even when user never mentions folder or name: new script file, scene, prefab, audio clip, texture, sprite, animation, material, `.asset` instance. Triggers: "where does this go", "what to name this", "new scene", "import this", folder layout, project structure, `Assets/`. Not for code inside scripts
 
@@ -277,7 +277,7 @@ Creating, moving, renaming, importing any Unity asset, even when user never ment
 
 
 
-### MonoBehaviour
+## MonoBehaviour
 
 Section order, formatting, and accessors follow the example exactly.
 
@@ -340,15 +340,13 @@ public class PlayerController: MonoBehaviour {
 
 
 
-#### {description}
+### {description}
 
 Writes & edits Unity `MonoBehaviour` scripts: components attached to GameObjects, w/ fixed section layout & Inspector field guards
 
-#### {when_to_use}
+### {when_to_use}
 
-Any Unity script attached to a GameObject, the default shape of most gameplay code, even when user never names `MonoBehaviour`: player, enemy, spawner, trigger zone, camera rig, UI behaviour. Triggers: `MonoBehaviour`, `[SerializeField]`, `Awake`, `Start`, `Update`, `OnTriggerEnter`, `GetComponent`, Inspector field, "add a component", "attach to GameObject". Apply alongside `coder-u3d`, never in place of it. Not for plain C# classes, `ScriptableObject`, asset placement
-
-
+Any Unity script attached to a GameObject, the default shape of most gameplay code, even when user never names `MonoBehaviour`: player, enemy, spawner, trigger zone, camera rig, UI behaviour. Triggers: `MonoBehaviour`, `[SerializeField]`, `Awake`, `Start`, `Update`, `OnTriggerEnter`, `GetComponent`, Inspector field, "add a component", "attach to GameObject". Apply alongside `u3d`, never in place of it. Not for plain C# classes, `ScriptableObject`, asset placement
 
 
 
@@ -360,12 +358,14 @@ Any Unity script attached to a GameObject, the default shape of most gameplay co
 
 
 
-### Scriptable Object
 
-#### {description}
+
+## Scriptable Object
+
+### {description}
 
 Writes & edits Unity `ScriptableObject` classes & their `.asset` data instances
 
-#### {when_to_use}
+### {when_to_use}
 
-Any designer-editable data living outside a scene, even when user only says "config", "settings", "database", "shared data": level configs, item & enemy stats, tuning tables, event channels. Triggers: `ScriptableObject`, `CreateAssetMenu`, `CreateInstance`, `.asset`, data container. Apply alongside `coder-u3d`. Not for `MonoBehaviour` components, plain `[Serializable]` classes, asset placement
+Any designer-editable data living outside a scene, even when user only says "config", "settings", "database", "shared data": level configs, item & enemy stats, tuning tables, event channels. Triggers: `ScriptableObject`, `CreateAssetMenu`, `CreateInstance`, `.asset`, data container. Apply alongside `u3d`. Not for `MonoBehaviour` components, plain `[Serializable]` classes, asset placement

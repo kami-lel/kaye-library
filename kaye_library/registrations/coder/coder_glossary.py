@@ -17,8 +17,7 @@ DEFAULT_CODING_TERMS_THRESHOLD = 10
 def register_coder_abbr_glossaries():
     """
     register ``coder-abbr``, ``coder-identifier-shorthand``,
-    ``coder-documentation-field-shorthand``, ``coder-u3d-abbr``,
-    ``coder-u3d-identifier``, ``programming-language-codes``
+    ``coder-documentation-field-shorthand``, ``programming-language-codes``
     """
     register_abbr_glossary(
         "coder-documentation-field-shorthand",
@@ -33,8 +32,4 @@ def register_coder_abbr_glossaries():
         "programming-language-codes",
         True,
         is_dyn_substitution=True,
-    )
-    register_abbr_glossary("coder-u3d-abbr", False, is_dyn_substitution=True)
-    register_abbr_glossary(
-        "coder-u3d-identifier", False, is_dyn_substitution=True
     )
