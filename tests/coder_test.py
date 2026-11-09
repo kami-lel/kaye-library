@@ -18,7 +18,6 @@ _LANGUAGE_NODES = (
     "Coder CPP",
     "Coder Unreal Engine",
     "Coder C Sharp",
-    "Coder Unity Engine",
     "Coder GDScript",
     "Coder HTML",
     "Coder JavaScript and TypeScript",

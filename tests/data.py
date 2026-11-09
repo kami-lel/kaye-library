@@ -121,21 +121,21 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                      'function:*',
                                      'TestAdd',
                                      'class TestAdd:'],
- 'coder-u3d': ['## Brace Style',
+ 'u3d': ['## Brace Style',
                'opening `{` on the **same line**',
                'closing `}` on its **own line**',
                '## Coder C Sharp',
                'Documentation: Use XML comments',
-               '## Coder Unity Engine',
+               '# Unity Engine',
                'Follows [Coder C Sharp](#coder-c-sharp)',
-               '##### Logging',
+               '#### Logging',
                'Open every message with the owning subsystem or module '
                'name',
                'Debug.isDebugBuild'],
- 'coder-u3d-assets-management': ['### Assets Management',
+ 'u3d-assets-management': ['## Assets Management',
                                  'Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs',
-                                 '##### Type Folders'],
- 'coder-u3d-mb': ['### MonoBehaviour',
+                                 '#### Type Folders'],
+ 'u3d-mb': ['## MonoBehaviour',
                   'Section order, formatting, and accessors follow the '
                   'example exactly.',
                   'public class PlayerController: MonoBehaviour',
@@ -152,7 +152,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                   'if (nextSceneName == null) {',
                   '"MinigameRacing:\\tmust assign Inspector Field: '
                   'nextSceneName",'],
- 'coder-u3d-so': ['### Scriptable Object'],
+ 'u3d-so': ['## Scriptable Object'],
  'coder-ue': ['## Coder Unreal Engine',
               'Follows [Coder C](#coder-c) and [Coder CPP](#coder-cpp)',
               '## Brace Style',
@@ -547,7 +547,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                                  'Sphinx/reStructuredText',
  'coder-python-testing-guidelines': 'writes, reviews Python `pytest` test '
                                     'code per project conventions',
- 'coder-u3d': 'Writes, edits & reviews all Unity 6 C# code under house '
+ 'u3d': 'Writes, edits & reviews all Unity 6 C# code under house '
               'conventions: class-role suffixes, singleton & event idioms, '
               'member order, subsystem-prefixed logging',
  'coder-ue': 'C++ code for Unreal Engine',
@@ -681,14 +681,14 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
                                     'like write/add/fix a unit test or '
                                     'test case. Not for non-test Python '
                                     'code',
- 'coder-u3d': 'Any C# in a Unity project, even when user never says '
+ 'u3d': 'Any C# in a Unity project, even when user never says '
               '"Unity": gameplay systems, managers, controllers, editor '
               'tools, UI, input, save/load, scene logic. Triggers: Unity, '
               '`UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, '
-              'singleton, manager, event. Load together w/ `coder-u3d-mb` '
-              'for `MonoBehaviour` scripts, `coder-u3d-so` for '
+              'singleton, manager, event. Load together w/ `u3d-mb` '
+              'for `MonoBehaviour` scripts, `u3d-so` for '
               '`ScriptableObject` classes; asset placement & naming belong '
-              'to `coder-u3d-assets-management`',
+              'to `u3d-assets-management`',
  'commit-sense': 'write a commit message',
  'element-dt-month-day-format': 'Any output date stated without a year: '
                                 'anniversaries, birthdays, recurring '
