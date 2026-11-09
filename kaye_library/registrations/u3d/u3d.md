@@ -163,7 +163,7 @@ Preferences:
 
 - name the field `<Value>Curve` and state both axes with units in its `[Tooltip]`, x first (`x: ramp progress 0~1; y: spawn interval; s`)
 - normalize x to 0~1 when its range varies, and keep the range in a separate Config field (a ramp duration), so one curve serves any length
-- hide `Evaluate` behind a Config method that clamps x (`GetInterval(elapsed)`), so a reader need not touch the curve
+- hide `Evaluate` behind a Config method that clamps x (`GetIntervalS(elapsedS)`), so a reader need not touch the curve
 - give a curve a non-empty initializer (`AnimationCurve.Linear`), since an unset curve evaluates to 0 and silently zeroes the value
 - let the y axis be a multiplier on a base value when one curve shapes several values, and absolute when it shapes one
 - a plain float still suits a value that depends on nothing
@@ -172,14 +172,14 @@ Preferences:
 [CreateAssetMenu(menuName = "Scriptable Objects/SpawnBalanceConfig")]
 public class SpawnBalanceConfig: ScriptableObject {
     // Public Members  #########################################################
-    public float GetInterval(float elapsed) =>
-        intervalCurve.Evaluate(Mathf.Clamp01(elapsed / rampDuration));
+    public float GetIntervalS(float elapsedS) =>
+        intervalCurve.Evaluate(Mathf.Clamp01(elapsedS / rampDurationS));
 
     // Inspector Fields  #######################################################
     [SerializeField]
     [Tooltip("time to full difficulty; s")]
     [Min(0.01f)]
-    private float rampDuration = 120f;
+    private float rampDurationS = 120f;
 
     [SerializeField]
     [Tooltip("x: ramp progress 0~1; y: spawn interval; s")]
@@ -459,24 +459,24 @@ Editor Validation:
 public class PlayerBalanceConfig: ScriptableObject {
     // Public Members  #########################################################
     /// <returns>slowest allowed speed; u/s</returns>
-    public float MinSpeed => minSpeed;
+    public float MinSpeedUPerS => minSpeedUPerS;
     /// <returns>top speed; u/s</returns>
-    public float MaxSpeed => maxSpeed;
+    public float MaxSpeedUPerS => maxSpeedUPerS;
 
     // Inspector Fields  #######################################################
     [Header("Movement")]
     [SerializeField]
     [Tooltip("slowest allowed speed; u/s")]
     [Min(0f)]
-    private float minSpeed = 1f;
+    private float minSpeedUPerS = 1f;
 
     [SerializeField]
     [Tooltip("top speed; u/s")]
-    private float maxSpeed = 5f;
+    private float maxSpeedUPerS = 5f;
 
     // Editor Validation  ######################################################
     private void OnValidate() {
-        maxSpeed = Mathf.Max(minSpeed, maxSpeed);
+        maxSpeedUPerS = Mathf.Max(minSpeedUPerS, maxSpeedUPerS);
     }
 }
 ```
