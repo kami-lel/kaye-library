@@ -13,6 +13,7 @@ _CORPUS_SOURCES = [
     # ... one entry per file
     ((), "coder/coder.md"),
     (("Coder",), "coder/coder-bash.md"),
+    ((), "u3d/u3d.md"),
 ]
 ```
 

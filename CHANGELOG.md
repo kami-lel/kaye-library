@@ -18,6 +18,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- **Break**: Unity Engine split out of Coder into its own module with a root `Unity Engine` node; skills `coder-u3d`, `coder-u3d-mb`, `coder-u3d-so`, `coder-u3d-assets-management` → `u3d`, `u3d-mb`, `u3d-so`, `u3d-assets-management`; glossaries `coder-u3d-abbr`, `coder-u3d-identifier` → `u3d-abbr`, `u3d-identifier`
 - "unknown" shorthand `??` → `⁇` (double question mark), new alt `❓`
 - Amanuensis registration: blank line before config-writer shorthand block
 - keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`

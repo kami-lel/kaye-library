@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-06, v1.2.0. History lives in `CHANGELOG.md` and `git log`, not here.
+**Last updated:** 2026-11-09, v1.2.0. History lives in `CHANGELOG.md` and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside `AGENTS.md`.
 
@@ -58,7 +58,7 @@ The console command builds on the engine's `register_cli_main_parser(PACKAGE_NAM
 
 ## Corpus Structure
 
-Seven authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
+Twelve authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
 
 | root | holds |
 |---|---|
@@ -70,12 +70,13 @@ Seven authored root nodes plus two dynamic placements; every root has exactly on
 | Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
 | Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
+| Unity Engine | the Unity 6 C# rules (class-role suffixes, owner-driven activation, logging), Assets Management, MonoBehaviour, Scriptable Object; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |
 | Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
 | `(today)`, `(element-dt-days-of-week)` | dynamic placements carrying authored preface text |
 
-- the language files register under `("Coder",)`; every other file registers under the root
+- the language files register under `("Coder",)`; every other file, Unity Engine included, registers under the root
 - a consumer registers its own sources under the root or its own nodes and never reuses a library root name
 - `#slug` links follow heading text, so a link from library text must point at library text
 - a section no blueprint selects is a candidate for removal; a stub keeps its section and a placeholder `{description}`

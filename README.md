@@ -18,7 +18,8 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 - Meta Prompt: writers for LLM system prompts and for a skill's description and when-to-use text
 - Amanuensis: Chicago citation and bibliography, redaction, structured note, config, keybinding, and meeting-minutes writers
 - Secretary: email drafting and sweeping, event radar, calendar and task push and pull, daily recaps, job hunt, and morning and weekly check-ins; skills that need personal values leave those placeholders literal until a consumer registers them
-- Coder: shared coding rules, comment banners, plan and review workflows, and profiles for Bash, C, C++, C#, GDScript, HTML, JavaScript, TypeScript, PowerShell, Python, Unity, and Unreal Engine
+- Coder: shared coding rules, comment banners, plan and review workflows, and profiles for Bash, C, C++, C#, GDScript, HTML, JavaScript, TypeScript, PowerShell, Python, and Unreal Engine
+- Unity Engine: Unity 6 C# rules, asset placement and naming, MonoBehaviour and ScriptableObject scripts
 - One command exports everything as Agent Skills, a Claude plugin, or a plugin marketplace
 
 ## Tech Stack

@@ -102,9 +102,14 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 | `coder-bash-shell`, `coder-bash-script`, `coder-powershell`, `coder-c`, `coder-c-sharp`, `coder-gdscript`, `coder-html`, `coder-javascript-and-typescript`, `coder-python`, `coder-python-docstring-style`, `coder-python-testing-guidelines` | none |
 | `coder-cpp` | `coder-c` |
 | `coder-ue` | `coder-cpp` |
-| `coder-u3d` | `coder-c-sharp` |
-| `coder-u3d-mb` | `style-briefness-style` |
-| `coder-u3d-assets-management`, `coder-u3d-so` | none |
+
+### Unity Engine
+
+| skill | depends on |
+|---|---|
+| `u3d` | `coder-c-sharp` |
+| `u3d-mb` | `style-briefness-style` |
+| `u3d-assets-management`, `u3d-so` | none |
 
 ### Secretary
 
