@@ -1,9 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO u3d add instruction of pfb etc.
-TODO u3d add instruction based on current project
-
 todo support layered CONTEXT/AGENTS
 -->
 
@@ -14,6 +11,7 @@ todo support layered CONTEXT/AGENTS
 - `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers & triggers as letter emoji 🄻 🅁 🅻 🆁, sticks, d-pad, view & menu symbols
 - `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
 - `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
+- Unity Engine class naming: `Toast`, `Pickup`, `Projectile`, `Zone`, `Hazard` & `Data` role suffixes; `Listener` now takes a channel or a subject's C# event
 - Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
 
 ### Changed

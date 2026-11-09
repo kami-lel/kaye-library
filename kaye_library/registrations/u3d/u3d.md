@@ -53,7 +53,7 @@ Event Delivery:
 
 Event Reaction:
 
-- Listener: script subscribing to one event channel and reacting on its own object (`PauseListener`)
+- Listener: script subscribing to one event source, a channel or a subject's C# event, and reacting on its own object (`PauseListener`)
 - Binder: script mirroring every state change of one known subject into its own object (`HealthBinder`)
 
 Object Supply:
@@ -71,7 +71,14 @@ User Interface:
 - Screen: script on the top object of one full-screen interface, opening, closing, and owning its panels (`PauseScreen`)
 - Panel: script for one self-contained region of a screen (`InventoryPanel`)
 - Popup: script for a modal prompt shown over the current screen, then dismissed (`ConfirmPopup`)
+- Toast: script for a timed, non-modal message shown over play, fading on its own, never blocking input (`HintToast`)
 - Widget: script for a small reusable control with its own look and behaviour (`HealthBarWidget`)
+
+World Object:
+
+- Pickup: script for one collectible, handing its reward over once on touch (`BananaPickup`)
+- Projectile: script for one thrown or fired thing, flying until it hits or expires (`CoconutProjectile`)
+- Zone: script for one volume applying an effect to whatever is inside it (`SlowZone`)
 
 MVP:
 
