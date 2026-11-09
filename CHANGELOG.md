@@ -12,6 +12,7 @@ todo support layered CONTEXT/AGENTS
 - `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
 - `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
 - Unity Engine class naming: `Toast`, `Pickup`, `Projectile`, `Zone`, `Hazard` & `Data` role suffixes; `Listener` now takes a channel or a subject's C# event
+- Unity Engine game tuning: prefer tunable values in data via `Config`, `Definition` & `Preset`; `AnimationCurve` for values depending on another value (time, difficulty ramp)
 - Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
 
 ### Changed
