@@ -349,14 +349,44 @@ One short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reus
 
 
 
+#### Underscore Usage
+
+The underscore carries two jobs in an asset name, and no others:
+
+- Prefix: a leading `_` marks the key asset of its folder, sorting it first: a hub, an abstract or base variant (`_PopupBase.prefab`), or the most used one (`_Player.asset`)
+- Variant or State: an inner `_` splits the subject from what tells one version of it apart, a variant or a state, so the asset names reflect it: subject first, variant or state after, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`)
+
+Rules:
+
+- name each version of one object this way whenever several assets differ only by variant or state: two materials of one object, a sprite per state, a prefab variant
+- a further field may follow, such as a frame number or action (`Hero_Attack_01`)
+- the key asset of a family takes the leading `_` instead, with no variant field (`_PopupBase`, beside `Popup_Confirm`)
+
+
+
+#### Prefab Usage
+
+Reach for prefabs extensively: turn an object into a prefab as soon as a reason below holds, progressively as the project grows, rather than waiting for a cleanup pass.
+
+Make a prefab when:
+
+- 2 or more objects are copies or variants of each other
+- the object could be reused elsewhere, such as in another scene, even if it is used once today
+
+Prefer the base and variant pattern for a family of near-identical objects:
+
+- base prefab: holds everything the family shares, named with a leading `_`, the subject, and `Base` (`_PopupBase.prefab`)
+- variant prefab: a Prefab Variant of the base, overriding only what differs, named per [Underscore Usage](#underscore-usage) (`Popup_Confirm.prefab`)
+- put a change shared by the whole family in the base, so every variant follows it
+- a scene holds instances of the prefab, never a hand-made copy of one
+
+
+
 #### Asset File Naming
 
 Keep any asset imported from outside the project (external art, raw downloads, DAW exports) under the filename it arrived with, even when it breaks the rules below, since others define it.
 
-[Pascal Case](#letter-case-pascal-case) throughout, no spaces, no punctuation but the underscore, which carries two jobs and no others:
-
-- Leading: marks the key asset of its folder, sorting it first: a hub, an abstract or base variant (`_PopupBase.prefab`), or the most used one (`_Player.asset`)
-- Inside: separates semantic fields, Pascal Case within each (`Hero_Attack_01`)
+[Pascal Case](#letter-case-pascal-case) throughout, no spaces, no punctuation but the underscore, used only as [Underscore Usage](#underscore-usage) sets out.
 
 Dev asset: a private working copy may take the prefix `dev`, the name of the person in charge, then the original asset name (`devJohnMain.unity`, the private version of `Main.unity`).
 
