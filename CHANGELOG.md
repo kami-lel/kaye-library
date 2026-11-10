@@ -8,31 +8,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- Unity Engine skills `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-coding`, `u3d-if`, `u3d-pfb`, `u3d-owner-driven-activation`, `u3d-game-tuning`: each corpus section standalone, so the peer invocation hints resolve; `u3d-mb` & `u3d-so` now registered from under `Unity Coding`
-- `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers & triggers as letter emoji 🄻 🅁 🅻 🆁, sticks, d-pad, view & menu symbols
-- `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
-- `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
-- Unity Engine class naming: `Toast`, `Pickup`, `Projectile`, `Zone`, `Hazard` & `Data` role suffixes; `Listener` now takes a channel or a subject's C# event
-- Unity Engine game tuning: prefer tunable values in data via `Config`, `Definition` & `Preset`; `AnimationCurve` for values depending on another value (time, difficulty ramp)
-- Unity Engine `ScriptableObject` shape: fixed banner order (Public Members, Inspector Fields, Editor Validation), read-only `=>` getters, `OnValidate` for cross-field bounds, uniform `menuName`
-- Unity Engine inspector field: `[SerializeField] private`, `[Tooltip]`, `[Header]`, `[Min]`/`[Range]`, `[RequireComponent]`, `[FormerlySerializedAs]`; moved from the MonoBehaviour & ScriptableObject sections into the core
-- Unity Engine unit usage: unit-suffixed identifiers & tooltips ending with the unit, `Per` joining a rate; `u3d-units` glossary (`u`, `s`, `deg`)
-- Unity Engine input: read gameplay input only through `InputAction`s, timing as an interaction (`MultiTap`), never direct device polling or a hand-rolled key tracker
-- Unity Engine owner-driven activation: rest state, each object keeps its original active state, owners switch screens on, managers stay active
-- Unity Engine asset naming: leading `_` marks the key asset of a folder (base variant, most used); dev asset `dev` + owner name + original name; imported assets keep their own names
-- Unity Engine assets management: `Meshes/` and `Plugins/` type folders
-- Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
-
 ### Changed
-
-- git-abbr: `icc` → `ig` (index all workspace changes, commit), `cci` → `gi` (commit only the indexed), `cc` → `g` (perform git commit), each w/ a remark; "then continue" dropped
-- **Break**: Unity Engine split out of Coder into its own module with a root `Unity Engine` node; skills `coder-u3d`, `coder-u3d-mb`, `coder-u3d-so`, `coder-u3d-assets-management` → `u3d`, `u3d-mb`, `u3d-so`, `u3d-assets-management`; glossaries `coder-u3d-abbr`, `coder-u3d-identifier` → `u3d-abbr`, `u3d-identifier`
-- Unity Engine assets management: type folders `Input/`, `VFX/` → `Inputs/`, `VFXs/`
-- Unity Engine corpus reorganized: new `Naming` section, one convention for every noun-type name (class, member, variable, file, GameObject, folder) w/ all suffix rules under `Common Type and Suffix`; `Coding` merged into code conventions, scene wiring & game tuning; assets management merged into folders & prefab usage
-- "unknown" shorthand `??` → `⁇` (double question mark), new alt `❓`
-- Amanuensis registration: blank line before config-writer shorthand block
-- keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
-- arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
 
 ### Deprecated
 
@@ -42,7 +18,52 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.2.1] - 2026-11-09
+
+### Added
+
+- keybinding glossaries for controller, mouse & mouse movement (`amanuensis-config-keybinding-controller`, `-mouse`, `-keyboards`): buttons, bumpers & triggers, sticks, d-pad, clicks, wheel
+- Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
+
+##### Unity Engine
+
+- standalone `u3d-*` skills, 1 per section: naming, type suffixes, coding, inspector fields, prefabs, owner-driven activation, game tuning
+- naming: new role suffixes, asset naming rules
+- coding rules: inspector fields, `ScriptableObject` shape, units, input via `InputAction`s
+- game tuning: tunable values in data, curves for dependent values
+- assets management: `Meshes/` & `Plugins/` folders
+
+### Changed
+
+- git-abbr: `icc` → `ig`, `cci` → `gi`, `cc` → `g`; "then continue" dropped
+- "unknown" shorthand `??` → `⁇`, new alt `❓`
+- keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
+- arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
+
+##### Unity Engine
+
+- split out of Coder into own module; skills & glossaries `coder-u3d*` → `u3d*`
+- corpus reorganized around naming, coding & game tuning
+- assets management: type folders pluralized (`Inputs/`, `VFXs/`)
+
+> [!WARNING]
+> skills `coder-u3d`, `coder-u3d-mb`, `coder-u3d-so`, `coder-u3d-assets-management` and glossaries `coder-u3d-abbr`, `coder-u3d-identifier` are renamed; update every reference to the `u3d*` names before upgrading
+
+[1.2.1]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...v1.2.1
 
 
 
