@@ -318,12 +318,14 @@ One level under the root:
 - `Prefabs/`: prefabs
 - `Scenes/`: `.unity` files, optionally grouped by area (`Scenes/Minigames/`)
 - `Materials/`, `Tilemaps/`: 2D and tilemap work
+- `Meshes/`: 3D model and `.mesh` assets
+- `Plugins/`
 - `Settings/`: project-level `.asset` files
 - `Localizations/`: locale and string-table assets
 - `Shaders/`: `.shader`, `.shadergraph`, `.hlsl` files
 - `Fonts/`: font files and their `.asset` font settings
-- `Input/`: `.inputactions` assets
-- `VFX/`: particle systems and Visual Effect Graph assets
+- `Inputs/`: `.inputactions` assets
+- `VFXs/`: particle systems and Visual Effect Graph assets
 - `Timelines/`: `.playable` Timeline assets
 
 
