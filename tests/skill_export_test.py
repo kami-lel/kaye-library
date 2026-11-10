@@ -71,6 +71,14 @@ class TestHeader:
 
         assert any(data.WHEN_TO_USE_CONTENT[name] in line for line in header)
 
+    @pytest.mark.parametrize("name", sorted(data.PATHS_CONTENT))
+    def test_paths(_, skills_folder, name):
+        header, _body = split_frontmatter_md_file(_read(skills_folder, name))
+
+        assert "paths:" in header
+        for pattern in data.PATHS_CONTENT[name]:
+            assert "- '{}'".format(pattern) in header
+
 
 class TestStructure:
 

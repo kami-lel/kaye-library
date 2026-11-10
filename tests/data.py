@@ -755,3 +755,6 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                              'highest-stakes text.',
                              'Label the heading literally `{description}`, '
                              "one level below the skill's own."]}
+
+
+PATHS_CONTENT = {'u3d': ['**/*.cs']}
