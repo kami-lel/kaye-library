@@ -2,7 +2,6 @@
 
 <!--
 HACK reorganize all u3d content
-TODO u3d prefab usage rules
 
 todo support layered CONTEXT/AGENTS
 -->
