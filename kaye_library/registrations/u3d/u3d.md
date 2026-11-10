@@ -12,6 +12,21 @@ When naming an identifier, always use shorthand below over full word; decode any
 
 (((u3d-identifier)))
 
+Unity conventions:
+
+- name code & assets per [Unity Naming](#unity-naming)
+- pick a class role from [Common Type and Suffix](#common-type-and-suffix)
+- write C# logic per [Unity Coding](#unity-coding)
+
+  - expose fields per [Inspector Field](#inspector-field)
+  - lay out a component per [MonoBehaviour](#monobehaviour)
+  - lay out a data asset per [Scriptable Object](#scriptable-object)
+
+- place assets & folders per [Assets Management](#assets-management)
+- build prefabs & variants per [Prefab Usage](#prefab-usage)
+- show & hide objects mid-run per [Owner-Driven Activation](#owner-driven-activation)
+- move tuning values into data per [Game Tuning](#game-tuning)
+
 
 
 
@@ -71,14 +86,14 @@ Load `coder` skill with `skill_view`.
 
 
 
-## Naming
+## Unity Naming
 
 One convention names every noun-type thing: class, member, variable, file, GameObject, folder.
 
 - Casing: code per [Coder](#coder); asset file, folder, and GameObject in [Pascal Case](#letter-case-pascal-case)
 - Characters: no spaces or punctuation but the underscore, per [Underscore Usage](#underscore-usage)
 - Order: subject first, qualifier after, so related names sort together (`HeroIdle`, `HeroRun`, never `IdleHero`)
-- Subject: name what a thing is or serves, omitting what its folder already says (`Ball.prefab`, `Rock.mat`, `ButtonClick.mp3`)
+- Subject: name what a thing is or serves, omitting what its folder, per [Assets Management](#assets-management), already says (`Ball.prefab`, `Rock.mat`, `ButtonClick.mp3`)
 - Suffix: end a name with its role when one in [Common Type and Suffix](#common-type-and-suffix) fits
 - Numbers: zero-pad (`Explosion_02`, `Explosion_10`)
 - File Match: a script file takes strictly its class's name (`PlayerManager.cs` holds `PlayerManager`)
@@ -98,6 +113,7 @@ Suffix a numeric name holding a physical quantity with its unit, by this shortha
 - join units with `Per`, numerator first; a bare amount takes `Per` alone (`regenPerS`)
 - apply to fields, locals, parameters, and getters (`MaxSpeedUPerS => maxSpeedUPerS`)
 - leave a dimensionless value bare (ratio, count, multiplier), its range in the tooltip (`0~1`)
+- end the field's tooltip with the same unit, per [Inspector Field](#inspector-field)
 
 ```csharp
 [SerializeField]
@@ -118,7 +134,7 @@ private float pullSpeedUPerS = 3f;
 The underscore carries these jobs, and no others:
 
 - Key Prefix: a leading `_` sorts the key sibling first, a hub, base variant, or most used one, and takes no variant field (`_PopupBase.prefab`, `_Player.asset`)
-- Variant or State: an inner `_` splits the subject from what tells one version of it apart, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`, `Player_Idle.anim`); use it whenever several things differ only by variant or state, such as two materials of one object, a sprite per state, or a prefab variant (`Popup_Confirm`, beside `_PopupBase`); a further field may follow, such as a frame number or action (`Hero_Attack_01`)
+- Variant or State: an inner `_` splits the subject from what tells one version of it apart, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`, `Player_Idle.anim`); use it whenever several things differ only by variant or state, such as two materials of one object, a sprite per state, or a prefab variant (`Popup_Confirm`, beside `_PopupBase`, per [Prefab Usage](#prefab-usage)); a further field may follow, such as a frame number or action (`Hero_Attack_01`)
 - Channel: a texture map takes its channel as the variant field (`_Albedo`, `_Normal`), a packed map named for the channels it holds (`_MRA`)
 
 
@@ -168,7 +184,7 @@ Naming or renaming anything in a Unity project, even unasked: new class, field, 
 
 ## Common Type and Suffix
 
-Each type names a concept, not a script: give its suffix to whatever embodies that concept, be it a class, script or asset file, GameObject, prefab, or variable.
+Each type names a concept, not a script: give its suffix to whatever embodies that concept, be it a class, script or asset file, GameObject, prefab, or variable, its full name spelled per [Unity Naming](#unity-naming).
 
 Scene Behaviour:
 
@@ -214,7 +230,7 @@ Object Supply:
 - Service: logic behind an interface, with no scene presence and little or no state (`SaveService`)
 - Loader: brings assets or scenes into memory, usually asynchronously (`SceneLoader`)
 
-User Interface:
+User Interface, shown & hidden per [Owner-Driven Activation](#owner-driven-activation):
 
 - Screen: one full-screen interface, opening, closing, and owning its panels (`PauseScreen`)
 - Panel: one self-contained region of a screen (`InventoryPanel`)
@@ -228,7 +244,7 @@ MVP:
 - View: a passive display deciding nothing, exposing what to show and which input occurred (`InventoryView`); without a Presenter, use Panel or Widget
 - Presenter: links one Model to one View, so neither knows the other (`InventoryPresenter`)
 
-Authored Data:
+Authored Data, chosen per [Game Tuning](#game-tuning), shaped per [Scriptable Object](#scriptable-object):
 
 - Config: tunable values, read by whatever it configures (`AudioConfig`)
 - Definition: the authored content of one thing, read-only at runtime (`WeaponDefinition`)
@@ -282,20 +298,22 @@ Designing a Unity system or deciding what a new class should own, even when user
 
 
 
-## Coding
+## Unity Coding
 
 - `var` only for a `foreach` local or a long generic right-hand side
 - singleton: expose the instance through a static member named exactly `I` (`GamepadManager.I`)
 - events: prefer the C# `event` keyword over `UnityEvent` (`public event Action<int> HealthChanged;`)
-- member order in a plain class: `[SerializeField]` fields, public API, plain fields, private helpers, constructor last; a `MonoBehaviour` follows its own example below
+- member order in a plain class: `[SerializeField]` fields, public API, plain fields, private helpers, constructor last; a `MonoBehaviour` follows [MonoBehaviour](#monobehaviour), a `ScriptableObject` [Scriptable Object](#scriptable-object)
+- serialized fields: declare per [Inspector Field](#inspector-field)
+- gameplay numbers: keep in data per [Game Tuning](#game-tuning), never as literals
 - banners per [Comment Banner](#comment-banner), laid out as the example shows, and none at all in a small or single-purpose file
-- name every class, member, and variable per [Naming](#naming), suffixed per [Common Type and Suffix](#common-type-and-suffix) and [Unit Usage](#unit-usage)
+- name every class, member, and variable per [Unity Naming](#unity-naming), suffixed per [Common Type and Suffix](#common-type-and-suffix) and [Unit Usage](#unit-usage)
 
 
 
 #### Input
 
-Read gameplay input through the Input System: `InputAction`s from an Input Actions asset, never a keyboard, mouse, or gamepad directly. Express timing, such as a double-tap, as an interaction (`MultiTap`), never as a hand-rolled key tracker
+Read gameplay input through the Input System: `InputAction`s from an Input Actions asset, kept in `Inputs/` per [Assets Management](#assets-management), never a keyboard, mouse, or gamepad directly. Express timing, such as a double-tap, as an interaction (`MultiTap`), never as a hand-rolled key tracker
 
 
 
@@ -305,7 +323,7 @@ Log every meaningful state change so a debug session reads as a sequence of even
 
 Open every message with the owning subsystem or module name, a colon, and a tab.
 
-Warning and error are reserved for a failed guard clause. Every other log is debug level, gated by `Debug.isDebugBuild` and braced even for one statement.
+Warning and error are reserved for a failed guard clause, such as the Inspector Assignment Guard in [MonoBehaviour](#monobehaviour). Every other log is debug level, gated by `Debug.isDebugBuild` and braced even for one statement.
 
 ```csharp
 private void Awake() {
@@ -348,8 +366,10 @@ Writing or reviewing any Unity C# behaviour, even when user only asks for a feat
 
 ### Inspector Field
 
+Applies to every serialized field of a [MonoBehaviour](#monobehaviour) or [Scriptable Object](#scriptable-object), each named per [Unity Naming](#unity-naming).
+
 - declare as `[SerializeField] private`, never a public field
-- prefer `[Tooltip]` on each field, worded in briefness style, ending with its unit
+- prefer `[Tooltip]` on each field, worded in briefness style, ending with its unit per [Unit Usage](#unit-usage)
 - prefer `[Header]` dividing fields into groups
 - put a simple numeric bound in `[Min]` or `[Range]`; `OnValidate` only for a rule they cannot state
 - add `[RequireComponent]` on a class that reads a sibling component
@@ -397,10 +417,13 @@ Adding, renaming, or reviewing any value exposed in the Inspector, even when use
 
 Section order, formatting, and accessors follow the example exactly.
 
+Name the class and its members per [Unity Naming](#unity-naming), its role suffix per [Common Type and Suffix](#common-type-and-suffix); declare fields per [Inspector Field](#inspector-field); toggle a short-lived object per [Owner-Driven Activation](#owner-driven-activation).
+
 Inspector Assignment Guard:
 
 - guard **every** `[SerializeField] private` field carrying no declaration default (`private string label = "default";` needs none)
 - **one block, at the top** of `Awake()`, under exactly one `// Inspector Assignment Guard` line, never scattered, never repeated
+- word each failed guard per [Logging](#logging)
 
 ```csharp
 public class PlayerController: MonoBehaviour {
@@ -467,6 +490,8 @@ Any Unity script attached to a GameObject, the default shape of most gameplay co
 ### Scriptable Object
 
 Section order, formatting, and accessors follow the example exactly.
+
+Name the class per [Unity Naming](#unity-naming), its role suffix per [Common Type and Suffix](#common-type-and-suffix); declare fields per [Inspector Field](#inspector-field); decide which values it holds per [Game Tuning](#game-tuning).
 
 Menu Path:
 
@@ -550,7 +575,7 @@ Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs
 Assets/_MyGame/Textures/MinigameRacing/StartFlag.png
 ```
 
-Name every asset file, folder, and GameObject per [Naming](#naming).
+Name every asset file, folder, and GameObject per [Unity Naming](#unity-naming).
 
 
 
@@ -564,7 +589,7 @@ Type folders, one level under the root:
 - `Audio/`: music and effects, split above the module level, per the audio subfolders below
 - `Sprites/`, `Textures/`: 2D art, where split: `Sprites/` gameplay-facing, `Textures/` the rest
 - `Animations/`: `.anim` clips, `.controller` graphs
-- `Prefabs/`: prefabs
+- `Prefabs/`: prefabs, made per [Prefab Usage](#prefab-usage)
 - `Scenes/`: `.unity` files, optionally grouped by area (`Scenes/Minigames/`)
 - `Materials/`, `Tilemaps/`: 2D and tilemap work
 - `Meshes/`: 3D model and `.mesh` assets
@@ -638,7 +663,7 @@ Creating, moving, importing any Unity asset, even when user never mentions folde
 
 ## Prefab Usage
 
-Reach for prefabs extensively: turn an object into a prefab as soon as a reason below holds, progressively as the project grows, rather than waiting for a cleanup pass.
+Reach for prefabs extensively: turn an object into a prefab as soon as a reason below holds, progressively as the project grows, rather than waiting for a cleanup pass. Store each under `Prefabs/` per [Assets Management](#assets-management).
 
 Make a prefab when:
 
@@ -699,7 +724,7 @@ Building, duplicating, or reviewing scene objects, even when user never says "pr
 
 ## Owner-Driven Activation
 
-Save a GameObject inactive when it lives for only a stretch of the run; let an owner call `SetActive`, with no `Update` flag guards
+Save a GameObject inactive when it lives for only a stretch of the run; let an owner, such as a Screen, Coordinator, or Pool per [Common Type and Suffix](#common-type-and-suffix), call `SetActive`, with no `Update` flag guards
 
 Apply to:
 
@@ -717,7 +742,7 @@ Don't apply to:
 
 Rules:
 
-- hold each target in a `[SerializeField]` reference on the owner, never find it by search
+- hold each target in a `[SerializeField]` reference on the owner, declared per [Inspector Field](#inspector-field), never find it by search
 - subscribe and reset in `OnEnable`, unsubscribe in `OnDisable`
 - give each target one entry point (`Show`, `Hide`), and call only that from the owner
 - assign each toggled group exactly one owner
@@ -765,7 +790,7 @@ Showing, hiding, spawning, or enabling objects mid-run, even when user only says
 
 Prefer tunable gameplay numbers in data over code (speed, damage, cooldown, spawn rate, ramp): a designer can then adjust them in the Inspector, even in Play mode, without a recompile. A structural constant (a tag, a layer, an array size) is not tuning, and a `const` suits it.
 
-Tuning leans on three objects, each per its [Common Type and Suffix](#common-type-and-suffix) role:
+Tuning leans on three objects, each per its [Common Type and Suffix](#common-type-and-suffix) role, each class shaped per [Scriptable Object](#scriptable-object):
 
 - Config: SO holding the tuning values of one concern, the core structure of tuning (`PlayerBalanceConfig`)
 - Definition: SO holding what one thing is, its identity and own stats, one asset per thing (`WeaponDefinition`)
@@ -800,7 +825,7 @@ Common x axes:
 
 Preferences:
 
-- name the field `<Value>Curve` and state both axes with units in its `[Tooltip]`, x first (`x: ramp progress 0~1; y: spawn interval; s`)
+- name the field `<Value>Curve` and state both axes with units per [Unit Usage](#unit-usage) in its `[Tooltip]`, x first (`x: ramp progress 0~1; y: spawn interval; s`)
 - normalize x to 0~1 when its range varies, and keep the range in a separate Config field (a ramp duration), so one curve serves any length
 - hide `Evaluate` behind a Config method that clamps x (`GetIntervalS(elapsedS)`), so a reader need not touch the curve
 - give a curve a non-empty initializer (`AnimationCurve.Linear`), since an unset curve evaluates to 0 and silently zeroes the value
