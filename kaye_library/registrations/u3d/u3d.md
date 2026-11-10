@@ -351,12 +351,14 @@ One short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reus
 
 #### Asset File Naming
 
-Keep external art, raw downloads, and DAW exports under the filenames they arrived with.
+Keep any asset imported from outside the project (external art, raw downloads, DAW exports) under the filename it arrived with, even when it breaks the rules below, since others define it.
 
 [Pascal Case](#letter-case-pascal-case) throughout, no spaces, no punctuation but the underscore, which carries two jobs and no others:
 
-- Leading: marks a hub, main, or otherwise important asset, sorting it first (`_LevelSelectScene.unity`)
+- Leading: marks the key asset of its folder, sorting it first: a hub, an abstract or base variant (`_PopupBase.prefab`), or the most used one (`_Player.asset`)
 - Inside: separates semantic fields, Pascal Case within each (`Hero_Attack_01`)
+
+Dev asset: a private working copy may take the prefix `dev`, the name of the person in charge, then the original asset name (`devJohnMain.unity`, the private version of `Main.unity`).
 
 Sorting:
 

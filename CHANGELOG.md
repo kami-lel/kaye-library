@@ -21,6 +21,7 @@ todo support layered CONTEXT/AGENTS
 - Unity Engine unit usage: unit-suffixed identifiers & tooltips ending with the unit, `Per` joining a rate; `u3d-units` glossary (`u`, `s`, `deg`)
 - Unity Engine input: read gameplay input only through `InputAction`s, timing as an interaction (`MultiTap`), never direct device polling or a hand-rolled key tracker
 - Unity Engine owner-driven activation: rest state, each object keeps its original active state, owners switch screens on, managers stay active
+- Unity Engine asset naming: leading `_` marks the key asset of a folder (base variant, most used); dev asset `dev` + owner name + original name; imported assets keep their own names
 - Unity Engine assets management: `Meshes/` and `Plugins/` type folders
 - Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
 
