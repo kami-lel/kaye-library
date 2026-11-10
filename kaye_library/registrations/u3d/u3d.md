@@ -126,6 +126,33 @@ Rules:
 
 
 
+#### inspector field
+
+- declare as `[SerializeField] private`, never a public field
+- prefer `[Tooltip]` on each field, worded in briefness style, ending with its unit
+- prefer `[Header]` dividing fields into groups
+- put a simple numeric bound in `[Min]` or `[Range]`; `OnValidate` only for a rule they cannot state
+- add `[RequireComponent]` on a class that reads a sibling component
+- add `[FormerlySerializedAs]` on a renamed field, keeping its saved values
+
+```csharp
+[RequireComponent(typeof(Rigidbody2D))]
+public class CharacterMotor: MonoBehaviour {
+    [Header("Movement")]
+    [SerializeField]
+    [Tooltip("top speed; u/s")]
+    [Min(0f)]
+    private float maxSpeedUPerS = 5f;
+
+    [SerializeField]
+    [FormerlySerializedAs("jumpPower")]
+    [Tooltip("launch speed of a jump; u/s")]
+    private float jumpSpeedUPerS = 8f;
+}
+```
+
+
+
 #### game tuning
 
 Prefer tunable gameplay numbers in data over code (speed, damage, cooldown, spawn rate, ramp): a designer can then adjust them in the Inspector, even in Play mode, without a recompile. A structural constant (a tag, a layer, an array size) is not tuning, and a `const` suits it.
@@ -176,15 +203,7 @@ public class SpawnBalanceConfig: ScriptableObject {
         intervalCurve.Evaluate(Mathf.Clamp01(elapsedS / rampDurationS));
 
     // Inspector Fields  #######################################################
-    [SerializeField]
-    [Tooltip("time to full difficulty; s")]
-    [Min(0.01f)]
-    private float rampDurationS = 120f;
-
-    [SerializeField]
-    [Tooltip("x: ramp progress 0~1; y: spawn interval; s")]
-    private AnimationCurve intervalCurve =
-        AnimationCurve.Linear(0f, 2f, 1f, 0.5f);
+    ~~~
 }
 ```
 
@@ -379,10 +398,6 @@ Inspector Assignment Guard:
 - guard **every** `[SerializeField] private` field carrying no declaration default (`private string label = "default";` needs none)
 - **one block, at the top** of `Awake()`, under exactly one `// Inspector Assignment Guard` line, never scattered, never repeated
 
-Inspector Fields:
-
-- prefer `[Tooltip]` on each field, worded per [Briefness Style](#style-briefness-style), and `[Header]` dividing them into groups
-
 ```csharp
 public class PlayerController: MonoBehaviour {
     // Public Members  #########################################################
@@ -392,14 +407,7 @@ public class PlayerController: MonoBehaviour {
     public static PlayerController FindInScene() { ... }
 
     // Inspector Fields  #######################################################
-    [SerializeField]
-    [Tooltip("scene to load on race end")]
-    private string nextSceneName;
-
-    [Header("Movement")]
-    [SerializeField]
-    [Tooltip("top speed; u/s")]
-    private float maxSpeed = 5f;
+    ~~~
 
     // MonoBehaviour Lifecycle  ################################################
     private void Awake() {
@@ -421,7 +429,6 @@ public class PlayerController: MonoBehaviour {
 
     // private members  ########################################################
     private float startVelocityX;
-    private float acceleration;
 
     // cached references  ------------------------------------------------------
     private Rigidbody2D body;
@@ -466,11 +473,6 @@ Data Access:
 - every serialized field is `private`, exposed through a read-only `=>` getter under Public Members, documented with `<returns>`
 - no public mutable field and no setter: asset data is read-only at runtime, since an edit made in Play mode would persist in the asset
 
-Inspector Fields:
-
-- prefer `[Tooltip]` on each field, worded per [Briefness Style](#style-briefness-style), ending with its unit, and `[Header]` dividing them into groups
-- simple bounds go in `[Min]` or `[Range]`
-
 Editor Validation:
 
 - `OnValidate` sits last under an `// Editor Validation` banner, keeping a rule an attribute cannot state (a cross-field bound)
@@ -486,15 +488,7 @@ public class PlayerBalanceConfig: ScriptableObject {
     public float MaxSpeedUPerS => maxSpeedUPerS;
 
     // Inspector Fields  #######################################################
-    [Header("Movement")]
-    [SerializeField]
-    [Tooltip("slowest allowed speed; u/s")]
-    [Min(0f)]
-    private float minSpeedUPerS = 1f;
-
-    [SerializeField]
-    [Tooltip("top speed; u/s")]
-    private float maxSpeedUPerS = 5f;
+    ~~~
 
     // Editor Validation  ######################################################
     private void OnValidate() {

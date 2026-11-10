@@ -14,6 +14,7 @@ todo support layered CONTEXT/AGENTS
 - Unity Engine class naming: `Toast`, `Pickup`, `Projectile`, `Zone`, `Hazard` & `Data` role suffixes; `Listener` now takes a channel or a subject's C# event
 - Unity Engine game tuning: prefer tunable values in data via `Config`, `Definition` & `Preset`; `AnimationCurve` for values depending on another value (time, difficulty ramp)
 - Unity Engine `ScriptableObject` shape: fixed banner order (Public Members, Inspector Fields, Editor Validation), read-only `=>` getters, `OnValidate` for cross-field bounds, uniform `menuName`
+- Unity Engine inspector field: `[SerializeField] private`, `[Tooltip]`, `[Header]`, `[Min]`/`[Range]`, `[RequireComponent]`, `[FormerlySerializedAs]`; moved from the MonoBehaviour & ScriptableObject sections into the core
 - Unity Engine unit usage: unit-suffixed identifiers & tooltips ending with the unit, `Per` joining a rate; `u3d-units` glossary (`u`, `s`, `deg`)
 - Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
 
