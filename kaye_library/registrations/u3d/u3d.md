@@ -18,11 +18,11 @@ When naming an identifier, always use shorthand below over full word; decode any
 
 ## {description}
 
-Writes, edits & reviews all Unity 6 C# code under house conventions: class-role suffixes, singleton & event idioms, member order, subsystem-prefixed logging
+Sets baseline for all Unity 6 C# work, the shared root every topic-specific Unity skill builds on
 
 ## {when_to_use}
 
-Any C# in a Unity project, even when user never says "Unity": gameplay systems, managers, controllers, editor tools, UI, input, save/load, scene logic. Triggers: Unity, `UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, singleton, manager, event. Load together w/ `u3d-mb` for `MonoBehaviour` scripts, `u3d-so` for `ScriptableObject` classes; asset placement & naming belong to `u3d-assets-management`
+Any C# in a Unity project, even when user never says "Unity": gameplay, managers, editor tools, UI, save/load. Triggers: Unity, `UnityEngine`, `.cs` under `Assets/`, `MonoBehaviour`, `ScriptableObject`
 
 ## {globs}
 
@@ -120,6 +120,18 @@ The underscore carries these jobs, and no others:
 - Key Prefix: a leading `_` sorts the key sibling first, a hub, base variant, or most used one, and takes no variant field (`_PopupBase.prefab`, `_Player.asset`)
 - Variant or State: an inner `_` splits the subject from what tells one version of it apart, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`, `Player_Idle.anim`); use it whenever several things differ only by variant or state, such as two materials of one object, a sprite per state, or a prefab variant (`Popup_Confirm`, beside `_PopupBase`); a further field may follow, such as a frame number or action (`Hero_Attack_01`)
 - Channel: a texture map takes its channel as the variant field (`_Albedo`, `_Normal`), a packed map named for the channels it holds (`_MRA`)
+
+
+
+
+
+### {description}
+
+Names anything in a Unity project, code identifier or asset, so related things sort together & each name reads at a glance
+
+### {when_to_use}
+
+Naming or renaming anything in a Unity project, even unasked: new class, field, prefab, material, sprite, animation clip, folder. Triggers: "what to call this", rename, naming convention, variant, numbered asset
 
 
 
@@ -229,6 +241,18 @@ Authored Data:
 
 
 
+### {description}
+
+Assigns each Unity class, script, GameObject, or asset one architectural role, so responsibilities split cleanly & its name says what it does
+
+### {when_to_use}
+
+Designing a Unity system or deciding what a new class should own, even when user only asks "manager or controller?": splitting a god class, picking a pattern, reviewing a misnamed script. Triggers: manager, controller, architecture, responsibility, design pattern, MVP, event pipe, "what should this class be"
+
+
+
+
+
 
 
 
@@ -302,6 +326,18 @@ private void Awake() {
 
 
 
+### {description}
+
+Writes, edits & reviews Unity C# logic in house idiom, so code reads consistently & a debug session traces as a sequence of events
+
+### {when_to_use}
+
+Writing or reviewing any Unity C# behaviour, even when user only asks for a feature: game logic, input handling, events, singletons, debug output. Triggers: `Debug.Log`, `InputAction`, singleton, event, "add logging", "read input"
+
+
+
+
+
 
 
 
@@ -334,6 +370,16 @@ public class CharacterMotor: MonoBehaviour {
     private float jumpSpeedUPerS = 8f;
 }
 ```
+
+
+
+#### {description}
+
+Declares Unity Inspector fields so designers read, tune & rename them without breaking saved values
+
+#### {when_to_use}
+
+Adding, renaming, or reviewing any value exposed in the Inspector, even when user only says "expose this" or "make it tweakable". Triggers: `[SerializeField]`, Inspector, public field, "show in editor", tooltip
 
 
 
@@ -398,6 +444,16 @@ public class PlayerController: MonoBehaviour {
 
 
 
+#### {description}
+
+Structures Unity `MonoBehaviour` scripts in one fixed layout, so every component reads alike & missing Inspector assignments surface at startup
+
+#### {when_to_use}
+
+Any Unity script attached to a GameObject, the default shape of most gameplay code, even when user never names `MonoBehaviour`: player, enemy, trigger zone, camera rig, UI behaviour. Triggers: `MonoBehaviour`, `Awake`, `Update`, `OnTriggerEnter`, `GetComponent`, "add a component"
+
+
+
 
 
 
@@ -444,6 +500,16 @@ public class PlayerBalanceConfig: ScriptableObject {
     }
 }
 ```
+
+
+
+#### {description}
+
+Structures Unity `ScriptableObject` classes in one fixed layout, keeping asset data read-only & valid at runtime
+
+#### {when_to_use}
+
+Any designer-editable data living outside a scene, even when user only says "config", "settings", "database", "shared data": level config, item stats, event channel. Triggers: `ScriptableObject`, `CreateAssetMenu`, `.asset`, data container
 
 
 
@@ -528,6 +594,18 @@ Module folders: one short [Pascal Case](#letter-case-pascal-case) name per scene
 
 
 
+### {description}
+
+Places Unity assets & folders across `Assets/`, so any file is found by type & module without search
+
+### {when_to_use}
+
+Creating, moving, importing any Unity asset, even when user never mentions folder: new script file, scene, prefab, audio clip, texture, animation. Triggers: "where does this go", folder layout, project structure, `Assets/`, import, organize
+
+
+
+
+
 
 
 
@@ -573,6 +651,18 @@ Prefer the base and variant pattern for a family of near-identical objects:
 - variant prefab: a Prefab Variant of the base, overriding only what differs, named per [Underscore Usage](#underscore-usage) (`Popup_Confirm.prefab`)
 - put a change shared by the whole family in the base, so every variant follows it
 - a scene holds instances of the prefab, never a hand-made copy of one
+
+
+
+
+
+### {description}
+
+Turns Unity scene objects into prefabs & variant families early, so one edit updates every copy
+
+### {when_to_use}
+
+Building, duplicating, or reviewing scene objects, even when user never says "prefab": copy-pasted GameObjects, a 2nd enemy type, reusable popup, near-identical variants. Triggers: prefab, Prefab Variant, duplicate, reuse, "same as that one but"
 
 
 
@@ -634,6 +724,18 @@ Rules:
 - rest each object in its original active state: a screen is saved inactive and switched on by its owner, a manager is saved active and stays so
 - toggle component `enabled`, a child visual, or `CanvasGroup` instead when the object must stay findable or listening
 - play a hide state before `SetActive(false)` when the object needs an exit animation
+
+
+
+
+
+### {description}
+
+Controls Unity GameObjects living only part of a run through one owner, so showing, hiding & spawning stay predictable & cost nothing while idle
+
+### {when_to_use}
+
+Showing, hiding, spawning, or enabling objects mid-run, even when user only says "open the menu" or "turn it on": pause screen, popup, toast, pooled enemy, cutscene prop. Triggers: `SetActive`, show/hide, enable/disable, toggle, "appear when"
 
 
 
@@ -716,3 +818,15 @@ public class SpawnBalanceConfig: ScriptableObject {
     ~~~
 }
 ```
+
+
+
+
+
+### {description}
+
+Moves Unity gameplay numbers out of code into designer-editable data, so balance changes need no recompile
+
+### {when_to_use}
+
+Any tunable gameplay value, even unasked: speed, damage, cooldown, spawn rate, difficulty ramp, hard-coded magic number. Triggers: balance, tuning, difficulty, curve, "let the designer tweak", magic number
