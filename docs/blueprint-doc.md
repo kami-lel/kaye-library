@@ -107,9 +107,9 @@ Each skill is addressed as `kaye-library:<name>` once installed as a plugin. The
 
 | skill | depends on |
 |---|---|
-| `u3d` | `coder-c-sharp` |
+| `u3d`, `u3d-coding` | `coder-c-sharp` |
 | `u3d-mb` | `style-briefness-style` |
-| `u3d-assets-management`, `u3d-so` | none |
+| `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, `u3d-so`, `u3d-assets-management`, `u3d-pfb`, `u3d-owner-driven-activation`, `u3d-game-tuning` | none |
 
 ### Secretary
 

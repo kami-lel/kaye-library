@@ -10,6 +10,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- Unity Engine skills `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-coding`, `u3d-if`, `u3d-pfb`, `u3d-owner-driven-activation`, `u3d-game-tuning`: each corpus section standalone, so the peer invocation hints resolve; `u3d-mb` & `u3d-so` now registered from under `Unity Coding`
 - `amanuensis-config-keybinding-controller` glossary: face buttons, bumpers & triggers as letter emoji 🄻 🅁 🅻 🆁, sticks, d-pad, view & menu symbols
 - `amanuensis-config-keybinding-keyboards` glossary: mouse & mouse movement symbol 🖰, listed first
 - `amanuensis-config-keybinding-mouse` glossary: left, right, middle click & wheel, buttons 4 & 5
