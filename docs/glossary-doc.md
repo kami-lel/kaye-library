@@ -20,8 +20,9 @@ A **glossary** is a named group of abbreviation entries. Library text splices a 
 | `coder-abbr` | Coder | `glossary-coder-abbr` | Coder | 51 |
 | `coder-identifier-shorthand` | Coder | none | variable naming | 55 |
 | `coder-documentation-field-shorthand` | Coder | none | Coder Python Docstring Style | 7 |
-| `coder-u3d-abbr` | Coder | none | Coder Unity Engine | 11 |
-| `coder-u3d-identifier` | Coder | none | Coder Unity Engine | 10 |
+| `u3d-abbr` | Unity Engine | none | Unity Engine | 11 |
+| `u3d-identifier` | Unity Engine | none | Unity Engine | 10 |
+| `u3d-units` | Unity Engine | none | Unity Engine | 3 |
 | `amanuensis-config-writer-shorthand` | Amanuensis | none | Config Writer | 8 |
 | `amanuensis-config-keybinding-keyboards` | Amanuensis | none | Keybinding Writer | 18 |
 | `amanuensis-config-keybinding-controller` | Amanuensis | none | Keybinding Writer | 16 |
