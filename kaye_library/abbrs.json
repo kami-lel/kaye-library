@@ -1426,6 +1426,18 @@
       }
     }
   },
+  "degree": {
+    "abbrs": {
+      "deg": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "u3d-units"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "delete": {
     "abbrs": {
       "⌦": {
@@ -3351,6 +3363,7 @@
         "tags": [
           "letters_only",
           "single_character",
+          "u3d-units",
           "units-of-measure"
         ],
         "wrap": "unit"
@@ -3704,8 +3717,7 @@
         "tags": [
           "letters_only",
           "single_character",
-          "units-of-measure",
-          "u3d-identifier"
+          "units-of-measure"
         ],
         "wrap": "unit"
       }
@@ -3985,6 +3997,19 @@
         "tags": [
           "git-abbr",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "world unit": {
+    "abbrs": {
+      "u": {
+        "priority": 5,
+        "tags": [
+          "letters_only",
+          "single_character",
+          "u3d-units"
         ],
         "wrap": "word"
       }

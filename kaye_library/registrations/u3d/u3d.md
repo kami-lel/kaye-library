@@ -190,6 +190,28 @@ public class SpawnBalanceConfig: ScriptableObject {
 
 
 
+#### unit usage
+
+Suffix a numeric identifier holding a physical quantity with its unit. Shorthand:
+
+(((u3d-units)))
+
+- join units with `Per`, numerator first; a bare amount takes `Per` alone (`regenPerS`)
+- apply to fields, locals, parameters, and getters (`MaxSpeedUPerS => maxSpeedUPerS`)
+- leave a dimensionless value bare (ratio, count, multiplier), its range in the tooltip (`0~1`)
+
+```csharp
+[SerializeField]
+[Tooltip("time stunned after a hit; s")]
+private float hitStunDurationS = 0.4f;
+
+[SerializeField]
+[Tooltip("pull toward the anchor; u/s")]
+private float pullSpeedUPerS = 3f;
+```
+
+
+
 #### Logging
 
 Log every meaningful state change so a debug session reads as a sequence of events: lifecycle transitions, branch decisions, external calls (network, save/load, scene loads).

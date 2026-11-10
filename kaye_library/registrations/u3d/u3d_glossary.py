@@ -11,7 +11,8 @@ __all__ = ("register_u3d_abbr_glossaries",)
 
 def register_u3d_abbr_glossaries():
     """
-    register ``u3d-abbr`` and ``u3d-identifier``
+    register ``u3d-abbr``, ``u3d-identifier`` and ``u3d-units``
     """
     register_abbr_glossary("u3d-abbr", False, is_dyn_substitution=True)
     register_abbr_glossary("u3d-identifier", False, is_dyn_substitution=True)
+    register_abbr_glossary("u3d-units", False, is_dyn_substitution=True)

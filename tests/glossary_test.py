@@ -19,6 +19,7 @@ _LIBRARY_GLOSSARIES = (
     "coder-identifier-shorthand",
     "u3d-abbr",
     "u3d-identifier",
+    "u3d-units",
     "commit-sense-shorthand",
     "commit-sense-sigil",
     "element-dt-days-of-week",
