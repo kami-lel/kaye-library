@@ -121,6 +121,7 @@ Rules:
 - subscribe and reset in `OnEnable`, unsubscribe in `OnDisable`
 - give each target one entry point (`Show`, `Hide`), and call only that from the owner
 - assign each toggled group exactly one owner
+- rest each object in its original active state: a screen is saved inactive and switched on by its owner, a manager is saved active and stays so
 - toggle component `enabled`, a child visual, or `CanvasGroup` instead when the object must stay findable or listening
 - play a hide state before `SetActive(false)` when the object needs an exit animation
 
