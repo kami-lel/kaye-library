@@ -1220,9 +1220,10 @@
       }
     }
   },
-  "commit the indexed, then continue": {
+  "commit only the indexed": {
     "abbrs": {
-      "cci": {
+      "gi": {
+        "remark": "including unknown changes; workspace untouched",
         "priority": 5,
         "tags": [
           "git-abbr",
@@ -1977,9 +1978,10 @@
       }
     }
   },
-  "git commit then continue": {
+  "perform git commit": {
     "abbrs": {
-      "cc": {
+      "g": {
+        "remark": "only changes made in this conversation, leave others untouched; ask if unsure",
         "priority": 5,
         "tags": [
           "git-abbr",
@@ -2189,9 +2191,10 @@
     },
     "remark": "queued changes: adding is \"index\", result is \"indexed\"; never \"stage\" or \"cache\""
   },
-  "index workspace, commit, then continue": {
+  "index all workspace changes, commit": {
     "abbrs": {
-      "icc": {
+      "ig": {
+        "remark": "including unknown ones",
         "priority": 5,
         "tags": [
           "git-abbr",

@@ -582,7 +582,7 @@ Stops after 1 Movement, waits for user to open next Turn
 
 ### {[git] Usage}
 
-Index the Movement's edits before the Turn stop. Commit them at the next Turn start, once user approves (eg "git commit then continue" or "cc").
+Index the Movement's edits before the Turn stop. Commit them at the next Turn start, once user approves (eg "git commit" or "g").
 
 
 
