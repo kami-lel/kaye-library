@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-09, v1.2.0. History lives in `CHANGELOG.md` and `git log`, not here.
+**Last updated:** 2026-11-09, v1.2.1. History lives in `CHANGELOG.md` and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside `AGENTS.md`.
 
@@ -70,7 +70,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
 | Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
-| Unity Engine | the Unity 6 C# rules (class-role suffixes, owner-driven activation, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own `u3d-*` skill; builds on Coder C Sharp |
+| Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |
 | Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
