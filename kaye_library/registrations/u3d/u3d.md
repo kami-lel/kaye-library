@@ -14,255 +14,6 @@ When naming an identifier, always use shorthand below over full word; decode any
 
 
 
-#### coding for unity engine
-
-- `var` only for a `foreach` local or a long generic right-hand side
-- singleton: expose the instance through a static member named exactly `I` (`GamepadManager.I`)
-- events: prefer the C# `event` keyword over `UnityEvent` (`public event Action<int> HealthChanged;`)
-- member order in a plain class: `[SerializeField]` fields, public API, plain fields, private helpers, constructor last; a `MonoBehaviour` follows its own example below
-- banners per [Comment Banner](#comment-banner), laid out as the example shows, and none at all in a small or single-purpose file
-
-
-
-#### class naming
-
-Suffix each class name by its role:
-
-Scene Behaviour:
-
-- Controller: script driving one subject frame by frame, turning input or state into actions (`PlayerController`, `GameController`)
-- Manager: script owning one system's state for the whole run, exposing an API over it, never running a multi-step flow (`AccessoryManager`)
-- Coordinator: script running one multi-step flow across several systems, in order (`LevelTransitionCoordinator`)
-- Director: script playing one authored timeline, firing content at scripted moments (`WaveDirector`)
-- Spawner: script deciding where and when instances enter the scene, leaving construction to a Factory (`EnemySpawner`)
-
-Entity Behaviour:
-
-- Motor: script turning a wanted direction or speed into velocity or force on one body (`CharacterMotor`)
-- Sensor: script detecting what surrounds one entity and reporting it, deciding nothing (`VisionSensor`)
-- Ability: script for one activatable action of a character, with its own trigger, cost, and cooldown (`DashAbility`)
-- Command: script reifying one action as an object, so it can be queued, replayed, or undone (`MoveCommand`)
-- State: script holding the behaviour of one state machine node (`PatrolState`)
-- StateMachine: script owning one entity's states and the transitions between them (`EnemyStateMachine`)
-- Feedback: script playing one burst of particles, sound, or camera shake on request (`HitFeedback`)
-
-Event Delivery:
-
-- Relay: script passing one object's trigger or event callbacks on to an owner, holding no response logic (`DetectionZoneRelay`)
-- Channel: SO script acting as one event pipe, so raiser and listener never reference each other (`GameOverEventChannel`)
-
-Event Reaction:
-
-- Listener: script subscribing to one event source, a channel or a subject's C# event, and reacting on its own object (`PauseListener`)
-- Binder: script mirroring every state change of one known subject into its own object (`HealthBinder`)
-
-Object Supply:
-
-- Factory: script creating and configuring new instances of one type, hiding how (`EnemyFactory`)
-- Pool: script lending and reclaiming reusable instances of one prefab, instead of instantiate and destroy (`BulletPool`)
-- Registry: script tracking live instances of one type, which register themselves, for lookup and iteration (`EnemyRegistry`)
-- Generator: script producing procedural content from rules and a seed (`LevelGenerator`)
-- Provider: script handing out one value or dependency on request, without owning its lifecycle (`InputProvider`)
-- Service: plain script behind an interface, with no scene presence and little or no state (`SaveService`)
-- Loader: script bringing assets or scenes into memory, usually asynchronously (`SceneLoader`)
-
-User Interface:
-
-- Screen: script on the top object of one full-screen interface, opening, closing, and owning its panels (`PauseScreen`)
-- Panel: script for one self-contained region of a screen (`InventoryPanel`)
-- Popup: script for a modal prompt shown over the current screen, then dismissed (`ConfirmPopup`)
-- Toast: script for a timed, non-modal message shown over play, fading on its own, never blocking input (`HintToast`)
-- Widget: script for a small reusable control with its own look and behaviour (`HealthBarWidget`)
-
-World Object:
-
-- Pickup: script for one collectible, handing its reward over once on touch (`BananaPickup`)
-- Projectile: script for one thrown or fired thing, flying until it hits or expires (`CoconutProjectile`)
-- Zone: script for one volume applying an effect to whatever is inside it (`SlowZone`)
-
-MVP:
-
-- Model: script holding one feature's data and rules, ignorant of any display, raising events on change (`InventoryModel`)
-- View: script displaying passively, deciding nothing, exposing what to show and which input occurred (`InventoryView`); without a Presenter, use Panel or Widget
-- Presenter: script linking one Model to one View, so neither knows the other (`InventoryPresenter`)
-
-Authored Data:
-
-- Config: SO script holding tunable values, read by whatever it configures (`AudioConfig`)
-- Definition: SO script holding authored content of one thing, read-only at runtime (`WeaponDefinition`)
-- Setting: SO script holding options the player or project chooses, apart from Config's designer tuning (`GraphicsSetting`)
-- Catalog: SO script collecting every Definition of one kind for lookup by id (`ItemCatalog`)
-- Preset: script bundling named values, applied in one step (`DifficultyPreset`)
-- Save: plain serializable script recording progress, persisted to disk (`PlayerSave`)
-
-
-
-#### owner-driven activation pattern
-
-Save a GameObject inactive when it lives for only a stretch of the run; let an owner call `SetActive`, with no `Update` flag guards
-
-Apply to:
-
-- UI: pause screen, game over screen, settings panel, tutorial overlay, popup, toast, tooltip
-- spawned or pooled: enemy, projectile, pickup, hit flash, particle effect, decal
-- scripted: cutscene prop, event actor, boss arena gate, tutorial arrow
-- mode-specific: alternate camera, debug panel, editor-only stand-in
-- streamed: level section loaded in and out by distance or progress
-
-Don't apply to:
-
-- manager, singleton, event hub, listener
-- camera follow, input reader, audio mixer
-- the owner itself
-
-Rules:
-
-- hold each target in a `[SerializeField]` reference on the owner, never find it by search
-- subscribe and reset in `OnEnable`, unsubscribe in `OnDisable`
-- give each target one entry point (`Show`, `Hide`), and call only that from the owner
-- assign each toggled group exactly one owner
-- rest each object in its original active state: a screen is saved inactive and switched on by its owner, a manager is saved active and stays so
-- toggle component `enabled`, a child visual, or `CanvasGroup` instead when the object must stay findable or listening
-- play a hide state before `SetActive(false)` when the object needs an exit animation
-
-
-
-#### inspector field
-
-- declare as `[SerializeField] private`, never a public field
-- prefer `[Tooltip]` on each field, worded in briefness style, ending with its unit
-- prefer `[Header]` dividing fields into groups
-- put a simple numeric bound in `[Min]` or `[Range]`; `OnValidate` only for a rule they cannot state
-- add `[RequireComponent]` on a class that reads a sibling component
-- add `[FormerlySerializedAs]` on a renamed field, keeping its saved values
-
-```csharp
-[RequireComponent(typeof(Rigidbody2D))]
-public class CharacterMotor: MonoBehaviour {
-    [Header("Movement")]
-    [SerializeField]
-    [Tooltip("top speed; u/s")]
-    [Min(0f)]
-    private float maxSpeedUPerS = 5f;
-
-    [SerializeField]
-    [FormerlySerializedAs("jumpPower")]
-    [Tooltip("launch speed of a jump; u/s")]
-    private float jumpSpeedUPerS = 8f;
-}
-```
-
-
-
-#### input
-
-Read gameplay input through the Input System: `InputAction`s from an Input Actions asset, never a keyboard, mouse, or gamepad directly. Express timing, such as a double-tap, as an interaction (`MultiTap`), never as a hand-rolled key tracker
-
-
-
-#### game tuning
-
-Prefer tunable gameplay numbers in data over code (speed, damage, cooldown, spawn rate, ramp): a designer can then adjust them in the Inspector, even in Play mode, without a recompile. A structural constant (a tag, a layer, an array size) is not tuning, and a `const` suits it.
-
-Tuning leans on three objects, each per its [Class Naming](#class-naming) role:
-
-- Config: SO holding the tuning values of one concern, the core structure of tuning (`PlayerBalanceConfig`)
-- Definition: SO holding what one thing is, its identity and own stats, one asset per thing (`WeaponDefinition`)
-- Preset: bundle of named values applied to a Config in one step, eg a difficulty tier (`DifficultyPreset`)
-
-Config vs Definition: a Config answers how a system behaves, a Definition answers what a thing is. A value shared by every instance of a system tends to suit a Config; a value that differs per thing tends to suit its Definition.
-
-Config leanings:
-
-- one Config per concern, with balance split into a few assets (player, world, enemy) rather than one asset for everything or one asset per field
-- a reader holds a `[SerializeField]` for the one Config it needs, rather than a hub asset reaching every concern
-- treat a Config as read-only at runtime: a reader can copy a value into its own state before changing it, since an edit made in Play mode would persist in the asset
-- expose each private serialized field as a read-only `=>` getter
-- clamp in `OnValidate` under an `// Editor Validation` banner, so an out-of-range value does not reach play
-- let one reader own the meaning of each value; a second reader of the same value can ask the Config instead of keeping its own copy
-- let a Preset overwrite Config values through its single apply entry point rather than from scattered code
-
-#### tuning with AnimationCurve
-
-Reach for an `AnimationCurve` extensively when a value depends on another value, in place of a formula or a table of constants: difficulty ramping, falloff by distance, damage by charge, speed by health fraction, reward by streak. The designer draws the curve, so its shape can change without code.
-
-Common x axes:
-
-- elapsed time of a run or an encounter
-- difficulty level or wave number
-- normalized progress, 0~1
-- distance, health fraction, stack count
-
-Preferences:
-
-- name the field `<Value>Curve` and state both axes with units in its `[Tooltip]`, x first (`x: ramp progress 0~1; y: spawn interval; s`)
-- normalize x to 0~1 when its range varies, and keep the range in a separate Config field (a ramp duration), so one curve serves any length
-- hide `Evaluate` behind a Config method that clamps x (`GetIntervalS(elapsedS)`), so a reader need not touch the curve
-- give a curve a non-empty initializer (`AnimationCurve.Linear`), since an unset curve evaluates to 0 and silently zeroes the value
-- let the y axis be a multiplier on a base value when one curve shapes several values, and absolute when it shapes one
-- a plain float still suits a value that depends on nothing
-
-```csharp
-[CreateAssetMenu(menuName = "Scriptable Objects/SpawnBalanceConfig")]
-public class SpawnBalanceConfig: ScriptableObject {
-    // Public Members  #########################################################
-    public float GetIntervalS(float elapsedS) =>
-        intervalCurve.Evaluate(Mathf.Clamp01(elapsedS / rampDurationS));
-
-    // Inspector Fields  #######################################################
-    ~~~
-}
-```
-
-
-
-#### unit usage
-
-Suffix a numeric identifier holding a physical quantity with its unit. Shorthand:
-
-(((u3d-units)))
-
-- join units with `Per`, numerator first; a bare amount takes `Per` alone (`regenPerS`)
-- apply to fields, locals, parameters, and getters (`MaxSpeedUPerS => maxSpeedUPerS`)
-- leave a dimensionless value bare (ratio, count, multiplier), its range in the tooltip (`0~1`)
-
-```csharp
-[SerializeField]
-[Tooltip("time stunned after a hit; s")]
-private float hitStunDurationS = 0.4f;
-
-[SerializeField]
-[Tooltip("pull toward the anchor; u/s")]
-private float pullSpeedUPerS = 3f;
-```
-
-
-
-#### Logging
-
-Log every meaningful state change so a debug session reads as a sequence of events: lifecycle transitions, branch decisions, external calls (network, save/load, scene loads).
-
-Open every message with the owning subsystem or module name, a colon, and a tab.
-
-Warning and error are reserved for a failed guard clause. Every other log is debug level, gated by `Debug.isDebugBuild` and braced even for one statement.
-
-```csharp
-private void Awake() {
-    if (rb == null) {
-        Debug.LogError("Inventory:\tfail to get Component: Rigidbody2D", this);
-    }
-    if (itemPrefab == null) {
-        Debug.LogWarning(
-            "Inventory:\tmust assign Inspector Field: Item Prefab", this);
-    }
-    if (Debug.isDebugBuild) {
-        Debug.Log("Inventory:\tready");
-    }
-}
-```
-
-
-
 
 
 ## {description}
@@ -299,125 +50,76 @@ Load `coder` skill with `skill_view`.
 
 
 
-## Assets Management
 
-Everything authored lives under one underscore-prefixed root named for the game, `Assets/_MyGame/`, sorting above Unity's own and vendor folders. Paths below are relative to it, and that prefix repeats on any folder that should lead its listing.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Naming
+
+One convention names every noun-type thing: class, member, variable, file, GameObject, folder.
+
+- Casing: code per [Coder](#coder); asset file, folder, and GameObject in [Pascal Case](#letter-case-pascal-case)
+- Characters: no spaces or punctuation but the underscore, per [Underscore Usage](#underscore-usage)
+- Order: subject first, qualifier after, so related names sort together (`HeroIdle`, `HeroRun`, never `IdleHero`)
+- Subject: name what a thing is or serves, omitting what its folder already says (`Ball.prefab`, `Rock.mat`, `ButtonClick.mp3`)
+- Suffix: end a name with its role when one in [Common Type and Suffix](#common-type-and-suffix) fits
+- Numbers: zero-pad (`Explosion_02`, `Explosion_10`)
+- File Match: a script file takes strictly its class's name (`PlayerManager.cs` holds `PlayerManager`)
+- Imported: an external asset (art, download, DAW export) keeps its arrival filename, since others define it
+- Dev Copy: a private working copy takes `dev`, its owner's name, then the original name (`devJohnMain.unity` for `Main.unity`)
+
+
+
+
+
+#### Unit Usage
+
+Suffix a numeric name holding a physical quantity with its unit, by this shorthand:
+
+(((u3d-units)))
+
+- join units with `Per`, numerator first; a bare amount takes `Per` alone (`regenPerS`)
+- apply to fields, locals, parameters, and getters (`MaxSpeedUPerS => maxSpeedUPerS`)
+- leave a dimensionless value bare (ratio, count, multiplier), its range in the tooltip (`0~1`)
+
+```csharp
+[SerializeField]
+[Tooltip("time stunned after a hit; s")]
+private float hitStunDurationS = 0.4f;
+
+[SerializeField]
+[Tooltip("pull toward the anchor; u/s")]
+private float pullSpeedUPerS = 3f;
 ```
-Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs
-Assets/_MyGame/Textures/MinigameRacing/StartFlag.png
-```
 
 
-
-#### Type Folders
-
-One level under the root:
-
-- `Scripts/`: C#
-- `Audio/`: music and effects, split above the module level
-
-  - `Audio/BGM/`: module subfolders (eg `Audio/BGM/Lv1/`)
-  - `Audio/SFX/`: module subfolders, or category subfolders for effects spanning every module (eg `Audio/SFX/PlayerHit/`)
-
-- `Sprites/`, `Textures/`: 2D art, where split: `Sprites/` gameplay-facing, `Textures/` the rest
-- `Animations/`: `.anim` clips, `.controller` graphs
-- `Prefabs/`: prefabs
-- `Scenes/`: `.unity` files, optionally grouped by area (`Scenes/Minigames/`)
-- `Materials/`, `Tilemaps/`: 2D and tilemap work
-- `Meshes/`: 3D model and `.mesh` assets
-- `Plugins/`
-- `Settings/`: project-level `.asset` files
-- `Localizations/`: locale and string-table assets
-- `Shaders/`: `.shader`, `.shadergraph`, `.hlsl` files
-- `Fonts/`: font files and their `.asset` font settings
-- `Inputs/`: `.inputactions` assets
-- `VFXs/`: particle systems and Visual Effect Graph assets
-- `Timelines/`: `.playable` Timeline assets
-
-
-
-#### Module Folders
-
-One short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reused identically in every type folder holding its assets: the module name is the constant, the type folder changes around it. Spell it out, never abbreviate. Where modules form a family, the family word leads so the family sorts together:
-
-- Family Member: `MinigameRacing`, `MinigameHiking`, `MinigameHideNSeek`
-- Level: `Lv1`, `Lv2`, numbered rather than named
-- Screen: `StartScreen`, `PauseScreen`, `SettingsScreen`, every full-screen interface taking the word `Screen`
-- Standalone Module: `SaveSystem`, `Inventory`, sharing a name with nothing else
-- `_Shared/`: the module slot taken by whatever no single module owns, sorting first on its underscore prefix
 
 
 
 #### Underscore Usage
 
-The underscore carries two jobs in an asset name, and no others:
+The underscore carries these jobs, and no others:
 
-- Prefix: a leading `_` marks the key asset of its folder, sorting it first: a hub, an abstract or base variant (`_PopupBase.prefab`), or the most used one (`_Player.asset`)
-- Variant or State: an inner `_` splits the subject from what tells one version of it apart, a variant or a state, so the asset names reflect it: subject first, variant or state after, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`)
-
-Rules:
-
-- name each version of one object this way whenever several assets differ only by variant or state: two materials of one object, a sprite per state, a prefab variant
-- a further field may follow, such as a frame number or action (`Hero_Attack_01`)
-- the key asset of a family takes the leading `_` instead, with no variant field (`_PopupBase`, beside `Popup_Confirm`)
-
-
-
-#### Prefab Usage
-
-Reach for prefabs extensively: turn an object into a prefab as soon as a reason below holds, progressively as the project grows, rather than waiting for a cleanup pass.
-
-Make a prefab when:
-
-- 2 or more objects are copies or variants of each other
-- the object could be reused elsewhere, such as in another scene, even if it is used once today
-
-Prefer the base and variant pattern for a family of near-identical objects:
-
-- base prefab: holds everything the family shares, named with a leading `_`, the subject, and `Base` (`_PopupBase.prefab`)
-- variant prefab: a Prefab Variant of the base, overriding only what differs, named per [Underscore Usage](#underscore-usage) (`Popup_Confirm.prefab`)
-- put a change shared by the whole family in the base, so every variant follows it
-- a scene holds instances of the prefab, never a hand-made copy of one
-
-
-
-#### Asset File Naming
-
-Keep any asset imported from outside the project (external art, raw downloads, DAW exports) under the filename it arrived with, even when it breaks the rules below, since others define it.
-
-[Pascal Case](#letter-case-pascal-case) throughout, no spaces, no punctuation but the underscore, used only as [Underscore Usage](#underscore-usage) sets out.
-
-Dev asset: a private working copy may take the prefix `dev`, the name of the person in charge, then the original asset name (`devJohnMain.unity`, the private version of `Main.unity`).
-
-Sorting:
-
-- subject first, variant after (`HeroIdle`, `HeroRun`, never `IdleHero`)
-- zero-pad every number (`Explosion_02`, `Explosion_10`)
-- a texture map carries its channel suffix (`_Albedo`, `_Normal`), a packed map named for the channels it holds (`_MRA`)
-
-By type:
-
-- Scripts: strictly the class the file declares, suffix per [Class Naming](#class-naming) (`PlayerManager.cs` holds `PlayerManager`)
-- Scenes: `TitleScene.unity`
-- Prefabs: generic name, since the module folder already gives context (`Ball.prefab`)
-- Animator controllers: named for the character/object driven (`PlayerAnimator.controller`)
-- Animation clips: `Player_Idle.anim`
-- Sprites/textures you author: `HealthPotion.png`
-- Materials: named for what it is applied to (`Rock.mat`)
-- Audio tracks: named for the module or level scored (`RacingBGM.mp3`)
-- Audio effects: named for the action it plays on (`ButtonClick.mp3`)
-- ScriptableObject/`.asset` instances: prefixed with what they configure (`Lv1LevelConfig.asset`)
-
-
-
-### {description}
-
-Places & names Unity project assets & folders across the `Assets/` tree
-
-### {when_to_use}
-
-Creating, moving, renaming, importing any Unity asset, even when user never mentions folder or name: new script file, scene, prefab, audio clip, texture, sprite, animation, material, `.asset` instance. Triggers: "where does this go", "what to name this", "new scene", "import this", folder layout, project structure, `Assets/`. Not for code inside scripts
+- Key Prefix: a leading `_` sorts the key sibling first, a hub, base variant, or most used one, and takes no variant field (`_PopupBase.prefab`, `_Player.asset`)
+- Variant or State: an inner `_` splits the subject from what tells one version of it apart, Pascal Case within each field (`Banana_Ripe.mat`, `Banana_Raw.mat`, `Player_Idle.anim`); use it whenever several things differ only by variant or state, such as two materials of one object, a sprite per state, or a prefab variant (`Popup_Confirm`, beside `_PopupBase`); a further field may follow, such as a frame number or action (`Hero_Attack_01`)
+- Channel: a texture map takes its channel as the variant field (`_Albedo`, `_Normal`), a packed map named for the channels it holds (`_MRA`)
 
 
 
@@ -430,7 +132,222 @@ Creating, moving, renaming, importing any Unity asset, even when user never ment
 
 
 
-## MonoBehaviour
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Common Type and Suffix
+
+Each type names a concept, not a script: give its suffix to whatever embodies that concept, be it a class, script or asset file, GameObject, prefab, or variable.
+
+Scene Behaviour:
+
+- Controller: drives one subject frame by frame, turning input or state into actions (`PlayerController`, `GameController`)
+- Manager: owns one system's state for the whole run, exposing an API over it, never running a multi-step flow (`AccessoryManager`)
+- Coordinator: runs one multi-step flow across several systems, in order (`LevelTransitionCoordinator`)
+- Director: plays one authored timeline, firing content at scripted moments (`WaveDirector`)
+- Spawner: decides where and when instances enter the scene, leaving construction to a Factory (`EnemySpawner`)
+
+Entity Behaviour:
+
+- Motor: turns a wanted direction or speed into velocity or force on one body (`CharacterMotor`)
+- Sensor: detects what surrounds one entity and reports it, deciding nothing (`VisionSensor`)
+- Ability: one activatable action of a character, with its own trigger, cost, and cooldown (`DashAbility`)
+- Command: one action made an object, so it can be queued, replayed, or undone (`MoveCommand`)
+- State: the behaviour of one state machine node (`PatrolState`)
+- StateMachine: owns one entity's states and the transitions between them (`EnemyStateMachine`)
+- Feedback: one burst of particles, sound, or camera shake, played on request (`HitFeedback`)
+
+Event Delivery:
+
+- Relay: passes one object's trigger or event callbacks on to an owner, holding no response logic (`DetectionZoneRelay`)
+- Channel: one event pipe, so raiser and listener never reference each other (`GameOverEventChannel`)
+
+Event Reaction:
+
+- Listener: subscribes to one event source, a channel or a subject's event, and reacts on its own object (`PauseListener`)
+- Binder: mirrors every state change of one known subject into its own object (`HealthBinder`)
+
+World Object:
+
+- Pickup: one collectible, handing its reward over once on touch (`BananaPickup`)
+- Projectile: one thrown or fired thing, flying until it hits or expires (`CoconutProjectile`)
+- Zone: one volume applying an effect to whatever is inside it (`SlowZone`)
+
+Object Supply:
+
+- Factory: creates and configures new instances of one type, hiding how (`EnemyFactory`)
+- Pool: lends and reclaims reusable instances of one prefab, instead of instantiate and destroy (`BulletPool`)
+- Registry: tracks live instances of one type, which register themselves, for lookup and iteration (`EnemyRegistry`)
+- Generator: produces procedural content from rules and a seed (`LevelGenerator`)
+- Provider: hands out one value or dependency on request, without owning its lifecycle (`InputProvider`)
+- Service: logic behind an interface, with no scene presence and little or no state (`SaveService`)
+- Loader: brings assets or scenes into memory, usually asynchronously (`SceneLoader`)
+
+User Interface:
+
+- Screen: one full-screen interface, opening, closing, and owning its panels (`PauseScreen`)
+- Panel: one self-contained region of a screen (`InventoryPanel`)
+- Popup: a modal prompt shown over the current screen, then dismissed (`ConfirmPopup`)
+- Toast: a timed, non-modal message shown over play, fading on its own, never blocking input (`HintToast`)
+- Widget: a small reusable control with its own look and behaviour (`HealthBarWidget`)
+
+MVP:
+
+- Model: one feature's data and rules, ignorant of any display, raising events on change (`InventoryModel`)
+- View: a passive display deciding nothing, exposing what to show and which input occurred (`InventoryView`); without a Presenter, use Panel or Widget
+- Presenter: links one Model to one View, so neither knows the other (`InventoryPresenter`)
+
+Authored Data:
+
+- Config: tunable values, read by whatever it configures (`AudioConfig`)
+- Definition: the authored content of one thing, read-only at runtime (`WeaponDefinition`)
+- Setting: options the player or project chooses, apart from a Config's designer tuning (`GraphicsSetting`)
+- Catalog: every Definition of one kind, collected for lookup by id (`ItemCatalog`)
+- Preset: named values bundled to apply in one step (`DifficultyPreset`)
+- Save: a record of progress, persisted to disk (`PlayerSave`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Coding
+
+- `var` only for a `foreach` local or a long generic right-hand side
+- singleton: expose the instance through a static member named exactly `I` (`GamepadManager.I`)
+- events: prefer the C# `event` keyword over `UnityEvent` (`public event Action<int> HealthChanged;`)
+- member order in a plain class: `[SerializeField]` fields, public API, plain fields, private helpers, constructor last; a `MonoBehaviour` follows its own example below
+- banners per [Comment Banner](#comment-banner), laid out as the example shows, and none at all in a small or single-purpose file
+- name every class, member, and variable per [Naming](#naming), suffixed per [Common Type and Suffix](#common-type-and-suffix) and [Unit Usage](#unit-usage)
+
+
+
+#### Input
+
+Read gameplay input through the Input System: `InputAction`s from an Input Actions asset, never a keyboard, mouse, or gamepad directly. Express timing, such as a double-tap, as an interaction (`MultiTap`), never as a hand-rolled key tracker
+
+
+
+#### Logging
+
+Log every meaningful state change so a debug session reads as a sequence of events: lifecycle transitions, branch decisions, external calls (network, save/load, scene loads).
+
+Open every message with the owning subsystem or module name, a colon, and a tab.
+
+Warning and error are reserved for a failed guard clause. Every other log is debug level, gated by `Debug.isDebugBuild` and braced even for one statement.
+
+```csharp
+private void Awake() {
+    if (rb == null) {
+        Debug.LogError("Inventory:\tfail to get Component: Rigidbody2D", this);
+    }
+    if (itemPrefab == null) {
+        Debug.LogWarning(
+            "Inventory:\tmust assign Inspector Field: Item Prefab", this);
+    }
+    if (Debug.isDebugBuild) {
+        Debug.Log("Inventory:\tready");
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Inspector Field
+
+- declare as `[SerializeField] private`, never a public field
+- prefer `[Tooltip]` on each field, worded in briefness style, ending with its unit
+- prefer `[Header]` dividing fields into groups
+- put a simple numeric bound in `[Min]` or `[Range]`; `OnValidate` only for a rule they cannot state
+- add `[RequireComponent]` on a class that reads a sibling component
+- add `[FormerlySerializedAs]` on a renamed field, keeping its saved values
+
+```csharp
+[RequireComponent(typeof(Rigidbody2D))]
+public class CharacterMotor: MonoBehaviour {
+    [Header("Movement")]
+    [SerializeField]
+    [Tooltip("top speed; u/s")]
+    [Min(0f)]
+    private float maxSpeedUPerS = 5f;
+
+    [SerializeField]
+    [FormerlySerializedAs("jumpPower")]
+    [Tooltip("launch speed of a jump; u/s")]
+    private float jumpSpeedUPerS = 8f;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+### MonoBehaviour
 
 Section order, formatting, and accessors follow the example exactly.
 
@@ -481,13 +398,6 @@ public class PlayerController: MonoBehaviour {
 
 
 
-### {description}
-
-Writes & edits Unity `MonoBehaviour` scripts: components attached to GameObjects, w/ fixed section layout & Inspector field guards
-
-### {when_to_use}
-
-Any Unity script attached to a GameObject, the default shape of most gameplay code, even when user never names `MonoBehaviour`: player, enemy, spawner, trigger zone, camera rig, UI behaviour. Triggers: `MonoBehaviour`, `[SerializeField]`, `Awake`, `Start`, `Update`, `OnTriggerEnter`, `GetComponent`, Inspector field, "add a component", "attach to GameObject". Apply alongside `u3d`, never in place of it. Not for plain C# classes, `ScriptableObject`, asset placement
 
 
 
@@ -498,10 +408,7 @@ Any Unity script attached to a GameObject, the default shape of most gameplay co
 
 
 
-
-
-
-## Scriptable Object
+### Scriptable Object
 
 Section order, formatting, and accessors follow the example exactly.
 
@@ -538,10 +445,274 @@ public class PlayerBalanceConfig: ScriptableObject {
 }
 ```
 
-### {description}
 
-Writes & edits Unity `ScriptableObject` classes & their `.asset` data instances
 
-### {when_to_use}
 
-Any designer-editable data living outside a scene, even when user only says "config", "settings", "database", "shared data": level configs, item & enemy stats, tuning tables, event channels. Triggers: `ScriptableObject`, `CreateAssetMenu`, `CreateInstance`, `.asset`, data container. Apply alongside `u3d`. Not for `MonoBehaviour` components, plain `[Serializable]` classes, asset placement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Assets Management
+
+Everything authored lives under one underscore-prefixed root named for the game, `Assets/_MyGame/`, sorting above Unity's own and vendor folders. Paths below are relative to it, and that prefix repeats on any folder that should lead its listing.
+
+```
+Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs
+Assets/_MyGame/Textures/MinigameRacing/StartFlag.png
+```
+
+Name every asset file, folder, and GameObject per [Naming](#naming).
+
+
+
+
+
+#### Folders
+
+Type folders, one level under the root:
+
+- `Scripts/`: C#
+- `Audio/`: music and effects, split above the module level, per the audio subfolders below
+- `Sprites/`, `Textures/`: 2D art, where split: `Sprites/` gameplay-facing, `Textures/` the rest
+- `Animations/`: `.anim` clips, `.controller` graphs
+- `Prefabs/`: prefabs
+- `Scenes/`: `.unity` files, optionally grouped by area (`Scenes/Minigames/`)
+- `Materials/`, `Tilemaps/`: 2D and tilemap work
+- `Meshes/`: 3D model and `.mesh` assets
+- `Plugins/`
+- `Settings/`: project-level `.asset` files
+- `Localizations/`: locale and string-table assets
+- `Shaders/`: `.shader`, `.shadergraph`, `.hlsl` files
+- `Fonts/`: font files and their `.asset` font settings
+- `Inputs/`: `.inputactions` assets
+- `VFXs/`: particle systems and Visual Effect Graph assets
+- `Timelines/`: `.playable` Timeline assets
+
+Audio subfolders:
+
+- `Audio/BGM/`: module subfolders (eg `Audio/BGM/Lv1/`)
+- `Audio/SFX/`: module subfolders, or category subfolders for effects spanning every module (eg `Audio/SFX/PlayerHit/`)
+
+Module folders: one short [Pascal Case](#letter-case-pascal-case) name per scene/subsystem, reused identically in every type folder holding its assets: the module name is the constant, the type folder changes around it. Spell it out, never abbreviate. Where modules form a family, the family word leads so the family sorts together:
+
+- Family Member: `MinigameRacing`, `MinigameHiking`, `MinigameHideNSeek`
+- Level: `Lv1`, `Lv2`, numbered rather than named
+- Screen: `StartScreen`, `PauseScreen`, `SettingsScreen`, every full-screen interface taking the word `Screen`
+- Standalone Module: `SaveSystem`, `Inventory`, sharing a name with nothing else
+- `_Shared/`: the module slot taken by whatever no single module owns, sorting first on its underscore prefix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Prefab Usage
+
+Reach for prefabs extensively: turn an object into a prefab as soon as a reason below holds, progressively as the project grows, rather than waiting for a cleanup pass.
+
+Make a prefab when:
+
+- 2 or more objects are copies or variants of each other
+- the object could be reused elsewhere, such as in another scene, even if it is used once today
+
+Prefer the base and variant pattern for a family of near-identical objects:
+
+- base prefab: holds everything the family shares, named with a leading `_`, the subject, and `Base` (`_PopupBase.prefab`)
+- variant prefab: a Prefab Variant of the base, overriding only what differs, named per [Underscore Usage](#underscore-usage) (`Popup_Confirm.prefab`)
+- put a change shared by the whole family in the base, so every variant follows it
+- a scene holds instances of the prefab, never a hand-made copy of one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Owner-Driven Activation
+
+Save a GameObject inactive when it lives for only a stretch of the run; let an owner call `SetActive`, with no `Update` flag guards
+
+Apply to:
+
+- UI: pause screen, game over screen, settings panel, tutorial overlay, popup, toast, tooltip
+- spawned or pooled: enemy, projectile, pickup, hit flash, particle effect, decal
+- scripted: cutscene prop, event actor, boss arena gate, tutorial arrow
+- mode-specific: alternate camera, debug panel, editor-only stand-in
+- streamed: level section loaded in and out by distance or progress
+
+Don't apply to:
+
+- manager, singleton, event hub, listener
+- camera follow, input reader, audio mixer
+- the owner itself
+
+Rules:
+
+- hold each target in a `[SerializeField]` reference on the owner, never find it by search
+- subscribe and reset in `OnEnable`, unsubscribe in `OnDisable`
+- give each target one entry point (`Show`, `Hide`), and call only that from the owner
+- assign each toggled group exactly one owner
+- rest each object in its original active state: a screen is saved inactive and switched on by its owner, a manager is saved active and stays so
+- toggle component `enabled`, a child visual, or `CanvasGroup` instead when the object must stay findable or listening
+- play a hide state before `SetActive(false)` when the object needs an exit animation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Game Tuning
+
+Prefer tunable gameplay numbers in data over code (speed, damage, cooldown, spawn rate, ramp): a designer can then adjust them in the Inspector, even in Play mode, without a recompile. A structural constant (a tag, a layer, an array size) is not tuning, and a `const` suits it.
+
+Tuning leans on three objects, each per its [Common Type and Suffix](#common-type-and-suffix) role:
+
+- Config: SO holding the tuning values of one concern, the core structure of tuning (`PlayerBalanceConfig`)
+- Definition: SO holding what one thing is, its identity and own stats, one asset per thing (`WeaponDefinition`)
+- Preset: bundle of named values applied to a Config in one step, eg a difficulty tier (`DifficultyPreset`)
+
+Config vs Definition: a Config answers how a system behaves, a Definition answers what a thing is. A value shared by every instance of a system tends to suit a Config; a value that differs per thing tends to suit its Definition.
+
+Config leanings:
+
+- one Config per concern, with balance split into a few assets (player, world, enemy) rather than one asset for everything or one asset per field
+- a reader holds a `[SerializeField]` for the one Config it needs, rather than a hub asset reaching every concern
+- treat a Config as read-only at runtime: a reader can copy a value into its own state before changing it, since an edit made in Play mode would persist in the asset
+- expose each private serialized field as a read-only `=>` getter
+- clamp in `OnValidate` under an `// Editor Validation` banner, so an out-of-range value does not reach play
+- let one reader own the meaning of each value; a second reader of the same value can ask the Config instead of keeping its own copy
+- let a Preset overwrite Config values through its single apply entry point rather than from scattered code
+
+
+
+
+
+#### Tuning with AnimationCurve
+
+Reach for an `AnimationCurve` extensively when a value depends on another value, in place of a formula or a table of constants: difficulty ramping, falloff by distance, damage by charge, speed by health fraction, reward by streak. The designer draws the curve, so its shape can change without code.
+
+Common x axes:
+
+- elapsed time of a run or an encounter
+- difficulty level or wave number
+- normalized progress, 0~1
+- distance, health fraction, stack count
+
+Preferences:
+
+- name the field `<Value>Curve` and state both axes with units in its `[Tooltip]`, x first (`x: ramp progress 0~1; y: spawn interval; s`)
+- normalize x to 0~1 when its range varies, and keep the range in a separate Config field (a ramp duration), so one curve serves any length
+- hide `Evaluate` behind a Config method that clamps x (`GetIntervalS(elapsedS)`), so a reader need not touch the curve
+- give a curve a non-empty initializer (`AnimationCurve.Linear`), since an unset curve evaluates to 0 and silently zeroes the value
+- let the y axis be a multiplier on a base value when one curve shapes several values, and absolute when it shapes one
+- a plain float still suits a value that depends on nothing
+
+```csharp
+[CreateAssetMenu(menuName = "Scriptable Objects/SpawnBalanceConfig")]
+public class SpawnBalanceConfig: ScriptableObject {
+    // Public Members  #########################################################
+    public float GetIntervalS(float elapsedS) =>
+        intervalCurve.Evaluate(Mathf.Clamp01(elapsedS / rampDurationS));
+
+    // Inspector Fields  #######################################################
+    ~~~
+}
+```

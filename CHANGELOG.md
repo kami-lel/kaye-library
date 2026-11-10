@@ -28,6 +28,7 @@ todo support layered CONTEXT/AGENTS
 
 - **Break**: Unity Engine split out of Coder into its own module with a root `Unity Engine` node; skills `coder-u3d`, `coder-u3d-mb`, `coder-u3d-so`, `coder-u3d-assets-management` → `u3d`, `u3d-mb`, `u3d-so`, `u3d-assets-management`; glossaries `coder-u3d-abbr`, `coder-u3d-identifier` → `u3d-abbr`, `u3d-identifier`
 - Unity Engine assets management: type folders `Input/`, `VFX/` → `Inputs/`, `VFXs/`
+- Unity Engine corpus reorganized: new `Naming` section, one convention for every noun-type name (class, member, variable, file, GameObject, folder) w/ all suffix rules under `Common Type and Suffix`; `Coding` merged into code conventions, scene wiring & game tuning; assets management merged into folders & prefab usage
 - "unknown" shorthand `??` → `⁇` (double question mark), new alt `❓`
 - Amanuensis registration: blank line before config-writer shorthand block
 - keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
