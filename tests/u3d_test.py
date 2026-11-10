@@ -11,7 +11,19 @@ from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt import get_corpus_tree
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
 
-_U3D_SKILLS = ("u3d", "u3d-assets-management", "u3d-mb", "u3d-so")
+_U3D_SKILLS = (
+    "u3d",
+    "u3d-assets-management",
+    "u3d-coding",
+    "u3d-common-type-and-suffix",
+    "u3d-game-tuning",
+    "u3d-if",
+    "u3d-mb",
+    "u3d-naming",
+    "u3d-owner-driven-activation",
+    "u3d-pfb",
+    "u3d-so",
+)
 
 
 class TestCorpus:

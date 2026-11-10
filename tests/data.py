@@ -127,14 +127,15 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                '## Coder C Sharp',
                'Documentation: Use XML comments',
                '# Unity Engine',
-               'Follows [Coder C Sharp](#coder-c-sharp)',
-               '#### Logging',
-               'Open every message with the owning subsystem or module '
-               'name',
-               'Debug.isDebugBuild'],
+               'Follows [Coder C Sharp](#coder-c-sharp)'],
+ 'u3d-coding': ['## Unity Coding',
+                '#### Logging',
+                'Open every message with the owning subsystem or module '
+                'name',
+                'Debug.isDebugBuild'],
  'u3d-assets-management': ['## Assets Management',
                                  'Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs',
-                                 '#### Type Folders'],
+                                 '#### Folders'],
  'u3d-mb': ['## MonoBehaviour',
                   'Section order, formatting, and accessors follow the '
                   'example exactly.',
@@ -547,9 +548,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                                  'Sphinx/reStructuredText',
  'coder-python-testing-guidelines': 'writes, reviews Python `pytest` test '
                                     'code per project conventions',
- 'u3d': 'Writes, edits & reviews all Unity 6 C# code under house '
-              'conventions: class-role suffixes, singleton & event idioms, '
-              'member order, subsystem-prefixed logging',
+ 'u3d': 'Sets baseline for all Unity 6 C# work, the shared root every '
+              'topic-specific Unity skill builds on',
  'coder-ue': 'C++ code for Unreal Engine',
  'commit-sense': 'Commits the indexed diff',
  'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
@@ -681,14 +681,10 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
                                     'like write/add/fix a unit test or '
                                     'test case. Not for non-test Python '
                                     'code',
- 'u3d': 'Any C# in a Unity project, even when user never says '
-              '"Unity": gameplay systems, managers, controllers, editor '
-              'tools, UI, input, save/load, scene logic. Triggers: Unity, '
-              '`UnityEngine`, `Debug.Log`, `.cs` under `Assets/`, '
-              'singleton, manager, event. Load together w/ `u3d-mb` '
-              'for `MonoBehaviour` scripts, `u3d-so` for '
-              '`ScriptableObject` classes; asset placement & naming belong '
-              'to `u3d-assets-management`',
+ 'u3d': 'Any C# in a Unity project, even when user never says "Unity": '
+              'gameplay, managers, editor tools, UI, save/load. Triggers: '
+              'Unity, `UnityEngine`, `.cs` under `Assets/`, '
+              '`MonoBehaviour`, `ScriptableObject`',
  'commit-sense': 'write a commit message',
  'element-dt-month-day-format': 'Any output date stated without a year: '
                                 'anniversaries, birthdays, recurring '
