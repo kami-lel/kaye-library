@@ -1,8 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-HACK reorganize all u3d content
-
 todo support layered CONTEXT/AGENTS
 -->
 
