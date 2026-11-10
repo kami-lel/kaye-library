@@ -16,6 +16,7 @@ todo support layered CONTEXT/AGENTS
 - Unity Engine `ScriptableObject` shape: fixed banner order (Public Members, Inspector Fields, Editor Validation), read-only `=>` getters, `OnValidate` for cross-field bounds, uniform `menuName`
 - Unity Engine inspector field: `[SerializeField] private`, `[Tooltip]`, `[Header]`, `[Min]`/`[Range]`, `[RequireComponent]`, `[FormerlySerializedAs]`; moved from the MonoBehaviour & ScriptableObject sections into the core
 - Unity Engine unit usage: unit-suffixed identifiers & tooltips ending with the unit, `Per` joining a rate; `u3d-units` glossary (`u`, `s`, `deg`)
+- Unity Engine input: read gameplay input only through `InputAction`s, timing as an interaction (`MultiTap`), never direct device polling or a hand-rolled key tracker
 - Unity Engine assets management: `Meshes/` and `Plugins/` type folders
 - Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
 

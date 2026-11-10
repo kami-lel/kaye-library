@@ -153,6 +153,12 @@ public class CharacterMotor: MonoBehaviour {
 
 
 
+#### input
+
+Read gameplay input through the Input System: `InputAction`s from an Input Actions asset, never a keyboard, mouse, or gamepad directly. Express timing, such as a double-tap, as an interaction (`MultiTap`), never as a hand-rolled key tracker
+
+
+
 #### game tuning
 
 Prefer tunable gameplay numbers in data over code (speed, damage, cooldown, spawn rate, ramp): a designer can then adjust them in the Inspector, even in Play mode, without a recompile. A structural constant (a tag, a layer, an array size) is not tuning, and a `const` suits it.
