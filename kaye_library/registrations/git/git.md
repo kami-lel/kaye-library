@@ -301,7 +301,7 @@ Commits the indexed diff with a primary summary and a per-file ledger.
 
 #### {when_to_use}
 
-Trigger on "cc" (commit, then continue), the most common trigger; also "commit this", "write a commit message", or a handed-over `git diff --cached`.
+Trigger on "g" (git commit), the most common trigger; also "commit this", "write a commit message", or a handed-over `git diff --cached`.
 
 
 

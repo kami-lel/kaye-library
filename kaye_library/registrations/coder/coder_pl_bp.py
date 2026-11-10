@@ -17,7 +17,6 @@ from .._common import (
     register_exportable,
     register_node,
 )
-from .coder_u3d_bp import register_coder_u3d_blueprints
 
 __all__ = ("register_coder_pl_blueprints",)
 
@@ -100,9 +99,6 @@ def register_coder_pl_blueprints(coder_node):
     coder_csharp.blueprint = checkmark_nodes(
         coder_csharp.blueprint, coder_node["Brace Style"]
     )
-
-    # Coder Unity
-    register_coder_u3d_blueprints(coder_node)
 
     # Coder GDScript
     register_node(

@@ -18,7 +18,64 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.2.1] - 2026-11-09
+
+### Added
+
+- keybinding glossaries for controller, mouse & mouse movement (`amanuensis-config-keybinding-controller`, `-mouse`, `-keyboards`): buttons, bumpers & triggers, sticks, d-pad, clicks, wheel
+- Keybinding Writer: stick press/push, stick axis (vertical ⇧Ⓛ⇩, horizontal ⇦Ⓛ⇨) & wheel direction modifiers, L/R prefix for modifier keys
+
+##### Unity Engine
+
+- standalone `u3d-*` skills, 1 per section: naming, type suffixes, coding, inspector fields, prefabs, owner-driven activation, game tuning
+- naming: new role suffixes, asset naming rules
+- coding rules: inspector fields, `ScriptableObject` shape, units, input via `InputAction`s
+- game tuning: tunable values in data, curves for dependent values
+- assets management: `Meshes/` & `Plugins/` folders
+
+### Changed
+
+- git-abbr: `icc` → `ig`, `cci` → `gi`, `cc` → `g`; "then continue" dropped
+- "unknown" shorthand `??` → `⁇`, new alt `❓`
+- keyboard-key glossary renamed `amanuensis-keybinding-writer-shorthand` → `amanuensis-config-keybinding-keyboards`
+- arrow-key symbols ↑ → ← ↓ → black arrowheads ⮝ ⮞ ⮜ ⮟, no clash w/ increase/become/decrease shorthand
+
+##### Unity Engine
+
+- split out of Coder into own module; skills & glossaries `coder-u3d*` → `u3d*`
+- corpus reorganized around naming, coding & game tuning
+- assets management: type folders pluralized (`Inputs/`, `VFXs/`)
+
+> [!WARNING]
+> skills `coder-u3d`, `coder-u3d-mb`, `coder-u3d-so`, `coder-u3d-assets-management` and glossaries `coder-u3d-abbr`, `coder-u3d-identifier` are renamed; update every reference to the `u3d*` names before upgrading
+
+[1.2.1]: https://github.com/kami-lel/kaye-library/compare/v1.2.0...v1.2.1
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.2.0] - 2026-11-06
 

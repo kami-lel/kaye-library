@@ -68,11 +68,11 @@ _CORPUS_SOURCES = [
     (("Coder",), "coder/coder-c-and-cpp.md"),
     (("Coder",), "coder/coder-unreal-engine.md"),
     (("Coder",), "coder/coder-c-sharp.md"),
-    (("Coder",), "coder/coder-u3d.md"),
     (("Coder",), "coder/coder-gdscript.md"),
     (("Coder",), "coder/coder-html.md"),
     (("Coder",), "coder/coder-javascript-and-typescript.md"),
     (("Coder",), "coder/coder-python.md"),
+    ((), "u3d/u3d.md"),
 ]
 
 
@@ -125,7 +125,7 @@ def register_kaye_library_dynamic_substitutions():
 def register_kaye_library_corpus():
     """
     record every kaye-library corpus file under its node of the tree, the
-    root or its own Coder node; the caller loads the tree once every
+    root or the Coder node; the caller loads the tree once every
     consumer has registered
 
 
