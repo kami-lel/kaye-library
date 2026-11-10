@@ -16,10 +16,10 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 - Repositories: README, CHANGELOG, AGENTS, CONTEXT, and docs writers, landing and release workflows
 - Agentic: Movement and Suite workflows, Turn Progress Dispatch, file and folder naming
 - Meta Prompt: writers for LLM system prompts and for a skill's description and when-to-use text
-- Amanuensis: Chicago citation and bibliography, redaction, structured note, config, keybinding, and meeting-minutes writers
+- Amanuensis: Chicago citation and bibliography, redaction, structured note, config, keybinding (keyboard, mouse, and controller symbols), and meeting-minutes writers
 - Secretary: email drafting and sweeping, event radar, calendar and task push and pull, daily recaps, job hunt, and morning and weekly check-ins; skills that need personal values leave those placeholders literal until a consumer registers them
 - Coder: shared coding rules, comment banners, plan and review workflows, and profiles for Bash, C, C++, C#, GDScript, HTML, JavaScript, TypeScript, PowerShell, Python, and Unreal Engine
-- Unity Engine: Unity 6 C# rules, asset placement and naming, MonoBehaviour and ScriptableObject scripts
+- Unity Engine: Unity 6 C# rules in standalone sections (naming, role suffixes, inspector fields, units, input, activation, game tuning), asset placement and naming, MonoBehaviour and ScriptableObject scripts
 - One command exports everything as Agent Skills, a Claude plugin, or a plugin marketplace
 
 ## Tech Stack
