@@ -47,11 +47,11 @@ Any C# in a Unity project, even when user never says "Unity": gameplay, managers
 
 ## {[Claude:Skill] Usage}
 
-Invoke `coder` skill via `Skill` tool.
+If needed, invoke `coder-c-sharp`, `coder`, `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-coding`, `u3d-if`, `u3d-mb`, `u3d-so`, `u3d-assets-management`, `u3d-pfb`, `u3d-owner-driven-activation`, or `u3d-game-tuning` skills via `Skill` tool.
 
 ## {[Hermes:skill_view] Usage}
 
-Load `coder` skill with `skill_view`.
+If needed, load `coder-c-sharp`, `coder`, `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-coding`, `u3d-if`, `u3d-mb`, `u3d-so`, `u3d-assets-management`, `u3d-pfb`, `u3d-owner-driven-activation`, or `u3d-game-tuning` skills with `skill_view` tool.
 
 
 
@@ -148,6 +148,14 @@ Names anything in a Unity project, code identifier or asset, so related things s
 ### {when_to_use}
 
 Naming or renaming anything in a Unity project, even unasked: new class, field, prefab, material, sprite, animation clip, folder. Triggers: "what to call this", rename, naming convention, variant, numbered asset
+
+### {[Claude:Skill] Usage}
+
+If needed, invoke `coder`, `style-letter-case-pascal-case`, `u3d-assets-management`, `u3d-common-type-and-suffix`, `u3d-if`, or `u3d-pfb` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `coder`, `style-letter-case-pascal-case`, `u3d-assets-management`, `u3d-common-type-and-suffix`, `u3d-if`, or `u3d-pfb` skills with `skill_view` tool.
 
 
 
@@ -265,6 +273,14 @@ Assigns each Unity class, script, GameObject, or asset one architectural role, s
 
 Designing a Unity system or deciding what a new class should own, even when user only asks "manager or controller?": splitting a god class, picking a pattern, reviewing a misnamed script. Triggers: manager, controller, architecture, responsibility, design pattern, MVP, event pipe, "what should this class be"
 
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-naming`, `u3d-owner-driven-activation`, `u3d-game-tuning`, or `u3d-so` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-naming`, `u3d-owner-driven-activation`, `u3d-game-tuning`, or `u3d-so` skills with `skill_view` tool.
+
 
 
 
@@ -352,6 +368,14 @@ Writes, edits & reviews Unity C# logic in house idiom, so code reads consistentl
 
 Writing or reviewing any Unity C# behaviour, even when user only asks for a feature: game logic, input handling, events, singletons, debug output. Triggers: `Debug.Log`, `InputAction`, singleton, event, "add logging", "read input"
 
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-mb`, `u3d-so`, `u3d-if`, `u3d-game-tuning`, `coder-comment-banner-in-code-comment`, `u3d-naming`, `u3d-common-type-and-suffix`, or `u3d-assets-management` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-mb`, `u3d-so`, `u3d-if`, `u3d-game-tuning`, `coder-comment-banner-in-code-comment`, `u3d-naming`, `u3d-common-type-and-suffix`, or `u3d-assets-management` skills with `skill_view` tool.
+
 
 
 
@@ -400,6 +424,14 @@ Declares Unity Inspector fields so designers read, tune & rename them without br
 #### {when_to_use}
 
 Adding, renaming, or reviewing any value exposed in the Inspector, even when user only says "expose this" or "make it tweakable". Triggers: `[SerializeField]`, Inspector, public field, "show in editor", tooltip
+
+#### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-mb`, `u3d-so`, or `u3d-naming` skills via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-mb`, `u3d-so`, or `u3d-naming` skills with `skill_view` tool.
 
 
 
@@ -475,6 +507,14 @@ Structures Unity `MonoBehaviour` scripts in one fixed layout, so every component
 
 Any Unity script attached to a GameObject, the default shape of most gameplay code, even when user never names `MonoBehaviour`: player, enemy, trigger zone, camera rig, UI behaviour. Triggers: `MonoBehaviour`, `Awake`, `Update`, `OnTriggerEnter`, `GetComponent`, "add a component"
 
+#### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, `u3d-owner-driven-activation`, or `u3d-coding` skills via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, `u3d-owner-driven-activation`, or `u3d-coding` skills with `skill_view` tool.
+
 
 
 
@@ -535,6 +575,14 @@ Structures Unity `ScriptableObject` classes in one fixed layout, keeping asset d
 #### {when_to_use}
 
 Any designer-editable data living outside a scene, even when user only says "config", "settings", "database", "shared data": level config, item stats, event channel. Triggers: `ScriptableObject`, `CreateAssetMenu`, `.asset`, data container
+
+#### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, or `u3d-game-tuning` skills via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, or `u3d-game-tuning` skills with `skill_view` tool.
 
 
 
@@ -627,6 +675,14 @@ Places Unity assets & folders across `Assets/`, so any file is found by type & m
 
 Creating, moving, importing any Unity asset, even when user never mentions folder: new script file, scene, prefab, audio clip, texture, animation. Triggers: "where does this go", folder layout, project structure, `Assets/`, import, organize
 
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-naming`, `u3d-pfb`, or `style-letter-case-pascal-case` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-naming`, `u3d-pfb`, or `style-letter-case-pascal-case` skills with `skill_view` tool.
+
 
 
 
@@ -688,6 +744,14 @@ Turns Unity scene objects into prefabs & variant families early, so one edit upd
 ### {when_to_use}
 
 Building, duplicating, or reviewing scene objects, even when user never says "prefab": copy-pasted GameObjects, a 2nd enemy type, reusable popup, near-identical variants. Triggers: prefab, Prefab Variant, duplicate, reuse, "same as that one but"
+
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-assets-management` or `u3d-naming` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-assets-management` or `u3d-naming` skills with `skill_view` tool.
 
 
 
@@ -761,6 +825,14 @@ Controls Unity GameObjects living only part of a run through one owner, so showi
 ### {when_to_use}
 
 Showing, hiding, spawning, or enabling objects mid-run, even when user only says "open the menu" or "turn it on": pause screen, popup, toast, pooled enemy, cutscene prop. Triggers: `SetActive`, show/hide, enable/disable, toggle, "appear when"
+
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-common-type-and-suffix` or `u3d-if` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-common-type-and-suffix` or `u3d-if` skills with `skill_view` tool.
 
 
 
@@ -855,3 +927,11 @@ Moves Unity gameplay numbers out of code into designer-editable data, so balance
 ### {when_to_use}
 
 Any tunable gameplay value, even unasked: speed, damage, cooldown, spawn rate, difficulty ramp, hard-coded magic number. Triggers: balance, tuning, difficulty, curve, "let the designer tweak", magic number
+
+### {[Claude:Skill] Usage}
+
+If needed, invoke `u3d-common-type-and-suffix`, `u3d-so`, or `u3d-naming` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+If needed, load `u3d-common-type-and-suffix`, `u3d-so`, or `u3d-naming` skills with `skill_view` tool.
