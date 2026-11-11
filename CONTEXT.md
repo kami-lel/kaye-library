@@ -42,13 +42,14 @@ docs/               per-topic reference
 
 ## Integration Points
 
-A host calls the steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
+A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
 
 1. `register_kaye_library_consumer()`: the `kaye-library` consumer record and the `Kaye Library vX` comment line
-2. `register_kaye_library_abbr_glossaries()`, then `populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())`
-3. `register_kaye_library_dynamic_substitutions()`
-4. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
-5. `register_kaye_library_blueprints()`, once the tree is loaded
+2. `register_kaye_library_abbr_glossaries()`: every abbr glossary
+3. `populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())`: the abbr data, once the glossaries exist
+4. `register_kaye_library_dynamic_substitutions()`
+5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
+6. `register_kaye_library_blueprints()`, once the tree is loaded
 
 Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, plus its own `Standalone Chat` corpus; a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI with `chat` and `chat-coder` and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
 
@@ -106,5 +107,5 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 - **consumer placeholders in Secretary skills**: the standalone setup registers a default `secretary-email-authuser`; a composing host registers its own, and a placeholder no one registers renders literally
 - **stubs**: `land-feature`, `release-version`, and `submit-pr` are internal, not exported, until their sections are written
-- **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[Claude:...]}` and `{[Hermes:...]}` sidecars never render under the standalone command, only their fallbacks
+- **`{[X] Usage}` sections render side by side**: the library registers no affordance groups or surface profiles, so each conditional `{[Claude:...] Usage}` and `{[Hermes:...] Usage}` sidecar renders as an ordinary section under the standalone command, every surface's variant in sequence; this is the design, and a host that registers surface profiles gets the conditional behavior
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link

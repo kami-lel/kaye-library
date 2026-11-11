@@ -1,0 +1,12 @@
+{
+  "Side Project": {
+    "abbrs": {
+      "🛠️": {
+        "priority": 9,
+        "remark": "the user's own side-project calendar, an example of a value only a consumer can know",
+        "tags": ["secretary-calendar-name"],
+        "wrap": "symbol"
+      }
+    }
+  }
+}

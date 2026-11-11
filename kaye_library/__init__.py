@@ -177,18 +177,20 @@ def _register_standalone_chat_blueprints():
 
 def setup_kaye_library_for_kaye_engine():
     """
-    load, in this order, everything the library supplies on its own:
+    run the six steps in order, then the extras only a standalone process
+    needs:
 
     1. the consumer record and its ``Kaye Library vX`` comment line
     2. every abbr glossary, registered into ``abbr_glossary_registry``
-    3. abbr database
+    3. abbr data, from ``abbrs.json``
     4. every dynamic substitution
     5. prompt corpus tree, built from the sources registered under the
-       root
+       root, then loaded
     6. every library blueprint, registered into ``blueprint_registry``
-    7. the entry consumer, via ``set_entry_consumer``
-    8. the Claude CLI and Hermes CLI configuration, naming ``chat``,
-       ``chat-coder`` and the ``chat`` Hermes soul
+
+    then the entry consumer via ``set_entry_consumer``, and the Claude CLI
+    and Hermes CLI configuration, naming ``chat``, ``chat-coder`` and the
+    ``chat`` Hermes soul
 
     only this function registers the standalone chat base (a persona-free
     ``chat``, the non-invokable ``chat-coder`` merging it with ``coder``,

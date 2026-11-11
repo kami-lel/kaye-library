@@ -6,7 +6,7 @@ Shareable prompt library for LLM agents: style guides, git workflows, repository
 
 `kaye-library` is a corpus of ready-to-use agent instructions plus the registrations that turn it into skills. Install it, run one command, and your agent gains reusable skills such as `commit-sense` or `coder-python`, with no persona attached: every prompt is written for any assistant and any project.
 
-It also serves as a base layer. Other packages built on `kaye-engine` can register their own corpus beside it, even under its nodes, and take over any skill with their own version.
+It also serves as a base layer. Other packages built on `kaye-engine` can register their own corpus beside it, even under its nodes, and take over any skill with their own version; the [consumer guide](docs/consumer-guide-doc.md) shows how.
 
 ## Features
 
@@ -17,7 +17,7 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 - Agentic: Movement and Suite workflows, Turn Progress Dispatch, file and folder naming
 - Meta Prompt: writers for LLM system prompts and for a skill's description and when-to-use text
 - Amanuensis: Chicago citation and bibliography, redaction, structured note, config, keybinding (keyboard, mouse, and controller symbols), and meeting-minutes writers
-- Secretary: email drafting and sweeping, event radar, calendar and task push and pull, daily recaps, job hunt, and morning and weekly check-ins; skills that need personal values leave those placeholders literal until a consumer registers them
+- Secretary: email drafting and sweeping, event radar, calendar and task push and pull, daily recaps, job hunt, and morning and weekly check-ins; skills that need personal values ship generic defaults a package of your own replaces
 - Coder: shared coding rules, comment banners, plan and review workflows, and profiles for Bash, C, C++, C#, GDScript, HTML, JavaScript, TypeScript, PowerShell, Python, and Unreal Engine
 - Unity Engine: Unity 6 C# rules in standalone sections (naming, role suffixes, inspector fields, units, input, activation, game tuning), asset placement and naming, MonoBehaviour and ScriptableObject scripts
 - One command exports everything as Agent Skills, a Claude plugin, or a plugin marketplace
@@ -30,11 +30,30 @@ It also serves as a base layer. Other packages built on `kaye-engine` can regist
 
 ## Getting Started
 
-Install the library, which pulls `kaye-engine` from its pinned git tag, then check that the command resolves:
+Pick one way in; each pulls `kaye-engine` from its pinned git tag.
+
+Clone and install, for development or the latest `dev`:
 
 ```bash
+git clone https://github.com/kami-lel/kaye-library.git
+cd kaye-library
 pip install .
 kaye-library --help
+```
+
+Install a release straight from GitHub, with `vX.Y.Z` the release tag:
+
+```bash
+pip install git+https://github.com/kami-lel/kaye-library.git@vX.Y.Z
+kaye-library --help
+```
+
+Use a release zip: download the plugin `.zip` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) and upload it wherever Agent Skill packages are accepted.
+
+Install as a Claude Code plugin through the marketplace the command writes, then add that folder as a marketplace and install the `kaye-library` plugin from it:
+
+```bash
+kaye-library claude marketplace   # writes ~/.claude/kaye-engine/
 ```
 
 ## Usage
@@ -53,7 +72,7 @@ kaye-library claude marketplace              # ~/.claude/kaye-engine/ marketplac
 
 Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; the `coder` skill carries the shared coding rules every language profile builds on; every skill and its dependencies are listed in the [blueprint document](docs/blueprint-doc.md), and the abbreviation glossaries behind them in the [glossary document](docs/glossary-doc.md).
 
-Subcommands that need a chat persona, a coder profile, or a Hermes soul (`claude code`, `claude user-system-prompt`, `claude vs-code-extension`, `hermes`) exit with code 1 and say what is missing: the library names none of them.
+The standalone command carries a persona-free chat base, so `kaye-library claude code FOLDER`, `claude user-system-prompt`, `claude vs-code-extension FOLDER`, and `hermes FOLDER` work with the library alone. To add your own values, corpus, or chat persona, build a package over the library: the [consumer guide](docs/consumer-guide-doc.md) walks through it, and [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is a working one.
 
 ## Build & Test
 
