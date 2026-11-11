@@ -6,7 +6,7 @@ Shareable prompt library for LLM agents: style guides, git workflows, repository
 
 `kaye-library` is a corpus of ready-to-use agent instructions plus the registrations that turn it into skills. Install it, run one command, and your agent gains reusable skills such as `commit-sense` or `coder-python`, with no persona attached: every prompt is written for any assistant and any project.
 
-It also serves as a base layer. Other packages built on `kaye-engine` can register their own corpus beside it, even under its nodes, and take over any skill with their own version; the [consumer guide](docs/consumer-guide-doc.md) shows how.
+It also serves as a base layer. Other packages built on `kaye-engine` can register their own corpus beside it, even under its nodes, and take over any skill with their own version; the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine` shows how.
 
 ## Features
 
@@ -76,9 +76,9 @@ kaye-library claude plugin -z                # upload-ready .zip
 kaye-library claude marketplace              # ~/.claude/kaye-engine/ marketplace
 ```
 
-Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; the `coder` skill carries the shared coding rules every language profile builds on; every skill and its dependencies are listed in the [blueprint document](docs/blueprint-doc.md), and the abbreviation glossaries behind them in the [glossary document](docs/glossary-doc.md).
+Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; the `coder` skill carries the shared coding rules every language profile builds on; list every skill with `kaye-library exportable ls` and the abbreviation glossaries behind them with `kaye-library glossary ls`.
 
-The standalone command carries a persona-free chat base, so `kaye-library claude code FOLDER`, `claude user-system-prompt`, `claude vs-code-extension FOLDER`, and `hermes FOLDER` work with the library alone. To add your own values, corpus, or chat persona, build a package over the library: the [consumer guide](docs/consumer-guide-doc.md) walks through it, and [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is a working one.
+The standalone command carries a persona-free chat base, so `kaye-library claude code FOLDER`, `claude user-system-prompt`, `claude vs-code-extension FOLDER`, and `hermes FOLDER` work with the library alone. To add your own values, corpus, or chat persona, build a package over the library: the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) walks through it, and [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is a working one.
 
 ## Build & Test
 
@@ -95,7 +95,7 @@ Pushing a `v<version>` tag, equal to the version in `pyproject.toml`, publishes 
 
 Put new prompts in `kaye_library/registrations/<group>/`, one folder per feature group, holding the corpus `.md` beside the code that registers its blueprints. Keep every prompt free of personal data and of any persona.
 
-Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files are listed and attached to the tree is in the [corpus registration document](docs/corpus-registration-doc.md); what may cross the boundary between the library and a package building on it, including taking a skill over, is in the [boundary document](docs/boundary-doc.md).
+Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files attach to the tree, and what may cross the boundary between the library and a package building on it, are in [CONTEXT.md](CONTEXT.md).
 
 ## Acknowledgments
 

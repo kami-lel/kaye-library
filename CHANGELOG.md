@@ -15,6 +15,8 @@ todo support layered CONTEXT/AGENTS
 
 ### Removed
 
+- `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
+
 ### Fixed
 
 ### Security

@@ -36,7 +36,6 @@ kaye_library/
     _common.py      consumer-bound registration helpers, generic leaf helpers
     _dynamic_substitution.py  md-file dynamic substitution helper
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
-docs/               per-topic reference
 .github/workflows/  tag-triggered release build
 ```
 
@@ -80,12 +79,28 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 - the language files register under `("Coder",)`; every other file, Unity Engine included, registers under the root
 - a consumer registers its own sources under the root or its own nodes and never reuses a library root name
 - `#slug` links follow heading text, so a link from library text must point at library text
+- `_CORPUS_SOURCES` in `kaye_library/__init__.py` pairs a node path with a file, in registration order; a source's top headings sit exactly one level below its target, or loading raises
 - a section no blueprint selects is a candidate for removal; a stub keeps its section and a placeholder `{description}`
+
+## Registration Helpers
+
+`registrations/_common.py` binds the `kaye-library` consumer; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
+
+| helper | registers |
+|---|---|
+| `register_exportable` | an exportable skill, invokable by the user and the assistant |
+| `register_prompt` | an exportable skill the assistant does not surface on its own (`llm_invokable=False`) |
+| `register_node` | a node (optionally recursive) under a slug, through any of the above |
+| `register_leaf` | one leaf with its ancestor headings, descriptors included |
+| `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
+
+Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`.
 
 ## Content Boundary
 
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
 - stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
+- `tests/privacy_test.py` scans every shipped file for strings that must stay out: extend its generic list for a new kind of string; personal strings live in the gitignored `tests/privacy-forbidden.local.txt` (1 per line, `#` comments), and without it only the generic check runs
 - `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
 - the `Coder` root carries no conversation rules: the `coder` skill carries the rules alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around the `coder` blueprint object
 
@@ -94,6 +109,12 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 - `abbrs.json` holds only the entries of glossaries library text splices, each with its glossaries and rendering flags (`term_definition` and the case and character flags); it loads standalone and names only registered library glossaries
 - a host ships its own file and adds its glossaries or habit flags (`always_understand`, `common`) by repeating a pair: `priority` and `wrap` must match, a missing `remark` may be filled at either level, a conflicting one raises
 - the library claims no tag, wrap, or first-char abbr group: those belong to the host that names itself their consumer, so a standalone library exports only its `glossary-*` groups
+
+## Contract With Consumers
+
+- renaming a skill breaks every outside reference and keeps no alias: record it in `CHANGELOG.md` under Changed
+- a node path is part of the contract, since a consumer's blueprint selects library nodes by path: moving a section is a breaking change
+- building a consumer or taking a skill over is documented in the engine's [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md); [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is the working version
 
 ## Naming of Skills
 
