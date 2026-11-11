@@ -35,7 +35,7 @@ Any output date whose year is known or matters: deadlines, timestamps, log entri
 
 Write `MM-DD` when the date carries no year. The day of week code prefix is optional.
 
-`01-16`, `01-16`, `H 12-31`
+`H 01-16`, `01-16`, `H 12-31`
 
 
 
@@ -162,35 +162,9 @@ Any horizon covering the days ahead: weekly reviews, task ranges, plans and dead
 
 
 
+### (element-dt-days-of-week)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Each code is one letter, unique per day, because English initials repeat (T and S each name 2 days); German fills the gaps. Day of week codes:
 
 
 
@@ -486,40 +460,3 @@ Keep any:
 - ⓒ Banner
 ```
 User answers "ac"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# (element-dt-days-of-week)
-
-Day of week codes:

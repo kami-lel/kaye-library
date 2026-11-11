@@ -4,7 +4,15 @@ tests/data.py
 wording the library's own skills must render, by canonical name
 """
 
-FILE_CONTENT = {'coder-bash-script': ['## Bash',
+FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
+                            "from the user's event sources",
+                            'Ask the user for a source when none is given.'],
+ 'scan-event-radar-weekly': ['### Bar 1: Gather event of week',
+                             'Gather all events of the coming 7 days',
+                             "from the user's event sources"],
+ 'hunt-job-opportunity': ['When the user gives no criteria',
+                          'ask for them before searching'],
+ 'coder-bash-script': ['## Bash',
                        'You write **Bash** targeting Debian GNU/Linux, '
                        'using only the standard GNU',
                        '### Coder Bash Script',
@@ -217,7 +225,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
  'element-dt-month-day-format': ['### Month Day Format',
                                  'Write `MM-DD` when the date carries no '
                                  'year.',
-                                 '`01-16`, `01-16`, `H 12-31`',
+                                 '`H 01-16`, `01-16`, `H 12-31`',
                                  'Day of week codes:'],
  'element-dt-time-format': ['### Time Format',
                             'On a 24-hour clock:',

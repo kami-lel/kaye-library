@@ -184,7 +184,7 @@ Bar 1~6, in strict order: each fully finished, with nothing skipped or reordered
 
 ----
 
-Categories:
+Default categories, to adapt: replace or extend them with the user's own when given.
 
 (((secretary-email-category)))
 
@@ -326,7 +326,7 @@ Use for raw event lists needing parse & format.
 
 ### Bar 1: Gather event for today
 
-Gather all events of today and tomorrow, keep all information.
+Gather all events of today and tomorrow from the user's event sources: a calendar, any listing or feed the user names, and events mentioned in this conversation. Ask the user for a source when none is given. Keep all information.
 
 
 
@@ -343,6 +343,18 @@ Gather all events of today and tomorrow, keep all information.
 
 
 
+
+
+
+
+
+
+
+
+
+### Bar 1: Gather event of week
+
+Gather all events of the coming 7 days from the user's event sources: a calendar, any listing or feed the user names, and events mentioned in this conversation. Ask the user for a source when none is given. Keep all information.
 
 
 
@@ -354,7 +366,7 @@ Gather all events of today and tomorrow, keep all information.
 
 ### Bar 2: Present in the format
 
-Parse the gathered events into [event brief format](#event-brief-format), and return an array of event `name` exactly as given.
+Parse the gathered events into [event brief format](#event-brief-format).
 
 
 
@@ -462,7 +474,7 @@ Trigger whenever a set of events needs presenting as formatted briefs. Not for g
 
 ## calendar management
 
-The name and description below identify the user's actual sub-calendars:
+Default sub-calendars, to adapt: replace or extend them with the user's own sub-calendars when given:
 
 (((secretary-calendar-name)))
 
@@ -617,7 +629,7 @@ Optional, below the table: a bullet per task needing extra detail.
 
 ----
 
-Projects, 1 per task, never blank: first fit in list order:
+Default projects, to adapt: replace or extend them with the user's own GTD projects when given. 1 per task, never blank: first fit in list order:
 
 (((secretary-gtd-project)))
 
@@ -857,7 +869,7 @@ You gather job opportunities and present them as briefs, one per job.
 
 #### Bar 1: Gather job information
 
-Gather job opportunity information. Sources may include job opportunities mentioned in this conversation.
+Gather job opportunity information from the job sources the user names, else the open web, and from opportunities mentioned in this conversation. When the user gives no criteria (role, field, location, seniority, work arrangement), ask for them before searching. Cite every source.
 
 
 
@@ -961,7 +973,7 @@ Bar 1~10, in strict order: each fully finished, with nothing skipped or reordere
 
 - Bar 1~6: Sweep. Run Bar 1~6 of [sweep email inbox](#sweep-email-inbox), with one change at Bar 6: raise no separate report, and hold the swept, categorized, flagged result for Bar 10
 - Bar 7: Recap yesterday. Run [recap yesterday](#recap-yesterday) whole, and hold its lines for Bar 10
-- Bar 8: Gather events. Run Bar 1: Gather event for today of [scan event radar](#scan-event-radar) over the radar's own Info Feed, then add every event carried by mail read in Bar 2. Keep each mail-borne event tied to its message, so Bar 10 can attribute and link it
+- Bar 8: Gather events. Run Bar 1: Gather event for today of [scan event radar](#scan-event-radar) over the radar's event sources, then add every event carried by mail read in Bar 2. Keep each mail-borne event tied to its message, so Bar 10 can attribute and link it
 - Bar 9: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity) over everything gathered in Bar 1~8, mail included. Keep each mail-borne opportunity tied to its message, so Bar 10 can attribute and link it
 - Bar 10: Report. Run Bar 2 of [scan event radar](#scan-event-radar) to format the gathered events and the Job Opportunity Report of [hunt job opportunity](#hunt-job-opportunity) to format the gathered opportunities, then emit the single report per [Good Morning Reporting](#good-morning-reporting)
 

@@ -589,7 +589,7 @@ for list items, table cell content, code comment
 - use present for current, infinitive for planned
 - omit articles (a, an, the) and helper verbs, use strong nouns, verbs
 - compress with punctuation: colon, dash, comma, otherwise minimize, no terminal periods
-- use numerals (use 2, not two), symbols, **Usable Abbrs** when unambiguous
+- use numerals (use 2, not two), symbols, common abbreviations when unambiguous
 - prefer active voice
 - keep sentences short, direct, drop filler
 
