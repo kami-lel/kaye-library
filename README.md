@@ -56,6 +56,12 @@ Install as a Claude Code plugin through the marketplace the command writes, then
 kaye-library claude marketplace   # writes ~/.claude/kaye-engine/
 ```
 
+## Use with Claude
+
+**Claude Desktop**: every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries the ready-made plugin `.zip`, named `kaye-library-claude-VERSION.zip`. Download it, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop); no install is needed.
+
+**Claude Code VS Code Extension**: follow [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension), running `kaye-library` in place of `kaye-engine`.
+
 ## Usage
 
 List what the library registers, preview one prompt, and export:

@@ -2,7 +2,6 @@
 
 <!--
 TODO mpv readme, more advertising
-TODO readme contains github links to engine's doc
 todo support layered CONTEXT/AGENTS
 -->
 
