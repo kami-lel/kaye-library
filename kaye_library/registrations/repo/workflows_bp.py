@@ -4,11 +4,16 @@ kaye_library.registrations.repo.workflows_bp.py
 register invokable Repository workflow prompts
 """
 
+import functools
+
+from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
 from .._common import register_node, register_prompt
 
 __all__ = ("register_repo_workflow_blueprints",)
+
+_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_repo_workflow_blueprints():
@@ -142,11 +147,12 @@ def register_repo_workflow_blueprints():
         dependencies=["style-good-writing"],
     )
 
-    # Todo land feature & release version hold placeholder text
+    # Todo land feature & release version hold placeholder text, so both
+    # stay internal (not exportable) until their text is written
 
     # Land Feature
     register_node(
-        register_prompt,
+        _register_internal,
         "land-feature",
         repo_node,
         "Perform Feature Landing",
@@ -154,7 +160,7 @@ def register_repo_workflow_blueprints():
 
     # Release Version
     register_node(
-        register_prompt,
+        _register_internal,
         "release-version",
         repo_node,
         "Perform Version Release",

@@ -276,8 +276,6 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                '- s:second',
                                '- yd:yard',
                                '- nmi:nautical mile'],
- 'land-feature': ['## Perform Feature Landing',
-                  'tmp content for Perform Feature Landing'],
  'maintain-changelog': ['## Maintain CHANGELOG',
                         'take what to log from the conversation and recent '
                         'repository changes',
@@ -396,8 +394,6 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                            '#### Movement 5: Condense the Changelog',
                            '#### Movement 6: Close Out the Changelog',
                            '#### Movement 7: Bump the Repository Version'],
- 'release-version': ['## Perform Version Release',
-                     'tmp content for Perform Version Release'],
  'repo-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -586,7 +582,6 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                         'meanings and raise/lower tier shifts',
  'glossary-programming-language-codes': 'Glossary '
                                         'programming-language-codes',
- 'land-feature': 'tmp description Perform Feature Landing',
  'maintain-changelog': 'Use this skill when the user wants to add, fix, or '
                        'reorganize entries in an existing CHANGELOG — '
                        'logging new features, bug fixes, or breaking '
@@ -615,7 +610,6 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                           'version-to-dev-stage mapping',
  'ready-land-feature': 'Records a feature branch',
  'ready-release-version': 'Cuts a project release',
- 'release-version': 'tmp description Perform Version Release',
  'repo-agents-writer': '**prescriptive** rules telling AI coding agents '
                        'how to work in repo, e.g. commands, code style, PR '
                        'rules, safety constraints',

@@ -350,7 +350,7 @@ you maintain structured, hierarchical notes taken from **source material** — t
 
 - Headings Mirror the Source's Divisions: 1 heading per division the source itself makes, named & ordered as the source names & orders them ⇒ the file's heading tree is the source's tree, not an authored taxonomy
 - Every Division Listed, Covered or Not: stub a division the source skipped, deferred or left untouched rather than dropping it ⇒ the heading list doubles as a completeness record of the whole source
-- Local Heading for a Local Section: a one-off sub-case inside a division takes a [Local Heading](#heading-format), read against that division alone, rather than a rung on the file's main tree
+- Local Heading for a Local Section: a one-off sub-case inside a division takes a [Local Heading](#markdown-heading-format), read against that division alone, rather than a rung on the file's main tree
 - Note Language Follows Source Language: write in whatever language the source uses, even against the corpus's dominant language — a note transcribes, never translates
 
 
@@ -453,7 +453,7 @@ Trigger when a user submits a text passage for summarizing, note-taking, or acad
 
 settings specialization: transcribe an app's or program's config/option/setting into a reproducible note. Source material here is the program's live settings surface — its controls & displayed values, read as shown — & its divisions are that surface's pages & tabs.
 
-Write per [Style Guide Briefness Style](#style-briefness-style). Aggressively also use the following shorthand in place of its full form, wherever unambiguous:
+Write per [Style Guide Briefness Style](#style-guide-briefness-style). Aggressively also use the following shorthand in place of its full form, wherever unambiguous:
 
 (((amanuensis-config-writer-shorthand)))
 
@@ -475,7 +475,7 @@ Write per [Style Guide Briefness Style](#style-briefness-style). Aggressively al
 
 - Group Parent Line Carries No Value: a control group nests as a sub-list under `- Heading Name:` — colon, then nothing, no value & no trailing glyph
 - Sub-App Sections Nest Under Their Route: keep a separately-windowed feature under the path reaching it, w/ a 1-line prose note on how to get there
-- Local Sub-Case Is a Collapsed Panel or Rare Sub-Mode: what takes a [Local Heading](#heading-format) inside a page is a panel or mode the page hides behind a control, never a plain group of entries
+- Local Sub-Case Is a Collapsed Panel or Rare Sub-Mode: what takes a [Local Heading](#markdown-heading-format) inside a page is a panel or mode the page hides behind a control, never a plain group of entries
 
 
 
@@ -607,7 +607,7 @@ meeting specialization of Dispositor: transcribe a meeting's spoken record into 
 
 ##### Structure
 
-- Off-Agenda Item Is the Local Sub-Case: a topic raised outside the agenda takes a [Local Heading](#heading-format), read against the section it interrupted, rather than a rung on the file's main tree
+- Off-Agenda Item Is the Local Sub-Case: a topic raised outside the agenda takes a [Local Heading](#markdown-heading-format), read against the section it interrupted, rather than a rung on the file's main tree
 
 
 

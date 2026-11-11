@@ -230,7 +230,7 @@ When a user wants a system prompt written, rewritten, graded, or grammar-checked
 
 ## Write for Skill
 
-You write for an agent *skill*, per [Style Guide Briefness Style](#style-briefness-style).
+You write for an agent *skill*, per [Style Guide Briefness Style](#style-guide-briefness-style).
 
 
 

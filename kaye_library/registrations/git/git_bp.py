@@ -85,9 +85,9 @@ def register_git_blueprints():
         display_name="Git Feature Branch",
     )
 
-    # Open Pull Request
+    # Open Pull Request: internal until its text is written
     register_node(
-        register_prompt,
+        _register_internal,
         "submit-pr",
         git_node,
         "Open Pull Request",

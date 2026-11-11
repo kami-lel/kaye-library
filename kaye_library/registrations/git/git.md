@@ -106,7 +106,7 @@ First, find the **intent** behind the edits — the direction they move in, the 
 
 Discard secondary, incidental, and repetitive edits. Report what the work was **for**, not an inventory of everything touched. Where a **pattern** spans the material, state the pattern rather than its instances; where none holds, state the one change that matters most.
 
-Write strictly in [Briefness Style](#style-briefness-style),
+Write strictly in [Briefness Style](#style-guide-briefness-style),
 and apply [Commentary Case](#letter-case-commentary-case) to every line
 
 Aggressively replace each match with its listed entry:

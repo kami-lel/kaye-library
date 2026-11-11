@@ -122,7 +122,7 @@ Flags, exit codes, and piping behavior are set out in the [CLI reference](docs/c
 #### Style
 
 - format per [Style Guide Markdown Format](#style-guide-markdown-format)
-- keep bullets and table cells terse per [Style Guide Briefness Style](#style-briefness-style); prose stays in full sentences
+- keep bullets and table cells terse per [Style Guide Briefness Style](#style-guide-briefness-style); prose stays in full sentences
 - favor short Sections a visitor can scan in seconds
 - use emoji, badges, and diagrams where they aid Navigation, not as decoration
 
@@ -207,7 +207,7 @@ these guidelines define what a good `CHANGELOG.md` (or CHANGELOG-style file) is
 Changelogs are *for humans*, not machines.
 
 - write entries a reader can act on, per [Style Guide Good Writing](#style-guide-good-writing)
-- hold each entry to one terse line, per [Style Guide Briefness Style](#style-briefness-style)
+- hold each entry to one terse line, per [Style Guide Briefness Style](#style-guide-briefness-style)
 - format headings, lists, and callouts per [Style Guide Markdown Format](#style-guide-markdown-format)
 Structure:
 - group the same types of changes together
@@ -684,7 +684,7 @@ Updates an existing README to match the current project state — correcting sta
 3. write one versioned section per release, newest first, each carrying its date, titled per [CHANGELOG Title](#changelog-title)
 4. open with an empty `[Unreleased]` section holding all six subsections
 5. close with a links block referencing every version
-6. create `CHANGELOG.md` at the project root, for a repository that has none, per [Repository CHANGELOG Writer](#repository-changelog-writer), numbering versions per [Project Semantic Version](#project-semantic-version). Format per [Style Guide Markdown Format](#style-guide-markdown-format), keep entries terse per [Style Guide Briefness Style](#style-briefness-style), and write per [Style Guide Good Writing](#style-guide-good-writing)
+6. create `CHANGELOG.md` at the project root, for a repository that has none, per [Repository CHANGELOG Writer](#repository-changelog-writer), numbering versions per [Project Semantic Version](#project-semantic-version). Format per [Style Guide Markdown Format](#style-guide-markdown-format), keep entries terse per [Style Guide Briefness Style](#style-guide-briefness-style), and write per [Style Guide Good Writing](#style-guide-good-writing)
 
 
 
