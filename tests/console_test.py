@@ -7,15 +7,23 @@ corpus
 """
 
 import json
+import pathlib
 import subprocess
 import sys
 
 import pytest
 
+_ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-def _run(*args, command=("kaye-library",)):
+
+def _run(*args, command=(sys.executable, "-m", "kaye_library")):
+    # run from the repository root, so the working tree is what runs
     return subprocess.run(
-        [*command, *args], capture_output=True, text=True, check=False
+        [*command, *args],
+        capture_output=True,
+        text=True,
+        check=False,
+        cwd=_ROOT,
     )
 
 
@@ -47,7 +55,8 @@ class TestEngineSubcommands:
         names = result.stdout.split()
         assert "commit-sense" in names
         assert "coder" in names
-        assert "chat" not in names
+        assert "chat" in names
+        assert "chat-coder" in names
         assert "kaye-chat" not in names
 
     def test_skill_all_exports_every_skill(_, tmp_path):
@@ -87,18 +96,33 @@ class TestEngineSubcommands:
 
 class TestChatBoundSubcommands:
 
-    @pytest.mark.parametrize(
-        "args, message",
-        [
-            (("claude", "code"), "Coder exportable name"),
-            (("claude", "user-system-prompt"), "Chat exportable name"),
-            (("claude", "vs-code-extension"), "Coder exportable name"),
-            (("hermes",), "soul blueprint name"),
-        ],
-    )
-    def test_exits_one_with_a_clear_message(_, tmp_path, args, message):
-        extra = (str(tmp_path),) if args[-1] in {"vs-code-extension", "hermes"} else ()
-        result = _run(*args, *extra)
+    def test_claude_code_writes_a_folder(_, tmp_path):
+        result = _run("claude", "code", str(tmp_path))
 
-        assert result.returncode == 1
-        assert message in result.stderr
+        assert result.returncode == 0, result.stderr
+        assert (tmp_path / "CLAUDE.md").is_file()
+
+    def test_user_system_prompt_is_persona_free_chat(_):
+        result = _run("claude", "user-system-prompt")
+
+        assert result.returncode == 0, result.stderr
+        assert "Chat Conduct" in result.stdout
+        assert "Turn Progress Dispatch" in result.stdout
+        assert "(((" not in result.stdout
+
+    def test_hermes_writes_a_soul(_, tmp_path):
+        result = _run("hermes", str(tmp_path))
+
+        assert result.returncode == 0, result.stderr
+        assert (tmp_path / "SOUL.md").is_file()
+
+    def test_standalone_exports_leave_no_placeholder(_, tmp_path):
+        result = _run("skill", "--all", str(tmp_path))
+
+        assert result.returncode == 0, result.stderr
+        assert "unresolved" not in result.stderr
+        assert not [
+            p
+            for p in tmp_path.rglob("SKILL.md")
+            if "(((" in p.read_text(encoding="utf-8")
+        ]

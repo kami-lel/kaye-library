@@ -50,7 +50,7 @@ A host calls the steps in this order, or `setup_kaye_library_for_kaye_engine()` 
 4. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
 5. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Standalone setup then names `kaye-library` the entry consumer and configures the Claude and Hermes CLIs with no chat, coder, or soul name; a subcommand needing one exits 1 with a clear message. A process runs exactly one setup: a host composing the steps never calls the standalone function.
+Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, plus its own `Standalone Chat` corpus; a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI with `chat` and `chat-coder` and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -104,8 +104,7 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 ## Known Gaps & Constraints
 
-- **consumer placeholders in Secretary skills**: `sweep-email-inbox` and the event radar splice a glossary or substitution the library does not register (`secretary-work-color-legend`, `secretary-email-authuser`); run alone, their placeholders render literally, and a consumer registers them. The calendar, GTD, and email category glossaries (`secretary-calendar-name`, `secretary-gtd-project`, `secretary-email-category`) ship with the library
+- **consumer placeholders in Secretary skills**: the standalone setup registers a default `secretary-email-authuser`; a composing host registers its own, and a placeholder no one registers renders literally
 - **stubs**: `land-feature`, `release-version`, and `submit-pr` are internal, not exported, until their sections are written
 - **no Claude surfaces standalone**: the library registers no affordance groups or surface profiles, so conditional `{[Claude:...]}` and `{[Hermes:...]}` sidecars never render under the standalone command, only their fallbacks
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link
-- **pre-existing broken links**: `#style-briefness-style` in several sections and `#movement-2-write-the-plan` in `Plan for Suite` point at no heading

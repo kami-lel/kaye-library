@@ -19,6 +19,7 @@ from kaye_engine import (
     populate_abbr_data_with_json_file,
     register_comment_line,
     register_consumer,
+    register_corpus_under_node,
     set_entry_consumer,
     setup_claude_cli,
     setup_hermes_cli,
@@ -47,6 +48,9 @@ KAYE_LIBRARY_DISPLAY_NAME = "Kaye Library"
 
 _CORPUS_DIR = Path(__file__).resolve().parent / "registrations"
 _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
+
+# the standalone chat rules; a package building on the library never loads it
+_STANDALONE_CHAT_SOURCE = _CORPUS_DIR / "chat" / "chat.md"
 
 # corpus files, in registration order: (node path, file), a file's top
 # headings sitting one level below its node
@@ -155,6 +159,22 @@ def register_kaye_library_blueprints():
     register_blueprints()
 
 
+def _register_standalone_dynamic_substitutions():
+    from kaye_library.registrations.chat.chat_bp import (  # pylint: disable=C0415
+        register_standalone_dynamic_substitutions as register_substitutions,
+    )
+
+    register_substitutions()
+
+
+def _register_standalone_chat_blueprints():
+    from kaye_library.registrations.chat.chat_bp import (  # pylint: disable=C0415
+        register_standalone_chat_blueprints as register_chat,
+    )
+
+    register_chat()
+
+
 def setup_kaye_library_for_kaye_engine():
     """
     load, in this order, everything the library supplies on its own:
@@ -167,8 +187,13 @@ def setup_kaye_library_for_kaye_engine():
        root
     6. every library blueprint, registered into ``blueprint_registry``
     7. the entry consumer, via ``set_entry_consumer``
-    8. the Claude CLI and Hermes CLI configuration, naming no chat or
-       coder exportable and no Hermes soul
+    8. the Claude CLI and Hermes CLI configuration, naming ``chat``,
+       ``chat-coder`` and the ``chat`` Hermes soul
+
+    only this function registers the standalone chat base (a persona-free
+    ``chat``, the non-invokable ``chat-coder`` merging it with ``coder``,
+    and a default ``secretary-email-authuser`` of ``0``), so a package
+    building on the library, calling the six steps instead, never sees it
 
     a process runs exactly one setup function: a package building on the
     library calls the six steps instead, and never this one
@@ -181,7 +206,9 @@ def setup_kaye_library_for_kaye_engine():
         register_kaye_library_abbr_glossaries()
         populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())
         register_kaye_library_dynamic_substitutions()
+        _register_standalone_dynamic_substitutions()
         register_kaye_library_corpus()
+        register_corpus_under_node((), _STANDALONE_CHAT_SOURCE)
         load_corpus_tree()
     except OSError as err:
         logger.critical("cannot load library corpus/abbr data:\t" + str(err))
@@ -189,10 +216,11 @@ def setup_kaye_library_for_kaye_engine():
 
     try:
         register_kaye_library_blueprints()
+        _register_standalone_chat_blueprints()
     except (KeyError, AttributeError) as err:
         logger.critical("failed to register library blueprints:\t" + str(err))
         raise SystemExit(1) from err
 
     set_entry_consumer(PACKAGE_NAME)
-    setup_claude_cli()
-    setup_hermes_cli()
+    setup_claude_cli("chat", "chat-coder")
+    setup_hermes_cli("chat")
