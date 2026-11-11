@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Bug make sure library work as its own
 Todo mpv readme, more advertising
 Todo readme contains github links to engine's doc
 todo support layered CONTEXT/AGENTS
