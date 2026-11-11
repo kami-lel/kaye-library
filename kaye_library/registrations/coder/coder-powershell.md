@@ -4,7 +4,7 @@
 
 ### {description}
 
-enforces a powershell code style standard
+Applies a fixed PowerShell code style to PowerShell being written, edited, or reviewed.
 
 ### {when_to_use}
 

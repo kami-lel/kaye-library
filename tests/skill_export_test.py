@@ -71,6 +71,22 @@ class TestHeader:
 
         assert any(data.WHEN_TO_USE_CONTENT[name] in line for line in header)
 
+    @pytest.mark.parametrize("name", SKILL_NAMES)
+    def test_metadata_is_real(_, skills_folder, name):
+        header, _body = split_frontmatter_md_file(_read(skills_folder, name))
+        fields = {
+            key: line[len(key) + 2 :].strip("'\"")
+            for key in ("description", "when_to_use")
+            for line in header
+            if line.startswith(key + ": ")
+        }
+
+        assert set(fields) == {"description", "when_to_use"}
+        for text in fields.values():
+            assert len(text) >= 30
+            assert "tmp" not in text.split()
+            assert not text.startswith(("define ", "Glossary "))
+
     @pytest.mark.parametrize("name", sorted(data.PATHS_CONTENT))
     def test_paths(_, skills_folder, name):
         header, _body = split_frontmatter_md_file(_read(skills_folder, name))

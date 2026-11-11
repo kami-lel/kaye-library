@@ -40,7 +40,17 @@ def register_secretary_abbr_glossaries():
         "secretary-common-shorthand", False, is_dyn_substitution=True
     )
     register_abbr_glossary(
-        "secretary-eisenhower-matrix-quadrant", True, is_sorted=True
+        "secretary-eisenhower-matrix-quadrant",
+        True,
+        is_sorted=True,
+        description=(
+            "Names the four Eisenhower matrix quadrants by Important and"
+            " Urgent, with their emoji shorthand."
+        ),
+        when_to_use=(
+            "Trigger when a task is sorted by importance and urgency, or"
+            " EMQ, EMQ I to IV, or the symbols 💎 and 🚨 appear."
+        ),
     )
     register_abbr_glossary(
         "secretary-eisenhower-matrix-quadrant-base",

@@ -307,7 +307,7 @@ Never call any other tool.
 
 ### {description}
 
-Formats events w/ price & briefness summary.
+Formats a set of events into briefs with price, key details, and a briefness-style summary.
 
 ### {when_to_use}
 

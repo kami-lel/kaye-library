@@ -574,7 +574,7 @@ Present candidates and exclusions together and wait for an answer whenever the s
 
 ### {description}
 
-Checks prune repository's local branches
+Deletes local branches already merged into the current branch, with a report of what went and what stayed.
 
 ### {when_to_use}
 

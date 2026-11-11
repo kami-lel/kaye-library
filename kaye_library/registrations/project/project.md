@@ -12,7 +12,11 @@
 
 ### {description}
 
-defines semantic versioning scheme
+Defines the semantic versioning scheme: how MAJOR, MINOR, and PATCH numbers are chosen and written.
+
+### {when_to_use}
+
+Any version-number decision: "what version is next", "bump the version", semver, pre-release tags, or a breaking-change release.
 
 
 

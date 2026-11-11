@@ -55,7 +55,7 @@ _GATHER_OF_DAY = "Bar 1: Gather event for today"
 _GATHER_OF_WEEK = "Bar 1: Gather event of week"
 
 
-def _register_scan_event_radar(slug, name, dropped_gather_node):
+def _register_scan_event_radar(slug, name, description, dropped_gather_node):
     """
     register one Scan Event Radar variant
     """
@@ -76,7 +76,7 @@ def _register_scan_event_radar(slug, name, dropped_gather_node):
 
     register_exportable(
         slug,
-        replace_meta(bp, display_name=name),
+        replace_meta(bp, display_name=name, description=description),
         llm_invokable=False,
     )
 
@@ -217,11 +217,19 @@ def register_secretary_blueprints():
     )
 
     _register_scan_event_radar(
-        "scan-event-radar-daily", "Scan Event Radar Daily", _GATHER_OF_WEEK
+        "scan-event-radar-daily",
+        "Scan Event Radar Daily",
+        "Scans the event radar for today and formats what it finds into"
+        " one daily brief.",
+        _GATHER_OF_WEEK,
     )
 
     _register_scan_event_radar(
-        "scan-event-radar-weekly", "Scan Event Radar Weekly", _GATHER_OF_DAY
+        "scan-event-radar-weekly",
+        "Scan Event Radar Weekly",
+        "Scans the event radar across the coming week and formats what it"
+        " finds into one weekly brief.",
+        _GATHER_OF_DAY,
     )
 
     _register_manage_calendar_leaf(

@@ -24,7 +24,19 @@ def register_coder_abbr_glossaries():
         False,
         is_dyn_substitution=True,
     )
-    register_abbr_glossary("coder-abbr", True, is_dyn_substitution=True)
+    register_abbr_glossary(
+        "coder-abbr",
+        True,
+        is_dyn_substitution=True,
+        description=(
+            "Decodes common programming abbreviations such as ctor, iface,"
+            " and mpl."
+        ),
+        when_to_use=(
+            "Trigger when a user writes programming shorthand such as ctor,"
+            " iface, or xcp, or asks what a code abbreviation stands for."
+        ),
+    )
     register_abbr_glossary(
         "coder-identifier-shorthand", False, is_dyn_substitution=True
     )
@@ -32,4 +44,12 @@ def register_coder_abbr_glossaries():
         "programming-language-codes",
         True,
         is_dyn_substitution=True,
+        description=(
+            "Maps short language codes such as py, ts, and cpp to the"
+            " programming languages they name."
+        ),
+        when_to_use=(
+            "Trigger when a language code such as py, js, or cpp appears,"
+            " or the user asks which language an abbreviation names."
+        ),
     )

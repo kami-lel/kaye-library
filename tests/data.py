@@ -523,14 +523,14 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                       'style.',
  'coder-bash-shell': 'answers Bash command requests for Debian GNU/Linux '
                      'with the bare terminal line',
- 'coder-c': 'Writes, edits, and reviews all C code.',
- 'coder-c-sharp': 'Writes, edits, and reviews all C# code.',
+ 'coder-c': 'Writes, edits, and reviews C code under a fixed house style',
+ 'coder-c-sharp': 'Writes, edits, and reviews C# code under a fixed house style',
  'coder-comment-banner-in-code-comment': 'writes comment banners inside '
                                          'source code',
  'coder-comment-banner-in-print-out': 'writes banners into printed program '
                                       'output',
- 'coder-cpp': 'Writes, edits, and reviews all C++ code.',
- 'coder-gdscript': 'GDScript code for Godot 4',
+ 'coder-cpp': 'Writes, edits, and reviews C++ code under a fixed house style.',
+ 'coder-gdscript': 'Writes, edits, and reviews GDScript for Godot 4',
  'coder-html': 'apply HTML5 standards for structure, semantics, and '
                'markup.',
  'coder-javascript-and-typescript': 'Writes, edits, and reviews all '
@@ -546,7 +546,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                                     'code per project conventions',
  'u3d': 'Sets baseline for all Unity 6 C# work, the shared root every '
               'topic-specific Unity skill builds on',
- 'coder-ue': 'C++ code for Unreal Engine',
+ 'coder-ue': 'Writes, edits, and reviews Unreal Engine C++',
  'commit-sense': 'Commits the indexed diff',
  'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
                                 'pair',
@@ -575,13 +575,11 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'element-dt-year-month-day-format': 'Formats a date carrying a year, day '
                                      'of week prefix optional',
  'element-international-phonetic-alphabet': 'IPA transcription',
- 'element-numerical-values-with-units': 'when physical quantities appear '
-                                        'in output',
+ 'element-numerical-values-with-units': 'Presents numerical values in both metric and US units',
  'element-triage-tags': 'defect/note labels spanning code and docs across '
                         '3 case tiers (Loud/Steady/Quiet), with per-tag '
                         'meanings and raise/lower tier shifts',
- 'glossary-programming-language-codes': 'Glossary '
-                                        'programming-language-codes',
+ 'glossary-programming-language-codes': 'Maps short language codes such as py, ts, and cpp',
  'maintain-changelog': 'Use this skill when the user wants to add, fix, or '
                        'reorganize entries in an existing CHANGELOG — '
                        'logging new features, bug fixes, or breaking '
@@ -603,7 +601,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                        'agents how to work on project',
  'proj-doc-writer': 'Writes & maintains `docs/` topic files for generic '
                     'projects',
- 'proj-version': 'defines semantic versioning scheme',
+ 'proj-version': 'Defines the semantic versioning scheme',
  'proj-version-extended': 'Extends semantic versioning with conventions '
                           'for `alpha`/`beta`/`rc` pre-release numbering, '
                           'OS/date build-metadata tags, and '
@@ -635,8 +633,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'style-good-writing': 'fixing spelling, grammar, punctuation, and clarity '
                        'while preserving the original meaning, voice, and '
                        'wording.',
- 'style-letter-case-commentary-case': 'define Commentary Case',
- 'style-letter-case-title-case': 'define Title Case',
+ 'style-letter-case-commentary-case': 'Names the Commentary Case convention',
+ 'style-letter-case-title-case': 'Names the Title Case convention',
  'working-with-git': 'Sets the Git working terms',
  'working-with-p4v': 'Pairs every Perforce term',
 }

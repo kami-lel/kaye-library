@@ -594,6 +594,10 @@ Replace `<Repository Name>` with the real repository name.
 
 Use this skill when the user wants to create a new `README.md` from scratch — covering project overview, setup, usage, configuration, and contributing guidelines. Trigger even for casual requests like "write a readme" or "document this project."
 
+### {when_to_use}
+
+Trigger on "write a README", "create a README", "this repo has no README", or a new project needing a landing page.
+
 
 
 
@@ -643,6 +647,10 @@ Use this skill when the user wants to create a new `README.md` from scratch — 
 ### {description}
 
 Updates an existing README to match the current project state — correcting stale overviews, commands, links, configuration names, and examples, pruning obsolete or duplicated content, and editing in place against the latest repository changes.
+
+### {when_to_use}
+
+Trigger on "update the README", "the README is stale", "sync the README with the code", or a README showing old commands or names.
 
 
 
@@ -706,6 +714,10 @@ Replace `<Repository Name>` with the real repository name.
 
 Bootstraps a `CHANGELOG.md` for a repo that has none — reconstructing dated, versioned sections from git history newest-first, with an `[Unreleased]` block and version links.
 
+### {when_to_use}
+
+Trigger on "create a changelog", "start a CHANGELOG", "rebuild the changelog from git history", or a repository with no `CHANGELOG.md`.
+
 
 
 
@@ -755,6 +767,10 @@ Bootstraps a `CHANGELOG.md` for a repo that has none — reconstructing dated, v
 ### {description}
 
 Use this skill when the user wants to add, fix, or reorganize entries in an existing CHANGELOG — logging new features, bug fixes, or breaking changes without overwriting existing content. Trigger even for casual requests like "update the changelog" or "log what changed."
+
+### {when_to_use}
+
+Trigger on "update the changelog", "log what changed", "add a changelog entry", or "fix a changelog entry".
 
 
 
@@ -813,6 +829,10 @@ Two kinds, each placed under the relevant subsection. Both are exceptional — a
 ### {description}
 
 Condenses `CHANGELOG.md`'s `[Unreleased]` section for release: rewords its entries into concise, high-level changelog style and adds Admonitions for Breaks and Hazards where warranted.
+
+### {when_to_use}
+
+Trigger on "condense the changelog", "tidy the Unreleased section", "reword the changelog for release", or "add Breaks and Hazards".
 
 
 
@@ -951,6 +971,10 @@ Update the affected files in place, leaving unrelated files untouched.
 ### {description}
 
 Logs a session's durable changes before context compaction — recording them in `CHANGELOG.md` and syncing `AGENTS.md` and `CONTEXT.md` — identifying the change set once from the conversation, working diffs, and existing `[Unreleased]` entries.
+
+### {when_to_use}
+
+Trigger on "before compact", "context is about to compact", "save this session's progress", or "log the session's changes before the context fills".
 
 ### {[Claude:Skill] Usage}
 

@@ -173,6 +173,10 @@ track every source mentioned across the conversation and render each as a Chicag
 
 Tracks sources mentioned in conversation, rendering each as a Chicago Note.
 
+### {when_to_use}
+
+Trigger when sources are being mentioned across a conversation and need tracking for citation, or on "track my sources" and "keep a source list".
+
 ### {[Claude:Skill] Usage}
 
 Invoke `amanuensis-chicago-note` skill via `Skill` tool.
@@ -224,7 +228,11 @@ compile every distinct source mentioned across the conversation into a complete 
 
 ### {description}
 
-gather & create bibliography list
+Gathers every source cited in a document and builds its Chicago-style bibliography list.
+
+### {when_to_use}
+
+Trigger on "assemble the bibliography", "gather my sources", "build the works cited", or "list every source I cited".
 
 
 
