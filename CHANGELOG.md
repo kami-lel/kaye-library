@@ -1,8 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo mpv readme, more advertising
-Todo readme contains github links to engine's doc
+TODO mpv readme, more advertising
+TODO readme contains github links to engine's doc
 todo support layered CONTEXT/AGENTS
 -->
 
