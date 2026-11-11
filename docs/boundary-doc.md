@@ -16,7 +16,7 @@ graph LR
 - text naming a package that depends on the library
 - corpus no library blueprint selects, except a stub awaiting its text
 
-`tests/privacy_test.py` scans every shipped file for the strings that would break this; extend its list when a new kind of string must stay out.
+`tests/privacy_test.py` scans every shipped file for the strings that would break this; extend its generic list when a new kind of string must stay out. Personal strings live in the gitignored `tests/privacy-forbidden.local.txt` (1 per line, `#` for comments); without that file the personal check is skipped with a message, so a fresh clone still runs the generic check.
 
 ## What the Library Never Imports
 

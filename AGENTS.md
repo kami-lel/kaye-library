@@ -41,7 +41,7 @@ Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_
 - a skill that splices such a consumer-registered placeholder is listed in `_PERSONAL_PLACEHOLDER_SKILLS` (`tests/skill_export_test.py`), which exempts it from the unresolved-placeholder check
 - never name a downstream package in code, corpus, docs, tests, or commit messages
 - an abbreviation entry belongs in `kaye_library/abbrs.json` only when a glossary that library text splices needs it; name only glossaries this package registers
-- `tests/privacy_test.py` scans every shipped file for private strings: extend its list, never trim it
+- `tests/privacy_test.py` scans every shipped file for private strings: extend its generic list, never trim it; personal strings (names, emails, ids, domains) go in the gitignored `tests/privacy-forbidden.local.txt`, 1 per line, never in a committed file
 
 ## Testing Instructions
 

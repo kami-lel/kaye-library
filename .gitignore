@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Personal strings for the privacy test
+tests/privacy-forbidden.local.txt

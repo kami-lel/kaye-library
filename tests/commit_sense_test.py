@@ -41,7 +41,7 @@ class TestContent:
 
     @pytest.mark.parametrize(
         "needle",
-        ["Personality", "Persona Trailer", "persona-name", "persona-name", "Claude"],
+        ["Personality", "Persona Trailer", "Claude"],
     )
     def test_names_no_persona(_, content, needle):
         assert needle not in content
