@@ -47,6 +47,9 @@ flowchart LR
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
     ready_release_version --> proj_version_extended
+    proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
+    proj_version_bump --> proj_version["proj-version"]
+    proj_version_extended --> proj_version
     initialize_repo --> style_good_writing
     maintenance_before_compact --> style_good_writing
     condense_agents_and_context --> repo_agents_writer

@@ -360,6 +360,34 @@ Assume local `HEAD` is the feature branch. Observe it with `git log dev..HEAD`: 
 
 
 
+## branch merge title
+
+A merge title is the first line of a merge message; the merge's source and target branch types decide it.
+
+| From | Into | Title |
+|---|---|---|
+| dev | main | version release: write per [Semantic Version Title](#semantic-version-title) |
+| hotfix | main | `<Bump> Hotfix Release: <version>` |
+| release | main | `<Bump> Release Cut: <version>` |
+| hotfix | dev | `Hotfix Backport from: <version>` |
+| release | dev | `Release Backport from: <version>` |
+| main | dev | `Sync Backport from: <version>` |
+
+`<Bump>` is the [bump word](#semantic-version-bump); `<version>` comes from the source branch. Write the bare phrase alone when no version resolves.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

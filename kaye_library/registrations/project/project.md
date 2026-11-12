@@ -78,9 +78,34 @@ Choosing or validating a version string for a pre-release, tagged build, or dev-
 
 
 
+### semantic version bump
+
+A **semantic version bump** is the part of the version core (major, minor, patch) the new version raised over the old one. Compare the two cores:
+
+| Bump | When |
+|---|---|
+| Major | `x` is higher |
+| Minor | `y` is higher, `x` equal |
+| Patch | `z` is higher, `x` and `y` equal |
+
+Where none holds (equal, lower, or either side not `x.y.z`), the version has no bump.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Semantic Version Title
 
-A version title names a version release: `<Bump> <Release Type> <version>`. It depends on the [bump word](#bump-word), which drops out when the new version raised no part of the old one.
+A version title names a version release: `<Bump> <Release Type> <version>`. It depends on the [bump word](#semantic-version-bump), which drops out when the new version has no bump.
 
 ##### release type
 
@@ -95,16 +120,6 @@ Check the new version against these rows in order; the first match wins:
 | `0.5.z`~`0.9.z`, only when Vertical Slice is enabled | Vertical Slice Release |
 | `0.y.z` | Prototype Release |
 | `x.y.z` | Stable Release |
-
-##### bump word
-
-Compare the new version core with the main branch's:
-
-| Bump | When |
-|---|---|
-| Major | `x` is higher |
-| Minor | `y` is higher, `x` equal |
-| Patch | `z` is higher, `x` and `y` equal |
 
 Write no bump word on alpha, beta, or release candidate titles: the tag already states the stage.
 
