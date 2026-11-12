@@ -1,102 +1,76 @@
 # kaye-library README
 
-Shareable prompt library for LLM agents: style guides, git workflows, repository documents, and coding rules, written once in Markdown and exported as Agent Skills, built on [kaye-engine](https://github.com/kami-lel/kaye-engine).
+📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. Install once, and every conversation gets sharper. ✨
 
-## Project Overview
+⭐ **If kaye-library saves you a prompt or two, please [star it on GitHub](https://github.com/kami-lel/kaye-library)!** Every star helps more people find it. 🙏
 
-`kaye-library` is a corpus of ready-to-use agent instructions plus the registrations that turn it into skills. Install it, run one command, and your agent gains reusable skills such as `commit-sense` or `coder-python`, with no persona attached: every prompt is written for any assistant and any project.
+## 💡 Why kaye-library?
 
-It also serves as a base layer. Other packages built on `kaye-engine` can register their own corpus beside it, even under its nodes, and take over any skill with their own version; the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine` shows how.
+Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected. kaye-library collects those prompts into one curated library and hands them to your agent as skills it picks up on its own.
 
-## Features
+- 🧠 Write Once, Reuse Forever: each instruction lives in one place and ships everywhere your agent goes
+- 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
+- 🫥 Persona-Free: written for any assistant and any project, no names or personal data baked in
+- 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
+- 📦 Ships Everywhere: Agent Skills folders, a Claude plugin, a plugin marketplace, or an upload-ready `.zip`
 
-- Style: Markdown format, heading separation, every letter case, briefness, good writing
-- Elements: date and time formats, units, triage tags, ASCII only, phonetic alphabet
-- Git: commit messages with a per-file ledger, Git and Perforce working terms, merge conflict resolution, branch pruning
-- Repositories: README, CHANGELOG, AGENTS, CONTEXT, and docs writers, landing and release workflows
-- Agentic: Movement and Suite workflows, Turn Progress Dispatch, file and folder naming
-- Meta Prompt: writers for LLM system prompts and for a skill's description and when-to-use text
-- Amanuensis: Chicago citation and bibliography, redaction, structured note, config, keybinding (keyboard, mouse, and controller symbols), and meeting-minutes writers
-- Secretary: email drafting and sweeping, event radar, calendar and task push and pull, daily recaps, job hunt, and morning and weekly check-ins; skills that need personal values ship generic defaults a package of your own replaces
-- Coder: shared coding rules, comment banners, plan and review workflows, and profiles for Bash, C, C++, C#, GDScript, HTML, JavaScript, TypeScript, PowerShell, Python, and Unreal Engine
-- Unity Engine: Unity 6 C# rules in standalone sections (naming, role suffixes, inspector fields, units, input, activation, game tuning), asset placement and naming, MonoBehaviour and ScriptableObject scripts
-- One command exports everything as Agent Skills, a Claude plugin, or a plugin marketplace
+## 🗂️ What's Inside
 
-## Tech Stack
+100+ skills across 11 groups:
 
-- Python 3.11 or newer
-- [kaye-engine](https://github.com/kami-lel/kaye-engine): parses the corpus and renders prompts
-- Markdown corpus, shipped as package data
+| | Group | What Your Agent Learns |
+|---|---|---|
+| 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |
+| 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
+| 🎨 | Style | Markdown, heading spacing, every letter case, briefness, good writing |
+| 🗓️ | Secretary | email drafting and sweeping, calendar and task sync, event radar, daily recaps, morning and weekly check-ins, job hunt |
+| 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
+| 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
+| 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
+| 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, PRs, Git and Perforce terms |
+| 🤖 | Agentic | Movement and Suite planning: big tasks split into reviewable steps |
+| 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
+| 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
-## Getting Started
+A few favorites to try first:
 
-Pick one way in; each pulls `kaye-engine` from its pinned git tag.
+- `/commit-sense`: 🐙 say "commit this" and get a clear summary line plus a per-file ledger of what changed and why
+- `/repo-readme-writer`: 📝 turns a bare repository into a scannable landing page that covers purpose, setup, and usage, like this one
+- `/coder-python`: 💻 clean, PEP 8 Python with consistent naming, Sphinx docstrings, and comments that explain intent
+- `/plan-for-suite`: 🤖 splits a sprawling task into numbered, reviewable steps and pauses for your approval before each one
+- `/good-morning`: 🗓️ one morning report that sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
 
-Clone and install, for development or the latest `dev`:
+## 🚀 Getting Started
 
-```bash
-git clone https://github.com/kami-lel/kaye-library.git
-cd kaye-library
-pip install .
-kaye-library --help
-```
-
-Install a release straight from GitHub, with `vX.Y.Z` the release tag:
-
-```bash
-pip install git+https://github.com/kami-lel/kaye-library.git@vX.Y.Z
-kaye-library --help
-```
-
-Use a release zip: download the plugin `.zip` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) and upload it wherever Agent Skill packages are accepted.
-
-Install as a Claude Code plugin through the marketplace the command writes, then add that folder as a marketplace and install the `kaye-library` plugin from it:
-
-```bash
-kaye-library claude marketplace   # writes ~/.claude/kaye-engine/
-```
-
-## Use with Claude
+### Use with Claude
 
 **Claude Desktop**: every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries the ready-made plugin `.zip`, named `kaye-library-claude-VERSION.zip`. Download it, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop); no install is needed.
 
 **Claude Code VS Code Extension**: follow [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension), running `kaye-library` in place of `kaye-engine`.
 
-## Usage
+### 📦 Install with pip
 
-List what the library registers, preview one prompt, and export:
-
-```bash
-kaye-library blueprint list                  # every registered blueprint
-kaye-library blueprint render commit-sense   # print one prompt
-kaye-library skill --all ./skills            # every skill into ./skills
-kaye-library skill commit-sense ./skills     # one skill
-kaye-library claude plugin                   # ~/.claude/plugins/kaye-library/
-kaye-library claude plugin -z                # upload-ready .zip
-kaye-library claude marketplace              # ~/.claude/kaye-engine/ marketplace
-```
-
-Once installed as a plugin, a skill is addressed as `kaye-library:<name>`, for example `kaye-library:commit-sense`; the `coder` skill carries the shared coding rules every language profile builds on; list every skill with `kaye-library exportable ls` and the abbreviation glossaries behind them with `kaye-library glossary ls`.
-
-The standalone command carries a persona-free chat base, so `kaye-library claude code FOLDER`, `claude user-system-prompt`, `claude vs-code-extension FOLDER`, and `hermes FOLDER` work with the library alone. To add your own values, corpus, or chat persona, build a package over the library: the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) walks through it, and [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is a working one.
-
-## Build & Test
+Requires Python 3.11 or newer. 🐍
 
 ```bash
-pip install -e '.[dev]'
-pytest tests
+pip install git+https://github.com/kami-lel/kaye-library.git
+kaye-library skill --all ./skills   # export every skill into ./skills
 ```
 
-The suite loads the library alone, exports every skill as a folder and as a `.zip`, and scans the shipped files for private strings.
+## 🧭 Explore
 
-## Contributing
+```bash
+kaye-library x ls                            # every skill
+kaye-library blueprint render commit-sense   # preview one prompt
+kaye-library --help                          # everything else
+```
 
-Pushing a `v<version>` tag, equal to the version in `pyproject.toml`, publishes the plugin `.zip` as a GitHub Release asset, a pre-release for `-alpha` and `-beta` tags.
+## 🤝 Contributing
 
-Put new prompts in `kaye_library/registrations/<group>/`, one folder per feature group, holding the corpus `.md` beside the code that registers its blueprints. Keep every prompt free of personal data and of any persona.
+New skills and fixes are welcome! 🛠️ Rules for contributors and agents live in [AGENTS.md](AGENTS.md), the architecture in [CONTEXT.md](CONTEXT.md), and a working package built on the library in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py). Keep every prompt free of personal data and of any persona.
 
-Rules for agents are in [AGENTS.md](AGENTS.md) and the architecture in [CONTEXT.md](CONTEXT.md). How corpus files attach to the tree, and what may cross the boundary between the library and a package building on it, are in [CONTEXT.md](CONTEXT.md).
+## 🙌 Acknowledgments
 
-## Acknowledgments
+Built on [kaye-engine](https://github.com/kami-lel/kaye-engine), which parses the Markdown corpus and renders every prompt. ⚙️
 
-Built on [kaye-engine](https://github.com/kami-lel/kaye-engine).
+⭐ Enjoying it? A [star on GitHub](https://github.com/kami-lel/kaye-library) goes a long way!
