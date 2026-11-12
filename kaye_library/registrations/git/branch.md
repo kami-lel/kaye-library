@@ -380,14 +380,6 @@ Load `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and
 
 
 
-### {[git] Usage}
-
-Invoke `prune-merged-branches` as Movement 5, if any branch needs pruning. Movements 5~7 renumber to 6~8
-
-
-
-
-
 
 
 
@@ -425,7 +417,7 @@ Release the project: ready it, merge it into `main`, then tag the merge, so ever
 
 #### Movement 1~7: Ready the Release
 
-Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9~12. When it adds its pruning step, Movement 8~12 renumber to 9~13.
+Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9~12.
 
 
 
