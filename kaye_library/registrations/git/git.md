@@ -318,9 +318,11 @@ Trigger on "g" (git commit), the most common trigger; also "commit this", "write
 
 ### Commit Sense For Branch Merging
 
-A merge title is the first line of a merge message; the merge's source and target branch types decide it.
+Merge the source branch into the current branch: take the source from the conversation, run `git merge --no-ff --no-commit SOURCE` so Git writes its auto-generated message to the file `git rev-parse --git-path MERGE_MSG` names, read that message, then run `git commit` once with the whole message as a single `-m` argument. If the merge halts on conflicts, stop and report: [Resolve Merge Conflict](#resolve-merge-conflict) takes over.
 
-| From | Into | Title |
+A merge's primary summary is the first line of its message; the merge's source and target branch types decide it.
+
+| From | Into | Primary Summary |
 |---|---|---|
 | feature | dev | `Feature Landing: FEATURE_BRANCH` |
 | dev | feature | `Catch Up: FEATURE_BRANCH` |
@@ -332,6 +334,57 @@ A merge title is the first line of a merge message; the merge's source and targe
 | main | dev | `Sync Backport from: VERSION` |
 
 `BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch.
+
+Git's auto-generated message is one line naming the merged ref, eg:
+
+```text
+Merge branch 'add-search-filter' into dev
+Merge branch 'dev' into add-search-filter
+Merge remote-tracking branch 'origin/dev'
+Merge tag 'v1.4.0'
+```
+
+The message has up to four parts, in order, separated by blank lines:
+
+1. Primary Summary: from the table above, `FEATURE_BRANCH` and `VERSION` replaced by the real names; hold it to **72 characters at max**
+2. Git Message: Git's auto-generated message, kept verbatim, so the merge stays traceable to its refs
+3. Body: optional; the commits of `git log TARGET..SOURCE` as one whole, per the Body rule of [Primary Summary](#primary-summary), in up to 3 lines within 72 characters
+4. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
+
+Keep the trailer last.
+
+Use ASCII only.
+
+If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a primary summary.
+
+<merge-message-example>
+Feature Landing: add-search-filter
+
+Merge branch 'add-search-filter' into dev
+
+filter search results by tag & date; index rebuilt on filter change,
+so stale hits no longer survive an edit
+
+Co-authored-by: Example Bot <bot@example.com>
+</merge-message-example>
+
+<merge-message-example>
+Catch Up: add-search-filter
+
+Merge branch 'dev' into add-search-filter
+</merge-message-example>
+
+##### Post Merge Output
+
+Reply in one line with the short hash. If git rejects the merge, report its output and stop.
+
+<post-merge-output-example>
+🚩🐙 Merge `a3f9c21`
+</post-merge-output-example>
+
+#### {avoid}
+
+Rewording, shortening, or dropping Git's auto-generated line; add to it only through the body.
 
 
 
