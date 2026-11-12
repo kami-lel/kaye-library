@@ -65,9 +65,24 @@ kaye-library blueprint render commit-sense   # preview one prompt
 kaye-library --help                          # everything else
 ```
 
+How the skills depend on and invoke each other is in the [blueprint documentation](docs/blueprint-doc.md).
+
 ## 🤝 Contributing
 
-New skills and fixes are welcome! 🛠️ Rules for contributors and agents live in [AGENTS.md](AGENTS.md), the architecture in [CONTEXT.md](CONTEXT.md), how the blueprints connect in the [blueprint documentation](docs/blueprint-doc.md), and a working package built on the library in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py). Keep every prompt free of personal data and of any persona.
+New skills and fixes are welcome! 🛠️ Install a working copy, then run the tests for the area you touch:
+
+```bash
+pip install -e '.[dev]'
+pytest tests/skill_export_test.py
+```
+
+A path in, in order:
+
+1. Find where a skill lives: each feature group has a folder under `kaye_library/registrations/`, its Markdown corpus beside the code that registers it, and the [blueprint documentation](docs/blueprint-doc.md) shows how the skills connect
+2. Learn the engine underneath: the Markdown format a skill is written in is the [corpus documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md), its `{description}` and `{when_to_use}` sidecars are in the [sidecar documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/sidecar-doc.md), blueprints and the registry in the [prompt documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md), export flags in the [exportable registry documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/exportable-registry-doc.md), and glossaries in the [abbreviation documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/abbrs-doc.md)
+3. Build on the library instead of changing it: the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows how to layer your own package and override a skill, with a working package in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py)
+
+One rule to keep in mind: every prompt here stays free of personal data and of any persona.
 
 ## 🙌 Acknowledgments
 

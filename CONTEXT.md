@@ -1,8 +1,8 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-09, v1.2.1. History lives in `CHANGELOG.md` and `git log`, not here.
+**Last updated:** 2026-11-09, v1.2.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
-System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside `AGENTS.md`.
+System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page.
 
 ## Project Overview
 
@@ -79,7 +79,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 - the language files register under `("Coder",)`; every other file, Unity Engine included, registers under the root
 - a consumer registers its own sources under the root or its own nodes and never reuses a library root name
 - `#slug` links follow heading text, so a link from library text must point at library text
-- `_CORPUS_SOURCES` in `kaye_library/__init__.py` pairs a node path with a file, in registration order; a source's top headings sit exactly one level below its target, or loading raises
+- `_CORPUS_SOURCES` in `kaye_library/__init__.py` pairs a node path with a file, in registration order; a source's top headings sit exactly one level below its target, or loading raises (the format is the engine's [corpus documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md))
 - a section no blueprint selects is a candidate for removal; a stub keeps its section and a placeholder `{description}`
 
 ## Registration Helpers
@@ -94,7 +94,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | `register_leaf` | one leaf with its ancestor headings, descriptors included |
 | `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
 
-Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`.
+Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`; the full graph is in the [blueprint documentation](docs/blueprint-doc.md).
 
 ## Content Boundary
 
@@ -122,7 +122,7 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 
 ## Testing Strategy
 
-`pytest`, serial. `tests/conftest.py` loads the library once per session and exports every skill as folders and as `.zip` packages in-process. `skill_export_test.py` checks structure, frontmatter, and wording from `data.py` for both forms; `console_test.py` and `third_consumer_test.py` run subprocesses; `privacy_test.py` scans every shipped file. Run commands live in `AGENTS.md`.
+`pytest`, serial. `tests/conftest.py` loads the library once per session and exports every skill as folders and as `.zip` packages in-process. `skill_export_test.py` checks structure, frontmatter, and wording from `data.py` for both forms; `console_test.py` and `third_consumer_test.py` run subprocesses; `privacy_test.py` scans every shipped file. Run commands live in [AGENTS.md](AGENTS.md).
 
 ## Known Gaps & Constraints
 

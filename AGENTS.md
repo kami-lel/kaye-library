@@ -3,11 +3,11 @@
 Prescriptive rules for agents working in this project.
 
 - Belongs Here: rules an agent must follow, ie commands, conventions, constraints, who decides; only what an agent cannot infer from the code
-- Size: stay lean for the context window; when the file grows, move detail to `CONTEXT.md` or cut it
+- Size: stay lean for the context window; when the file grows, move detail to [CONTEXT.md](CONTEXT.md) or cut it
 - Upkeep: update in the same change that moves a command, convention, or constraint
 - Structure: follow the existing sections; keep every rule true for every contributor
-- Belongs in `CONTEXT.md`: descriptive knowledge of the system, ie architecture, domain model, patterns, known gaps
-- Belongs in `kaye-engine`'s `docs/`: developer-facing documentation of the engine and of consumers; this repository's `docs/` holds only library-specific topics
+- Belongs in [CONTEXT.md](CONTEXT.md): descriptive knowledge of the system, ie architecture, domain model, patterns, known gaps
+- Belongs in `kaye-engine`'s [docs/](https://github.com/kami-lel/kaye-engine/tree/dev/docs): developer-facing documentation of the engine and of consumers; this repository's `docs/` holds only library-specific topics
 - Local Layer: put machine-specific or personal rules in `AGENTS.local.md`; create it if missing, never commit it
 
 ## Setup Commands
@@ -67,7 +67,7 @@ Scope each run to the area touched; run everything only before a merge.
 ## PR & Commit Instructions
 
 - branch from `dev`; work lands on `dev`
-- record every notable change under `[Unreleased]` in `CHANGELOG.md`
+- record every notable change under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md)
 - a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; the engine tag named in `pyproject.toml` must exist first
 
 ## Security Considerations
