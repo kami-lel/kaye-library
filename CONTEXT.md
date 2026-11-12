@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-09, v1.2.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-11, v1.2.2-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page.
 

@@ -8,7 +8,11 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+
 ### Changed
+
+- README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
 
 ### Deprecated
 
