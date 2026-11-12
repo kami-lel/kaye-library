@@ -43,7 +43,7 @@ def register_repo_blueprints():
     """
     register Repository Structure and the Repository README/CHANGELOG/
     CONTEXT Writers, leaving both AGENTS Writers to ``project_bp.py``,
-    and the Open Pull Request prompt
+    and the Submit Pull Request prompt
 
 
     :raises KeyError: ``style-briefness-style``, ``proj-version-extended``,
@@ -85,13 +85,13 @@ def register_repo_blueprints():
         recursively=True,
     )
 
-    # Open Pull Request: readies the branch, then words the pull request
+    # Submit Pull Request: readies the branch, then words the pull request
     # from the feature branch summary
     register_node(
         register_prompt,
         "submit-pr",
         repo_node,
-        "Open Pull Request",
+        "Submit Pull Request",
         recursively=True,
         dependencies=["ready-land-feature", "git-feature-summary"],
     )

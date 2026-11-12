@@ -519,7 +519,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                                   'numerals',
                                   '- keep proper nouns, acronyms, and '
                                   'brand styling as written'],
- 'submit-pr': ['## Open Pull Request',
+ 'submit-pr': ['## Submit Pull Request',
                'Run [Ready for Feature Landing](#ready-for-feature-landing)',
                'gh pr create --base dev'],
  'working-with-git': ['## Working with Git',

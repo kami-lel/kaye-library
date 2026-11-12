@@ -558,7 +558,7 @@ Trigger on "clean up branches," "prune merged branches," or "delete old/stale br
 
 
 
-## Open Pull Request
+## Submit Pull Request
 
 Open a pull request landing the finished [feature branch](#feature-branch) on `dev`.
 
