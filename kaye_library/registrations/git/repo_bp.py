@@ -1,25 +1,30 @@
 """
-kaye_library.registrations.repo.repo_bp.py
+kaye_library.registrations.git.repo_bp.py
 
 register Repository related blueprints
 """
 
+import functools
+
+from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
 )
 
-from .._common import register_exportable, register_node
+from .._common import register_exportable, register_node, register_prompt
 
 __all__ = ("register_repo_blueprints",)
+
+_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def _register_changelog_writer():
     """
     register Repository CHANGELOG Writer
     """
-    changelog_node = get_corpus_node("Repositories")[
+    changelog_node = get_corpus_node("Git")[
         "Repository CHANGELOG Writer"
     ]
 
@@ -48,7 +53,7 @@ def register_repo_blueprints():
     :raises KeyError: ``style-briefness-style`` or
             ``proj-version-extended`` is not yet registered
     """
-    repo_node = get_corpus_node("Repositories")
+    repo_node = get_corpus_node("Git")
 
     register_node(
         register_exportable,
@@ -73,3 +78,20 @@ def register_repo_blueprints():
     )
 
     _register_changelog_writer()
+
+    # Clean Up Branches
+    register_node(
+        register_prompt,
+        "prune-merged-branches",
+        repo_node,
+        "Clean Up Branches",
+        recursively=True,
+    )
+
+    # Open Pull Request: internal until its text is written
+    register_node(
+        _register_internal,
+        "submit-pr",
+        repo_node,
+        "Open Pull Request",
+    )

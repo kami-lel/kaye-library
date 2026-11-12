@@ -45,10 +45,13 @@ def register_kaye_library_blueprints():
     from .project.project_bp import (  # pylint: disable=C0415
         register_project_blueprints,
     )
-    from .repo.repo_bp import (  # pylint: disable=C0415
+    from .git.branch_bp import (  # pylint: disable=C0415
+        register_branch_blueprints,
+    )
+    from .git.repo_bp import (  # pylint: disable=C0415
         register_repo_blueprints,
     )
-    from .repo.workflows_bp import (  # pylint: disable=C0415
+    from .git.workflow_bp import (  # pylint: disable=C0415
         register_repo_workflow_blueprints,
     )
     from .general.general_bp import (  # pylint: disable=C0415
@@ -80,6 +83,7 @@ def register_kaye_library_blueprints():
     register_project_blueprints()
     register_repo_blueprints()
     register_repo_workflow_blueprints()
+    register_branch_blueprints()
     register_general_blueprints()
     register_git_blueprints()
     register_coder_blueprints()

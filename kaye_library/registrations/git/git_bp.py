@@ -17,15 +17,14 @@ from kaye_engine.prompt.blueprint import (
 from .._common import (
     mark_as_leaf,
     register_exportable,
-    register_leaf,
     register_node,
     register_prompt,
 )
 
 __all__ = ("register_git_blueprints",)
 
-# internal, not exportable: the feature branch definition, and building
-# blocks of the commit sense skill and its Dify prompts
+# internal, not exportable: building blocks of the commit sense skill and
+# its Dify prompts
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 _COMMIT_SENSE_PATH = ("Git", "commit sensing")
@@ -36,7 +35,8 @@ _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
 
 def register_git_blueprints():
     """
-    register every blueprint under the "Gits" corpus node
+    register the Working with Git, Resolve Merge Conflict, and commit sense
+    blueprints
     """
     git_node = get_corpus_node("Git")
 
@@ -58,39 +58,12 @@ def register_git_blueprints():
         recursively=True,
     )
 
-    # Clean Up Branches
-    register_node(
-        register_prompt,
-        "prune-merged-branches",
-        git_node,
-        "Clean Up Branches",
-        recursively=True,
-    )
-
     # Resolve Merge Conflict
     register_node(
         register_prompt,
         "resolve-merge-conflict",
         git_node,
         "Resolve Merge Conflict",
-        recursively=True,
-    )
-
-    # Feature Branch
-    register_leaf(
-        _register_internal,
-        "git-feature-branch",
-        ("Git",),
-        "feature branch",
-        display_name="Git Feature Branch",
-    )
-
-    # Open Pull Request: internal until its text is written
-    register_node(
-        _register_internal,
-        "submit-pr",
-        git_node,
-        "Open Pull Request",
         recursively=True,
     )
 

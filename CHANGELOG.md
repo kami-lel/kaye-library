@@ -23,6 +23,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Removed
 
+- `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
 - `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
 
 ### Fixed

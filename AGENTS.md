@@ -23,7 +23,7 @@ Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_
 
 ## Layout & Naming
 
-- `kaye_library/registrations/<group>/`: one folder per feature group, its corpus `.md` beside the `<group>_bp.py` and `<group>_glossary.py` that register it
+- `kaye_library/registrations/<group>/`: one folder per feature group, its corpus `.md` beside the `<group>_bp.py` and `<group>_glossary.py` that register it; `git/` holds four corpus files (`git.md`, `repo.md`, `workflow.md`, `branch.md`) under one `Git` root, each with its own `_bp.py`
 - corpus files are listed in `_CORPUS_SOURCES` (`kaye_library/__init__.py`) with the node each registers under; a source's top headings sit one level below that node
 - skill names carry no prefix; a workflow skill is `<verb>-<object>`, its verb unique among exportable names (`commit-sense`, `prune-merged-branches`); a reference skill keeps a noun lead (`style-`, `element-`, `coder-`, `glossary-`)
 - register a skill under its final name; keep no alias
