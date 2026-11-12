@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO mpv readme, more advertising
 todo support layered CONTEXT/AGENTS
 -->
 
