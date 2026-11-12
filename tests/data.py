@@ -176,7 +176,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
  'commit-sense': ['### primary summary',
                   '### per-file change sigil',
                   '### per-file summary',
-                  '### Perform Commit Sense',
+                  '### Commit Sense',
                   'Commit the indexed changes: draw the message from the '
                   'conversation'],
  'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',

@@ -75,14 +75,15 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    commit_sense["commit-sense"] --> git_sense_primary_summary["git-sense-primary-summary"]
+    commit_sense["commit-sense"] --> git_sense_core["git-sense-core"]
+    commit_sense --> git_sense_primary_summary["git-sense-primary-summary"]
     commit_sense --> git_sense_per_file_change_sigil["git-sense-per-file-change-sigil"]
     commit_sense --> git_sense_per_file_summary["git-sense-per-file-summary"]
-    git_sense_primary_summary --> git_sense_core["git-sense-core"]
+    git_sense_primary_summary --> git_sense_core
     git_sense_per_file_change_sigil --> git_sense_core
     git_sense_per_file_summary --> git_sense_core
-    git_sense_branch_merging["git-sense-branch-merging"] --> git_sense_core
-    git_sense_branch_merging --> proj_version_title["proj-version-title"]
+    commit_sense_branch_merging["commit-sense-branch-merging"] --> git_sense_core
+    commit_sense_branch_merging --> proj_version_title["proj-version-title"]
     git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
     git_sense_dify_per_file["git-sense-dify-per-file"] --> git_sense_per_file_change_sigil
     git_sense_dify_per_file --> git_sense_per_file_summary
@@ -168,6 +169,7 @@ flowchart LR
     coder --> plan_for_suite_execution["plan-for-suite-execution"]
     coder --> cascade_all_movements["cascade-all-movements"]
     coder --> halt_each_movement["halt-each-movement"]
+    working_with_git["working-with-git"] --> commit_sense["commit-sense"]
     good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
     good_morning --> recap_yesterday["recap-yesterday"]
     good_morning --> scan_event_radar_daily["scan-event-radar-daily"]

@@ -28,7 +28,7 @@ __all__ = ("register_git_blueprints",)
 # blocks of the commit sense skill and its Dify prompts
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
 
-_COMMIT_SENSE_PATH = ("Git", "Commit Sense")
+_COMMIT_SENSE_PATH = ("Git", "commit sensing")
 _SIGIL_PATH = (*_COMMIT_SENSE_PATH, "per-file change sigil")
 _NO_FIT_SIGIL_PATH = (*_SIGIL_PATH, "No Fit Fallback Sigil")
 _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
@@ -162,6 +162,7 @@ def register_git_commit_sense_blueprints():
         ("Style Guide", "Letter Case", "Letter Case Commentary Case"),
         ("Style Guide", "Style Guide Briefness Style"),
         _COMMIT_SENSE_PATH,
+        (*_COMMIT_SENSE_PATH, "Co-author Trailer"),
     ):
         core_bp = checkmark_nodes(core_bp, path)
     _register_internal(
@@ -191,12 +192,13 @@ def register_git_commit_sense_blueprints():
         )
 
     # the skill itself: the procedure section, with its own descriptors
-    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
+    commit_sense_path = (*_COMMIT_SENSE_PATH, "Commit Sense")
     _register_commit_sense_leaf(
         register_exportable,
         "commit-sense",
-        "Perform Commit Sense",
+        "Commit Sense",
         dependencies=[
+            "git-sense-core",
             "git-sense-primary-summary",
             "git-sense-per-file-change-sigil",
             "git-sense-per-file-summary",
@@ -208,11 +210,14 @@ def register_git_commit_sense_blueprints():
 
     # merge titles: the version bump and release title rules come from the
     # project blueprint
+    merging_path = (*_COMMIT_SENSE_PATH, "Commit Sense For Branch Merging")
     _register_commit_sense_leaf(
-        _register_internal,
-        "git-sense-branch-merging",
+        register_exportable,
+        "commit-sense-branch-merging",
         "Commit Sense For Branch Merging",
         dependencies=["git-sense-core", "proj-version-title"],
+        description_node=(*merging_path, "{description}"),
+        when_to_use_node=(*merging_path, "{when_to_use}"),
     )
 
     # Dify prompts

@@ -8,6 +8,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
 - `proj-version-title`: version release title as bump word, release type, version; depends on the internal `proj-version-bump`
 - `u3d-assets-management`: optional asset domain level between asset type and asset module (`Scripts/Mobs/Spider/`), with common domains (`Mobs`, `World`, `Cameras`, `Items`, `Player`, `UI`, `Combat`, `Interactables`) and audio-only `BGMs/`, `SFXs/`

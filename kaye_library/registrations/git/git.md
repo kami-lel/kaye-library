@@ -1,8 +1,6 @@
 # Git
 
 <!--
-TODO git branch merge skill: handling landing/release/catch up ~
-
 Todo working w/ git worktree main & linked
 -->
 
@@ -99,7 +97,7 @@ Trigger on any work in a Git repository: editing files, indexing, committing, br
 
 
 
-## Commit Sense
+## commit sensing
 
 You are given the result of `git diff --cached` — read it as the changes staged for commit, and distill them into their **essential meaning**.
 
@@ -110,9 +108,17 @@ Discard secondary, incidental, and repetitive edits. Report what the work was **
 Write strictly in [Briefness Style](#style-guide-briefness-style),
 and apply [Commentary Case](#letter-case-commentary-case) to every line
 
+Hold every line of a message to **72 characters at max**.
+
 Aggressively replace each match with its listed entry:
 
 (((commit-sense-shorthand)))
+
+
+
+#### Co-author Trailer
+
+If you helped write the changes for the current task, end the message with the trailer `Co-authored-by: Name <email>`. It is the **last line** of the message, nothing after.
 
 
 
@@ -253,7 +259,7 @@ document retry-budget behavior in scheduler README
 
 
 
-### Perform Commit Sense
+### Commit Sense
 
 Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached --numstat`, whose added and deleted counts per file settle each sigil's Lean and Size, then run `git commit` once with the whole message as a single `-m` argument.
 
@@ -261,11 +267,7 @@ The message has up to three parts, in order, separated by blank lines:
 
 1. Primary Message: follow [Primary Summary](#primary-summary) over the whole diff
 2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked filename with extension (eg `git.md`, never the directory path), a space, its [summary](#per-file-summary); for a single file, sigil and name only
-3. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
-
-Keep the trailer last.
-
-Use ASCII only, except the sigil.
+3. Co-author Trailer: optional; per [Co-author Trailer](#co-author-trailer)
 
 <commit-message-example>
 restructure commit sense under Git hierarchy
@@ -318,7 +320,11 @@ Trigger on "g" (git commit), the most common trigger; also "commit this", "write
 
 ### Commit Sense For Branch Merging
 
-Merge the source branch into the current branch: take the source from the conversation, run `git merge --no-ff --no-commit SOURCE` so Git writes its auto-generated message to the file `git rev-parse --git-path MERGE_MSG` names, read that message, then run `git commit` once with the whole message as a single `-m` argument. If the merge halts on conflicts, stop and report: [Resolve Merge Conflict](#resolve-merge-conflict) takes over.
+Write the commit message of a merge, usually mid-merge, where Git has already drafted one. Work on the message alone: leave the merge itself, its commit, and the index and working tree to the user.
+
+
+
+##### Merge Primary Summary
 
 A merge's primary summary is the first line of its message; the merge's source and target branch types decide it.
 
@@ -335,56 +341,60 @@ A merge's primary summary is the first line of its message; the merge's source a
 
 `BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch.
 
-Git's auto-generated message is one line naming the merged ref, eg:
-
-```text
-Merge branch 'add-search-filter' into dev
-Merge branch 'dev' into add-search-filter
-Merge remote-tracking branch 'origin/dev'
-Merge tag 'v1.4.0'
-```
-
-The message has up to four parts, in order, separated by blank lines:
-
-1. Primary Summary: from the table above, `FEATURE_BRANCH` and `VERSION` replaced by the real names; hold it to **72 characters at max**
-2. Git Message: Git's auto-generated message, kept verbatim, so the merge stays traceable to its refs
-3. Body: optional; the commits of `git log TARGET..SOURCE` as one whole, per the Body rule of [Primary Summary](#primary-summary), in up to 3 lines within 72 characters
-4. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
-
-Keep the trailer last.
-
-Use ASCII only.
-
 If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a primary summary.
 
-<merge-message-example>
-Feature Landing: add-search-filter
 
-Merge branch 'add-search-filter' into dev
 
-filter search results by tag & date; index rebuilt on filter change,
-so stale hits no longer survive an edit
+##### Merge Message Example
 
-Co-authored-by: Example Bot <bot@example.com>
-</merge-message-example>
+Prepend the primary summary and append the [Co-author Trailer](#co-author-trailer), if any, to Git's auto-generated message, kept verbatim.
 
 <merge-message-example>
 Catch Up: add-search-filter
 
 Merge branch 'dev' into add-search-filter
+
+Co-authored-by: Example Bot <bot@example.com>
 </merge-message-example>
+
+Only a Feature Landing adds a body, the [feature branch summary](#feature-branch-summary), after the primary summary.
+
+<merge-message-example>
+Feature Landing: add-search-filter
+
+filter search results by tag & date; index rebuilt on filter change,
+so stale hits no longer survive an edit
+
+Merge branch 'add-search-filter' into dev
+
+Co-authored-by: Example Bot <bot@example.com>
+</merge-message-example>
+
+
 
 ##### Post Merge Output
 
-Reply in one line with the short hash. If git rejects the merge, report its output and stop.
+Reply in one line with the primary summary written. If no merge is in progress, report that and stop.
 
 <post-merge-output-example>
-🚩🐙 Merge `a3f9c21`
+🚩🐙 Feature Landing: add-search-filter
 </post-merge-output-example>
+
+
 
 #### {avoid}
 
 Rewording, shortening, or dropping Git's auto-generated line; add to it only through the body.
+
+
+
+#### {description}
+
+Writes the message of a merge in progress: a typed primary summary prepended to Git's own message.
+
+#### {when_to_use}
+
+Trigger mid-merge, before the merge commit: "write the merge message", "message for this merge", "land the feature message", or any request to word a pending merge commit.
 
 
 
@@ -422,13 +432,27 @@ Rewording, shortening, or dropping Git's auto-generated line; add to it only thr
 
 ## feature branch
 
-<!-- TODO feature branch summary -->
-
 A **feature branch** is a branch cut from `dev` to build one feature in isolation, then merged back.
 
 Name it starting with a verb, never with a `feature/` prefix, eg `add-search-filter`, `fix-token-refresh`.
 
 Assume local `HEAD` is the feature branch. Observe it with `git log dev..HEAD`: the commits it holds that `dev` lacks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### feature branch summary
+
+<!-- TODO feature branch summary -->
 
 
 
