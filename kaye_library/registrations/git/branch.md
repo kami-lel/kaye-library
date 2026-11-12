@@ -402,14 +402,63 @@ Invoke `prune-merged-branches` as Movement 5, if any branch needs pruning. Movem
 
 ## Perform Version Release
 
-<!-- TODO write perform version release -->
+Release the project: ready it, merge it into `main`, then tag the merge, so every tag marks a release with current docs.
 
-tmp content for Perform Version Release
+
+
+#### Movement 1~7: Ready the Release
+
+Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9 & 10. When it adds its pruning step, Movement 8~10 renumber to 9~11.
+
+
+
+#### Movement 8: Commit the Work
+
+Index the changes Movement 1~7 made, then run [Commit Sense](#commit-sense) to commit them.
+
+
+
+#### Movement 9: Merge into Main
+
+Merge the current branch per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (into main):
+
+1. `git switch main`, then `git merge --no-ff --no-commit SOURCE`: a merge commit records the release, and the pause lets you word it
+2. on conflicts, run [Resolve Merge Conflict](#resolve-merge-conflict), then go on
+3. write the message, Git's drafted one read from `git rev-parse --git-path MERGE_MSG`, then `git commit` once
+
+
+
+#### Movement 10: Tag the Release
+
+Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag v1.0.0`.
+
+
+
+#### Post Release Output
+
+Reply as below. If any Movement halts, report where and why in one line, then stop.
+
+<post-release-output-example>
+🚩🐙 Minor Release Cut 1.1.0, tagged `v1.1.0`
+✍️ push `main` and `v1.1.0` to origin?
+</post-release-output-example>
+
+
 
 ### {description}
 
-tmp description Perform Version Release
+Releases the project: runs every Ready for Version Release movement, merges the branch into `main` with a typed release message, and tags the merge with its `v` version.
 
 ### {when_to_use}
 
-tmp when_to_use Perform Version Release
+Reach for this when a release should go out: "release 1.2.0," "cut a release and tag it," "merge to main and tag." Not for prepping the release alone (use the ready-release-version skill) or landing a feature branch (use the land-feature skill).
+
+
+
+### {[Claude:Skill] Usage}
+
+Invoke `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills with `skill_view`.
