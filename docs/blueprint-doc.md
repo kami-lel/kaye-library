@@ -1,174 +1,172 @@
-# Blueprint Documentation
+# kaye-library: Blueprint Documentation
 
-A **blueprint** selects the corpus nodes a skill renders. This document lists every blueprint the library registers and how to register one; how the corpus is organised is in the [corpus registration document](corpus-registration-doc.md), and the engine's blueprint model is documented in [kaye-engine](https://github.com/kami-lel/kaye-engine).
+How the library's blueprints connect; the rest is a command away: `kaye-library blueprint list`, `blueprint show NAME`, `blueprint preview NAME`, `exportable ls`. A blueprint name is contract for [consumers](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md). Rules for changing one are in [AGENTS.md](../AGENTS.md), the architecture in [CONTEXT.md](../CONTEXT.md), the overview in the [README](../README.md).
 
-## Registration
+## Blueprint Dependency Graph
 
-Blueprints register only in `kaye_library/registrations/<group>/<group>_bp.py`, through the helpers of `registrations/_common.py`, which bind the `kaye-library` consumer:
+Every `dependencies=[...]` edge a library blueprint declares; `A --> B` reads "A depends on B".
 
-| helper | registers |
-|---|---|
-| `register_exportable` | an exportable skill, invokable by the user and the assistant |
-| `register_prompt` | an exportable skill the assistant does not surface on its own (`llm_invokable=False`) |
-| `register_node` | a node (optionally recursive) under a slug, through any of the above |
-| `register_leaf` | one leaf with its ancestor headings, descriptors included |
-| `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
+#### Agentic & Coder
 
-```python
-from .._common import register_exportable, register_node
-
-register_node(
-    register_exportable,
-    "style-good-writing",
-    style_node,
-    "Style Guide Good Writing",
-)
+```mermaid
+flowchart LR
+    halt_each_movement --> agent_movement_and_suite["agent-movement-and-suite"]
+    cascade_all_movements --> agent_movement_and_suite
+    plan_for_suite --> agent_movement_and_suite
+    plan_for_suite_execution --> agent_movement_and_suite
+    sync_unit_test --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
+    sync_unit_test --> element_triage_tags["element-triage-tags"]
+    review_gaps --> element_triage_tags
+    coder --> element_triage_tags
+    coder --> repo_structure["repo-structure"]
+    coder --> proj_context_engineering["proj-context-engineering"]
+    coder --> style_briefness_style["style-briefness-style"]
+    coder --> style_letter_case_snake_case["style-letter-case-snake-case"]
+    coder --> style_letter_case_all_caps["style-letter-case-all-caps"]
+    coder_command_usage_message --> style_letter_case_all_caps
+    coder_cpp --> coder_c["coder-c"]
+    coder_ue --> coder_cpp
+    u3d --> coder_c_sharp["coder-c-sharp"]
+    u3d_coding --> coder_c_sharp
+    u3d_mb --> style_briefness_style
 ```
 
-Registration order lives in `kaye_library/registrations/__init__.py`: a blueprint is registered after every blueprint it depends on. A dependency name is checked at registration, so a missing one raises.
+#### Repository & Project
 
-A skill-backing section carries `{description}` and `{when_to_use}` sidecars; a blueprint reads them as its descriptors.
+```mermaid
+flowchart LR
+    proj_agents_writer --> proj_agents["proj-agents"]
+    repo_agents_writer --> proj_agents
+    proj_doc_writer --> proj_docs["proj-docs"]
+    repo_doc_writer --> proj_docs
+    proj_doc_writer --> style_good_writing["style-good-writing"]
+    repo_doc_writer --> style_good_writing
+    equip_proj_for_agent --> proj_context_engineering["proj-context-engineering"]
+    repo_readme_writer --> style_briefness_style["style-briefness-style"]
+    repo_changelog_writer --> style_briefness_style
+    repo_changelog_writer --> proj_version_extended["proj-version-extended"]
+    repo_changelog_writer --> style_good_writing
+    ready_release_version --> proj_version_extended
+    initialize_repo --> style_good_writing
+    maintenance_before_compact --> style_good_writing
+    condense_agents_and_context --> repo_agents_writer
+    condense_agents_and_context --> repo_context_writer["repo-context-writer"]
+    create_project_agents --> proj_agents_writer
+    maintain_project_agents --> proj_agents_writer
+    create_project_docs --> proj_doc_writer
+    maintain_project_docs --> proj_doc_writer
+    create_readme --> repo_readme_writer
+    maintain_readme --> repo_readme_writer
+    create_readme --> style_good_writing
+    maintain_readme --> style_good_writing
+    create_changelog --> repo_changelog_writer
+    maintain_changelog --> repo_changelog_writer
+    condense_changelog --> repo_changelog_writer
+    create_repo_agents --> repo_agents_writer
+    maintain_repo_agents --> repo_agents_writer
+    create_repo_docs --> repo_doc_writer
+    maintain_repo_docs --> repo_doc_writer
+```
 
-## Exportable Skills
+#### Git
 
-Each skill is addressed as `kaye-library:<name>` once installed as a plugin. These are called by the user only, the assistant never surfacing them on its own: `initialize-repo`, `maintenance-before-compact`, `ready-land-feature`, `ready-release-version`, `prune-merged-branches`, `resolve-merge-conflict`, `plan-for-suite`, and `review-gaps`.
+```mermaid
+flowchart LR
+    commit_sense["commit-sense"] --> git_sense_primary_summary["git-sense-primary-summary"]
+    commit_sense --> git_sense_per_file_change_sigil["git-sense-per-file-change-sigil"]
+    commit_sense --> git_sense_per_file_summary["git-sense-per-file-summary"]
+    git_sense_primary_summary --> git_sense_core["git-sense-core"]
+    git_sense_per_file_change_sigil --> git_sense_core
+    git_sense_per_file_summary --> git_sense_core
+    git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
+    git_sense_dify_per_file["git-sense-dify-per-file"] --> git_sense_per_file_change_sigil
+    git_sense_dify_per_file --> git_sense_per_file_summary
+```
 
-### Agentic
+#### Meta Prompt & Amanuensis
 
-| skill | depends on |
-|---|---|
-| `agent-movement-and-suite` | none |
-| `agent-movement-and-suite-with-count` | none |
-| `halt-each-movement` | `agent-movement-and-suite` |
-| `cascade-all-movements` | `agent-movement-and-suite` |
+```mermaid
+flowchart LR
+    write_llm_prompt --> meta_prompt["meta-prompt"]
+    write_for_skill["write-for-skill"] --> meta_prompt
+    write_skill_description --> write_for_skill
+    write_skill_when_to_use --> write_for_skill
+    write_skill_description_and_when_to_use --> write_skill_description
+    write_skill_description_and_when_to_use --> write_skill_when_to_use
+    amanuensis_chicago_note --> style_markdown_footnotes["style-markdown-footnotes"]
+    bibliographer --> style_markdown_footnotes
+    assemble_bibliography --> amanuensis_chicago_bibliography["amanuensis-chicago-bibliography"]
+    dispositor --> style_heading_separation["style-heading-separation"]
+    dispositor --> style_good_writing["style-good-writing"]
+    scholiast --> dispositor
+    minutes_clerk["minutes-clerk"] --> dispositor
+    config_writer["config-writer"] --> dispositor
+    config_writer --> style_briefness_style["style-briefness-style"]
+    keybinding_writer["keybinding-writer"] --> config_writer
+```
 
-### Style Guide
+#### Secretary
 
-`style-briefness-style`, `style-good-writing`, `style-markdown` (assistant only), `style-markdown-extended`, `style-markdown-footnotes`, `style-markdown-endnotes`, `style-heading-separation` with `-long` and `-medium`, and the letter cases `style-letter-case-snake-case`, `-kebab-case`, `-pascal-case`, `-camel-case`, `-all-caps`, `-title-case`, `-commentary-case`. None depends on another skill.
+```mermaid
+flowchart LR
+    field_date_time["secretary-report-info-field-date-time"] --> element_dt_month_day_format["element-dt-month-day-format"]
+    field_date_time --> element_dt_time_format["element-dt-time-format"]
+    field_deadline["secretary-report-info-field-deadline"] --> element_dt_month_day_format
+    field_deadline --> element_dt_time_format
+    element_dt_watch_day["element-dt-watch-day"] --> element_dt_time_format
+    secretary_event_brief_format["secretary-event-brief-format"] --> style_briefness_style["style-briefness-style"]
+    secretary_event_brief_format --> field_date_time
+    secretary_event_brief_format --> field_location["...-field-location"]
+    secretary_event_brief_format --> field_link["...-field-link"]
+    secretary_event_brief_format --> field_ticket["...-field-ticket"]
+    sweep_email_inbox["sweep-email-inbox"] --> field_deadline
+    sweep_email_inbox --> field_link
+    sweep_email_inbox --> field_source["...-field-source"]
+    scan_event_radar_daily["scan-event-radar-daily"] --> secretary_event_brief_format
+    scan_event_radar_weekly["scan-event-radar-weekly"] --> secretary_event_brief_format
+    scan_event_radar_daily --> agent_unreachable_task_workaround["agent-unreachable-task-workaround"]
+    scan_event_radar_weekly --> agent_unreachable_task_workaround
+    hunt_job_opportunity["hunt-job-opportunity"] --> agent_unreachable_task_workaround
+    hunt_job_opportunity --> style_briefness_style
+    hunt_job_opportunity --> field_date_time
+    hunt_job_opportunity --> field_deadline
+    hunt_job_opportunity --> field_location
+    hunt_job_opportunity --> field_link
+    hunt_job_opportunity --> field_source
+    recap_yesterday["recap-yesterday"] --> element_dt_watch_day
+    recap_today["recap-today"] --> element_dt_watch_day
+    recap_yesterday --> style_briefness_style
+    recap_today --> style_briefness_style
+```
 
-### Elements
+#### Standalone Chat
 
-`element-dt-year-month-day-format`, `element-dt-month-day-format`, `element-dt-time-format`, `element-dt-watch-day` (depends on `element-dt-time-format`), `element-dt-watch-week`, `element-numerical-values-with-units`, `element-triage-tags`, `sort-and-group-triage-tag`, `element-international-phonetic-alphabet`, `element-alphabetical-sequence-numbering`.
+```mermaid
+flowchart LR
+    chat --> style_markdown["style-markdown"]
+    chat --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
+    element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
+    chat_coder["chat-coder"] --> chat
+    chat_coder --> coder
+    rapid --> style_markdown
+```
 
-### Projects
+## Blueprint Invocation Graph
 
-| skill | depends on |
-|---|---|
-| `proj-version` (never invoked on its own), `proj-version-extended` | none |
-| `proj-agents-writer`, `repo-agents-writer` | internal `proj-agents` |
-| `proj-doc-writer`, `repo-doc-writer` | internal `proj-docs`, `style-good-writing` |
-| `equip-proj-for-agent` | internal `proj-context-engineering` |
-| `create-project-agents`, `maintain-project-agents` | `proj-agents-writer` |
-| `create-project-docs`, `maintain-project-docs` | `proj-doc-writer` |
+Every `Invoke ... skill via Skill tool` call; `A --> B` reads "A invokes B" at runtime.
 
-### Repositories
-
-| skill | depends on |
-|---|---|
-| `repo-structure`, `repo-context-writer` | none |
-| `repo-readme-writer` | `style-briefness-style` |
-| `repo-changelog-writer` | `style-briefness-style`, `proj-version-extended`, `style-good-writing` |
-| `create-readme`, `maintain-readme` | `repo-readme-writer`, `style-good-writing` |
-| `create-changelog`, `maintain-changelog`, `condense-changelog` | `repo-changelog-writer` |
-| `create-repo-agents`, `maintain-repo-agents` | `repo-agents-writer` |
-| `condense-agents-and-context` | `repo-agents-writer`, `repo-context-writer` |
-| `create-repo-docs`, `maintain-repo-docs` | `repo-doc-writer` |
-| `initialize-repo`, `maintenance-before-compact` | `style-good-writing` |
-| `ready-land-feature` | none |
-| `ready-release-version` | `proj-version-extended` |
-| `land-feature`, `release-version` | internal, not exported: stubs awaiting text |
-
-### Git
-
-| skill | notes |
-|---|---|
-| `working-with-git` | the `Working with Git` section: Git terms, working alongside the user, actions needing explicit approval |
-| `working-with-p4v` | the `Working with Perforce` section: each Perforce term followed by its Git equivalent in `()` |
-| `commit-sense` | the `Perform Commit Sense` section's text, without any co-author persona; a package may replace it with `override_exportable` |
-| `resolve-merge-conflict`, `prune-merged-branches` | called by the user only |
-| `submit-pr` | internal, not exported: stub awaiting text |
-
-### Coder
-
-| skill | depends on |
-|---|---|
-| `coder` | the Coder rules, glossaries, and triage tags, with no conversation rules; a package may replace it with `override_exportable` |
-| `plan-for-suite` | `agent-movement-and-suite` |
-| `plan-for-suite-execution` | `agent-movement-and-suite` |
-| `sync-unit-test` | `agent-movement-and-suite-with-count`, `element-triage-tags` |
-| `review-gaps` | `element-triage-tags` |
-| `coder-comment-banner-in-code-comment`, `coder-comment-banner-in-print-out` | none |
-| `coder-command-usage-message` | `style-letter-case-all-caps` |
-| `coder-bash-shell`, `coder-bash-script`, `coder-powershell`, `coder-c`, `coder-c-sharp`, `coder-gdscript`, `coder-html`, `coder-javascript-and-typescript`, `coder-python`, `coder-python-docstring-style`, `coder-python-testing-guidelines` | none |
-| `coder-cpp` | `coder-c` |
-| `coder-ue` | `coder-cpp` |
-
-### Unity Engine
-
-| skill | depends on |
-|---|---|
-| `u3d`, `u3d-coding` | `coder-c-sharp` |
-| `u3d-mb` | `style-briefness-style` |
-| `u3d-naming`, `u3d-common-type-and-suffix`, `u3d-if`, `u3d-so`, `u3d-assets-management`, `u3d-pfb`, `u3d-owner-driven-activation`, `u3d-game-tuning` | none |
-
-### Secretary
-
-Every skill is called by the user only. The glossaries `secretary-calendar-name`, `secretary-gtd-project` and `secretary-email-category` ship with the library as generic defaults, so those placeholders resolve when a skill runs alone. A glossary or substitution that holds a value only a consumer can know (`secretary-work-color-legend`, `secretary-email-authuser`) is registered by that consumer; run alone, the library leaves that placeholder literal.
-
-| skill | depends on |
-|---|---|
-| `draft-email` | none; drafts and processes emails and messages |
-| `sweep-email-inbox` | the report info fields deadline, link, source; reads unread mail, marks it read, sorts it |
-| `scan-event-radar-daily`, `scan-event-radar-weekly` | `secretary-event-brief-format`, `agent-unreachable-task-workaround`; format the day's or week's events |
-| `secretary-event-brief-format` | `style-briefness-style`, the date-time, location, link, ticket fields; the shared event brief rules |
-| `push-event-to-calendar`, `pull-event-from-calendar` | none; add or retrieve calendar events |
-| `push-task-to-gtd`, `pull-task-from-gtd` | none; add or retrieve tasks in a GTD app |
-| `hunt-job-opportunity` | `agent-unreachable-task-workaround`, `style-briefness-style`, the date-time, deadline, location, link, source fields; gathers job openings into per-job briefs |
-| `good-morning`, `good-week` | none; the daily morning and weekly look-ahead check-ins that invoke the other Secretary skills |
-| `recap-yesterday`, `recap-today` | `style-briefness-style`, `element-dt-watch-day`; one-line daily recaps |
-
-### Meta Prompt
-
-| skill | depends on |
-|---|---|
-| `write-llm-prompt` | `meta-prompt`; drafts and improves LLM system prompts, called by the user only |
-| `write-skill-description` | `write-for-skill`; writes a skill's `description` field |
-| `write-skill-when-to-use` | `write-for-skill`; writes a skill's `when_to_use` field |
-| `write-skill-description-and-when-to-use` | `write-skill-description`, `write-skill-when-to-use` |
-
-### Amanuensis
-
-| skill | depends on |
-|---|---|
-| `amanuensis-chicago-note` | `style-markdown-footnotes`; Chicago-style notes-bibliography footnotes |
-| `amanuensis-chicago-bibliography` | none; Chicago-style bibliography entries |
-| `bibliographer` | `style-markdown-footnotes`; coordinates citation and bibliography assembly, called by the user only |
-| `assemble-bibliography` | `amanuensis-chicago-bibliography`; gathers and creates a bibliography list |
-| `dispositor` | `style-heading-separation`, `style-good-writing`; maintains structured, hierarchical notes |
-| `scholiast`, `minutes-clerk` | `dispositor`; academic reading notes, meeting minutes |
-| `config-writer` | `dispositor`, `style-briefness-style`; transcribes an app's or system's configuration into a structured note |
-| `keybinding-writer` | `config-writer`; transcribes keybindings into a structured note |
-| `redactor` | none; revises text while preserving intent and style |
-
-### Glossary Groups
-
-Each exportable glossary is also a skill named `glossary-<name>`; see the [glossary document](glossary-doc.md).
-
-## Internal Blueprints
-
-Never exported; they exist for a skill, or a package, to build on.
-
-| blueprint | holds |
-|---|---|
-| `style` | the whole Style Guide |
-| `rapid` | Markdown rules for quick, mechanical tasks with no persona or role |
-| `proj-agents`, `proj-docs`, `proj-context-engineering` | text shared by the writers and workflows above |
-| `element-alphabetical-sequence-numbering-in-chat` | the chat form of sequence numbering |
-| `git-feature-branch` | the feature branch definition |
-| `agent-unreachable-task-workaround` | the procedure for a task whose needed information cannot be obtained |
-| `git-sense-core`, `git-sense-primary-summary`, `git-sense-per-file-change-sigil`, `git-sense-per-file-summary` | building blocks of commit sense |
-| `git-sense-dify-primary`, `git-sense-dify-per-file` | commit sense prompts split for a hosted workflow |
-| `secretary-report-info-field-date-time`, `-deadline`, `-location`, `-link`, `-ticket`, `-source` | the Common Report Info Field leaves the Secretary reports merge |
-| `meta-prompt`, `write-for-skill` | shared bases of the Meta Prompt writers and the skill-metadata writers |
-
-A package builds its own skill over an internal blueprint by listing it as a dependency, or over an exportable's blueprint object for a skill it takes over, as in [the boundary document](boundary-doc.md#taking-a-skill-over).
+```mermaid
+flowchart LR
+    coder_profiles["coder-* language profiles"] --> coder
+    coder_ue["coder-ue"] --> coder_c["coder-c"]
+    coder --> sync_unit_test["sync-unit-test"]
+    coder --> plan_for_suite_execution["plan-for-suite-execution"]
+    coder --> cascade_all_movements["cascade-all-movements"]
+    coder --> halt_each_movement["halt-each-movement"]
+    good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
+    good_morning --> recap_yesterday["recap-yesterday"]
+    good_morning --> scan_event_radar_daily["scan-event-radar-daily"]
+    good_morning --> hunt_job_opportunity["hunt-job-opportunity"]
+    good_week["good-week"] --> scan_event_radar_weekly["scan-event-radar-weekly"]
+    good_week --> hunt_job_opportunity
+```

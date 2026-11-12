@@ -1,8 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo mpv readme, more advertising
-Todo readme contains github links to engine's doc
 todo support layered CONTEXT/AGENTS
 -->
 
@@ -10,11 +8,17 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+
 ### Changed
+
+- README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
 
 ### Deprecated
 
 ### Removed
+
+- `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
 
 ### Fixed
 
