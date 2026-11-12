@@ -81,6 +81,8 @@ flowchart LR
     git_sense_primary_summary --> git_sense_core["git-sense-core"]
     git_sense_per_file_change_sigil --> git_sense_core
     git_sense_per_file_summary --> git_sense_core
+    git_sense_branch_merging["git-sense-branch-merging"] --> git_sense_core
+    git_sense_branch_merging --> proj_version_title["proj-version-title"]
     git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
     git_sense_dify_per_file["git-sense-dify-per-file"] --> git_sense_per_file_change_sigil
     git_sense_dify_per_file --> git_sense_per_file_summary

@@ -28,7 +28,7 @@ __all__ = ("register_git_blueprints",)
 # blocks of the commit sense skill and its Dify prompts
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
 
-_COMMIT_SENSE_PATH = ("Git", "commit sense")
+_COMMIT_SENSE_PATH = ("Git", "Commit Sense")
 _SIGIL_PATH = (*_COMMIT_SENSE_PATH, "per-file change sigil")
 _NO_FIT_SIGIL_PATH = (*_SIGIL_PATH, "No Fit Fallback Sigil")
 _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
@@ -204,6 +204,15 @@ def register_git_commit_sense_blueprints():
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
         description_node=(*commit_sense_path, "{description}"),
         when_to_use_node=(*commit_sense_path, "{when_to_use}"),
+    )
+
+    # merge titles: the version bump and release title rules come from the
+    # project blueprint
+    _register_commit_sense_leaf(
+        _register_internal,
+        "git-sense-branch-merging",
+        "Commit Sense For Branch Merging",
+        dependencies=["git-sense-core", "proj-version-title"],
     )
 
     # Dify prompts

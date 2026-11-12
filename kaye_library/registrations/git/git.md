@@ -99,7 +99,7 @@ Trigger on any work in a Git repository: editing files, indexing, committing, br
 
 
 
-## commit sense
+## Commit Sense
 
 You are given the result of `git diff --cached` — read it as the changes staged for commit, and distill them into their **essential meaning**.
 
@@ -316,6 +316,36 @@ Trigger on "g" (git commit), the most common trigger; also "commit this", "write
 
 
 
+### Commit Sense For Branch Merging
+
+A merge title is the first line of a merge message; the merge's source and target branch types decide it.
+
+| From | Into | Title |
+|---|---|---|
+| feature | dev | `Feature Landing: FEATURE_BRANCH` |
+| dev | feature | `Catch Up: FEATURE_BRANCH` |
+| dev | main | per [Semantic Version Title](#semantic-version-title) |
+| hotfix | main | `BUMP Hotfix Release: VERSION` |
+| release | main | `BUMP Release Cut: VERSION` |
+| hotfix | dev | `Hotfix Backport from: VERSION` |
+| release | dev | `Release Backport from: VERSION` |
+| main | dev | `Sync Backport from: VERSION` |
+
+`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -346,35 +376,6 @@ A **feature branch** is a branch cut from `dev` to build one feature in isolatio
 Name it starting with a verb, never with a `feature/` prefix, eg `add-search-filter`, `fix-token-refresh`.
 
 Assume local `HEAD` is the feature branch. Observe it with `git log dev..HEAD`: the commits it holds that `dev` lacks.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## branch merge title
-
-A merge title is the first line of a merge message; the merge's source and target branch types decide it.
-
-| From | Into | Title |
-|---|---|---|
-| dev | main | version release: write per [Semantic Version Title](#semantic-version-title) |
-| hotfix | main | `<Bump> Hotfix Release: <version>` |
-| release | main | `<Bump> Release Cut: <version>` |
-| hotfix | dev | `Hotfix Backport from: <version>` |
-| release | dev | `Release Backport from: <version>` |
-| main | dev | `Sync Backport from: <version>` |
-
-`<Bump>` is the [bump word](#semantic-version-bump); `<version>` comes from the source branch. Write the bare phrase alone when no version resolves.
-
 
 
 
