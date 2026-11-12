@@ -53,12 +53,9 @@ def register_branch_blueprints():
         dependencies=["proj-version-extended"],
     )
 
-    # TODO land feature & release version hold placeholder text, so both
-    # stay internal (not exportable) until their text is written
-
     # Land Feature
     register_node(
-        _register_internal,
+        register_prompt,
         "land-feature",
         git_node,
         "Perform Feature Landing",
@@ -66,7 +63,7 @@ def register_branch_blueprints():
 
     # Release Version
     register_node(
-        _register_internal,
+        register_prompt,
         "release-version",
         git_node,
         "Perform Version Release",
