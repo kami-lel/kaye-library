@@ -126,7 +126,6 @@ def register_git_commit_sense_blueprints():
         ("Style Guide", "Letter Case", "Letter Case Commentary Case"),
         ("Style Guide", "Style Guide Briefness Style"),
         _COMMIT_SENSE_PATH,
-        (*_COMMIT_SENSE_PATH, "Co-author Trailer"),
     ):
         core_bp = checkmark_nodes(core_bp, path)
     _register_internal(
