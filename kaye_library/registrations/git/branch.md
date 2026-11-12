@@ -253,7 +253,12 @@ Run only the approved actions, in order:
 - ⓐ `git push origin dev`
 - ⓑ `git branch -d FEATURE`, never `-D`
 
-Reply one line per action done.
+Reply once, after all are done:
+
+<post-push-delete-output-example>
+🚩🐙 pushed `dev` to origin
+🚩🐙 deleted `add-search-filter`
+</post-push-delete-output-example>
 
 
 
@@ -448,12 +453,12 @@ Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag 
 
 #### Movement 11: Report and Ask Approval
 
-Reply as below, asking 2 approvals: push `main` and the tag, and prune merged branches. If any Movement halts, report where and why in one line, then stop.
+Reply as below, asking 2 approvals: push `main` and the tag, and prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)). If any Movement halts, report where and why in one line, then stop.
 
 <post-release-output-example>
-🚩🐙 Minor Release Cut 1.1.0, tagged `v1.1.0`
+🚩🐙 Minor Release Cut 1.1.0
 ✍️ ⓐ push `main` and `v1.1.0` to origin?
-✍️ ⓑ prune merged branches?
+✍️ ⓑ prune merged branches `add-search-filter`, `fix-login-redirect`?
 </post-release-output-example>
 
 
@@ -465,7 +470,12 @@ Run only the approved actions, in order:
 - ⓐ `git push origin main vVERSION`
 - ⓑ invoke `prune-merged-branches`
 
-Reply one line per action done.
+Reply once, after all are done:
+
+<post-push-prune-output-example>
+🚩🐙 pushed `main` and `v1.1.0` to origin
+🚩🐙 pruned `add-search-filter`, `fix-login-redirect`
+</post-push-prune-output-example>
 
 
 
