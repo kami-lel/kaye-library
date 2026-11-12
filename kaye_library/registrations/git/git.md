@@ -331,8 +331,8 @@ The first line of a merge's commit message is decided by the merge's source and 
 
 | From | Into | Message First Line |
 |---|---|---|
-| feature | dev | `Feature Landing: HEADLINE` |
-| dev | feature | `Catch Up` |
+| feature | dev | `Feature Landing: FEATURE_BRANCH` |
+| dev | feature | `Catch Up: FEATURE_BRANCH` |
 | dev | main | per [Semantic Version Title](#semantic-version-title) |
 | hotfix | main | `BUMP Hotfix Release VERSION` |
 | release | main | `BUMP Release Cut VERSION` |
@@ -340,7 +340,7 @@ The first line of a merge's commit message is decided by the merge's source and 
 | release | dev | `Release Backport from VERSION` |
 | main | dev | `Sync Backport from VERSION` |
 
-`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch; `HEADLINE` is the headline of the [feature branch summary](#feature-branch-summary).
+`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch; `FEATURE_BRANCH` is the name of the feature branch.
 
 If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a first line.
 
@@ -358,13 +358,8 @@ Merge branch 'release-1.1.0' into main
 Co-authored-by: Example Bot <bot@example.com>
 </merge-message-example>
 
-Only a Feature Landing adds a body: the changes of the [feature branch summary](#feature-branch-summary), after the first line, which already carries its headline; every other merge keeps Git's message as is.
-
 <merge-message-example>
-Feature Landing: add status filter to Search page
-
-- filter results by status: no full-list scan for open items
-- persist chosen filter in URL: reload/shared link keeps view
+Feature Landing: add-search-filter
 
 Merge branch 'add-search-filter' into dev
 
@@ -378,14 +373,14 @@ Co-authored-by: Example Bot <bot@example.com>
 Reply in one line with the first line written. If no merge is in progress, report that and stop.
 
 <post-merge-output-example>
-🚩🐙 Feature Landing: add status filter to Search page
+🚩🐙 Feature Landing: add-search-filter
 </post-merge-output-example>
 
 
 
 #### {avoid}
 
-Rewording, shortening, or dropping Git's auto-generated line; add to it only through the body.
+Rewording, shortening, or dropping Git's auto-generated line.
 
 
 
