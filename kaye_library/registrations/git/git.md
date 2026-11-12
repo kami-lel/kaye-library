@@ -1,7 +1,9 @@
 # Git
 
 <!--
-Todo git branch merge skill: handling landing/release/catch up ~
+TODO git branch merge skill: handling landing/release/catch up ~
+TODO define version title
+
 Todo working w/ git worktree main & linked
 -->
 
@@ -338,7 +340,7 @@ Trigger on "g" (git commit), the most common trigger; also "commit this", "write
 
 ## feature branch
 
-<!-- Todo feature branch summary -->
+<!-- TODO feature branch summary -->
 
 A **feature branch** is a branch cut from `dev` to build one feature in isolation, then merged back.
 
@@ -479,7 +481,7 @@ track resolution with a markdown task list — one item per unmerged path, check
 
 ## Open Pull Request
 
-<!-- Todo create pull request skill -->
+<!-- TODO create pull request skill -->
 
 tmp content for Open Pull Request
 

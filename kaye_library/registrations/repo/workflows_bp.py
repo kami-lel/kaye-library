@@ -147,7 +147,7 @@ def register_repo_workflow_blueprints():
         dependencies=["style-good-writing"],
     )
 
-    # Todo land feature & release version hold placeholder text, so both
+    # TODO land feature & release version hold placeholder text, so both
     # stay internal (not exportable) until their text is written
 
     # Land Feature
