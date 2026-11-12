@@ -178,7 +178,11 @@ def register_git_commit_sense_blueprints():
         register_exportable,
         "commit-sense-branch-merging",
         "Commit Sense For Branch Merging",
-        dependencies=["git-sense-core", "proj-version-title"],
+        dependencies=[
+            "git-sense-core",
+            "git-feature-summary",
+            "proj-version-title",
+        ],
         description_node=(*merging_path, "{description}"),
         when_to_use_node=(*merging_path, "{when_to_use}"),
     )

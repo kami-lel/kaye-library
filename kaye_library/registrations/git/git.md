@@ -325,46 +325,46 @@ Write the commit message of a merge, usually mid-merge, where Git has already dr
 
 
 
-##### Merge Primary Summary
+##### message first line
 
-A merge's primary summary is the first line of its message; the merge's source and target branch types decide it.
+The first line of a merge's commit message is decided by the merge's source and target branch types.
 
-| From | Into | Primary Summary |
+| From | Into | Message First Line |
 |---|---|---|
-| feature | dev | `Feature Landing: FEATURE_BRANCH` |
-| dev | feature | `Catch Up: FEATURE_BRANCH` |
+| feature | dev | `Feature Landing: HEADLINE` |
+| dev | feature | `Catch Up` |
 | dev | main | per [Semantic Version Title](#semantic-version-title) |
-| hotfix | main | `BUMP Hotfix Release: VERSION` |
-| release | main | `BUMP Release Cut: VERSION` |
-| hotfix | dev | `Hotfix Backport from: VERSION` |
-| release | dev | `Release Backport from: VERSION` |
-| main | dev | `Sync Backport from: VERSION` |
+| hotfix | main | `BUMP Hotfix Release VERSION` |
+| release | main | `BUMP Release Cut VERSION` |
+| hotfix | dev | `Hotfix Backport from VERSION` |
+| release | dev | `Release Backport from VERSION` |
+| main | dev | `Sync Backport from VERSION` |
 
-`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch.
+`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch; `HEADLINE` is the headline of the [feature branch summary](#feature-branch-summary).
 
-If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a primary summary.
+If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a first line.
 
 
 
-##### Merge Message Example
+##### merge message example
 
-Prepend the primary summary and append the [Co-author Trailer](#co-author-trailer), if any, to Git's auto-generated message, kept verbatim.
+Prepend the first line and append the [Co-author Trailer](#co-author-trailer), if any, to Git's auto-generated message, kept verbatim.
 
 <merge-message-example>
-Catch Up: add-search-filter
+Minor Release Cut 1.1.0
 
-Merge branch 'dev' into add-search-filter
+Merge branch 'release-1.1.0' into main
 
 Co-authored-by: Example Bot <bot@example.com>
 </merge-message-example>
 
-Only a Feature Landing adds a body, the [feature branch summary](#feature-branch-summary), after the primary summary.
+Only a Feature Landing adds a body: the changes of the [feature branch summary](#feature-branch-summary), after the first line, which already carries its headline; every other merge keeps Git's message as is.
 
 <merge-message-example>
-Feature Landing: add-search-filter
+Feature Landing: add status filter to Search page
 
-filter search results by tag & date; index rebuilt on filter change,
-so stale hits no longer survive an edit
+- filter results by status: no full-list scan for open items
+- persist chosen filter in URL: reload/shared link keeps view
 
 Merge branch 'add-search-filter' into dev
 
@@ -373,12 +373,12 @@ Co-authored-by: Example Bot <bot@example.com>
 
 
 
-##### Post Merge Output
+##### post merge output
 
-Reply in one line with the primary summary written. If no merge is in progress, report that and stop.
+Reply in one line with the first line written. If no merge is in progress, report that and stop.
 
 <post-merge-output-example>
-🚩🐙 Feature Landing: add-search-filter
+🚩🐙 Feature Landing: add status filter to Search page
 </post-merge-output-example>
 
 
@@ -391,7 +391,7 @@ Rewording, shortening, or dropping Git's auto-generated line; add to it only thr
 
 #### {description}
 
-Writes the message of a merge in progress: a typed primary summary prepended to Git's own message.
+Writes the message of a merge in progress: a typed first line prepended to Git's own message.
 
 #### {when_to_use}
 

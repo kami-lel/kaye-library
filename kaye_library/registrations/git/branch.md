@@ -40,6 +40,8 @@ Learn what the finished [feature branch](#feature-branch) delivers and why:
 
 ### feature branch summary
 
+Only for a Feature Landing: the body of its merge message, per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging).
+
 Given [Discover Feature Branch](#discover-feature-branch), write the summary the reviewer merging into `dev` decides from, so lead with the outcome:
 
 - headline: one verb-first sentence on what the branch delivers
