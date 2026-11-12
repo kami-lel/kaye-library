@@ -524,6 +524,40 @@ Deletes local branches already merged into the current branch, with a report of 
 ### {when_to_use}
 
 Trigger on "clean up branches," "prune merged branches," or "delete old/stale branches."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Open Pull Request
 
 <!-- TODO create pull request skill -->
