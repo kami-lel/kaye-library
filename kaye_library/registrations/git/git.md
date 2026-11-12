@@ -2,7 +2,6 @@
 
 <!--
 TODO git branch merge skill: handling landing/release/catch up ~
-TODO define version title
 
 Todo working w/ git worktree main & linked
 -->
