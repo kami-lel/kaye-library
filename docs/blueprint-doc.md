@@ -10,65 +10,65 @@ Every `dependencies=[...]` edge a library blueprint declares; `A --> B` reads "A
 
 ```mermaid
 flowchart LR
-    halt_each_movement --> agent_movement_and_suite["agent-movement-and-suite"]
-    cascade_all_movements --> agent_movement_and_suite
-    plan_for_suite --> agent_movement_and_suite
-    plan_for_suite_execution --> agent_movement_and_suite
-    sync_unit_test --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
+    halt_each_movement["halt-each-movement"] --> agent_movement_and_suite["agent-movement-and-suite"]
+    cascade_all_movements["cascade-all-movements"] --> agent_movement_and_suite
+    plan_for_suite["plan-for-suite"] --> agent_movement_and_suite
+    plan_for_suite_execution["plan-for-suite-execution"] --> agent_movement_and_suite
+    sync_unit_test["sync-unit-test"] --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
     sync_unit_test --> element_triage_tags["element-triage-tags"]
-    review_gaps --> element_triage_tags
+    review_gaps["review-gaps"] --> element_triage_tags
     coder --> element_triage_tags
     coder --> repo_structure["repo-structure"]
     coder --> proj_context_engineering["proj-context-engineering"]
     coder --> style_briefness_style["style-briefness-style"]
     coder --> style_letter_case_snake_case["style-letter-case-snake-case"]
     coder --> style_letter_case_all_caps["style-letter-case-all-caps"]
-    coder_command_usage_message --> style_letter_case_all_caps
-    coder_cpp --> coder_c["coder-c"]
-    coder_ue --> coder_cpp
+    coder_command_usage_message["coder-command-usage-message"] --> style_letter_case_all_caps
+    coder_cpp["coder-cpp"] --> coder_c["coder-c"]
+    coder_ue["coder-ue"] --> coder_cpp
     u3d --> coder_c_sharp["coder-c-sharp"]
-    u3d_coding --> coder_c_sharp
-    u3d_mb --> style_briefness_style
+    u3d_coding["u3d-coding"] --> coder_c_sharp
+    u3d_mb["u3d-mb"] --> style_briefness_style
 ```
 
 #### Repository & Project
 
 ```mermaid
 flowchart LR
-    proj_agents_writer --> proj_agents["proj-agents"]
-    repo_agents_writer --> proj_agents
-    proj_doc_writer --> proj_docs["proj-docs"]
-    repo_doc_writer --> proj_docs
+    proj_agents_writer["proj-agents-writer"] --> proj_agents["proj-agents"]
+    repo_agents_writer["repo-agents-writer"] --> proj_agents
+    proj_doc_writer["proj-doc-writer"] --> proj_docs["proj-docs"]
+    repo_doc_writer["repo-doc-writer"] --> proj_docs
     proj_doc_writer --> style_good_writing["style-good-writing"]
     repo_doc_writer --> style_good_writing
-    equip_proj_for_agent --> proj_context_engineering["proj-context-engineering"]
-    repo_readme_writer --> style_briefness_style["style-briefness-style"]
-    repo_changelog_writer --> style_briefness_style
+    equip_proj_for_agent["equip-proj-for-agent"] --> proj_context_engineering["proj-context-engineering"]
+    repo_readme_writer["repo-readme-writer"] --> style_briefness_style["style-briefness-style"]
+    repo_changelog_writer["repo-changelog-writer"] --> style_briefness_style
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
-    ready_release_version --> proj_version_extended
+    ready_release_version["ready-release-version"] --> proj_version_extended
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
     proj_version_bump --> proj_version["proj-version"]
     proj_version_extended --> proj_version
-    initialize_repo --> style_good_writing
-    maintenance_before_compact --> style_good_writing
-    condense_agents_and_context --> repo_agents_writer
+    initialize_repo["initialize-repo"] --> style_good_writing
+    maintenance_before_compact["maintenance-before-compact"] --> style_good_writing
+    condense_agents_and_context["condense-agents-and-context"] --> repo_agents_writer
     condense_agents_and_context --> repo_context_writer["repo-context-writer"]
-    create_project_agents --> proj_agents_writer
-    maintain_project_agents --> proj_agents_writer
-    create_project_docs --> proj_doc_writer
-    maintain_project_docs --> proj_doc_writer
-    create_readme --> repo_readme_writer
-    maintain_readme --> repo_readme_writer
+    create_project_agents["create-project-agents"] --> proj_agents_writer
+    maintain_project_agents["maintain-project-agents"] --> proj_agents_writer
+    create_project_docs["create-project-docs"] --> proj_doc_writer
+    maintain_project_docs["maintain-project-docs"] --> proj_doc_writer
+    create_readme["create-readme"] --> repo_readme_writer
+    maintain_readme["maintain-readme"] --> repo_readme_writer
     create_readme --> style_good_writing
     maintain_readme --> style_good_writing
-    create_changelog --> repo_changelog_writer
-    maintain_changelog --> repo_changelog_writer
-    condense_changelog --> repo_changelog_writer
-    create_repo_agents --> repo_agents_writer
-    maintain_repo_agents --> repo_agents_writer
-    create_repo_docs --> repo_doc_writer
-    maintain_repo_docs --> repo_doc_writer
+    create_changelog["create-changelog"] --> repo_changelog_writer
+    maintain_changelog["maintain-changelog"] --> repo_changelog_writer
+    condense_changelog["condense-changelog"] --> repo_changelog_writer
+    create_repo_agents["create-repo-agents"] --> repo_agents_writer
+    maintain_repo_agents["maintain-repo-agents"] --> repo_agents_writer
+    create_repo_docs["create-repo-docs"] --> repo_doc_writer
+    maintain_repo_docs["maintain-repo-docs"] --> repo_doc_writer
 ```
 
 #### Git
@@ -90,15 +90,15 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    write_llm_prompt --> meta_prompt["meta-prompt"]
+    write_llm_prompt["write-llm-prompt"] --> meta_prompt["meta-prompt"]
     write_for_skill["write-for-skill"] --> meta_prompt
-    write_skill_description --> write_for_skill
-    write_skill_when_to_use --> write_for_skill
-    write_skill_description_and_when_to_use --> write_skill_description
+    write_skill_description["write-skill-description"] --> write_for_skill
+    write_skill_when_to_use["write-skill-when-to-use"] --> write_for_skill
+    write_skill_description_and_when_to_use["write-skill-description-and-when-to-use"] --> write_skill_description
     write_skill_description_and_when_to_use --> write_skill_when_to_use
-    amanuensis_chicago_note --> style_markdown_footnotes["style-markdown-footnotes"]
+    amanuensis_chicago_note["amanuensis-chicago-note"] --> style_markdown_footnotes["style-markdown-footnotes"]
     bibliographer --> style_markdown_footnotes
-    assemble_bibliography --> amanuensis_chicago_bibliography["amanuensis-chicago-bibliography"]
+    assemble_bibliography["assemble-bibliography"] --> amanuensis_chicago_bibliography["amanuensis-chicago-bibliography"]
     dispositor --> style_heading_separation["style-heading-separation"]
     dispositor --> style_good_writing["style-good-writing"]
     scholiast --> dispositor
