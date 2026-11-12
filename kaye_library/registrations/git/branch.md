@@ -212,22 +212,56 @@ Load `sync-unit-test`, `maintain-changelog`, `maintain-repo-agents`, and `commit
 
 ## Perform Feature Landing
 
-<!-- TODO write perform feature landing -->
+Land the current [feature branch](#feature-branch) on `dev`: ready it, then merge it, so `dev` never receives stale docs.
 
-tmp content for Perform Feature Landing
+
+
+#### Movement 1~7: Ready the Feature Branch
+
+Run [Ready for Feature Landing](#ready-for-feature-landing) whole. Continue only once its commit lands; keep its [feature branch summary](#feature-branch-summary) for Movement 8.
+
+
+
+#### Movement 8: Merge into Dev
+
+Merge per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (feature into dev):
+
+1. `git switch dev`, then `git merge --no-ff --no-commit FEATURE`: a merge commit records the landing, and the pause lets you word it
+2. on conflicts, run [Resolve Merge Conflict](#resolve-merge-conflict), then go on
+3. write the message, Git's drafted one read from `git rev-parse --git-path MERGE_MSG`, then `git commit` once
+
+Stop at the merge commit: push only if the user approves it afterward; leave branch deletion to them.
+
+
+
+#### Post Landing Output
+
+Reply as below. If any Movement halts, report where and why in one line, then stop.
+
+<post-landing-output-example>
+🚩🐙 Feature Landed: add status filter to Search page
+✍️ push `dev` to origin?
+</post-landing-output-example>
+
+
 
 ### {description}
 
-tmp description Perform Feature Landing
+Lands a feature branch on `dev`: runs every Ready for Feature Landing movement, then merges the branch into `dev` with a typed Feature Landing message.
 
 ### {when_to_use}
 
-tmp when_to_use Perform Feature Landing
+Reach for this when a finished feature branch should be merged: "land this feature," "merge this into dev," "finish and merge." Not for prepping docs alone (use the ready-land-feature skill) or releasing a version.
 
 
 
+### {[Claude:Skill] Usage}
 
+Invoke `ready-land-feature`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills via `Skill` tool.
 
+### {[Hermes:skill_view] Usage}
+
+Load `ready-land-feature`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills with `skill_view`.
 
 
 
