@@ -16,6 +16,10 @@ __all__ = ("register_branch_blueprints",)
 
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
 
+# discover and summary are h3 sections, so they nest under the feature branch
+# definition in the corpus
+_FEATURE_BRANCH_PATH = ("Git", "feature branch")
+
 
 def register_branch_blueprints():
     """
@@ -41,7 +45,7 @@ def register_branch_blueprints():
     register_leaf(
         _register_internal,
         "git-feature-discover",
-        ("Git",),
+        _FEATURE_BRANCH_PATH,
         "discover feature branch",
         display_name="Git Feature Discover",
     )
@@ -50,7 +54,7 @@ def register_branch_blueprints():
     register_leaf(
         _register_internal,
         "git-feature-summary",
-        ("Git",),
+        _FEATURE_BRANCH_PATH,
         "feature branch summary",
         display_name="Git Feature Summary",
         dependencies=[
