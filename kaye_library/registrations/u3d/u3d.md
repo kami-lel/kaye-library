@@ -98,8 +98,7 @@ One convention names every noun-type thing: class, member, variable, file, GameO
 - Numbers: zero-pad (`Explosion_02`, `Explosion_10`)
 - File Match: a script file takes strictly its class's name (`PlayerManager.cs` holds `PlayerManager`)
 - Imported: an external asset (art, download, DAW export) keeps its arrival filename, since others define it
-- Dev Asset: a dev-only scene or asset, such as a test scene or a debug prefab, takes the prefix `DEV` before its name (`DEVSandboxScene.unity`)
-- Dev Copy: a private working copy of a shipped asset takes `DEV`, its owner's name, then the original name (`DEVJohnMainScene.unity` for `MainScene.unity`)
+- Dev: a dev-only asset or private copy takes `DEV`, an optional owner's name, then its name (`DEVSandboxScene.unity`, `DEVJohnMainScene.unity`)
 
 
 
