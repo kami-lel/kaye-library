@@ -391,7 +391,8 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                         'Run [Maintain CHANGELOG](#maintain-changelog), '
                         'recording the change set per [Repository '
                         'CHANGELOG Writer](#repository-changelog-writer).',
-                        '#### Movement 6: Sync AGENTS and CONTEXT'],
+                        '#### Movement 6: Sync AGENTS and CONTEXT',
+                        '#### Movement 7: Commit the Work'],
  'ready-release-version': ['## Ready for Version Release',
                            'Cut a new release: bring all docs current',
                            '#### Movement 1: Decide Release Version and '
@@ -518,6 +519,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                                   'numerals',
                                   '- keep proper nouns, acronyms, and '
                                   'brand styling as written'],
+ 'submit-pr': ['## Open Pull Request',
+               'Run [Ready for Feature Landing](#ready-for-feature-landing)',
+               'gh pr create --base dev'],
  'working-with-git': ['## Working with Git',
                       'Use these Git terms, no synonyms.',
                       '#### Actions Needing Explicit Approval',
@@ -645,6 +649,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                        'wording.',
  'style-letter-case-commentary-case': 'Names the Commentary Case convention',
  'style-letter-case-title-case': 'Names the Title Case convention',
+ 'submit-pr': 'Opens a pull request landing a feature branch',
  'working-with-git': 'Sets the Git working terms',
  'working-with-p4v': 'Pairs every Perforce term',
 }
@@ -729,6 +734,7 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
  'style-letter-case-commentary-case': 'for list items, table cell content, '
                                       'code comment',
  'style-letter-case-title-case': 'for document titles and section headings',
+ 'submit-pr': 'Trigger on "open a PR", "create a pull request"',
  'working-with-git': 'Trigger on any work in a Git repository',
  'working-with-p4v': 'Trigger on any explanation or action in Perforce',
 }

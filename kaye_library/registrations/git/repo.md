@@ -560,14 +560,36 @@ Trigger on "clean up branches," "prune merged branches," or "delete old/stale br
 
 ## Open Pull Request
 
-<!-- TODO create pull request skill -->
+Open a pull request landing the finished [feature branch](#feature-branch) on `dev`.
 
-tmp content for Open Pull Request
+#### Movement 1~7: Ready the Branch
+
+Run [Ready for Feature Landing](#ready-for-feature-landing), its Movements 1~7 in order
+
+#### Movement 8: Open the Pull Request
+
+Push the branch if the remote lacks it, then run `gh pr create --base dev`, titled with the headline of the [feature branch summary](#feature-branch-summary) and bodied with its changes. Leave it unmerged for the reviewer, and reply with its URL, or the `gh` error.
+
+
+
+
 
 ### {description}
 
-tmp description Open Pull Request
+Opens a pull request landing a feature branch on `dev`, after readying its docs, with the title and body drawn from the branch summary.
 
 ### {when_to_use}
 
-tmp when_to_use Open Pull Request
+Trigger on "open a PR", "create a pull request", "submit this feature", "land this on dev", or `gh pr create`. Not for syncing docs alone before a merge (use `ready-land-feature`) or wording a merge commit (use `commit-sense-branch-merging`).
+
+
+
+
+
+### {[Claude:Skill] Usage}
+
+Invoke `ready-land-feature` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `ready-land-feature` skill with `skill_view`.

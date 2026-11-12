@@ -4,9 +4,6 @@ kaye_library.registrations.git.repo_bp.py
 register Repository related blueprints
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
@@ -16,8 +13,6 @@ from kaye_engine.prompt.blueprint import (
 from .._common import register_exportable, register_node, register_prompt
 
 __all__ = ("register_repo_blueprints",)
-
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def _register_changelog_writer():
@@ -47,11 +42,13 @@ def _register_changelog_writer():
 def register_repo_blueprints():
     """
     register Repository Structure and the Repository README/CHANGELOG/
-    CONTEXT Writers, leaving both AGENTS Writers to ``project_bp.py``
+    CONTEXT Writers, leaving both AGENTS Writers to ``project_bp.py``,
+    and the Open Pull Request prompt
 
 
-    :raises KeyError: ``style-briefness-style`` or
-            ``proj-version-extended`` is not yet registered
+    :raises KeyError: ``style-briefness-style``, ``proj-version-extended``,
+            ``ready-land-feature``, or ``git-feature-summary`` is not yet
+            registered
     """
     repo_node = get_corpus_node("Git")
 
@@ -88,10 +85,13 @@ def register_repo_blueprints():
         recursively=True,
     )
 
-    # Open Pull Request: internal until its text is written
+    # Open Pull Request: readies the branch, then words the pull request
+    # from the feature branch summary
     register_node(
-        _register_internal,
+        register_prompt,
         "submit-pr",
         repo_node,
         "Open Pull Request",
+        recursively=True,
+        dependencies=["ready-land-feature", "git-feature-summary"],
     )

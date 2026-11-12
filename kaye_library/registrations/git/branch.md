@@ -40,7 +40,7 @@ Learn what the finished [feature branch](#feature-branch) delivers and why:
 
 ### feature branch summary
 
-Only for a Feature Landing: the body of its merge message, per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging).
+Only for a Feature Landing: the body of its merge message, per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging), and the wording of its pull request, per [Open Pull Request](#open-pull-request).
 
 Given [Discover Feature Branch](#discover-feature-branch), write the summary the reviewer merging into `dev` decides from, so lead with the outcome:
 
@@ -149,9 +149,17 @@ Run [Maintain Repository AGENTS](#maintain-repository-agents), updating any comm
 
 
 
+#### Movement 7: Commit the Work
+
+Index the changes this work made, then run [Commit Sense](#commit-sense) to commit them.
+
+
+
+
+
 ### {description}
 
-Records a feature branch's changes into `CHANGELOG.md` and updates `AGENTS.md` and `CONTEXT.md` to match, syncing all affected docs in one pass before a merge.
+Records a feature branch's changes into `CHANGELOG.md` and updates `AGENTS.md` and `CONTEXT.md` to match, syncing all affected docs in one pass before a merge, then commits the work.
 
 ### {when_to_use}
 
@@ -163,11 +171,11 @@ Reach for this when wrapping up or merging a feature branch — "prep for merge,
 
 ### {[Claude:Skill] Usage}
 
-Invoke `sync-unit-test`, `maintain-changelog`, and `maintain-repo-agents` skills via `Skill` tool.
+Invoke `sync-unit-test`, `maintain-changelog`, `maintain-repo-agents`, and `commit-sense` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `sync-unit-test`, `maintain-changelog`, and `maintain-repo-agents` skills with `skill_view`.
+Load `sync-unit-test`, `maintain-changelog`, `maintain-repo-agents`, and `commit-sense` skills with `skill_view`.
 
 
 

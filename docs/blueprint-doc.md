@@ -90,6 +90,8 @@ flowchart LR
     git_sense_dify_per_file --> git_sense_per_file_summary
     git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
     ready_land_feature["ready-land-feature"] --> git_feature_discover
+    submit_pr["submit-pr"] --> ready_land_feature
+    submit_pr --> git_feature_summary
     git_feature_summary --> style_briefness_style["style-briefness-style"]
     git_feature_summary --> style_letter_case_commentary_case["style-letter-case-commentary-case"]
 ```
