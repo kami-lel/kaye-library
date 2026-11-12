@@ -66,6 +66,9 @@ def register_kaye_library_blueprints():
     from .meta_prompt.meta_prompt_bp import (  # pylint: disable=C0415
         register_meta_prompt_blueprints,
     )
+    from .p4v.p4v_bp import (  # pylint: disable=C0415
+        register_p4v_blueprints,
+    )
     from .secretary.secretary_bp import (  # pylint: disable=C0415
         register_secretary_blueprints,
     )
@@ -86,6 +89,7 @@ def register_kaye_library_blueprints():
     register_branch_blueprints()
     register_general_blueprints()
     register_git_blueprints()
+    register_p4v_blueprints()
     register_coder_blueprints()
     register_u3d_blueprints()
     register_meta_prompt_blueprints()

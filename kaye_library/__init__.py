@@ -64,7 +64,7 @@ _CORPUS_SOURCES = [
     (("Git",), "git/repo.md"),
     (("Git",), "git/workflow.md"),
     (("Git",), "git/branch.md"),
-    ((), "git/p4v.md"),
+    ((), "p4v/p4v.md"),
     ((), "meta_prompt/meta_prompt.md"),
     ((), "amanuensis/amanuensis.md"),
     ((), "secretary/secretary.md"),
