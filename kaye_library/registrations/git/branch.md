@@ -230,18 +230,30 @@ Merge per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (f
 2. on conflicts, run [Resolve Merge Conflict](#resolve-merge-conflict), then go on
 3. write the message, Git's drafted one read from `git rev-parse --git-path MERGE_MSG`, then `git commit` once
 
-Stop at the merge commit: push only if the user approves it afterward; leave branch deletion to them.
+Stop at the merge commit: push and branch deletion wait for the approval of Movement 9.
 
 
 
-#### Post Landing Output
+#### Movement 9: Report and Ask Approval
 
-Reply as below. If any Movement halts, report where and why in one line, then stop.
+Reply as below, asking 2 approvals: push `dev`, and delete the feature branch (merged, so safe to drop). If any Movement halts, report where and why in one line, then stop.
 
 <post-landing-output-example>
 🚩🐙 Feature Landed: add status filter to Search page
-✍️ push `dev` to origin?
+✍️ ⓐ push `dev` to origin?
+✍️ ⓑ delete feature branch `add-search-filter`?
 </post-landing-output-example>
+
+
+
+#### Movement 10: Push and Delete
+
+Run only the approved actions, in order:
+
+- ⓐ `git push origin dev`
+- ⓑ `git branch -d FEATURE`, never `-D`
+
+Reply one line per action done.
 
 
 
@@ -408,7 +420,7 @@ Release the project: ready it, merge it into `main`, then tag the merge, so ever
 
 #### Movement 1~7: Ready the Release
 
-Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9 & 10. When it adds its pruning step, Movement 8~10 renumber to 9~11.
+Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9~12. When it adds its pruning step, Movement 8~12 renumber to 9~13.
 
 
 
@@ -434,14 +446,26 @@ Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag 
 
 
 
-#### Post Release Output
+#### Movement 11: Report and Ask Approval
 
-Reply as below. If any Movement halts, report where and why in one line, then stop.
+Reply as below, asking 2 approvals: push `main` and the tag, and prune merged branches. If any Movement halts, report where and why in one line, then stop.
 
 <post-release-output-example>
 🚩🐙 Minor Release Cut 1.1.0, tagged `v1.1.0`
-✍️ push `main` and `v1.1.0` to origin?
+✍️ ⓐ push `main` and `v1.1.0` to origin?
+✍️ ⓑ prune merged branches?
 </post-release-output-example>
+
+
+
+#### Movement 12: Push and Prune
+
+Run only the approved actions, in order:
+
+- ⓐ `git push origin main vVERSION`
+- ⓑ invoke `prune-merged-branches`
+
+Reply one line per action done.
 
 
 
@@ -457,8 +481,8 @@ Reach for this when a release should go out: "release 1.2.0," "cut a release and
 
 ### {[Claude:Skill] Usage}
 
-Invoke `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills via `Skill` tool.
+Invoke `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `prune-merged-branches` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills with `skill_view`.
+Load `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `prune-merged-branches` skills with `skill_view`.
