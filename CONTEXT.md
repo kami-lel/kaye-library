@@ -66,7 +66,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
-| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Clean Up Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
+| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |

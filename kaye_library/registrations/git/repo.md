@@ -471,7 +471,7 @@ Use to create, update, or review `CONTEXT.md` or `CONTEXT.local.md`, or to captu
 
 
 
-## Clean Up Branches
+## Prune Merged Branches
 
 You delete **local** branches already merged into the current branch. Nothing else is in scope — no remote or remote-tracking refs, tags, stashes, worktrees, index, or working tree. Stop and say so if `HEAD` is detached or a merge, rebase, cherry-pick, or bisect is in progress.
 

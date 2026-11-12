@@ -76,12 +76,12 @@ def register_repo_blueprints():
 
     _register_changelog_writer()
 
-    # Clean Up Branches
+    # Prune Merged Branches
     register_node(
         register_prompt,
         "prune-merged-branches",
         repo_node,
-        "Clean Up Branches",
+        "Prune Merged Branches",
         recursively=True,
     )
 
