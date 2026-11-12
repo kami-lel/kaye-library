@@ -138,8 +138,8 @@ summarize changes spanning **multiple files** as one whole, not file by file.
 
 State the **unifying intent** the edits share; if none holds, the one change that most defines the set.
 
-- Summary Line: required, may stand alone. Hold summary line to **72 characters at max**, one line that sums up the whole change
-- Body: optional, after a blank line; covers only what the summary line leaves out, at the conceptual level, in up to 3 lines, every line within 72 characters, a longer point continuing onto the next line
+- Summary Line: required, and usually the whole message. Hold summary line to **72 characters at max**, one line that sums up the whole change
+- Body: rare, after a blank line; write one only when a large pattern spans the change, eg a paradigm shift across many files, and neither the summary line nor the per-file summaries convey it, since the ledger already says what each file did; at the conceptual level, in up to 3 lines, every line within 72 characters, a longer point continuing onto the next line
 
 Use [ASCII only](#ascii-only) for all content.
 
@@ -153,6 +153,10 @@ introduce feature-flag framework
 every new search path sits behind a flag, so rollout widens without a
 redeploy; older paths stay untouched until the flag retires them
 </primary-message-example>
+
+#### {avoid}
+
+A body that restates the ledger or inventories follow-on edits the summary line already implies, eg "docs, tests updated to match".
 
 
 
@@ -271,9 +275,6 @@ The message has up to three parts, in order, separated by blank lines:
 
 <commit-message-example>
 restructure commit sense under Git hierarchy
-
-blueprints, docs, tests updated to match new nesting and heading levels;
-corpus source entry for commit sense dropped from init list
 
 🪧`CHANGELOG.md` remove stale TT
 📖`http-api-doc.md` document commit-sense prompt nodes
