@@ -7,7 +7,7 @@ Prescriptive rules for agents working in this project.
 - Upkeep: update in the same change that moves a command, convention, or constraint
 - Structure: follow the existing sections; keep every rule true for every contributor
 - Belongs in `CONTEXT.md`: descriptive knowledge of the system, ie architecture, domain model, patterns, known gaps
-- Belongs in `kaye-engine`'s `docs/`: developer-facing documentation; this repository keeps no `docs/` of its own
+- Belongs in `kaye-engine`'s `docs/`: developer-facing documentation of the engine and of consumers; this repository's `docs/` holds only library-specific topics
 - Local Layer: put machine-specific or personal rules in `AGENTS.local.md`; create it if missing, never commit it
 
 ## Setup Commands
@@ -79,5 +79,6 @@ Scope each run to the area touched; run everything only before a merge.
 
 - [README.md](README.md): overview, install, commands
 - [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
+- [docs/blueprint-doc.md](docs/blueprint-doc.md): the blueprint dependency and invocation graphs; update it when a blueprint's `dependencies=[...]` or an `Invoke ... skill` line changes
 - [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine`: how a consumer is created on the library; update it, `examples/minimal-consumer/` and `tests/example_consumer_test.py` together whenever the steps or the override rule change
 - `CHANGELOG.md`: notable changes per release

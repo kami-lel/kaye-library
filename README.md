@@ -67,7 +67,7 @@ kaye-library --help                          # everything else
 
 ## 🤝 Contributing
 
-New skills and fixes are welcome! 🛠️ Rules for contributors and agents live in [AGENTS.md](AGENTS.md), the architecture in [CONTEXT.md](CONTEXT.md), and a working package built on the library in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py). Keep every prompt free of personal data and of any persona.
+New skills and fixes are welcome! 🛠️ Rules for contributors and agents live in [AGENTS.md](AGENTS.md), the architecture in [CONTEXT.md](CONTEXT.md), how the blueprints connect in the [blueprint documentation](docs/blueprint-doc.md), and a working package built on the library in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py). Keep every prompt free of personal data and of any persona.
 
 ## 🙌 Acknowledgments
 
