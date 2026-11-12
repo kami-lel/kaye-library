@@ -97,7 +97,7 @@ Retelling commits or listing files.
 
 
 
-## Prepare for Feature Landing
+## Ready for Feature Landing
 
 Before merging the current [feature branch](#feature-branch), sync the docs it affects. Work in Movements; edit affected files in place and leave the rest untouched.
 
@@ -126,11 +126,7 @@ Load `sync-unit-test` skill with `skill_view`.
 
 #### Movement 4: Learn the Feature Branch
 
-Identify the change set, then use it throughout Movement 5 & 6:
-
-- read the current conversation for what was built and why
-- observe the [feature branch](#feature-branch) as the change set
-- fold in existing `[Unreleased]` entries so nothing is recorded twice
+Run [Discover Feature Branch](#discover-feature-branch), then use the change set it yields throughout Movement 5 & 6.
 
 
 
@@ -230,7 +226,7 @@ tmp when_to_use Perform Feature Landing
 
 
 
-## Prepare for Version Release
+## Ready for Version Release
 
 Cut a new release: bring all docs current, finalize the changelog, and bump the project version.
 

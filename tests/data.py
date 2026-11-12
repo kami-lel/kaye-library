@@ -381,7 +381,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            '`1.0.0+Win`, `1.0.0+mac`, `1.0.0+linux`',
                            'Vertical Slice (VS): `0.5.z`~`0.8.z`',
                            'Release Candidate (RC): `1.0.0-rc`'],
- 'ready-land-feature': ['## Prepare for Feature Landing',
+ 'ready-land-feature': ['## Ready for Feature Landing',
                         'Before merging the current [feature '
                         'branch](#feature-branch)',
                         '#### Movement 1~3: Sync Unit Test',
@@ -392,7 +392,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                         'recording the change set per [Repository '
                         'CHANGELOG Writer](#repository-changelog-writer).',
                         '#### Movement 6: Sync AGENTS and CONTEXT'],
- 'ready-release-version': ['## Prepare for Version Release',
+ 'ready-release-version': ['## Ready for Version Release',
                            'Cut a new release: bring all docs current',
                            '#### Movement 1: Decide Release Version and '
                            'Date',

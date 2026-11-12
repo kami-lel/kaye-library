@@ -65,7 +65,8 @@ def register_branch_blueprints():
         register_prompt,
         "ready-land-feature",
         git_node,
-        "Prepare for Feature Landing",
+        "Ready for Feature Landing",
+        dependencies=["git-feature-discover"],
     )
 
     # Ready Release Version
@@ -73,7 +74,7 @@ def register_branch_blueprints():
         register_prompt,
         "ready-release-version",
         git_node,
-        "Prepare for Version Release",
+        "Ready for Version Release",
         dependencies=["proj-version-extended"],
     )
 
