@@ -23,7 +23,8 @@ def register_branch_blueprints():
     version release workflow prompts
 
 
-    :raises KeyError: ``proj-version-extended`` is not yet registered
+    :raises KeyError: ``proj-version-extended``, ``style-briefness-style``,
+            or ``style-letter-case-commentary-case`` is not yet registered
     """
     git_node = get_corpus_node("Git")
 
@@ -34,6 +35,29 @@ def register_branch_blueprints():
         ("Git",),
         "feature branch",
         display_name="Git Feature Branch",
+    )
+
+    # Feature Discover
+    register_leaf(
+        _register_internal,
+        "git-feature-discover",
+        ("Git",),
+        "discover feature branch",
+        display_name="Git Feature Discover",
+    )
+
+    # Feature Summary
+    register_leaf(
+        _register_internal,
+        "git-feature-summary",
+        ("Git",),
+        "feature branch summary",
+        display_name="Git Feature Summary",
+        dependencies=[
+            "git-feature-discover",
+            "style-briefness-style",
+            "style-letter-case-commentary-case",
+        ],
     )
 
     # Ready Land Feature

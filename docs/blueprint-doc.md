@@ -87,6 +87,9 @@ flowchart LR
     git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
     git_sense_dify_per_file["git-sense-dify-per-file"] --> git_sense_per_file_change_sigil
     git_sense_dify_per_file --> git_sense_per_file_summary
+    git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
+    git_feature_summary --> style_briefness_style["style-briefness-style"]
+    git_feature_summary --> style_letter_case_commentary_case["style-letter-case-commentary-case"]
 ```
 
 #### Meta Prompt & Amanuensis

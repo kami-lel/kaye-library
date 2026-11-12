@@ -18,9 +18,48 @@ Assume local `HEAD` is the feature branch. Observe it with `git log dev..HEAD`: 
 
 
 
+### discover feature branch
+
+Learn what the finished [feature branch](#feature-branch) delivers and why:
+
+- read the current conversation for what was built and why
+- understand the change set from both sources: `git log dev..HEAD` and the `[Unreleased]` entries of `CHANGELOG.md`; fold them together so nothing is stated twice
+- if the two together leave the change unclear, read the change directly: `git diff dev...HEAD`
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### feature branch summary
 
-<!-- TODO feature branch summary -->
+Given [Discover Feature Branch](#discover-feature-branch), write the summary the reviewer merging into `dev` decides from, so lead with the outcome:
+
+- headline: one verb-first sentence on what the branch delivers
+- changes: 2~5 bullets grouped by purpose, each saying what changed and why it matters
+
+Write strictly in [Briefness Style](#style-guide-briefness-style),
+and apply [Commentary Case](#letter-case-commentary-case) to every line
+
+example:
+
+```md
+add status filter to Search page
+
+- filter results by status: no full-list scan for open items
+- persist chosen filter in URL: reload/shared link keeps view
+```
+
+#### {avoid}
+
+Retelling commits or listing files.
 
 
 
