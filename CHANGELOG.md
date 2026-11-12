@@ -8,11 +8,16 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+- `land-feature`, `release-version`, `submit-pr`: exportable workflow skills, no longer stubs; landing and release each ready the branch, merge, and ask approval before pushing and before deleting the merged branch
+- `proj-version-title`: version release title as bump word, release type, version; depends on the internal `proj-version-bump`
 - `u3d-assets-management`: optional asset domain level between asset type and asset module (`Scripts/Mobs/Spider/`), with common domains (`Mobs`, `World`, `Cameras`, `Items`, `Player`, `UI`, `Combat`, `Interactables`) and audio-only `BGMs/`, `SFXs/`
 
 ### Changed
 
+- `commit-sense`: message body now rare, written only for a large pattern the summary line and ledger miss
+- Perforce corpus and registration moved to their own `registrations/p4v/` module; `working-with-p4v` unchanged
 - README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
 - `u3d-assets-management`: rewritten around asset type, asset domain, and asset module; `Audio/BGM/`, `Audio/SFX/` renamed `Audio/BGMs/`, `Audio/SFXs/`
 - `u3d-naming`: dev prefix `dev` → `DEV` (`DEVJohnMainScene.unity`), now also covering dev-only assets (`DEVSandboxScene.unity`)
@@ -21,6 +26,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Removed
 
+- `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
 - `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
 
 ### Fixed

@@ -45,10 +45,13 @@ def register_kaye_library_blueprints():
     from .project.project_bp import (  # pylint: disable=C0415
         register_project_blueprints,
     )
-    from .repo.repo_bp import (  # pylint: disable=C0415
+    from .git.branch_bp import (  # pylint: disable=C0415
+        register_branch_blueprints,
+    )
+    from .git.repo_bp import (  # pylint: disable=C0415
         register_repo_blueprints,
     )
-    from .repo.workflows_bp import (  # pylint: disable=C0415
+    from .git.workflow_bp import (  # pylint: disable=C0415
         register_repo_workflow_blueprints,
     )
     from .general.general_bp import (  # pylint: disable=C0415
@@ -62,6 +65,9 @@ def register_kaye_library_blueprints():
     )
     from .meta_prompt.meta_prompt_bp import (  # pylint: disable=C0415
         register_meta_prompt_blueprints,
+    )
+    from .p4v.p4v_bp import (  # pylint: disable=C0415
+        register_p4v_blueprints,
     )
     from .secretary.secretary_bp import (  # pylint: disable=C0415
         register_secretary_blueprints,
@@ -78,10 +84,12 @@ def register_kaye_library_blueprints():
     register_letter_case_blueprints()
     register_element_blueprints()
     register_project_blueprints()
+    register_branch_blueprints()
     register_repo_blueprints()
     register_repo_workflow_blueprints()
     register_general_blueprints()
     register_git_blueprints()
+    register_p4v_blueprints()
     register_coder_blueprints()
     register_u3d_blueprints()
     register_meta_prompt_blueprints()

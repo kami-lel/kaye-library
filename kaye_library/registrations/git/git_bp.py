@@ -17,18 +17,17 @@ from kaye_engine.prompt.blueprint import (
 from .._common import (
     mark_as_leaf,
     register_exportable,
-    register_leaf,
     register_node,
     register_prompt,
 )
 
 __all__ = ("register_git_blueprints",)
 
-# internal, not exportable: the feature branch definition, and building
-# blocks of the commit sense skill and its Dify prompts
+# internal, not exportable: building blocks of the commit sense skill and
+# its Dify prompts
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
 
-_COMMIT_SENSE_PATH = ("Git", "commit sense")
+_COMMIT_SENSE_PATH = ("Git", "commit sensing")
 _SIGIL_PATH = (*_COMMIT_SENSE_PATH, "per-file change sigil")
 _NO_FIT_SIGIL_PATH = (*_SIGIL_PATH, "No Fit Fallback Sigil")
 _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
@@ -36,7 +35,8 @@ _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
 
 def register_git_blueprints():
     """
-    register every blueprint under the "Gits" corpus node
+    register the Working with Git, Resolve Merge Conflict, and commit sense
+    blueprints
     """
     git_node = get_corpus_node("Git")
 
@@ -49,48 +49,12 @@ def register_git_blueprints():
         recursively=True,
     )
 
-    # Working with Perforce
-    register_node(
-        register_exportable,
-        "working-with-p4v",
-        get_corpus_node("Perforce"),
-        "Working with Perforce",
-        recursively=True,
-    )
-
-    # Clean Up Branches
-    register_node(
-        register_prompt,
-        "prune-merged-branches",
-        git_node,
-        "Clean Up Branches",
-        recursively=True,
-    )
-
     # Resolve Merge Conflict
     register_node(
         register_prompt,
         "resolve-merge-conflict",
         git_node,
         "Resolve Merge Conflict",
-        recursively=True,
-    )
-
-    # Feature Branch
-    register_leaf(
-        _register_internal,
-        "git-feature-branch",
-        ("Git",),
-        "feature branch",
-        display_name="Git Feature Branch",
-    )
-
-    # Open Pull Request: internal until its text is written
-    register_node(
-        _register_internal,
-        "submit-pr",
-        git_node,
-        "Open Pull Request",
         recursively=True,
     )
 
@@ -191,12 +155,13 @@ def register_git_commit_sense_blueprints():
         )
 
     # the skill itself: the procedure section, with its own descriptors
-    commit_sense_path = (*_COMMIT_SENSE_PATH, "Perform Commit Sense")
+    commit_sense_path = (*_COMMIT_SENSE_PATH, "Commit Sense")
     _register_commit_sense_leaf(
         register_exportable,
         "commit-sense",
-        "Perform Commit Sense",
+        "Commit Sense",
         dependencies=[
+            "git-sense-core",
             "git-sense-primary-summary",
             "git-sense-per-file-change-sigil",
             "git-sense-per-file-summary",
@@ -204,6 +169,22 @@ def register_git_commit_sense_blueprints():
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
         description_node=(*commit_sense_path, "{description}"),
         when_to_use_node=(*commit_sense_path, "{when_to_use}"),
+    )
+
+    # merge titles: the version bump and release title rules come from the
+    # project blueprint
+    merging_path = (*_COMMIT_SENSE_PATH, "Commit Sense For Branch Merging")
+    _register_commit_sense_leaf(
+        register_exportable,
+        "commit-sense-branch-merging",
+        "Commit Sense For Branch Merging",
+        dependencies=[
+            "git-sense-core",
+            "git-feature-summary",
+            "proj-version-title",
+        ],
+        description_node=(*merging_path, "{description}"),
+        when_to_use_node=(*merging_path, "{when_to_use}"),
     )
 
     # Dify prompts

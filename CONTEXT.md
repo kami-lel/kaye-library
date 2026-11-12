@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-11, v1.2.2-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-12, v1.2.2-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page.
 
@@ -66,8 +66,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
-| Repositories | Repository Structure, README, CHANGELOG, CONTEXT writers, create and maintain workflows, landing and release workflows |
-| Git | Working with Git, commit sense, feature branch, Resolve Merge Conflict, Open Pull Request, Clean Up Branches |
+| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
@@ -118,7 +117,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 
 ## Naming of Skills
 
-Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design. Workflow skills here: `commit-sense`, `prune-merged-branches`, `ready-land-feature`, `ready-release-version`, `review-gaps`, `sync-unit-test`.
+Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design. Workflow skills here: `commit-sense`, `land-feature`, `prune-merged-branches`, `ready-land-feature`, `ready-release-version`, `release-version`, `review-gaps`, `submit-pr`, `sync-unit-test`.
 
 ## Testing Strategy
 
@@ -127,6 +126,5 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 ## Known Gaps & Constraints
 
 - **consumer placeholders in Secretary skills**: the standalone setup registers a default `secretary-email-authuser`; a composing host registers its own, and a placeholder no one registers renders literally
-- **stubs**: `land-feature`, `release-version`, and `submit-pr` are internal, not exported, until their sections are written
 - **`{[X] Usage}` sections render side by side**: the library registers no affordance groups or surface profiles, so each conditional `{[Claude:...] Usage}` and `{[Hermes:...] Usage}` sidecar renders as an ordinary section under the standalone command, every surface's variant in sequence; this is the design, and a host that registers surface profiles gets the conditional behavior
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link

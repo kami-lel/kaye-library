@@ -1,7 +1,6 @@
 # Git
 
 <!--
-Todo git branch merge skill: handling landing/release/catch up ~
 Todo working w/ git worktree main & linked
 -->
 
@@ -98,7 +97,7 @@ Trigger on any work in a Git repository: editing files, indexing, committing, br
 
 
 
-## commit sense
+## commit sensing
 
 You are given the result of `git diff --cached` — read it as the changes staged for commit, and distill them into their **essential meaning**.
 
@@ -109,9 +108,17 @@ Discard secondary, incidental, and repetitive edits. Report what the work was **
 Write strictly in [Briefness Style](#style-guide-briefness-style),
 and apply [Commentary Case](#letter-case-commentary-case) to every line
 
+Hold every line of a message to **72 characters at max**.
+
 Aggressively replace each match with its listed entry:
 
 (((commit-sense-shorthand)))
+
+
+
+#### Co-author Trailer
+
+If you helped write the changes for the current task, end the message with the trailer `Co-authored-by: Name <email>`. It is the **last line** of the message, nothing after.
 
 
 
@@ -131,8 +138,8 @@ summarize changes spanning **multiple files** as one whole, not file by file.
 
 State the **unifying intent** the edits share; if none holds, the one change that most defines the set.
 
-- Summary Line: required, may stand alone. Hold summary line to **72 characters at max**, one line that sums up the whole change
-- Body: optional, after a blank line; covers only what the summary line leaves out, at the conceptual level, in up to 3 lines, every line within 72 characters, a longer point continuing onto the next line
+- Summary Line: required, and usually the whole message. Hold summary line to **72 characters at max**, one line that sums up the whole change
+- Body: rare, after a blank line; write one only when a large pattern spans the change, eg a paradigm shift across many files, and neither the summary line nor the per-file summaries convey it, since the ledger already says what each file did; at the conceptual level, in up to 3 lines, every line within 72 characters, a longer point continuing onto the next line
 
 Use [ASCII only](#ascii-only) for all content.
 
@@ -146,6 +153,10 @@ introduce feature-flag framework
 every new search path sits behind a flag, so rollout widens without a
 redeploy; older paths stay untouched until the flag retires them
 </primary-message-example>
+
+#### {avoid}
+
+A body that restates the ledger or inventories follow-on edits the summary line already implies, eg "docs, tests updated to match".
 
 
 
@@ -252,7 +263,7 @@ document retry-budget behavior in scheduler README
 
 
 
-### Perform Commit Sense
+### Commit Sense
 
 Commit the indexed changes: draw the message from the conversation so far, optionally confirmed against `git diff --cached --numstat`, whose added and deleted counts per file settle each sigil's Lean and Size, then run `git commit` once with the whole message as a single `-m` argument.
 
@@ -260,17 +271,10 @@ The message has up to three parts, in order, separated by blank lines:
 
 1. Primary Message: follow [Primary Summary](#primary-summary) over the whole diff
 2. File Ledger: per changed file, its [change sigil](#per-file-change-sigil), backticked filename with extension (eg `git.md`, never the directory path), a space, its [summary](#per-file-summary); for a single file, sigil and name only
-3. Co-author Trailer: optional; only when the project's instructions name a co-author, as `Co-authored-by: Name <email>`
-
-Keep the trailer last.
-
-Use ASCII only, except the sigil.
+3. Co-author Trailer: optional; per [Co-author Trailer](#co-author-trailer)
 
 <commit-message-example>
 restructure commit sense under Git hierarchy
-
-blueprints, docs, tests updated to match new nesting and heading levels;
-corpus source entry for commit sense dropped from init list
 
 🪧`CHANGELOG.md` remove stale TT
 📖`http-api-doc.md` document commit-sense prompt nodes
@@ -315,37 +319,78 @@ Trigger on "g" (git commit), the most common trigger; also "commit this", "write
 
 
 
+### Commit Sense For Branch Merging
+
+Write the commit message of a merge, usually mid-merge, where Git has already drafted one. Work on the message alone: leave the merge itself, its commit, and the index and working tree to the user.
 
 
 
+##### message first line
+
+The first line of a merge's commit message is decided by the merge's source and target branch types.
+
+| From | Into | Message First Line |
+|---|---|---|
+| feature | dev | `Feature Landing: FEATURE_BRANCH` |
+| dev | feature | `Catch Up: FEATURE_BRANCH` |
+| dev | main | per [Semantic Version Title](#semantic-version-title) |
+| hotfix | main | `BUMP Hotfix Release VERSION` |
+| release | main | `BUMP Release Cut VERSION` |
+| hotfix | dev | `Hotfix Backport from VERSION` |
+| release | dev | `Release Backport from VERSION` |
+| main | dev | `Sync Backport from VERSION` |
+
+`BUMP` is the [bump word](#semantic-version-bump); `VERSION` comes from the source branch; `FEATURE_BRANCH` is the name of the feature branch.
+
+If the branch pair is not in the table, or the source type is unclear, ask which types they are rather than guess a first line.
 
 
 
+##### merge message example
+
+Prepend the first line and append the [Co-author Trailer](#co-author-trailer), if any, to Git's auto-generated message, kept verbatim.
+
+<merge-message-example>
+Minor Release Cut 1.1.0
+
+Merge branch 'release-1.1.0' into main
+
+Co-authored-by: Example Bot <bot@example.com>
+</merge-message-example>
+
+<merge-message-example>
+Feature Landing: add-search-filter
+
+Merge branch 'add-search-filter' into dev
+
+Co-authored-by: Example Bot <bot@example.com>
+</merge-message-example>
 
 
 
+##### post merge output
+
+Reply in one line with the first line written. If no merge is in progress, report that and stop.
+
+<post-merge-output-example>
+🚩🐙 Feature Landing: add-search-filter
+</post-merge-output-example>
 
 
 
+#### {avoid}
+
+Rewording, shortening, or dropping Git's auto-generated line.
 
 
 
+#### {description}
 
+Writes the message of a merge in progress: a typed first line prepended to Git's own message.
 
+#### {when_to_use}
 
-
-
-
-## feature branch
-
-<!-- Todo feature branch summary -->
-
-A **feature branch** is a branch cut from `dev` to build one feature in isolation, then merged back.
-
-Name it starting with a verb, never with a `feature/` prefix, eg `add-search-filter`, `fix-token-refresh`.
-
-Assume local `HEAD` is the feature branch. Observe it with `git log dev..HEAD`: the commits it holds that `dev` lacks.
-
+Trigger mid-merge, before the merge commit: "write the merge message", "message for this merge", "land the feature message", or any request to word a pending merge commit.
 
 
 
@@ -442,140 +487,3 @@ track resolution with the `todo_list` tool — one todo per unmerged path, marke
 ### {[task-tracking] Fallback}
 
 track resolution with a markdown task list — one item per unmerged path, checked off only after its markers are gone and the file parses
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Open Pull Request
-
-<!-- Todo create pull request skill -->
-
-tmp content for Open Pull Request
-
-### {description}
-
-tmp description Open Pull Request
-
-### {when_to_use}
-
-tmp when_to_use Open Pull Request
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Clean Up Branches
-
-You delete **local** branches already merged into the current branch. Nothing else is in scope — no remote or remote-tracking refs, tags, stashes, worktrees, index, or working tree. Stop and say so if `HEAD` is detached or a merge, rebase, cherry-pick, or bisect is in progress.
-
-
-
-
-
-#### Candidates
-
-- take the set from `git branch --merged`, resolved against the current branch
-- drop the current branch, protected branches (`main`, `master`, `develop`, `trunk`, `release/*`), and anything the user names
-- a branch absent from that set is never a candidate, for any reason
-
-
-
-
-
-#### Delete
-
-`git branch -d` only. `-D` and `--delete --force` are forbidden, including as a retry; a refusal from `-d` stands — leave the branch and report it.
-
-Present candidates and exclusions together and wait for an answer whenever the set is unclear: an unstated protected list, a candidate that looks like live work, or a current branch that is not the integration target. Deleting nothing is the correct outcome of an unanswered question. Once settled, pass every remaining name to a **single** `git branch -d` call — never loop, never one at a time.
-
-
-
-
-
-#### Report
-
-- each branch deleted, with the tip hash Git prints, so the user can recover it
-- each branch skipped, and why
-- if nothing qualified, say so in one line and stop
-
-
-
-
-
-
-
-
-
-
-
-
-
-### {description}
-
-Deletes local branches already merged into the current branch, with a report of what went and what stayed.
-
-### {when_to_use}
-
-Trigger on "clean up branches," "prune merged branches," or "delete old/stale branches."

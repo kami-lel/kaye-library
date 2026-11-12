@@ -37,7 +37,7 @@ class TestContent:
         assert "Co-authored-by: Example Bot <bot@example.com>" in content
 
     def test_keeps_the_trailer_last(_, content):
-        assert "Keep the trailer last." in content
+        assert "It is the **last line** of the message" in content
 
     @pytest.mark.parametrize(
         "needle",
