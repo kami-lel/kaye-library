@@ -117,7 +117,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 
 ## Naming of Skills
 
-Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design. Workflow skills here: `commit-sense`, `prune-merged-branches`, `ready-land-feature`, `ready-release-version`, `review-gaps`, `sync-unit-test`.
+Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design. Workflow skills here: `commit-sense`, `land-feature`, `prune-merged-branches`, `ready-land-feature`, `ready-release-version`, `release-version`, `review-gaps`, `submit-pr`, `sync-unit-test`.
 
 ## Testing Strategy
 
@@ -126,6 +126,5 @@ Exportable skills only; internal blueprints keep their slugs. Twin groups share 
 ## Known Gaps & Constraints
 
 - **consumer placeholders in Secretary skills**: the standalone setup registers a default `secretary-email-authuser`; a composing host registers its own, and a placeholder no one registers renders literally
-- **stubs**: `land-feature`, `release-version`, and `submit-pr` are internal, not exported, until their sections are written
 - **`{[X] Usage}` sections render side by side**: the library registers no affordance groups or surface profiles, so each conditional `{[Claude:...] Usage}` and `{[Hermes:...] Usage}` sidecar renders as an ordinary section under the standalone command, every surface's variant in sequence; this is the design, and a host that registers surface profiles gets the conditional behavior
 - **`ASCII only` is linked from commit sense**: `git-sense-core` selects it; moving it breaks the link
