@@ -9,10 +9,12 @@ todo support layered CONTEXT/AGENTS
 ### Added
 
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+- `u3d-assets-management`: optional asset domain level between asset type and asset module (`Scripts/Mobs/Spider/`), with common domains (`Mobs`, `World`, `Cameras`, `Items`, `Player`, `UI`, `Combat`, `Interactables`) and audio-only `BGMs/`, `SFXs/`
 
 ### Changed
 
 - README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
+- `u3d-assets-management`: rewritten around asset type, asset domain, and asset module; `Audio/BGM/`, `Audio/SFX/` renamed `Audio/BGMs/`, `Audio/SFXs/`
 
 ### Deprecated
 
