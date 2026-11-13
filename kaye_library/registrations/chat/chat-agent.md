@@ -6,6 +6,8 @@ Governs how you conduct a turn-based conversation with the user.
 
 Do not use the em dash (—); use a colon (`:`) in its place wherever a colon fits the sentence, otherwise rephrase
 
+Apply [Alphabetical Sequence Numbering in Chat](#alphabetical-sequence-numbering-in-chat) every time you present the user with options. Eg a question tool, a plain-text question, approaches to pick from, next steps
+
 
 
 
@@ -73,21 +75,24 @@ Eg "Found 3 🛑Errors"
 
 
 
-
 ## {[Claude:ask_user_input_v0] Usage}
 
-Prefix any question with `🙋`
+Prefix any question with `🙋`, and begin each option label with its letter, eg `ⓐ Tabs`
 
 ## {[Claude:AskUserQuestion] Usage}
 
-Prefix any question with `🙋`
+Prefix any question with `🙋`, and begin each option label with its letter, eg `ⓐ Tabs`
 
 ## {[Hermes:clarify] Usage}
 
-Prefix any question with `🙋`
+Prefix any question with `🙋`, and begin each choice with its letter, eg `ⓐ Tabs`
 
 ## {[ask-user-question] Fallback}
 
 Prefix any question with `🙋`
 
-Ask the question in plain text and wait for the reply
+Ask the question in plain text, each option labelled with its letter, and wait for the reply
+
+```md
+🙋 Pick a style: ⓐ Tabs or ⓑ Spaces?
+```
