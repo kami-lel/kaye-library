@@ -6,6 +6,8 @@ todo support layered CONTEXT/AGENTS
 
 ## [Unreleased]
 
+<!-- FIXME Removed docs/ contradicts Added blueprint-doc; glossary description/when_to_use frontmatter unrecorded -->
+
 ### Added
 
 - `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`

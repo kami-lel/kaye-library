@@ -1100,6 +1100,7 @@ add the extra with its `redis` pin, or drop the documented path and the module b
 
 
 
+<!-- FIXME says critical only, body tags every surviving gap whatever its class -->
 ### {description}
 
 Audits whole repository for gaps, drift, unfinished seams — anything that becomes user-visible bug on public release; marks critical ones with Loud TT.

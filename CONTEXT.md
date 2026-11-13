@@ -17,6 +17,8 @@ graph LR
 
 The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consumer. Importing loads nothing.
 
+<!-- FIXME kamilog row says default branch: pyproject pins v3.0.0 -->
+
 | | |
 |---|---|
 | language | Python, 3.11 or newer |

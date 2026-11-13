@@ -540,6 +540,8 @@ WS-kaye-library/
 - `WS-`: prefix of a workspace folder, which holds several worktrees
 - `-WT-`: infix marking a linked worktree
 
+Link the worktree to the task's existing feature branch; if none exists, create the branch with the worktree.
+
 
 
 

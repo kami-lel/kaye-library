@@ -12,6 +12,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    # BUG v11.0.1 lacks register_abbr_glossary description/when_to_use
     "kaye-engine @ git+https://github.com/kami-lel/kaye-engine.git@v11.0.1",
     "kamilog @ git+https://github.com/kami-lel/kamilog.git@v3.0.0",
 ]
