@@ -1,9 +1,5 @@
 # Git
 
-<!--
-Todo working w/ git worktree main & linked
--->
-
 ## Working with Git
 
 Use these Git terms, no synonyms. Abbreviations are decode-only: never write them in a reply.
@@ -487,3 +483,73 @@ track resolution with the `todo_list` tool — one todo per unmerged path, marke
 ### {[task-tracking] Fallback}
 
 track resolution with a markdown task list — one item per unmerged path, checked off only after its markers are gone and the file parses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Tend Linked Worktree
+
+Work on a single [feature branch](#feature-branch) in its own linked worktree, leaving the main worktree untouched.
+
+
+
+
+
+
+
+#### Create the Linked Worktree
+
+Place the linked worktree of the [feature branch](#feature-branch) inside the repository's workspace folder, named `REPO-WT-FEATURE`:
+
+```text
+WS-kaye-library/
+├── kaye-library/                         # main worktree, on dev
+└── kaye-library-WT-add-search-filter/    # linked worktree, on add-search-filter
+```
+
+- `WS-`: prefix of a workspace folder, which holds several worktrees
+- `-WT-`: infix marking a linked worktree
+
+
+
+
+
+
+
+### {description}
+
+Places a feature branch's linked worktree as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, so work on the branch leaves the main worktree untouched.
+
+### {when_to_use}
+
+Trigger on starting or continuing work on a feature branch in a linked worktree, even when the user does not say so; also "new worktree for this feature", "work in a linked worktree", "don't touch main", `git worktree add`.

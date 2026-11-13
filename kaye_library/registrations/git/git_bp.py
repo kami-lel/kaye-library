@@ -35,8 +35,8 @@ _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
 
 def register_git_blueprints():
     """
-    register the Working with Git, Resolve Merge Conflict, and commit sense
-    blueprints
+    register the Working with Git, Resolve Merge Conflict, Tend Linked
+    Worktree, and commit sense blueprints
     """
     git_node = get_corpus_node("Git")
 
@@ -55,6 +55,15 @@ def register_git_blueprints():
         "resolve-merge-conflict",
         git_node,
         "Resolve Merge Conflict",
+        recursively=True,
+    )
+
+    # Tend Linked Worktree
+    register_node(
+        register_exportable,
+        "tend-linked-wt",
+        git_node,
+        "Tend Linked Worktree",
         recursively=True,
     )
 
