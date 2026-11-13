@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-13, v1.2.2-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-13, v1.3.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page.
 
@@ -118,7 +118,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 
 ## Naming of Skills
 
-Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design. Workflow skills here: `commit-sense`, `land-feature`, `prune-merged-branches`, `ready-land-feature`, `ready-release-version`, `release-version`, `review-gaps`, `submit-pr`, `sync-unit-test`.
+Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design; list the workflow skills with `kaye-library x ls`.
 
 ## Testing Strategy
 

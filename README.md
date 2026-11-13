@@ -28,7 +28,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
 | 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
 | 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, PRs, Git and Perforce terms |
-| 🤖 | Agentic | Movement and Suite planning: big tasks split into reviewable steps |
+| 🤖 | Agentic | persona-free chat rules, Movement and Suite planning: big tasks split into reviewable steps |
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 

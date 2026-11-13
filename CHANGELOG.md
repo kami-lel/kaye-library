@@ -8,43 +8,69 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- `Chat Agent`: persona-free conversation rules (language, discourse terms, decorative emojis, `🙋` question prefix, letter-labeled options), moved in from `kaye-vault`; a root node every consumer receives, and the body of the standalone `chat`
-- `agent-chat-directive-abbr`: decode-only glossary of one-word directives, `c` continue and `v` verify (user's work)
-- `agent-chat-decorative`, `agent-chat-discourse-unit`, `natural-language-codes`: glossaries moved in from `kaye-vault`; `natural-language-codes` also exports as the `glossary-natural-language-codes` skill
-- `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
-- `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
-- exportable glossaries such as `coder-abbr` pass `description` and `when_to_use` to `register_abbr_glossary`, written to the glossary skill's frontmatter
-- `land-feature`, `release-version`, `submit-pr`: exportable workflow skills, no longer stubs; landing and release each ready the branch, merge, and ask approval before pushing and before deleting the merged branch
-- `proj-version-title`: version release title as bump word, release type, version; depends on the internal `proj-version-bump`
-- `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: exportable skills giving each task a linked worktree on its feature branch, placed as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, and removed once its edits reach the main worktree; `tend-linked-wt` bundles the other 2 over the internal `tend-linked-wt-core`
-- `u3d-assets-management`: optional asset domain level between asset type and asset module (`Scripts/Mobs/Spider/`), with common domains (`Mobs`, `World`, `Cameras`, `Items`, `Player`, `UI`, `Combat`, `Interactables`) and audio-only `BGMs/`, `SFXs/`
-
 ### Changed
-
-- version moves to `1.3.0-alpha`; `tests/example_consumer_test.py::test_pin_matches_library_version` keeps the example's `kaye-library` pin at `v` plus that base version
-- `commit-sense`: message body now rare, written only for a large pattern the summary line and ledger miss
-- Perforce corpus and registration moved to their own `registrations/p4v/` module; `working-with-p4v` unchanged
-- README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
-- `u3d-assets-management`: rewritten around asset type, asset domain, and asset module; `Audio/BGM/`, `Audio/SFX/` renamed `Audio/BGMs/`, `Audio/SFXs/`
-- `u3d-naming`: dev prefix `dev` → `DEV` (`DEVJohnMainScene.unity`), now also covering dev-only assets (`DEVSandboxScene.unity`)
-- `element-alphabetical-sequence-numbering`: subset example ends with `ⓐ all of above`; answering "a" selects every item before it
-- `land-feature`, `release-version`: approval lists end with `ⓐ all of above`, approving every action at once
 
 ### Deprecated
 
 ### Removed
 
-- `Standalone Chat` corpus and `registrations/chat/chat.md`: replaced by `Chat Agent` in `chat-agent.md`
-- `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
-- most of `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`; only `docs/blueprint-doc.md` remains
-
 ### Fixed
-
-- open gap: the library calls `register_abbr_glossary(description=, when_to_use=)`, which engine `v11.0.1` lacks; re-pin `kaye-engine` once the engine releases a version that has it
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.3.0...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.3.0] - 2026-11-13
+
+### Added
+
+- `Chat Agent`: persona-free conversation rules (language, discourse terms, decorative emojis, `🙋` question prefix, letter-labeled options), moved in from `kaye-vault`; every consumer receives it, and it is the body of the standalone `chat`
+- `agent-chat-directive-abbr` glossary: `c` continue, `v` verify; `agent-chat-decorative`, `agent-chat-discourse-unit`, `natural-language-codes` moved in from `kaye-vault`, the last also exported as `glossary-natural-language-codes`
+- `commit-sense-branch-merging`: exportable skill for merging a branch with a typed summary
+- `land-feature`, `release-version`, `submit-pr`: working workflows; landing and release ready the branch, merge, then ask approval before pushing or deleting the merged branch
+- `proj-version-title`: release title as bump word, release type, version
+- `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree per task, placed as `REPO-WT-FEATURE` in the repository's `WS-` folder and removed once merged
+- `u3d-assets-management`: optional asset domain level (`Scripts/Mobs/Spider/`) with common domains and audio-only `BGMs/`, `SFXs/`
+- exportable glossaries such as `coder-abbr` carry `description` and `when_to_use` in their skill frontmatter
+- `docs/blueprint-doc.md`: blueprint dependency and invocation graphs
+
+### Changed
+
+- `kaye-engine` pin is `v11.1.0`
+- `commit-sense`: message body rare, only for a large pattern the summary and ledger miss
+- `land-feature`, `release-version`: approval lists end with `ⓐ all of above`; `release-version` also offers fast-forwarding `dev`
+- `element-alphabetical-sequence-numbering`: answering `a` selects every item before it
+- `u3d-assets-management`: rewritten around asset type, domain, and module; `Audio/BGM/`, `Audio/SFX/` → `Audio/BGMs/`, `Audio/SFXs/`
+- `u3d-naming`: dev prefix `dev` → `DEV`, now also covering dev-only assets
+- Perforce corpus moved to its own module; `working-with-p4v` unchanged
+- README rewritten as a pitch with a Contributing path into the `kaye-engine` docs
+
+> [!WARNING]
+> `kaye-engine` `v11.1.0` is required; update the engine pin before updating the library. Chat and `Repositories` corpus roots are gone (see Removed): a consumer that selects those nodes by path, or registers `natural-language-codes` or the `agent-chat-*` glossaries itself, must repoint or drop them first, since a second registration raises `ValueError`
+
+### Removed
+
+- `Standalone Chat` corpus: replaced by `Chat Agent`
+- `Repositories` corpus root: merged into the `Git` root; `repo-*` skill names unchanged
+- most of `docs/`: moved into `CONTEXT.md` and the `kaye-engine` Consumer documentation
+
+### Fixed
+
+- the `description` and `when_to_use` the library passes to `register_abbr_glossary` were unsupported by engine `v11.0.1`; fixed by the new pin
+
+[1.3.0]: https://github.com/kami-lel/kaye-library/compare/v1.2.1...v1.3.0
 
 
 
