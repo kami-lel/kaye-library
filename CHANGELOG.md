@@ -10,6 +10,9 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `Chat Agent`: persona-free conversation rules (language, discourse terms, decorative emojis, `🙋` question prefix), moved in from `kaye-vault`; a root node every consumer receives, and the body of the standalone `chat`
+- `agent-chat-directive-abbr`: decode-only glossary of one-word directives, `c` continue and `v` verify (user's work)
+- `agent-chat-decorative`, `agent-chat-discourse-unit`, `natural-language-codes`: glossaries moved in from `kaye-vault`; `natural-language-codes` also exports as the `glossary-natural-language-codes` skill
 - `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
 - `land-feature`, `release-version`, `submit-pr`: exportable workflow skills, no longer stubs; landing and release each ready the branch, merge, and ask approval before pushing and before deleting the merged branch
@@ -29,6 +32,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Removed
 
+- `Standalone Chat` corpus: its `registrations/chat/chat.md` now holds `Chat Agent`
 - `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
 - `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
 

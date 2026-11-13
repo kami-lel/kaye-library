@@ -11,12 +11,19 @@ __all__ = ("register_agent_abbr_glossaries",)
 
 def register_agent_abbr_glossaries():
     """
-    register ``agent-chat-decorative``, ``agent-chat-discourse-unit``,
+    register ``agent-chat-decorative``, ``agent-chat-directive-abbr``,
+    ``agent-chat-discourse-unit``,
     ``agent-chat-turn-progress-dispatch-decorative``, and
     ``natural-language-codes``
     """
     register_abbr_glossary(
         "agent-chat-decorative", False, is_dyn_substitution=True
+    )
+    register_abbr_glossary(
+        "agent-chat-directive-abbr",
+        False,
+        is_sorted=True,
+        is_dyn_substitution=True,
     )
     register_abbr_glossary(
         "agent-chat-discourse-unit",

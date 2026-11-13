@@ -1343,6 +1343,15 @@
   },
   "continue": {
     "abbrs": {
+      "c": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "agent-chat-directive-abbr",
+          "single_character"
+        ],
+        "wrap": "word"
+      },
       "🥁": {
         "priority": 1,
         "remark": "your own interrupted Turn resumes, or a 💤 wait has ended",
@@ -4044,6 +4053,19 @@
         "tags": [
           "coder-identifier-shorthand",
           "letters_only"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "verify (user's work)": {
+    "abbrs": {
+      "v": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "agent-chat-directive-abbr",
+          "single_character"
         ],
         "wrap": "word"
       }

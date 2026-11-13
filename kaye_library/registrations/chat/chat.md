@@ -51,6 +51,16 @@ in general: Bar < Turn < Round < Movement < Suite
 
 
 
+### Directive
+
+The user gives these one-word directives. Abbreviations are decode-only: always use the full word in your response:
+
+(((agent-chat-directive-abbr)))
+
+
+
+
+
 ### Chat Emojis Decorative
 
 Utilize decorative emojis below in your conversation (leaving original word intact):
