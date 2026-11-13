@@ -519,17 +519,9 @@ track resolution with a markdown task list — one item per unmerged path, check
 
 ## Tend Linked Worktree
 
-Work on a single [feature branch](#feature-branch) in its own linked worktree, leaving the main worktree untouched.
+Give each task its own linked worktree on the task's single [feature branch](#feature-branch), so work on the task leaves the main worktree untouched; never share a linked worktree across tasks or switch its branch, since one worktree per task keeps each task's edits apart.
 
-
-
-
-
-
-
-#### Create the Linked Worktree
-
-Place the linked worktree of the [feature branch](#feature-branch) inside the repository's workspace folder, named `REPO-WT-FEATURE`:
+A linked worktree sits inside the repository's workspace folder, named `REPO-WT-FEATURE`:
 
 ```text
 WS-kaye-library/
@@ -540,7 +532,25 @@ WS-kaye-library/
 - `WS-`: prefix of a workspace folder, which holds several worktrees
 - `-WT-`: infix marking a linked worktree
 
-Link the worktree to the task's existing feature branch; if none exists, create the branch with the worktree.
+
+
+
+
+
+
+#### Plant the Linked Worktree
+
+Plant the task's linked worktree as `REPO-WT-FEATURE` in the workspace folder, linked to the task's existing feature branch; if none exists, create the branch with the worktree.
+
+
+
+
+
+
+
+#### Uproot the Linked Worktree
+
+Once the task is done, uproot its linked worktree, but only after every edit it holds has reached the main worktree, ie committed and merged into the main worktree's branch; if any edit has not, stop and report.
 
 
 
@@ -550,8 +560,8 @@ Link the worktree to the task's existing feature branch; if none exists, create 
 
 ### {description}
 
-Places a feature branch's linked worktree as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, so work on the branch leaves the main worktree untouched.
+Places a feature branch's linked worktree, one per task, as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, and removes it once its edits reach the main worktree.
 
 ### {when_to_use}
 
-Trigger on starting or continuing work on a feature branch in a linked worktree, even when the user does not say so; also "new worktree for this feature", "work in a linked worktree", "don't touch main", `git worktree add`.
+Trigger on starting, continuing, or finishing a task on a feature branch in a linked worktree, even when the user does not say so; also "new worktree for this feature", "work in a linked worktree", "don't touch main", "remove the worktree", `git worktree add`, `git worktree remove`.
