@@ -541,7 +541,7 @@ WS-kaye-library/
 └── kaye-library-WT-add-search-filter/    # linked worktree, on add-search-filter
 ```
 
-- `WS-`: prefix of a workspace folder, which holds several worktrees of one repository
+- `WS-`: prefix of a workspace folder, which holds several worktrees
 - `-WT-`: infix marking a linked worktree
 
 
