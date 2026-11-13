@@ -10,7 +10,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- `Chat Agent`: persona-free conversation rules (language, discourse terms, decorative emojis, `🙋` question prefix), moved in from `kaye-vault`; a root node every consumer receives, and the body of the standalone `chat`
+- `Chat Agent`: persona-free conversation rules (language, discourse terms, decorative emojis, `🙋` question prefix, letter-labeled options), moved in from `kaye-vault`; a root node every consumer receives, and the body of the standalone `chat`
 - `agent-chat-directive-abbr`: decode-only glossary of one-word directives, `c` continue and `v` verify (user's work)
 - `agent-chat-decorative`, `agent-chat-discourse-unit`, `natural-language-codes`: glossaries moved in from `kaye-vault`; `natural-language-codes` also exports as the `glossary-natural-language-codes` skill
 - `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
