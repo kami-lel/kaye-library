@@ -34,6 +34,8 @@ todo support layered CONTEXT/AGENTS
 
 ### Fixed
 
+- open gap: the library calls `register_abbr_glossary(description=, when_to_use=)`, which engine `v11.0.1` lacks; re-pin `kaye-engine` once the engine releases a version that has it
+
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.2.1...dev
