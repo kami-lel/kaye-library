@@ -4,6 +4,8 @@ English | [简体中文](README.zh-CN.md)
 
 📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. Install once, and every conversation gets sharper. ✨
 
+⚙️ **Powered by [kaye-engine](https://github.com/kami-lel/kaye-engine)**, its companion repository: the engine that renders and exports every skill.
+
 ⭐ **If kaye-library saves you a prompt or two, please [star it on GitHub](https://github.com/kami-lel/kaye-library)!** Every star helps more people find it. 🙏
 
 ## 💡 Why kaye-library?
@@ -84,9 +86,5 @@ A path in, in order:
 3. Build on the library instead of changing it: the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows how to layer your own package and override a skill, with a working package in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py)
 
 One rule to keep in mind: every prompt here stays free of personal data.
-
-## 🙌 Acknowledgments
-
-Built on [kaye-engine](https://github.com/kami-lel/kaye-engine), which parses the Markdown corpus and renders every prompt. ⚙️
 
 ⭐ Enjoying it? A [star on GitHub](https://github.com/kami-lel/kaye-library) goes a long way!

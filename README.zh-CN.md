@@ -6,6 +6,8 @@
 
 📚 **100+ 个开箱即用的 Agent Skills**，让你的 AI 助手像一位严谨的专业人士那样写作、编程、提交、规划与整理。一次安装，每一次对话都更出色。✨
 
+⚙️ **由 [kaye-engine](https://github.com/kami-lel/kaye-engine) 驱动**，本仓库的配套仓库：负责渲染与导出每个技能的底层引擎。
+
 ⭐ **如果 kaye-library 帮你省下了一两条提示词，欢迎 [在 GitHub 上点个 Star](https://github.com/kami-lel/kaye-library)！** 每一颗星都能让更多人发现它。🙏
 
 ## 💡 为什么选择 kaye-library？
@@ -86,9 +88,5 @@ pytest tests/skill_export_test.py
 3. 在库之上构建，而非修改它：[Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) 介绍如何叠加你自己的包并覆盖某个技能，[examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) 中有一个可运行的示例包
 
 请牢记一条规则：这里的每条提示词都不含个人数据。
-
-## 🙌 致谢
-
-基于 [kaye-engine](https://github.com/kami-lel/kaye-engine) 构建，它负责解析 Markdown 语料并渲染每一条提示词。⚙️
 
 ⭐ 喜欢吗？在 GitHub 上 [点个 Star](https://github.com/kami-lel/kaye-library) 就是莫大的支持！
