@@ -1,7 +1,7 @@
 # Git
 
 <!--
-Todo working w/ git worktree main & linked
+TODO working w/ git worktree main & linked
 -->
 
 ## Working with Git
