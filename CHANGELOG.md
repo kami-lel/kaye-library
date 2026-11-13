@@ -6,12 +6,11 @@ todo support layered CONTEXT/AGENTS
 
 ## [Unreleased]
 
-<!-- FIXME Removed docs/ contradicts Added blueprint-doc; glossary description/when_to_use frontmatter unrecorded -->
-
 ### Added
 
 - `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+- exportable glossaries such as `coder-abbr` pass `description` and `when_to_use` to `register_abbr_glossary`, written to the glossary skill's frontmatter
 - `land-feature`, `release-version`, `submit-pr`: exportable workflow skills, no longer stubs; landing and release each ready the branch, merge, and ask approval before pushing and before deleting the merged branch
 - `proj-version-title`: version release title as bump word, release type, version; depends on the internal `proj-version-bump`
 - `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: exportable skills giving each task a linked worktree on its feature branch, placed as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, and removed once its edits reach the main worktree; `tend-linked-wt` bundles the other 2 over the internal `tend-linked-wt-core`
@@ -19,6 +18,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- version moves to `1.3.0-alpha`; `tests/example_consumer_test.py::test_pin_matches_library_version` keeps the example's `kaye-library` pin at `v` plus that base version
 - `commit-sense`: message body now rare, written only for a large pattern the summary line and ledger miss
 - Perforce corpus and registration moved to their own `registrations/p4v/` module; `working-with-p4v` unchanged
 - README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
@@ -30,9 +30,11 @@ todo support layered CONTEXT/AGENTS
 ### Removed
 
 - `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
-- `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
+- most of `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`; only `docs/blueprint-doc.md` remains
 
 ### Fixed
+
+- open gap: the library calls `register_abbr_glossary(description=, when_to_use=)`, which engine `v11.0.1` lacks; re-pin `kaye-engine` once the engine releases a version that has it
 
 ### Security
 

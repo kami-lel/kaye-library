@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kaye-library"
-version = "1.2.2-alpha"
+version = "1.3.0-alpha"
 description = "A ready-to-install library of reusable LLM instructions: shared rules for writing, git, repositories, and coding, authored once in Markdown and ready to use as skills, plugins, or plain prompts, so any agent works to the same high standard from its first prompt, powered by kaye-engine"
 readme = "README.md"
 authors = [
@@ -12,7 +12,6 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    # BUG v11.0.1 lacks register_abbr_glossary description/when_to_use
     "kaye-engine @ git+https://github.com/kami-lel/kaye-engine.git@v11.0.1",
     "kamilog @ git+https://github.com/kami-lel/kamilog.git@v3.0.0",
 ]

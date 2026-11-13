@@ -17,13 +17,11 @@ graph LR
 
 The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consumer. Importing loads nothing.
 
-<!-- FIXME kamilog row says default branch: pyproject pins v3.0.0 -->
-
 | | |
 |---|---|
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
-| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, default branch) |
+| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.0`) |
 | release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version builds the plugin zip with `build-github-release` and attaches it to a GitHub Release, a pre-release for `-alpha` and `-beta` |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
