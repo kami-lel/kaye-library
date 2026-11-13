@@ -449,29 +449,32 @@ Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag 
 
 #### Movement 11: Report and Ask Approval
 
-Reply as below, asking 2 approvals: push `main` and the tag, and prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)). If any Movement halts, report where and why in one line, then stop.
+Reply as below, asking 3 approvals: push `main` and the tag, prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)), and fast-forward `dev` to `main`, local and remote. If any Movement halts, report where and why in one line, then stop.
 
 <post-release-output-example>
-🚩🐙 Minor Release Cut 1.1.0
+🚩🐙 Minor Release 1.1.0
 ✍️ ⓑ push `main` and `v1.1.0` to origin?
 ✍️ ⓒ prune merged branches `add-search-filter`, `fix-login-redirect`?
+✍️ ⓓ fast-forward `dev` to `main`, local and origin?
 ⓐ all of above
 </post-release-output-example>
 
 
 
-#### Movement 12: Push and Prune
+#### Movement 12: Push, Prune, and Sync Dev
 
-Run only the approved actions, in order; ⓐ approves both:
+Run only the approved actions, in order; ⓐ approves all three:
 
 - ⓑ `git push origin main vVERSION`
 - ⓒ invoke `prune-merged-branches`
+- ⓓ fast-forward `dev` to `main`, local and origin; if it cannot fast-forward, report in one line and stop
 
 Reply once, after all are done:
 
 <post-push-prune-output-example>
 🚩🐙 pushed `main` and `v1.1.0` to origin
 🚩🐙 pruned `add-search-filter`, `fix-login-redirect`
+🚩🐙 fast-forwarded `dev` to `main`, local and origin
 </post-push-prune-output-example>
 
 
