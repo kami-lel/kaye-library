@@ -8,6 +8,9 @@ import pytest
 from kaye_engine.abbr_collection import abbr_glossary_registry
 
 _LIBRARY_GLOSSARIES = (
+    "agent-chat-decorative",
+    "agent-chat-directive-abbr",
+    "agent-chat-discourse-unit",
     "agent-chat-turn-progress-dispatch-decorative",
     "amanuensis-config-writer-shorthand",
     "amanuensis-config-keybinding-keyboards",
@@ -26,6 +29,7 @@ _LIBRARY_GLOSSARIES = (
     "element-dt-watch-day-abbr",
     "element-dt-watch-week-abbr",
     "git-abbr",
+    "natural-language-codes",
     "programming-language-codes",
     "secretary-calendar-name",
     "secretary-common-shorthand",
