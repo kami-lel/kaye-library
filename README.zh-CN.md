@@ -14,7 +14,6 @@
 
 - 🧠 一次编写，永久复用：每条指令只存放在一处，随你的智能体到达任何地方
 - 🎯 自动触发：说一句“commit this”或“write a README”，对应的技能就会接手
-- 🫥 不含人设：面向任何助手、任何项目编写，不内置姓名或个人数据
 - 🧩 易于扩展：在其上叠加你自己的包，覆盖任意技能，保留其余部分，详见 [Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md)
 - 📦 随处可用：Agent Skills 文件夹、Claude 插件、插件市场，或可直接上传的 `.zip`
 
@@ -32,7 +31,7 @@
 | 🖋️ | 文书 | 芝加哥格式引注与参考文献、信息脱敏、笔记、配置文件、快捷键、会议纪要 |
 | 🧱 | 基础元素 | 日期与时间格式、计量单位、分诊标签、国际音标 |
 | 🐙 | Git | 附逐文件清单的提交信息、合并冲突解决、分支清理、PR、Git 与 Perforce 术语 |
-| 🤖 | 智能体 | 不含人设的对话规则、Movement 与 Suite 规划：将大任务拆分为可审阅的步骤 |
+| 🤖 | 智能体 | 对话规则、Movement 与 Suite 规划：将大任务拆分为可审阅的步骤 |
 | 🪄 | 元提示词 | LLM 系统提示词与技能描述的撰写 |
 | 📖 | 术语表 | 计量单位、星期、语言代码、编程缩写 |
 
@@ -86,7 +85,7 @@ pytest tests/skill_export_test.py
 2. 了解底层引擎：技能所用的 Markdown 格式见 [corpus 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md)，其 `{description}` 与 `{when_to_use}` 附注见 [sidecar 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/sidecar-doc.md)，blueprint 与注册表见 [prompt 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md)，导出选项见 [exportable registry 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/exportable-registry-doc.md)，术语表见 [abbreviation 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/abbrs-doc.md)
 3. 在库之上构建，而非修改它：[Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) 介绍如何叠加你自己的包并覆盖某个技能，[examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) 中有一个可运行的示例包
 
-请牢记一条规则：这里的每条提示词都不含个人数据，也不含任何人设。
+请牢记一条规则：这里的每条提示词都不含个人数据。
 
 ## 🙌 致谢
 

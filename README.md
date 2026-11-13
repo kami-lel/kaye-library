@@ -12,7 +12,6 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 - 🧠 Write Once, Reuse Forever: each instruction lives in one place and ships everywhere your agent goes
 - 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
-- 🫥 Persona-Free: written for any assistant and any project, no names or personal data baked in
 - 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
 - 📦 Ships Everywhere: Agent Skills folders, a Claude plugin, a plugin marketplace, or an upload-ready `.zip`
 
@@ -30,7 +29,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
 | 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
 | 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, PRs, Git and Perforce terms |
-| 🤖 | Agentic | persona-free chat rules, Movement and Suite planning: big tasks split into reviewable steps |
+| 🤖 | Agentic | chat rules, Movement and Suite planning: big tasks split into reviewable steps |
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
@@ -84,7 +83,7 @@ A path in, in order:
 2. Learn the engine underneath: the Markdown format a skill is written in is the [corpus documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md), its `{description}` and `{when_to_use}` sidecars are in the [sidecar documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/sidecar-doc.md), blueprints and the registry in the [prompt documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md), export flags in the [exportable registry documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/exportable-registry-doc.md), and glossaries in the [abbreviation documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/abbrs-doc.md)
 3. Build on the library instead of changing it: the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows how to layer your own package and override a skill, with a working package in [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py)
 
-One rule to keep in mind: every prompt here stays free of personal data and of any persona.
+One rule to keep in mind: every prompt here stays free of personal data.
 
 ## 🙌 Acknowledgments
 
