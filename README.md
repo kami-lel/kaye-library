@@ -1,5 +1,7 @@
 # kaye-library README
 
+English | [简体中文](README.zh-CN.md)
+
 📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. Install once, and every conversation gets sharper. ✨
 
 ⭐ **If kaye-library saves you a prompt or two, please [star it on GitHub](https://github.com/kami-lel/kaye-library)!** Every star helps more people find it. 🙏

@@ -8,6 +8,8 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `README.zh-CN.md`: Simplified Chinese readme, linked from `README.md` by a language switcher
+
 ### Changed
 
 ### Deprecated
