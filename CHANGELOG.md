@@ -6,12 +6,11 @@ todo support layered CONTEXT/AGENTS
 
 ## [Unreleased]
 
-<!-- FIXME Removed docs/ contradicts Added blueprint-doc; glossary description/when_to_use frontmatter unrecorded -->
-
 ### Added
 
 - `commit-sense-branch-merging`: exportable skill for merging a branch with a typed primary summary; was the internal `git-sense-branch-merging`
 - `docs/blueprint-doc.md`: the blueprint dependency and invocation graphs
+- exportable glossaries such as `coder-abbr` pass `description` and `when_to_use` to `register_abbr_glossary`, written to the glossary skill's frontmatter
 - `land-feature`, `release-version`, `submit-pr`: exportable workflow skills, no longer stubs; landing and release each ready the branch, merge, and ask approval before pushing and before deleting the merged branch
 - `proj-version-title`: version release title as bump word, release type, version; depends on the internal `proj-version-bump`
 - `tend-linked-wt`: exportable skill placing a feature branch's linked worktree as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder
@@ -30,7 +29,7 @@ todo support layered CONTEXT/AGENTS
 ### Removed
 
 - `Repositories` corpus root and `registrations/repo/`: merged into `registrations/git/` under the one `Git` root, split as `git.md`, `repo.md`, `workflow.md`, `branch.md`; `repo-*` slugs unchanged
-- `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`
+- most of `docs/`: its content moved into `CONTEXT.md`, and the consumer guide became the Consumer documentation in `kaye-engine`; only `docs/blueprint-doc.md` remains
 
 ### Fixed
 
