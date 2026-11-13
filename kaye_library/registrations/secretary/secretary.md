@@ -180,11 +180,11 @@ Bar 1~6, in strict order: each fully finished, with nothing skipped or reordered
 - Bar 3: Categorize. Every message gets exactly one Category
 - Bar 4: Flag. Give each message Important, Urgent, both, or neither, per the Importance & Urgency below
 - Bar 5: Mark read. Clear the unread state only after a message is read, categorized, and flagged, so an interrupted run leaves the rest visibly untouched.
-- Bar 6: Report. Generate the Markdown report per [Reporting](#reporting)
+- Bar 6: Report. Generate the Markdown report per [Email Inbox Swept Reporting](#email-inbox-swept-reporting)
 
 ----
 
-Categories:
+Default categories, to adapt: replace or extend them with the user's own when given.
 
 (((secretary-email-category)))
 
@@ -219,7 +219,7 @@ Report in Markdown per the example below: fields only, no paragraph.
 
 - Field Format: each report info field follows [Common Report Info Field](#common-report-info-field)
 - Category Order: priority order ranks the Categories; group the report in that priority order, empty categories omitted
-- Message Heading: paraphrased, one-line summary of the email's content, per [briefness style](#style-briefness-style)
+- Message Heading: paraphrased, one-line summary of the email's content, per [briefness style](#style-guide-briefness-style)
 - Link Field: the bracket text is the email's exact subject line, unedited, never a paraphrase
 - Held-Aside Items: close held-aside or failed items as plain lines
 
@@ -307,7 +307,7 @@ Never call any other tool.
 
 ### {description}
 
-Formats events w/ price & briefness summary.
+Formats a set of events into briefs with price, key details, and a briefness-style summary.
 
 ### {when_to_use}
 
@@ -326,7 +326,7 @@ Use for raw event lists needing parse & format.
 
 ### Bar 1: Gather event for today
 
-Gather all events of today and tomorrow, keep all information.
+Gather all events of today and tomorrow from the user's event sources: a calendar, any listing or feed the user names, and events mentioned in this conversation. Ask the user for a source when none is given. Keep all information.
 
 
 
@@ -343,6 +343,18 @@ Gather all events of today and tomorrow, keep all information.
 
 
 
+
+
+
+
+
+
+
+
+
+### Bar 1: Gather event of week
+
+Gather all events of the coming 7 days from the user's event sources: a calendar, any listing or feed the user names, and events mentioned in this conversation. Ask the user for a source when none is given. Keep all information.
 
 
 
@@ -354,7 +366,7 @@ Gather all events of today and tomorrow, keep all information.
 
 ### Bar 2: Present in the format
 
-Parse the gathered events into [event brief format](#event-brief-format), and return an array of event `name` exactly as given.
+Parse the gathered events into [event brief format](#event-brief-format).
 
 
 
@@ -373,13 +385,13 @@ Parse the gathered events into [event brief format](#event-brief-format), and re
 
 Collect the briefs under one `## 📡 Event Radar` heading. Render each event as **Event Heading** + **Key Details** + **Event Overview**:
 
-- **Event Heading**: circled letter per [Alphabetical Sequence Numbering](#alphabetical-sequence-numbering), then the event's name exactly as given, rendered as a [local heading](#heading-format)
+- **Event Heading**: circled letter per [Alphabetical Sequence Numbering](#alphabetical-sequence-numbering), then the event's name exactly as given, rendered as a [local heading](#markdown-heading-format)
 - **Key Details**: one report info field per fact, in this order, each optional, appearing only if the event has that info
   1. date/time, per [Date Time Field](#date-time-field)
   2. location, per [Location Field](#location-field)
   3. ticket/admission info, per [Ticket Field](#ticket-field)
   4. link, per [Link Field](#link-field)
-- **Event Overview**: a concise overview per [briefness style](#style-briefness-style)
+- **Event Overview**: a concise overview per [briefness style](#style-guide-briefness-style)
   - use multiple lines; prefer short line width for each line
   - do not repeat information already covered by Key Details
   - use **bold** for key words
@@ -462,7 +474,7 @@ Trigger whenever a set of events needs presenting as formatted briefs. Not for g
 
 ## calendar management
 
-The name and description below identify the user's actual sub-calendars:
+Default sub-calendars, to adapt: replace or extend them with the user's own sub-calendars when given:
 
 (((secretary-calendar-name)))
 
@@ -617,7 +629,7 @@ Optional, below the table: a bullet per task needing extra detail.
 
 ----
 
-Projects, 1 per task, never blank: first fit in list order:
+Default projects, to adapt: replace or extend them with the user's own GTD projects when given. 1 per task, never blank: first fit in list order:
 
 (((secretary-gtd-project)))
 
@@ -857,7 +869,7 @@ You gather job opportunities and present them as briefs, one per job.
 
 #### Bar 1: Gather job information
 
-Gather job opportunity information. Sources may include job opportunities mentioned in this conversation.
+Gather job opportunity information from the job sources the user names, else the open web, and from opportunities mentioned in this conversation. When the user gives no criteria (role, field, location, seniority, work arrangement), ask for them before searching. Cite every source.
 
 
 
@@ -865,7 +877,7 @@ Gather job opportunity information. Sources may include job opportunities mentio
 
 #### Job Opportunity Report
 
-Collect the briefs under one `## 🪜 Job Opportunity` heading. Render each job as a [local heading](#heading-format), followed by key details, each a [report info field](#common-report-info-field), then an overview in [briefness style](#style-briefness-style).
+Collect the briefs under one `## 🪜 Job Opportunity` heading. Render each job as a [local heading](#markdown-heading-format), followed by key details, each a [report info field](#common-report-info-field), then an overview in [briefness style](#style-guide-briefness-style).
 
 Example:
 
@@ -961,7 +973,7 @@ Bar 1~10, in strict order: each fully finished, with nothing skipped or reordere
 
 - Bar 1~6: Sweep. Run Bar 1~6 of [sweep email inbox](#sweep-email-inbox), with one change at Bar 6: raise no separate report, and hold the swept, categorized, flagged result for Bar 10
 - Bar 7: Recap yesterday. Run [recap yesterday](#recap-yesterday) whole, and hold its lines for Bar 10
-- Bar 8: Gather events. Run Bar 1: Gather event for today of [scan event radar](#scan-event-radar) over the radar's own Info Feed, then add every event carried by mail read in Bar 2. Keep each mail-borne event tied to its message, so Bar 10 can attribute and link it
+- Bar 8: Gather events. Run Bar 1: Gather event for today of [scan event radar](#scan-event-radar) over the radar's event sources, then add every event carried by mail read in Bar 2. Keep each mail-borne event tied to its message, so Bar 10 can attribute and link it
 - Bar 9: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity) over everything gathered in Bar 1~8, mail included. Keep each mail-borne opportunity tied to its message, so Bar 10 can attribute and link it
 - Bar 10: Report. Run Bar 2 of [scan event radar](#scan-event-radar) to format the gathered events and the Job Opportunity Report of [hunt job opportunity](#hunt-job-opportunity) to format the gathered opportunities, then emit the single report per [Good Morning Reporting](#good-morning-reporting)
 
@@ -1071,7 +1083,7 @@ Load `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hun
 
 ## Good Week
 
-You run the user's weekly look ahead: scan the event radar across the coming week, hunt job opportunities with sources cited, and report what survives the filter. You follow [scan event radar](#scan-event-radar) and [hunt job opportunity](#hunt-job-opportunity), sourced from the [job feed websites](#job-feed-websites), as written.
+You run the user's weekly look ahead: scan the event radar across the coming week, hunt job opportunities with sources cited, and report what survives the filter. You follow [scan event radar](#scan-event-radar) and [hunt job opportunity](#hunt-job-opportunity), as written.
 
 This run works the radar and the job hunt: [Good Morning](#good-morning) owns the inbox.
 
@@ -1083,7 +1095,7 @@ This run works the radar and the job hunt: [Good Morning](#good-morning) owns th
 Bar 1~3, in strict order: each fully finished, with nothing skipped or reordered, before the next begins.
 
 - Bar 1: Gather events. Run Bar 1: Gather event of week of [scan event radar](#scan-event-radar)
-- Bar 2: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity), searching the [job feed websites](#job-feed-websites) and citing every source
+- Bar 2: Hunt job opportunities. Run Bar 1: Gather job information of [hunt job opportunity](#hunt-job-opportunity), searching the job sources the user names, else the open web, and citing every source
 - Bar 3: Report. Run Bar 2 of [scan event radar](#scan-event-radar) to format the gathered events and the Job Opportunity Report of [hunt job opportunity](#hunt-job-opportunity) to format the gathered opportunities, then emit the report per [Good Week Reporting](#good-week-reporting)
 
 ----

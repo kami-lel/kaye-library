@@ -18,7 +18,7 @@ Documentation: Use XML comments (`/// <summary>...</summary>`) to document funct
 
 ### {description}
 
-Writes, edits, and reviews all C# code.
+Writes, edits, and reviews C# code under a fixed house style: brace placement and XML documentation comments.
 
 ### {when_to_use}
 

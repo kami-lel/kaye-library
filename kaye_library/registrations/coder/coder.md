@@ -95,7 +95,7 @@ Format:
 
 - format an *inline comment*, which trails the code on the same line, as: actual code + two spaces + `#` or `//` + single space + comment content, for example `int a = 1;  // retry budget for the fetch`
 - format an *above comment*, which sits on its own line directly above the code it describes, as: `#` or `//` + single space + comment content
-- use [Briefness Style](#style-briefness-style) for all comments
+- use [Briefness Style](#style-guide-briefness-style) for all comments
 - use [Commentary Case](#letter-case-commentary-case) for each Comment Line
 
 
@@ -738,7 +738,7 @@ Halt the moment reality stops matching the Plan — a bug, a false assumption, a
 2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
 3. mark every Movement's current status — done, halted, dropped, rewritten, still ahead — so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
-5. present the revised Plan and hold for approval, as in [Movement 2: Write the Plan](#movement-2-write-the-plan)
+5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
 6. once approved, Movement In to the earliest unfinished Movement, and not sooner
 
 
@@ -1102,7 +1102,7 @@ add the extra with its `redis` pin, or drop the documented path and the module b
 
 ### {description}
 
-Audits whole repository for gaps, drift, unfinished seams — anything that becomes user-visible bug on public release; marks critical ones with Loud TT.
+Audits whole repository for gaps, drift, unfinished seams — anything that becomes user-visible bug on public release; marks every surviving gap with a Loud TT.
 
 ### {when_to_use}
 

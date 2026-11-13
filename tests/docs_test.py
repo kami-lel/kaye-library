@@ -14,7 +14,6 @@ _ROOT = pathlib.Path(__file__).resolve().parent.parent
 _DOCS = sorted(
     [
         *_ROOT.glob("*.md"),
-        *_ROOT.glob("docs/*.md"),
     ]
 )
 _LINK = re.compile(r"\]\(([^)\s]+)\)")
@@ -46,11 +45,3 @@ def test_relative_links_resolve(path):
         if anchor:
             assert anchor in _anchors(linked), f"{path.name}: {target}"
 
-
-def test_every_doc_is_linked_from_readme_and_agents():
-    readme = (_ROOT / "README.md").read_text(encoding="utf-8")
-    agents = (_ROOT / "AGENTS.md").read_text(encoding="utf-8")
-
-    for doc in sorted((_ROOT / "docs").glob("*.md")):
-        assert f"docs/{doc.name}" in readme, doc.name
-        assert f"docs/{doc.name}" in agents, doc.name

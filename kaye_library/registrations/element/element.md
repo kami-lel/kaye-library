@@ -35,7 +35,7 @@ Any output date whose year is known or matters: deadlines, timestamps, log entri
 
 Write `MM-DD` when the date carries no year. The day of week code prefix is optional.
 
-`01-16`, `01-16`, `H 12-31`
+`H 01-16`, `01-16`, `H 12-31`
 
 
 
@@ -162,35 +162,9 @@ Any horizon covering the days ahead: weekly reviews, task ranges, plans and dead
 
 
 
+### (element-dt-days-of-week)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Each code is one letter, unique per day, because English initials repeat (T and S each name 2 days); German fills the gaps. Day of week codes:
 
 
 
@@ -207,7 +181,11 @@ Any horizon covering the days ahead: weekly reviews, task ranges, plans and dead
 
 ### {description}
 
-when physical quantities appear in output
+Presents numerical values in both metric and US units with correct unit abbreviations and space-separated thousands.
+
+### {when_to_use}
+
+Any answer carrying physical quantities: distances, masses, temperatures, speeds, volumes, or "how far", "how heavy", "convert to km".
 
 
 
@@ -477,45 +455,11 @@ Choose a subset:
 
 ```md
 Keep any:
-- ⓐ Logo
-- ⓑ Favicon
-- ⓒ Banner
+
+- ⓑ Logo
+- ⓒ Favicon
+- ⓓ Banner
+- ⓐ all of above
 ```
-User answers "ac"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# (element-dt-days-of-week)
-
-Day of week codes:
+User answers "a" (Logo, Favicon, Banner), or "bd" (Logo, Banner)

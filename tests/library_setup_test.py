@@ -42,3 +42,29 @@ class TestStructure:
 
     def test_abbrs_json_path_exists(_):
         assert kaye_library.get_kaye_library_abbrs_json_path().is_file()
+
+
+class TestStandaloneChatBase:
+
+    def test_chat_is_always_applied_and_persona_free(_):
+        from kaye_engine.exportable import exportable_registry
+
+        chat = exportable_registry["chat"]
+
+        assert chat.always_apply is True
+        assert chat.consumer == "kaye-library"
+
+    def test_chat_coder_is_not_invokable(_):
+        from kaye_engine.exportable import exportable_registry
+
+        entry = exportable_registry["chat-coder"]
+
+        assert entry.llm_invokable is False
+        assert entry.is_user_invokable is False
+
+    def test_email_authuser_defaults_to_zero(_, testee_skills_folder):
+        body = (
+            testee_skills_folder / "sweep-email-inbox" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        assert "?authuser=0#all/" in body

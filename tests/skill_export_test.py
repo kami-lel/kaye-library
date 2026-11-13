@@ -22,11 +22,6 @@ SKILL_NAMES = sorted(
     if entry.consumer == "kaye-library"
 )
 
-# skills splicing a personal glossary or substitution a consumer registers;
-# standalone, the placeholder stays literal
-_PERSONAL_PLACEHOLDER_SKILLS = frozenset(
-    ("sweep-email-inbox",)
-)
 
 
 def _read(folder, name):
@@ -71,6 +66,30 @@ class TestHeader:
 
         assert any(data.WHEN_TO_USE_CONTENT[name] in line for line in header)
 
+    @pytest.mark.parametrize("name", SKILL_NAMES)
+    def test_metadata_is_real(_, skills_folder, name):
+        header, _body = split_frontmatter_md_file(_read(skills_folder, name))
+        fields = {
+            key: line[len(key) + 2 :].strip("'\"")
+            for key in ("description", "when_to_use")
+            for line in header
+            if line.startswith(key + ": ")
+        }
+
+        assert set(fields) == {"description", "when_to_use"}
+        for text in fields.values():
+            assert len(text) >= 30
+            assert "tmp" not in text.split()
+            assert not text.startswith(("define ", "Glossary "))
+
+    @pytest.mark.parametrize("name", sorted(data.PATHS_CONTENT))
+    def test_paths(_, skills_folder, name):
+        header, _body = split_frontmatter_md_file(_read(skills_folder, name))
+
+        assert "paths:" in header
+        for pattern in data.PATHS_CONTENT[name]:
+            assert "- '{}'".format(pattern) in header
+
 
 class TestStructure:
 
@@ -82,9 +101,6 @@ class TestStructure:
 
     @pytest.mark.parametrize("name", SKILL_NAMES)
     def test_no_unresolved_placeholder(_, skills_folder, name):
-        if name in _PERSONAL_PLACEHOLDER_SKILLS:
-            pytest.skip("a consumer registers the personal glossary")
-
         assert "(((" not in _read(skills_folder, name)
 
 

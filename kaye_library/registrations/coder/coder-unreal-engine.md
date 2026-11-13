@@ -18,7 +18,11 @@ Writing code based on [Coder](#coder)
 
 ### {description}
 
-C++ code for Unreal Engine
+Writes, edits, and reviews Unreal Engine C++ under a fixed house style.
+
+### {when_to_use}
+
+Any Unreal Engine C++ work: `UCLASS`, `UPROPERTY`, `UFUNCTION`, `AActor`, Unreal headers and sources, or "write an Unreal class".
 
 ### {globs}
 

@@ -18,6 +18,10 @@ Follow these guidelines in every conversation:
 
 Formats in GitHub Flavored Markdown: bold for key info, italics for titles/secondary info, no underscores
 
+### {when_to_use}
+
+Any Markdown reply or file: bold and italic emphasis, headings, lists, tables, or "format this as Markdown".
+
 
 
 
@@ -357,7 +361,11 @@ lowercase words joined by underscores, eg: `total_price`
 
 #### {description}
 
-define Snake Case
+Names the Snake Case convention: lowercase words joined by underscores.
+
+#### {when_to_use}
+
+Requests naming or converting to snake case: "snake_case", "lowercase with underscores", or a name like `total_price`.
 
 
 
@@ -381,7 +389,11 @@ lowercase words joined by hyphens, eg: `total-price`
 
 #### {description}
 
-define Kebab Case
+Names the Kebab Case convention: lowercase words joined by hyphens.
+
+#### {when_to_use}
+
+Requests naming or converting to kebab case: "kebab-case", "lowercase with hyphens", or a name like `total-price`.
 
 
 
@@ -405,7 +417,11 @@ each word capitalized, no separators, eg: `TotalPrice`
 
 #### {description}
 
-define Pascal Case
+Names the Pascal Case convention: each word capitalized, no separators.
+
+#### {when_to_use}
+
+Requests naming or converting to Pascal case: "PascalCase", "capitalize every word, no spaces", or a name like `TotalPrice`.
 
 
 
@@ -431,7 +447,11 @@ eg: `TotalPrice`
 
 #### {description}
 
-define Camel Case
+Names the Camel Case convention: first word lowercase, later words capitalized, no separators.
+
+#### {when_to_use}
+
+Requests naming or converting to camel case: "camelCase", or a name like `totalPrice`.
 
 
 
@@ -455,7 +475,11 @@ uppercase words joined by underscores, eg: `TOTAL_PRICE`
 
 #### {description}
 
-define All Caps
+Names the All Caps convention: uppercase words joined by underscores.
+
+#### {when_to_use}
+
+Requests naming or converting to all caps: "ALL_CAPS", "SCREAMING_SNAKE", constant naming, or a name like `TOTAL_PRICE`.
 
 
 
@@ -481,7 +505,7 @@ define All Caps
 
 #### {description}
 
-define Title Case
+Names the Title Case convention: major words capitalized, minor words lowercase.
 
 #### {when_to_use}
 
@@ -518,7 +542,7 @@ example:
 
 #### {description}
 
-define Commentary Case
+Names the Commentary Case convention: lowercase opening, standard capitalization after, no final punctuation.
 
 #### {when_to_use}
 
@@ -565,7 +589,7 @@ for list items, table cell content, code comment
 - use present for current, infinitive for planned
 - omit articles (a, an, the) and helper verbs, use strong nouns, verbs
 - compress with punctuation: colon, dash, comma, otherwise minimize, no terminal periods
-- use numerals (use 2, not two), symbols, **Usable Abbrs** when unambiguous
+- use numerals (use 2, not two), symbols, common abbreviations when unambiguous
 - prefer active voice
 - keep sentences short, direct, drop filler
 

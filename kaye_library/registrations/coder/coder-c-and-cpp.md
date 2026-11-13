@@ -17,7 +17,7 @@ Writing code based on [Coder](#coder)
 
 ### {description}
 
-Writes, edits, and reviews all C code.
+Writes, edits, and reviews C code under a fixed house style: C99 and brace placement.
 
 ### {when_to_use}
 
@@ -57,7 +57,7 @@ Writing code based on [Coder](#coder)
 
 ### {description}
 
-Writes, edits, and reviews all C++ code.
+Writes, edits, and reviews C++ code under a fixed house style.
 
 ### {when_to_use}
 

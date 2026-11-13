@@ -25,6 +25,7 @@ def _register_semantic_version_extended():
         "proj-version-extended",
         ["Projects", "Project Semantic Version"],
         "Semantic Version Extended",
+        dependencies=["proj-version"],
     )
 
 
@@ -73,7 +74,8 @@ def _register_workflow(slug, container_name, name, writer_slug):
 def register_project_blueprints():
     """
     register Project Semantic Version, its Semantic Version Extended
-    sibling, the internal ``proj-agents``, ``proj-docs`` and
+    sibling, the Semantic Version Title depending on the internal
+    ``proj-version-bump``, the internal ``proj-agents``, ``proj-docs`` and
     ``proj-context-engineering`` blueprints, the Project and Repository
     AGENTS and Doc Writers depending on their internal base, and the
     Create and Maintain Project workflows depending on their writer
@@ -90,6 +92,22 @@ def register_project_blueprints():
     )
 
     _register_semantic_version_extended()
+
+    register_node(
+        _register_internal,
+        "proj-version-bump",
+        proj_node["Project Semantic Version"],
+        "semantic version bump",
+        dependencies=["proj-version"],
+    )
+
+    register_leaf(
+        register_exportable,
+        "proj-version-title",
+        ["Projects", "Project Semantic Version"],
+        "Semantic Version Title",
+        dependencies=["proj-version-bump"],
+    )
 
     register_node(
         _register_internal,

@@ -4,7 +4,15 @@ tests/data.py
 wording the library's own skills must render, by canonical name
 """
 
-FILE_CONTENT = {'coder-bash-script': ['## Bash',
+FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
+                            "from the user's event sources",
+                            'Ask the user for a source when none is given.'],
+ 'scan-event-radar-weekly': ['### Bar 1: Gather event of week',
+                             'Gather all events of the coming 7 days',
+                             "from the user's event sources"],
+ 'hunt-job-opportunity': ['When the user gives no criteria',
+                          'ask for them before searching'],
+ 'coder-bash-script': ['## Bash',
                        'You write **Bash** targeting Debian GNU/Linux, '
                        'using only the standard GNU',
                        '### Coder Bash Script',
@@ -134,8 +142,10 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                 'name',
                 'Debug.isDebugBuild'],
  'u3d-assets-management': ['## Assets Management',
-                                 'Assets/_MyGame/Scripts/MinigameRacing/RacingSceneRoot.cs',
-                                 '#### Folders'],
+                                 'Assets/_MyGame/Scripts/Mobs/Spider/SpiderController.cs',
+                                 '#### Asset Types',
+                                 '#### Asset Domains',
+                                 '#### Asset Modules'],
  'u3d-mb': ['## MonoBehaviour',
                   'Section order, formatting, and accessors follow the '
                   'example exactly.',
@@ -166,7 +176,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
  'commit-sense': ['### primary summary',
                   '### per-file change sigil',
                   '### per-file summary',
-                  '### Perform Commit Sense',
+                  '### Commit Sense',
                   'Commit the indexed changes: draw the message from the '
                   'conversation'],
  'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
@@ -217,7 +227,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
  'element-dt-month-day-format': ['### Month Day Format',
                                  'Write `MM-DD` when the date carries no '
                                  'year.',
-                                 '`01-16`, `01-16`, `H 12-31`',
+                                 '`H 01-16`, `01-16`, `H 12-31`',
                                  'Day of week codes:'],
  'element-dt-time-format': ['### Time Format',
                             'On a 24-hour clock:',
@@ -276,8 +286,6 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                '- s:second',
                                '- yd:yard',
                                '- nmi:nautical mile'],
- 'land-feature': ['## Perform Feature Landing',
-                  'tmp content for Perform Feature Landing'],
  'maintain-changelog': ['## Maintain CHANGELOG',
                         'take what to log from the conversation and recent '
                         'repository changes',
@@ -373,7 +381,7 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                            '`1.0.0+Win`, `1.0.0+mac`, `1.0.0+linux`',
                            'Vertical Slice (VS): `0.5.z`~`0.8.z`',
                            'Release Candidate (RC): `1.0.0-rc`'],
- 'ready-land-feature': ['## Prepare for Feature Landing',
+ 'ready-land-feature': ['## Ready for Feature Landing',
                         'Before merging the current [feature '
                         'branch](#feature-branch)',
                         '#### Movement 1~3: Sync Unit Test',
@@ -383,8 +391,9 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                         'Run [Maintain CHANGELOG](#maintain-changelog), '
                         'recording the change set per [Repository '
                         'CHANGELOG Writer](#repository-changelog-writer).',
-                        '#### Movement 6: Sync AGENTS and CONTEXT'],
- 'ready-release-version': ['## Prepare for Version Release',
+                        '#### Movement 6: Sync AGENTS and CONTEXT',
+                        '#### Movement 7: Commit the Work'],
+ 'ready-release-version': ['## Ready for Version Release',
                            'Cut a new release: bring all docs current',
                            '#### Movement 1: Decide Release Version and '
                            'Date',
@@ -396,8 +405,6 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                            '#### Movement 5: Condense the Changelog',
                            '#### Movement 6: Close Out the Changelog',
                            '#### Movement 7: Bump the Repository Version'],
- 'release-version': ['## Perform Version Release',
-                     'tmp content for Perform Version Release'],
  'repo-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -512,6 +519,20 @@ FILE_CONTENT = {'coder-bash-script': ['## Bash',
                                   'numerals',
                                   '- keep proper nouns, acronyms, and '
                                   'brand styling as written'],
+ 'submit-pr': ['## Submit Pull Request',
+               'Run [Ready for Feature Landing](#ready-for-feature-landing)',
+               'gh pr create --base dev'],
+ 'plant-linked-wt': ['## Tend Linked Worktree',
+                     '### Plant the Linked Worktree',
+                     'if none exists, create the branch with the worktree'],
+ 'uproot-linked-wt': ['## Tend Linked Worktree',
+                      '### Uproot the Linked Worktree',
+                      'if any edit has not, stop and report'],
+ 'tend-linked-wt': ['## Tend Linked Worktree',
+                    'Give each task, often a plan or suite, one linked worktree',
+                    '### Plant the Linked Worktree',
+                    '- `-WT-`: infix marking a linked worktree',
+                    '### Uproot the Linked Worktree'],
  'working-with-git': ['## Working with Git',
                       'Use these Git terms, no synonyms.',
                       '#### Actions Needing Explicit Approval',
@@ -527,14 +548,14 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                       'style.',
  'coder-bash-shell': 'answers Bash command requests for Debian GNU/Linux '
                      'with the bare terminal line',
- 'coder-c': 'Writes, edits, and reviews all C code.',
- 'coder-c-sharp': 'Writes, edits, and reviews all C# code.',
+ 'coder-c': 'Writes, edits, and reviews C code under a fixed house style',
+ 'coder-c-sharp': 'Writes, edits, and reviews C# code under a fixed house style',
  'coder-comment-banner-in-code-comment': 'writes comment banners inside '
                                          'source code',
  'coder-comment-banner-in-print-out': 'writes banners into printed program '
                                       'output',
- 'coder-cpp': 'Writes, edits, and reviews all C++ code.',
- 'coder-gdscript': 'GDScript code for Godot 4',
+ 'coder-cpp': 'Writes, edits, and reviews C++ code under a fixed house style.',
+ 'coder-gdscript': 'Writes, edits, and reviews GDScript for Godot 4',
  'coder-html': 'apply HTML5 standards for structure, semantics, and '
                'markup.',
  'coder-javascript-and-typescript': 'Writes, edits, and reviews all '
@@ -550,7 +571,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                                     'code per project conventions',
  'u3d': 'Sets baseline for all Unity 6 C# work, the shared root every '
               'topic-specific Unity skill builds on',
- 'coder-ue': 'C++ code for Unreal Engine',
+ 'coder-ue': 'Writes, edits, and reviews Unreal Engine C++',
  'commit-sense': 'Commits the indexed diff',
  'condense-agents-and-context': 'Shrinks an existing AGENTS and CONTEXT '
                                 'pair',
@@ -579,14 +600,11 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'element-dt-year-month-day-format': 'Formats a date carrying a year, day '
                                      'of week prefix optional',
  'element-international-phonetic-alphabet': 'IPA transcription',
- 'element-numerical-values-with-units': 'when physical quantities appear '
-                                        'in output',
+ 'element-numerical-values-with-units': 'Presents numerical values in both metric and US units',
  'element-triage-tags': 'defect/note labels spanning code and docs across '
                         '3 case tiers (Loud/Steady/Quiet), with per-tag '
                         'meanings and raise/lower tier shifts',
- 'glossary-programming-language-codes': 'Glossary '
-                                        'programming-language-codes',
- 'land-feature': 'tmp description Perform Feature Landing',
+ 'glossary-programming-language-codes': 'Maps short language codes such as py, ts, and cpp',
  'maintain-changelog': 'Use this skill when the user wants to add, fix, or '
                        'reorganize entries in an existing CHANGELOG — '
                        'logging new features, bug fixes, or breaking '
@@ -608,14 +626,13 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                        'agents how to work on project',
  'proj-doc-writer': 'Writes & maintains `docs/` topic files for generic '
                     'projects',
- 'proj-version': 'defines semantic versioning scheme',
+ 'proj-version': 'Defines the semantic versioning scheme',
  'proj-version-extended': 'Extends semantic versioning with conventions '
                           'for `alpha`/`beta`/`rc` pre-release numbering, '
                           'OS/date build-metadata tags, and '
                           'version-to-dev-stage mapping',
  'ready-land-feature': 'Records a feature branch',
  'ready-release-version': 'Cuts a project release',
- 'release-version': 'tmp description Perform Version Release',
  'repo-agents-writer': '**prescriptive** rules telling AI coding agents '
                        'how to work in repo, e.g. commands, code style, PR '
                        'rules, safety constraints',
@@ -641,8 +658,12 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'style-good-writing': 'fixing spelling, grammar, punctuation, and clarity '
                        'while preserving the original meaning, voice, and '
                        'wording.',
- 'style-letter-case-commentary-case': 'define Commentary Case',
- 'style-letter-case-title-case': 'define Title Case',
+ 'style-letter-case-commentary-case': 'Names the Commentary Case convention',
+ 'style-letter-case-title-case': 'Names the Title Case convention',
+ 'submit-pr': 'Opens a pull request landing a feature branch',
+ 'plant-linked-wt': 'Creates a task\'s linked worktree',
+ 'uproot-linked-wt': 'Removes a finished task\'s linked worktree',
+ 'tend-linked-wt': 'Places a feature branch\'s linked worktree',
  'working-with-git': 'Sets the Git working terms',
  'working-with-p4v': 'Pairs every Perforce term',
 }
@@ -727,6 +748,10 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
  'style-letter-case-commentary-case': 'for list items, table cell content, '
                                       'code comment',
  'style-letter-case-title-case': 'for document titles and section headings',
+ 'submit-pr': 'Trigger on "open a PR", "create a pull request"',
+ 'plant-linked-wt': 'Trigger on starting a task on a feature branch',
+ 'uproot-linked-wt': 'Trigger on finishing a task in a linked worktree',
+ 'tend-linked-wt': 'Trigger on starting, continuing, or finishing a task',
  'working-with-git': 'Trigger on any work in a Git repository',
  'working-with-p4v': 'Trigger on any explanation or action in Perforce',
 }
@@ -755,3 +780,6 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                              'highest-stakes text.',
                              'Label the heading literally `{description}`, '
                              "one level below the skill's own."]}
+
+
+PATHS_CONTENT = {'u3d': ['**/*.cs']}

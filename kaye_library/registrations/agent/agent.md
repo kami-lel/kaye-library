@@ -575,6 +575,10 @@ Except when the entire Suite is completed — then name the Suite instead:
 
 Stops after 1 Movement, waits for user to open next Turn
 
+### {when_to_use}
+
+Trigger on "halt after each Movement", "one Movement at a time", "stop after every step", or "let me review between Movements".
+
 
 
 
@@ -678,6 +682,10 @@ Once all Movements are done, **Suite Dispatch**: end the Turn with a [Turn Progr
 ### {description}
 
 Runs all remaining Movements in 1 Turn, stops only when the Suite is done
+
+### {when_to_use}
+
+Trigger on "run all Movements", "cascade", "keep going until the Suite is done", or "finish the whole Plan in one Turn".
 
 
 

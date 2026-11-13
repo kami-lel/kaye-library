@@ -1,14 +1,19 @@
 """
-kaye_library.registrations.repo.workflows_bp.py
+kaye_library.registrations.git.workflow_bp.py
 
 register invokable Repository workflow prompts
 """
 
+import functools
+
+from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
 from .._common import register_node, register_prompt
 
 __all__ = ("register_repo_workflow_blueprints",)
+
+_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_repo_workflow_blueprints():
@@ -19,7 +24,7 @@ def register_repo_workflow_blueprints():
     :raises KeyError: a depended-on ``repo-*`` or ``project-*`` blueprint
             is not yet registered
     """
-    repo_node = get_corpus_node("Repositories")
+    repo_node = get_corpus_node("Git")
     proj_node = get_corpus_node("Projects")
 
     # Create README
@@ -116,23 +121,6 @@ def register_repo_workflow_blueprints():
         dependencies=["style-good-writing"],
     )
 
-    # Ready Land Feature
-    register_node(
-        register_prompt,
-        "ready-land-feature",
-        repo_node,
-        "Prepare for Feature Landing",
-    )
-
-    # Ready Release Version
-    register_node(
-        register_prompt,
-        "ready-release-version",
-        repo_node,
-        "Prepare for Version Release",
-        dependencies=["proj-version-extended"],
-    )
-
     # Maintenance Before Compact
     register_node(
         register_prompt,
@@ -140,22 +128,4 @@ def register_repo_workflow_blueprints():
         repo_node,
         "Maintenance Before Compact",
         dependencies=["style-good-writing"],
-    )
-
-    # todo land feature & release version hold placeholder text
-
-    # Land Feature
-    register_node(
-        register_prompt,
-        "land-feature",
-        repo_node,
-        "Perform Feature Landing",
-    )
-
-    # Release Version
-    register_node(
-        register_prompt,
-        "release-version",
-        repo_node,
-        "Perform Version Release",
     )
