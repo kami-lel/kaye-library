@@ -36,7 +36,7 @@ _ORDINARY_EDIT_SIGIL_PATH = (*_SIGIL_PATH, "Ordinary Edit Fallback Sigil")
 def register_git_blueprints():
     """
     register the Working with Git, Resolve Merge Conflict, Tend Linked
-    Worktree, and commit sense blueprints
+    Worktree family, and commit sense blueprints
     """
     git_node = get_corpus_node("Git")
 
@@ -58,16 +58,57 @@ def register_git_blueprints():
         recursively=True,
     )
 
-    # Tend Linked Worktree
-    register_node(
-        register_exportable,
-        "tend-linked-wt",
-        git_node,
-        "Tend Linked Worktree",
-        recursively=True,
-    )
+    register_tend_linked_wt_blueprints(git_node)
 
     register_git_commit_sense_blueprints()
+
+
+def register_tend_linked_wt_blueprints(git_node):
+    """
+    register the internal ``tend-linked-wt-core``, the exportable
+    ``plant-linked-wt`` and ``uproot-linked-wt`` built on it, and the
+    exportable ``tend-linked-wt`` that bundles both
+
+    :param git_node: the ``Git`` corpus node
+    """
+    tend_name = "Tend Linked Worktree"
+    tend_node = git_node[tend_name]
+
+    # core: only the intro under the heading, no steps
+    register_node(
+        _register_internal,
+        "tend-linked-wt-core",
+        git_node,
+        tend_name,
+        display_name="Tend Linked Worktree Core",
+    )
+
+    for slug, name in (
+        ("plant-linked-wt", "Plant the Linked Worktree"),
+        ("uproot-linked-wt", "Uproot the Linked Worktree"),
+    ):
+        register_node(
+            register_exportable,
+            slug,
+            tend_node,
+            name,
+            recursively=True,
+            dependencies=["tend-linked-wt-core"],
+        )
+
+    # bundle: no node of its own, only the descriptors under the heading
+    tend_path = ("Git", tend_name)
+    register_exportable(
+        "tend-linked-wt",
+        replace_meta(
+            create_blueprint(
+                dependencies=["plant-linked-wt", "uproot-linked-wt"]
+            ),
+            display_name=tend_name,
+            description_node=(*tend_path, "{description}"),
+            when_to_use_node=(*tend_path, "{when_to_use}"),
+        ),
+    )
 
 
 def _register_commit_sense_leaf(

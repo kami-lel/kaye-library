@@ -538,26 +538,6 @@ WS-kaye-library/
 
 
 
-#### Plant the Linked Worktree
-
-Plant the task's linked worktree as `REPO-WT-FEATURE` in the workspace folder, linked to the task's existing feature branch; if none exists, create the branch with the worktree.
-
-
-
-
-
-
-
-#### Uproot the Linked Worktree
-
-Once the task is done, uproot its linked worktree, but only after every edit it holds has reached the main worktree, ie committed and merged into the main worktree's branch; if any edit has not, stop and report.
-
-
-
-
-
-
-
 ### {description}
 
 Places a feature branch's linked worktree, one per task, as `REPO-WT-FEATURE` inside the repository's `WS-` workspace folder, and removes it once its edits reach the main worktree.
@@ -565,3 +545,55 @@ Places a feature branch's linked worktree, one per task, as `REPO-WT-FEATURE` in
 ### {when_to_use}
 
 Trigger on starting, continuing, or finishing a task on a feature branch in a linked worktree, even when the user does not say so; also "new worktree for this feature", "work in a linked worktree", "don't touch main", "remove the worktree", `git worktree add`, `git worktree remove`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Plant the Linked Worktree
+
+Plant the task's linked worktree as `REPO-WT-FEATURE` in the workspace folder, linked to the task's existing feature branch; if none exists, create the branch with the worktree.
+
+
+
+#### {description}
+
+Creates a task's linked worktree as `REPO-WT-FEATURE` in the repository's `WS-` workspace folder, on the task's feature branch, creating the branch if missing.
+
+#### {when_to_use}
+
+Trigger on starting a task on a feature branch, even when the user does not ask for a worktree; also "new worktree for this feature", "work in a linked worktree", "don't touch main", `git worktree add`. Not for removing a worktree.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Uproot the Linked Worktree
+
+Once the task is done, uproot its linked worktree, but only after every edit it holds has reached the main worktree, ie committed and merged into the main worktree's branch; if any edit has not, stop and report.
+
+
+
+#### {description}
+
+Removes a finished task's linked worktree once every edit in it is committed and merged into the main worktree's branch.
+
+#### {when_to_use}
+
+Trigger on finishing a task in a linked worktree or merging its branch, even when the user does not ask; also "remove the worktree", "clean up the worktree", `git worktree remove`. Not for deleting merged branches.

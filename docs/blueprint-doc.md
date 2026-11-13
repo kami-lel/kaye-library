@@ -92,6 +92,10 @@ flowchart LR
     ready_land_feature["ready-land-feature"] --> git_feature_discover
     submit_pr["submit-pr"] --> ready_land_feature
     submit_pr --> git_feature_summary
+    tend_linked_wt["tend-linked-wt"] --> plant_linked_wt["plant-linked-wt"]
+    tend_linked_wt --> uproot_linked_wt["uproot-linked-wt"]
+    plant_linked_wt --> tend_linked_wt_core["tend-linked-wt-core"]
+    uproot_linked_wt --> tend_linked_wt_core
     git_feature_summary --> style_briefness_style["style-briefness-style"]
     git_feature_summary --> style_letter_case_commentary_case["style-letter-case-commentary-case"]
 ```
