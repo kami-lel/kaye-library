@@ -455,8 +455,11 @@ Choose a subset:
 
 ```md
 Keep any:
-- ⓐ Logo
-- ⓑ Favicon
-- ⓒ Banner
+
+- ⓑ Logo
+- ⓒ Favicon
+- ⓓ Banner
+- ⓐ all of above
 ```
-User answers "ac"
+
+User answers "a" (Logo, Favicon, Banner), or "bd" (Logo, Banner)

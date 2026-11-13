@@ -240,20 +240,21 @@ Reply as below, asking up to 3 approvals: push `dev`; delete the feature branch 
 
 <post-landing-output-example>
 🚩🐙 Feature Landed: add status filter to Search page
-✍️ ⓐ push `dev` to origin?
-✍️ ⓑ delete feature branch `add-search-filter`?
-✍️ ⓒ uproot linked worktree `kaye-library-WT-add-search-filter`?
+✍️ ⓑ push `dev` to origin?
+✍️ ⓒ delete feature branch `add-search-filter`?
+✍️ ⓓ uproot linked worktree `kaye-library-WT-add-search-filter`?
+ⓐ all of above
 </post-landing-output-example>
 
 
 
 #### Movement 10: Push and Delete
 
-Run only the approved actions, in order ⓐ, ⓒ, ⓑ, since Git refuses to delete a branch while a worktree holds it:
+Run only the approved actions, in order ⓑ, ⓓ, ⓒ, since Git refuses to delete a branch while a worktree holds it; ⓐ approves all three:
 
-- ⓐ `git push origin dev`
-- ⓑ `git branch -d FEATURE`, never `-D`
-- ⓒ invoke `uproot-linked-wt`
+- ⓑ `git push origin dev`
+- ⓒ `git branch -d FEATURE`, never `-D`
+- ⓓ invoke `uproot-linked-wt`
 
 Reply once, after all are done:
 
@@ -452,18 +453,19 @@ Reply as below, asking 2 approvals: push `main` and the tag, and prune merged br
 
 <post-release-output-example>
 🚩🐙 Minor Release Cut 1.1.0
-✍️ ⓐ push `main` and `v1.1.0` to origin?
-✍️ ⓑ prune merged branches `add-search-filter`, `fix-login-redirect`?
+✍️ ⓑ push `main` and `v1.1.0` to origin?
+✍️ ⓒ prune merged branches `add-search-filter`, `fix-login-redirect`?
+ⓐ all of above
 </post-release-output-example>
 
 
 
 #### Movement 12: Push and Prune
 
-Run only the approved actions, in order:
+Run only the approved actions, in order; ⓐ approves both:
 
-- ⓐ `git push origin main vVERSION`
-- ⓑ invoke `prune-merged-branches`
+- ⓑ `git push origin main vVERSION`
+- ⓒ invoke `prune-merged-branches`
 
 Reply once, after all are done:
 

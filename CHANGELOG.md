@@ -27,6 +27,8 @@ todo support layered CONTEXT/AGENTS
 - README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
 - `u3d-assets-management`: rewritten around asset type, asset domain, and asset module; `Audio/BGM/`, `Audio/SFX/` renamed `Audio/BGMs/`, `Audio/SFXs/`
 - `u3d-naming`: dev prefix `dev` → `DEV` (`DEVJohnMainScene.unity`), now also covering dev-only assets (`DEVSandboxScene.unity`)
+- `element-alphabetical-sequence-numbering`: subset example ends with `ⓐ all of above`; answering "a" selects every item before it
+- `land-feature`, `release-version`: approval lists end with `ⓐ all of above`, approving every action at once
 
 ### Deprecated
 
