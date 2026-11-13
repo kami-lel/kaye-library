@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A minimal package built on kaye-library: its own corpus, its own values, one library skill taken over"
 requires-python = ">=3.11"
 dependencies = [
-    "kaye-library @ git+https://github.com/kami-lel/kaye-library.git@v1.3.0",
+    "kaye-library @ git+https://github.com/kami-lel/kaye-library.git@v1.3.1",
 ]
 
 [project.scripts]

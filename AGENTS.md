@@ -54,7 +54,7 @@ Scope each run to the area touched; run everything only before a merge.
 | setup, `__main__.py`, the consumer record | `pytest tests/library_setup_test.py tests/console_test.py tests/third_consumer_test.py` |
 | any shipped file | `pytest tests/privacy_test.py` |
 | an `Invoke ... skill` line in a corpus `.md` | `pytest tests/invocation_test.py` |
-| `README.md`, `AGENTS.md`, `CONTEXT.md` | `pytest tests/docs_test.py` |
+| `README.md`, `README.zh-CN.md`, `AGENTS.md`, `CONTEXT.md` | `pytest tests/docs_test.py` |
 | `examples/minimal-consumer/`, the Consumer documentation, an override or step rule | `pytest tests/example_consumer_test.py tests/docs_test.py` (the example test installs the example and needs `setuptools`, else it skips) |
 | before a merge | `pytest tests` |
 
@@ -77,7 +77,8 @@ Scope each run to the area touched; run everything only before a merge.
 
 ## Documentation Maintenance
 
-- [README.md](README.md): overview, install, commands
+- [README.md](README.md): overview, install, commands; the canonical readme
+- [README.zh-CN.md](README.zh-CN.md): Simplified Chinese translation of `README.md`; update it in the same change, mirroring its sections, links, and commands
 - [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
 - [docs/blueprint-doc.md](docs/blueprint-doc.md): the blueprint dependency and invocation graphs; update it when a blueprint's `dependencies=[...]` or an `Invoke ... skill` line changes
 - [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine`: how a consumer is created on the library; update it, `examples/minimal-consumer/` and `tests/example_consumer_test.py` together whenever the steps or the override rule change

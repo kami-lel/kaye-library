@@ -18,7 +18,31 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.3.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.3.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [1.3.1] - 2026-11-13
+
+### Added
+
+- Simplified Chinese readme, `README.zh-CN.md`, reached by language switcher
+
+### Changed
+
+- README: kaye-engine named as companion repo up top, skill examples 5 → 14, each pitched by problem it fixes
+
+[1.3.1]: https://github.com/kami-lel/kaye-library/compare/v1.3.0...v1.3.1
 
 
 
