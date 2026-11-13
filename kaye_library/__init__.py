@@ -54,7 +54,7 @@ _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 _CORPUS_SOURCES = [
     ((), "dynamic_nodes/dynamic_nodes.md"),
     ((), "agent/agent.md"),
-    ((), "chat/chat.md"),
+    ((), "chat/chat-agent.md"),
     ((), "style/style.md"),
     ((), "element/element.md"),
     ((), "project/project.md"),
