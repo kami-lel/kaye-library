@@ -49,14 +49,12 @@ KAYE_LIBRARY_DISPLAY_NAME = "Kaye Library"
 _CORPUS_DIR = Path(__file__).resolve().parent / "registrations"
 _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 
-# the standalone chat rules; a package building on the library never loads it
-_STANDALONE_CHAT_SOURCE = _CORPUS_DIR / "chat" / "chat.md"
-
 # corpus files, in registration order: (node path, file), a file's top
 # headings sitting one level below its node
 _CORPUS_SOURCES = [
     ((), "dynamic_nodes/dynamic_nodes.md"),
     ((), "agent/agent.md"),
+    ((), "chat/chat-agent.md"),
     ((), "style/style.md"),
     ((), "element/element.md"),
     ((), "project/project.md"),
@@ -212,7 +210,6 @@ def setup_kaye_library_for_kaye_engine():
         register_kaye_library_dynamic_substitutions()
         _register_standalone_dynamic_substitutions()
         register_kaye_library_corpus()
-        register_corpus_under_node((), _STANDALONE_CHAT_SOURCE)
         load_corpus_tree()
     except OSError as err:
         logger.critical("cannot load library corpus/abbr data:\t" + str(err))

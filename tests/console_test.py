@@ -106,7 +106,7 @@ class TestChatBoundSubcommands:
         result = _run("claude", "user-system-prompt")
 
         assert result.returncode == 0, result.stderr
-        assert "Chat Conduct" in result.stdout
+        assert "Chat Agent" in result.stdout
         assert "Turn Progress Dispatch" in result.stdout
         assert "(((" not in result.stdout
 

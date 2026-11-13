@@ -31,8 +31,8 @@ class TestStructure:
     def test_node_under_agentic(_, name):
         assert name in {c.name for c in _agentic().children}
 
-    def test_no_chat_agent_node(_):
-        assert "Chat Agent" not in {c.name for c in get_corpus_tree().children}
+    def test_chat_agent_is_a_root_node_not_under_agentic(_):
+        assert "Chat Agent" in {c.name for c in get_corpus_tree().children}
         assert "Chat Agent" not in {c.name for c in _agentic().children}
 
     def test_agent_sidecar_stays_under_agentic(_):

@@ -28,12 +28,11 @@ __all__ = (
     "register_standalone_dynamic_substitutions",
 )
 
-# the Agentic root and its Turn Progress Dispatch node, then the chat rules
+# the Agentic root, its Turn Progress Dispatch node, and the Chat Agent root
 _CHAT_PATHS = (
     ("Agentic",),
     ("Agentic", "Turn Progress Dispatch"),
-    ("Standalone Chat",),
-    ("Standalone Chat", "Chat Conduct"),
+    ("Chat Agent",),
 )
 
 
@@ -70,8 +69,7 @@ def register_standalone_chat_blueprints():
         replace_meta(
             bp,
             display_name="Chat",
-            description_node=("Standalone Chat", "Chat Conduct", "{description}"),
-            when_to_use_node=("Standalone Chat", "Chat Conduct", "{when_to_use}"),
+            description="default for general conversation, with no persona",
         ),
         llm_invokable=False,
         always_apply=True,
