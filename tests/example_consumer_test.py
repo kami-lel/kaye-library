@@ -8,8 +8,10 @@ and takes one library skill over
 
 import os
 import pathlib
+import re
 import subprocess
 import sys
+import tomllib
 
 import pytest
 
@@ -71,6 +73,17 @@ def _skill(exported, name):
 
 
 class TestExampleConsumer:
+
+    def test_pin_matches_library_version(_):
+        library = tomllib.loads(
+            (_ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        )["project"]["version"]
+        base = re.match(r"\d+\.\d+\.\d+", library).group(0)
+        example = (_EXAMPLE / "pyproject.toml").read_text(encoding="utf-8")
+
+        pin = re.search(r"kaye-library\.git@(v[^\"\s]+)", example)
+        assert pin is not None
+        assert pin.group(1) == "v" + base
 
     def test_help_runs(_, installed):
         result = _run(installed, "--help")

@@ -18,6 +18,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
+- version moves to `1.3.0-alpha`; `tests/example_consumer_test.py::test_pin_matches_library_version` keeps the example's `kaye-library` pin at `v` plus that base version
 - `commit-sense`: message body now rare, written only for a large pattern the summary line and ledger miss
 - Perforce corpus and registration moved to their own `registrations/p4v/` module; `working-with-p4v` unchanged
 - README is rewritten as a pitch, with a Contributing path into the dev-side `kaye-engine` docs
