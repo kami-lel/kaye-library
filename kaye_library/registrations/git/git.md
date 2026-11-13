@@ -1,9 +1,5 @@
 # Git
 
-<!--
-TODO working w/ git worktree main & linked
--->
-
 ## Working with Git
 
 Use these Git terms, no synonyms. Abbreviations are decode-only: never write them in a reply.
