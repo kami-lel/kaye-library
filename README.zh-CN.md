@@ -99,6 +99,6 @@ pytest tests/skill_export_test.py
 2. 了解底层引擎：技能所用的 Markdown 格式见 [corpus 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md)，其 `{description}` 与 `{when_to_use}` 附注见 [sidecar 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/sidecar-doc.md)，blueprint 与注册表见 [prompt 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md)，导出选项见 [exportable registry 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/exportable-registry-doc.md)，术语表见 [abbreviation 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/abbrs-doc.md)
 3. 在库之上构建，而非修改它：[Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) 介绍如何叠加你自己的包并覆盖某个技能，[examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) 中有一个可运行的示例包
 
-请牢记一条规则：这里的每条提示词都不含个人数据。
+请牢记一条规则：这里的每条提示词都不含个人数据。完整的约定、命令与约束见 [AGENTS.md](AGENTS.md)，其背后的架构见 [CONTEXT.md](CONTEXT.md)。
 
 ⭐ 喜欢吗？在 GitHub 上 [点个 Star](https://github.com/kami-lel/kaye-library) 就是莫大的支持！

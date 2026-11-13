@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-13, v1.3.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-13, v1.3.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -100,7 +100,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
 - stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
-- `tests/privacy_test.py` scans every shipped file for strings that must stay out: extend its generic list for a new kind of string; personal strings live in the gitignored `tests/privacy-forbidden.local.txt` (1 per line, `#` comments), and without it only the generic check runs
+- `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
 - `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
 - the `Coder` root carries no conversation rules: the `coder` skill carries the rules alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around the `coder` blueprint object
 
