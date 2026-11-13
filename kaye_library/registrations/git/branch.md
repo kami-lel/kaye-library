@@ -224,7 +224,7 @@ Run [Ready for Feature Landing](#ready-for-feature-landing) whole. Continue only
 
 #### Movement 8: Merge into Dev
 
-Merge per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (feature into dev):
+Merge per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (feature into dev). When you work in a linked worktree, do every step in the main worktree, since it holds `dev`.
 
 1. `git switch dev`, then `git merge --no-ff --no-commit FEATURE`: a merge commit records the landing, and the pause lets you word it
 2. on conflicts, run [Resolve Merge Conflict](#resolve-merge-conflict), then go on
@@ -236,27 +236,30 @@ Stop at the merge commit: push and branch deletion wait for the approval of Move
 
 #### Movement 9: Report and Ask Approval
 
-Reply as below, asking 2 approvals: push `dev`, and delete the feature branch (merged, so safe to drop). If any Movement halts, report where and why in one line, then stop.
+Reply as below, asking up to 3 approvals: push `dev`; delete the feature branch (merged, so safe to drop); uproot its linked worktree, asked only when you work in a linked worktree. If any Movement halts, report where and why in one line, then stop.
 
 <post-landing-output-example>
 🚩🐙 Feature Landed: add status filter to Search page
 ✍️ ⓐ push `dev` to origin?
 ✍️ ⓑ delete feature branch `add-search-filter`?
+✍️ ⓒ uproot linked worktree `kaye-library-WT-add-search-filter`?
 </post-landing-output-example>
 
 
 
 #### Movement 10: Push and Delete
 
-Run only the approved actions, in order:
+Run only the approved actions, in order ⓐ, ⓒ, ⓑ, since Git refuses to delete a branch while a worktree holds it:
 
 - ⓐ `git push origin dev`
 - ⓑ `git branch -d FEATURE`, never `-D`
+- ⓒ invoke `uproot-linked-wt`
 
 Reply once, after all are done:
 
 <post-push-delete-output-example>
 🚩🐙 pushed `dev` to origin
+🚩🐙 uprooted `kaye-library-WT-add-search-filter`
 🚩🐙 deleted `add-search-filter`
 </post-push-delete-output-example>
 
@@ -274,11 +277,11 @@ Reach for this when a finished feature branch should be merged: "land this featu
 
 ### {[Claude:Skill] Usage}
 
-Invoke `ready-land-feature`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills via `Skill` tool.
+Invoke `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `uproot-linked-wt` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `ready-land-feature`, `commit-sense-branch-merging`, and `resolve-merge-conflict` skills with `skill_view`.
+Load `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `uproot-linked-wt` skills with `skill_view`.
 
 
 

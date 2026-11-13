@@ -519,7 +519,8 @@ track resolution with a markdown task list — one item per unmerged path, check
 
 ## Tend Linked Worktree
 
-Give each task its own linked worktree on the task's single [feature branch](#feature-branch), so work on the task leaves the main worktree untouched; never share a linked worktree across tasks or switch its branch, since one worktree per task keeps each task's edits apart.
+Give each task, often a plan or suite, one linked worktree on its single [feature branch](#feature-branch), so the main worktree stays untouched.
+Never share a linked worktree across tasks or switch its branch, nor split a plan or suite per Movement.
 
 A linked worktree sits inside the repository's workspace folder, named `REPO-WT-FEATURE`:
 
