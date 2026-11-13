@@ -35,13 +35,25 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
-A few favorites to try first:
+Start with the favorites:
 
-- `/commit-sense`: 🐙 say "commit this" and get a clear summary line plus a per-file ledger of what changed and why
-- `/repo-readme-writer`: 📝 turns a bare repository into a scannable landing page that covers purpose, setup, and usage, like this one
-- `/coder-python`: 💻 clean, PEP 8 Python with consistent naming, Sphinx docstrings, and comments that explain intent
-- `/plan-for-suite`: 🤖 splits a sprawling task into numbered, reviewable steps and pauses for your approval before each one
-- `/good-morning`: 🗓️ one morning report that sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
+- `/commit-sense`: 🐙 no more "fix stuff" commits: say "commit this" and get a sharp summary line plus a per-file ledger of what changed and why
+- `/plan-for-suite`: 🤖 stops your agent from rewriting 30 files in one go: sprawling work becomes numbered, reviewable steps, each waiting for your approval
+- `/repo-readme-writer`: 📝 a bare repository becomes a landing page people actually read, covering purpose, setup, and usage, like this one
+- `/good-morning`: 🗓️ skip the morning tab-hopping: one report sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
+
+Then dig into the rest:
+
+- `/coder-python`: 💻 no more cleaning up AI code by hand: PEP 8 Python, consistent names, Sphinx docstrings, and comments that explain intent
+- `/sync-unit-test`: 💻 tests red after a refactor? stale assertions and fixtures realigned, and a flag wherever the code, not the test, went wrong
+- `/review-gaps`: 💻 catch the half-finished seams before your users do, with a whole-repository audit before release
+- `/release-version`: 📝 releases without the checklist dread: docs and changelog brought current, version bumped, merged to `main`, and tagged
+- `/style-briefness-style`: 🎨 wordy drafts cut down to tight, headline-style notes
+- `/draft-email`: 🗓️ emails that say exactly what you asked, nothing invented, revised as often as you like
+- `/u3d-naming`: 🎮 ends the `Hero_final2` chaos with one naming rule for every Unity class, asset, folder, and GameObject
+- `/amanuensis-chicago-note`: 🖋️ never hand-format a citation again: *Chicago Manual of Style* notes as native Markdown footnotes
+- `/resolve-merge-conflict`: 🐙 a halted merge untangled: both sides of every hunk reconciled, conflict markers gone
+- `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
 ## 🚀 Getting Started
 
