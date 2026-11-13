@@ -10,6 +10,16 @@ Do not use the em dash (—); use a colon (`:`) in its place wherever a colon fi
 
 
 
+## {description}
+
+Sets how you conduct a turn-based conversation: reply language, discourse terms, decorative emojis, and how a question is marked
+
+## {when_to_use}
+
+Applies to every conversation turn, even when the user gives no formatting or style instruction
+
+
+
 ### Language
 
 **Always match user's language, every response, except DNT-marked terms**

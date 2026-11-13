@@ -107,6 +107,8 @@ class TestChatBoundSubcommands:
 
         assert result.returncode == 0, result.stderr
         assert "Chat Agent" in result.stdout
+        assert "### Language" in result.stdout
+        assert "大陆简体中文" in result.stdout
         assert "Turn Progress Dispatch" in result.stdout
         assert "(((" not in result.stdout
 

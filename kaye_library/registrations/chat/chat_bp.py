@@ -28,12 +28,14 @@ __all__ = (
     "register_standalone_dynamic_substitutions",
 )
 
-# the Agentic root, its Turn Progress Dispatch node, and the Chat Agent root
+# the Agentic root and its Turn Progress Dispatch node
 _CHAT_PATHS = (
     ("Agentic",),
     ("Agentic", "Turn Progress Dispatch"),
-    ("Chat Agent",),
 )
+
+# the Chat Agent root, whose every section the chat takes
+_CHAT_AGENT_PATH = ("Chat Agent",)
 
 
 def register_standalone_dynamic_substitutions():
@@ -64,12 +66,14 @@ def register_standalone_chat_blueprints():
     )
     for path in _CHAT_PATHS:
         bp = checkmark_nodes(bp, path)
+    bp = checkmark_nodes(bp, _CHAT_AGENT_PATH, is_recursive=True)
     register_blueprint(
         "chat",
         replace_meta(
             bp,
             display_name="Chat",
-            description="default for general conversation, with no persona",
+            description_node=("Chat Agent", "{description}"),
+            when_to_use_node=("Chat Agent", "{when_to_use}"),
         ),
         llm_invokable=False,
         always_apply=True,

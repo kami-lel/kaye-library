@@ -143,6 +143,17 @@
       }
     }
   },
+  "Deutsch": {
+    "abbrs": {
+      "de": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "Education": {
     "abbrs": {
       "🎓": {
@@ -166,6 +177,17 @@
         "tags": [
           "letters_only",
           "secretary-eisenhower-matrix-quadrant"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "English": {
+    "abbrs": {
+      "en": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
         ],
         "wrap": "word"
       }
@@ -253,6 +275,7 @@
         "priority": 2,
         "remark": "carries significant consequence or value toward a goal or priority, independent of timing: long-term impact, alignment with a core objective, or work that enables or unblocks other work",
         "tags": [
+          "agent-chat-decorative",
           "emoji",
           "secretary-eisenhower-matrix-quadrant",
           "secretary-eisenhower-matrix-quadrant-base"
@@ -800,6 +823,18 @@
       }
     }
   },
+  "agent/subagent": {
+    "abbrs": {
+      "🤖": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "algorithm": {
     "abbrs": {
       "algo": {
@@ -967,6 +1002,19 @@
       }
     }
   },
+  "bar": {
+    "abbrs": {
+      "bar": {
+        "priority": 30,
+        "remark": "subdivision of Turn, splits a long Turn w/ clear task boundary",
+        "tags": [
+          "agent-chat-discourse-unit",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "because,caused by,result of": {
     "abbrs": {
       "⇐": {
@@ -1102,6 +1150,18 @@
         "tags": [
           "amanuensis-config-keybinding-keyboards",
           "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "caution;blockage": {
+    "abbrs": {
+      "🚧": {
+        "priority": 3,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
         ],
         "wrap": "symbol"
       }
@@ -1319,6 +1379,18 @@
       }
     }
   },
+  "correct": {
+    "abbrs": {
+      "✔️": {
+        "priority": 3,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "count,counting": {
     "abbrs": {
       "cnt": {
@@ -1400,6 +1472,18 @@
           "u3d-abbr"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "debug": {
+    "abbrs": {
+      "🐞": {
+        "priority": 3,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1523,6 +1607,14 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🛠️": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1595,6 +1687,14 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "📖": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1742,6 +1842,14 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🛑": {
+        "priority": 3,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1787,6 +1895,15 @@
           "briefness-shorthand"
         ],
         "wrap": "word"
+      },
+      "🧸": {
+        "priority": 3,
+        "remark": "demonstration",
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1987,6 +2104,37 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "git": {
+    "abbrs": {
+      "🐙": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "movement": {
+    "abbrs": {
+      "mvmt": {
+        "priority": 40,
+        "remark": "self-contained, reviewable unit of a task, per [Movement and Suite](#movement-and-suite); usually Movement=Turn, sometimes spans multiple Rounds",
+        "tags": [
+          "agent-chat-discourse-unit"
+        ],
+        "wrap": "word"
+      },
+      "🧩": {
+        "priority": 41,
+        "tags": [
+          "agent-chat-discourse-unit"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -3322,6 +3470,19 @@
       }
     }
   },
+  "round": {
+    "abbrs": {
+      "round": {
+        "priority": 20,
+        "remark": "= 1 user Turn + 1 your Turn",
+        "tags": [
+          "agent-chat-discourse-unit",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "same as cell above": {
     "abbrs": {
       "〃": {
@@ -3546,6 +3707,19 @@
       }
     }
   },
+  "suite": {
+    "abbrs": {
+      "suite": {
+        "priority": 60,
+        "remark": "unit contains 1+ Movements; per [Movement and Suite](#movement-and-suite)",
+        "tags": [
+          "agent-chat-discourse-unit",
+          "term_definition"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
   "summary field": {
     "abbrs": {
       "s": {
@@ -3606,6 +3780,14 @@
           "letters_only"
         ],
         "wrap": "word"
+      },
+      "🧪": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -3649,6 +3831,18 @@
         "tags": [
           "single_character",
           "briefness-shorthand"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "tools": {
+    "abbrs": {
+      "🧰": {
+        "priority": 5,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
         ],
         "wrap": "symbol"
       }
@@ -3708,6 +3902,19 @@
         "tags": [
           "letters_only",
           "u3d-abbr"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "turn": {
+    "abbrs": {
+      "turn": {
+        "priority": 10,
+        "remark": "from Turn Start to Turn Stop; implies your Turn: you speaking to user",
+        "tags": [
+          "agent-chat-discourse-unit",
+          "term_definition"
         ],
         "wrap": "word"
       }
@@ -3879,6 +4086,18 @@
       }
     }
   },
+  "warning": {
+    "abbrs": {
+      "⚠️": {
+        "priority": 3,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "watch day": {
     "abbrs": {
       "WD": {
@@ -4018,6 +4237,18 @@
       }
     }
   },
+  "wrong": {
+    "abbrs": {
+      "❌": {
+        "priority": 2,
+        "tags": [
+          "agent-chat-decorative",
+          "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "x button": {
     "abbrs": {
       "Ⓧ": {
@@ -4073,6 +4304,50 @@
           "table-cell-values-shorthand"
         ],
         "wrap": "symbol"
+      }
+    }
+  },
+  "中文": {
+    "abbrs": {
+      "zh": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "大陆简体中文": {
+    "abbrs": {
+      "zhs": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "日本語": {
+    "abbrs": {
+      "jp": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "香港繁體中文": {
+    "abbrs": {
+      "zht": {
+        "priority": 5,
+        "tags": [
+          "natural-language-codes"
+        ],
+        "wrap": "word"
       }
     }
   }
