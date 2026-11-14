@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo plan pause & resume logic
 todo support layered CONTEXT/AGENTS
 -->
 
