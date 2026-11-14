@@ -627,6 +627,11 @@ Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and fo
 
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
 
+##### Plan File
+
+- Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
+- Location: first available of workspace root, repository root, your own temporary location
+
 ##### Movement Heading
 
 In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, between number and colon, in order and only when they apply:
@@ -684,6 +689,10 @@ in Bar 1:
 in Bar 1:
 
 - use `clarify` tool to ask user
+
+### {[git] Usage}
+
+Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
 
 
 
