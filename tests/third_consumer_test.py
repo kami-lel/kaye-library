@@ -23,7 +23,7 @@ _SCRIPT = textwrap.dedent(
     from kaye_engine.exportable import exportable_registry
     from kaye_engine.prompt import get_corpus_tree
     from kaye_engine.prompt.blueprint import create_blueprint_from_node
-    from kaye_engine.cli.claude.plugin_marketplace_name import (
+    from kaye_engine.cli.plugin_platform.consumers import (
         get_plugin_consumers,
     )
 

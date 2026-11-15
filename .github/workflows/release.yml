@@ -32,7 +32,10 @@ jobs:
           pip install .
 
       - name: build Release Assets
-        run: kaye-library build-github-release dist
+        run: kaye-library build-github-release-assets dist
+
+      - name: build Marketplace
+        run: kaye-library build-github-marketplace market
 
       - name: create GitHub Release
         env:
@@ -44,3 +47,27 @@ jobs:
           esac
           gh release create "${GITHUB_REF_NAME}" dist/* \
             --title "${GITHUB_REF_NAME}" --generate-notes ${flags}
+
+      - name: check out Marketplace Repo
+        if: ${{ !contains(github.ref_name, '-alpha') && !contains(github.ref_name, '-beta') }}
+        uses: actions/checkout@v4
+        with:
+          repository: kami-lel/kaye-library-marketplace
+          ssh-key: ${{ secrets.MARKETPLACE_DEPLOY_KEY }}
+          path: marketplace-repo
+
+      - name: push Marketplace
+        if: ${{ !contains(github.ref_name, '-alpha') && !contains(github.ref_name, '-beta') }}
+        run: |
+          scripts/sync-marketplace-paths.sh market marketplace-repo
+          cd marketplace-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A .claude-plugin .agents plugins
+          if git diff --cached --quiet; then
+            echo "marketplace unchanged"
+            exit 0
+          fi
+          git commit -m "release ${GITHUB_REF_NAME}"
+          git tag "${GITHUB_REF_NAME}"
+          git push origin HEAD:main "${GITHUB_REF_NAME}"

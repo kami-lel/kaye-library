@@ -25,6 +25,7 @@ from kaye_engine import (
     set_repo_name,
     set_repo_version,
     setup_claude_cli,
+    setup_codex_cli,
     setup_hermes_cli,
 )
 
@@ -193,7 +194,7 @@ def setup_kaye_library_for_kaye_engine():
 
     then the entry consumer via ``set_entry_consumer``, the repo name,
     repo version, and default consumer that name every release asset, and
-    the Claude CLI and Hermes CLI configuration, naming ``chat``,
+    the Claude, Codex and Hermes CLI configuration, naming ``chat``,
     ``chat-coder`` and the ``chat`` Hermes soul
 
     only this function registers the standalone chat base (a persona-free
@@ -231,4 +232,5 @@ def setup_kaye_library_for_kaye_engine():
     set_repo_name(PACKAGE_NAME)
     set_repo_version(version(PACKAGE_NAME))
     setup_claude_cli("chat", "chat-coder")
+    setup_codex_cli("chat", "chat-coder")
     setup_hermes_cli("chat")

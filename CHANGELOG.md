@@ -9,6 +9,9 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- every stable release also pushes the marketplace to `kami-lel/kaye-library-marketplace`, which both Claude (`/plugin marketplace add kami-lel/kaye-library-marketplace`) and Codex (`codex plugin marketplace add kami-lel/kaye-library-marketplace`) add by URL; only its `.claude-plugin/`, `.agents/`, `plugins/` are replaced, so the repo's README.md stays
+- `kaye-library codex` (alias `o`): Codex plugin, marketplace, skills, and the `~/.codex/AGENTS.md` prompt; standalone setup names `chat` and `chat-coder` for it
+- `scripts/sync-marketplace-paths.sh SRC DEST`: the marketplace sync the release workflow runs, also runnable locally
 - every release carries 3 assets: `kaye-library-VERSION-claude-desktop-plugin.zip` and one-click VS Code installers `kaye-library-VERSION-claude-vsc-installer-Win.zip` and `kaye-library-VERSION-claude-vsc-installer-linux.run`
 - standalone setup registers the repo name, repo version, and default consumer that name release assets; the six composed steps do not
 - Plan for Suite pause and resume: the Plan file doubles as saved state, each Movement carrying a `Status` keyword (`pending`, `done`, `halted`, `dropped`, `rewritten`)
@@ -18,7 +21,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Changed
 
-- the release workflow runs `kaye-library build-github-release dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
+- the release workflow runs `kaye-library build-github-release-assets dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
 - README names the installers as the VS Code route
 - Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
 - Plan for Suite execution no longer holds the Plan file read-only
