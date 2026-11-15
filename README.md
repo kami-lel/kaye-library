@@ -15,7 +15,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - 🧠 Write Once, Reuse Forever: each instruction lives in one place and ships everywhere your agent goes
 - 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
 - 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
-- 📦 Ships Everywhere: Agent Skills folders, a Claude plugin, a plugin marketplace, or an upload-ready `.zip`
+- 📦 Ships Everywhere: Agent Skills folders, a Claude or Codex plugin, a plugin marketplace, or an upload-ready `.zip`
 
 ## 🗂️ What's Inside
 

@@ -8,26 +8,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- every stable release also pushes the marketplace to `kami-lel/kaye-library-marketplace`, which both Claude (`/plugin marketplace add kami-lel/kaye-library-marketplace`) and Codex (`codex plugin marketplace add kami-lel/kaye-library-marketplace`) add by URL; only its `.claude-plugin/`, `.agents/`, `plugins/` are replaced, so the repo's README.md stays
-- `kaye-library codex` (alias `o`): Codex plugin, marketplace, skills, and the `~/.codex/AGENTS.md` prompt; standalone setup names `chat` and `chat-coder` for it
-- `scripts/sync-marketplace-paths.sh SRC DEST`: the marketplace sync the release workflow runs, also runnable locally
-- `docs/codex-usage-doc.md`: installing the library in the Codex app by marketplace URL, with a warning that Codex support is not actively maintained or well tested
-- Simplified Chinese `docs/claude-usage-doc.zh-CN.md` and `docs/codex-usage-doc.zh-CN.md`, linked from `README.zh-CN.md`
-- every release carries 3 assets: `kaye-library-VERSION-claude-desktop-plugin.zip` and one-click VS Code installers `kaye-library-VERSION-claude-vsc-installer-Win.zip` and `kaye-library-VERSION-claude-vsc-installer-linux.run`
-- standalone setup registers the repo name, repo version, and default consumer that name release assets; the six composed steps do not
-- Plan for Suite pause and resume: the Plan file doubles as saved state, each Movement carrying a `Status` keyword (`pending`, `done`, `halted`, `dropped`, `rewritten`)
-- `{[Claude:PushNotification] Usage}` under Turn Progress Dispatch: try a push at every Turn Stop, whatever its dispatch emoji
-- `{[Claude:PushNotification] Usage}` under Cascade All Movements: push when the Party in charge turns to the user and the Turn stops
-- `{[Claude:PushNotification] Usage}` under Plan for Suite execution: push when the entire Suite is completed
-
 ### Changed
-
-- the release workflow runs `kaye-library build-github-release-assets dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
-- README names the installers as the VS Code route
-- README's Claude setup moves to `docs/claude-usage-doc.md`, now organized by client (Claude Desktop, VS Code Extension) into lettered install methods with screenshots, covering the marketplace by URL, the release zip, the one-click installers for Windows and Linux, and the setup command; README keeps only links to the Claude and Codex usage docs
-- Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
-- Plan for Suite execution no longer holds the Plan file read-only
-- Cascade All Movements stops once the Party in charge is the user, asking them to intervene
 
 ### Deprecated
 
@@ -37,7 +18,35 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.3.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.0...dev
+
+## [1.4.0] - 2026-11-15
+
+### Added
+
+- stable releases also push the marketplace to `kami-lel/kaye-library-marketplace`, added by URL in Claude and Codex; its README.md stays
+- `kaye-library codex` (alias `o`): Codex plugin, marketplace, skills, `~/.codex/AGENTS.md` prompt
+- `scripts/sync-marketplace-paths.sh SRC DEST`: marketplace sync used by the release workflow, runnable locally
+- `docs/codex-usage-doc.md`: Codex app install by marketplace URL, with an unmaintained-support warning
+- Simplified Chinese `docs/claude-usage-doc.zh-CN.md` and `docs/codex-usage-doc.zh-CN.md`, linked from `README.zh-CN.md`
+- every release ships 3 assets: Claude Desktop plugin zip, Windows and Linux VS Code installers
+- standalone setup registers repo name, version, and default consumer used to name release assets
+- Plan for Suite pause and resume: Plan file doubles as saved state, each Movement with a `Status` keyword
+- push notification usage at every Turn Stop, at Cascade All Movements hand-off to the user, and at Plan for Suite completion
+
+### Changed
+
+- release workflow attaches all of `dist/`; plugin zip renamed from `kaye-library-claude-VERSION.zip` to `kaye-library-VERSION-claude-desktop-plugin.zip`
+- Claude setup moves from README to `docs/claude-usage-doc.md`, organized by client with screenshots; README links the Claude and Codex usage docs
+- Plan for Suite Plan file named `*-suite-plan.md`, saved at workspace root, else repository root, else a temporary location, never committed unless asked
+- Plan for Suite execution no longer holds the Plan file read-only
+- Cascade All Movements stops once the user is the Party in charge
+- requires `kaye-engine` v12.0.0
+
+> [!WARNING]
+> Release plugin zip renamed; update any script or link pointing at `kaye-library-claude-VERSION.zip`
+
+[1.4.0]: https://github.com/kami-lel/kaye-library/compare/v1.3.1...v1.4.0
 
 
 

@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-13, v1.3.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-15, v1.4.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -50,7 +50,7 @@ A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine
 5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
 6. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, and the `Chat Agent` corpus (a root node every consumer receives, registered with the six steps); a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI with `chat` and `chat-coder` and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
+Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, and the `Chat Agent` corpus (a root node every consumer receives, registered with the six steps); a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat` and `chat-coder`, and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -115,10 +115,6 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 - renaming a skill breaks every outside reference and keeps no alias: record it in `CHANGELOG.md` under Changed
 - a node path is part of the contract, since a consumer's blueprint selects library nodes by path: moving a section is a breaking change
 - building a consumer or taking a skill over is documented in the engine's [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md); [examples/minimal-consumer](examples/minimal-consumer/example_consumer/__init__.py) is the working version
-
-## Naming of Skills
-
-Exportable skills only; internal blueprints keep their slugs. Twin groups share one verb by design; list the workflow skills with `kaye-library x ls`.
 
 ## Testing Strategy
 

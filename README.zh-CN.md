@@ -15,7 +15,7 @@
 - 🧠 一次编写，永久复用：每条指令只存放在一处，随你的智能体到达任何地方
 - 🎯 自动触发：说一句“commit this”或“write a README”，对应的技能就会接手
 - 🧩 易于扩展：在其上叠加你自己的包，覆盖任意技能，保留其余部分，详见 [Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md)
-- 📦 随处可用：Agent Skills 文件夹、Claude 插件、插件市场，或可直接上传的 `.zip`
+- 📦 随处可用：Agent Skills 文件夹、Claude 或 Codex 插件、插件市场，或可直接上传的 `.zip`
 
 ## 🗂️ 包含内容
 

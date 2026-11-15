@@ -83,5 +83,6 @@ Scope each run to the area touched; run everything only before a merge.
 - [README.zh-CN.md](README.zh-CN.md): Simplified Chinese translation of `README.md`; update it in the same change, mirroring its sections, links, and commands
 - [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
 - [docs/blueprint-doc.md](docs/blueprint-doc.md): the blueprint dependency and invocation graphs; update it when a blueprint's `dependencies=[...]` or an `Invoke ... skill` line changes
+- [docs/claude-usage-doc.md](docs/claude-usage-doc.md), [docs/codex-usage-doc.md](docs/codex-usage-doc.md): client install walkthroughs; update them when an install route, release asset, or marketplace step changes; mirror each in its `.zh-CN.md` sibling ([Claude](docs/claude-usage-doc.zh-CN.md), [Codex](docs/codex-usage-doc.zh-CN.md))
 - [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine`: how a consumer is created on the library; update it, `examples/minimal-consumer/` and `tests/example_consumer_test.py` together whenever the steps or the override rule change
 - `CHANGELOG.md`: notable changes per release
