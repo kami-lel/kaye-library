@@ -1,8 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
-todo support layered CONTEXT/AGENTS
 Todo more utilize send notification
+todo support layered CONTEXT/AGENTS
 -->
 
 ## [Unreleased]

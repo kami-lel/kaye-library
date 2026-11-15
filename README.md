@@ -59,9 +59,11 @@ Then dig into the rest:
 
 ### Use with Claude
 
+<!-- Fixme way too wordy -->
+
 Every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries 3 ready-made assets, each named `kaye-library-VERSION-...`; no install of Python or Kaye Engine is needed.
 
-**Claude Desktop**: download `kaye-library-VERSION-claude-desktop-plugin.zip`, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop).
+**Claude Desktop**: download `kaye-library-VERSION-claude-desktop-plugin.zip`, then upload it in the app as shown in [Use in Claude Desktop](docs/claude-usage-doc.md#use-in-claude-desktop).
 
 **Claude Code VS Code Extension**: one click installs the library into your `~/.claude/` and enables its plugin; restart VS Code afterwards. An existing `CLAUDE.md` is first backed up as `CLAUDE.md.YYYYMMDDHHMMSS.bak`.
 

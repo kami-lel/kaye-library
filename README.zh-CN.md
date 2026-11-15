@@ -63,7 +63,7 @@
 
 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带 3 个现成的文件，文件名均以 `kaye-library-VERSION-` 开头，无需安装 Python 或 Kaye Engine。
 
-**Claude Desktop**：下载 `kaye-library-VERSION-claude-desktop-plugin.zip`，再按照 [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop) 在应用中上传即可。
+**Claude Desktop**：下载 `kaye-library-VERSION-claude-desktop-plugin.zip`，再按照 [Use in Claude Desktop](docs/claude-usage-doc.md#use-in-claude-desktop) 在应用中上传即可。
 
 **Claude Code VS Code 扩展**：一键安装，把库放入 `~/.claude/` 并启用其插件，之后重启 VS Code 即可。已有的 `CLAUDE.md` 会先备份为 `CLAUDE.md.YYYYMMDDHHMMSS.bak`。
 
