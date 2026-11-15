@@ -8,7 +8,7 @@ TODO zh version of claude usage doc
 
 ## for Claude Desktop
 
-There are 3 ways to install in Claude Desktop: pick one.
+There are 3 ways to install in Claude Desktop:
 
 ### ⓐ Add the Marketplace by URL
 
