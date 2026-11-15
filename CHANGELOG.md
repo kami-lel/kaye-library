@@ -15,6 +15,7 @@ todo support layered CONTEXT/AGENTS
 - Plan for Suite pause and resume: the Plan file doubles as saved state, each Movement carrying a `Status` keyword (`pending`, `done`, `halted`, `dropped`, `rewritten`)
 - `{[Claude:PushNotification] Usage}` under Turn Progress Dispatch: push at Turn Stops needing the user (🙋, ✍️, 🔍) or finishing the task (🏁)
 - `{[Claude:PushNotification] Usage}` under Cascade All Movements: push when the Party in charge turns to the user and the Turn stops
+- `{[Claude:PushNotification] Usage}` under Plan for Suite execution: push when the entire Suite is completed
 
 ### Changed
 

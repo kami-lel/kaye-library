@@ -73,7 +73,7 @@ Eg:
 ```
 
 ```text
-🏁 Suite Complete: 3 Movements done
+🏁 Suite Complete: 🧩7\7
 ```
 
 
