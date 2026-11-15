@@ -616,6 +616,7 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - **End State**: what *Working* means once the Movement closes, so review can stop there
 - Order: what it depends on, which may only be Movements already done
 - Party (who performs it): you, the user, or another party by name; give the user what lies beyond your reach, eg a GUI step, a login, a device, an approval
+- Status: always write `Pending` when first writing the Plan
 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
@@ -626,6 +627,11 @@ Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and fo
 </plan-for-suite-preface>
 
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
+
+##### Plan File
+
+- Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
+- Location: first available of workspace root, repository root, your own temporary location
 
 ##### Movement Heading
 
@@ -685,6 +691,10 @@ in Bar 1:
 
 - use `clarify` tool to ask user
 
+### {[git] Usage}
+
+Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
+
 
 
 
@@ -701,11 +711,11 @@ in Bar 1:
 
 Starts only after the user approves the Plan. Follow Plan order — nothing skipped, nothing combined.
 
-The Plan file is **read-only** for the whole of execution. No Movement edits it — not to tick off what is done, not to note a finding, not to correct a detail. It changes at one moment only, under [Reworking the Plan](#reworking-the-plan)
-
 If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
 
-1. Movement In: enter the Movement the Plan names next
+Each Movement runs these steps in order:
+
+1. Movement In: enter the Movement the Plan names next, or on resume the one Status names
 2. Task: do its work, touching nothing outside the Movement's boundary
 3. [Movement Recap](#movement-recap)
 4. Movement Out: return control to user
@@ -713,6 +723,23 @@ If not already answered, ask whether to run under `cascade-all-movements` or `ha
 Check the Movement's Party at Movement In. Your own Movements run as above; any other party follows [Movement Parties in Execution](#movement-parties-in-execution).
 
 Movement order binds your judgement, not the user's. Out of sequence, several at once, one skipped, the Plan set aside — obey without protest, noting which Movements are left.
+
+
+
+##### Saved State
+
+The Plan file doubles as the run's saved state, so a run survives the end of a session:
+
+- Normal Execution: leave the Plan file untouched, no Status update between Movements
+- Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
+- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; on a mismatch with the workspace, halt per [Reworking the Plan](#reworking-the-plan)
+
+Status keywords, written only on a pause or a rework. Each Movement carries exactly one keyword at any moment:
+
+- `Pending`: not entered yet, the starting keyword
+- `Done`: closed Working
+- `Halted`: stopped, awaiting rework
+- `Dropped`: removed by rework
 
 
 
@@ -736,11 +763,10 @@ Halt the moment reality stops matching the Plan — a bug, a false assumption, a
 
 1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
 2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
-3. mark every Movement's current status — done, halted, dropped, rewritten, still ahead — so the file reads cold as exactly how far the run got and what the finding cost
+3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
 5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
 6. once approved, Movement In to the earliest unfinished Movement, and not sooner
-
 
 
 
@@ -777,11 +803,11 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 #### {description}
 
-Executes approved Plan file, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file read-only, rewritten only on halt
+Executes approved Plan file, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
 
 #### {when_to_use}
 
-On Plan file preface; on instruction to begin or continue; on any *continue* shorthand. Also mid-run on bug, false assumption, wrong Movement, user redirect — halt and rework live here. Not for drafting Plans
+On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Also mid-run on bug, false assumption, wrong Movement, user redirect — halt and rework live here. Not for drafting Plans
 
 
 
@@ -808,6 +834,16 @@ and present the revised plan to user thru `ExitPlanMode` tool
 use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
 
 and to confirm each step or the End State of a user Movement, carrying likely replies as options
+
+#### {[Claude:PushNotification] Usage}
+
+Call `PushNotification` when the entire Suite is completed.
+
+Write 1 line: emoji + Suite name
+
+```text
+🏁 Auth Refactor
+```
 
 #### {[Hermes:clarify] Usage}
 

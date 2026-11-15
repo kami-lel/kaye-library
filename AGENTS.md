@@ -62,7 +62,9 @@ Scope each run to the area touched; run everything only before a merge.
 - `tests/console_test.py` runs `kaye-library` as a subprocess: install the package first
 - `tests/invocation_test.py` fails when library text tells the assistant to invoke a skill the library does not register: point it at a library skill, never at one a downstream package supplies
 - `tests/docs_test.py` checks every relative link and anchor in the root documents
-- never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`
+- never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`; `vs-code-extension` also edits its `settings.json`
+- `kaye-library build-github-release-assets` takes one required `OUTPUT` folder and writes all 3 release assets there
+- `kaye-library build-github-marketplace OUTPUT` writes the marketplace repo root; `scripts/sync-marketplace-paths.sh SRC DEST` replaces only `.claude-plugin/`, `.agents/`, `plugins/` in DEST, so rehearse a push against a scratch `git init` folder, never the real repo
 
 ## PR & Commit Instructions
 
@@ -81,5 +83,6 @@ Scope each run to the area touched; run everything only before a merge.
 - [README.zh-CN.md](README.zh-CN.md): Simplified Chinese translation of `README.md`; update it in the same change, mirroring its sections, links, and commands
 - [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
 - [docs/blueprint-doc.md](docs/blueprint-doc.md): the blueprint dependency and invocation graphs; update it when a blueprint's `dependencies=[...]` or an `Invoke ... skill` line changes
+- [docs/claude-usage-doc.md](docs/claude-usage-doc.md), [docs/codex-usage-doc.md](docs/codex-usage-doc.md): client install walkthroughs; update them when an install route, release asset, or marketplace step changes; mirror each in its `.zh-CN.md` sibling ([Claude](docs/claude-usage-doc.zh-CN.md), [Codex](docs/codex-usage-doc.zh-CN.md))
 - [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine`: how a consumer is created on the library; update it, `examples/minimal-consumer/` and `tests/example_consumer_test.py` together whenever the steps or the override rule change
 - `CHANGELOG.md`: notable changes per release

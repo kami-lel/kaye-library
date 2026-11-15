@@ -2,8 +2,6 @@
 
 [English](README.md) | 简体中文
 
-> 本文为 [README.md](README.md) 的简体中文译本，可能滞后于英文版；如有出入，以英文版为准。
-
 📚 **100+ 个开箱即用的 Agent Skills**，让你的 AI 助手像一位严谨的专业人士那样写作、编程、提交、规划与整理。一次安装，每一次对话都更出色。✨
 
 ⚙️ **由 [kaye-engine](https://github.com/kami-lel/kaye-engine) 驱动**，本仓库的配套仓库：负责渲染与导出每个技能的底层引擎。
@@ -17,7 +15,7 @@
 - 🧠 一次编写，永久复用：每条指令只存放在一处，随你的智能体到达任何地方
 - 🎯 自动触发：说一句“commit this”或“write a README”，对应的技能就会接手
 - 🧩 易于扩展：在其上叠加你自己的包，覆盖任意技能，保留其余部分，详见 [Consumer 文档](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md)
-- 📦 随处可用：Agent Skills 文件夹、Claude 插件、插件市场，或可直接上传的 `.zip`
+- 📦 随处可用：Agent Skills 文件夹、Claude 或 Codex 插件、插件市场，或可直接上传的 `.zip`
 
 ## 🗂️ 包含内容
 
@@ -59,11 +57,13 @@
 
 ## 🚀 快速开始
 
-### 在 Claude 中使用
+### 在 Anthropic Claude 中使用
 
-**Claude Desktop**：[GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带现成的插件 `.zip`，文件名为 `kaye-library-claude-VERSION.zip`。下载后按照 [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop) 在应用中上传即可，无需安装。
+在用 Claude？[查看如何为它安装 kaye-library](docs/claude-usage-doc.zh-CN.md)。
 
-**Claude Code VS Code 扩展**：按照 [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension) 操作，将其中的 `kaye-engine` 替换为 `kaye-library`。
+### 在 OpenAI Codex 中使用
+
+在用 Codex？[查看如何为它安装 kaye-library](docs/codex-usage-doc.zh-CN.md)。
 
 ### 📦 使用 pip 安装
 

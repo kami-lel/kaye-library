@@ -15,7 +15,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - 🧠 Write Once, Reuse Forever: each instruction lives in one place and ships everywhere your agent goes
 - 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
 - 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
-- 📦 Ships Everywhere: Agent Skills folders, a Claude plugin, a plugin marketplace, or an upload-ready `.zip`
+- 📦 Ships Everywhere: Agent Skills folders, a Claude or Codex plugin, a plugin marketplace, or an upload-ready `.zip`
 
 ## 🗂️ What's Inside
 
@@ -57,11 +57,13 @@ Then dig into the rest:
 
 ## 🚀 Getting Started
 
-### Use with Claude
+### Use with Anthropic Claude
 
-**Claude Desktop**: every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries the ready-made plugin `.zip`, named `kaye-library-claude-VERSION.zip`. Download it, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop); no install is needed.
+Using Claude? [See how to install kaye-library for it](docs/claude-usage-doc.md).
 
-**Claude Code VS Code Extension**: follow [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension), running `kaye-library` in place of `kaye-engine`.
+### Use with OpenAI Codex
+
+Using Codex? [See how to install kaye-library for it](docs/codex-usage-doc.md).
 
 ### 📦 Install with pip
 

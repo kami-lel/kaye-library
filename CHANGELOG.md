@@ -18,7 +18,35 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.3.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.0...dev
+
+## [1.4.0] - 2026-11-15
+
+### Added
+
+- stable releases also push the marketplace to `kami-lel/kaye-library-marketplace`, added by URL in Claude and Codex; its README.md stays
+- `kaye-library codex` (alias `o`): Codex plugin, marketplace, skills, `~/.codex/AGENTS.md` prompt
+- `scripts/sync-marketplace-paths.sh SRC DEST`: marketplace sync used by the release workflow, runnable locally
+- `docs/codex-usage-doc.md`: Codex app install by marketplace URL, with an unmaintained-support warning
+- Simplified Chinese `docs/claude-usage-doc.zh-CN.md` and `docs/codex-usage-doc.zh-CN.md`, linked from `README.zh-CN.md`
+- every release ships 3 assets: Claude Desktop plugin zip, Windows and Linux VS Code installers
+- standalone setup registers repo name, version, and default consumer used to name release assets
+- Plan for Suite pause and resume: Plan file doubles as saved state, each Movement with a `Status` keyword
+- push notification usage at every Turn Stop, at Cascade All Movements hand-off to the user, and at Plan for Suite completion
+
+### Changed
+
+- release workflow attaches all of `dist/`; plugin zip renamed from `kaye-library-claude-VERSION.zip` to `kaye-library-VERSION-claude-desktop-plugin.zip`
+- Claude setup moves from README to `docs/claude-usage-doc.md`, organized by client with screenshots; README links the Claude and Codex usage docs
+- Plan for Suite Plan file named `*-suite-plan.md`, saved at workspace root, else repository root, else a temporary location, never committed unless asked
+- Plan for Suite execution no longer holds the Plan file read-only
+- Cascade All Movements stops once the user is the Party in charge
+- requires `kaye-engine` v12.0.0
+
+> [!WARNING]
+> Release plugin zip renamed; update any script or link pointing at `kaye-library-claude-VERSION.zip`
+
+[1.4.0]: https://github.com/kami-lel/kaye-library/compare/v1.3.1...v1.4.0
 
 
 

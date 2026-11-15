@@ -23,7 +23,7 @@ _SCRIPT = textwrap.dedent(
     from kaye_engine.exportable import exportable_registry
     from kaye_engine.prompt import get_corpus_tree
     from kaye_engine.prompt.blueprint import create_blueprint_from_node
-    from kaye_engine.cli.claude.plugin_marketplace_name import (
+    from kaye_engine.cli.plugin_platform.consumers import (
         get_plugin_consumers,
     )
 
@@ -70,6 +70,20 @@ _SCRIPT = textwrap.dedent(
     print("chat:", "chat" in exportable_registry)
     print("chat-coder:", "chat-coder" in exportable_registry)
     print("chat corpus:", "Chat Agent" in [c.name for c in tree.children])
+
+    from kaye_engine.consumer import get_default_consumer
+    from kaye_engine.repo import get_repo_name, get_repo_version
+
+    for label, getter in (
+        ("default consumer", get_default_consumer),
+        ("repo name", get_repo_name),
+        ("repo version", get_repo_version),
+    ):
+        try:
+            getter()
+            print(label + " set: True")
+        except SystemExit:
+            print(label + " set: False")
     """
 )
 
@@ -92,3 +106,6 @@ def test_third_consumer_registers_under_root_and_nodes():
     assert "chat: False" in result.stdout
     assert "chat-coder: False" in result.stdout
     assert "chat corpus: True" in result.stdout
+    assert "default consumer set: False" in result.stdout
+    assert "repo name set: False" in result.stdout
+    assert "repo version set: False" in result.stdout

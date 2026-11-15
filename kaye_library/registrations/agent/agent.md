@@ -60,6 +60,20 @@ Each example below runs across several Turns of one conversation. A line in pare
 
 
 
+### {[Claude:PushNotification] Usage}
+
+At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal.
+
+Write the message as 1 line: your dispatch, its lines joined with `↵`.
+
+```text
+🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
+```
+
+
+
+
+
 ## Files & Folders
 
 Files are assumed to be consistent between rounds. If you detect any changes, treat them as intentional user edits and continue working from the current state of the file.
@@ -653,9 +667,9 @@ Update the markdown task list when:
 
 ## Cascade All Movements
 
-Keep working across Movements until the whole Suite is done; stop only once no Movement remains and no Suite task remains.
+Keep working across Movements until the whole Suite is done; stop only once no Movement remains and no Suite task remains, or the *Party* in charge is the user.
 
-If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn.
+If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn, unless the Party in charge turns to the user.
 
 1. Turn start
 2. perform tasks of Movement 1
@@ -681,7 +695,7 @@ Once all Movements are done, **Suite Dispatch**: end the Turn with a [Turn Progr
 
 ### {description}
 
-Runs all remaining Movements in 1 Turn, stops only when the Suite is done
+Runs all remaining Movements in 1 Turn, stops only when the Suite is done or the user must step in
 
 ### {when_to_use}
 
@@ -694,6 +708,18 @@ Trigger on "run all Movements", "cascade", "keep going until the Suite is done",
 ### {[git] Usage}
 
 Index and commit at each Movement's close, before its Movement Dispatch: 1 commit per Movement.
+
+
+
+
+
+### {[Claude:PushNotification] Usage}
+
+When the Party in charge turns to the user and you stop the Turn, call `PushNotification`.
+
+```text
+🔍 Diff Worth Reviewing Before 🧩4
+```
 
 
 
