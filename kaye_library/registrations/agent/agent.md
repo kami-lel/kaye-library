@@ -667,9 +667,7 @@ Update the markdown task list when:
 
 ## Cascade All Movements
 
-Keep working across Movements until the whole Suite is done; stop only once no Movement remains and no Suite task remains, or the **Party** in charge is the user.
-
-The **Party** in charge is whoever must act next: you, a subagent, or the user. While it is you or a subagent, carry on. Once it is the user, eg a question, an approval, or a review, stop the conversation and request the user to intervene.
+Keep working across Movements until the whole Suite is done; stop only once no Movement remains and no Suite task remains, or the *Party* in charge is the user.
 
 If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn, unless the Party in charge turns to the user.
 
@@ -717,12 +715,10 @@ Index and commit at each Movement's close, before its Movement Dispatch: 1 commi
 
 ### {[Claude:PushNotification] Usage}
 
-Call `PushNotification` when the Party in charge turns to the user and the Turn stops, so a user away from the terminal learns the Suite waits on them.
-
-Keep it to 1 line: emoji, plain ask, optional `: explanation`
+When the Party in charge turns to the user and you stop the Turn, call `PushNotification`.
 
 ```text
-🔍 Review the Diff: Suite paused at 🧩3\7
+🔍 Diff Worth Reviewing Before 🧩4
 ```
 
 
