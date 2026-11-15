@@ -8,6 +8,8 @@ TODO zh version of claude usage doc
 
 ## for Claude Desktop
 
+There are 3 ways to install in Claude Desktop: pick one.
+
 ### ⓐ Add the Marketplace by URL
 
 1. Click *Customize* in the sidebar.
@@ -37,6 +39,10 @@ TODO zh version of claude usage doc
 6. Click *Sync*.
 
    ![Add marketplace dialog with the Sync button](assets/claude-desktop-marketplace-step-6-sync.png)
+
+7. In the *Discover* view, click *Add* beside *Kaye Library*.
+
+   ![Discover view with Kaye Library and its Add button](assets/claude-desktop-marketplace-step-7-add.png)
 
 
 
@@ -101,23 +107,65 @@ Make the plugin file yourself, then upload it.
 
 ## for Claude Code VS Code Extension
 
+There are 4 ways to install in the Claude Code VS Code Extension: pick one, then verify it, as in [Check Installed Plugins](#check-installed-plugins).
+
 ### ⓐ Add the Marketplace by URL
 
-1. In the *Claude Code* panel, run:
+1. In the *Claude Code* panel, type `/` and choose *Manage plugins*.
+
+   ![Manage plugins in the slash menu](assets/claude-vsc-step-1-manage-plugins.png)
+
+2. Open the *Marketplaces* tab. Type this in the field, then click *Add*:
 
    ```text
-   /plugin marketplace add kami-lel/kaye-library-marketplace
+   kami-lel/kaye-library-marketplace
    ```
 
-   <!-- TODO screen cap `assets/claude-vsc-marketplace-step-1-add.png`: the *Claude Code* panel, the command typed in, before sending -->
+   ![Marketplaces tab with the repository typed in](assets/claude-vsc-marketplace-step-2-add.png)
 
+3. Check that `kaye-library-marketplace` is listed.
+
+   ![Marketplaces tab with kaye-library-marketplace listed](assets/claude-vsc-marketplace-step-3-listed.png)
+
+4. Open the *Plugins* tab. Under *Available*, click *Install* beside `kaye-library`.
+
+   ![Plugins tab with kaye-library and its Install button](assets/claude-vsc-marketplace-step-4-install.png)
+
+5. Check that `kaye-library@kaye-library-marketplace` is listed under *Installed*.
+
+   ![Plugins tab with kaye-library installed](assets/claude-vsc-marketplace-step-5-installed.png)
+
+6. Restart VS Code.
+
+
+
+
+
+
+### ⓑ Run the One-Click Installer on Windows
+
+Download a ready-made installer, then run it.
+
+1. Download `kaye-library-VERSION-claude-vsc-installer-Win.zip` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+2. Extract it, then double-click `install.cmd`.
+3. Restart VS Code.
+4. Check the result, as in [Check Installed Plugins](#check-installed-plugins).
+
+
+
+
+
+
+### ⓒ Run the One-Click Installer on Linux
+
+Download a ready-made installer, then run it.
+
+1. Download `kaye-library-VERSION-claude-vsc-installer-linux.run` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
 2. Run:
 
-   ```text
-   /plugin install kaye-library@kaye-library-marketplace
+   ```bash
+   bash kaye-library-VERSION-claude-vsc-installer-linux.run
    ```
-
-   <!-- TODO screen cap `assets/claude-vsc-marketplace-step-2-install.png`: the *Claude Code* panel, the install command and its success reply -->
 
 3. Restart VS Code.
 4. Check the result, as in [Check Installed Plugins](#check-installed-plugins).
@@ -127,27 +175,7 @@ Make the plugin file yourself, then upload it.
 
 
 
-### ⓑ Run the One-Click Installer
-
-Download a ready-made installer, then run it.
-
-1. Download the installer for your system from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases), then run it:
-   - Windows: extract `kaye-library-VERSION-claude-vsc-installer-Win.zip`, then double-click `Install.cmd`
-   - Linux: run `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
-
-   <!-- TODO screen cap `assets/claude-vsc-installer-step-1-release-assets.png`: the release page *Assets* list, both installer files visible -->
-   <!-- TODO screen cap `assets/claude-vsc-installer-step-1-windows.png`: the extracted folder in Explorer, `Install.cmd` selected -->
-   <!-- TODO screen cap `assets/claude-vsc-installer-step-1-linux.png`: the terminal after `bash ...-linux.run`, its success output -->
-
-2. Restart VS Code.
-3. Check the result, as in [Check Installed Plugins](#check-installed-plugins).
-
-
-
-
-
-
-### ⓒ Run the Setup Command
+### ⓓ Run the Setup Command
 
 Install it yourself with one command.
 
@@ -156,8 +184,6 @@ Install it yourself with one command.
    ```bash
    kaye-engine claude vs-code-extension
    ```
-
-   <!-- TODO screen cap `assets/claude-vsc-setup-step-1-command.png`: the terminal after the command, its success output -->
 
 2. Restart VS Code.
 3. Check the result, as in [Check Installed Plugins](#check-installed-plugins).
@@ -181,7 +207,7 @@ Install it yourself with one command.
 
    ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. Open the *Marketplaces* tab. Check that `kaye-library-marketplace` (ⓐ) or `kaye-engine` (ⓑ, ⓒ) is listed.
+3. Open the *Marketplaces* tab. Check that `kaye-library-marketplace` (ⓐ) or `kaye-engine` (ⓑ, ⓒ, ⓓ) is listed.
 
    <!-- TODO add screen cap showing `kaye-library-marketplace` listed, for ⓐ -->
 
