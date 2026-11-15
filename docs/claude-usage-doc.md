@@ -1,10 +1,8 @@
 # kaye-library: Claude Usage Documentation
 
-Install `kaye-library` in Claude Desktop or the Claude Code VS Code Extension: pick any one of the methods below.
+English | [简体中文](claude-usage-doc.zh-CN.md)
 
-<!--
-TODO zh version of claude usage doc
--->
+Install `kaye-library` in Claude Desktop or the Claude Code VS Code Extension: pick any one of the methods below.
 
 ## for Claude Desktop
 

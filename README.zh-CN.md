@@ -2,8 +2,6 @@
 
 [English](README.md) | 简体中文
 
-> 本文为 [README.md](README.md) 的简体中文译本，可能滞后于英文版；如有出入，以英文版为准。
-
 📚 **100+ 个开箱即用的 Agent Skills**，让你的 AI 助手像一位严谨的专业人士那样写作、编程、提交、规划与整理。一次安装，每一次对话都更出色。✨
 
 ⚙️ **由 [kaye-engine](https://github.com/kami-lel/kaye-engine) 驱动**，本仓库的配套仓库：负责渲染与导出每个技能的底层引擎。
@@ -61,11 +59,11 @@
 
 ### 在 Anthropic Claude 中使用
 
-在用 Claude？[查看如何为它安装 kaye-library](docs/claude-usage-doc.md)。
+在用 Claude？[查看如何为它安装 kaye-library](docs/claude-usage-doc.zh-CN.md)。
 
 ### 在 OpenAI Codex 中使用
 
-在用 Codex？[查看如何为它安装 kaye-library](docs/codex-usage-doc.md)。
+在用 Codex？[查看如何为它安装 kaye-library](docs/codex-usage-doc.zh-CN.md)。
 
 ### 📦 使用 pip 安装
 

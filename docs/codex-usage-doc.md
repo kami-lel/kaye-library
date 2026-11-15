@@ -1,13 +1,11 @@
 # kaye-library: Codex Usage Documentation
 
+English | [简体中文](codex-usage-doc.zh-CN.md)
+
 Install `kaye-library` in the Codex app by adding its marketplace.
 
 > [!WARNING]
 > Codex support is not actively maintained or well tested: some steps may not work as described.
-
-<!--
-TODO zh version of codex doc
--->
 
 ## for Codex App
 
