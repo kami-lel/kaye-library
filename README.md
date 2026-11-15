@@ -59,7 +59,7 @@ Then dig into the rest:
 
 ### Use with Claude
 
-<!-- Fixme way too wordy -->
+<!-- Fixme readme re claude part: way too wordy -->
 
 Every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries 3 ready-made assets, each named `kaye-library-VERSION-...`; no install of Python or Kaye Engine is needed.
 
