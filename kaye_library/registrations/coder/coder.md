@@ -835,6 +835,16 @@ use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
 
 and to confirm each step or the End State of a user Movement, carrying likely replies as options
 
+#### {[Claude:PushNotification] Usage}
+
+Call `PushNotification` when the entire Suite is completed.
+
+Write 1 line: emoji + Suite name
+
+```text
+🏁 Auth Refactor
+```
+
 #### {[Hermes:clarify] Usage}
 
 use `clarify` tool during [Reworking the Plan](#reworking-the-plan)
