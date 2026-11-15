@@ -2,8 +2,6 @@
 
 [English](README.md) | 简体中文
 
-> 本文为 [README.md](README.md) 的简体中文译本，可能滞后于英文版；如有出入，以英文版为准。
-
 📚 **100+ 个开箱即用的 Agent Skills**，让你的 AI 助手像一位严谨的专业人士那样写作、编程、提交、规划与整理。一次安装，每一次对话都更出色。✨
 
 ⚙️ **由 [kaye-engine](https://github.com/kami-lel/kaye-engine) 驱动**，本仓库的配套仓库：负责渲染与导出每个技能的底层引擎。
@@ -59,18 +57,13 @@
 
 ## 🚀 快速开始
 
-### 在 Claude 中使用
+### 在 Anthropic Claude 中使用
 
-[GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带 3 个现成的文件，文件名均以 `kaye-library-VERSION-` 开头，无需安装 Python 或 Kaye Engine。
+在用 Claude？[查看如何为它安装 kaye-library](docs/claude-usage-doc.zh-CN.md)。
 
-**Claude Desktop**：下载 `kaye-library-VERSION-claude-desktop-plugin.zip`，再按照 [Use in Claude Desktop](docs/claude-usage-doc.md#use-in-claude-desktop) 在应用中上传即可。
+### 在 OpenAI Codex 中使用
 
-**Claude Code VS Code 扩展**：一键安装，把库放入 `~/.claude/` 并启用其插件，之后重启 VS Code 即可。已有的 `CLAUDE.md` 会先备份为 `CLAUDE.md.YYYYMMDDHHMMSS.bak`。
-
-- Windows：下载并解压 `kaye-library-VERSION-claude-vsc-installer-Win.zip`，双击 `Install.cmd`
-- Linux：下载 `kaye-library-VERSION-claude-vsc-installer-linux.run`，运行 `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
-
-如需移除，删除 `~/.claude/kaye-engine/`，并删去 `~/.claude/settings.json` 中的 `kaye-engine` 条目（`extraKnownMarketplaces`、`enabledPlugins`）。自行构建同样的文件，见 [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets)。
+在用 Codex？[查看如何为它安装 kaye-library](docs/codex-usage-doc.zh-CN.md)。
 
 ### 📦 使用 pip 安装
 

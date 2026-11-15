@@ -57,20 +57,13 @@ Then dig into the rest:
 
 ## 🚀 Getting Started
 
-### Use with Claude
+### Use with Anthropic Claude
 
-<!-- Fixme readme re claude part: way too wordy -->
+Using Claude? [See how to install kaye-library for it](docs/claude-usage-doc.md).
 
-Every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries 3 ready-made assets, each named `kaye-library-VERSION-...`; no install of Python or Kaye Engine is needed.
+### Use with OpenAI Codex
 
-**Claude Desktop**: download `kaye-library-VERSION-claude-desktop-plugin.zip`, then upload it in the app as shown in [Use in Claude Desktop](docs/claude-usage-doc.md#use-in-claude-desktop).
-
-**Claude Code VS Code Extension**: one click installs the library into your `~/.claude/` and enables its plugin; restart VS Code afterwards. An existing `CLAUDE.md` is first backed up as `CLAUDE.md.YYYYMMDDHHMMSS.bak`.
-
-- Windows: download and extract `kaye-library-VERSION-claude-vsc-installer-Win.zip`, then double-click `Install.cmd`
-- Linux: download `kaye-library-VERSION-claude-vsc-installer-linux.run`, then run `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
-
-To remove it, delete `~/.claude/kaye-engine/` and the `kaye-engine` entries in `~/.claude/settings.json` (`extraKnownMarketplaces`, `enabledPlugins`). Building the same files yourself is covered in [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets).
+Using Codex? [See how to install kaye-library for it](docs/codex-usage-doc.md).
 
 ### 📦 Install with pip
 
