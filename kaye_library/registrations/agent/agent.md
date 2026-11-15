@@ -62,18 +62,12 @@ Each example below runs across several Turns of one conversation. A line in pare
 
 ### {[Claude:PushNotification] Usage}
 
-Call `PushNotification` only at a Turn Stop dispatching 🙋, ✍️, 🔍, or 🏁.
+At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal.
 
-1 line: dispatch emoji + few plain words + optional `: explanation`
-
-Eg:
+Write the message as 1 line: your dispatch, its lines joined with `↵`.
 
 ```text
-✍️ Open the PR?
-```
-
-```text
-🏁 Suite Complete: 🧩7\7
+🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
 ```
 
 
