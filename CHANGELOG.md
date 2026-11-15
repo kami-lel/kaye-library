@@ -11,7 +11,8 @@ todo support layered CONTEXT/AGENTS
 - every stable release also pushes the marketplace to `kami-lel/kaye-library-marketplace`, which both Claude (`/plugin marketplace add kami-lel/kaye-library-marketplace`) and Codex (`codex plugin marketplace add kami-lel/kaye-library-marketplace`) add by URL; only its `.claude-plugin/`, `.agents/`, `plugins/` are replaced, so the repo's README.md stays
 - `kaye-library codex` (alias `o`): Codex plugin, marketplace, skills, and the `~/.codex/AGENTS.md` prompt; standalone setup names `chat` and `chat-coder` for it
 - `scripts/sync-marketplace-paths.sh SRC DEST`: the marketplace sync the release workflow runs, also runnable locally
-- `docs/codex-usage-doc.md`: installing the library in Codex, by marketplace URL or local export
+- `docs/codex-usage-doc.md`: installing the library in the Codex app by marketplace URL, with a warning that Codex support is not actively maintained or well tested
+- Simplified Chinese `docs/claude-usage-doc.zh-CN.md` and `docs/codex-usage-doc.zh-CN.md`, linked from `README.zh-CN.md`
 - every release carries 3 assets: `kaye-library-VERSION-claude-desktop-plugin.zip` and one-click VS Code installers `kaye-library-VERSION-claude-vsc-installer-Win.zip` and `kaye-library-VERSION-claude-vsc-installer-linux.run`
 - standalone setup registers the repo name, repo version, and default consumer that name release assets; the six composed steps do not
 - Plan for Suite pause and resume: the Plan file doubles as saved state, each Movement carrying a `Status` keyword (`pending`, `done`, `halted`, `dropped`, `rewritten`)
@@ -23,7 +24,7 @@ todo support layered CONTEXT/AGENTS
 
 - the release workflow runs `kaye-library build-github-release-assets dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
 - README names the installers as the VS Code route
-- README's Claude setup moves to `docs/claude-usage-doc.md`, which now covers the marketplace by URL, the release assets, the one-click installer and removal; README keeps only links to the Claude and Codex usage docs
+- README's Claude setup moves to `docs/claude-usage-doc.md`, now organized by client (Claude Desktop, VS Code Extension) into lettered install methods with screenshots, covering the marketplace by URL, the release zip, the one-click installers for Windows and Linux, and the setup command; README keeps only links to the Claude and Codex usage docs
 - Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
 - Plan for Suite execution no longer holds the Plan file read-only
 - Cascade All Movements stops once the Party in charge is the user, asking them to intervene
