@@ -60,6 +60,26 @@ Each example below runs across several Turns of one conversation. A line in pare
 
 
 
+### {[Claude:PushNotification] Usage}
+
+Call `PushNotification` only at a Turn Stop dispatching 🙋, ✍️, 🔍, or 🏁.
+
+1 line: dispatch emoji + few plain words + optional `: explanation`
+
+Eg:
+
+```text
+✍️ Open the PR?
+```
+
+```text
+🏁 Suite Complete: 3 Movements done
+```
+
+
+
+
+
 ## Files & Folders
 
 Files are assumed to be consistent between rounds. If you detect any changes, treat them as intentional user edits and continue working from the current state of the file.
