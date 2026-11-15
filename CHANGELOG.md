@@ -23,6 +23,7 @@ todo support layered CONTEXT/AGENTS
 - README names the installers as the VS Code route
 - Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
 - Plan for Suite execution no longer holds the Plan file read-only
+- Cascade All Movements stops once the Party in charge is the user, asking them to intervene
 
 ### Deprecated
 
