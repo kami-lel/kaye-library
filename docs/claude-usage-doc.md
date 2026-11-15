@@ -195,20 +195,14 @@ Install it yourself with one command.
 
 ### Check Installed Plugins
 
-<!-- TODO replace w/ newer VS Code Extension screen caps if the panel UI changed -->
-
 1. In the *Claude Code* panel, type `/` and choose *Manage plugins*.
 
    ![Manage plugins in the slash menu](assets/claude-vsc-step-1-manage-plugins.png)
 
 2. Open the *Plugins* tab. Check that `kaye-library` is listed under *Installed*, its toggle on.
 
-   <!-- TODO replace w/ screen cap showing `kaye-library` under *Installed*, toggle on -->
-
    ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. Open the *Marketplaces* tab. Check that `kaye-library-marketplace` (ⓐ) or `kaye-engine` (ⓑ, ⓒ, ⓓ) is listed.
-
-   <!-- TODO add screen cap showing `kaye-library-marketplace` listed, for ⓐ -->
+3. Open the *Marketplaces* tab. Check that `kaye-engine` is listed.
 
    ![Marketplaces tab with the kaye-engine marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
