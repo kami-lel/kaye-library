@@ -59,11 +59,11 @@ Then dig into the rest:
 
 ### Use with Anthropic Claude
 
-Download a release asset for Claude Desktop or the VS Code Extension, no Python needed, as the [Claude usage documentation](docs/claude-usage-doc.md) shows.
+Using Claude? [See how to install kaye-library for it](docs/claude-usage-doc.md).
 
 ### Use with OpenAI Codex
 
-Add the published marketplace by URL, no Python needed, as the [Codex usage documentation](docs/codex-usage-doc.md) shows.
+Using Codex? [See how to install kaye-library for it](docs/codex-usage-doc.md).
 
 ### 📦 Install with pip
 

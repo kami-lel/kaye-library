@@ -61,11 +61,11 @@
 
 ### 在 Anthropic Claude 中使用
 
-下载适用于 Claude Desktop 或 VS Code 扩展的发布文件即可，无需 Python，详见 [Claude 使用文档](docs/claude-usage-doc.md)。
+在用 Claude？[查看如何为它安装 kaye-library](docs/claude-usage-doc.md)。
 
 ### 在 OpenAI Codex 中使用
 
-通过 URL 添加已发布的插件市场即可，无需 Python，详见 [Codex 使用文档](docs/codex-usage-doc.md)。
+在用 Codex？[查看如何为它安装 kaye-library](docs/codex-usage-doc.md)。
 
 ### 📦 使用 pip 安装
 

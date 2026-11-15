@@ -1,11 +1,22 @@
 # kaye-library: Claude Usage Documentation
 
 <!--
-Fixme improve claude related docs
-Todo zh version of claude usage doc
+FIXME improve claude related docs
+TODO zh version of claude usage doc
 -->
 
-How to put the library into Claude: the Claude Desktop app and the Claude Code VS Code Extension.
+How to put the library into Claude: the published marketplace in Claude Code, the Claude Desktop app, and the Claude Code VS Code Extension.
+
+## Add the Marketplace by URL
+
+Every stable release pushes the plugin to the [kaye-library-marketplace](https://github.com/kami-lel/kaye-library-marketplace) repository; no install of Python or Kaye Engine is needed. In Claude Code, run:
+
+```text
+/plugin marketplace add kami-lel/kaye-library-marketplace
+/plugin install kaye-library@kaye-library-marketplace
+```
+
+To update, run `/plugin marketplace update kaye-library-marketplace`; to remove, `/plugin uninstall kaye-library@kaye-library-marketplace`.
 
 ## Download a Release Asset
 

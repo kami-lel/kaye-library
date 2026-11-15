@@ -1,6 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
+TODO complete exploration skill feature sets
 todo support layered CONTEXT/AGENTS
 -->
 
@@ -23,7 +24,7 @@ todo support layered CONTEXT/AGENTS
 
 - the release workflow runs `kaye-library build-github-release-assets dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
 - README names the installers as the VS Code route
-- README's Claude setup moves to `docs/claude-usage-doc.md`, which now opens with the release assets and covers the one-click installer and removal; README keeps only links to the Claude and Codex usage docs
+- README's Claude setup moves to `docs/claude-usage-doc.md`, which now covers the marketplace by URL, the release assets, the one-click installer and removal; README keeps only links to the Claude and Codex usage docs
 - Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
 - Plan for Suite execution no longer holds the Plan file read-only
 - Cascade All Movements stops once the Party in charge is the user, asking them to intervene
