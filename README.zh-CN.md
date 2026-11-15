@@ -59,18 +59,13 @@
 
 ## 🚀 快速开始
 
-### 在 Claude 中使用
+### 在 Anthropic Claude 中使用
 
-[GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带 3 个现成的文件，文件名均以 `kaye-library-VERSION-` 开头，无需安装 Python 或 Kaye Engine。
+下载适用于 Claude Desktop 或 VS Code 扩展的发布文件即可，无需 Python，详见 [Claude 使用文档](docs/claude-usage-doc.md)。
 
-**Claude Desktop**：下载 `kaye-library-VERSION-claude-desktop-plugin.zip`，再按照 [Use in Claude Desktop](docs/claude-usage-doc.md#use-in-claude-desktop) 在应用中上传即可。
+### 在 OpenAI Codex 中使用
 
-**Claude Code VS Code 扩展**：一键安装，把库放入 `~/.claude/` 并启用其插件，之后重启 VS Code 即可。已有的 `CLAUDE.md` 会先备份为 `CLAUDE.md.YYYYMMDDHHMMSS.bak`。
-
-- Windows：下载并解压 `kaye-library-VERSION-claude-vsc-installer-Win.zip`，双击 `Install.cmd`
-- Linux：下载 `kaye-library-VERSION-claude-vsc-installer-linux.run`，运行 `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
-
-如需移除，删除 `~/.claude/kaye-engine/`，并删去 `~/.claude/settings.json` 中的 `kaye-engine` 条目（`extraKnownMarketplaces`、`enabledPlugins`）。自行构建同样的文件，见 [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets)。
+通过 URL 添加已发布的插件市场即可，无需 Python，详见 [Codex 使用文档](docs/codex-usage-doc.md)。
 
 ### 📦 使用 pip 安装
 
