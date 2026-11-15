@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo supporting marketplace for claude & codex
 todo support layered CONTEXT/AGENTS
 -->
 
