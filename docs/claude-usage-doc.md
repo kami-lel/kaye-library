@@ -1,109 +1,162 @@
 # kaye-library: Claude Usage Documentation
 
+Install `kaye-library` in Claude Desktop or the Claude Code VS Code Extension: pick any one of the methods below.
+
 <!--
-FIXME improve claude related docs
 TODO zh version of claude usage doc
 -->
 
-How to put the library into Claude: the published marketplace in Claude Code, the Claude Desktop app, and the Claude Code VS Code Extension.
+## for Claude Desktop
 
-## Add the Marketplace by URL
+### ⓐ Add the Marketplace by URL
 
-Every stable release pushes the plugin to the [kaye-library-marketplace](https://github.com/kami-lel/kaye-library-marketplace) repository; no install of Python or Kaye Engine is needed. In Claude Code, run:
+1. Click *Customize* in the sidebar.
+
+   ![Customize in the sidebar](assets/claude-desktop-step-1-customize.png)
+
+2. Open the *Plugins* tab.
+
+   ![Plugins tab](assets/claude-desktop-step-2-plugins-tab.png)
+
+3. Click *Add* → *Add marketplace*.
+
+   ![Add menu with Add marketplace](assets/claude-desktop-marketplace-step-3-add-marketplace.png)
+
+4. Choose *Add from a repository*.
+
+   ![Add marketplace dialog with Add from a repository](assets/claude-desktop-marketplace-step-4-add-from-repository.png)
+
+5. Type this in the *URL* field, then choose *Use "kami-lel/kaye-library-marketplace"*:
+
+   ```text
+   kami-lel/kaye-library-marketplace
+   ```
+
+   ![URL field with the repository typed in](assets/claude-desktop-marketplace-step-5-repository.png)
+
+6. Click *Sync*.
+
+   ![Add marketplace dialog with the Sync button](assets/claude-desktop-marketplace-step-6-sync.png)
+
+
+
+
+
+### ⓑ Upload the Release Zip
+
+Download a ready-made plugin file, then upload it.
+
+1. Download `kaye-library-VERSION-claude-desktop-plugin.zip` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+2. Upload it as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+
+
+
+
+
+### ⓒ Build and Upload the Zip
+
+Make the plugin file yourself, then upload it.
+
+1. Build the zip:
+
+   ```bash
+   kaye-engine claude plugin -z
+   ```
+
+2. Upload `CONSUMER-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+
+
+
+
+
+### Upload Plugin as Zip File
+
+1. Click *Customize* in the sidebar.
+
+   ![Customize in the sidebar](assets/claude-desktop-step-1-customize.png)
+
+2. Open the *Plugins* tab.
+
+   ![Plugins tab](assets/claude-desktop-step-2-plugins-tab.png)
+
+3. Click *Add* → *Upload plugin*.
+
+   ![Add menu with Upload plugin](assets/claude-desktop-step-3-add-upload-plugin.png)
+
+4. Drop the zip into the dialog, or browse for it, then click *Upload*.
+
+   ![Upload a plugin dialog](assets/claude-desktop-step-4-upload-dialog.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## for Claude Code VS Code Extension
+
+### ⓐ Add the Marketplace by URL
+
+<!-- TODO add screen caps of adding the marketplace by URL in the VS Code Extension -->
+
+In the *Claude Code* panel, run:
 
 ```text
 /plugin marketplace add kami-lel/kaye-library-marketplace
 /plugin install kaye-library@kaye-library-marketplace
 ```
 
-To update, run `/plugin marketplace update kaye-library-marketplace`; to remove, `/plugin uninstall kaye-library@kaye-library-marketplace`.
+- Update: `/plugin marketplace update kaye-library-marketplace`
+- Remove: `/plugin uninstall kaye-library@kaye-library-marketplace`
 
-## Download a Release Asset
+### ⓑ Run the One-Click Installer
 
-Every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries 3 ready-made assets, each named `kaye-library-VERSION-...`; no install of Python or Kaye Engine is needed.
+1. Download the installer for your system from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases), then run it:
+   - Windows: extract `kaye-library-VERSION-claude-vsc-installer-Win.zip`, then double-click `Install.cmd`
+   - Linux: run `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
+2. Restart VS Code.
+3. Check the result, as in [Check the Result](#check-the-result).
 
-| Asset | For |
-| --- | --- |
-| `kaye-library-VERSION-claude-desktop-plugin.zip` | Claude Desktop, uploaded as in [Use in Claude Desktop](#use-in-claude-desktop) |
-| `kaye-library-VERSION-claude-vsc-installer-Win.zip` | the VS Code Extension on Windows, per [One-Click Installer](#one-click-installer) |
-| `kaye-library-VERSION-claude-vsc-installer-linux.run` | the VS Code Extension on Linux, per [One-Click Installer](#one-click-installer) |
+- Update: run the new installer
+- Remove: follow [Remove](#remove)
 
-Building the same files yourself is covered in [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets).
+### ⓒ Run the Setup Command
 
-## Use in Claude Desktop
-
-1. Get the plugin zip: download `kaye-library-VERSION-claude-desktop-plugin.zip` from a release, or create it yourself:
-
-   ```bash
-   kaye-engine claude plugin -z
-   ```
-
-   One zip per consumer lands in the current directory, named `CONSUMER-claude-VERSION.zip`, e.g. `my-corpus-claude-1.2.1.zip`.
-
-2. Upload the zip in the Claude Desktop app:
-
-   1. Click *Customize* in the sidebar.
-
-      ![Customize in the sidebar](assets/claude-desktop-step-1-customize.png)
-
-   2. Open the *Plugins* tab.
-
-      ![Plugins tab](assets/claude-desktop-step-2-plugins-tab.png)
-
-   3. Click *Add* → *Upload plugin*.
-
-      ![Add menu with Upload plugin](assets/claude-desktop-step-3-add-upload-plugin.png)
-
-   4. Drop the zip into the dialog, or browse for it, then click *Upload*.
-
-      ![Upload a plugin dialog](assets/claude-desktop-step-4-upload-dialog.png)
-
-To update, get the new zip and upload it.
-
-## Use in the Claude Code VS Code Extension
-
-### One-Click Installer
-
-One click installs the library into your `~/.claude/` and enables its plugin; an existing `CLAUDE.md` is first backed up as `CLAUDE.md.YYYYMMDDHHMMSS.bak`.
-
-- Windows: download and extract `kaye-library-VERSION-claude-vsc-installer-Win.zip`, then double-click `Install.cmd`
-- Linux: download `kaye-library-VERSION-claude-vsc-installer-linux.run`, then run `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
-
-Then restart VS Code and check the result as in step 2 of [Setup Command](#setup-command).
-
-### Setup Command
-
-1. Run the setup command:
+1. Run:
 
    ```bash
    kaye-engine claude vs-code-extension
    ```
 
-   It does 4 things in `~/.claude/`:
+2. Restart VS Code.
+3. Check the result, as in [Check the Result](#check-the-result).
 
-   - writes your `CLAUDE.md` system prompt; a different `CLAUDE.md` already there is first copied to `CLAUDE.md.YYYYMMDDHHMMSS.bak`
-   - builds a marketplace folder `kaye-engine/` holding your plugins
-   - registers that marketplace in `settings.json` (`extraKnownMarketplaces`)
-   - enables each of its plugins in `settings.json` (`enabledPlugins`)
+- Update: run the command again
+- Remove: follow [Remove](#remove)
 
-   `settings.json` only gains missing keys: anything already there, a plugin you turned off included, stays as it is. If it is not valid JSON, the command stops and writes nothing. Each step is specified in [Installer Algorithm](https://github.com/kami-lel/kaye-engine/blob/dev/docs/installer-algorithm-doc.md#claude-vs-code-plugin).
+### Check the Result
 
-2. Restart VS Code, then check the result in the plugin manager. Nothing needs adding by hand.
+<!-- TODO replace w/ newer VS Code Extension screen caps if the panel UI changed -->
 
-   1. In the *Claude Code* panel, type `/` and choose *Manage plugins*.
+1. In the *Claude Code* panel, type `/` and choose *Manage plugins*.
 
-      ![Manage plugins in the slash menu](assets/claude-vsc-step-1-manage-plugins.png)
+   ![Manage plugins in the slash menu](assets/claude-vsc-step-1-manage-plugins.png)
 
-   2. Open the *Plugins* tab. Every plugin is listed under *Installed* as `PLUGIN@kaye-engine`, with scope `user` and its toggle on.
+2. Open the *Plugins* tab. Check that every plugin is listed under *Installed* as `PLUGIN@kaye-engine`, its toggle on.
 
-      ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
+   ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
 
-   3. Open the *Marketplaces* tab. The `kaye-engine` marketplace is listed, its directory pointing at `~/.claude/kaye-engine`.
+3. Open the *Marketplaces* tab. Check that the `kaye-engine` marketplace is listed.
 
-      ![Marketplaces tab with the kaye-engine marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
-
-To update, run the installer or the command again.
+   ![Marketplaces tab with the kaye-engine marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
 
 ### Remove
 
-Delete `~/.claude/kaye-engine/` and the `kaye-engine` entries in `~/.claude/settings.json` (`extraKnownMarketplaces`, `enabledPlugins`).
+1. Delete the folder `~/.claude/kaye-engine/`.
+2. In `~/.claude/settings.json`, delete the `kaye-engine` entries under `extraKnownMarketplaces` and `enabledPlugins`.
