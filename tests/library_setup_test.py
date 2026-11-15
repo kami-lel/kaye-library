@@ -6,12 +6,16 @@ standalone over the library's own corpus
 """
 
 import kaye_library
+from importlib.metadata import version
+
 from kaye_engine.consumer import (
     get_consumer,
     get_consumer_canonical_name,
     get_consumer_display_name,
+    get_default_consumer,
     iter_consumers,
 )
+from kaye_engine.repo import get_repo_name, get_repo_version
 from kaye_engine.prompt import get_corpus_tree
 from kaye_engine.prompt.blueprint.render.comment import comment_line_registry
 
@@ -31,6 +35,13 @@ class TestStructure:
         from importlib.metadata import version
 
         assert get_consumer("kaye-library").version == version("kaye-library")
+
+    def test_library_is_default_consumer(_):
+        assert get_default_consumer().canonical_name == "kaye-library"
+
+    def test_repo_name_and_version_are_the_librarys_own(_):
+        assert get_repo_name() == "kaye-library"
+        assert get_repo_version() == version("kaye-library")
 
     def test_corpus_tree_is_loaded(_):
         assert get_corpus_tree() is not None

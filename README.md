@@ -59,9 +59,16 @@ Then dig into the rest:
 
 ### Use with Claude
 
-**Claude Desktop**: every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries the ready-made plugin `.zip`, named `kaye-library-claude-VERSION.zip`. Download it, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop); no install is needed.
+Every release on the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases) carries 3 ready-made assets, each named `kaye-library-VERSION-...`; no install of Python or Kaye Engine is needed.
 
-**Claude Code VS Code Extension**: follow [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension), running `kaye-library` in place of `kaye-engine`.
+**Claude Desktop**: download `kaye-library-VERSION-claude-desktop-plugin.zip`, then upload it in the app as shown in [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop).
+
+**Claude Code VS Code Extension**: one click installs the library into your `~/.claude/` and enables its plugin; restart VS Code afterwards. An existing `CLAUDE.md` is first backed up as `CLAUDE.md.YYYYMMDDHHMMSS.bak`.
+
+- Windows: download and extract `kaye-library-VERSION-claude-vsc-installer-Win.zip`, then double-click `Install.cmd`
+- Linux: download `kaye-library-VERSION-claude-vsc-installer-linux.run`, then run `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
+
+To remove it, delete `~/.claude/kaye-engine/` and the `kaye-engine` entries in `~/.claude/settings.json` (`extraKnownMarketplaces`, `enabledPlugins`). Building the same files yourself is covered in [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets).
 
 ### 📦 Install with pip
 

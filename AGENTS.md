@@ -62,7 +62,8 @@ Scope each run to the area touched; run everything only before a merge.
 - `tests/console_test.py` runs `kaye-library` as a subprocess: install the package first
 - `tests/invocation_test.py` fails when library text tells the assistant to invoke a skill the library does not register: point it at a library skill, never at one a downstream package supplies
 - `tests/docs_test.py` checks every relative link and anchor in the root documents
-- never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`
+- never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`; `vs-code-extension` also edits its `settings.json`
+- `kaye-library build-github-release` takes one required `OUTPUT` folder and writes all 3 release assets there
 
 ## PR & Commit Instructions
 

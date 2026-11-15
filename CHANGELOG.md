@@ -8,10 +8,14 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- every release carries 3 assets: `kaye-library-VERSION-claude-desktop-plugin.zip` and one-click VS Code installers `kaye-library-VERSION-claude-vsc-installer-Win.zip` and `kaye-library-VERSION-claude-vsc-installer-linux.run`
+- standalone setup registers the repo name, repo version, and default consumer that name release assets; the six composed steps do not
 - Plan for Suite pause and resume: the Plan file doubles as saved state, each Movement carrying a `Status` keyword (`pending`, `done`, `halted`, `dropped`, `rewritten`)
 
 ### Changed
 
+- the release workflow runs `kaye-library build-github-release dist` and attaches all of `dist/`; the plugin zip is renamed from `kaye-library-claude-VERSION.zip`
+- README names the installers as the VS Code route
 - Plan for Suite Plan file is named `*-suite-plan.md`, saved at the workspace root, else the repository root, else a temporary location, and never indexed or committed unless asked
 - Plan for Suite execution no longer holds the Plan file read-only
 

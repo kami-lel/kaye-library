@@ -61,9 +61,16 @@
 
 ### 在 Claude 中使用
 
-**Claude Desktop**：[GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带现成的插件 `.zip`，文件名为 `kaye-library-claude-VERSION.zip`。下载后按照 [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop) 在应用中上传即可，无需安装。
+[GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 上的每个版本都附带 3 个现成的文件，文件名均以 `kaye-library-VERSION-` 开头，无需安装 Python 或 Kaye Engine。
 
-**Claude Code VS Code 扩展**：按照 [Use in the Claude Code VS Code Extension](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-the-claude-code-vs-code-extension) 操作，将其中的 `kaye-engine` 替换为 `kaye-library`。
+**Claude Desktop**：下载 `kaye-library-VERSION-claude-desktop-plugin.zip`，再按照 [Use in Claude Desktop](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#use-in-claude-desktop) 在应用中上传即可。
+
+**Claude Code VS Code 扩展**：一键安装，把库放入 `~/.claude/` 并启用其插件，之后重启 VS Code 即可。已有的 `CLAUDE.md` 会先备份为 `CLAUDE.md.YYYYMMDDHHMMSS.bak`。
+
+- Windows：下载并解压 `kaye-library-VERSION-claude-vsc-installer-Win.zip`，双击 `Install.cmd`
+- Linux：下载 `kaye-library-VERSION-claude-vsc-installer-linux.run`，运行 `bash kaye-library-VERSION-claude-vsc-installer-linux.run`
+
+如需移除，删除 `~/.claude/kaye-engine/`，并删去 `~/.claude/settings.json` 中的 `kaye-engine` 条目（`extraKnownMarketplaces`、`enabledPlugins`）。自行构建同样的文件，见 [Build GitHub Release Assets](https://github.com/kami-lel/kaye-engine/blob/dev/docs/claude-doc.md#build-github-release-assets)。
 
 ### 📦 使用 pip 安装
 

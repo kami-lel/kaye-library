@@ -22,7 +22,7 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
 | runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.0`) |
-| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version builds the plugin zip with `build-github-release` and attaches it to a GitHub Release, a pre-release for `-alpha` and `-beta` |
+| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 3 assets are the Desktop plugin zip and the Windows and Linux VS Code installers, named `kaye-library-VERSION-TYPE[-OS].ext` |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
 ## Repository Layout
