@@ -1,6 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
+Todo very basic kaye persona
+Fixme plan for suite support parallel, w/ WT
 todo support layered CONTEXT/AGENTS
 -->
 
@@ -19,6 +21,18 @@ todo support layered CONTEXT/AGENTS
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.4.1] - 2026-11-16
 
