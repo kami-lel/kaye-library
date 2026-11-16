@@ -2,23 +2,23 @@
 
 [English](codex-usage-doc.md) | 简体中文
 
-通过添加插件市场，在 Codex 应用中安装 `kaye-library`。
+在 Codex 应用里添加插件市场，就能安装 `kaye-library`。
 
 > [!WARNING]
-> Codex 支持未积极维护，也未经充分测试：部分步骤可能与描述不符。
+> Codex 支持目前没有积极维护，也没经过充分测试，部分步骤可能和实际情况对不上。
 
-## 用于 Codex 应用
+## Codex 应用
 
 ### ⓐ 通过 URL 添加插件市场
 
 1. 打开 *插件*。
 2. 点击 *添加插件市场*。
-3. 在 *来源* 输入框中输入以下内容，然后保存：
+3. 在 *来源* 一栏填入下面的地址，然后保存：
 
    ```text
    https://github.com/kami-lel/kaye-library-marketplace.git
    ```
 
-4. 如果 Codex 提示重启，请重启。
-5. 回到 *插件*，选择 `kaye-library-marketplace` 作为来源。
-6. 找到 *Kaye Library*，然后点击其 *+* 按钮进行安装。
+4. 如果 Codex 提示需要重启，就重启一下。
+5. 回到 *插件*，把来源切换为 `kaye-library-marketplace`。
+6. 找到 *Kaye Library*，点击旁边的 *+* 按钮安装。
