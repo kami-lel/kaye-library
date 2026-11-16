@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. 🪶 Leaner prompts, 🔁 repeatable results, ⚡ agents working in parallel: install once, and every conversation gets sharper. ✨
+📚 **140+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. 🪶 Leaner prompts, 🔁 repeatable results, ⚡ agents working in parallel: install once, and every conversation gets sharper. ✨
 
 ⚙️ **Powered by [kaye-engine](https://github.com/kami-lel/kaye-engine)**, its companion repository: the engine that renders and exports every skill.
 
@@ -12,16 +12,18 @@ English | [简体中文](README.zh-CN.md)
 
 Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected, and paying for it in tokens. kaye-library collects those prompts into one curated library of small, sharp skills your agent picks up on its own.
 
-- 🪶 Lean on Tokens: one bloated system prompt becomes 100+ narrow skills, each with one clear job; your agent loads only the skill the task calls for, so the context window stays free for your code
-- 🔁 Repeatable by Design: the same request gets the same treatment every time, from commit messages to release checklists, so a workflow you approve once still holds on the hundredth run
+- 🪶 Lean on Tokens: one bloated system prompt becomes 140+ narrow skills, each with one clear job; your agent loads only the skill the task calls for, so the context window stays free for your code, and terse house styles keep comments, notes, and commit messages short on the way out too
+- 🔁 Repeatable by Design: the same request gets the same treatment every time, from commit messages to release checklists, so a workflow you approve once still holds on the hundredth run; a big task saves its progress in a Plan file, so it pauses tonight and resumes tomorrow exactly where it stopped
 - ⚡ Built for Parallel Work: every subagent and every worktree loads the same skills, so five agents follow one rulebook, and `/tend-linked-wt` gives each task its own worktree so parallel branches never collide
+- 🔗 Skills That Team Up: one skill calls the next, so `/good-morning` runs four reports in one go and `/release-version` updates the docs, bumps the version, merges, and tags; shared rules are written once and reused by dozens of skills, so one fix improves them all
 - 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
 - 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
-- 📦 Ships Everywhere: Agent Skills folders, a Claude or Codex plugin, a plugin marketplace, or an upload-ready `.zip`
+- 🔒 Private by Default: every prompt ships free of personal data, and a privacy test scans every shipped file on each change
+- 📦 Ships Everywhere: Claude Code, Claude Desktop, and Codex plugins, a plugin marketplace, plain Agent Skills folders, an upload-ready `.zip`, even Continue rules, Hermes, and Open WebUI
 
 ## 🗂️ What's Inside
 
-100+ skills across 11 groups:
+140+ skills across 11 groups:
 
 | | Group | What Your Agent Learns |
 |---|---|---|
@@ -62,7 +64,7 @@ Then dig into the rest:
 
 ### Use with Anthropic Claude
 
-Using Claude? [See how to install kaye-library for it](docs/claude-usage-doc.md).
+Using Claude Desktop or the VS Code extension? [See the step-by-step guide](docs/claude-usage-doc.md), with one-click installers for Windows and Linux.
 
 ### Use with OpenAI Codex
 

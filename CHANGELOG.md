@@ -2,7 +2,6 @@
 
 <!--
 TODO full skill set introduction doc
-FIXME more advertising benefits
 todo support layered CONTEXT/AGENTS
 -->
 
