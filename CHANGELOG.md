@@ -8,10 +8,13 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- Skill catalog doc: all 141 skills by group with starred picks, in English ([docs/skill-catalog-doc.md](docs/skill-catalog-doc.md)) and Simplified Chinese ([docs/skill-catalog-doc.zh-CN.md](docs/skill-catalog-doc.zh-CN.md)); both READMEs link it as the complete skill list
 - `rework-plan-for-suite`: Plan for Suite rework is its own exportable, with its own tool usage; `execute-plan-for-suite` invokes it on a halt
 
 ### Changed
 
+- README pitched on the full library: lean tokens, repeatable work, parallel agents, team-up, privacy, wider reach
+- Simplified Chinese README and usage docs rewritten in native idiom, with key words bolded
 - `plan-for-suite-execution` renamed `execute-plan-for-suite`; the plan-file preface names the new skill
 - Plan for Suite rework rises from an h5 inside Execution to its own h3, `Plan for Suite: Rework`
 
