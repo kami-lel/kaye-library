@@ -70,7 +70,7 @@ Scope each run to the area touched; run everything only before a merge.
 
 - branch from `dev`; work lands on `dev`
 - record every notable change under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md)
-- a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; set the example's `kaye-library` pin to that version by hand; the engine tag named in `pyproject.toml` must exist first
+- a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; the engine tag named in `pyproject.toml` must exist first
 
 ## Security Considerations
 
