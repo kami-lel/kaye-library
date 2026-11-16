@@ -343,7 +343,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     '### Bar 2: Write the Plan',
                     '##### Movement Heading',
                     '### Plan for Suite: Bar 3: Execution'],
- 'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
+ 'execute-plan-for-suite': ['### Plan for Suite: Bar 3: Execution',
                               'Starts only after the user approves the '
                               'Plan.',
                               'ask whether to run under '

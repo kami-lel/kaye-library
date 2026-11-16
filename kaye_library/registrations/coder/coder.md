@@ -621,7 +621,7 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
 <plan-for-suite-preface>
-Before working from this file, invoke `plan-for-suite-execution` skill through the `Skill` tool.
+Before working from this file, invoke `execute-plan-for-suite` skill through the `Skill` tool.
 
 Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
 </plan-for-suite-preface>
