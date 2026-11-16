@@ -766,6 +766,13 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                     'runs before any edit is possible',
                     'delivers the finished Plan through `ExitPlanMode` '
                     'tool, which is where the user approves it'],
+ 'execute-plan-for-suite': ['invoke `rework-plan-for-suite` via `Skill` '
+                            'tool'],
+ 'rework-plan-for-suite': ['Immediate `EnterPlanMode` tool on halt',
+                           'present the revised plan to user thru '
+                           '`ExitPlanMode` tool',
+                           'use `AskUserQuestion` tool to ask user during '
+                           'the rework'],
  'ready-release-version': ['if version number or release date is '
                            '**missing**, use `AskUserQuestion` to ask user '
                            'before proceeding'],

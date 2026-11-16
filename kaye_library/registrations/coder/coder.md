@@ -804,22 +804,19 @@ Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-m
 
 For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
 
+When halting for [Plan for Suite: Rework](#plan-for-suite-rework), invoke `rework-plan-for-suite` via `Skill` tool.
+
 #### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
 
 For each Movement's git commit, load `commit-sense` with `skill_view`.
 
-#### {[Claude:Enter/ExitPlanMode] Usage}
-
-Immediate `EnterPlanMode` tool when [Plan for Suite: Rework](#plan-for-suite-rework),
-and present the revised plan to user thru `ExitPlanMode` tool
+When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-plan-for-suite` with `skill_view`.
 
 #### {[Claude:AskUserQuestion] Usage}
 
-use `AskUserQuestion` tool during [Plan for Suite: Rework](#plan-for-suite-rework)
-
-and to confirm each step or the End State of a user Movement, carrying likely replies as options
+use `AskUserQuestion` tool to confirm each step or the End State of a user Movement, carrying likely replies as options
 
 #### {[Claude:PushNotification] Usage}
 
@@ -833,9 +830,7 @@ Write 1 line: emoji + Suite name
 
 #### {[Hermes:clarify] Usage}
 
-use `clarify` tool during [Plan for Suite: Rework](#plan-for-suite-rework)
-
-and to confirm each step or the End State of a user Movement, carrying likely replies as options
+use `clarify` tool to confirm each step or the End State of a user Movement, carrying likely replies as options
 
 #### {[git] Usage}
 
@@ -865,6 +860,22 @@ Reworks running Plan file when reality stops matching it: halts, rewrites Plan, 
 #### {when_to_use}
 
 Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`execute-plan-for-suite`)
+
+
+
+
+#### {[Claude:Enter/ExitPlanMode] Usage}
+
+Immediate `EnterPlanMode` tool on halt,
+and present the revised plan to user thru `ExitPlanMode` tool
+
+#### {[Claude:AskUserQuestion] Usage}
+
+use `AskUserQuestion` tool to ask user during the rework
+
+#### {[Hermes:clarify] Usage}
+
+use `clarify` tool to ask user during the rework
 
 
 
