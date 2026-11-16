@@ -1,5 +1,7 @@
 # kaye-library: Skill Catalog Documentation
 
+English | [简体中文](skill-catalog-doc.zh-CN.md)
+
 Meet all 141 skills in kaye-library. 📚 Grouped just like the [README](../README.md).
 
 Use any skill two ways:
