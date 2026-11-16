@@ -60,6 +60,8 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - `/tend-linked-wt`: 🐙 three features at once without stepping on each other: each task gets its own linked worktree, removed once its work lands
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
+📚 **Want every skill by name?** The [Skill Catalog](docs/skill-catalog-doc.md) is the complete list of all 141 skills, with what each does and how to call it.
+
 ## 🚀 Getting Started
 
 ### Use with Anthropic Claude
