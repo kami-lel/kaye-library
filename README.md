@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. Install once, and every conversation gets sharper. ✨
+📚 **100+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. 🪶 Leaner prompts, 🔁 repeatable results, ⚡ agents working in parallel: install once, and every conversation gets sharper. ✨
 
 ⚙️ **Powered by [kaye-engine](https://github.com/kami-lel/kaye-engine)**, its companion repository: the engine that renders and exports every skill.
 
@@ -10,9 +10,11 @@ English | [简体中文](README.zh-CN.md)
 
 ## 💡 Why kaye-library?
 
-Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected. kaye-library collects those prompts into one curated library and hands them to your agent as skills it picks up on its own.
+Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected, and paying for it in tokens. kaye-library collects those prompts into one curated library of small, sharp skills your agent picks up on its own.
 
-- 🧠 Write Once, Reuse Forever: each instruction lives in one place and ships everywhere your agent goes
+- 🪶 Lean on Tokens: one bloated system prompt becomes 100+ narrow skills, each with one clear job; your agent loads only the skill the task calls for, so the context window stays free for your code
+- 🔁 Repeatable by Design: the same request gets the same treatment every time, from commit messages to release checklists, so a workflow you approve once still holds on the hundredth run
+- ⚡ Built for Parallel Work: every subagent and every worktree loads the same skills, so five agents follow one rulebook, and `/tend-linked-wt` gives each task its own worktree so parallel branches never collide
 - 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
 - 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
 - 📦 Ships Everywhere: Agent Skills folders, a Claude or Codex plugin, a plugin marketplace, or an upload-ready `.zip`
@@ -30,7 +32,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
 | 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
 | 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
-| 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, PRs, Git and Perforce terms |
+| 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, linked worktrees for parallel tasks, PRs, Git and Perforce terms |
 | 🤖 | Agentic | chat rules, Movement and Suite planning: big tasks split into reviewable steps |
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
@@ -53,6 +55,7 @@ Then dig into the rest:
 - `/u3d-naming`: 🎮 ends the `Hero_final2` chaos with one naming rule for every Unity class, asset, folder, and GameObject
 - `/amanuensis-chicago-note`: 🖋️ never hand-format a citation again: *Chicago Manual of Style* notes as native Markdown footnotes
 - `/resolve-merge-conflict`: 🐙 a halted merge untangled: both sides of every hunk reconciled, conflict markers gone
+- `/tend-linked-wt`: 🐙 three features at once without stepping on each other: each task gets its own linked worktree, removed once its work lands
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
 ## 🚀 Getting Started
