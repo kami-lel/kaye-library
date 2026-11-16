@@ -70,7 +70,7 @@ Scope each run to the area touched; run everything only before a merge.
 
 - branch from `dev`; work lands on `dev`
 - record every notable change under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md)
-- a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; `tests/example_consumer_test.py::test_pin_matches_library_version` keeps the example's `kaye-library` pin in step with that version; the engine tag named in `pyproject.toml` must exist first
+- a pushed `v<version>` tag builds the release: the tag must equal `v` plus the `pyproject.toml` version, or the workflow fails; the engine tag named in `pyproject.toml` must exist first
 
 ## Security Considerations
 
@@ -84,5 +84,6 @@ Scope each run to the area touched; run everything only before a merge.
 - [CONTEXT.md](CONTEXT.md): architecture and the root node ownership; refresh its `Last updated` line
 - [docs/blueprint-doc.md](docs/blueprint-doc.md): the blueprint dependency and invocation graphs; update it when a blueprint's `dependencies=[...]` or an `Invoke ... skill` line changes
 - [docs/claude-usage-doc.md](docs/claude-usage-doc.md), [docs/codex-usage-doc.md](docs/codex-usage-doc.md): client install walkthroughs; update them when an install route, release asset, or marketplace step changes; mirror each in its `.zh-CN.md` sibling ([Claude](docs/claude-usage-doc.zh-CN.md), [Codex](docs/codex-usage-doc.zh-CN.md))
+- [docs/skill-catalog-doc.md](docs/skill-catalog-doc.md): the complete skill list by group, with starred picks; update it when a skill is added, renamed, or removed; mirror it in [docs/skill-catalog-doc.zh-CN.md](docs/skill-catalog-doc.zh-CN.md)
 - [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) in `kaye-engine`: how a consumer is created on the library; update it, `examples/minimal-consumer/` and `tests/example_consumer_test.py` together whenever the steps or the override rule change
 - `CHANGELOG.md`: notable changes per release

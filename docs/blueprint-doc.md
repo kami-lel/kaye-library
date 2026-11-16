@@ -13,7 +13,8 @@ flowchart LR
     halt_each_movement["halt-each-movement"] --> agent_movement_and_suite["agent-movement-and-suite"]
     cascade_all_movements["cascade-all-movements"] --> agent_movement_and_suite
     plan_for_suite["plan-for-suite"] --> agent_movement_and_suite
-    plan_for_suite_execution["plan-for-suite-execution"] --> agent_movement_and_suite
+    execute_plan_for_suite["execute-plan-for-suite"] --> agent_movement_and_suite
+    rework_plan_for_suite["rework-plan-for-suite"] --> agent_movement_and_suite
     sync_unit_test["sync-unit-test"] --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
     sync_unit_test --> element_triage_tags["element-triage-tags"]
     review_gaps["review-gaps"] --> element_triage_tags
@@ -177,7 +178,8 @@ flowchart LR
     coder_profiles["coder-* language profiles"] --> coder
     coder_ue["coder-ue"] --> coder_c["coder-c"]
     coder --> sync_unit_test["sync-unit-test"]
-    coder --> plan_for_suite_execution["plan-for-suite-execution"]
+    coder --> execute_plan_for_suite["execute-plan-for-suite"]
+    execute_plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
     coder --> cascade_all_movements["cascade-all-movements"]
     coder --> halt_each_movement["halt-each-movement"]
     working_with_git["working-with-git"] --> commit_sense["commit-sense"]

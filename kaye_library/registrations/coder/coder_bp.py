@@ -70,6 +70,7 @@ def register_coder_blueprints():
     plan_for_suite_execution_node = plan_for_suite_node[
         "Plan for Suite: Bar 3: Execution"
     ]
+    plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
 
     plan_for_suite = register_prompt(
         "plan-for-suite",
@@ -85,17 +86,33 @@ def register_coder_blueprints():
     plan_for_suite.blueprint = checkmark_nodes(
         plan_for_suite.blueprint, plan_for_suite_execution_node
     )
+    plan_for_suite.blueprint = checkmark_nodes(
+        plan_for_suite.blueprint, plan_for_suite_rework_node
+    )
 
-    # Plan for Suite Execution
+    # Execute Plan for Suite
     register_exportable(
-        "plan-for-suite-execution",
+        "execute-plan-for-suite",
         replace_meta(
             create_blueprint_from_node(
                 plan_for_suite_execution_node,
                 is_recursive=True,
                 dependencies=["agent-movement-and-suite"],
             ),
-            display_name="Plan for Suite Execution",
+            display_name="Execute Plan for Suite",
+        ),
+    )
+
+    # Rework Plan for Suite
+    register_exportable(
+        "rework-plan-for-suite",
+        replace_meta(
+            create_blueprint_from_node(
+                plan_for_suite_rework_node,
+                is_recursive=True,
+                dependencies=["agent-movement-and-suite"],
+            ),
+            display_name="Rework Plan for Suite",
         ),
     )
 

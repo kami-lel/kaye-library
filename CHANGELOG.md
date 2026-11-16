@@ -18,7 +18,38 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...dev
+
+## [1.4.1] - 2026-11-16
+
+### Added
+
+- Skill catalog docs: all 141 skills by group, starred picks, in [English](docs/skill-catalog-doc.md) & [Simplified Chinese](docs/skill-catalog-doc.zh-CN.md); both READMEs link them
+- `rework-plan-for-suite`: own exportable skill; `execute-plan-for-suite` invokes it on a halt
+
+### Changed
+
+- README pitch: full library, lean tokens, repeatable work, parallel agents, privacy
+- Simplified Chinese README & usage docs rewritten in native idiom
+- `plan-for-suite-execution` renamed `execute-plan-for-suite`
+- Plan for Suite rework promoted to own section, `Plan for Suite: Rework`
+
+> [!WARNING]
+> Skill `plan-for-suite-execution` renamed `execute-plan-for-suite`; update every reference to the old name before upgrading
+
+[1.4.1]: https://github.com/kami-lel/kaye-library/compare/v1.4.0...v1.4.1
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.4.0] - 2026-11-15
 
