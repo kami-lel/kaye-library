@@ -1,6 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
+Fixme rework as its own exportable
+Todo full skill set introduction doc
 todo support layered CONTEXT/AGENTS
 -->
 
