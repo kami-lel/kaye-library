@@ -732,7 +732,7 @@ The Plan file doubles as the run's saved state, so a run survives the end of a s
 
 - Normal Execution: leave the Plan file untouched, no Status update between Movements
 - Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
-- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; on a mismatch with the workspace, halt per [Reworking the Plan](#reworking-the-plan)
+- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 Status keywords, written only on a pause or a rework. Each Movement carries exactly one keyword at any moment:
 
@@ -749,25 +749,11 @@ For a user Movement, never do the work yourself. Guide interactively:
 
 1. Movement In: say the Movement is theirs and its goal
 2. give one step at a time; wait for their report before the next
-3. halt per [Reworking the Plan](#reworking-the-plan) if a report contradicts the Plan
+3. halt per [Plan for Suite: Rework](#plan-for-suite-rework) if a report contradicts the Plan
 4. settle the End State by their confirmation or your check, and say which
 5. Movement Out once it holds
 
 For another party, hand over steps and End State, await its report, then verify.
-
-
-
-##### Reworking the Plan
-
-Halt the moment reality stops matching the Plan — a bug, a false assumption, a wrong or unnecessary Movement, unaccounted-for work, a user redirect, anything unanticipated. Never work around it.
-
-1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
-2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
-3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
-4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
-5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
-6. once approved, Movement In to the earliest unfinished Movement, and not sooner
-
 
 
 
@@ -807,7 +793,7 @@ Executes approved Plan file, 1 Movement per turn — Movement In, work, present 
 
 #### {when_to_use}
 
-On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Also mid-run on bug, false assumption, wrong Movement, user redirect — halt and rework live here. Not for drafting Plans
+On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`) or reworking them (`rework-plan-for-suite`)
 
 
 
@@ -826,12 +812,12 @@ For each Movement's git commit, load `commit-sense` with `skill_view`.
 
 #### {[Claude:Enter/ExitPlanMode] Usage}
 
-Immediate `EnterPlanMode` tool when [Reworking the Plan](#reworking-the-plan),
+Immediate `EnterPlanMode` tool when [Plan for Suite: Rework](#plan-for-suite-rework),
 and present the revised plan to user thru `ExitPlanMode` tool
 
 #### {[Claude:AskUserQuestion] Usage}
 
-use `AskUserQuestion` tool during [Reworking the Plan](#reworking-the-plan)
+use `AskUserQuestion` tool during [Plan for Suite: Rework](#plan-for-suite-rework)
 
 and to confirm each step or the End State of a user Movement, carrying likely replies as options
 
@@ -847,13 +833,38 @@ Write 1 line: emoji + Suite name
 
 #### {[Hermes:clarify] Usage}
 
-use `clarify` tool during [Reworking the Plan](#reworking-the-plan)
+use `clarify` tool during [Plan for Suite: Rework](#plan-for-suite-rework)
 
 and to confirm each step or the End State of a user Movement, carrying likely replies as options
 
 #### {[git] Usage}
 
 Each Movement lands as one git commit, performed as the chosen skill directs. A Movement that changes no workspace file, such as a user Movement, commits nothing.
+
+
+
+
+
+### Plan for Suite: Rework
+
+Halt the moment reality stops matching the Plan — a bug, a false assumption, a wrong or unnecessary Movement, unaccounted-for work, a user redirect, anything unanticipated. Never work around it.
+
+1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
+2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
+3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
+4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
+5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
+6. once approved, Movement In to the earliest unfinished Movement, and not sooner
+
+
+
+#### {description}
+
+Reworks running Plan file when reality stops matching it: halts, rewrites Plan, holds for approval before work resumes
+
+#### {when_to_use}
+
+Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`execute-plan-for-suite`)
 
 
 

@@ -350,8 +350,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                               '`cascade-all-movements` or '
                               '`halt-each-movement`.',
                               '##### Movement Parties in '
-                              'Execution',
-                              '##### Reworking the Plan'],
+                              'Execution'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -487,6 +486,11 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'code',
                     '- `tools/`: project-specific developer tooling, '
                     'distinct from `scripts/`'],
+ 'rework-plan-for-suite': ['### Plan for Suite: Rework',
+                           'Halt the moment reality stops matching the '
+                           'Plan',
+                           'rewrite the Plan whole',
+                           'never renumber to make room.'],
  'resolve-merge-conflict': ['## Resolve Merge Conflict',
                             'You resolve a **halted Git merge**.',
                             '#### Resolve',
@@ -646,6 +650,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'repo-structure': 'naming conventions and placement for top-level '
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
+ 'rework-plan-for-suite': 'Reworks running Plan file when reality stops '
+                          'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
  'review-gaps': 'Audits whole repository for gaps, drift, unfinished seams',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
