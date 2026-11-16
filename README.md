@@ -2,24 +2,24 @@
 
 English | [简体中文](README.zh-CN.md)
 
-📚 **140+ ready-made Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. 🪶 Leaner prompts, 🔁 repeatable results, ⚡ agents working in parallel: install once, and every conversation gets sharper. ✨
+📚 **140+** ready-made **Agent Skills** that teach your AI assistant to write, code, commit, plan, and organize the way a careful professional would. 🪶 **Leaner** prompts, 🔁 **repeatable** results, ⚡ agents working in **parallel**: install once, and every conversation gets sharper. ✨
 
-⚙️ **Powered by [kaye-engine](https://github.com/kami-lel/kaye-engine)**, its companion repository: the engine that renders and exports every skill.
+⚙️ Powered by **[kaye-engine](https://github.com/kami-lel/kaye-engine)**, its companion repository: the engine that renders and exports every skill.
 
-⭐ **If kaye-library saves you a prompt or two, please [star it on GitHub](https://github.com/kami-lel/kaye-library)!** Every star helps more people find it. 🙏
+⭐ If kaye-library saves you a prompt or two, please **[star it on GitHub](https://github.com/kami-lel/kaye-library)**! Every star helps more people find it. 🙏
 
 ## 💡 Why kaye-library?
 
-Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected, and paying for it in tokens. kaye-library collects those prompts into one curated library of small, sharp skills your agent picks up on its own.
+Every time you explain your commit style, your Markdown taste, or how a README should look, you are rewriting a prompt someone already perfected, and paying for it in **tokens**. kaye-library collects those prompts into one curated library of small, sharp skills your agent picks up on its own.
 
-- 🪶 Lean on Tokens: one bloated system prompt becomes 140+ narrow skills, each with one clear job; your agent loads only the skill the task calls for, so the context window stays free for your code, and terse house styles keep comments, notes, and commit messages short on the way out too
-- 🔁 Repeatable by Design: the same request gets the same treatment every time, from commit messages to release checklists, so a workflow you approve once still holds on the hundredth run; a big task saves its progress in a Plan file, so it pauses tonight and resumes tomorrow exactly where it stopped
-- ⚡ Built for Parallel Work: every subagent and every worktree loads the same skills, so five agents follow one rulebook, and `/tend-linked-wt` gives each task its own worktree so parallel branches never collide
-- 🔗 Skills That Team Up: one skill calls the next, so `/good-morning` runs four reports in one go and `/release-version` updates the docs, bumps the version, merges, and tags; shared rules are written once and reused by dozens of skills, so one fix improves them all
-- 🎯 Triggers on Its Own: say "commit this" or "write a README" and the right skill steps in
-- 🧩 Built to Extend: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
-- 🔒 Private by Default: every prompt ships free of personal data, and a privacy test scans every shipped file on each change
-- 📦 Ships Everywhere: Claude Code, Claude Desktop, and Codex plugins, a plugin marketplace, plain Agent Skills folders, an upload-ready `.zip`, even Continue rules, Hermes, and Open WebUI
+- 🪶 **Lean on Tokens**: one bloated system prompt becomes 140+ **narrow skills**, each with one clear job; your agent loads **only** the skill the task calls for, so the **context window** stays free for your code, and terse house styles keep comments, notes, and commit messages short on the way out too
+- 🔁 **Repeatable by Design**: the same request gets the **same treatment** every time, from commit messages to release checklists, so a workflow you approve once still holds on the hundredth run; a big task saves its progress in a **Plan file**, so it pauses tonight and resumes tomorrow exactly where it stopped
+- ⚡ **Built for Parallel Work**: every subagent and every worktree loads the same skills, so five agents follow **one rulebook**, and `/tend-linked-wt` gives each task its own **worktree** so parallel branches never collide
+- 🔗 **Skills That Team Up**: one skill calls the next, so `/good-morning` runs four reports in one go and `/release-version` updates the docs, bumps the version, merges, and tags; shared rules are written **once** and reused by dozens of skills, so one fix improves them all
+- 🎯 **Triggers on Its Own**: say "commit this" or "write a README" and the right skill steps in
+- 🧩 **Built to Extend**: layer your own package on top, override any skill, keep the rest, as the [Consumer documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/consumer-doc.md) shows
+- 🔒 **Private by Default**: every prompt ships free of **personal data**, and a privacy test scans every shipped file on each change
+- 📦 **Ships Everywhere**: Claude Code, Claude Desktop, and Codex plugins, a plugin marketplace, plain Agent Skills folders, an upload-ready `.zip`, even Continue rules, Hermes, and Open WebUI
 
 ## 🗂️ What's Inside
 
@@ -39,14 +39,14 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
-🌟 Start with the top picks:
+#### 🌟 Start with the Top Picks
 
-- `/commit-sense`: 🐙 no more "fix stuff" commits: say "commit this" and get a sharp summary line plus a per-file ledger of what changed and why
-- `/plan-for-suite`: 🤖 stops your agent from rewriting 30 files in one go: sprawling work becomes numbered, reviewable steps, each waiting for your approval
-- `/repo-readme-writer`: 📝 a bare repository becomes a landing page people actually read, covering purpose, setup, and usage, like this one
-- `/good-morning`: 🗓️ skip the morning tab-hopping: one report sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
+- `/commit-sense`: 🐙 no more "fix stuff" commits: say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why
+- `/plan-for-suite`: 🤖 stops your agent from rewriting 30 files in one go: sprawling work becomes numbered, **reviewable steps**, each waiting for your approval
+- `/repo-readme-writer`: 📝 a bare repository becomes a **landing page** people actually read, covering purpose, setup, and usage, like this one
+- `/good-morning`: 🗓️ skip the morning tab-hopping: **one report** sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
 
-⭐ Then dig into the favorites:
+#### ⭐ Then Dig into the Favorites
 
 - `/coder-python`: 💻 no more cleaning up AI code by hand: PEP 8 Python, consistent names, Sphinx docstrings, and comments that explain intent
 - `/sync-unit-test`: 💻 tests red after a refactor? stale assertions and fixtures realigned, and a flag wherever the code, not the test, went wrong
@@ -60,7 +60,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - `/tend-linked-wt`: 🐙 three features at once without stepping on each other: each task gets its own linked worktree, removed once its work lands
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
-📚 **Want every skill by name?** The [Skill Catalog](docs/skill-catalog-doc.md) is the complete list of all 141 skills, with what each does and how to call it.
+📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of all **141 skills**, with what each does and how to call it.
 
 ## 🚀 Getting Started
 

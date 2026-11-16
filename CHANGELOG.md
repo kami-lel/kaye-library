@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO full skill set introduction doc
 todo support layered CONTEXT/AGENTS
 -->
 
