@@ -108,4 +108,6 @@ pytest tests/skill_export_test.py
 
 只有一条硬性规定：这里的提示词一律不含个人数据。完整的约定、命令和限制见 [AGENTS.md](AGENTS.md)，背后的架构见 [CONTEXT.md](CONTEXT.md)。
 
+----
+
 ⭐ 觉得好用？到 GitHub [点个 Star](https://github.com/kami-lel/kaye-library) 就是最大的支持！

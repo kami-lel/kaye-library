@@ -108,4 +108,6 @@ A path in, in order:
 
 One rule to keep in mind: every prompt here stays free of personal data. The full set of conventions, commands, and constraints is in [AGENTS.md](AGENTS.md), and the architecture behind them in [CONTEXT.md](CONTEXT.md).
 
+----
+
 ⭐ Enjoying it? A [star on GitHub](https://github.com/kami-lel/kaye-library) goes a long way!
