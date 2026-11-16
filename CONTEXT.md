@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-15, v1.4.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-16, v1.4.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -69,7 +69,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
-| Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite, Sync Unit Test, Gap Review; one child per language file |
+| Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (with its Execution and Rework sections, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |

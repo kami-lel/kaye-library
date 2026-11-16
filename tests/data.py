@@ -343,15 +343,14 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     '### Bar 2: Write the Plan',
                     '##### Movement Heading',
                     '### Plan for Suite: Bar 3: Execution'],
- 'plan-for-suite-execution': ['### Plan for Suite: Bar 3: Execution',
+ 'execute-plan-for-suite': ['### Plan for Suite: Bar 3: Execution',
                               'Starts only after the user approves the '
                               'Plan.',
                               'ask whether to run under '
                               '`cascade-all-movements` or '
                               '`halt-each-movement`.',
                               '##### Movement Parties in '
-                              'Execution',
-                              '##### Reworking the Plan'],
+                              'Execution'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -487,6 +486,11 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'code',
                     '- `tools/`: project-specific developer tooling, '
                     'distinct from `scripts/`'],
+ 'rework-plan-for-suite': ['### Plan for Suite: Rework',
+                           'Halt the moment reality stops matching the '
+                           'Plan',
+                           'rewrite the Plan whole',
+                           'never renumber to make room.'],
  'resolve-merge-conflict': ['## Resolve Merge Conflict',
                             'You resolve a **halted Git merge**.',
                             '#### Resolve',
@@ -646,6 +650,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'repo-structure': 'naming conventions and placement for top-level '
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
+ 'rework-plan-for-suite': 'Reworks running Plan file when reality stops '
+                          'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
  'review-gaps': 'Audits whole repository for gaps, drift, unfinished seams',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
@@ -760,6 +766,13 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                     'runs before any edit is possible',
                     'delivers the finished Plan through `ExitPlanMode` '
                     'tool, which is where the user approves it'],
+ 'execute-plan-for-suite': ['invoke `rework-plan-for-suite` via `Skill` '
+                            'tool'],
+ 'rework-plan-for-suite': ['Immediate `EnterPlanMode` tool on halt',
+                           'present the revised plan to user thru '
+                           '`ExitPlanMode` tool',
+                           'use `AskUserQuestion` tool to ask user during '
+                           'the rework'],
  'ready-release-version': ['if version number or release date is '
                            '**missing**, use `AskUserQuestion` to ask user '
                            'before proceeding'],

@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Fixme rework as its own exportable
 Todo full skill set introduction doc
 todo support layered CONTEXT/AGENTS
 -->
@@ -10,7 +9,15 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `rework-plan-for-suite`: Plan for Suite rework is its own exportable, with its own tool usage; `execute-plan-for-suite` invokes it on a halt
+
 ### Changed
+
+- `plan-for-suite-execution` renamed `execute-plan-for-suite`; the plan-file preface names the new skill
+- Plan for Suite rework rises from an h5 inside Execution to its own h3, `Plan for Suite: Rework`
+
+> [!WARNING]
+> skill `plan-for-suite-execution` is renamed `execute-plan-for-suite`; update every reference to the old name
 
 ### Deprecated
 
@@ -21,6 +28,18 @@ todo support layered CONTEXT/AGENTS
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.0...dev
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.4.0] - 2026-11-15
 
