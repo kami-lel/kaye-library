@@ -1,7 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo full skill set introduction doc
+TODO full skill set introduction doc
+FIXME more advertising benefits
 todo support layered CONTEXT/AGENTS
 -->
 
