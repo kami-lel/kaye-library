@@ -39,14 +39,14 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
-Start with the favorites:
+🌟 Start with the top picks:
 
 - `/commit-sense`: 🐙 no more "fix stuff" commits: say "commit this" and get a sharp summary line plus a per-file ledger of what changed and why
 - `/plan-for-suite`: 🤖 stops your agent from rewriting 30 files in one go: sprawling work becomes numbered, reviewable steps, each waiting for your approval
 - `/repo-readme-writer`: 📝 a bare repository becomes a landing page people actually read, covering purpose, setup, and usage, like this one
 - `/good-morning`: 🗓️ skip the morning tab-hopping: one report sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
 
-Then dig into the rest:
+⭐ Then dig into the favorites:
 
 - `/coder-python`: 💻 no more cleaning up AI code by hand: PEP 8 Python, consistent names, Sphinx docstrings, and comments that explain intent
 - `/sync-unit-test`: 💻 tests red after a refactor? stale assertions and fixtures realigned, and a flag wherever the code, not the test, went wrong
