@@ -43,21 +43,25 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 - `/commit-sense`: 🐙 no more "fix stuff" commits: say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why
 - `/plan-for-suite`: 🤖 stops your agent from rewriting 30 files in one go: sprawling work becomes numbered, **reviewable steps**, each waiting for your approval
-- `/repo-readme-writer`: 📝 a bare repository becomes a **landing page** people actually read, covering purpose, setup, and usage, like this one
+- `/tend-linked-wt`: 🐙 three features at once without stepping on each other: each task gets its own **linked worktree**, removed once its work lands
+- `/initialize-repo`: 📝 a new repository gets its whole **starter set** in one pass: README, CHANGELOG, AGENTS, CONTEXT, and docs, no overlap, no gaps
+- `/sync-unit-test`: 💻 tests red after a refactor? **stale assertions** and fixtures realigned, and a **flag** wherever the code, not the test, went wrong
 - `/good-morning`: 🗓️ skip the morning tab-hopping: **one report** sweeps your inbox, recaps yesterday, and surfaces upcoming events and job openings
+- `/amanuensis-chicago-note`: 🖋️ never hand-format a citation again: *Chicago Manual of Style* notes as **native Markdown footnotes**
 
 #### ⭐ Then Dig into the Favorites
 
 - `/coder-python`: 💻 no more cleaning up AI code by hand: PEP 8 Python, consistent names, Sphinx docstrings, and comments that explain intent
-- `/sync-unit-test`: 💻 tests red after a refactor? stale assertions and fixtures realigned, and a flag wherever the code, not the test, went wrong
 - `/review-gaps`: 💻 catch the half-finished seams before your users do, with a whole-repository audit before release
 - `/release-version`: 📝 releases without the checklist dread: docs and changelog brought current, version bumped, merged to `main`, and tagged
+- `/repo-readme-writer`: 📝 a bare repository becomes a landing page people actually read, covering purpose, setup, and usage, like this one
+- `/maintenance-before-compact`: 📝 a long session about to compact? every lasting change saved to CHANGELOG, AGENTS, and CONTEXT first, nothing learned lost
 - `/style-briefness-style`: 🎨 wordy drafts cut down to tight, headline-style notes
 - `/draft-email`: 🗓️ emails that say exactly what you asked, nothing invented, revised as often as you like
 - `/u3d-naming`: 🎮 ends the `Hero_final2` chaos with one naming rule for every Unity class, asset, folder, and GameObject
-- `/amanuensis-chicago-note`: 🖋️ never hand-format a citation again: *Chicago Manual of Style* notes as native Markdown footnotes
+- `/minutes-clerk`: 🖋️ meeting minutes that track every decision and action item to done
+- `/element-dt-watch-day`: 🧱 a day that runs past midnight on a 30-hour clock, built for night owls
 - `/resolve-merge-conflict`: 🐙 a halted merge untangled: both sides of every hunk reconciled, conflict markers gone
-- `/tend-linked-wt`: 🐙 three features at once without stepping on each other: each task gets its own linked worktree, removed once its work lands
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
 📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of all **141 skills**, with what each does and how to call it.

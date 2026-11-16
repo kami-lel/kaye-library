@@ -102,7 +102,7 @@ Python gets two extras. `/coder-python-docstring-style` adds a Sphinx docstring 
 
 ### Keeping Code Healthy
 
-Tests red after a refactor? `/sync-unit-test` ⭐ fixes stale assertions, fixtures, and snapshots. When the code is what broke, it says so. Real bugs never get papered over.
+Tests red after a refactor? `/sync-unit-test` 🌟 fixes stale assertions, fixtures, and snapshots. When the code is what broke, it says so. Real bugs never get papered over.
 
 Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds gaps, drift, and half-finished seams before your users do, and tags each one for you to fix.
 
@@ -169,7 +169,7 @@ Most writers come with two workflows. Create builds the file from nothing. Maint
 
 | File | Who Reads It | Writer | Create | Maintain |
 |---|---|---|---|---|
-| `README.md` | visitors | `/repo-readme-writer` 🌟 | `/create-readme` | `/maintain-readme` |
+| `README.md` | visitors | `/repo-readme-writer` ⭐ | `/create-readme` | `/maintain-readme` |
 | `CHANGELOG.md` | users upgrading | `/repo-changelog-writer` | `/create-changelog` | `/maintain-changelog` |
 | `AGENTS.md` in a repository | AI coding agents | `/repo-agents-writer` | `/create-repo-agents` | `/maintain-repo-agents` |
 | `AGENTS.md` in any project | AI agents | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
@@ -199,14 +199,14 @@ A few highlights:
 
 ### Setting Up and Keeping Tidy
 
-New repository? `/initialize-repo` writes the whole starter set in one pass: README, CHANGELOG, AGENTS, CONTEXT, and `docs/`. No overlap, no gaps. Just need agent rules? `/equip-proj-for-agent` writes and keeps up `AGENTS.md`. Both follow `/repo-structure`, one standard layout for every folder and top-level file.
+New repository? `/initialize-repo` 🌟 writes the whole starter set in one pass: README, CHANGELOG, AGENTS, CONTEXT, and `docs/`. No overlap, no gaps. Just need agent rules? `/equip-proj-for-agent` writes and keeps up `AGENTS.md`. Both follow `/repo-structure`, one standard layout for every folder and top-level file.
 
 Files bloat. Two skills trim them:
 
 - `/condense-agents-and-context`: cuts finished plans and stale detail from `AGENTS.md` and `CONTEXT.md`, adds nothing
 - `/condense-changelog`: tightens `[Unreleased]` for release and flags breaking changes
 
-Long session? `/maintenance-before-compact` saves every lasting change to CHANGELOG, AGENTS, and CONTEXT before the context window compacts. Nothing learned gets lost.
+Long session? `/maintenance-before-compact` ⭐ saves every lasting change to CHANGELOG, AGENTS, and CONTEXT before the context window compacts. Nothing learned gets lost.
 
 
 
@@ -548,7 +548,7 @@ Your scholarly scribe: citations, notes, minutes, and careful revision.
 
 Every citation follows the *Chicago Manual of Style*. Never hand-format one again.
 
-- `/amanuensis-chicago-note` ⭐: citations as native Markdown footnotes
+- `/amanuensis-chicago-note` 🌟: citations as native Markdown footnotes
 - `/amanuensis-chicago-bibliography`: bibliography entries, plain or annotated
 - `/assemble-bibliography`: every source a document cites, gathered into one bibliography
 - `/bibliographer`: runs all of the above together when a piece needs both notes and a bibliography
@@ -570,7 +570,7 @@ Every citation follows the *Chicago Manual of Style*. Never hand-format one agai
 `/dispositor` is the base note-taker: structured notes, one filename, one layout. Four specialists build on it:
 
 - `/scholiast`: paragraph-by-paragraph reading notes on academic texts, citations on request
-- `/minutes-clerk`: meeting minutes that track every decision and action item to done
+- `/minutes-clerk` ⭐: meeting minutes that track every decision and action item to done
 - `/config-writer`: an app's, game's, or system's settings, saved as a snapshot you can restore
 - `/keybinding-writer`: keybindings recorded in compact key symbols
 
@@ -620,7 +620,7 @@ Dates and times look the same everywhere:
 | `/element-dt-year-month-day-format` | a date with a year, weekday optional |
 | `/element-dt-month-day-format` | a date without a year, weekday optional |
 | `/element-dt-time-format` | 24-hour time, from minutes to fractions of a second |
-| `/element-dt-watch-day` | a day that runs past midnight on a 30-hour clock, built for night owls |
+| `/element-dt-watch-day` ⭐ | a day that runs past midnight on a 30-hour clock, built for night owls |
 | `/element-dt-watch-week` | a planning week that always ends on Sunday |
 
 More building blocks:
@@ -706,7 +706,7 @@ The rest of the branch lifecycle:
 
 ### Parallel Work in Worktrees
 
-Run three features at once. None collide. A linked worktree is a second working folder on its own branch. `/tend-linked-wt` ⭐ handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
+Run three features at once. None collide. A linked worktree is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
 
 
 

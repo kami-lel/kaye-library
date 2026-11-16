@@ -102,7 +102,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 ### 代码体检
 
-一重构测试就全红？`/sync-unit-test` ⭐ 帮你修正过时的断言、测试夹具和快照。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
+一重构测试就全红？`/sync-unit-test` 🌟 帮你修正过时的断言、测试夹具和快照。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
 
 快发版了？先用 `/review-gaps` ⭐ 把整个仓库过一遍。它会赶在用户之前，把遗漏、跑偏和没收尾的地方都找出来，逐个打上标记，等你处理。
 
@@ -169,7 +169,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 | 文件 | 写给谁 | 写作 | 创建 | 维护 |
 |---|---|---|---|---|
-| `README.md` | 访客 | `/repo-readme-writer` 🌟 | `/create-readme` | `/maintain-readme` |
+| `README.md` | 访客 | `/repo-readme-writer` ⭐ | `/create-readme` | `/maintain-readme` |
 | `CHANGELOG.md` | 要升级的用户 | `/repo-changelog-writer` | `/create-changelog` | `/maintain-changelog` |
 | `AGENTS.md`（代码仓库） | AI 编程智能体 | `/repo-agents-writer` | `/create-repo-agents` | `/maintain-repo-agents` |
 | `AGENTS.md`（任意项目） | AI 智能体 | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
@@ -199,14 +199,14 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 ### 起步与整理
 
-新建仓库？`/initialize-repo` 一次写齐全套起步文档：README、CHANGELOG、AGENTS、CONTEXT 和 `docs/`，不重复，不遗漏。只想给智能体立规矩？`/equip-proj-for-agent` 负责写好并维护 `AGENTS.md`。两者都遵循 `/repo-structure`，所有文件夹和顶层文件都按同一套布局摆放。
+新建仓库？`/initialize-repo` 🌟 一次写齐全套起步文档：README、CHANGELOG、AGENTS、CONTEXT 和 `docs/`，不重复，不遗漏。只想给智能体立规矩？`/equip-proj-for-agent` 负责写好并维护 `AGENTS.md`。两者都遵循 `/repo-structure`，所有文件夹和顶层文件都按同一套布局摆放。
 
 文件用久了会越来越臃肿，这两个技能帮它瘦身：
 
 - `/condense-agents-and-context`：删掉 `AGENTS.md` 和 `CONTEXT.md` 里已完成的计划和过时内容，只减不增
 - `/condense-changelog`：发版前精简 `[Unreleased]`，顺便标出破坏性变更
 
-会话拉得很长？`/maintenance-before-compact` 会在上下文压缩之前，把所有长期有效的改动记进 CHANGELOG、AGENTS 和 CONTEXT，辛苦攒下的信息一点不丢。
+会话拉得很长？`/maintenance-before-compact` ⭐ 会在上下文压缩之前，把所有长期有效的改动记进 CHANGELOG、AGENTS 和 CONTEXT，辛苦攒下的信息一点不丢。
 
 
 
@@ -548,7 +548,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 所有引注都遵循 *Chicago Manual of Style*（芝加哥格式）。从此不用手动排版。
 
-- `/amanuensis-chicago-note` ⭐：生成原生 Markdown 脚注形式的引注
+- `/amanuensis-chicago-note` 🌟：生成原生 Markdown 脚注形式的引注
 - `/amanuensis-chicago-bibliography`：写参考文献条目，可带注释
 - `/assemble-bibliography`：把一篇文档引用过的所有来源整理成一份参考文献
 - `/bibliographer`：同时需要脚注和参考文献时，由它统筹上面这几个技能
@@ -570,7 +570,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 `/dispositor` 是打底的笔记技能：结构化的笔记，统一的文件名和版式。下面四个专项技能都建立在它之上：
 
 - `/scholiast`：逐段做学术阅读笔记，需要时附上引注
-- `/minutes-clerk`：记会议纪要，每项决议和待办都跟到落实为止
+- `/minutes-clerk` ⭐：记会议纪要，每项决议和待办都跟到落实为止
 - `/config-writer`：把应用、游戏或系统的设置存成快照，随时可以照着恢复
 - `/keybinding-writer`：用简洁的按键符号记录快捷键
 
@@ -620,7 +620,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 | `/element-dt-year-month-day-format` | 带年份的日期，星期可选 |
 | `/element-dt-month-day-format` | 不带年份的日期，星期可选 |
 | `/element-dt-time-format` | 24 小时制时间，可以精确到分钟，也可以细到秒的小数位 |
-| `/element-dt-watch-day` | 30 小时制的“一天”，过了午夜还算今天，夜猫子专用 |
+| `/element-dt-watch-day` ⭐ | 30 小时制的“一天”，过了午夜还算今天，夜猫子专用 |
 | `/element-dt-watch-week` | 规划用的一周，总是在周日结束 |
 
 还有这些：
@@ -706,7 +706,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 用工作树并行开发
 
-三个功能同时开发，谁也不碍着谁。关联工作树就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` ⭐ 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
+三个功能同时开发，谁也不碍着谁。关联工作树就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
 
 
 

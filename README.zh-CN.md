@@ -43,21 +43,25 @@
 
 - `/commit-sense`：🐙 跟“fix stuff”式提交说再见：说一句“commit this”，就能拿到一行精准的**摘要**，外加逐个文件的**改动清单**，写清改了什么、为什么改
 - `/plan-for-suite`：🤖 别再让智能体一口气改 30 个文件：大活拆成编号的**小步骤**，每一步都等你点头再动手
-- `/repo-readme-writer`：📝 把光秃秃的仓库变成有人愿意看的**首页**，用途、安装、用法一应俱全，本页就是这么写出来的
+- `/tend-linked-wt`：🐙 三个功能同时开发也互不干扰：每个任务一个独立的**关联工作树**，合入后随即清理
+- `/initialize-repo`：📝 新建仓库时，一次配齐整套**起步文档**：README、CHANGELOG、AGENTS、CONTEXT 和 docs，不重不漏
+- `/sync-unit-test`：💻 一重构，测试就全红？自动修正**过时的断言**和测试夹具，真正该改代码的地方也会替你标出来
 - `/good-morning`：🗓️ 早上不用在一堆标签页之间来回切：**一份报告**搞定收件箱、回顾昨天，再把近期活动和招聘机会一并列出
+- `/amanuensis-chicago-note`：🖋️ 引注再也不用手动排版：按芝加哥格式自动生成**原生 Markdown 脚注**
 
 #### ⭐ 再看看这些推荐
 
 - `/coder-python`：💻 不用再手动收拾 AI 写的代码：符合 PEP 8，命名统一，附 Sphinx 文档字符串，注释讲清意图
-- `/sync-unit-test`：💻 一重构测试就全红？自动修正过时的断言和测试夹具，真正该改代码的地方也会替你标出来
 - `/review-gaps`：💻 发布前把整个仓库过一遍，赶在用户之前揪出没收尾的地方
 - `/release-version`：📝 发版不用再对着清单提心吊胆：文档和变更日志更新到位、版本号升好、合并到 `main` 并打上标签
+- `/repo-readme-writer`：📝 把光秃秃的仓库变成有人愿意看的首页，用途、安装、用法一应俱全，本页就是这么写出来的
+- `/maintenance-before-compact`：📝 会话太长，上下文快要压缩了？先把所有长期有效的改动记进 CHANGELOG、AGENTS 和 CONTEXT，攒下的信息一点不丢
 - `/style-briefness-style`：🎨 把啰嗦的草稿压成干脆利落的标题式笔记
 - `/draft-email`：🗓️ 邮件只写你交代的内容，绝不自作主张，想改几遍改几遍
 - `/u3d-naming`：🎮 终结 `Hero_final2` 式的命名混乱：Unity 里的类、资源、文件夹和 GameObject 全按同一套规则命名
-- `/amanuensis-chicago-note`：🖋️ 再也不用手动排引注：芝加哥格式引注直接生成原生 Markdown 脚注
+- `/minutes-clerk`：🖋️ 会议纪要记下每项决议和待办，一路跟进到落实为止
+- `/element-dt-watch-day`：🧱 按 30 小时制计算的“一天”：过了午夜还算今天，夜猫子专用
 - `/resolve-merge-conflict`：🐙 卡住的合并帮你理顺：每个冲突块两边的改动都兼顾到，冲突标记清理干净
-- `/tend-linked-wt`：🐙 三个功能同时开发也互不干扰：每个任务一个独立的关联工作树，合入后随即清理
 - `/write-llm-prompt`：🪄 把含糊的系统提示词改成真正好用的版本：起草、打分、打磨一条龙
 
 📚 想按名称查看全部技能？**[技能目录](docs/skill-catalog-doc.zh-CN.md)** 是全部 **141 个技能**的完整清单，逐一说明用途与调用方式。
