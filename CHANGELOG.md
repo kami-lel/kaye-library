@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Bug marketplace version wrong
 Todo very basic kaye persona
 Fixme plan for suite support parallel, w/ WT
 todo support layered CONTEXT/AGENTS
