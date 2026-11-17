@@ -5,6 +5,7 @@ Todo very basic kaye persona
 Todo add basic finance report
 Todo add dev lop writer
 Fixme plan for suite support parallel, w/ WT
+Fixme clean up steps for post feature branch landed as its own exportable
 todo support layered CONTEXT/AGENTS
 fixme support hotfix & release branch
 -->
