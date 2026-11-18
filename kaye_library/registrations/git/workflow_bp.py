@@ -69,6 +69,21 @@ def register_repo_workflow_blueprints():
         llm_invokable=True,
     )
 
+    # Create & Maintain CREDITS, Create & Maintain DEVLOG
+    for doc in ("CREDITS", "DEVLOG"):
+        for verb in ("Create", "Maintain"):
+            register_node(
+                register_prompt,
+                "{}-{}".format(verb.lower(), doc.lower()),
+                repo_node,
+                "{} {}".format(verb, doc),
+                dependencies=[
+                    "repo-{}-writer".format(doc.lower()),
+                    "style-good-writing",
+                ],
+                llm_invokable=True,
+            )
+
     # Condense CHANGELOG
     register_node(
         register_prompt,
