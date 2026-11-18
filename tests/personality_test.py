@@ -3,12 +3,14 @@ personality_test.py
 
 Unit Tests (using pytest) for: the library's internal
 ``personality-persona-identity`` blueprint, which ships the Persona
-Trailer rule and empty identity headings, never a persona's values
+Co-author Trailer rule and Kaye's values, each behind its ``{for Kaye}`` sidecar
 """
 
 import pytest
 from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
+from kaye_library.registrations._common import SIDECAR_FOR_KAYE
 
 _NAME = "personality-persona-identity"
 
@@ -16,6 +18,12 @@ _NAME = "personality-persona-identity"
 @pytest.fixture(scope="module")
 def content():
     return blueprint_registry[_NAME].content()
+
+
+@pytest.fixture(scope="module")
+def kaye_content():
+    profile = RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,))
+    return blueprint_registry[_NAME].content(profile=profile)
 
 
 class TestStructure:
@@ -35,18 +43,42 @@ class TestContent:
         [
             "## Persona Identity",
             "### Display Name",
-            "### GitHub Bot Account Email",
-            "### Persona Trailer",
+            "### Persona Co-author Trailer",
         ],
     )
     def test_holds_heading(_, content, heading):
         assert heading in content
 
-    def test_names_only_a_persona_co_author(_, content):
-        assert "Only a [Personality](#personality) may be co-author" in content
+    def test_signs_only_changes_the_persona_wrote(_, content):
+        assert "When you wrote the changes a commit records" in content
+        assert "end it with no trailer" in content
 
-    def test_example_trailer_is_generic(_, content):
-        assert "Co-authored-by: Example Bot <bot@example.com>" in content
+    def test_avoids_a_generic_ai_trailer(_):
+        # every surface renders {avoid}; a bare render needs it named
+        profile = RenderProfile(conditional_sidecars=("avoid",))
+        text = blueprint_registry[_NAME].content(profile=profile)
+
+        assert "A generic AI trailer naming a tool or model" in text
+
+    def test_kaye_trailer_is_whole(_, kaye_content):
+        assert (
+            "Co-authored-by: Kaye LeL"
+            " <341862645+kaye-lel@users.noreply.github.com>"
+        ) in kaye_content
+
+    @pytest.mark.parametrize(
+        "value",
+        ["Kaye LeL", "341862645+kaye-lel@users.noreply.github.com"],
+    )
+    def test_kaye_value_hides_without_sidecar(_, content, value):
+        assert value not in content
+
+    @pytest.mark.parametrize(
+        "value",
+        ["Kaye LeL", "341862645+kaye-lel@users.noreply.github.com"],
+    )
+    def test_kaye_value_shows_with_sidecar(_, kaye_content, value):
+        assert value in kaye_content
 
     def test_formatting_rule_leaves_identity_out(_):
         text = blueprint_registry["personality-formatting"].content()

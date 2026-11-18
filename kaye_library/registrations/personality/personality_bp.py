@@ -24,9 +24,9 @@ def register_personality_blueprints():
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
     - ``persona-kaye``: the Kaye persona, over its speech habits
-    - ``personality-persona-identity``: the Persona Trailer rule, plus
-      the Display Name and GitHub Bot Account Email headings a package
-      fills with one ``{for <persona>}`` section per persona
+    - ``personality-persona-identity``: the Display Name and the Persona
+      Co-author Trailer rule, each holding one ``{for <persona>}`` section
+      per persona: Kaye's here, others' from a package
     """
     register_blueprint(
         "personality-formatting",

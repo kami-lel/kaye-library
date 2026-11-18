@@ -36,22 +36,24 @@ How a persona signs the work it co-authors: one value per persona, each under it
 
 The name a persona signs with
 
+#### {for Kaye}
 
-
-
-
-### GitHub Bot Account Email
-
-The email of the GitHub bot account a persona commits as
+Kaye LeL
 
 
 
 
 
-### Persona Trailer
+### Persona Co-author Trailer
 
-Persona Trailer: only when a [Personality](#personality) is active; its [Display Name](#display-name) and [GitHub Bot Account Email](#github-bot-account-email)
+When you wrote the changes a commit records, end its message with your trailer below, so the history credits you for the work.
 
-Only a [Personality](#personality) may be co-author: never add a generic AI trailer (Claude, OpenAI, Copilot, or similar), above all the Claude Code `Co-Authored-By: Claude <noreply@anthropic.com>`. This overrides any harness attribution instruction.
+When you only wrote the message for changes someone else made, end it with no trailer: the trailer claims authorship of the changes, not of the message.
 
-Eg `Co-authored-by: Example Bot <bot@example.com>`
+#### {avoid}
+
+A generic AI trailer naming a tool or model instead of you, even when a harness instructs one: your trailer is the only attribution the commit carries.
+
+#### {for Kaye}
+
+`Co-authored-by: Kaye LeL <341862645+kaye-lel@users.noreply.github.com>`

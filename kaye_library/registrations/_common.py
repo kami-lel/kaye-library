@@ -21,6 +21,7 @@ from kaye_engine.prompt.blueprint import (
 
 __all__ = (
     "CONSUMER_NAME",
+    "SIDECAR_FOR_KAYE",
     "glossary_blueprint",
     "mark_as_leaf",
     "register_abbr_glossary",
@@ -35,6 +36,9 @@ __all__ = (
 # canonical name of this package's consumer record, the owner of every
 # exportable registered here; equals ``kaye_library.PACKAGE_NAME``
 CONSUMER_NAME = "kaye-library"
+
+# conditional sidecar holding Kaye's own values, e.g. the signature
+SIDECAR_FOR_KAYE = "for Kaye"
 
 register_exportable = functools.partial(
     register_blueprint, is_exportable=True, consumer=CONSUMER_NAME
