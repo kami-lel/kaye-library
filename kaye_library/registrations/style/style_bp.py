@@ -43,8 +43,9 @@ def _register_heading_separation_leaf(slug, leaf_name):
 def register_style_blueprints():
     """
     register Style Guide and its sub-styles: Briefness Style, Good
-    Writing, Markdown Format, Markdown Extended, Header Separation
-    (plus its Long File and Medium File leaves)
+    Writing, Markdown Format, Markdown Extended, Markdown Footnotes,
+    Markdown Endnotes, Markdown File Assets, Header Separation (plus its
+    Long File and Medium File leaves)
 
     (Title Case and Commentary Case moved to the Letter Case blueprint,
     see ``register_letter_case_blueprints``)
@@ -99,6 +100,14 @@ def register_style_blueprints():
         "style-markdown-endnotes",
         style_node["Style Guide Markdown Format"],
         "Markdown Endnotes",
+    )
+
+    register_node(
+        register_exportable,
+        "style-markdown-file-assets",
+        style_node["Style Guide Markdown Format"],
+        "Markdown File Assets",
+        recursively=True,
     )
 
     register_node(

@@ -47,7 +47,16 @@ flowchart LR
     repo_changelog_writer["repo-changelog-writer"] --> style_briefness_style
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
+    repo_credits_writer["repo-credits-writer"] --> style_briefness_style
+    repo_credits_writer --> style_good_writing
+    repo_devlog_writer["repo-devlog-writer"] --> style_briefness_style
+    repo_devlog_writer --> style_good_writing
+    repo_devlog_writer --> element_dt_year_month_day_format["element-dt-year-month-day-format"]
+    repo_devlog_writer --> proj_version_title
+    repo_devlog_writer --> style_markdown_file_assets["style-markdown-file-assets"]
+    repo_devlog_writer --> element_triage_tags["element-triage-tags"]
     ready_release_version["ready-release-version"] --> proj_version_extended
+    scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
     proj_version_bump --> proj_version["proj-version"]
     proj_version_extended --> proj_version
@@ -66,6 +75,14 @@ flowchart LR
     create_changelog["create-changelog"] --> repo_changelog_writer
     maintain_changelog["maintain-changelog"] --> repo_changelog_writer
     condense_changelog["condense-changelog"] --> repo_changelog_writer
+    create_credits["create-credits"] --> repo_credits_writer
+    maintain_credits["maintain-credits"] --> repo_credits_writer
+    create_devlog["create-devlog"] --> repo_devlog_writer
+    maintain_devlog["maintain-devlog"] --> repo_devlog_writer
+    create_credits --> style_good_writing
+    maintain_credits --> style_good_writing
+    create_devlog --> style_good_writing
+    maintain_devlog --> style_good_writing
     create_repo_agents["create-repo-agents"] --> repo_agents_writer
     maintain_repo_agents["maintain-repo-agents"] --> repo_agents_writer
     create_repo_docs["create-repo-docs"] --> repo_doc_writer
@@ -84,6 +101,9 @@ flowchart LR
     git_sense_per_file_change_sigil --> git_sense_core
     git_sense_per_file_summary --> git_sense_core
     commit_sense_branch_merging["commit-sense-branch-merging"] --> git_sense_core
+    commit_sense_branch_merging --> git_feature_branch["git-feature-branch"]
+    commit_sense_branch_merging --> git_hotfix_branch["git-hotfix-branch"]
+    commit_sense_branch_merging --> git_release_branch["git-release-branch"]
     commit_sense_branch_merging --> git_feature_summary["git-feature-summary"]
     commit_sense_branch_merging --> proj_version_title["proj-version-title"]
     git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
@@ -91,6 +111,7 @@ flowchart LR
     git_sense_dify_per_file --> git_sense_per_file_summary
     git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
     ready_land_feature["ready-land-feature"] --> git_feature_discover
+    scrub_landed_feature["scrub-landed-feature"] --> git_feature_branch
     submit_pr["submit-pr"] --> ready_land_feature
     submit_pr --> git_feature_summary
     tend_linked_wt["tend-linked-wt"] --> plant_linked_wt["plant-linked-wt"]
@@ -182,6 +203,7 @@ flowchart LR
     execute_plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
     coder --> cascade_all_movements["cascade-all-movements"]
     coder --> halt_each_movement["halt-each-movement"]
+    coder --> tend_linked_wt["tend-linked-wt"]
     working_with_git["working-with-git"] --> commit_sense["commit-sense"]
     good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
     good_morning --> recap_yesterday["recap-yesterday"]
@@ -189,4 +211,9 @@ flowchart LR
     good_morning --> hunt_job_opportunity["hunt-job-opportunity"]
     good_week["good-week"] --> scan_event_radar_weekly["scan-event-radar-weekly"]
     good_week --> hunt_job_opportunity
+    land_feature["land-feature"] --> scrub_landed_feature["scrub-landed-feature"]
+    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
+    release_version["release-version"] --> scrub_released_version["scrub-released-version"]
+    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
+    scrub_released_version --> commit_sense
 ```

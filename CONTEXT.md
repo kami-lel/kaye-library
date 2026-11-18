@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-16, v1.4.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-18, v1.4.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -21,7 +21,7 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 |---|---|
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
-| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.0`) |
+| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.1`) |
 | release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 3 assets are the Desktop plugin zip and the Windows and Linux VS Code installers, named `kaye-library-VERSION-TYPE[-OS].ext`; a stable tag also runs `kaye-library build-github-marketplace market` and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there, so its README.md stays |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
@@ -67,7 +67,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
-| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
+| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (with its Execution and Rework sections, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |

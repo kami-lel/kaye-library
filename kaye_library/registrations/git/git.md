@@ -323,7 +323,7 @@ Write the commit message of a merge, usually mid-merge, where Git has already dr
 
 ##### message first line
 
-The first line of a merge's commit message is decided by the merge's source and target branch types.
+The first line of a merge's commit message is decided by the merge's source and target branch types: [feature](#feature-branch), [hotfix](#hotfix-branch), [release](#release-branch), `dev`, or `main`.
 
 | From | Into | Message First Line |
 |---|---|---|
@@ -349,7 +349,7 @@ Prepend the first line and append the [Co-author Trailer](#co-author-trailer), i
 <merge-message-example>
 Minor Release Cut 1.1.0
 
-Merge branch 'release-1.1.0' into main
+Merge branch 'release/1.1.0' into main
 
 Co-authored-by: Example Bot <bot@example.com>
 </merge-message-example>

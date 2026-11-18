@@ -2,7 +2,7 @@
 
 [English](skill-catalog-doc.md) | 简体中文
 
-kaye-library 的 141 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
+kaye-library 的 148 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
 
 用法有两种：
 
@@ -163,7 +163,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 项目里的每份文件，都写得对、跟得上。
 
-一个好项目要照顾五类读者：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。kaye-library 给每一类都配了专门的写作技能。
+一个好项目要照顾五类读者：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。另有两份可选文件：`CREDITS.md` 为每项第三方素材署名，`DEVLOG.md` 记下团队的开发日志。kaye-library 给每一类都配了专门的写作技能。
 
 大多数写作技能还配了两个工作流：“创建”从零写出文件，“维护”在代码更新后就地改好。
 
@@ -174,6 +174,8 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 | `AGENTS.md`（代码仓库） | AI 编程智能体 | `/repo-agents-writer` | `/create-repo-agents` | `/maintain-repo-agents` |
 | `AGENTS.md`（任意项目） | AI 智能体 | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
 | `CONTEXT.md` | 新加入的开发者和 AI | `/repo-context-writer` | ➖ | ➖ |
+| `CREDITS.md` | 被署名的创作者、核查授权的人 | `/repo-credits-writer` | `/create-credits` | `/maintain-credits` |
+| `DEVLOG.md` | 团队、评审者 | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
 | `docs/`（代码仓库） | 想深入了解的读者 | `/repo-doc-writer` | `/create-repo-docs` | `/maintain-repo-docs` |
 | `docs/`（任意项目） | 想深入了解的读者 | `/proj-doc-writer` | `/create-project-docs` | `/maintain-project-docs` |
 
@@ -183,6 +185,8 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 - `/repo-readme-writer` 能把光秃秃的仓库变成有人愿意看的首页，本库的 README 就是这么来的
 - `/repo-changelog-writer` 遵循 Keep a Changelog 规范，带 `[Unreleased]` 区块和版本链接；`/create-changelog` 甚至能从 git 历史里重建一份
+- `/repo-credits-writer` 给每项第三方素材一行记录：路径、来源、作者、授权，不让任何素材无名上线
+- `/repo-devlog-writer` 把每项改动和促成它的试玩、问卷或 bug 对上号，配带说明的截图，并如实记下遗留问题
 - `/repo-agents-writer` 和 `/repo-context-writer` 让规则和知识各归各位：`AGENTS.md` 写该怎么做，`CONTEXT.md` 写系统怎么运作，个人笔记则放进只属于你自己的 `.local.md` 文件
 
 
@@ -222,14 +226,14 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 ### 合入功能，发布版本
 
-两个工作流，各分前后两半：
+两个工作流，合并前有准备的一半，合并后有清理的一半：
 
-| 只做准备 | 准备加收尾 | 收尾多做什么 |
-|---|---|---|
-| `/ready-land-feature` | `/land-feature` | 合并到 `dev`，附上清晰的合并信息 |
-| `/ready-release-version` | `/release-version` ⭐ | 合并到 `main`，打上版本标签 |
+| 只做准备 | 只做清理 | 准备、合并加清理 | 合并多做什么 |
+|---|---|---|---|
+| `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | 合并到 `dev`，附上清晰的合并信息 |
+| `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | 合并到 `main`，打上版本标签 |
 
-准备阶段会把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号。想自己手动合并？单跑准备那一半就行。想走 PR？见 [Git](#-git) 分组里的 `/submit-pr`。
+准备阶段会把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号。清理阶段先推送结果，再收拾合并留下的东西：合入功能后是已合并的分支和它的关联工作树，发版后是已合并的分支和落后的 `dev`，随后把 `dev` 升到下一个 alpha 版本，每一步都等你批准才做。想自己手动合并？先跑准备那一半，合并，再跑清理那一半。想走 PR？见 [Git](#-git) 分组里的 `/submit-pr`。
 
 
 
@@ -304,6 +308,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 - `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
 - `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
 - `/style-markdown-endnotes`：所有注释统一放到文末
+- `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
 
 长文档要留白才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
 

@@ -211,6 +211,8 @@ ExampleProject/
 ├── README.md
 ├── AGENTS.md
 ├── CONTEXT.md
+├── CREDITS.md
+├── DEVLOG.md
 ├── docs/
 │   └── setup-guide.md
 └── Frontend/

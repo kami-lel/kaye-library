@@ -1,8 +1,10 @@
 """
 kaye_library.registrations.git.branch_bp.py
 
-register Git branch related blueprints: the feature branch definition and
-the feature landing and version release workflows
+register Git branch related blueprints: the feature, hotfix, and release
+branch definitions and
+the feature landing and version release workflows, each with its ready and
+scrub halves
 """
 
 import functools
@@ -27,8 +29,9 @@ def register_branch_blueprints():
     version release workflow prompts
 
 
-    :raises KeyError: ``proj-version-extended``, ``style-briefness-style``,
-            or ``style-letter-case-commentary-case`` is not yet registered
+    :raises KeyError: ``proj-version-extended``, ``proj-version-title``,
+            ``style-briefness-style``, or
+            ``style-letter-case-commentary-case`` is not yet registered
     """
     git_node = get_corpus_node("Git")
 
@@ -39,6 +42,24 @@ def register_branch_blueprints():
         ("Git",),
         "feature branch",
         display_name="Git Feature Branch",
+    )
+
+    # Hotfix Branch
+    register_leaf(
+        _register_internal,
+        "git-hotfix-branch",
+        ("Git",),
+        "hotfix branch",
+        display_name="Git Hotfix Branch",
+    )
+
+    # Release Branch
+    register_leaf(
+        _register_internal,
+        "git-release-branch",
+        ("Git",),
+        "release branch",
+        display_name="Git Release Branch",
     )
 
     # Feature Discover
@@ -80,6 +101,24 @@ def register_branch_blueprints():
         git_node,
         "Ready for Version Release",
         dependencies=["proj-version-extended"],
+    )
+
+    # Scrub Landed Feature
+    register_node(
+        register_prompt,
+        "scrub-landed-feature",
+        git_node,
+        "Scrub After Feature Landing",
+        dependencies=["git-feature-branch"],
+    )
+
+    # Scrub Released Version
+    register_node(
+        register_prompt,
+        "scrub-released-version",
+        git_node,
+        "Scrub After Version Release",
+        dependencies=["proj-version-title"],
     )
 
     # Land Feature
