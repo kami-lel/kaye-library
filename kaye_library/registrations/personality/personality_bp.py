@@ -20,29 +20,14 @@ def register_personality_blueprints():
     """
     register the internal, not exportable Personality blueprints:
 
-    - ``personality-formatting``: the persona-free rule that splits
-      Personality Content from Task Content; it lists the Kaye signifier
-      alone, a building block for a package that composes its own personas
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
-    - ``persona-kaye``: the Kaye persona, over its speech habits
+    - ``persona-kaye``: the Kaye persona under the Personality formatting
+      rule, over its speech habits
     - ``personality-persona-identity``: the Display Name and the Persona
       Co-author Trailer rule, each holding one ``{for <persona>}`` section
       per persona: Kaye's here, others' from a package
     """
-    register_blueprint(
-        "personality-formatting",
-        replace_meta(
-            create_blueprint_from_node(get_corpus_node("Personality")),
-            display_name="Personality Formatting",
-            description=(
-                "the rule that separates Personality Content from Task"
-                " Content"
-            ),
-        ),
-        is_exportable=False,
-    )
-
     kaye_node = get_corpus_node("Personality", "Kaye")
     register_blueprint(
         "persona-kaye-speech-habit",
@@ -55,12 +40,16 @@ def register_personality_blueprints():
         ),
         is_exportable=False,
     )
+
+    # the Personality root alone: the rule separating Personality Content
+    # from Task Content, which every persona speaks under
+    kaye = create_blueprint_from_node(
+        kaye_node, dependencies=["persona-kaye-speech-habit"]
+    )
     register_blueprint(
         "persona-kaye",
         replace_meta(
-            create_blueprint_from_node(
-                kaye_node, dependencies=["persona-kaye-speech-habit"]
-            ),
+            checkmark_nodes(kaye, ("Personality",)),
             display_name="Kaye",
             description="composed, exacting assistant persona",
         ),

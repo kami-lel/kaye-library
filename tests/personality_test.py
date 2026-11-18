@@ -76,7 +76,21 @@ class TestContent:
     def test_kaye_value_shows_with_sidecar(_, kaye_content, value):
         assert value in kaye_content
 
-    def test_formatting_rule_leaves_identity_out(_):
-        text = blueprint_registry["personality-formatting"].content()
+
+
+class TestPersonaKaye:
+
+    def test_formatting_folds_into_kaye(_):
+        assert "personality-formatting" not in blueprint_registry
+
+    def test_opens_with_the_formatting_rule(_):
+        text = blueprint_registry["persona-kaye"].content()
+
+        assert text.startswith("# Personality")
+        assert "## Kaye" in text
+
+    def test_leaves_identity_out(_):
+        text = blueprint_registry["persona-kaye"].content()
 
         assert "Display Name" not in text
+        assert "Persona Co-author Trailer" not in text
