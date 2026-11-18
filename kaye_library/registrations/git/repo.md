@@ -659,7 +659,7 @@ Replace `Example Repository` with the real repository name.
 
 - Order: newest first; a new entry goes directly under the title
 - Period: one `##` entry per period, at the cadence the team reports in, ie a week, a sprint, a milestone
-- Heading: the entry's date, per [Year Month Day Format](#year-month-day-format); then, optionally, the week count in parentheses, when the team counts weeks; then, optionally, when a version shipped in the period, a colon and that version's exact [Semantic Version Title](#semantic-version-title), word for word, ie `Major Stable Release`, never a shortened `Release` or `Stable`, with only the version in backticks
+- Heading: date per [Year Month Day Format](#year-month-day-format), optional week count, and, when a version shipped, its exact [Semantic Version Title](#semantic-version-title), word for word
 - Contributors: when several people log the same period, each gets a `###` subsection headed with their name or role
 
 <devlog-heading-example>
@@ -679,14 +679,14 @@ Replace `Example Repository` with the real repository name.
 
 Hold this order, dropping any part the period gives nothing for:
 
-1. Opener: one sentence on what the period was about, naming the evidence behind the work, ie a playtest, survey, review, or bug report
-2. Findings: an intro line naming each source with its date, build, and size, ie a playtest of `1.0.0-alpha.2`, a survey with 11 responses; then one item per finding, labeled with what was found
-3. Fixes: an `Our fixes:` list, one item per change, labeled `Finding → Fix`, saying what changed and why; where the approach moved, close with `Initially <what was tried>; changed to <what replaced it>`
-4. Other Work: an `Also this week:` list, renamed for the period's cadence, ie `Also this sprint:`, holding other notable work, ie tooling, refactors, analytics, new assets
-5. Leftovers: one line naming what stays open, and which later entry takes anything up
-6. Images: screenshots and charts, each followed by an italic caption line
+1. Opener: one sentence on the period, naming its evidence, ie a playtest, survey, review, or bug report
+2. Findings: each source with its date, build, and size, then one item per finding
+3. Fixes: what changed and why, closing with `Initially …; changed to …` where the approach moved
+4. Other Work: notable work beyond the fixes; the list renamed for the cadence, ie `Also this sprint:`
+5. Leftovers: what stays open, and which later entry takes it up
+6. Images: screenshots and charts
 
-A period with no outside evidence, ie a feature push, drops Findings and labels each item with its feature instead, keeping the `Initially …; changed to …` close where the design moved.
+A period with no outside evidence, ie a feature push, drops Findings and labels each item with its feature instead.
 
 <devlog-entry-example>
 ```markdown
@@ -719,9 +719,14 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 #### Images
 
-- keep them in `DEVLOG-assets/`, linked per [Markdown File Assets](#markdown-file-assets), named in kebab case with the period first, ie `wk11-starting-zone.png`, so the folder sorts by period
-- alt text names what the image shows; the caption, an italic line directly below, says what to notice in it
+- keep them in `DEVLOG-assets/`, linked per [Markdown File Assets](#markdown-file-assets), named in kebab case, period first, so the folder sorts by period
+- alt text names what the image shows; the caption says what to notice in it
 - include an image only where it shows what the entry describes
+- Missing Screenshot: leave a Loud `TODO` [Triage Tag](#triage-tags) in its place
+
+```markdown
+<!-- TODO screenshot: oil gauge near empty, before the flicker -->
+```
 
 
 

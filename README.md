@@ -64,7 +64,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - `/resolve-merge-conflict`: 🐙 a halted merge untangled: both sides of every hunk reconciled, conflict markers gone
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
-📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of all **147 skills**, with what each does and how to call it.
+📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of all **148 skills**, with what each does and how to call it.
 
 ## 🚀 Getting Started
 

@@ -224,13 +224,18 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                          'unless that person asks for them'],
  'repo-devlog-writer': ['## Repository DEVLOG Writer',
                         '# Example Repository DEVLOG',
-                        'labeled `Finding → Fix`',
-                        '`Initially <what was tried>; changed to <what '
-                        'replaced it>`',
+                        'Skipped Tutorial → Starting Zone Rework',
+                        'closing with `Initially …; changed to …` where the '
+                        'approach moved',
                         'keep them in `DEVLOG-assets/`, linked per [Markdown '
                         'File Assets](#markdown-file-assets)',
                         '### Markdown File Assets',
-                        "that version's exact [Semantic Version "
+                        'leave a Loud `TODO` [Triage Tag](#triage-tags) in '
+                        'its place',
+                        '<!-- TODO screenshot: oil gauge near empty, before '
+                        'the flicker -->',
+                        '## Triage Tags',
+                        'its exact [Semantic Version '
                         'Title](#semantic-version-title), word for word',
                         '## 02026-03-25 (Week 8): Beta Release '
                         '`1.0.0-beta.2`',

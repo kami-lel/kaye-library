@@ -15,6 +15,7 @@ todo support layered CONTEXT/AGENTS
 - `repo-credits-writer`, `create-credits`, `maintain-credits`: `CREDITS.md` w/ per-kind asset tables: path, source, author, license
 - `repo-devlog-writer`, `create-devlog`, `maintain-devlog`: `DEVLOG.md` journal, newest first: findings → fixes, leftovers, captioned screenshots
 - Project Context Engineering folder example: optional `CREDITS.md` & `DEVLOG.md`
+- `style-markdown-file-assets`: each `.md` file's assets in sibling `<name>-assets/` folder, linked by relative `./` path; DEVLOG writer follows it
 - `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 
 ### Changed

@@ -54,6 +54,7 @@ flowchart LR
     repo_devlog_writer --> element_dt_year_month_day_format["element-dt-year-month-day-format"]
     repo_devlog_writer --> proj_version_title
     repo_devlog_writer --> style_markdown_file_assets["style-markdown-file-assets"]
+    repo_devlog_writer --> element_triage_tags["element-triage-tags"]
     ready_release_version["ready-release-version"] --> proj_version_extended
     scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
