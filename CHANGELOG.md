@@ -17,7 +17,7 @@ todo good morning incl finance report
 - `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 - `Personality` root w/ Personality Formatting rule; internal `personality-formatting` blueprint; `person-signifier` glossary w/ the Kaye signifier, which a consumer extends w/ its own personas
 - internal `persona-kaye` blueprint, over internal `persona-kaye-speech-habit`: Kaye persona & its address-free speech habits
-- `Persona Identity` under `Personality`: Display Name & Persona Co-author Trailer rule w/ GitHub bot account email, moved in from consumer; Kaye's values behind `{for Kaye}` sidecar (`SIDECAR_FOR_KAYE`); internal `personality-persona-identity` blueprint; a consumer nests other personas' values under same headings
+- `Display Name` & `Persona Co-author Trailer` under `Personality`, moved in from consumer: Kaye's values behind `{for Kaye}` sidecar (`SIDECAR_FOR_KAYE`); internal `personality-persona-identity` blueprint over both; a consumer nests other personas' values under same headings
 
 ### Changed
 

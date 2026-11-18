@@ -40,11 +40,7 @@ class TestContent:
 
     @pytest.mark.parametrize(
         "heading",
-        [
-            "## Persona Identity",
-            "### Display Name",
-            "### Persona Co-author Trailer",
-        ],
+        ["## Display Name", "## Persona Co-author Trailer"],
     )
     def test_holds_heading(_, content, heading):
         assert heading in content
@@ -83,4 +79,4 @@ class TestContent:
     def test_formatting_rule_leaves_identity_out(_):
         text = blueprint_registry["personality-formatting"].content()
 
-        assert "Persona Identity" not in text
+        assert "Display Name" not in text

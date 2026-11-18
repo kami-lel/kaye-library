@@ -6,6 +6,8 @@ register Personality related blueprints
 
 from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
+    checkmark_nodes,
+    create_blueprint,
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
@@ -67,17 +69,19 @@ def register_personality_blueprints():
 
     # recursive, so each persona's {for <persona>} values a package
     # registers under these headings come along
+    identity = create_blueprint()
+    for name in ("Display Name", "Persona Co-author Trailer"):
+        identity = checkmark_nodes(
+            identity, ("Personality", name), is_recursive=True
+        )
     register_blueprint(
         "personality-persona-identity",
         replace_meta(
-            create_blueprint_from_node(
-                get_corpus_node("Personality", "Persona Identity"),
-                is_recursive=True,
-            ),
+            identity,
             display_name="Persona Identity",
             description=(
-                "the persona co-author trailer rule, with each persona's"
-                " display name and bot account email"
+                "each persona's display name and co-author trailer, under"
+                " the rule for when to sign"
             ),
         ),
         is_exportable=False,
