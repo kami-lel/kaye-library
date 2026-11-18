@@ -201,6 +201,6 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 
    ![已安装插件均已启用的“插件”标签页](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. 打开 *插件市场* 标签页，确认列表里有 `kaye-engine`。
+3. 打开 *插件市场* 标签页，确认列表里有 `kaye-library`。
 
-   ![列表里有 kaye-engine 的“插件市场”标签页](assets/claude-vsc-step-3-marketplaces-tab.png)
+   ![列表里有 kaye-library 的“插件市场”标签页](assets/claude-vsc-step-3-marketplaces-tab.png)

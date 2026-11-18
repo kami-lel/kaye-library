@@ -90,7 +90,7 @@ class TestEngineSubcommands:
         )
 
         assert result.returncode == 0
-        assert data["name"] == "kaye-engine"
+        assert data["name"] == "kaye-library"
         assert [p["name"] for p in data["plugins"]] == ["kaye-library"]
 
 

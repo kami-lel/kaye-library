@@ -16,6 +16,11 @@ fixme support hotfix & release branch
 
 ### Changed
 
+- Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
+
+> [!WARNING]
+> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys
+
 ### Deprecated
 
 ### Removed

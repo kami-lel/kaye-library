@@ -201,6 +201,6 @@ Install it yourself with one command.
 
    ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. Open the *Marketplaces* tab. Check that `kaye-engine` is listed.
+3. Open the *Marketplaces* tab. Check that `kaye-library` is listed.
 
-   ![Marketplaces tab with the kaye-engine marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
+   ![Marketplaces tab with the kaye-library marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
