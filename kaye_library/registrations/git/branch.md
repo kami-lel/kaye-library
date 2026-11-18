@@ -189,6 +189,80 @@ Load `sync-unit-test`, `maintain-changelog`, `maintain-repo-agents`, and `commit
 
 
 
+## Scrub After Feature Landing
+
+Once the current [feature branch](#feature-branch) is merged into `dev`, scrub what the landing leaves behind: publish `dev`, then remove the merged branch and its linked worktree. Each step runs only on the user's approval, since a push publishes and a deletion cannot be undone.
+
+Learn the landing first:
+
+- the feature branch is the one just merged: named in the current conversation, else the second parent of the merge commit at `dev`'s tip
+- the headline is the first line of the [feature branch summary](#feature-branch-summary) in that merge commit's message
+- if `dev`'s tip is no merge of a feature branch, say so in one line and stop: nothing has landed to scrub after
+
+
+
+#### Movement 1: Report and Ask Approval
+
+Reply as below, asking up to 3 approvals: push `dev`; delete the feature branch (merged, so safe to drop); uproot its linked worktree, asked only when one holds the branch.
+
+<post-landing-output-example>
+🚩🐙 Feature Landed: add status filter to Search page
+✍️ ⓑ push `dev` to origin?
+✍️ ⓒ delete feature branch `add-search-filter`?
+✍️ ⓓ uproot linked worktree `kaye-library-WT-add-search-filter`?
+ⓐ all of above
+</post-landing-output-example>
+
+
+
+#### Movement 2: Push and Delete
+
+Run only the approved actions, in order ⓑ, ⓓ, ⓒ, since Git refuses to delete a branch while a worktree holds it; ⓐ approves all three:
+
+- ⓑ `git push origin dev`
+- ⓒ `git branch -d FEATURE`, never `-D`
+- ⓓ invoke `uproot-linked-wt`
+
+Reply once, after all are done:
+
+<post-push-delete-output-example>
+🚩🐙 pushed `dev` to origin
+🚩🐙 uprooted `kaye-library-WT-add-search-filter`
+🚩🐙 deleted `add-search-filter`
+</post-push-delete-output-example>
+
+
+
+### {description}
+
+Scrubs up after a feature branch lands on `dev`: reports the landing, then, each on approval, pushes `dev`, uproots the branch's linked worktree, and deletes the merged branch.
+
+### {when_to_use}
+
+Reach for this once a feature branch is merged into `dev`: "clean up after the merge," "push dev and delete the branch," "scrub the landed feature." Not for merging the branch itself (use the land-feature skill) or pruning many merged branches at once (use the prune-merged-branches skill).
+
+
+
+### {[Claude:Skill] Usage}
+
+Invoke `uproot-linked-wt` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `uproot-linked-wt` skill with `skill_view`.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -234,41 +308,15 @@ Stop at the merge commit: push and branch deletion wait for the approval of Move
 
 
 
-#### Movement 9: Report and Ask Approval
+#### Movement 9~10: Scrub After the Landing
 
-Reply as below, asking up to 3 approvals: push `dev`; delete the feature branch (merged, so safe to drop); uproot its linked worktree, asked only when you work in a linked worktree. If any Movement halts, report where and why in one line, then stop.
-
-<post-landing-output-example>
-🚩🐙 Feature Landed: add status filter to Search page
-✍️ ⓑ push `dev` to origin?
-✍️ ⓒ delete feature branch `add-search-filter`?
-✍️ ⓓ uproot linked worktree `kaye-library-WT-add-search-filter`?
-ⓐ all of above
-</post-landing-output-example>
-
-
-
-#### Movement 10: Push and Delete
-
-Run only the approved actions, in order ⓑ, ⓓ, ⓒ, since Git refuses to delete a branch while a worktree holds it; ⓐ approves all three:
-
-- ⓑ `git push origin dev`
-- ⓒ `git branch -d FEATURE`, never `-D`
-- ⓓ invoke `uproot-linked-wt`
-
-Reply once, after all are done:
-
-<post-push-delete-output-example>
-🚩🐙 pushed `dev` to origin
-🚩🐙 uprooted `kaye-library-WT-add-search-filter`
-🚩🐙 deleted `add-search-filter`
-</post-push-delete-output-example>
+Run [Scrub After Feature Landing](#scrub-after-feature-landing) whole, once the merge commit lands. If any earlier Movement halts, report where and why in one line, then stop.
 
 
 
 ### {description}
 
-Lands a feature branch on `dev`: runs every Ready for Feature Landing movement, then merges the branch into `dev` with a typed Feature Landing message.
+Lands a feature branch on `dev`: runs every Ready for Feature Landing movement, merges the branch into `dev` with a typed Feature Landing message, then runs Scrub After Feature Landing.
 
 ### {when_to_use}
 
@@ -278,11 +326,11 @@ Reach for this when a finished feature branch should be merged: "land this featu
 
 ### {[Claude:Skill] Usage}
 
-Invoke `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `uproot-linked-wt` skills via `Skill` tool.
+Invoke `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `scrub-landed-feature` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `uproot-linked-wt` skills with `skill_view`.
+Load `ready-land-feature`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `scrub-landed-feature` skills with `skill_view`.
 
 
 
@@ -392,6 +440,80 @@ Load `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and
 
 
 
+## Scrub After Version Release
+
+Once a release is merged into `main` and tagged, scrub what it leaves behind: publish `main` and the tag, prune merged branches, and bring `dev` level with `main`. Each step runs only on the user's approval, since a push publishes and a pruned branch cannot be recovered by name.
+
+Learn the release first:
+
+- the version is the one settled in the current conversation, else the `v` tag on `main`'s tip, read with `git describe --tags --exact-match main`
+- the title is that version's [Semantic Version Title](#semantic-version-title), eg `Minor Release 1.1.0`
+- if `main`'s tip carries no `v` tag, say so in one line and stop: nothing has been released to scrub after
+
+
+
+#### Movement 1: Report and Ask Approval
+
+Reply as below, asking 3 approvals: push `main` and the tag, prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)), and fast-forward `dev` to `main`, local and remote.
+
+<post-release-output-example>
+🚩🐙 Minor Release 1.1.0
+✍️ ⓑ push `main` and `v1.1.0` to origin?
+✍️ ⓒ prune merged branches `add-search-filter`, `fix-login-redirect`?
+✍️ ⓓ fast-forward `dev` to `main`, local and origin?
+ⓐ all of above
+</post-release-output-example>
+
+
+
+#### Movement 2: Push, Prune, and Sync Dev
+
+Run only the approved actions, in order; ⓐ approves all three:
+
+- ⓑ `git push origin main vVERSION`
+- ⓒ invoke `prune-merged-branches`
+- ⓓ fast-forward `dev` to `main`, local and origin; if it cannot fast-forward, report in one line and stop
+
+Reply once, after all are done:
+
+<post-push-prune-output-example>
+🚩🐙 pushed `main` and `v1.1.0` to origin
+🚩🐙 pruned `add-search-filter`, `fix-login-redirect`
+🚩🐙 fast-forwarded `dev` to `main`, local and origin
+</post-push-prune-output-example>
+
+
+
+### {description}
+
+Scrubs up after a version release: reports the release, then, each on approval, pushes `main` and its `v` tag, prunes merged branches, and fast-forwards `dev` to `main`.
+
+### {when_to_use}
+
+Reach for this once a release is merged into `main` and tagged: "push the release," "clean up after the release," "sync dev with main." Not for cutting the release itself (use the release-version skill) or pruning branches alone (use the prune-merged-branches skill).
+
+
+
+### {[Claude:Skill] Usage}
+
+Invoke `prune-merged-branches` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `prune-merged-branches` skill with `skill_view`.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -447,41 +569,15 @@ Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag 
 
 
 
-#### Movement 11: Report and Ask Approval
+#### Movement 11~12: Scrub After the Release
 
-Reply as below, asking 3 approvals: push `main` and the tag, prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)), and fast-forward `dev` to `main`, local and remote. If any Movement halts, report where and why in one line, then stop.
-
-<post-release-output-example>
-🚩🐙 Minor Release 1.1.0
-✍️ ⓑ push `main` and `v1.1.0` to origin?
-✍️ ⓒ prune merged branches `add-search-filter`, `fix-login-redirect`?
-✍️ ⓓ fast-forward `dev` to `main`, local and origin?
-ⓐ all of above
-</post-release-output-example>
-
-
-
-#### Movement 12: Push, Prune, and Sync Dev
-
-Run only the approved actions, in order; ⓐ approves all three:
-
-- ⓑ `git push origin main vVERSION`
-- ⓒ invoke `prune-merged-branches`
-- ⓓ fast-forward `dev` to `main`, local and origin; if it cannot fast-forward, report in one line and stop
-
-Reply once, after all are done:
-
-<post-push-prune-output-example>
-🚩🐙 pushed `main` and `v1.1.0` to origin
-🚩🐙 pruned `add-search-filter`, `fix-login-redirect`
-🚩🐙 fast-forwarded `dev` to `main`, local and origin
-</post-push-prune-output-example>
+Run [Scrub After Version Release](#scrub-after-version-release) whole, once the tag lands. If any earlier Movement halts, report where and why in one line, then stop.
 
 
 
 ### {description}
 
-Releases the project: runs every Ready for Version Release movement, merges the branch into `main` with a typed release message, and tags the merge with its `v` version.
+Releases the project: runs every Ready for Version Release movement, merges the branch into `main` with a typed release message, tags the merge with its `v` version, then runs Scrub After Version Release.
 
 ### {when_to_use}
 
@@ -491,8 +587,8 @@ Reach for this when a release should go out: "release 1.2.0," "cut a release and
 
 ### {[Claude:Skill] Usage}
 
-Invoke `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `prune-merged-branches` skills via `Skill` tool.
+Invoke `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `scrub-released-version` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `prune-merged-branches` skills with `skill_view`.
+Load `ready-release-version`, `commit-sense`, `commit-sense-branch-merging`, `resolve-merge-conflict`, and `scrub-released-version` skills with `skill_view`.
