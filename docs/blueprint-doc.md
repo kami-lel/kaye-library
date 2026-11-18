@@ -48,6 +48,7 @@ flowchart LR
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
     ready_release_version["ready-release-version"] --> proj_version_extended
+    scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
     proj_version_bump --> proj_version["proj-version"]
     proj_version_extended --> proj_version
@@ -91,6 +92,7 @@ flowchart LR
     git_sense_dify_per_file --> git_sense_per_file_summary
     git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
     ready_land_feature["ready-land-feature"] --> git_feature_discover
+    scrub_landed_feature["scrub-landed-feature"] --> git_feature_branch["git-feature-branch"]
     submit_pr["submit-pr"] --> ready_land_feature
     submit_pr --> git_feature_summary
     tend_linked_wt["tend-linked-wt"] --> plant_linked_wt["plant-linked-wt"]
@@ -189,4 +191,8 @@ flowchart LR
     good_morning --> hunt_job_opportunity["hunt-job-opportunity"]
     good_week["good-week"] --> scan_event_radar_weekly["scan-event-radar-weekly"]
     good_week --> hunt_job_opportunity
+    land_feature["land-feature"] --> scrub_landed_feature["scrub-landed-feature"]
+    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
+    release_version["release-version"] --> scrub_released_version["scrub-released-version"]
+    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
 ```

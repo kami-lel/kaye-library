@@ -5,7 +5,6 @@ Todo very basic kaye persona
 TODO add basic finance report
 TODO add dev lop writer
 FIXME plan for suite support parallel, w/ WT
-FIXME clean up steps for post feature branch landed as its own exportable
 TODO clean up w/ version bump
 FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
@@ -15,8 +14,11 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev`
+
 ### Changed
 
+- `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
 
 > [!WARNING]
