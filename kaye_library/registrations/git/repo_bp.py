@@ -48,8 +48,9 @@ def register_repo_blueprints():
 
     :raises KeyError: ``style-briefness-style``, ``style-good-writing``,
             ``proj-version-extended``,
-            ``element-dt-year-month-day-format``, ``ready-land-feature``,
-            or ``git-feature-summary`` is not yet registered
+            ``element-dt-year-month-day-format``, ``proj-version-title``,
+            ``ready-land-feature``, or ``git-feature-summary`` is not yet
+            registered
     """
     repo_node = get_corpus_node("Git")
 
@@ -94,6 +95,7 @@ def register_repo_blueprints():
             "style-briefness-style",
             "style-good-writing",
             "element-dt-year-month-day-format",
+            "proj-version-title",
         ],
     )
 

@@ -195,6 +195,45 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                       'releases, and the commit log',
                       '## Repository CHANGELOG Writer',
                       '### Semantic Version Extended'],
+ 'create-credits': ['## Create CREDITS',
+                    'inventory the third-party material the repository '
+                    'ships',
+                    "marking every field nobody can confirm `unknown`",
+                    '## Repository CREDITS Writer'],
+ 'create-devlog': ['## Create DEVLOG',
+                   "reconstruct the project's history from the commit "
+                   'log, tags, `CHANGELOG.md`',
+                   'never a guessed motive',
+                   '## Repository DEVLOG Writer',
+                   '### Year Month Day Format'],
+ 'maintain-credits': ['## Maintain CREDITS',
+                      'remove a row whose asset has left the repository',
+                      '## Repository CREDITS Writer'],
+ 'maintain-devlog': ['## Maintain DEVLOG',
+                     'add a new entry directly under the title',
+                     'leave past entries as written',
+                     '## Repository DEVLOG Writer'],
+ 'repo-credits-writer': ['## Repository CREDITS Writer',
+                         '# Example Repository CREDITS',
+                         '| Asset | Source | Author | License |',
+                         "a field nobody can confirm reads `unknown`, "
+                         'never a guess',
+                         '<credits-counter-example>',
+                         '#### Contributors and Acknowledgments',
+                         'add no contact details, accounts, or links '
+                         'unless that person asks for them'],
+ 'repo-devlog-writer': ['## Repository DEVLOG Writer',
+                        '# Example Repository DEVLOG',
+                        'labeled `Finding → Fix`',
+                        '`Initially <what was tried>; changed to <what '
+                        'replaced it>`',
+                        'keep them in `devlog-assets/` beside `DEVLOG.md`',
+                        "that version's exact [Semantic Version "
+                        'Title](#semantic-version-title), word for word',
+                        '## 02026-03-25 (Week 8): Beta Release '
+                        '`1.0.0-beta.2`',
+                        '### Year Month Day Format',
+                        '### Semantic Version Title'],
  'create-project-agents': ['### Create Project AGENTS',
                            "ground the file in the project's own material "
                            'and the conversation; write only what they '
@@ -472,8 +511,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'projects:',
                     '- `CHANGELOG.md`: full version history; each release '
                     'is documented here',
-                    '- `CREDITS.md`: acknowledgements, contributors, and '
-                    'third-party attributions',
+                    '- `CREDITS.md`: third-party assets and libraries, '
+                    'with source, author, and license; optionally '
+                    'contributors and acknowledgments',
                     '- `DEVLOG.md`: development journal, decisions, and '
                     'progress notes',
                     '- `src/` or package-name: primary source code folder',
@@ -595,6 +635,16 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'condense-changelog': 'rewords its entries into concise, high-level '
                        'changelog style and adds Admonitions for Breaks '
                        'and Hazards where warranted.',
+ 'create-credits': 'Bootstraps a `CREDITS.md` for a repository that '
+                   'has none',
+ 'create-devlog': 'Bootstraps a `DEVLOG.md` for a repository that has '
+                  'none',
+ 'maintain-credits': 'Updates an existing `CREDITS.md` against what '
+                     'changed',
+ 'maintain-devlog': 'entry to an existing `DEVLOG.md`',
+ 'repo-credits-writer': 'Writes and maintains `CREDITS.md`',
+ 'repo-devlog-writer': 'Writes and maintains `DEVLOG.md`, a development '
+                       'journal',
  'create-project-agents': 'Creates `AGENTS.md` for a generic project that '
                           'has none',
  'create-project-docs': 'Creates topic-focused `docs/` files for a generic '
