@@ -161,9 +161,9 @@ Three small skills for the text your code prints:
 
 Every project file, written right and kept current.
 
-A good project speaks to five readers. The README greets visitors. The CHANGELOG tells users what changed. `AGENTS.md` gives AI agents their rules. `CONTEXT.md` explains the architecture. `docs/` goes deep. Two optional files round it out: `CREDITS.md` credits every third-party asset, and `DEVLOG.md` keeps the team's journal. kaye-library has a writer for each.
+A good project speaks to **five readers**: the README greets visitors, the CHANGELOG tells users what changed, `AGENTS.md` gives AI agents their rules, `CONTEXT.md` explains the architecture, and `docs/` goes deep. Optional `CREDITS.md` and `DEVLOG.md` cover third-party credits and the team's journal. Each file has its own writer.
 
-Most writers come with two workflows. Create builds the file from nothing. Maintain updates it in place after the code moves on.
+Most writers have two workflows: **Create** builds the file from nothing, **Maintain** updates it in place as the code moves on.
 
 | File | Who Reads It | Writer | Create | Maintain |
 |---|---|---|---|---|
