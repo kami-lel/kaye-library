@@ -16,6 +16,7 @@ todo good morning incl finance report
 - `style-markdown-file-assets`: each `.md` file's assets in sibling `<name>-assets/` folder, linked by relative `./` path; DEVLOG writer follows it
 - `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 - `Personality` root w/ Personality Formatting rule; internal `personality-formatting` blueprint; `person-signifier` glossary w/ the Kaye signifier, which a consumer extends w/ its own personas
+- internal `persona-kaye` blueprint, over internal `persona-kaye-speech-habit`: Kaye persona & its address-free speech habits
 
 ### Changed
 

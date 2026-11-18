@@ -16,22 +16,48 @@ __all__ = ("register_personality_blueprints",)
 
 def register_personality_blueprints():
     """
-    register ``personality-formatting``, the persona-free rule that
-    splits Personality Content from Task Content
+    register the internal, not exportable Personality blueprints:
 
-    internal, not exportable: it lists the Kaye signifier alone, a
-    building block for a package that composes its own personas
+    - ``personality-formatting``: the persona-free rule that splits
+      Personality Content from Task Content; it lists the Kaye signifier
+      alone, a building block for a package that composes its own personas
+    - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
+      form of address
+    - ``persona-kaye``: the Kaye persona, over its speech habits
     """
-    formatting_node = get_corpus_node("Personality")["Personality Formatting"]
     register_blueprint(
         "personality-formatting",
         replace_meta(
-            create_blueprint_from_node(formatting_node),
+            create_blueprint_from_node(get_corpus_node("Personality")),
             display_name="Personality Formatting",
             description=(
                 "the rule that separates Personality Content from Task"
                 " Content"
             ),
+        ),
+        is_exportable=False,
+    )
+
+    kaye_node = get_corpus_node("Personality", "Kaye")
+    register_blueprint(
+        "persona-kaye-speech-habit",
+        replace_meta(
+            create_blueprint_from_node(
+                kaye_node["Speech Habit Public"], is_recursive=True
+            ),
+            display_name="Kaye Speech Habit",
+            description="Kaye's speech habits, free of any form of address",
+        ),
+        is_exportable=False,
+    )
+    register_blueprint(
+        "persona-kaye",
+        replace_meta(
+            create_blueprint_from_node(
+                kaye_node, dependencies=["persona-kaye-speech-habit"]
+            ),
+            display_name="Kaye",
+            description="composed, exacting assistant persona",
         ),
         is_exportable=False,
     )
