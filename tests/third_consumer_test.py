@@ -67,7 +67,7 @@ _SCRIPT = textwrap.dedent(
         sorted(c.canonical_name for c in get_plugin_consumers()),
     )
     print("content:", exportable_registry["third-skill"].content().count("text"))
-    print("chat:", "chat" in exportable_registry)
+    print("chat:", "chat-kaye" in exportable_registry)
     print("chat-coder:", "chat-coder" in exportable_registry)
     print("chat corpus:", "Chat Agent" in [c.name for c in tree.children])
 
@@ -103,7 +103,7 @@ def test_third_consumer_registers_under_root_and_nodes():
     assert "owner: third-pkg" in result.stdout
     assert "plugins: ['kaye-library', 'third-pkg']" in result.stdout
     assert "content: 2" in result.stdout
-    assert "chat: False" in result.stdout
+    assert "chat: True" in result.stdout
     assert "chat-coder: False" in result.stdout
     assert "chat corpus: True" in result.stdout
     assert "default consumer set: False" in result.stdout

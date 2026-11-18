@@ -55,8 +55,8 @@ class TestEngineSubcommands:
         names = result.stdout.split()
         assert "commit-sense" in names
         assert "coder" in names
-        assert "chat" in names
-        assert "chat-coder" in names
+        assert "chat-kaye" in names
+        assert "chat-coder" not in names
         assert "kaye-chat" not in names
 
     def test_skill_all_exports_every_skill(_, tmp_path):

@@ -4,16 +4,11 @@ kaye_library.registrations.meta_prompt.meta_prompt_bp.py
 register Meta Prompt related blueprints
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
-from .._common import register_exportable, register_node
+from .._common import register_internal, register_exportable, register_node
 
 __all__ = ("register_meta_prompt_blueprints",)
-
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_meta_prompt_blueprints():
@@ -23,7 +18,7 @@ def register_meta_prompt_blueprints():
     meta_prompt_node = get_corpus_node("Meta Prompt")
 
     register_node(
-        _register_internal, "meta-prompt", get_corpus_node(), "Meta Prompt"
+        register_internal, "meta-prompt", get_corpus_node(), "Meta Prompt"
     )
 
     register_node(
@@ -39,7 +34,7 @@ def register_meta_prompt_blueprints():
     write_for_skill_node = meta_prompt_node["Write for Skill"]
 
     register_node(
-        _register_internal,
+        register_internal,
         "write-for-skill",
         meta_prompt_node,
         "Write for Skill",

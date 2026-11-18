@@ -67,6 +67,8 @@ _CORPUS_SOURCES = [
     (("Git",), "git/workflow.md"),
     (("Git",), "git/branch.md"),
     ((), "p4v/p4v.md"),
+    ((), "personality/personality.md"),
+    (("Personality",), "personality/personality-kaye.md"),
     ((), "meta_prompt/meta_prompt.md"),
     ((), "amanuensis/amanuensis.md"),
     ((), "secretary/secretary.md"),
@@ -171,14 +173,6 @@ def _register_standalone_dynamic_substitutions():
     register_substitutions()
 
 
-def _register_standalone_chat_blueprints():
-    from kaye_library.registrations.chat.chat_bp import (  # pylint: disable=C0415
-        register_standalone_chat_blueprints as register_chat,
-    )
-
-    register_chat()
-
-
 def setup_kaye_library_for_kaye_engine():
     """
     run the six steps in order, then the extras only a standalone process
@@ -194,13 +188,13 @@ def setup_kaye_library_for_kaye_engine():
 
     then the entry consumer via ``set_entry_consumer``, the repo name,
     repo version, and default consumer that name every release asset, and
-    the Claude, Codex and Hermes CLI configuration, naming ``chat``,
-    ``chat-coder`` and the ``chat`` Hermes soul
+    the Claude, Codex and Hermes CLI configuration, naming ``chat-kaye``,
+    ``coder`` and the ``chat-basic-kaye`` Hermes soul
 
-    only this function registers the standalone chat base (a persona-free
-    ``chat``, the non-invokable ``chat-coder`` merging it with ``coder``,
-    and a default ``secretary-email-authuser`` of ``0``), so a package
-    building on the library, calling the six steps instead, never sees it
+    only this function registers the standalone extra, a default
+    ``secretary-email-authuser`` of ``0``, so a package building on the
+    library, calling the six steps instead, never sees it; ``chat-kaye`` and
+    ``coder`` register in step 6, for such a package to take over
 
     a process runs exactly one setup function: a package building on the
     library calls the six steps instead, and never this one
@@ -222,7 +216,6 @@ def setup_kaye_library_for_kaye_engine():
 
     try:
         register_kaye_library_blueprints()
-        _register_standalone_chat_blueprints()
     except (KeyError, AttributeError) as err:
         logger.critical("failed to register library blueprints:\t" + str(err))
         raise SystemExit(1) from err
@@ -231,6 +224,6 @@ def setup_kaye_library_for_kaye_engine():
     set_default_consumer(PACKAGE_NAME)
     set_repo_name(PACKAGE_NAME)
     set_repo_version(version(PACKAGE_NAME))
-    setup_claude_cli("chat", "chat-coder")
-    setup_codex_cli("chat", "chat-coder")
-    setup_hermes_cli("chat")
+    setup_claude_cli("chat-kaye", "coder")
+    setup_codex_cli("chat-kaye", "coder")
+    setup_hermes_cli("chat-basic-kaye")

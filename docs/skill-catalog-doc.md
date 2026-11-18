@@ -56,8 +56,6 @@ It all starts with `/coder`: the house rules for all code. Lines stay under 80 c
 
 You rarely call `/coder` yourself. Every language profile calls it first, then adds its own rules. Python and C# share one set of habits, yet each reads like it was written by a native.
 
-Coding all session? `chat-coder` bundles the `/chat` rules with `/coder`. Your agent loads it on its own; it stays out of the slash menu.
-
 
 
 
@@ -750,7 +748,7 @@ Run three features at once. None collide. A linked worktree is a second working 
 
 ## 🤖 Agentic
 
-How your agent works with you, turn by turn. `/chat` sets the conversation rules: reply language, shared terms for each step, and clearly marked questions you can't miss.
+How your agent works with you, turn by turn. The conversation rules apply on their own, in Kaye's voice: reply language, shared terms for each step, and clearly marked questions you can't miss.
 
 
 

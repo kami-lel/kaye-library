@@ -21,6 +21,25 @@ from .._common import (
 __all__ = ("register_coder_pl_blueprints",)
 
 
+def _register_with_checkmark(
+    slug, container, name, checkmarked_node, *, recursively=False,
+    dependencies=None,
+):
+    """
+    register ``name`` from ``container`` as an exportable, with
+    ``checkmarked_node`` also checkmarked non-recursively
+    """
+    bp = checkmark_nodes(
+        create_blueprint_from_node(
+            container[name],
+            is_recursive=recursively,
+            dependencies=dependencies or (),
+        ),
+        checkmarked_node,
+    )
+    register_exportable(slug, replace_meta(bp, display_name=name))
+
+
 def register_coder_pl_blueprints(coder_node):
     """
     register every per-language Coder profile
@@ -30,31 +49,29 @@ def register_coder_pl_blueprints(coder_node):
     :type coder_node: BasePromptNode
     """
     # Bash Shell
-    coder_bash_shell = register_node(
-        register_exportable,
+    _register_with_checkmark(
         "coder-bash-shell",
         coder_node["Bash"],
         "Coder Bash Shell",
-    )
-    coder_bash_shell.blueprint = checkmark_nodes(
-        coder_bash_shell.blueprint, coder_node["Bash"]
+        coder_node["Bash"],
     )
 
     # Bash Script
-    coder_bash_script = register_exportable(
+    register_exportable(
         "coder-bash-script",
         replace_meta(
-            merge_blueprints(
-                create_blueprint_from_node(
-                    coder_node["Bash"]["Coder Bash Script"], is_recursive=True
+            checkmark_nodes(
+                merge_blueprints(
+                    create_blueprint_from_node(
+                        coder_node["Bash"]["Coder Bash Script"],
+                        is_recursive=True,
+                    ),
+                    glossary_blueprint("coder-documentation-field-shorthand"),
                 ),
-                glossary_blueprint("coder-documentation-field-shorthand"),
+                coder_node["Bash"],
             ),
             display_name="Coder Bash Script",
         ),
-    )
-    coder_bash_script.blueprint = checkmark_nodes(
-        coder_bash_script.blueprint, coder_node["Bash"]
     )
 
     # Coder PowerShell
@@ -63,41 +80,34 @@ def register_coder_pl_blueprints(coder_node):
     )
 
     # Coder C
-    coder_c = register_node(register_exportable, "coder-c", coder_node, "Coder C")
-    coder_c.blueprint = checkmark_nodes(
-        coder_c.blueprint, coder_node["Brace Style"]
+    _register_with_checkmark(
+        "coder-c", coder_node, "Coder C", coder_node["Brace Style"]
     )
 
     # Coder C++
-    coder_cpp = register_node(
-        register_exportable,
+    _register_with_checkmark(
         "coder-cpp",
         coder_node,
         "Coder CPP",
+        coder_node["Brace Style"],
         dependencies=["coder-c"],
-    )
-    coder_cpp.blueprint = checkmark_nodes(
-        coder_cpp.blueprint, coder_node["Brace Style"]
     )
 
     # Coder Unreal Engine
-    coder_ue = register_node(
-        register_exportable,
+    _register_with_checkmark(
         "coder-ue",
         coder_node,
         "Coder Unreal Engine",
+        coder_node["Brace Style"],
         dependencies=["coder-cpp"],
-    )
-    coder_ue.blueprint = checkmark_nodes(
-        coder_ue.blueprint, coder_node["Brace Style"]
     )
 
     # Coder C Sharp
-    coder_csharp = register_node(
-        register_exportable, "coder-c-sharp", coder_node, "Coder C Sharp"
-    )
-    coder_csharp.blueprint = checkmark_nodes(
-        coder_csharp.blueprint, coder_node["Brace Style"]
+    _register_with_checkmark(
+        "coder-c-sharp",
+        coder_node,
+        "Coder C Sharp",
+        coder_node["Brace Style"],
     )
 
     # Coder GDScript
@@ -109,15 +119,12 @@ def register_coder_pl_blueprints(coder_node):
     register_node(register_exportable, "coder-html", coder_node, "Coder HTML")
 
     # Coder JavaScript and TypeScript
-    coder_js_ts = register_node(
-        register_exportable,
+    _register_with_checkmark(
         "coder-javascript-and-typescript",
         coder_node,
         "Coder JavaScript and TypeScript",
+        coder_node["Brace Style"],
         recursively=True,
-    )
-    coder_js_ts.blueprint = checkmark_nodes(
-        coder_js_ts.blueprint, coder_node["Brace Style"]
     )
 
     # Python  ------------------------------------------------------------

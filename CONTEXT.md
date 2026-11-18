@@ -33,8 +33,8 @@ kaye_library/
   __main__.py       console entry point
   abbrs.json        abbreviation entries of the glossaries library text splices
   registrations/    one folder per feature group: corpus .md beside its registrations
-    _common.py      consumer-bound registration helpers, generic leaf helpers
-    _dynamic_substitution.py  md-file dynamic substitution helper
+    _common.py      consumer name, `bind_registrars` line, `register_children`; engine helpers re-exported
+    _dynamic_substitution.py  engine md-file dynamic substitution bound to the library logger
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
 .github/workflows/  tag-triggered release build
 ```
@@ -50,7 +50,7 @@ A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine
 5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
 6. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, and the `Chat Agent` corpus (a root node every consumer receives, registered with the six steps); a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat` and `chat-coder`, and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
+Step 6 registers the chat stack (`registrations/chat/`) in every setup: internal `chat-basic` (the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, the `Chat Agent` corpus), internal `chat` (`chat-basic` alone, persona-free), internal `chat-basic-kaye` (`chat-basic` + `persona-kaye`, the Hermes soul) and exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, rendering `for Kaye`). A host replaces `chat` in place with `override_blueprint` and re-homes `chat-kaye` with `override_exportable`, no blueprint passed. `coder`, Kaye Peer Coder, depends on `chat-kaye` by name, so a host's `chat` replacement reaches it too. `persona-kaye` takes the whole Kaye node less its speech habit, so a host's sections nested beneath it ride along, gated by their sidecars. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat-kaye` and `coder`, and Hermes with the `chat-basic-kaye` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -63,7 +63,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | root | holds |
 |---|---|
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
-| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by the standalone `chat` |
+| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
@@ -84,7 +84,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 
 ## Registration Helpers
 
-`registrations/_common.py` binds the `kaye-library` consumer; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
+`registrations/_common.py` binds the `kaye-library` consumer with the engine's `bind_registrars`, and re-exports the engine's `register_node`, `register_leaf` and `glossary_blueprint`; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
 
 | helper | registers |
 |---|---|
@@ -92,17 +92,17 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | `register_prompt` | an exportable skill the assistant does not surface on its own (`llm_invokable=False`) |
 | `register_node` | a node (optionally recursive) under a slug, through any of the above |
 | `register_leaf` | one leaf with its ancestor headings, descriptors included |
-| `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
+| `register_internal` | an internal building block, never exported |
 
 Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`; the full graph is in the [blueprint documentation](docs/blueprint-doc.md).
 
 ## Content Boundary
 
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
-- stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
+- stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
-- `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
-- the `Coder` root carries no conversation rules: the `coder` skill carries the rules alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around the `coder` blueprint object
+- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
+- the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
 
 ## Abbreviation Database
 

@@ -7,16 +7,17 @@ the feature landing and version release workflows, each with its ready and
 scrub halves
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
-from .._common import register_leaf, register_node, register_prompt
+from .._common import (
+    register_internal,
+    register_leaf,
+    register_node,
+    register_prompt,
+)
 
 __all__ = ("register_branch_blueprints",)
 
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 # discover and summary are h3 sections, so they nest under the feature branch
 # definition in the corpus
@@ -37,7 +38,7 @@ def register_branch_blueprints():
 
     # Feature Branch
     register_leaf(
-        _register_internal,
+        register_internal,
         "git-feature-branch",
         ("Git",),
         "feature branch",
@@ -46,7 +47,7 @@ def register_branch_blueprints():
 
     # Hotfix Branch
     register_leaf(
-        _register_internal,
+        register_internal,
         "git-hotfix-branch",
         ("Git",),
         "hotfix branch",
@@ -55,7 +56,7 @@ def register_branch_blueprints():
 
     # Release Branch
     register_leaf(
-        _register_internal,
+        register_internal,
         "git-release-branch",
         ("Git",),
         "release branch",
@@ -64,7 +65,7 @@ def register_branch_blueprints():
 
     # Feature Discover
     register_leaf(
-        _register_internal,
+        register_internal,
         "git-feature-discover",
         _FEATURE_BRANCH_PATH,
         "discover feature branch",
@@ -73,7 +74,7 @@ def register_branch_blueprints():
 
     # Feature Summary
     register_leaf(
-        _register_internal,
+        register_internal,
         "git-feature-summary",
         _FEATURE_BRANCH_PATH,
         "feature branch summary",

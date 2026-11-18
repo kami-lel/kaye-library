@@ -4,16 +4,11 @@ kaye_library.registrations.git.workflow_bp.py
 register invokable Repository workflow prompts
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
 from .._common import register_node, register_prompt
 
 __all__ = ("register_repo_workflow_blueprints",)
-
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_repo_workflow_blueprints():

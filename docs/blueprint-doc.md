@@ -178,42 +178,117 @@ flowchart LR
     recap_today --> style_briefness_style
 ```
 
-#### Standalone Chat
+#### Chat
 
 ```mermaid
 flowchart LR
-    chat --> style_markdown["style-markdown"]
-    chat --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
+    chat_basic["chat-basic"] --> style_markdown["style-markdown"]
+    chat_basic --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
+    chat --> chat_basic
+    chat_basic_kaye["chat-basic-kaye"] --> chat_basic
+    chat_basic_kaye --> persona_kaye["persona-kaye"]
+    chat_kaye["chat-kaye"] --> chat
+    chat_kaye --> persona_kaye
+    persona_kaye --> persona_kaye_speech_habit["persona-kaye-speech-habit"]
     element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
-    chat_coder["chat-coder"] --> chat
-    chat_coder --> coder
+    coder --> chat_kaye
     rapid --> style_markdown
 ```
 
+## Registration
+
+Every blueprint registers in `kaye_library/registrations/<group>/<group>_bp.py` through the helpers of `registrations/_common.py`: `register_exportable`, `register_prompt`, `register_internal` and `register_abbr_glossary`, bound to the `kaye-library` consumer by the engine's `bind_registrars`, plus the engine's `register_node`, `register_leaf` and `glossary_blueprint`, which `_common.py` re-exports. They are `kaye-engine` public API, so a third consumer builds its own the same way; see the engine's [Registration Helpers](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md#registration-helpers). A blueprint is built whole before it registers, never edited afterwards.
+
+`chat` is chat alone, persona-free and internal; `chat-kaye` is `chat` plus `persona-kaye`, the exported skill. A consumer replaces `chat` in place with `override_blueprint`, so `chat-kaye`, its own persona chats and `coder` pick up its version by name, and re-homes `chat-kaye` into its plugin with `override_exportable`, passing no blueprint. `persona-kaye` takes the whole Kaye node less its speech habit, so a section a consumer nests beneath it renders when the consumer's sidecar profile names it.
+
 ## Blueprint Invocation Graph
 
-Every `Invoke ... skill via Skill tool` call; `A --> B` reads "A invokes B" at runtime.
+Every `Invoke ... skill via Skill tool` call a skill's own text makes, dependencies' calls left to them; `A --> B` reads "A invokes B" at runtime.
+
+#### Agentic & Coder
 
 ```mermaid
 flowchart LR
     coder_profiles["coder-* language profiles"] --> coder
     coder_ue["coder-ue"] --> coder_c["coder-c"]
     coder --> sync_unit_test["sync-unit-test"]
-    coder --> execute_plan_for_suite["execute-plan-for-suite"]
-    execute_plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
-    coder --> cascade_all_movements["cascade-all-movements"]
-    coder --> halt_each_movement["halt-each-movement"]
-    coder --> tend_linked_wt["tend-linked-wt"]
+    plan_for_suite["plan-for-suite"] --> execute_plan_for_suite["execute-plan-for-suite"]
+    plan_for_suite --> cascade_all_movements["cascade-all-movements"]
+    plan_for_suite --> halt_each_movement["halt-each-movement"]
+    plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
+    plan_for_suite --> tend_linked_wt["tend-linked-wt"]
+    plan_for_suite --> commit_sense["commit-sense"]
+    execute_plan_for_suite --> cascade_all_movements
+    execute_plan_for_suite --> halt_each_movement
+    execute_plan_for_suite --> rework_plan_for_suite
+    execute_plan_for_suite --> commit_sense
+```
+
+#### Git & Repository
+
+```mermaid
+flowchart LR
     working_with_git["working-with-git"] --> commit_sense["commit-sense"]
+    initialize_repo["initialize-repo"] --> create_readme["create-readme"]
+    initialize_repo --> create_changelog["create-changelog"]
+    initialize_repo --> create_repo_agents["create-repo-agents"]
+    initialize_repo --> create_repo_docs["create-repo-docs"]
+    maintenance_before_compact["maintenance-before-compact"] --> maintain_changelog["maintain-changelog"]
+    maintenance_before_compact --> maintain_repo_agents["maintain-repo-agents"]
+    repo_changelog_writer["repo-changelog-writer"] --> sync_unit_test["sync-unit-test"]
+    repo_devlog_writer["repo-devlog-writer"] --> proj_version_title["proj-version-title"]
+    equip_proj_for_agent["equip-proj-for-agent"] --> proj_agents_writer["proj-agents-writer"]
+    submit_pr["submit-pr"] --> ready_land_feature["ready-land-feature"]
+    ready_land_feature --> sync_unit_test
+    ready_land_feature --> maintain_changelog
+    ready_land_feature --> maintain_repo_agents
+    ready_land_feature --> commit_sense
+    land_feature["land-feature"] --> ready_land_feature
+    land_feature --> commit_sense_branch_merging["commit-sense-branch-merging"]
+    land_feature --> resolve_merge_conflict["resolve-merge-conflict"]
+    land_feature --> scrub_landed_feature["scrub-landed-feature"]
+    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
+    ready_release_version["ready-release-version"] --> maintain_readme["maintain-readme"]
+    ready_release_version --> maintain_credits["maintain-credits"]
+    ready_release_version --> condense_changelog["condense-changelog"]
+    ready_release_version --> condense_agents_and_context["condense-agents-and-context"]
+    ready_release_version --> maintain_repo_docs["maintain-repo-docs"]
+    release_version["release-version"] --> ready_release_version
+    release_version --> commit_sense
+    release_version --> commit_sense_branch_merging
+    release_version --> resolve_merge_conflict
+    release_version --> scrub_released_version["scrub-released-version"]
+    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
+    scrub_released_version --> commit_sense
+```
+
+#### Secretary & Amanuensis
+
+```mermaid
+flowchart LR
     good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
     good_morning --> recap_yesterday["recap-yesterday"]
     good_morning --> scan_event_radar_daily["scan-event-radar-daily"]
     good_morning --> hunt_job_opportunity["hunt-job-opportunity"]
     good_week["good-week"] --> scan_event_radar_weekly["scan-event-radar-weekly"]
     good_week --> hunt_job_opportunity
-    land_feature["land-feature"] --> scrub_landed_feature["scrub-landed-feature"]
-    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
-    release_version["release-version"] --> scrub_released_version["scrub-released-version"]
-    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
-    scrub_released_version --> commit_sense
+    recap_today["recap-today"] --> pull_task_from_gtd["pull-task-from-gtd"]
+    recap_yesterday --> pull_task_from_gtd
+    bibliographer --> amanuensis_chicago_note["amanuensis-chicago-note"]
+```
+
+#### Unity
+
+Each Unity skill may invoke its siblings "if needed"; the entry points are shown, the sibling web is in `u3d.md`.
+
+```mermaid
+flowchart LR
+    u3d --> u3d_coding["u3d-coding"]
+    u3d --> u3d_naming["u3d-naming"]
+    u3d --> u3d_assets_management["u3d-assets-management"]
+    u3d --> coder_c_sharp["coder-c-sharp"]
+    u3d_coding --> coder_comment_banner["coder-comment-banner-in-code-comment"]
+    u3d_naming --> coder
+    u3d_naming --> style_letter_case_pascal_case["style-letter-case-pascal-case"]
+    u3d_assets_management --> style_letter_case_pascal_case
 ```
