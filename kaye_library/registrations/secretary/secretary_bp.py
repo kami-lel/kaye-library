@@ -4,9 +4,6 @@ kaye_library.registrations.secretary.secretary_bp.py
 register Secretary related blueprints
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.sidecar_node import get_sidecar_name
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
@@ -18,6 +15,7 @@ from kaye_engine.prompt.blueprint import (
 )
 
 from .._common import (
+    register_internal,
     mark_as_leaf,
     register_exportable,
     register_leaf,
@@ -28,7 +26,6 @@ __all__ = ("register_secretary_blueprints",)
 
 # internal, not exportable: reused only as a dependency by other
 # Secretary blueprints, never surfaced on its own
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def _register_node_blueprint(
@@ -68,7 +65,7 @@ def _register_scan_event_radar(slug, name, description, dropped_gather_node):
         ],
     )
     try:
-        bp = uncheckmark_nodes(bp, dropped_gather_node)
+        bp = uncheckmark_nodes(bp, dropped_gather_node, is_recursive=True)
     except ValueError:
         # a gather Bar a consumer supplies is absent when the library
         # runs alone, so there is nothing to drop
@@ -151,7 +148,7 @@ def _register_report_info_field_leaf(slug, leaf_name, dependencies=()):
     )
     bp = mark_as_leaf(bp, (*common_field_path, leaf_name))
 
-    _register_internal(slug, replace_meta(bp, display_name=leaf_name))
+    register_internal(slug, replace_meta(bp, display_name=leaf_name))
 
 
 _DAILY_RECAP_LEAF_NAMES = ("recap yesterday", "recap today")

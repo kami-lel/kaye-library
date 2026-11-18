@@ -1,4 +1,4 @@
-# kaye-library：Claude 使用文档
+# Kaye Library：Claude 使用文档
 
 [English](claude-usage-doc.md) | 简体中文
 
@@ -26,7 +26,7 @@ Claude Desktop 有 3 种安装方式：
 
    ![“添加插件市场”对话框里的“从仓库添加”](assets/claude-desktop-marketplace-step-4-add-from-repository.png)
 
-5. 在 *URL* 一栏填入下面的内容，然后选择 *使用 "kami-lel/kaye-library-marketplace"*：
+5. 在 *URL* 输入框中填入以下内容，然后选择 *使用 "kami-lel/kaye-library-marketplace"*：
 
    ```text
    kami-lel/kaye-library-marketplace
@@ -61,13 +61,13 @@ Claude Desktop 有 3 种安装方式：
 
 自己生成插件包，然后上传。
 
-1. 构建 zip：
+1. 构建 zip 包：
 
    ```bash
-   kaye-engine claude plugin -z
+   kaye-library claude plugin -z
    ```
 
-2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤，上传当前目录下生成的 `CONSUMER-claude-VERSION.zip`。
+2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤，上传当前目录下生成的 `kaye-library-claude-VERSION.zip`。
 
 
 
@@ -87,7 +87,7 @@ Claude Desktop 有 3 种安装方式：
 
    ![“添加”菜单里的“上传插件”](assets/claude-desktop-step-3-add-upload-plugin.png)
 
-4. 把 zip 拖进对话框，或者点击浏览选中文件，然后点击 *上传*。
+4. 把 zip 包拖进对话框，或者点击浏览并选择文件，然后点击 *上传*。
 
    ![“上传插件”对话框](assets/claude-desktop-step-4-upload-dialog.png)
 
@@ -105,7 +105,7 @@ Claude Desktop 有 3 种安装方式：
 
 ## Claude Code VS Code 扩展
 
-VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安装的插件](#检查已安装的插件) 确认一下。
+VS Code 扩展有 4 种安装方式，任选一种即可。装好后，按 [检查已安装的插件](#检查已安装的插件) 确认一下。
 
 ### ⓐ 通过 URL 添加插件市场
 
@@ -113,7 +113,7 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 
    ![斜杠菜单里的“管理插件”](assets/claude-vsc-step-1-manage-plugins.png)
 
-2. 打开 *插件市场* 标签页，在输入框里填入下面的内容，然后点击 *添加*：
+2. 打开 *插件市场* 标签页，在输入框中填入以下内容，然后点击 *添加*：
 
    ```text
    kami-lel/kaye-library-marketplace
@@ -145,7 +145,7 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 下载现成的安装包，直接运行。
 
 1. 到 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-vsc-installer-Win.zip`。
-2. 解压，双击 `install.cmd`。
+2. 解压后双击 `install.cmd`。
 3. 重启 VS Code。
 4. 按 [检查已安装的插件](#检查已安装的插件) 确认安装结果。
 
@@ -159,7 +159,7 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 下载现成的安装包，直接运行。
 
 1. 到 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-vsc-installer-linux.run`。
-2. 运行：
+2. 运行安装包：
 
    ```bash
    bash kaye-library-VERSION-claude-vsc-installer-linux.run
@@ -177,10 +177,10 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 
 一条命令搞定。
 
-1. 运行：
+1. 运行以下命令：
 
    ```bash
-   kaye-engine claude vs-code-extension
+   kaye-library claude vs-code-extension
    ```
 
 2. 重启 VS Code。
@@ -197,10 +197,10 @@ VS Code 扩展有 4 种安装方式：任选一种，装好后按 [检查已安�
 
    ![斜杠菜单里的“管理插件”](assets/claude-vsc-step-1-manage-plugins.png)
 
-2. 打开 *插件* 标签页，确认 *已安装* 下有 `kaye-library`，并且开关已经打开。
+2. 打开 *插件* 标签页，确认 *已安装* 下有 `kaye-library`，并且开关处于开启状态。
 
    ![已安装插件均已启用的“插件”标签页](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. 打开 *插件市场* 标签页，确认列表里有 `kaye-engine`。
+3. 打开 *插件市场* 标签页，确认列表里有 `kaye-library`。
 
-   ![列表里有 kaye-engine 的“插件市场”标签页](assets/claude-vsc-step-3-marketplaces-tab.png)
+   ![列表里有 kaye-library 的“插件市场”标签页](assets/claude-vsc-step-3-marketplaces-tab.png)

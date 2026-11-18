@@ -178,7 +178,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                   '### per-file summary',
                   '### Commit Sense',
                   'Commit the indexed changes: draw the message from the '
-                  'conversation'],
+                  'conversation',
+                  '`Co-authored-by: Kaye LeL '
+                  '<341862645+kaye-lel@users.noreply.github.com>`'],
  'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
                                  'You work from the **files alone**: no '
                                  'change set, no conversation to draw on, '
@@ -195,6 +197,52 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                       'releases, and the commit log',
                       '## Repository CHANGELOG Writer',
                       '### Semantic Version Extended'],
+ 'create-credits': ['## Create CREDITS',
+                    'inventory the third-party material the repository '
+                    'ships',
+                    "marking every field nobody can confirm `unknown`",
+                    '## Repository CREDITS Writer'],
+ 'create-devlog': ['## Create DEVLOG',
+                   "reconstruct the project's history from the commit "
+                   'log, tags, `CHANGELOG.md`',
+                   'never a guessed motive',
+                   '## Repository DEVLOG Writer',
+                   '### Year Month Day Format'],
+ 'maintain-credits': ['## Maintain CREDITS',
+                      'remove a row whose asset has left the repository',
+                      '## Repository CREDITS Writer'],
+ 'maintain-devlog': ['## Maintain DEVLOG',
+                     'add a new entry directly under the title',
+                     'leave past entries as written',
+                     '## Repository DEVLOG Writer'],
+ 'repo-credits-writer': ['## Repository CREDITS Writer',
+                         '# Example Repository CREDITS',
+                         '| Asset | Source | Author | License |',
+                         "a field nobody can confirm reads `unknown`, "
+                         'never a guess',
+                         '<credits-counter-example>',
+                         '#### Contributors and Acknowledgments',
+                         'add no contact details, accounts, or links '
+                         'unless that person asks for them'],
+ 'repo-devlog-writer': ['## Repository DEVLOG Writer',
+                        '# Example Repository DEVLOG',
+                        'Skipped Tutorial → Starting Zone Rework',
+                        'closing with `Initially …; changed to …` where the '
+                        'approach moved',
+                        'keep them in `DEVLOG-assets/`, linked per [Markdown '
+                        'File Assets](#markdown-file-assets)',
+                        '### Markdown File Assets',
+                        'leave a Loud `TODO` [Triage Tag](#triage-tags) in '
+                        'its place',
+                        '<!-- TODO screenshot: oil gauge near empty, before '
+                        'the flicker -->',
+                        '## Triage Tags',
+                        'its exact [Semantic Version '
+                        'Title](#semantic-version-title), word for word',
+                        '## 02026-03-25 (Week 8): Beta Release '
+                        '`1.0.0-beta.2`',
+                        '### Year Month Day Format',
+                        '### Semantic Version Title'],
  'create-project-agents': ['### Create Project AGENTS',
                            "ground the file in the project's own material "
                            'and the conversation; write only what they '
@@ -398,12 +446,15 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            'Date',
                            '- require both a version number and a release '
                            'date; if either is missing',
-                           '#### Movement 2: Maintain the README',
-                           '#### Movement 3: Condense AGENTS and CONTEXT',
-                           '#### Movement 4: Maintain the Docs Directory',
-                           '#### Movement 5: Condense the Changelog',
-                           '#### Movement 6: Close Out the Changelog',
-                           '#### Movement 7: Bump the Repository Version'],
+                           '#### Movement 2: Maintain the README and '
+                           'CREDITS',
+                           '- [Maintain CREDITS](#maintain-credits): '
+                           'third-party assets added, moved, or removed',
+                           '#### Movement 3: Maintain the Docs Directory',
+                           '#### Movement 4: Condense AGENTS and CONTEXT',
+                           '#### Movement 5: Condense and Close Out the '
+                           'Changelog',
+                           '#### Movement 6: Bump the Repository Version'],
  'repo-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -472,8 +523,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'projects:',
                     '- `CHANGELOG.md`: full version history; each release '
                     'is documented here',
-                    '- `CREDITS.md`: acknowledgements, contributors, and '
-                    'third-party attributions',
+                    '- `CREDITS.md`: third-party assets and libraries, '
+                    'with source, author, and license; optionally '
+                    'contributors and acknowledgments',
                     '- `DEVLOG.md`: development journal, decisions, and '
                     'progress notes',
                     '- `src/` or package-name: primary source code folder',
@@ -501,10 +553,28 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                  '#### Categories',
                  '#### Using Triage Tags',
                  '#### Findings'],
+ 'scrub-landed-feature': ['## Scrub After Feature Landing',
+                          'Once the [feature branch](#feature-branch) has '
+                          'landed on `dev`',
+                          '#### Movement 1: Report and Ask Approval',
+                          '#### Movement 2: Push and Delete',
+                          '- ⓒ `git branch -d FEATURE`, never `-D`'],
+ 'scrub-released-version': ['## Scrub After Version Release',
+                            'Once the release is merged into `main` and '
+                            'tagged',
+                            '### Semantic Version Title',
+                            '#### Movement 1: Report and Ask Approval',
+                            '#### Movement 2: Push, Prune, and Sync Dev',
+                            'eg `1.2.5` opens `1.2.6-alpha`'],
  'style-briefness-style': ['## Style Guide Briefness Style',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
                            '- keep sentences short, direct, drop filler'],
+ 'style-markdown-file-assets': ['### Markdown File Assets',
+                                '`CHANGELOG.md` → `CHANGELOG-assets/`',
+                                'a relative path opening with `./`',
+                                '![Install dialog](./setup-guide-assets/'
+                                'install-dialog.png)'],
  'style-good-writing': ['## Style Guide Good Writing',
                         '- Correct spelling, grammar, punctuation, '
                         'sentence structure, and',
@@ -582,6 +652,16 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'condense-changelog': 'rewords its entries into concise, high-level '
                        'changelog style and adds Admonitions for Breaks '
                        'and Hazards where warranted.',
+ 'create-credits': 'Bootstraps a `CREDITS.md` for a repository that '
+                   'has none',
+ 'create-devlog': 'Bootstraps a `DEVLOG.md` for a repository that has '
+                  'none',
+ 'maintain-credits': 'Updates an existing `CREDITS.md` against what '
+                     'changed',
+ 'maintain-devlog': 'entry to an existing `DEVLOG.md`',
+ 'repo-credits-writer': 'Writes and maintains `CREDITS.md`',
+ 'repo-devlog-writer': 'Writes and maintains `DEVLOG.md`, a development '
+                       'journal',
  'create-project-agents': 'Creates `AGENTS.md` for a generic project that '
                           'has none',
  'create-project-docs': 'Creates topic-focused `docs/` files for a generic '
@@ -654,6 +734,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                           'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
  'review-gaps': 'Audits whole repository for gaps, drift, unfinished seams',
+ 'scrub-landed-feature': 'Scrubs up after a feature branch lands on `dev`',
+ 'scrub-released-version': 'Scrubs up after a version release',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
                               'blocks — tier from Loud to Quiet, then '
                               'meaning from bug to fixme, todo, hack.',

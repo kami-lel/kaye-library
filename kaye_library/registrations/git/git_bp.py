@@ -4,9 +4,7 @@ kaye_library.registrations.git.git_bp.py
 register Git related blueprints
 """
 
-import functools
-
-from kaye_engine import register_blueprint
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
@@ -15,6 +13,8 @@ from kaye_engine.prompt.blueprint import (
 )
 
 from .._common import (
+    register_internal,
+    SIDECAR_FOR_KAYE,
     mark_as_leaf,
     register_exportable,
     register_node,
@@ -25,7 +25,9 @@ __all__ = ("register_git_blueprints",)
 
 # internal, not exportable: building blocks of the commit sense skill and
 # its Dify prompts
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
+
+# each commit skill signs its co-author trailer as Kaye
+_SIGNED_AS_KAYE = RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,))
 
 _COMMIT_SENSE_PATH = ("Git", "commit sensing")
 _SIGIL_PATH = (*_COMMIT_SENSE_PATH, "per-file change sigil")
@@ -76,7 +78,7 @@ def register_tend_linked_wt_blueprints(git_node):
 
     # core: only the intro under the heading, no steps
     register_node(
-        _register_internal,
+        register_internal,
         "tend-linked-wt-core",
         git_node,
         tend_name,
@@ -163,7 +165,8 @@ def _register_commit_sense_leaf(
 def register_git_commit_sense_blueprints():
     """
     register the internal ``git-sense-*`` blueprints and the exportable
-    ``commit-sense`` skill built on them
+    ``commit-sense`` and ``commit-sense-branch-merging`` skills built on
+    them, each signing its ``Co-author Trailer`` as Kaye
 
     a package building on the library may take the skill over with
     ``override_exportable("commit-sense", ...)``, building its own blueprint
@@ -178,7 +181,7 @@ def register_git_commit_sense_blueprints():
         _COMMIT_SENSE_PATH,
     ):
         core_bp = checkmark_nodes(core_bp, path)
-    _register_internal(
+    register_internal(
         "git-sense-core",
         replace_meta(core_bp, display_name="Git Sense Core"),
     )
@@ -196,7 +199,7 @@ def register_git_commit_sense_blueprints():
         ("git-sense-per-file-summary", "per-file summary", (), True),
     ):
         _register_commit_sense_leaf(
-            _register_internal,
+            register_internal,
             slug,
             leaf_name,
             dependencies=["git-sense-core"],
@@ -219,6 +222,7 @@ def register_git_commit_sense_blueprints():
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
         description_node=(*commit_sense_path, "{description}"),
         when_to_use_node=(*commit_sense_path, "{when_to_use}"),
+        render_profile=_SIGNED_AS_KAYE,
     )
 
     # merge titles: the version bump and release title rules come from the
@@ -230,15 +234,19 @@ def register_git_commit_sense_blueprints():
         "Commit Sense For Branch Merging",
         dependencies=[
             "git-sense-core",
+            "git-feature-branch",
+            "git-hotfix-branch",
+            "git-release-branch",
             "git-feature-summary",
             "proj-version-title",
         ],
         description_node=(*merging_path, "{description}"),
         when_to_use_node=(*merging_path, "{when_to_use}"),
+        render_profile=_SIGNED_AS_KAYE,
     )
 
     # Dify prompts
-    _register_internal(
+    register_internal(
         "git-sense-dify-primary",
         replace_meta(
             create_blueprint(dependencies=["git-sense-primary-summary"]),
@@ -254,7 +262,7 @@ def register_git_commit_sense_blueprints():
     per_file_bp = checkmark_nodes(
         per_file_bp, (*_COMMIT_SENSE_PATH, "Per-File Summary Task")
     )
-    _register_internal(
+    register_internal(
         "git-sense-dify-per-file",
         replace_meta(per_file_bp, display_name="Git Sense Dify Per File"),
     )

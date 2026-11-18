@@ -4,7 +4,6 @@ kaye_library.registrations.element.element_bp.py
 register Element related blueprints
 """
 
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
@@ -16,6 +15,7 @@ from kaye_engine.prompt.blueprint import (
 from .._common import (
     mark_as_leaf,
     register_exportable,
+    register_internal,
     register_node,
 )
 
@@ -121,10 +121,9 @@ def register_element_blueprints():
 
     # Alphabetical Sequence Numbering in Chat
     register_node(
-        register_blueprint,
+        register_internal,
         "element-alphabetical-sequence-numbering-in-chat",
         get_corpus_node("Elements")["Alphabetical Sequence Numbering"],
         "Alphabetical Sequence Numbering in Chat",
         dependencies=["element-alphabetical-sequence-numbering"],
-        is_exportable=False,
     )

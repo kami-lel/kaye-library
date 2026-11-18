@@ -1,12 +1,12 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-16, v1.4.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-18, v1.5.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
 ## Project Overview
 
-`kaye-library` is the shareable layer of a prompt stack. [kaye-engine](https://github.com/kami-lel/kaye-engine) supplies the mechanism (prompt tree, blueprints, exporters, command dispatcher) and bundles no content; this repository supplies reusable, persona-free content on top of it: style and naming rules, git and repository workflows, the agent workflow skeleton, and coding rules. It builds, tests, and exports standalone.
+`kaye-library` is the shareable layer of a prompt stack. [kaye-engine](https://github.com/kami-lel/kaye-engine) supplies the mechanism (prompt tree, blueprints, exporters, command dispatcher) and bundles no content; this repository supplies reusable content on top of it, persona-free apart from one public persona, Kaye: style and naming rules, git and repository workflows, the agent workflow skeleton, and coding rules. It builds, tests, and exports standalone.
 
 ```mermaid
 graph LR
@@ -21,7 +21,7 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 |---|---|
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
-| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.0`) |
+| runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.1`) |
 | release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 3 assets are the Desktop plugin zip and the Windows and Linux VS Code installers, named `kaye-library-VERSION-TYPE[-OS].ext`; a stable tag also runs `kaye-library build-github-marketplace market` and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there, so its README.md stays |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
@@ -29,28 +29,27 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 
 ```
 kaye_library/
-  __init__.py       the six steps, the consumer record, standalone setup
+  __init__.py       the five steps, the consumer record, standalone setup
   __main__.py       console entry point
   abbrs.json        abbreviation entries of the glossaries library text splices
   registrations/    one folder per feature group: corpus .md beside its registrations
-    _common.py      consumer-bound registration helpers, generic leaf helpers
-    _dynamic_substitution.py  md-file dynamic substitution helper
+    _common.py      consumer name, `bind_registrars` line, `register_children`; engine helpers re-exported
+    _dynamic_substitution.py  engine md-file dynamic substitution bound to the library logger; a helper for consumers, no setup step calls it
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
 .github/workflows/  tag-triggered release build
 ```
 
 ## Integration Points
 
-A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
+A host calls the five steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
 
 1. `register_kaye_library_consumer()`: the `kaye-library` consumer record and the `Kaye Library vX` comment line
 2. `register_kaye_library_abbr_glossaries()`: every abbr glossary
 3. `populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())`: the abbr data, once the glossaries exist
-4. `register_kaye_library_dynamic_substitutions()`
-5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
-6. `register_kaye_library_blueprints()`, once the tree is loaded
+4. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
+5. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Standalone setup then registers the chat base (`registrations/chat/`): a persona-free `chat` over the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, and the `Chat Agent` corpus (a root node every consumer receives, registered with the six steps); a non-invokable `chat-coder` merging `chat` with `coder`; and the default `secretary-email-authuser` of `0`. It names `kaye-library` the entry consumer and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat` and `chat-coder`, and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function, so it never sees the chat base and supplies its own.
+Step 5 registers the chat stack (`registrations/chat/`) in every setup: internal `chat-basic` (the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, the `Chat Agent` corpus), internal `chat` (`chat-basic` alone, persona-free), internal `chat-basic-kaye` (`chat-basic` + `persona-kaye`, the Hermes soul) and exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, rendering `for Kaye`). A host replaces `chat` in place with `override_blueprint` and re-homes `chat-kaye` with `override_exportable`, no blueprint passed. `coder`, Kaye Peer Coder, depends on `chat-kaye` by name, so a host's `chat` replacement reaches it too. `persona-kaye` takes the whole Kaye node less its speech habit, so a host's sections nested beneath it ride along, gated by their sidecars. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat-kaye` and `coder`, and Hermes with the `chat-basic-kaye` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -58,17 +57,18 @@ The console command builds on the engine's `register_cli_main_parser(PACKAGE_NAM
 
 ## Corpus Structure
 
-Twelve authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
+Thirteen authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
 
 | root | holds |
 |---|---|
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
-| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by the standalone `chat` |
+| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
-| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
+| Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
+| Personality | the Personality formatting rule and its `(((person-signifier)))` list, Personality Signature (each persona's name behind its `{for <persona>}` sidecar); `personality-kaye.md`: the Kaye persona and its address-free speech habits; taken by internal `persona-kaye` |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (with its Execution and Rework sections, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
@@ -76,7 +76,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
 | `(today)`, `(element-dt-days-of-week)` | dynamic placements carrying authored preface text |
 
-- the language files register under `("Coder",)`; every other file, Unity Engine included, registers under the root
+- the language files register under `("Coder",)`, `repo.md`, `workflow.md`, `branch.md` under `("Git",)`, `personality-kaye.md` under `("Personality",)`; every other file, Unity Engine included, registers under the root
 - a consumer registers its own sources under the root or its own nodes and never reuses a library root name
 - `#slug` links follow heading text, so a link from library text must point at library text
 - `_CORPUS_SOURCES` in `kaye_library/__init__.py` pairs a node path with a file, in registration order; a source's top headings sit exactly one level below its target, or loading raises (the format is the engine's [corpus documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md))
@@ -84,7 +84,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 
 ## Registration Helpers
 
-`registrations/_common.py` binds the `kaye-library` consumer; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
+`registrations/_common.py` binds the `kaye-library` consumer with the engine's `bind_registrars`, and re-exports the engine's `register_node`, `register_leaf` and `glossary_blueprint`; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
 
 | helper | registers |
 |---|---|
@@ -92,17 +92,17 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | `register_prompt` | an exportable skill the assistant does not surface on its own (`llm_invokable=False`) |
 | `register_node` | a node (optionally recursive) under a slug, through any of the above |
 | `register_leaf` | one leaf with its ancestor headings, descriptors included |
-| `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
+| `register_internal` | an internal building block, never exported |
 
 Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`; the full graph is in the [blueprint documentation](docs/blueprint-doc.md).
 
 ## Content Boundary
 
-- ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
-- stays out: identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
+- ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override; one public persona, Kaye, under the `Personality` root, its display name behind its `{for Kaye}` sidecar
+- stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, a host's own personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
-- `commit-sense` shows a generic, optional co-author trailer; a persona trailer is a host's to add through `override_exportable`
-- the `Coder` root carries no conversation rules: the `coder` skill carries the rules alone, so every language profile that invokes `coder` resolves under the standalone command, and a host takes `coder` over to add its conversation rules and persona around the `coder` blueprint object
+- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
+- the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
 
 ## Abbreviation Database
 

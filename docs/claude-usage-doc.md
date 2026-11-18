@@ -1,4 +1,4 @@
-# kaye-library: Claude Usage Documentation
+# Kaye Library: Claude Usage Documentation
 
 English | [简体中文](claude-usage-doc.zh-CN.md)
 
@@ -64,10 +64,10 @@ Make the plugin file yourself, then upload it.
 1. Build the zip:
 
    ```bash
-   kaye-engine claude plugin -z
+   kaye-library claude plugin -z
    ```
 
-2. Upload `CONSUMER-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+2. Upload `kaye-library-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
 
 
 
@@ -180,7 +180,7 @@ Install it yourself with one command.
 1. Run:
 
    ```bash
-   kaye-engine claude vs-code-extension
+   kaye-library claude vs-code-extension
    ```
 
 2. Restart VS Code.
@@ -201,6 +201,6 @@ Install it yourself with one command.
 
    ![Plugins tab with installed plugins enabled](assets/claude-vsc-step-2-plugins-tab.png)
 
-3. Open the *Marketplaces* tab. Check that `kaye-engine` is listed.
+3. Open the *Marketplaces* tab. Check that `kaye-library` is listed.
 
-   ![Marketplaces tab with the kaye-engine marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)
+   ![Marketplaces tab with the kaye-library marketplace](assets/claude-vsc-step-3-marketplaces-tab.png)

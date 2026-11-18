@@ -221,3 +221,6 @@ __marimo__/
 
 # Personal strings for the privacy test
 tests/privacy-forbidden.local.txt
+# Local layers: personal, machine-specific, never committed
+AGENTS.local.md
+CONTEXT.local.md

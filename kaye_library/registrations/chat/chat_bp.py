@@ -1,30 +1,33 @@
 """
 kaye_library.registrations.chat.chat_bp.py
 
-register the standalone chat base: a persona-free ``chat``, the
-non-invokable ``chat-coder`` merging it with ``coder``, and the default
-``secretary-email-authuser`` substitution
-
-only ``setup_kaye_library_for_kaye_engine`` calls these, so a package
-building on the library never sees any of them and supplies its own chat
+register the chat stack in every setup: ``chat-basic``, ``chat`` (both
+persona-free), ``chat-basic-kaye`` and ``chat-kaye``, the last over the
+public Kaye persona; a package replaces ``chat`` in place with
+``override_blueprint`` and re-homes ``chat-kaye``; and, for the standalone
+setup alone, the default ``secretary-email-authuser`` substitution
 """
 
 from kaye_engine import (
     StringDynamicSubstitution,
-    register_blueprint,
     register_dynamic_substitution,
 )
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
-    get_blueprint,
     replace_meta,
 )
 
-from .._common import CONSUMER_NAME
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
+
+from .._common import (
+    SIDECAR_FOR_KAYE,
+    register_exportable,
+    register_internal,
+)
 
 __all__ = (
-    "register_standalone_chat_blueprints",
+    "register_chat_blueprints",
     "register_standalone_dynamic_substitutions",
 )
 
@@ -36,6 +39,12 @@ _CHAT_PATHS = (
 
 # the Chat Agent root, whose every section the chat takes
 _CHAT_AGENT_PATH = ("Chat Agent",)
+
+# every chat blueprint describes itself by the Chat Agent's own sidecars
+_CHAT_META = {
+    "description_node": ("Chat Agent", "{description}"),
+    "when_to_use_node": ("Chat Agent", "{when_to_use}"),
+}
 
 
 def register_standalone_dynamic_substitutions():
@@ -49,12 +58,21 @@ def register_standalone_dynamic_substitutions():
     )
 
 
-def register_standalone_chat_blueprints():
+def register_chat_blueprints():
     """
-    register ``chat`` and ``chat-coder``
+    register the chat stack:
+
+    - ``chat-basic``: the Agentic and Chat Agent rules, Markdown and chat
+      sequence numbering, persona-free
+    - ``chat``: ``chat-basic`` alone, the name a package replaces in place
+      with its fuller conversation rules
+    - ``chat-basic-kaye``: ``chat-basic`` over the public Kaye persona, the
+      Hermes root soul
+    - ``chat-kaye``: ``chat`` over the public Kaye persona, the default
+      skill, always applied
 
 
-    :raises KeyError: ``style-markdown``, ``coder`` or
+    :raises KeyError: ``style-markdown``, ``persona-kaye`` or
             ``element-alphabetical-sequence-numbering-in-chat`` is not yet
             registered
     """
@@ -67,31 +85,42 @@ def register_standalone_chat_blueprints():
     for path in _CHAT_PATHS:
         bp = checkmark_nodes(bp, path)
     bp = checkmark_nodes(bp, _CHAT_AGENT_PATH, is_recursive=True)
-    register_blueprint(
-        "chat",
-        replace_meta(
-            bp,
-            display_name="Chat",
-            description_node=("Chat Agent", "{description}"),
-            when_to_use_node=("Chat Agent", "{when_to_use}"),
-        ),
+    register_internal(
+        "chat-basic",
+        replace_meta(bp, display_name="Chat Basic", **_CHAT_META),
         llm_invokable=False,
-        always_apply=True,
-        consumer=CONSUMER_NAME,
     )
 
-    # the library's own coder enters by object, so the pair stays acyclic
-    coder = get_blueprint("coder")
-    coder_meta = coder.blueprint.meta
-    register_blueprint(
-        "chat-coder",
+    register_internal(
+        "chat",
         replace_meta(
-            create_blueprint(dependencies=["chat", coder.blueprint]),
-            display_name="Chat Coder",
-            description_node=coder_meta.description_node,
-            when_to_use_node=coder_meta.when_to_use_node,
+            create_blueprint(dependencies=["chat-basic"]),
+            display_name="Chat",
+            **_CHAT_META,
         ),
-        is_user_invokable=False,
         llm_invokable=False,
-        consumer=CONSUMER_NAME,
+    )
+
+    kaye_profile = RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,))
+    register_internal(
+        "chat-basic-kaye",
+        replace_meta(
+            create_blueprint(dependencies=["chat-basic", "persona-kaye"]),
+            display_name="Chat Basic Kaye",
+            **_CHAT_META,
+        ),
+        render_profile=kaye_profile,
+        llm_invokable=False,
+    )
+
+    register_exportable(
+        "chat-kaye",
+        replace_meta(
+            create_blueprint(dependencies=["chat", "persona-kaye"]),
+            display_name="Chat Kaye",
+            **_CHAT_META,
+        ),
+        render_profile=kaye_profile,
+        llm_invokable=False,
+        always_apply=True,
     )

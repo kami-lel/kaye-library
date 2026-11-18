@@ -4,16 +4,11 @@ kaye_library.registrations.git.workflow_bp.py
 register invokable Repository workflow prompts
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
 from .._common import register_node, register_prompt
 
 __all__ = ("register_repo_workflow_blueprints",)
-
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def register_repo_workflow_blueprints():
@@ -68,6 +63,21 @@ def register_repo_workflow_blueprints():
         dependencies=["repo-changelog-writer"],
         llm_invokable=True,
     )
+
+    # Create & Maintain CREDITS, Create & Maintain DEVLOG
+    for doc in ("CREDITS", "DEVLOG"):
+        for verb in ("Create", "Maintain"):
+            register_node(
+                register_prompt,
+                "{}-{}".format(verb.lower(), doc.lower()),
+                repo_node,
+                "{} {}".format(verb, doc),
+                dependencies=[
+                    "repo-{}-writer".format(doc.lower()),
+                    "style-good-writing",
+                ],
+                llm_invokable=True,
+            )
 
     # Condense CHANGELOG
     register_node(

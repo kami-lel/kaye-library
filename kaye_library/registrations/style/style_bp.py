@@ -4,14 +4,18 @@ kaye_library.registrations.style.style_bp.py
 register Style related blueprints
 """
 
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
 )
 
-from .._common import register_exportable, register_leaf, register_node
+from .._common import (
+    register_exportable,
+    register_internal,
+    register_leaf,
+    register_node,
+)
 
 __all__ = ("register_style_blueprints",)
 
@@ -43,21 +47,21 @@ def _register_heading_separation_leaf(slug, leaf_name):
 def register_style_blueprints():
     """
     register Style Guide and its sub-styles: Briefness Style, Good
-    Writing, Markdown Format, Markdown Extended, Header Separation
-    (plus its Long File and Medium File leaves)
+    Writing, Markdown Format, Markdown Extended, Markdown Footnotes,
+    Markdown Endnotes, Markdown File Assets, Header Separation (plus its
+    Long File and Medium File leaves)
 
     (Title Case and Commentary Case moved to the Letter Case blueprint,
     see ``register_letter_case_blueprints``)
     """
     style_node = get_corpus_node("Style Guide")
 
-    register_blueprint(
+    register_internal(
         "style",
         replace_meta(
             create_blueprint_from_node(style_node, is_recursive=True),
             display_name="Style Guide",
         ),
-        is_exportable=False,
     )
 
     register_exportable(
@@ -99,6 +103,14 @@ def register_style_blueprints():
         "style-markdown-endnotes",
         style_node["Style Guide Markdown Format"],
         "Markdown Endnotes",
+    )
+
+    register_node(
+        register_exportable,
+        "style-markdown-file-assets",
+        style_node["Style Guide Markdown Format"],
+        "Markdown File Assets",
+        recursively=True,
     )
 
     register_node(

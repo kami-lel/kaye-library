@@ -1,8 +1,7 @@
 """
 kaye_library.registrations.__init__.py
 
-register every kaye-library blueprint, abbr glossary, and dynamic
-substitution; ``*_bp.py`` imports stay function-local until the corpus
+register every kaye-library blueprint and abbr glossary; ``*_bp.py`` imports stay function-local until the corpus
 tree is loaded
 """
 
@@ -11,6 +10,9 @@ from .amanuensis.amanuensis_glossary import register_amanuensis_abbr_glossaries
 from .coder.coder_glossary import register_coder_abbr_glossaries
 from .element.element_glossary import register_element_abbr_glossaries
 from .git.git_glossary import register_git_abbr_glossaries
+from .personality.personality_glossary import (
+    register_personality_abbr_glossaries,
+)
 from .secretary.secretary_glossary import register_secretary_abbr_glossaries
 from .style.style_glossary import register_style_abbr_glossaries
 from .u3d.u3d_glossary import register_u3d_abbr_glossaries
@@ -18,7 +20,6 @@ from .u3d.u3d_glossary import register_u3d_abbr_glossaries
 __all__ = (
     "register_kaye_library_abbr_glossaries",
     "register_kaye_library_blueprints",
-    "register_kaye_library_dynamic_substitutions",
 )
 
 
@@ -36,11 +37,17 @@ def register_kaye_library_blueprints():
     from .amanuensis.amanuensis_bp import (  # pylint: disable=C0415
         register_amanuensis_blueprints,
     )
+    from .chat.chat_bp import (  # pylint: disable=C0415
+        register_chat_blueprints,
+    )
     from .coder.coder_bp import (  # pylint: disable=C0415
         register_coder_blueprints,
     )
     from .element.element_bp import (  # pylint: disable=C0415
         register_element_blueprints,
+    )
+    from .personality.personality_bp import (  # pylint: disable=C0415
+        register_personality_blueprints,
     )
     from .project.project_bp import (  # pylint: disable=C0415
         register_project_blueprints,
@@ -90,6 +97,8 @@ def register_kaye_library_blueprints():
     register_general_blueprints()
     register_git_blueprints()
     register_p4v_blueprints()
+    register_personality_blueprints()
+    register_chat_blueprints()
     register_coder_blueprints()
     register_u3d_blueprints()
     register_meta_prompt_blueprints()
@@ -107,12 +116,7 @@ def register_kaye_library_abbr_glossaries():
     register_coder_abbr_glossaries()
     register_element_abbr_glossaries()
     register_git_abbr_glossaries()
+    register_personality_abbr_glossaries()
     register_secretary_abbr_glossaries()
     register_style_abbr_glossaries()
     register_u3d_abbr_glossaries()
-
-
-def register_kaye_library_dynamic_substitutions():
-    """
-    register every kaye-library dynamic substitution
-    """

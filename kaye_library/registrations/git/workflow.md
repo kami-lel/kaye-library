@@ -331,6 +331,216 @@ Trigger on "update the changelog", "log what changed", "add a changelog entry", 
 
 
 
+## Create CREDITS
+
+1. inventory the third-party material the repository ships: asset folders, fonts, audio, vendored code, bundled libraries
+2. read the license, readme, and attribution files shipped beside each, and any credits already in the README, DEVLOG, or build notes
+3. take sources, authors, and licenses the repository has not captured from the conversation, and, when the user wants them, the contributors with their roles and the acknowledgments
+4. write one row per asset under its section, marking every field nobody can confirm `unknown`
+5. create `CREDITS.md` at the project root, for a repository that has none, per [Repository CREDITS Writer](#repository-credits-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing), then return a brief summary listing every `unknown` field
+
+
+
+
+
+### {description}
+
+Bootstraps a `CREDITS.md` for a repository that has none, inventorying every third-party asset, font, sound, and bundled library it ships, with each one's source, author, and license.
+
+### {when_to_use}
+
+Trigger on "create a credits file", "credit our assets", "list the third-party assets", or a repository shipping third-party material with no `CREDITS.md`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Maintain CREDITS
+
+1. take added, moved, replaced, and removed third-party material from the conversation and recent repository changes
+2. add a row for each new asset under its section, opening the section when the kind is new; add or update a contributor or acknowledgment the conversation names
+3. update a row whose path, role, or modification changed; remove a row whose asset has left the repository
+4. leave rows that still hold as they stand
+5. verify every path against the repository and every link
+6. update the CREDITS in place, then return a brief summary of the changes, listing any `unknown` field, per [Repository CREDITS Writer](#repository-credits-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing)
+
+
+
+
+
+### {description}
+
+Updates an existing `CREDITS.md` against what changed: adds rows for new third-party assets, updates moved or modified ones, removes those the repository no longer ships.
+
+### {when_to_use}
+
+Trigger on "update the credits", "credit this new asset", "add attribution for", or a third-party asset added, moved, or removed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Create DEVLOG
+
+1. reconstruct the project's history from the commit log, tags, `CHANGELOG.md`, and any playtest, survey, or meeting notes in the repository
+2. take the reporting cadence, the setting, and the reasons behind decisions from the conversation; ask for the cadence when neither gives it
+3. group the history into periods, and write one entry per period worth telling, newest first
+4. write a reason only where the record or the conversation gives one, never a guessed motive
+5. create `DEVLOG.md` at the project root, for a repository that has none, per [Repository DEVLOG Writer](#repository-devlog-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing), then return a brief summary listing every entry written
+
+
+
+
+
+### {description}
+
+Bootstraps a `DEVLOG.md` for a repository that has none, reconstructing one entry per period, newest first, from the commit log, tags, CHANGELOG, and playtest notes.
+
+### {when_to_use}
+
+Trigger on "start a devlog", "create a DEVLOG", "write a dev diary from the history", or a repository with no `DEVLOG.md`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Maintain DEVLOG
+
+1. take the period's work from the conversation, the commits since the newest entry, `[Unreleased]` in the CHANGELOG, and any new playtest, survey, or review notes
+2. add a new entry directly under the title, or extend the newest entry when it covers the current period
+3. tie every fix to its finding and every change of approach to its reason; ask for a reason the record does not give, never invent one
+4. save each screenshot the user supplies into `DEVLOG-assets/`, named and captioned per [Repository DEVLOG Writer](#repository-devlog-writer), leaving a Loud `TODO` wherever a needed screenshot is missing
+5. leave past entries as written, except to correct a factual error or point a leftover forward to the entry that takes it up
+6. update the DEVLOG in place, then return a brief summary of the changes, per [Repository DEVLOG Writer](#repository-devlog-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing)
+
+
+
+
+
+### {description}
+
+Adds the current period's entry to an existing `DEVLOG.md`: findings, fixes tied to them, other work, leftovers, and captioned screenshots, leaving past entries as written.
+
+### {when_to_use}
+
+Trigger on "write this week's devlog", "add a devlog entry", "log the playtest findings", or a period's work ready to record.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Condense CHANGELOG
 
 1. reword every `[Unreleased]` entry into changelog style — concise, high-level, free of implementation detail

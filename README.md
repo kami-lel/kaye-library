@@ -27,16 +27,16 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 | | Group | What Your Agent Learns |
 |---|---|---|
-| 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |
-| 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
-| 🎨 | Style | Markdown, heading spacing, every letter case, briefness, good writing |
-| 🗓️ | Secretary | email drafting and sweeping, calendar and task sync, event radar, daily recaps, morning and weekly check-ins, job hunt |
-| 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
-| 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
-| 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
-| 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, linked worktrees for parallel tasks, PRs, Git and Perforce terms |
 | 🤖 | Agentic | chat rules, Movement and Suite planning: big tasks split into reviewable steps |
+| 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
+| 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, linked worktrees for parallel tasks, PRs, Git and Perforce terms |
+| 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |
+| 🗓️ | Secretary | email drafting and sweeping, calendar and task sync, event radar, daily recaps, morning and weekly check-ins, job hunt |
+| 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
+| 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
+| 🎨 | Style | Markdown, heading spacing, every letter case, briefness, good writing |
+| 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
 #### 🌟 Start with the Top Picks
@@ -64,7 +64,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 - `/resolve-merge-conflict`: 🐙 a halted merge untangled: both sides of every hunk reconciled, conflict markers gone
 - `/write-llm-prompt`: 🪄 turns a vague system prompt into one that delivers: drafted, graded, and sharpened
 
-📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of all **141 skills**, with what each does and how to call it.
+📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of **every skill**, with what each does and how to call it.
 
 ## 🚀 Getting Started
 

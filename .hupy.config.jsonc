@@ -78,7 +78,7 @@
     // the comment leader for the file's extension (eg `//`, `#`, `<!--`)
     "disable_tt_detect_by_type": false,
     // glob patterns excluded from TT scanning
-    "ignored_path_globs": []
+    "ignored_path_globs": ["kaye_library/registrations/git/repo.md"]
   },
   "pt": { // Paper Trail #######################################################
     // assert files matching a glob were changed in this commit;

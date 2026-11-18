@@ -30,6 +30,7 @@ _LIBRARY_GLOSSARIES = (
     "element-dt-watch-week-abbr",
     "git-abbr",
     "natural-language-codes",
+    "person-signifier",
     "programming-language-codes",
     "secretary-calendar-name",
     "secretary-common-shorthand",

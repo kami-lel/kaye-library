@@ -349,6 +349,18 @@
       }
     }
   },
+  "Kaye": {
+    "abbrs": {
+      "🫖": {
+        "priority": 5,
+        "tags": [
+          "emoji",
+          "person-signifier"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Learn": {
     "abbrs": {
       "🌱": {

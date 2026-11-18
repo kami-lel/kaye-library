@@ -2,8 +2,8 @@
 coder_test.py
 
 Unit Tests (using pytest) for: the Coder corpus and skills the library
-ships -- persona-free, the rules in the one ``coder`` entry, every
-language profile under the ``Coder`` node
+ships -- ``coder`` as Kaye Peer Coder, ``chat`` plus the rules; every
+language profile under the ``Coder`` node, persona-free
 """
 
 import pytest
@@ -29,7 +29,7 @@ _CODER_SKILLS = sorted(
     if entry.consumer == "kaye-library"
     and (
         name.startswith("coder-")
-        or name in {"coder", "review-gaps", "sync-unit-test"}
+        or name in {"review-gaps", "sync-unit-test"}
     )
 )
 
@@ -61,13 +61,13 @@ class TestBlueprints:
     def test_no_separate_core_entry(_):
         assert "coder-core" not in blueprint_registry
 
-    def test_coder_skill_is_persona_free_and_the_library_s(_):
+    def test_coder_skill_is_kaye_peer_coder_and_the_library_s(_):
         entry = exportable_registry["coder"]
 
         assert entry.consumer == "kaye-library"
         assert "element-triage-tags" in entry.blueprint.dependencies
-        assert entry.display_name == "Coder"
-        assert not entry.always_apply
+        assert entry.display_name == "Kaye Peer Coder"
+        assert entry.always_apply
 
     def test_gap_review_has_its_final_name(_):
         assert "review-gaps" in exportable_registry
@@ -76,11 +76,14 @@ class TestBlueprints:
     def test_sync_unit_test_ships(_):
         assert "sync-unit-test" in exportable_registry
 
-    def test_coder_depends_on_no_conversation_rules(_):
+    def test_coder_depends_on_chat_kaye_by_name(_):
         dependencies = blueprint_registry["coder"].blueprint.dependencies
 
-        assert "chat" not in dependencies
+        assert "chat-kaye" in dependencies
         assert "element-triage-tags" in dependencies
+
+    def test_chat_coder_is_gone(_):
+        assert "chat-coder" not in blueprint_registry
 
 
 class TestRender:
@@ -92,10 +95,15 @@ class TestRender:
         assert "explore first, per [Project Context Engineering]" in content
         assert "each line must not exceed **80 characters**" in content
 
-    @pytest.mark.parametrize(
-        "needle", ["Kaye", "Personality", "Persona", "Kami", "Sir"]
-    )
-    def test_coder_names_no_persona(_, needle):
+    def test_coder_speaks_as_kaye(_):
+        content = exportable_registry["coder"].content()
+
+        assert "# Chat Agent" in content
+        assert "## Kaye" in content
+        assert "Kaye LeL" in content
+
+    @pytest.mark.parametrize("needle", ["Kami", "Sir"])
+    def test_coder_names_no_user(_, needle):
         assert needle not in blueprint_registry["coder"].content()
 
     @pytest.mark.parametrize("name", _CODER_SKILLS)

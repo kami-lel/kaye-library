@@ -13,7 +13,10 @@ from kaye_engine.prompt.blueprint import (
     replace_meta,
 )
 
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
+
 from .._common import (
+    SIDECAR_FOR_KAYE,
     glossary_blueprint,
     register_exportable,
     register_node,
@@ -26,12 +29,12 @@ __all__ = ("register_coder_blueprints",)
 
 def register_coder_blueprints():
     """
-    register the persona-free Coder: the ``coder`` skill, its workflows,
-    and every per-language coder profile
+    register the Coder: the ``coder`` skill, Kaye Peer Coder, its
+    workflows, and every per-language coder profile
 
-    a package may take ``coder`` over with ``override_exportable``, adding
-    the conversation rules and persona it wants around the blueprint
-    object ``get_blueprint("coder").blueprint``
+    ``coder`` is ``chat-kaye`` plus the Coder rules, ``chat-kaye`` named as
+    a string dependency, so a package that re-homes ``chat-kaye`` reaches
+    ``coder`` too; the per-language profiles stay persona-free, invoking ``coder``
 
 
     :raises KeyError: a depended-on blueprint is not yet registered
@@ -39,9 +42,8 @@ def register_coder_blueprints():
     coder_node = get_corpus_node("Coder")
 
     # Coder
-    # the Coder rules and glossaries as a skill, with no conversation
-    # rules and no persona; a package may take it over with its own
-    # conversation rules around this blueprint
+    # Kaye Peer Coder: the conversation rules and persona of chat-kaye, plus
+    # the Coder rules and glossaries
     register_exportable(
         "coder",
         replace_meta(
@@ -49,6 +51,7 @@ def register_coder_blueprints():
                 create_blueprint_from_node(
                     coder_node,
                     dependencies=[
+                        "chat-kaye",
                         "element-triage-tags",
                         "repo-structure",
                         "proj-context-engineering",
@@ -59,10 +62,12 @@ def register_coder_blueprints():
                 ),
                 glossary_blueprint("coder-abbr", "coder-identifier-shorthand"),
             ),
-            display_name="Coder",
+            display_name="Kaye Peer Coder",
             description_node=("Coder", "{description}"),
             when_to_use_node=("Coder", "{when_to_use}"),
         ),
+        render_profile=RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,)),
+        always_apply=True,
     )
 
     # Plan for Suite
@@ -72,22 +77,20 @@ def register_coder_blueprints():
     ]
     plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
 
-    plan_for_suite = register_prompt(
-        "plan-for-suite",
-        replace_meta(
+    plan_for_suite_bp = checkmark_nodes(
+        checkmark_nodes(
             create_blueprint_from_node(
                 plan_for_suite_node,
                 is_recursive=True,
                 dependencies=["agent-movement-and-suite"],
             ),
-            display_name="Plan for Suite",
+            plan_for_suite_execution_node,
         ),
+        plan_for_suite_rework_node,
     )
-    plan_for_suite.blueprint = checkmark_nodes(
-        plan_for_suite.blueprint, plan_for_suite_execution_node
-    )
-    plan_for_suite.blueprint = checkmark_nodes(
-        plan_for_suite.blueprint, plan_for_suite_rework_node
+    register_prompt(
+        "plan-for-suite",
+        replace_meta(plan_for_suite_bp, display_name="Plan for Suite"),
     )
 
     # Execute Plan for Suite
@@ -148,27 +151,27 @@ def register_coder_blueprints():
     cb_node = coder_node["Comment Banner"]
 
     # Code Comment Banner in Code Comment
-    cb_in_code_comment = register_exportable(
+    register_exportable(
         "coder-comment-banner-in-code-comment",
         replace_meta(
-            create_blueprint_from_node(cb_node["CB in Code Comment"]),
+            checkmark_nodes(
+                create_blueprint_from_node(cb_node["CB in Code Comment"]),
+                cb_node,
+            ),
             display_name="Code Comment Banner in Code Comment",
         ),
     )
-    cb_in_code_comment.blueprint = checkmark_nodes(
-        cb_in_code_comment.blueprint, cb_node
-    )
 
     # Code Comment Banner in Print Out
-    cb_in_print_out = register_exportable(
+    register_exportable(
         "coder-comment-banner-in-print-out",
         replace_meta(
-            create_blueprint_from_node(cb_node["CB in Print Out"]),
+            checkmark_nodes(
+                create_blueprint_from_node(cb_node["CB in Print Out"]),
+                cb_node,
+            ),
             display_name="Code Comment Banner in Print Out",
         ),
-    )
-    cb_in_print_out.blueprint = checkmark_nodes(
-        cb_in_print_out.blueprint, cb_node
     )
 
     # Code Command Usage Message

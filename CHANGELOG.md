@@ -2,6 +2,7 @@
 
 <!--
 todo support layered CONTEXT/AGENTS
+todo good morning incl finance report
 -->
 
 ## [Unreleased]
@@ -18,7 +19,72 @@ todo support layered CONTEXT/AGENTS
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...dev
+
+## [1.5.0] - 2026-11-18
+
+### Added
+
+- `repo-credits-writer`, `create-credits`, `maintain-credits`: `CREDITS.md` w/ per-kind asset tables: path, source, author, license
+- `repo-devlog-writer`, `create-devlog`, `maintain-devlog`: `DEVLOG.md` journal, newest first: findings → fixes, leftovers, captioned screenshots
+- Project Context Engineering folder example: optional `CREDITS.md` & `DEVLOG.md`
+- `style-markdown-file-assets`: each `.md` file's assets in sibling `<name>-assets/` folder, linked by relative `./` path; DEVLOG writer follows it
+- `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
+- `Personality` root w/ Personality Formatting rule; `person-signifier` glossary w/ the Kaye signifier, which a consumer extends w/ its own personas
+- internal `persona-kaye` blueprint, over internal `persona-kaye-speech-habit`: Kaye persona under Personality Formatting rule & its address-free speech habits
+- `Personality Signature` under `Personality`: each persona's name under its `{for <persona>}` section; `persona-kaye` carries the heading & Kaye's section alone, so a consumer's personas nested beside it stay out
+
+### Changed
+
+- `coder`: Kaye Peer Coder, Coder rules over `chat-kaye`, always applied; language profiles stay persona-free
+- chat stack registers in every setup, not standalone only; a second registration raises
+- `Co-author Trailer`: trailer only for changes you wrote, none for a message alone; never a generic AI trailer; each persona's full trailer behind its `{for <persona>}` sidecar, moved in from consumer; `commit-sense`, `commit-sense-branch-merging` sign as Kaye via `{for Kaye}`
+- `kaye-engine` pin `v12.0.0` -> `v13.0.0`, which adds the registration helpers
+- `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
+- `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills
+- `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`
+- `plan-for-suite`: Plan may mark independent Movements for parallel run, each in own linked worktree & feature branch via `tend-linked-wt`; optional, never required
+- Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
+- chat layered: internal `chat-basic` (persona-free rules), internal `chat` (`chat-basic` alone), internal `chat-basic-kaye` (+ `persona-kaye`, Hermes soul), exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, `for Kaye`); `coder` depends on `chat-kaye`; a consumer replaces `chat` w/ `override_blueprint` & re-homes `chat-kaye`
+- `persona-kaye` takes the whole Kaye node less its speech habit, so a consumer's nested Kaye sections ride along, gated by their sidecars
+- `scan-event-radar-daily` drops the whole week gather Bar, so a node a consumer nests beneath it leaves the daily skill too
+- registration helpers (`register_node`, `register_leaf`, `glossary_blueprint`, `register_md_file_dynamic_substitution`, consumer registrars) come from `kaye-engine`; `_common.py` keeps the consumer name, one `bind_registrars` line & `register_children`; 7 local `_register_internal` copies & every post-registration `entry.blueprint =` write gone, renders unchanged
+- skill catalog doc reworked for newcomers: groups reordered most-used first (Agentic, Repository & Project, Git, Coder; supporting groups last) in README & catalog; tables, plain-language intros, bolded key terms; exact skill count dropped
+- zh-CN README, skill catalog & Claude usage docs reworded into native Chinese developer phrasing
+
+> [!WARNING]
+> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat-kaye`; Claude & Codex setup names `chat-kaye` & `coder`
+
+> [!WARNING]
+> Breaking: exported skill `chat` is `chat-kaye`; re-run setup, update `chat` references in Continue rules & Codex
+
+### Removed
+
+- `register_kaye_library_dynamic_substitutions`, an empty setup step: the library now has 5 setup steps, not 6; `registrations/_dynamic_substitution.py` stays as a helper for consumers
+
+> [!WARNING]
+> Breaking: a consumer package calling `kaye_library.register_kaye_library_dynamic_substitutions()` raises `AttributeError`; drop the call, & renumber any step comments
+
+### Fixed
+
+- Claude usage docs: build-it-yourself routes run `kaye-library claude ...`, not bare `kaye-engine`, which exports nothing; zip named `kaye-library-claude-VERSION.zip`
+- `registrations/personality/` gets its `__init__.py`, so setuptools packages it like every other group, not as deprecated data
+- `AGENTS.local.md` & `CONTEXT.local.md` git-ignored at any depth
+
+[1.5.0]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...v1.5.0
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.4.1] - 2026-11-16
 

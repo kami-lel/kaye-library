@@ -1,4 +1,4 @@
-# kaye-library: Codex Usage Documentation
+# Kaye Library: Codex Usage Documentation
 
 English | [简体中文](codex-usage-doc.zh-CN.md)
 

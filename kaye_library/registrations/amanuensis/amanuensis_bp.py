@@ -106,21 +106,18 @@ def register_amanuensis_blueprints():
         "amanuensis-chicago-bibliography", "Chicago Bibliography"
     )
 
-    bibliographer = register_node(
+    register_node(
         register_exportable,
         "bibliographer",
         amanuensis_node,
         "Bibliographer",
         recursively=True,
         dependencies=["style-markdown-footnotes"],
-        llm_invokable=False,
-    )
-    bibliographer.blueprint = replace_meta(
-        bibliographer.blueprint,
         description=(
             "coordinates citation and bibliography assembly across the other"
             " Amanuensis skills"
         ),
+        llm_invokable=False,
     )
 
     register_node(
