@@ -199,10 +199,11 @@ def setup_kaye_library_for_kaye_engine():
     the Claude, Codex and Hermes CLI configuration, naming ``chat``,
     ``chat-coder`` and the ``chat`` Hermes soul
 
-    only this function registers the standalone chat base (a persona-free
-    ``chat``, the non-invokable ``chat-coder`` merging it with ``coder``,
-    and a default ``secretary-email-authuser`` of ``0``), so a package
-    building on the library, calling the six steps instead, never sees it
+    only this function registers the standalone extras (the
+    non-invokable ``chat-coder`` merging ``chat`` with ``coder``, and a
+    default ``secretary-email-authuser`` of ``0``), so a package building
+    on the library, calling the six steps instead, never sees them; ``chat``
+    itself registers in step 6, for such a package to take over
 
     a process runs exactly one setup function: a package building on the
     library calls the six steps instead, and never this one

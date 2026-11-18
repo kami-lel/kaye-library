@@ -39,6 +39,9 @@ def register_kaye_library_blueprints():
     from .amanuensis.amanuensis_bp import (  # pylint: disable=C0415
         register_amanuensis_blueprints,
     )
+    from .chat.chat_bp import (  # pylint: disable=C0415
+        register_chat_blueprints,
+    )
     from .coder.coder_bp import (  # pylint: disable=C0415
         register_coder_blueprints,
     )
@@ -97,6 +100,7 @@ def register_kaye_library_blueprints():
     register_git_blueprints()
     register_p4v_blueprints()
     register_personality_blueprints()
+    register_chat_blueprints()
     register_coder_blueprints()
     register_u3d_blueprints()
     register_meta_prompt_blueprints()

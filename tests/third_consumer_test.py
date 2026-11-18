@@ -103,7 +103,7 @@ def test_third_consumer_registers_under_root_and_nodes():
     assert "owner: third-pkg" in result.stdout
     assert "plugins: ['kaye-library', 'third-pkg']" in result.stdout
     assert "content: 2" in result.stdout
-    assert "chat: False" in result.stdout
+    assert "chat: True" in result.stdout
     assert "chat-coder: False" in result.stdout
     assert "chat corpus: True" in result.stdout
     assert "default consumer set: False" in result.stdout

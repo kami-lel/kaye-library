@@ -1,12 +1,11 @@
 """
 kaye_library.registrations.chat.chat_bp.py
 
-register the standalone chat base: a persona-free ``chat``, the
-non-invokable ``chat-coder`` merging it with ``coder``, and the default
-``secretary-email-authuser`` substitution
-
-only ``setup_kaye_library_for_kaye_engine`` calls these, so a package
-building on the library never sees any of them and supplies its own chat
+register ``chat``, the conversation rules over the public Kaye persona,
+in every setup, so a package takes it over with ``override_exportable``;
+and, for the standalone setup alone, the non-invokable ``chat-coder``
+merging it with ``coder`` and the default ``secretary-email-authuser``
+substitution
 """
 
 from kaye_engine import (
@@ -21,9 +20,12 @@ from kaye_engine.prompt.blueprint import (
     replace_meta,
 )
 
-from .._common import CONSUMER_NAME
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
+
+from .._common import CONSUMER_NAME, SIDECAR_FOR_KAYE
 
 __all__ = (
+    "register_chat_blueprints",
     "register_standalone_chat_blueprints",
     "register_standalone_dynamic_substitutions",
 )
@@ -49,12 +51,13 @@ def register_standalone_dynamic_substitutions():
     )
 
 
-def register_standalone_chat_blueprints():
+def register_chat_blueprints():
     """
-    register ``chat`` and ``chat-coder``
+    register ``chat``: the conversation rules over the public Kaye persona,
+    rendering Kaye's own sections
 
 
-    :raises KeyError: ``style-markdown``, ``coder`` or
+    :raises KeyError: ``style-markdown``, ``persona-kaye`` or
             ``element-alphabetical-sequence-numbering-in-chat`` is not yet
             registered
     """
@@ -62,6 +65,7 @@ def register_standalone_chat_blueprints():
         dependencies=[
             "style-markdown",
             "element-alphabetical-sequence-numbering-in-chat",
+            "persona-kaye",
         ]
     )
     for path in _CHAT_PATHS:
@@ -75,11 +79,20 @@ def register_standalone_chat_blueprints():
             description_node=("Chat Agent", "{description}"),
             when_to_use_node=("Chat Agent", "{when_to_use}"),
         ),
+        render_profile=RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,)),
         llm_invokable=False,
         always_apply=True,
         consumer=CONSUMER_NAME,
     )
 
+
+def register_standalone_chat_blueprints():
+    """
+    register ``chat-coder``, for the standalone setup alone
+
+
+    :raises KeyError: ``chat`` or ``coder`` is not yet registered
+    """
     # the library's own coder enters by object, so the pair stays acyclic
     coder = get_blueprint("coder")
     coder_meta = coder.blueprint.meta

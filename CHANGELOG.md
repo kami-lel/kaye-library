@@ -21,6 +21,7 @@ todo good morning incl finance report
 
 ### Changed
 
+- `chat`: registers in every setup, not standalone only, over public `persona-kaye`, rendering `{for Kaye}`; a consumer takes it over w/ `override_exportable`, a second registration raises
 - `Co-author Trailer`: trailer only for changes you wrote, none for a message alone; never a generic AI trailer; each persona's full trailer behind its `{for <persona>}` sidecar, moved in from consumer; `commit-sense`, `commit-sense-branch-merging` sign as Kaye via `{for Kaye}`
 - `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
 - `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills

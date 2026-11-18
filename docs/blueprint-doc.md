@@ -178,12 +178,14 @@ flowchart LR
     recap_today --> style_briefness_style
 ```
 
-#### Standalone Chat
+#### Chat
 
 ```mermaid
 flowchart LR
     chat --> style_markdown["style-markdown"]
     chat --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
+    chat --> persona_kaye["persona-kaye"]
+    persona_kaye --> persona_kaye_speech_habit["persona-kaye-speech-habit"]
     element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
     chat_coder["chat-coder"] --> chat
     chat_coder --> coder

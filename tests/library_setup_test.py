@@ -55,15 +55,24 @@ class TestStructure:
         assert kaye_library.get_kaye_library_abbrs_json_path().is_file()
 
 
-class TestStandaloneChatBase:
+class TestChatBase:
 
-    def test_chat_is_always_applied_and_persona_free(_):
+    def test_chat_is_always_applied(_):
         from kaye_engine.exportable import exportable_registry
 
         chat = exportable_registry["chat"]
 
         assert chat.always_apply is True
         assert chat.consumer == "kaye-library"
+
+    def test_chat_speaks_as_kaye(_):
+        from kaye_engine.exportable import exportable_registry
+
+        content = exportable_registry["chat"].content()
+
+        assert "# Chat Agent" in content
+        assert "## Kaye" in content
+        assert "Kaye LeL" in content
 
     def test_chat_coder_is_not_invokable(_):
         from kaye_engine.exportable import exportable_registry
