@@ -44,11 +44,9 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-## 🐙 Git
+## 🤖 智能体
 
-提交信息值得一读，合并干干净净，并行开发互不打架。
-
-`/working-with-git` 先把规矩立好：没有你点头，智能体**绝不推送，也绝不改写历史**。在用 Perforce？`/working-with-p4v` 给每个 Perforce 术语都标上对应的 Git 说法，不用在脑子里来回翻译。
+决定智能体怎么和你一轮一轮地配合。对话规则以 Kaye 的口吻自动生效：回复语言、统一术语、醒目的提问标记。
 
 
 
@@ -62,31 +60,41 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-### 提交与合并
+### Movement 与 Suite
 
-`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。说一句“commit this”，就能拿到一行**精准的摘要**，外加**逐个文件的改动清单**，写清改了什么、为什么改。`/commit-sense-branch-merging` 则负责合并时的提交信息。
+大任务得有章法，从 `/plan-for-suite` 🌟 开始。
 
-分支生命周期的其他环节：
+智能体先摸清仓库，再把任务写成一份编号的**计划文件**，等你批准后才动手。
 
-- `/resolve-merge-conflict` ⭐：理顺卡住的合并，两边的改动都兼顾到，冲突标记清理干净
-- `/prune-merged-branches`：删掉已经合并的分支，并告诉你删了哪些、留了哪些
-- `/submit-pr`：准备好文档，向 `dev` 发起 PR，标题和描述都替你写好
+这份文件就是 **Suite**，即存在磁盘上的整个多轮任务；文件里每个编号步骤是一个 **Movement**，即可以单独审阅、扫一眼就能判断好坏的一步。
 
+> [!NOTE]
+> 有 Git 可用时，每个 Movement 都会自动提交一次。
 
+不会再一口气改 30 个文件：你先看计划、提意见，然后才开工，每次只做一个 Movement。
 
+先做计划，再动手：
 
+| 技能 | 能带来什么 |
+|---|---|
+| `/plan-for-suite` 🌟 | 动手前先有一份编号、可审阅的计划；你批准之前什么都不会执行 |
+| `/execute-plan-for-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
+| `/rework-plan-for-suite` | 计划跟不上实际情况了？它会先停下来，改好计划，再等你重新批准 |
 
+节奏你说了算：
 
+| 技能 | 能带来什么 |
+|---|---|
+| `/halt-each-movement` | 每做完一个 Movement 就停，等你审阅后再做下一个 |
+| `/cascade-all-movements` | 把剩下的 Movement 一口气做完，只有整个 Suite 完成或需要你拍板时才停 |
 
+> [!TIP]
+> 执行计划时，可以把 `/execute-plan-for-suite` 和 `/tend-linked-wt` 搭配使用，实现并行开发。每份计划各占一个关联工作树，多个 Suite 同时推进也互不冲突。
 
+配套技能，负责定义这些概念：
 
-
-
-
-
-### 用工作树并行开发
-
-三个功能同时开发，谁也不碍着谁。**关联工作树**就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
+- `/agent-movement-and-suite`：定义 Suite 和 Movement
+- `/agent-movement-and-suite-with-count`：把每个 Movement 再细分成若干 Count，进度一看就是几分之几
 
 
 
@@ -257,6 +265,111 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
+## 🐙 Git
+
+提交信息值得一读，合并干干净净，并行开发互不打架。
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 提交与合并
+
+`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。提交（commit）就是给你的改动存一份快照，提交信息得说清改了什么。说一句“commit this”，就能拿到：
+
+- 一行**精准的摘要**：这次改动的标题
+- **逐个文件的改动清单**：每个文件改了什么、为什么改
+
+`/commit-sense-branch-merging` 则负责合并时的提交信息。合并（merge）就是把一条分支，也就是一条独立的开发线，并回另一条。
+
+分支生命周期的其他环节：
+
+- `/resolve-merge-conflict` ⭐：两条分支改了同一处，合并卡住了？它会帮你理顺，两边的意图都保住，冲突标记清理干净
+- `/prune-merged-branches`：删掉工作已经合并的分支，并告诉你删了哪些、留了哪些
+- `/submit-pr`：准备好文档，向 `dev` 发起 PR（请求合并你的分支），标题和描述都替你写好
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 用工作树并行开发
+
+三个功能同时开发，谁也不碍着谁。
+
+通常一个文件夹同一时间只能放一条分支，做到一半切分支，文件就被搅乱了。**关联工作树**是同一个仓库另开的一个工作文件夹，固定在自己的分支上。每个任务一个文件夹，改动互不影响。
+
+- `/tend-linked-wt` 🌟：管一棵工作树的整个生命周期，从创建到移除
+- `/plant-linked-wt`：为新任务创建一棵
+- `/uproot-linked-wt`：工作合并后把它移除
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 基本规矩
+
+它们会自动生效，大多数时候不用手动调用：
+
+- `/working-with-git`：没有你点头，智能体**绝不推送，也绝不改写历史**
+- `/working-with-p4v`：在用 Perforce？每个术语都标上对应的 Git 说法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 💻 编程
 
 不管什么语言，代码都干净统一。再也不用替 AI 收拾烂摊子。
@@ -334,66 +447,6 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 | `/coder-command-usage-message` | 给 `--help` 和报错信息写简洁的用法说明 |
 | `/coder-comment-banner-in-code-comment` | 在源码里用分级横幅注释标出文件标题、章节和小节 |
 | `/coder-comment-banner-in-print-out` | 在程序输出里用分级横幅，把日志、演示和测试过程分成清楚的阶段 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🤖 智能体
-
-决定智能体怎么和你一轮一轮地配合。对话规则以 Kaye 的口吻自动生效：用什么语言回复，对话中各个环节怎么称呼，提问怎么标记才不会被你漏看。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Movement 与 Suite
-
-大任务得有章法。**Suite** 指整个多轮任务，**Movement** 是其中可以单独审阅的一步，小到扫一眼就能判断好坏。`/agent-movement-and-suite` 定义了这两个概念；`/agent-movement-and-suite-with-count` 再把每个 Movement 细分成若干 Count，进度一看就是几分之几。
-
-`/plan-for-suite` 🌟 把这套方法落到实处。智能体不会再一口气改 30 个文件，而是先摸清仓库，写出编号的计划，等你批准后才动手。
-
-- `/execute-plan-for-suite`：每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题
-- `/rework-plan-for-suite`：计划跟不上实际情况了？它会先停下来，改好计划，再等你重新批准
-
-**节奏你说了算**。`/halt-each-movement` 每做完一步就停，等你审阅；`/cascade-all-movements` 把剩下的步骤一口气做完，只有全部完成或需要你拍板时才停。
 
 
 

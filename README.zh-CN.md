@@ -27,10 +27,10 @@
 
 | | 分组 | 智能体能学到什么 |
 |---|---|---|
-| 🐙 | Git | 带逐文件清单的提交信息、合并冲突处理、清理分支、给并行任务用的关联工作树、PR、Git 与 Perforce 术语对照 |
-| 📝 | 仓库与项目 | README、CHANGELOG、AGENTS、CONTEXT 和文档的写作；功能合入、版本发布流程 |
-| 💻 | 编程 | 通用编码规范、规划与代码审查流程、测试同步，外加 Bash、C、C++、C#、GDScript、HTML、JS/TS、PowerShell、Python、Unreal Engine 的语言规范 |
 | 🤖 | 智能体 | 对话规则，Movement 与 Suite 规划：把大任务拆成一步步可审阅的小块 |
+| 📝 | 仓库与项目 | README、CHANGELOG、AGENTS、CONTEXT 和文档的写作；功能合入、版本发布流程 |
+| 🐙 | Git | 带逐文件清单的提交信息、合并冲突处理、清理分支、给并行任务用的关联工作树、PR、Git 与 Perforce 术语对照 |
+| 💻 | 编程 | 通用编码规范、规划与代码审查流程、测试同步，外加 Bash、C、C++、C#、GDScript、HTML、JS/TS、PowerShell、Python、Unreal Engine 的语言规范 |
 | 🗓️ | 秘书 | 写邮件、清理收件箱、同步日历和待办、活动雷达、每日回顾、早报和周报、找工作 |
 | 🖋️ | 文书 | 芝加哥格式脚注和参考文献、文字修订、笔记、配置记录、快捷键记录、会议纪要 |
 | 🎮 | Unity 引擎 | Unity 6 C# 命名、Inspector 字段、输入、对象激活、数值调优、资源摆放 |

@@ -46,11 +46,9 @@ New here? Start with the 🌟 Top Picks, then try the ⭐ Favorites.
 
 
 
-## 🐙 Git
+## 🤖 Agentic
 
-Commits worth reading. Clean merges. Parallel work without collisions.
-
-`/working-with-git` sets the ground rules: your agent **never pushes or rewrites history** without your say-so. On Perforce? `/working-with-p4v` pairs every Perforce term with its Git equivalent. No translating in your head.
+How your agent works with you, turn by turn. Chat rules apply on their own, in Kaye's voice: reply language, shared terms, clearly marked questions.
 
 
 
@@ -64,31 +62,43 @@ Commits worth reading. Clean merges. Parallel work without collisions.
 
 
 
-### Commits and Merges
+### Movements and Suites
 
-`/commit-sense` 🌟 ends "fix stuff" commits. Say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why. `/commit-sense-branch-merging` does the same for merge messages.
+Big tasks need structure. `/plan-for-suite` 🌟 is where to start.
 
-The rest of the branch lifecycle:
+Your agent first surveys the repository, then writes the work down as a numbered **plan file** and waits for your approval before touching anything.
 
-- `/resolve-merge-conflict` ⭐: a halted merge untangled, both sides reconciled, markers gone
-- `/prune-merged-branches`: merged branches deleted, with a report of what went and what stayed
-- `/submit-pr`: docs readied and a pull request into `dev` opened, title and body written for you
+That file is the **Suite**: the whole multi-round task, saved on disk. Each numbered step in it is a **Movement**, one reviewable unit small enough to judge at a glance.
 
+> [!NOTE]
+> When Git is available, each Movement is committed automatically.
 
+No more 30-file rewrites in one go. You read the plan, adjust it, and only then does the work begin, one Movement at a time.
 
+Plan the work, then run it:
 
+| Skill | What You Get |
+|---|---|
+| `/plan-for-suite` 🌟 | a numbered, reviewable plan before any edit; nothing runs until you approve |
+| `/execute-plan-for-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
+| `/rework-plan-for-suite` | plan no longer fits reality? it halts, rewrites the plan, and waits for your approval again |
 
+Then set the pace:
 
+| Skill | What You Get |
+|---|---|
+| `/halt-each-movement` | stops after each Movement and waits for your review before the next |
+| `/cascade-all-movements` | runs every remaining Movement in one go, stopping only when the Suite is done or when it needs you |
 
+> [!TIP]
+> When executing plans, pair `/execute-plan-for-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
 
+----
 
+Supporting skills behind the vocabulary:
 
-
-
-
-### Parallel Work in Worktrees
-
-Run three features at once. None collide. A **linked worktree** is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
+- `/agent-movement-and-suite`: defines Suite and Movement
+- `/agent-movement-and-suite-with-count`: splits Movements into Counts, so progress reads as a fraction
 
 
 
@@ -259,6 +269,111 @@ Supporting skills for the release workflows above:
 
 
 
+## 🐙 Git
+
+Commits worth reading. Clean merges. Parallel work without collisions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Commits and Merges
+
+`/commit-sense` 🌟 ends "fix stuff" commits. A commit is a saved snapshot of your work, and its message should say what changed. Say "commit this" and get:
+
+- a sharp **summary line**: the one-line headline of the change
+- a **per-file ledger**: what changed in each file, and why
+
+`/commit-sense-branch-merging` does the same for merge messages. A merge joins one branch, a separate line of work, back into another.
+
+The rest of the branch lifecycle:
+
+- `/resolve-merge-conflict` ⭐: two branches edited the same lines and the merge stopped? this untangles it, keeping both sides' intent and clearing the conflict markers
+- `/prune-merged-branches`: deletes branches whose work is already merged, with a report of what went and what stayed
+- `/submit-pr`: readies the docs and opens a pull request into `dev`, a request to merge your branch, with title and body written for you
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Parallel Work in Worktrees
+
+Run three features at once. None collide.
+
+Normally one folder holds one branch at a time, so switching branches mid-task disturbs your files. A **linked worktree** is an extra working folder of the same repository, locked to its own branch. Each task gets its own folder, so edits in one never touch the others.
+
+- `/tend-linked-wt` 🌟: handles a worktree's whole life, from creating it to removing it
+- `/plant-linked-wt`: creates one for a new task
+- `/uproot-linked-wt`: removes it once the work is merged
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Ground Rules
+
+These apply on their own, so you rarely need to call them by hand:
+
+- `/working-with-git`: your agent **never pushes or rewrites history** without your say-so
+- `/working-with-p4v`: on Perforce? every term paired with its Git equivalent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 💻 Coder
 
 Clean, consistent code in every language. No more tidying up after your AI.
@@ -336,66 +451,6 @@ Three small skills for the text your code prints:
 | `/coder-command-usage-message` | a crisp usage message for `--help` and errors |
 | `/coder-comment-banner-in-code-comment` | ranked banner comments for file titles, sections, and subsections |
 | `/coder-comment-banner-in-print-out` | ranked banners that split logs, demos, and test runs into clear phases |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🤖 Agentic
-
-How your agent works with you, turn by turn. The conversation rules apply on their own, in Kaye's voice: reply language, shared terms for each step, and clearly marked questions you can't miss.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Movements and Suites
-
-Big tasks need structure. A **Suite** is the whole multi-round task. A **Movement** is one reviewable step, small enough to judge at a glance. `/agent-movement-and-suite` defines both. `/agent-movement-and-suite-with-count` splits Movements into Counts, so progress reads as a fraction.
-
-`/plan-for-suite` 🌟 puts it to work. No more 30-file rewrites in one go. Your agent surveys the repository, writes a numbered plan, and waits for your approval.
-
-- `/execute-plan-for-suite`: one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session
-- `/rework-plan-for-suite`: plan no longer fits reality? It halts, rewrites the plan, and waits for your approval again
-
-**You set the pace.** `/halt-each-movement` stops after every step for your review. `/cascade-all-movements` runs everything left and stops only when done or when it needs you.
 
 
 
