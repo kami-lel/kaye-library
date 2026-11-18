@@ -11,6 +11,7 @@ from .amanuensis.amanuensis_glossary import register_amanuensis_abbr_glossaries
 from .coder.coder_glossary import register_coder_abbr_glossaries
 from .element.element_glossary import register_element_abbr_glossaries
 from .git.git_glossary import register_git_abbr_glossaries
+# FIXME personality/ lacks __init__.py: ships only as setuptools data
 from .personality.personality_glossary import (
     register_personality_abbr_glossaries,
 )
@@ -124,6 +125,7 @@ def register_kaye_library_abbr_glossaries():
     register_u3d_abbr_glossaries()
 
 
+# FIXME empty step 4; _dynamic_substitution.py imported nowhere
 def register_kaye_library_dynamic_substitutions():
     """
     register every kaye-library dynamic substitution

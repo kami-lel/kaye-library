@@ -64,10 +64,10 @@ Make the plugin file yourself, then upload it.
 1. Build the zip:
 
    ```bash
-   kaye-engine claude plugin -z
+   kaye-library claude plugin -z
    ```
 
-2. Upload `CONSUMER-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+2. Upload `kaye-library-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
 
 
 
@@ -180,7 +180,7 @@ Install it yourself with one command.
 1. Run:
 
    ```bash
-   kaye-engine claude vs-code-extension
+   kaye-library claude vs-code-extension
    ```
 
 2. Restart VS Code.

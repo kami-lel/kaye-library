@@ -1,12 +1,12 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-18, v1.4.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-18, v1.4.2-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
 ## Project Overview
 
-`kaye-library` is the shareable layer of a prompt stack. [kaye-engine](https://github.com/kami-lel/kaye-engine) supplies the mechanism (prompt tree, blueprints, exporters, command dispatcher) and bundles no content; this repository supplies reusable, persona-free content on top of it: style and naming rules, git and repository workflows, the agent workflow skeleton, and coding rules. It builds, tests, and exports standalone.
+`kaye-library` is the shareable layer of a prompt stack. [kaye-engine](https://github.com/kami-lel/kaye-engine) supplies the mechanism (prompt tree, blueprints, exporters, command dispatcher) and bundles no content; this repository supplies reusable content on top of it, persona-free apart from one public persona, Kaye: style and naming rules, git and repository workflows, the agent workflow skeleton, and coding rules. It builds, tests, and exports standalone.
 
 ```mermaid
 graph LR
@@ -58,7 +58,7 @@ The console command builds on the engine's `register_cli_main_parser(PACKAGE_NAM
 
 ## Corpus Structure
 
-Twelve authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
+Thirteen authored root nodes plus two dynamic placements; every root has exactly one owner, so no path is ambiguous.
 
 | root | holds |
 |---|---|
@@ -69,6 +69,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
+| Personality | the Personality formatting rule and its `(((person-signifier)))` list, Personality Signature (each persona's name behind its `{for <persona>}` sidecar); `personality-kaye.md`: the Kaye persona and its address-free speech habits; taken by internal `persona-kaye` |
 | Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (with its Execution and Rework sections, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
@@ -76,7 +77,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | Meta Prompt | Write Large Language Model Prompt and the skill-metadata writers (Write Skill Description, When to Use, both) |
 | `(today)`, `(element-dt-days-of-week)` | dynamic placements carrying authored preface text |
 
-- the language files register under `("Coder",)`; every other file, Unity Engine included, registers under the root
+- the language files register under `("Coder",)`, `repo.md`, `workflow.md`, `branch.md` under `("Git",)`, `personality-kaye.md` under `("Personality",)`; every other file, Unity Engine included, registers under the root
 - a consumer registers its own sources under the root or its own nodes and never reuses a library root name
 - `#slug` links follow heading text, so a link from library text must point at library text
 - `_CORPUS_SOURCES` in `kaye_library/__init__.py` pairs a node path with a file, in registration order; a source's top headings sit exactly one level below its target, or loading raises (the format is the engine's [corpus documentation](https://github.com/kami-lel/kaye-engine/blob/dev/docs/corpus-doc.md))
@@ -98,8 +99,8 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 
 ## Content Boundary
 
-- ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override
-- stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
+- ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override; one public persona, Kaye, under the `Personality` root, its display name behind its `{for Kaye}` sidecar
+- stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, a host's own personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
 - `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
 - the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin

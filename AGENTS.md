@@ -49,11 +49,12 @@ Scope each run to the area touched; run everything only before a merge.
 
 | changed | run |
 |---|---|
-| a corpus `.md` or a `*_bp.py` | `pytest tests/skill_export_test.py` plus the group's test (`tests/coder_test.py`, `tests/u3d_test.py`, `tests/agent_test.py`, `tests/commit_sense_test.py`, `tests/general_test.py`) |
+| a corpus `.md` or a `*_bp.py` | `pytest tests/skill_export_test.py` plus the group's test (`tests/coder_test.py`, `tests/u3d_test.py`, `tests/agent_test.py`, `tests/commit_sense_test.py`, `tests/general_test.py`, `tests/personality_test.py`) |
 | a glossary or `abbrs.json` | `pytest tests/glossary_test.py tests/abbr` |
 | setup, `__main__.py`, the consumer record | `pytest tests/library_setup_test.py tests/console_test.py tests/third_consumer_test.py` |
 | any shipped file | `pytest tests/privacy_test.py` |
 | an `Invoke ... skill` line in a corpus `.md` | `pytest tests/invocation_test.py` |
+| a `#anchor` link or a linked heading in a corpus `.md` | `pytest tests/anchor_test.py` |
 | `README.md`, `README.zh-CN.md`, `AGENTS.md`, `CONTEXT.md` | `pytest tests/docs_test.py` |
 | `examples/minimal-consumer/`, the Consumer documentation, an override or step rule | `pytest tests/example_consumer_test.py tests/docs_test.py` (the example test installs the example and needs `setuptools`, else it skips) |
 | before a merge | `pytest tests` |

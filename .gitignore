@@ -221,3 +221,4 @@ __marimo__/
 
 # Personal strings for the privacy test
 tests/privacy-forbidden.local.txt
+# FIXME local layers AGENTS.local.md, CONTEXT.local.md not ignored

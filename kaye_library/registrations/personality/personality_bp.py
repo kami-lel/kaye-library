@@ -28,6 +28,8 @@ def register_personality_blueprints():
       rule, with the Personality Signature section, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
+    # FIXME bypasses register_internal, so no consumer bound; also in
+    # style_bp, general_bp, element_bp
     register_blueprint(
         "persona-kaye-speech-habit",
         replace_meta(

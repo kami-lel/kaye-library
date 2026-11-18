@@ -64,10 +64,10 @@ Claude Desktop 有 3 种安装方式：
 1. 构建 zip 包：
 
    ```bash
-   kaye-engine claude plugin -z
+   kaye-library claude plugin -z
    ```
 
-2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤，上传当前目录下生成的 `CONSUMER-claude-VERSION.zip`。
+2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤，上传当前目录下生成的 `kaye-library-claude-VERSION.zip`。
 
 
 
@@ -180,7 +180,7 @@ VS Code 扩展有 4 种安装方式，任选一种即可。装好后，按 [检�
 1. 运行以下命令：
 
    ```bash
-   kaye-engine claude vs-code-extension
+   kaye-library claude vs-code-extension
    ```
 
 2. 重启 VS Code。
