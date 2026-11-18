@@ -1,7 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo very basic kaye persona
+TODO very basic kaye persona
 Todo add basic finance report
 Todo add dev lop writer
 Fixme plan for suite support parallel, w/ WT
