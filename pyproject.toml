@@ -7,7 +7,6 @@ name = "kaye-library"
 version = "1.4.2-alpha"
 description = "A ready-to-install library of reusable LLM instructions: shared rules for writing, git, repositories, and coding, authored once in Markdown and ready to use as skills, plugins, or plain prompts, so any agent works to the same high standard from its first prompt, powered by kaye-engine"
 readme = "README.md"
-# TODO declare license: no license field, no LICENSE file in repo
 authors = [
     { name = "kamiLeL", email = "77594253+kami-lel@users.noreply.github.com" },
 ]

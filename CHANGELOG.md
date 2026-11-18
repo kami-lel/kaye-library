@@ -48,6 +48,8 @@ todo good morning incl finance report
 ### Fixed
 
 - Claude usage docs: build-it-yourself routes run `kaye-library claude ...`, not bare `kaye-engine`, which exports nothing; zip named `kaye-library-claude-VERSION.zip`
+- `registrations/personality/` gets its `__init__.py`, so setuptools packages it like every other group, not as deprecated data
+- `AGENTS.local.md` & `CONTEXT.local.md` git-ignored at any depth
 
 ### Security
 
