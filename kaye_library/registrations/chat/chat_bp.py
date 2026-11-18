@@ -3,9 +3,8 @@ kaye_library.registrations.chat.chat_bp.py
 
 register ``chat``, the conversation rules over the public Kaye persona,
 in every setup, so a package takes it over with ``override_exportable``;
-and, for the standalone setup alone, the non-invokable ``chat-coder``
-merging it with ``coder`` and the default ``secretary-email-authuser``
-substitution
+and, for the standalone setup alone, the default
+``secretary-email-authuser`` substitution
 """
 
 from kaye_engine import (
@@ -16,7 +15,6 @@ from kaye_engine import (
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
-    get_blueprint,
     replace_meta,
 )
 
@@ -26,7 +24,6 @@ from .._common import CONSUMER_NAME, SIDECAR_FOR_KAYE
 
 __all__ = (
     "register_chat_blueprints",
-    "register_standalone_chat_blueprints",
     "register_standalone_dynamic_substitutions",
 )
 
@@ -85,26 +82,3 @@ def register_chat_blueprints():
         consumer=CONSUMER_NAME,
     )
 
-
-def register_standalone_chat_blueprints():
-    """
-    register ``chat-coder``, for the standalone setup alone
-
-
-    :raises KeyError: ``chat`` or ``coder`` is not yet registered
-    """
-    # the library's own coder enters by object, so the pair stays acyclic
-    coder = get_blueprint("coder")
-    coder_meta = coder.blueprint.meta
-    register_blueprint(
-        "chat-coder",
-        replace_meta(
-            create_blueprint(dependencies=["chat", coder.blueprint]),
-            display_name="Chat Coder",
-            description_node=coder_meta.description_node,
-            when_to_use_node=coder_meta.when_to_use_node,
-        ),
-        is_user_invokable=False,
-        llm_invokable=False,
-        consumer=CONSUMER_NAME,
-    )

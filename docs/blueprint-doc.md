@@ -187,8 +187,7 @@ flowchart LR
     chat --> persona_kaye["persona-kaye"]
     persona_kaye --> persona_kaye_speech_habit["persona-kaye-speech-habit"]
     element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
-    chat_coder["chat-coder"] --> chat
-    chat_coder --> coder
+    coder --> chat
     rapid --> style_markdown
 ```
 

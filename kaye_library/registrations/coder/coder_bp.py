@@ -13,7 +13,10 @@ from kaye_engine.prompt.blueprint import (
     replace_meta,
 )
 
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
+
 from .._common import (
+    SIDECAR_FOR_KAYE,
     glossary_blueprint,
     register_exportable,
     register_node,
@@ -26,12 +29,12 @@ __all__ = ("register_coder_blueprints",)
 
 def register_coder_blueprints():
     """
-    register the persona-free Coder: the ``coder`` skill, its workflows,
-    and every per-language coder profile
+    register the Coder: the ``coder`` skill, Kaye Peer Coder, its
+    workflows, and every per-language coder profile
 
-    a package may take ``coder`` over with ``override_exportable``, adding
-    the conversation rules and persona it wants around the blueprint
-    object ``get_blueprint("coder").blueprint``
+    ``coder`` is ``chat`` plus the Coder rules, ``chat`` named as a string
+    dependency, so a package that takes ``chat`` over reaches ``coder``
+    too; the per-language profiles stay persona-free, invoking ``coder``
 
 
     :raises KeyError: a depended-on blueprint is not yet registered
@@ -39,9 +42,8 @@ def register_coder_blueprints():
     coder_node = get_corpus_node("Coder")
 
     # Coder
-    # the Coder rules and glossaries as a skill, with no conversation
-    # rules and no persona; a package may take it over with its own
-    # conversation rules around this blueprint
+    # Kaye Peer Coder: the conversation rules and persona of chat, plus
+    # the Coder rules and glossaries
     register_exportable(
         "coder",
         replace_meta(
@@ -49,6 +51,7 @@ def register_coder_blueprints():
                 create_blueprint_from_node(
                     coder_node,
                     dependencies=[
+                        "chat",
                         "element-triage-tags",
                         "repo-structure",
                         "proj-context-engineering",
@@ -59,10 +62,12 @@ def register_coder_blueprints():
                 ),
                 glossary_blueprint("coder-abbr", "coder-identifier-shorthand"),
             ),
-            display_name="Coder",
+            display_name="Kaye Peer Coder",
             description_node=("Coder", "{description}"),
             when_to_use_node=("Coder", "{when_to_use}"),
         ),
+        render_profile=RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,)),
+        always_apply=True,
     )
 
     # Plan for Suite

@@ -21,6 +21,7 @@ todo good morning incl finance report
 
 ### Changed
 
+- `coder`: Kaye Peer Coder, `chat` + Coder rules, always applied; depends on `chat` by name, so a consumer's `chat` takeover reaches it; language profiles stay persona-free
 - `chat`: registers in every setup, not standalone only, over public `persona-kaye`, rendering `{for Kaye}`; a consumer takes it over w/ `override_exportable`, a second registration raises
 - `Co-author Trailer`: trailer only for changes you wrote, none for a message alone; never a generic AI trailer; each persona's full trailer behind its `{for <persona>}` sidecar, moved in from consumer; `commit-sense`, `commit-sense-branch-merging` sign as Kaye via `{for Kaye}`
 - `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
@@ -30,7 +31,7 @@ todo good morning incl finance report
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
 
 > [!WARNING]
-> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys
+> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat`; Claude & Codex setup names `chat` & `coder`
 
 ### Deprecated
 
