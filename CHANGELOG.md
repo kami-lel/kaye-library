@@ -3,7 +3,6 @@
 <!--
 Todo very basic kaye persona
 TODO add basic finance report
-TODO add dev lop writer
 FIXME plan for suite support parallel, w/ WT
 FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
@@ -13,6 +12,9 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
+- `repo-credits-writer`, `create-credits`, `maintain-credits`: `CREDITS.md` w/ per-kind asset tables: path, source, author, license
+- `repo-devlog-writer`, `create-devlog`, `maintain-devlog`: `DEVLOG.md` journal, newest first: findings → fixes, leftovers, captioned screenshots
+- Project Context Engineering folder example: optional `CREDITS.md` & `DEVLOG.md`
 - `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 
 ### Changed

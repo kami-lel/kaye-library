@@ -47,6 +47,11 @@ flowchart LR
     repo_changelog_writer["repo-changelog-writer"] --> style_briefness_style
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
+    repo_credits_writer["repo-credits-writer"] --> style_briefness_style
+    repo_credits_writer --> style_good_writing
+    repo_devlog_writer["repo-devlog-writer"] --> style_briefness_style
+    repo_devlog_writer --> style_good_writing
+    repo_devlog_writer --> element_dt_year_month_day_format["element-dt-year-month-day-format"]
     ready_release_version["ready-release-version"] --> proj_version_extended
     scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
@@ -67,6 +72,14 @@ flowchart LR
     create_changelog["create-changelog"] --> repo_changelog_writer
     maintain_changelog["maintain-changelog"] --> repo_changelog_writer
     condense_changelog["condense-changelog"] --> repo_changelog_writer
+    create_credits["create-credits"] --> repo_credits_writer
+    maintain_credits["maintain-credits"] --> repo_credits_writer
+    create_devlog["create-devlog"] --> repo_devlog_writer
+    maintain_devlog["maintain-devlog"] --> repo_devlog_writer
+    create_credits --> style_good_writing
+    maintain_credits --> style_good_writing
+    create_devlog --> style_good_writing
+    maintain_devlog --> style_good_writing
     create_repo_agents["create-repo-agents"] --> repo_agents_writer
     maintain_repo_agents["maintain-repo-agents"] --> repo_agents_writer
     create_repo_docs["create-repo-docs"] --> repo_doc_writer

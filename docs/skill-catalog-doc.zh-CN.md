@@ -2,7 +2,7 @@
 
 [English](skill-catalog-doc.md) | 简体中文
 
-kaye-library 的 141 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
+kaye-library 的 147 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
 
 用法有两种：
 
@@ -163,7 +163,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 项目里的每份文件，都写得对、跟得上。
 
-一个好项目要照顾五类读者：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。kaye-library 给每一类都配了专门的写作技能。
+一个好项目要照顾五类读者：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。另有两份可选文件：`CREDITS.md` 为每项第三方素材署名，`DEVLOG.md` 记下团队的开发日志。kaye-library 给每一类都配了专门的写作技能。
 
 大多数写作技能还配了两个工作流：“创建”从零写出文件，“维护”在代码更新后就地改好。
 
@@ -174,6 +174,8 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 | `AGENTS.md`（代码仓库） | AI 编程智能体 | `/repo-agents-writer` | `/create-repo-agents` | `/maintain-repo-agents` |
 | `AGENTS.md`（任意项目） | AI 智能体 | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
 | `CONTEXT.md` | 新加入的开发者和 AI | `/repo-context-writer` | ➖ | ➖ |
+| `CREDITS.md` | 被署名的创作者、核查授权的人 | `/repo-credits-writer` | `/create-credits` | `/maintain-credits` |
+| `DEVLOG.md` | 团队、评审者 | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
 | `docs/`（代码仓库） | 想深入了解的读者 | `/repo-doc-writer` | `/create-repo-docs` | `/maintain-repo-docs` |
 | `docs/`（任意项目） | 想深入了解的读者 | `/proj-doc-writer` | `/create-project-docs` | `/maintain-project-docs` |
 
@@ -183,6 +185,8 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 - `/repo-readme-writer` 能把光秃秃的仓库变成有人愿意看的首页，本库的 README 就是这么来的
 - `/repo-changelog-writer` 遵循 Keep a Changelog 规范，带 `[Unreleased]` 区块和版本链接；`/create-changelog` 甚至能从 git 历史里重建一份
+- `/repo-credits-writer` 给每项第三方素材一行记录：路径、来源、作者、授权，不让任何素材无名上线
+- `/repo-devlog-writer` 把每项改动和促成它的试玩、问卷或 bug 对上号，配带说明的截图，并如实记下遗留问题
 - `/repo-agents-writer` 和 `/repo-context-writer` 让规则和知识各归各位：`AGENTS.md` 写该怎么做，`CONTEXT.md` 写系统怎么运作，个人笔记则放进只属于你自己的 `.local.md` 文件
 
 
