@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kaye-library"
-version = "1.4.2-alpha"
+version = "1.5.0"
 description = "A ready-to-install library of reusable LLM instructions: shared rules for writing, git, repositories, and coding, authored once in Markdown and ready to use as skills, plugins, or plain prompts, so any agent works to the same high standard from its first prompt, powered by kaye-engine"
 readme = "README.md"
 authors = [
@@ -12,9 +12,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    # FIXME tag v12.0.0 lacks bind_registrars & other APIs imported here,
-    # & pins kamilog v3.0.0 against v3.0.1 below; pin an engine tag w/ both
-    "kaye-engine @ git+https://github.com/kami-lel/kaye-engine.git@v12.0.0",
+    "kaye-engine @ git+https://github.com/kami-lel/kaye-engine.git@v13.0.0",
     "kamilog @ git+https://github.com/kami-lel/kamilog.git@v3.0.1",
 ]
 

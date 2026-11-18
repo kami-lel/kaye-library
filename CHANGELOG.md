@@ -9,6 +9,22 @@ todo good morning incl finance report
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...dev
+
+## [1.5.0] - 2026-11-18
+
+### Added
+
 - `repo-credits-writer`, `create-credits`, `maintain-credits`: `CREDITS.md` w/ per-kind asset tables: path, source, author, license
 - `repo-devlog-writer`, `create-devlog`, `maintain-devlog`: `DEVLOG.md` journal, newest first: findings → fixes, leftovers, captioned screenshots
 - Project Context Engineering folder example: optional `CREDITS.md` & `DEVLOG.md`
@@ -23,6 +39,7 @@ todo good morning incl finance report
 - `coder`: Kaye Peer Coder, Coder rules over `chat-kaye`, always applied; language profiles stay persona-free
 - chat stack registers in every setup, not standalone only; a second registration raises
 - `Co-author Trailer`: trailer only for changes you wrote, none for a message alone; never a generic AI trailer; each persona's full trailer behind its `{for <persona>}` sidecar, moved in from consumer; `commit-sense`, `commit-sense-branch-merging` sign as Kaye via `{for Kaye}`
+- `kaye-engine` pin `v12.0.0` -> `v13.0.0`, which adds the registration helpers
 - `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
 - `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills
 - `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`
@@ -41,8 +58,6 @@ todo good morning incl finance report
 > [!WARNING]
 > Breaking: exported skill `chat` is `chat-kaye`; re-run setup, update `chat` references in Continue rules & Codex
 
-### Deprecated
-
 ### Removed
 
 - `register_kaye_library_dynamic_substitutions`, an empty setup step: the library now has 5 setup steps, not 6; `registrations/_dynamic_substitution.py` stays as a helper for consumers
@@ -56,9 +71,8 @@ todo good morning incl finance report
 - `registrations/personality/` gets its `__init__.py`, so setuptools packages it like every other group, not as deprecated data
 - `AGENTS.local.md` & `CONTEXT.local.md` git-ignored at any depth
 
-### Security
+[1.5.0]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...v1.5.0
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.4.1...dev
 
 
 
