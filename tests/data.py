@@ -501,6 +501,18 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                  '#### Categories',
                  '#### Using Triage Tags',
                  '#### Findings'],
+ 'scrub-landed-feature': ['## Scrub After Feature Landing',
+                          'Once the current [feature '
+                          'branch](#feature-branch) is merged into `dev`',
+                          '#### Movement 1: Report and Ask Approval',
+                          '#### Movement 2: Push and Delete',
+                          '- ⓒ `git branch -d FEATURE`, never `-D`'],
+ 'scrub-released-version': ['## Scrub After Version Release',
+                            'Once a release is merged into `main` and '
+                            'tagged',
+                            '### Semantic Version Title',
+                            '#### Movement 1: Report and Ask Approval',
+                            '#### Movement 2: Push, Prune, and Sync Dev'],
  'style-briefness-style': ['## Style Guide Briefness Style',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
@@ -654,6 +666,8 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                           'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
  'review-gaps': 'Audits whole repository for gaps, drift, unfinished seams',
+ 'scrub-landed-feature': 'Scrubs up after a feature branch lands on `dev`',
+ 'scrub-released-version': 'Scrubs up after a version release',
  'sort-and-group-triage-tag': 'Reorders existing triage tags into grouped '
                               'blocks — tier from Loud to Quiet, then '
                               'meaning from bug to fixme, todo, hack.',
