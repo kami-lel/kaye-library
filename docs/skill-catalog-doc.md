@@ -295,7 +295,9 @@ Supporting skills for the release workflows above:
 
 ## 🎨 Style
 
-One voice, whatever your agent writes.
+One **voice**, whatever your agent writes.
+
+Most style skills are supporting: other skills load them for you, so one rule shapes every document. Call one directly only when you want just that rule.
 
 
 
@@ -316,7 +318,7 @@ One voice, whatever your agent writes.
 - `/style-markdown-endnotes`: every definition gathered in one block at the end
 - `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
 
-Long documents need room to breathe. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
+Long documents need **room to breathe**. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
 
 
 
@@ -332,7 +334,7 @@ Long documents need room to breathe. `/style-heading-separation` spaces headings
 
 ### Letter Case
 
-One skill per convention, so any rule can point to exactly one.
+One skill per **convention**, so any rule can point to exactly one.
 
 | Skill | Convention | Example |
 |---|---|---|
@@ -358,7 +360,9 @@ One skill per convention, so any rule can point to exactly one.
 
 ### Prose
 
-Two skills, opposite jobs. `/style-briefness-style` ⭐ cuts wordy drafts down to tight, headline-style notes. Perfect for status lines, summaries, and comments. `/style-good-writing` proofreads with the lightest touch: spelling, grammar, punctuation, clarity. Your voice stays yours.
+Two skills, opposite jobs. `/style-briefness-style` ⭐ cuts wordy drafts down to **tight, headline-style notes**. Perfect for status lines, summaries, and comments.
+
+`/style-good-writing` proofreads with the **lightest touch**: spelling, grammar, punctuation, clarity. Your voice stays yours.
 
 
 
@@ -395,7 +399,7 @@ Two skills, opposite jobs. `/style-briefness-style` ⭐ cuts wordy drafts down t
 
 ## 🗓️ Secretary
 
-A personal assistant for your inbox, calendar, to-do list, and job search. It works through the apps your agent is already connected to.
+A **personal assistant** for your inbox, calendar, to-do list, and job search. It works through the apps your agent is already connected to.
 
 
 
@@ -411,7 +415,7 @@ A personal assistant for your inbox, calendar, to-do list, and job search. It wo
 
 ### Check-ins
 
-`/good-morning` 🌟 is your daily briefing. One command sweeps your inbox, recaps yesterday, scans today's events, and finds job openings. You get one combined report. Each step also works alone.
+`/good-morning` 🌟 is your **daily briefing**. One command sweeps your inbox, recaps yesterday, scans today's events, and finds job openings. You get one **combined report**. Each step also works alone.
 
 `/good-week` looks ahead at the week's events and job openings. Need a lift? `/recap-yesterday` and `/recap-today` sum up what you got done in one warm, upbeat line.
 
@@ -429,7 +433,7 @@ A personal assistant for your inbox, calendar, to-do list, and job search. It wo
 
 ### Email, Calendar, and Tasks
 
-`/draft-email` ⭐ writes exactly what you asked. Nothing invented. Revised as often as you like. `/sweep-email-inbox` reads every unread message, marks it read, and files it by category.
+`/draft-email` ⭐ writes exactly what you asked. **Nothing invented.** Revised as often as you like. `/sweep-email-inbox` reads every unread message, marks it read, and files it by category.
 
 Calendar and tasks come in push and pull pairs:
 
@@ -454,7 +458,7 @@ GTD stands for *Getting Things Done*, the task-management method.
 
 ### Events and Jobs
 
-`/scan-event-radar-daily` finds today's events. `/scan-event-radar-weekly` covers the week ahead. Both use `/secretary-event-brief-format`: heading, key details, short overview. `/hunt-job-opportunity` pulls job openings from any source, one brief per job.
+`/scan-event-radar-daily` finds today's events. `/scan-event-radar-weekly` covers the week ahead. Both use `/secretary-event-brief-format`: heading, key details, short overview. `/hunt-job-opportunity` pulls job openings from any source, **one brief per job**.
 
 
 
@@ -491,7 +495,7 @@ GTD stands for *Getting Things Done*, the task-management method.
 
 ## 🎮 Unity Engine
 
-A complete house style for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so your agent loads only what the task needs.
+A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so your agent loads only what the task needs.
 
 | Skill | What You Get |
 |---|---|
@@ -541,7 +545,7 @@ A complete house style for Unity 6 C#. `/u3d` sets the baseline, built on `/code
 
 ## 🖋️ Amanuensis
 
-Your scholarly scribe: citations, notes, minutes, and careful revision.
+Your **scholarly scribe**: citations, notes, minutes, and careful revision.
 
 
 
@@ -557,7 +561,7 @@ Your scholarly scribe: citations, notes, minutes, and careful revision.
 
 ### Citations
 
-Every citation follows the *Chicago Manual of Style*. Never hand-format one again.
+Every citation follows the *Chicago Manual of Style*. **Never hand-format one again.**
 
 - `/amanuensis-chicago-note` 🌟: citations as native Markdown footnotes
 - `/amanuensis-chicago-bibliography`: bibliography entries, plain or annotated
@@ -578,7 +582,7 @@ Every citation follows the *Chicago Manual of Style*. Never hand-format one agai
 
 ### Notes and Records
 
-`/dispositor` is the base note-taker: structured notes, one filename, one layout. Four specialists build on it:
+`/dispositor` is the **base note-taker**: structured notes, one filename, one layout. Four specialists build on it:
 
 - `/scholiast`: paragraph-by-paragraph reading notes on academic texts, citations on request
 - `/minutes-clerk` ⭐: meeting minutes that track every decision and action item to done
@@ -622,7 +626,7 @@ And `/redactor` revises your text, keeps your intent and style, and iterates unt
 
 ## 🧱 Elements
 
-The small, exact building blocks behind every other skill. Other skills call them for you. Call one directly when you want just that rule.
+The small, exact **building blocks** behind every other skill. They are all supporting: other skills call them for you, so one rule stays the same everywhere. Call one directly only when you want just that rule.
 
 Dates and times look the same everywhere:
 
@@ -679,7 +683,7 @@ More building blocks:
 
 Commits worth reading. Clean merges. Parallel work without collisions.
 
-`/working-with-git` sets the ground rules: your agent never pushes or rewrites history without your say-so. On Perforce? `/working-with-p4v` pairs every Perforce term with its Git equivalent. No translating in your head.
+`/working-with-git` sets the ground rules: your agent **never pushes or rewrites history** without your say-so. On Perforce? `/working-with-p4v` pairs every Perforce term with its Git equivalent. No translating in your head.
 
 
 
@@ -695,7 +699,7 @@ Commits worth reading. Clean merges. Parallel work without collisions.
 
 ### Commits and Merges
 
-`/commit-sense` 🌟 ends "fix stuff" commits. Say "commit this" and get a sharp summary line plus a per-file ledger of what changed and why. `/commit-sense-branch-merging` does the same for merge messages.
+`/commit-sense` 🌟 ends "fix stuff" commits. Say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why. `/commit-sense-branch-merging` does the same for merge messages.
 
 The rest of the branch lifecycle:
 
@@ -717,7 +721,7 @@ The rest of the branch lifecycle:
 
 ### Parallel Work in Worktrees
 
-Run three features at once. None collide. A linked worktree is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
+Run three features at once. None collide. A **linked worktree** is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
 
 
 
@@ -770,14 +774,14 @@ How your agent works with you, turn by turn. The conversation rules apply on the
 
 ### Movements and Suites
 
-Big tasks need structure. A Suite is the whole multi-round task. A Movement is one reviewable step, small enough to judge at a glance. `/agent-movement-and-suite` defines both. `/agent-movement-and-suite-with-count` splits Movements into Counts, so progress reads as a fraction.
+Big tasks need structure. A **Suite** is the whole multi-round task. A **Movement** is one reviewable step, small enough to judge at a glance. `/agent-movement-and-suite` defines both. `/agent-movement-and-suite-with-count` splits Movements into Counts, so progress reads as a fraction.
 
 `/plan-for-suite` 🌟 puts it to work. No more 30-file rewrites in one go. Your agent surveys the repository, writes a numbered plan, and waits for your approval.
 
 - `/execute-plan-for-suite`: one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session
 - `/rework-plan-for-suite`: plan no longer fits reality? It halts, rewrites the plan, and waits for your approval again
 
-You set the pace. `/halt-each-movement` stops after every step for your review. `/cascade-all-movements` runs everything left and stops only when done or when it needs you.
+**You set the pace.** `/halt-each-movement` stops after every step for your review. `/cascade-all-movements` runs everything left and stops only when done or when it needs you.
 
 
 
@@ -814,9 +818,9 @@ You set the pace. `/halt-each-movement` stops after every step for your review. 
 
 ## 🪄 Meta Prompt
 
-Prompts that write prompts. `/write-llm-prompt` ⭐ turns a vague system prompt into one that delivers: drafted, graded, sharpened, with JSON schemas and structure left intact.
+**Prompts that write prompts.** `/write-llm-prompt` ⭐ turns a vague system prompt into one that delivers: drafted, graded, sharpened, with JSON schemas and structure left intact.
 
-Three more write the metadata that tells an agent when to load a skill:
+Three more write the metadata that tells an agent **when to load** a skill:
 
 - `/write-skill-description`: what the skill does, main verb first
 - `/write-skill-when-to-use`: trigger phrases, plus where the skill stops
@@ -857,7 +861,9 @@ Three more write the metadata that tells an agent when to load a skill:
 
 ## 📖 Glossaries
 
-Type less. Your agent still understands. Each glossary decodes one family of shorthand.
+**Type less.** Your agent still understands. Each glossary decodes one family of shorthand.
+
+They are all supporting: other skills load them for you, so shorthand means the same everywhere. Call one directly only when you want just that decoding.
 
 | Skill | Decodes | Example |
 |---|---|---|

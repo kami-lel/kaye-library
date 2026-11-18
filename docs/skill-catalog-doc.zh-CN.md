@@ -294,7 +294,9 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ## 🎨 风格
 
-不管写什么，智能体都是同一种文风。
+不管写什么，智能体都是同一种**文风**。
+
+大多数风格技能都是配套的：其他技能会替你加载它们，一条规则管住所有文档。只想用某条规则时，才需要单独调用。
 
 
 
@@ -315,7 +317,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 - `/style-markdown-endnotes`：所有注释统一放到文末
 - `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
 
-长文档要留白才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
+长文档要**留白**才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
 
 
 
@@ -331,7 +333,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 大小写格式
 
-每种格式单独一个技能，其他规则引用时一指一个准。
+每种格式**单独一个技能**，其他规则引用时一指一个准。
 
 | 技能 | 格式 | 示例 |
 |---|---|---|
@@ -357,7 +359,9 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 文风
 
-两个技能，方向正好相反。`/style-briefness-style` ⭐ 把啰嗦的草稿压成干脆的标题式笔记，写状态、摘要、注释都合适。`/style-good-writing` 则只做最小改动的校对：拼写、语法、标点、表达是否清楚，原有的语气和用词都保留。
+两个技能，方向正好相反。`/style-briefness-style` ⭐ 把啰嗦的草稿压成**干脆的标题式笔记**，写状态、摘要、注释都合适。
+
+`/style-good-writing` 则只做**最小改动**的校对：拼写、语法、标点、表达是否清楚，原有的语气和用词都保留。
 
 
 
@@ -394,7 +398,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ## 🗓️ 秘书
 
-收件箱、日历、待办、求职，一个私人助理全包了。它直接用智能体已经接入的那些应用干活。
+收件箱、日历、待办、求职，一个**私人助理**全包了。它直接用智能体已经接入的那些应用干活。
 
 
 
@@ -410,7 +414,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 早报与周报
 
-`/good-morning` 🌟 是你的每日早报。一条命令清理收件箱、回顾昨天、扫一遍今天的活动、找找招聘机会，最后汇总成一份报告。每一步也都能单独用。
+`/good-morning` 🌟 是你的**每日早报**。一条命令清理收件箱、回顾昨天、扫一遍今天的活动、找找招聘机会，最后汇总成**一份报告**。每一步也都能单独用。
 
 `/good-week` 帮你提前看看这周的活动和招聘机会。想给自己打打气？`/recap-yesterday` 和 `/recap-today` 会用一句暖心的话，总结你昨天或今天完成了什么。
 
@@ -428,7 +432,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 邮件、日历和待办
 
-`/draft-email` ⭐ 只写你交代的内容，不添油加醋，想改几遍改几遍。`/sweep-email-inbox` 把每封未读邮件看一遍、标成已读，再分门别类归好。
+`/draft-email` ⭐ 只写你交代的内容，**不添油加醋**，想改几遍改几遍。`/sweep-email-inbox` 把每封未读邮件看一遍、标成已读，再分门别类归好。
 
 日历和待办都是“推”“拉”成对：
 
@@ -453,7 +457,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 活动和招聘
 
-`/scan-event-radar-daily` 找今天的活动，`/scan-event-radar-weekly` 看未来一周。两者都按 `/secretary-event-brief-format` 的格式输出：标题、关键信息、一段简短概述。`/hunt-job-opportunity` 从各种渠道收集招聘信息，每个职位一份简报。
+`/scan-event-radar-daily` 找今天的活动，`/scan-event-radar-weekly` 看未来一周。两者都按 `/secretary-event-brief-format` 的格式输出：标题、关键信息、一段简短概述。`/hunt-job-opportunity` 从各种渠道收集招聘信息，**每个职位一份简报**。
 
 
 
@@ -490,7 +494,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ## 🎮 Unity 引擎
 
-一整套 Unity 6 C# 编码规范。`/u3d` 打底，它本身又建立在 `/coder-c-sharp` 之上。每个主题都是独立技能，智能体只加载当前任务需要的那部分。
+一整套 Unity 6 C# **编码规范**。`/u3d` 打底，它本身又建立在 `/coder-c-sharp` 之上。每个主题都是独立技能，智能体只加载当前任务需要的那部分。
 
 | 技能 | 能带来什么 |
 |---|---|
@@ -540,7 +544,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ## 🖋️ 文书
 
-你的学术秘书：引注、笔记、会议纪要、文字修订，样样细致。
+你的**学术秘书**：引注、笔记、会议纪要、文字修订，样样细致。
 
 
 
@@ -556,7 +560,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 引注
 
-所有引注都遵循 *Chicago Manual of Style*（芝加哥格式）。从此不用手动排版。
+所有引注都遵循 *Chicago Manual of Style*（芝加哥格式）。**从此不用手动排版**。
 
 - `/amanuensis-chicago-note` 🌟：生成原生 Markdown 脚注形式的引注
 - `/amanuensis-chicago-bibliography`：写参考文献条目，可带注释
@@ -577,7 +581,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 笔记与记录
 
-`/dispositor` 是打底的笔记技能：结构化的笔记，统一的文件名和版式。下面四个专项技能都建立在它之上：
+`/dispositor` 是打底的**笔记技能**：结构化的笔记，统一的文件名和版式。下面四个专项技能都建立在它之上：
 
 - `/scholiast`：逐段做学术阅读笔记，需要时附上引注
 - `/minutes-clerk` ⭐：记会议纪要，每项决议和待办都跟到落实为止
@@ -621,7 +625,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ## 🧱 基础元素
 
-撑起其他所有技能的小部件，小而精确。其他技能会自动调用它们；只想用某条规则时，也可以单独调用。
+撑起其他所有技能的**小部件**，小而精确。它们全是配套技能：其他技能会替你调用，一条规则处处一致。只想用某条规则时，才需要单独调用。
 
 日期和时间，处处一个格式：
 
@@ -678,7 +682,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 提交信息值得一读，合并干干净净，并行开发互不打架。
 
-`/working-with-git` 先把规矩立好：没有你点头，智能体绝不推送，也绝不改写历史。在用 Perforce？`/working-with-p4v` 给每个 Perforce 术语都标上对应的 Git 说法，不用在脑子里来回翻译。
+`/working-with-git` 先把规矩立好：没有你点头，智能体**绝不推送，也绝不改写历史**。在用 Perforce？`/working-with-p4v` 给每个 Perforce 术语都标上对应的 Git 说法，不用在脑子里来回翻译。
 
 
 
@@ -694,7 +698,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 提交与合并
 
-`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。说一句“commit this”，就能拿到一行精准的摘要，外加逐个文件的改动清单，写清改了什么、为什么改。`/commit-sense-branch-merging` 则负责合并时的提交信息。
+`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。说一句“commit this”，就能拿到一行**精准的摘要**，外加**逐个文件的改动清单**，写清改了什么、为什么改。`/commit-sense-branch-merging` 则负责合并时的提交信息。
 
 分支生命周期的其他环节：
 
@@ -716,7 +720,7 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### 用工作树并行开发
 
-三个功能同时开发，谁也不碍着谁。关联工作树就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
+三个功能同时开发，谁也不碍着谁。**关联工作树**就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
 
 
 
@@ -769,14 +773,14 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ### Movement 与 Suite
 
-大任务得有章法。Suite 指整个多轮任务，Movement 是其中可以单独审阅的一步，小到扫一眼就能判断好坏。`/agent-movement-and-suite` 定义了这两个概念；`/agent-movement-and-suite-with-count` 再把每个 Movement 细分成若干 Count，进度一看就是几分之几。
+大任务得有章法。**Suite** 指整个多轮任务，**Movement** 是其中可以单独审阅的一步，小到扫一眼就能判断好坏。`/agent-movement-and-suite` 定义了这两个概念；`/agent-movement-and-suite-with-count` 再把每个 Movement 细分成若干 Count，进度一看就是几分之几。
 
 `/plan-for-suite` 🌟 把这套方法落到实处。智能体不会再一口气改 30 个文件，而是先摸清仓库，写出编号的计划，等你批准后才动手。
 
 - `/execute-plan-for-suite`：每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题
 - `/rework-plan-for-suite`：计划跟不上实际情况了？它会先停下来，改好计划，再等你重新批准
 
-节奏你说了算。`/halt-each-movement` 每做完一步就停，等你审阅；`/cascade-all-movements` 把剩下的步骤一口气做完，只有全部完成或需要你拍板时才停。
+**节奏你说了算**。`/halt-each-movement` 每做完一步就停，等你审阅；`/cascade-all-movements` 把剩下的步骤一口气做完，只有全部完成或需要你拍板时才停。
 
 
 
@@ -813,9 +817,9 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ## 🪄 元提示词
 
-用来写提示词的提示词。`/write-llm-prompt` ⭐ 把含糊的系统提示词改成真正好用的版本：起草、打分、打磨，JSON schema 等原有结构原样保留。
+**用来写提示词的提示词**。`/write-llm-prompt` ⭐ 把含糊的系统提示词改成真正好用的版本：起草、打分、打磨，JSON schema 等原有结构原样保留。
 
-另外三个技能负责写技能的元数据，也就是告诉智能体什么时候该加载这个技能：
+另外三个技能负责写技能的元数据，也就是告诉智能体**什么时候该加载**这个技能：
 
 - `/write-skill-description`：写技能的 `description`，开头就点明它做什么
 - `/write-skill-when-to-use`：写技能的 `when_to_use`，列出触发说法，并划清适用边界
@@ -856,7 +860,9 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 ## 📖 术语表
 
-少打几个字，智能体照样懂。每份术语表负责解读一类缩写。
+**少打几个字**，智能体照样懂。每份术语表负责解读一类缩写。
+
+它们全是配套技能：其他技能会替你加载，缩写到哪儿都是同一个意思。只想用某套解读时，才需要单独调用。
 
 | 技能 | 解读什么 | 示例 |
 |---|---|---|
