@@ -10,6 +10,7 @@ from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
+    uncheckmark_nodes,
 )
 
 __all__ = ("register_personality_blueprints",)
@@ -23,7 +24,7 @@ def register_personality_blueprints():
 
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
-    - ``persona-kaye``: the Kaye persona under the Personality formatting
+    - ``persona-kaye``: the whole Kaye node under the Personality formatting
       rule, with the Personality Signature section, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
@@ -39,12 +40,18 @@ def register_personality_blueprints():
         is_exportable=False,
     )
 
-    # the Personality root alone: the rule separating Personality Content
-    # from Task Content, which every persona speaks under; then the
-    # signature heading with Kaye's own section only, so a package's other
-    # personas nested beside it stay out of this blueprint
+    # the whole Kaye node, so a package's sections nested beneath it ride
+    # along, gated by their sidecars, less the speech habit, which comes by
+    # its own blueprint; the Personality root and the signature heading
+    # with Kaye's own section only, so a package's other personas nested
+    # beside it stay out of this blueprint
     kaye = create_blueprint_from_node(
-        kaye_node, dependencies=["persona-kaye-speech-habit"]
+        kaye_node,
+        is_recursive=True,
+        dependencies=["persona-kaye-speech-habit"],
+    )
+    kaye = uncheckmark_nodes(
+        kaye, kaye_node["Speech Habit Public"], is_recursive=True
     )
     for path in (
         ("Personality",),

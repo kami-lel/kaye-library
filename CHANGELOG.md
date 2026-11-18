@@ -28,10 +28,15 @@ todo good morning incl finance report
 - `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`
 - `plan-for-suite`: Plan may mark independent Movements for parallel run, each in own linked worktree & feature branch via `tend-linked-wt`; optional, never required
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
+- chat layered: internal `chat-basic` (persona-free rules), internal `chat` (`chat-basic` alone), internal `chat-basic-kaye` (+ `persona-kaye`, Hermes soul), exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, `for Kaye`); `coder` depends on `chat-kaye`; a consumer replaces `chat` w/ `override_blueprint` & re-homes `chat-kaye`
+- `persona-kaye` takes the whole Kaye node less its speech habit, so a consumer's nested Kaye sections ride along, gated by their sidecars
 - registration helpers (`register_node`, `register_leaf`, `glossary_blueprint`, `register_md_file_dynamic_substitution`, consumer registrars) come from `kaye-engine`; `_common.py` keeps the consumer name, one `bind_registrars` line & `register_children`; 7 local `_register_internal` copies & every post-registration `entry.blueprint =` write gone, renders unchanged
 
 > [!WARNING]
-> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat`; Claude & Codex setup names `chat` & `coder`
+> Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat-kaye`; Claude & Codex setup names `chat-kaye` & `coder`
+
+> [!WARNING]
+> Breaking: exported skill `chat` is `chat-kaye`; re-run setup, update `chat` references in Continue rules & Codex
 
 ### Deprecated
 

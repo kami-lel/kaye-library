@@ -55,7 +55,7 @@ class TestEngineSubcommands:
         names = result.stdout.split()
         assert "commit-sense" in names
         assert "coder" in names
-        assert "chat" in names
+        assert "chat-kaye" in names
         assert "chat-coder" not in names
         assert "kaye-chat" not in names
 

@@ -188,12 +188,12 @@ def setup_kaye_library_for_kaye_engine():
 
     then the entry consumer via ``set_entry_consumer``, the repo name,
     repo version, and default consumer that name every release asset, and
-    the Claude, Codex and Hermes CLI configuration, naming ``chat``,
-    ``coder`` and the ``chat`` Hermes soul
+    the Claude, Codex and Hermes CLI configuration, naming ``chat-kaye``,
+    ``coder`` and the ``chat-basic-kaye`` Hermes soul
 
     only this function registers the standalone extra, a default
     ``secretary-email-authuser`` of ``0``, so a package building on the
-    library, calling the six steps instead, never sees it; ``chat`` and
+    library, calling the six steps instead, never sees it; ``chat-kaye`` and
     ``coder`` register in step 6, for such a package to take over
 
     a process runs exactly one setup function: a package building on the
@@ -224,6 +224,6 @@ def setup_kaye_library_for_kaye_engine():
     set_default_consumer(PACKAGE_NAME)
     set_repo_name(PACKAGE_NAME)
     set_repo_version(version(PACKAGE_NAME))
-    setup_claude_cli("chat", "coder")
-    setup_codex_cli("chat", "coder")
-    setup_hermes_cli("chat")
+    setup_claude_cli("chat-kaye", "coder")
+    setup_codex_cli("chat-kaye", "coder")
+    setup_hermes_cli("chat-basic-kaye")

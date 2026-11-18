@@ -17,6 +17,7 @@ from kaye_engine.consumer import (
 )
 from kaye_engine.repo import get_repo_name, get_repo_version
 from kaye_engine.prompt import get_corpus_tree
+from kaye_engine.prompt.blueprint.registry import blueprint_registry
 from kaye_engine.prompt.blueprint.render.comment import comment_line_registry
 
 
@@ -60,7 +61,7 @@ class TestChatBase:
     def test_chat_is_always_applied(_):
         from kaye_engine.exportable import exportable_registry
 
-        chat = exportable_registry["chat"]
+        chat = exportable_registry["chat-kaye"]
 
         assert chat.always_apply is True
         assert chat.consumer == "kaye-library"
@@ -68,11 +69,37 @@ class TestChatBase:
     def test_chat_speaks_as_kaye(_):
         from kaye_engine.exportable import exportable_registry
 
-        content = exportable_registry["chat"].content()
+        content = exportable_registry["chat-kaye"].content()
 
         assert "# Chat Agent" in content
         assert "## Kaye" in content
         assert "Kaye LeL" in content
+
+    def test_chat_stack_is_layered(_):
+        from kaye_engine.exportable import exportable_registry
+
+        assert "chat" not in exportable_registry
+        for name in ("chat-basic", "chat", "chat-basic-kaye"):
+            assert not blueprint_registry[name].is_exportable
+        assert blueprint_registry["chat"].blueprint.dependencies == (
+            "chat-basic",
+        )
+        assert blueprint_registry["chat-kaye"].blueprint.dependencies == (
+            "chat",
+            "persona-kaye",
+        )
+
+    def test_chat_basic_is_persona_free(_):
+        content = blueprint_registry["chat"].content()
+
+        assert "# Chat Agent" in content
+        assert "Kaye" not in content.replace("Kaye Library", "")
+
+    def test_hermes_soul_equals_chat_kaye(_):
+        assert (
+            blueprint_registry["chat-basic-kaye"].content().split("<!--")[0]
+            == blueprint_registry["chat-kaye"].content().split("<!--")[0]
+        )
 
     def test_cli_names_chat_and_coder(_):
         from kaye_engine.exportable import exportable_registry

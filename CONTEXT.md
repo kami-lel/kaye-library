@@ -50,7 +50,7 @@ A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine
 5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
 6. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Step 6 registers `chat` (`registrations/chat/`) in every setup: the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, and the `Chat Agent` corpus, over the public `persona-kaye`, rendering `for Kaye`; a host takes it over with `override_exportable`. `coder`, Kaye Peer Coder, depends on `chat` by name, so a host's `chat` takeover reaches it too. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat` and `coder`, and Hermes with the `chat` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
+Step 6 registers the chat stack (`registrations/chat/`) in every setup: internal `chat-basic` (the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, the `Chat Agent` corpus), internal `chat` (`chat-basic` alone, persona-free), internal `chat-basic-kaye` (`chat-basic` + `persona-kaye`, the Hermes soul) and exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, rendering `for Kaye`). A host replaces `chat` in place with `override_blueprint` and re-homes `chat-kaye` with `override_exportable`, no blueprint passed. `coder`, Kaye Peer Coder, depends on `chat-kaye` by name, so a host's `chat` replacement reaches it too. `persona-kaye` takes the whole Kaye node less its speech habit, so a host's sections nested beneath it ride along, gated by their sidecars. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat-kaye` and `coder`, and Hermes with the `chat-basic-kaye` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -63,7 +63,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | root | holds |
 |---|---|
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
-| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by `chat` |
+| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
@@ -102,7 +102,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 - stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
 - `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
-- the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat`, while every language profile invokes `coder` and stays persona-free; a host that takes `chat` over may take `coder` over too, only to move it into its own plugin
+- the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
 
 ## Abbreviation Database
 

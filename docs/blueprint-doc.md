@@ -182,12 +182,16 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    chat --> style_markdown["style-markdown"]
-    chat --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
-    chat --> persona_kaye["persona-kaye"]
+    chat_basic["chat-basic"] --> style_markdown["style-markdown"]
+    chat_basic --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
+    chat --> chat_basic
+    chat_basic_kaye["chat-basic-kaye"] --> chat_basic
+    chat_basic_kaye --> persona_kaye["persona-kaye"]
+    chat_kaye["chat-kaye"] --> chat
+    chat_kaye --> persona_kaye
     persona_kaye --> persona_kaye_speech_habit["persona-kaye-speech-habit"]
     element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
-    coder --> chat
+    coder --> chat_kaye
     rapid --> style_markdown
 ```
 

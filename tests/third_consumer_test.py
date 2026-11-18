@@ -67,7 +67,7 @@ _SCRIPT = textwrap.dedent(
         sorted(c.canonical_name for c in get_plugin_consumers()),
     )
     print("content:", exportable_registry["third-skill"].content().count("text"))
-    print("chat:", "chat" in exportable_registry)
+    print("chat:", "chat-kaye" in exportable_registry)
     print("chat-coder:", "chat-coder" in exportable_registry)
     print("chat corpus:", "Chat Agent" in [c.name for c in tree.children])
 

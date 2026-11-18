@@ -76,10 +76,10 @@ class TestBlueprints:
     def test_sync_unit_test_ships(_):
         assert "sync-unit-test" in exportable_registry
 
-    def test_coder_depends_on_chat_by_name(_):
+    def test_coder_depends_on_chat_kaye_by_name(_):
         dependencies = blueprint_registry["coder"].blueprint.dependencies
 
-        assert "chat" in dependencies
+        assert "chat-kaye" in dependencies
         assert "element-triage-tags" in dependencies
 
     def test_chat_coder_is_gone(_):
