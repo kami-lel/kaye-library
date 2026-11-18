@@ -30,6 +30,7 @@ todo good morning incl finance report
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
 - chat layered: internal `chat-basic` (persona-free rules), internal `chat` (`chat-basic` alone), internal `chat-basic-kaye` (+ `persona-kaye`, Hermes soul), exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, `for Kaye`); `coder` depends on `chat-kaye`; a consumer replaces `chat` w/ `override_blueprint` & re-homes `chat-kaye`
 - `persona-kaye` takes the whole Kaye node less its speech habit, so a consumer's nested Kaye sections ride along, gated by their sidecars
+- `scan-event-radar-daily` drops the whole week gather Bar, so a node a consumer nests beneath it leaves the daily skill too
 - registration helpers (`register_node`, `register_leaf`, `glossary_blueprint`, `register_md_file_dynamic_substitution`, consumer registrars) come from `kaye-engine`; `_common.py` keeps the consumer name, one `bind_registrars` line & `register_children`; 7 local `_register_internal` copies & every post-registration `entry.blueprint =` write gone, renders unchanged
 
 > [!WARNING]

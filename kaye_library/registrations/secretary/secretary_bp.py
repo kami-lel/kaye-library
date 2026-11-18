@@ -65,7 +65,7 @@ def _register_scan_event_radar(slug, name, description, dropped_gather_node):
         ],
     )
     try:
-        bp = uncheckmark_nodes(bp, dropped_gather_node)
+        bp = uncheckmark_nodes(bp, dropped_gather_node, is_recursive=True)
     except ValueError:
         # a gather Bar a consumer supplies is absent when the library
         # runs alone, so there is nothing to drop
