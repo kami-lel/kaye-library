@@ -2,7 +2,7 @@
 
 [English](skill-catalog-doc.md) | 简体中文
 
-kaye-library 的 147 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
+kaye-library 的 148 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
 
 用法有两种：
 
@@ -308,6 +308,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 - `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
 - `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
 - `/style-markdown-endnotes`：所有注释统一放到文末
+- `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
 
 长文档要留白才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
 

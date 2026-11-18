@@ -227,7 +227,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                         'labeled `Finding → Fix`',
                         '`Initially <what was tried>; changed to <what '
                         'replaced it>`',
-                        'keep them in `devlog-assets/` beside `DEVLOG.md`',
+                        'keep them in `DEVLOG-assets/`, linked per [Markdown '
+                        'File Assets](#markdown-file-assets)',
+                        '### Markdown File Assets',
                         "that version's exact [Semantic Version "
                         'Title](#semantic-version-title), word for word',
                         '## 02026-03-25 (Week 8): Beta Release '
@@ -561,6 +563,11 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
                            '- keep sentences short, direct, drop filler'],
+ 'style-markdown-file-assets': ['### Markdown File Assets',
+                                '`CHANGELOG.md` → `CHANGELOG-assets/`',
+                                'a relative path opening with `./`',
+                                '![Install dialog](./setup-guide-assets/'
+                                'install-dialog.png)'],
  'style-good-writing': ['## Style Guide Good Writing',
                         '- Correct spelling, grammar, punctuation, '
                         'sentence structure, and',

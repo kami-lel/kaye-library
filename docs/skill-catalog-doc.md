@@ -2,7 +2,7 @@
 
 English | [简体中文](skill-catalog-doc.zh-CN.md)
 
-Meet all 147 skills in kaye-library. 📚 Grouped just like the [README](../README.md).
+Meet all 148 skills in kaye-library. 📚 Grouped just like the [README](../README.md).
 
 Use any skill two ways:
 
@@ -308,6 +308,7 @@ One voice, whatever your agent writes.
 - `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
 - `/style-markdown-footnotes`: each footnote right beside the text that cites it
 - `/style-markdown-endnotes`: every definition gathered in one block at the end
+- `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
 
 Long documents need room to breathe. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
 

@@ -708,7 +708,7 @@ Also this week:
 
 Not addressed yet: a flyover introduction, suggested by a player
 
-![Starting zone crowded with pickups](devlog-assets/wk11-starting-zone.png)
+![Starting zone crowded with pickups](./DEVLOG-assets/wk11-starting-zone.png)
 *Starting zone: pickups all round the player, so the grab is learned before the chase begins*
 ```
 </devlog-entry-example>
@@ -719,7 +719,7 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 #### Images
 
-- keep them in `devlog-assets/` beside `DEVLOG.md`, named in kebab case with the period first, ie `wk11-starting-zone.png`, so the folder sorts by period
+- keep them in `DEVLOG-assets/`, linked per [Markdown File Assets](#markdown-file-assets), named in kebab case with the period first, ie `wk11-starting-zone.png`, so the folder sorts by period
 - alt text names what the image shows; the caption, an italic line directly below, says what to notice in it
 - include an image only where it shows what the entry describes
 

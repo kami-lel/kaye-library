@@ -49,6 +49,7 @@ def register_repo_blueprints():
     :raises KeyError: ``style-briefness-style``, ``style-good-writing``,
             ``proj-version-extended``,
             ``element-dt-year-month-day-format``, ``proj-version-title``,
+            ``style-markdown-file-assets``,
             ``ready-land-feature``, or ``git-feature-summary`` is not yet
             registered
     """
@@ -96,6 +97,7 @@ def register_repo_blueprints():
             "style-good-writing",
             "element-dt-year-month-day-format",
             "proj-version-title",
+            "style-markdown-file-assets",
         ],
     )
 
