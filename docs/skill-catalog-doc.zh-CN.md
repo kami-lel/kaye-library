@@ -4,14 +4,13 @@
 
 kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
 
-用法有两种：
+用法有两种（比如在 Claude Desktop 里）：
 
-- 直接调用：输入技能名，比如 `/commit-sense`
-- 直接开口：说出你要做的事，比如“commit this”，智能体会自己挑合适的技能
+- 手动调用：输入 `/` 加技能名，比如 `/commit-sense`
+- 自动触发：直接说你想干啥，比如“commit 一下”，智能体会自己找到对应的技能
 
-第一次来？先试试 🌟 首选，再看看 ⭐ 推荐。
+刚上手？先从 🌟 首选 开始，再逛逛 ⭐ 推荐。
 
-快速跳转：[💻 编程](#-编程)、[📝 仓库与项目](#-仓库与项目)、[🎨 风格](#-风格)、[🗓️ 秘书](#️-秘书)、[🎮 Unity 引擎](#-unity-引擎)、[🖋️ 文书](#️-文书)、[🧱 基础元素](#-基础元素)、[🐙 Git](#-git)、[🤖 智能体](#-智能体)、[🪄 元提示词](#-元提示词)、[📖 术语表](#-术语表)。
 
 
 
@@ -50,9 +49,25 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 不管什么语言，代码都干净统一。再也不用替 AI 收拾烂摊子。
 
-一切从 `/coder` 开始，它是所有代码共用的基本规范：每行不超过 80 个字符，命名前后一致，注释讲“为什么”而不是“怎么做”，测试只跑改动波及的部分，不用每次都跑全套。
+一切从 `/coder` 开始，它是所有代码共用的基本规范，比如每行不超过 80 个字符、命名前后一致。一般不用你亲自调用：智能体只要写代码，它就会**自动触发**，各语言规范也都建立在它之上。
 
-`/coder` 一般不用你亲自调用。各语言规范都会先加载它，再叠加自己的规则。所以 Python 和 C# 守的是同一套习惯，写出来却都很地道。
+
+
+
+
+
+
+
+
+
+
+
+
+### 代码体检
+
+一重构测试就全红？`/sync-unit-test` 🌟 帮你修正**过时的断言、测试夹具和快照**。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
+
+快发版了？先用 `/review-gaps` ⭐ 把整个仓库过一遍。它会赶在用户之前，把**遗漏、跑偏和没收尾的地方**都找出来，逐个打上标记，等你处理。
 
 
 
@@ -72,7 +87,9 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 | 技能 | 语言 | 能带来什么 |
 |---|---|---|
-| `/coder-python` ⭐ | Python | 遵循 PEP 8，命名统一，附 Sphinx 文档字符串，注释讲清意图 |
+| `/coder-python` ⭐ | Python | 遵循 PEP 8，命名统一，注释讲清意图 |
+| `/coder-python-docstring-style` | Python | 默认给每个函数、类和模块配上 Sphinx 文档字符串 |
+| `/coder-python-testing-guidelines` | Python | 按项目自己的约定写 `pytest` 测试 |
 | `/coder-c` | C | C99，大括号风格统一 |
 | `/coder-cpp` | C++ | 统一的 C++ 风格，以 C 规范为基础 |
 | `/coder-ue` | Unreal Engine C++ | Unreal 的编码约定，以 C++ 规范为基础 |
@@ -83,26 +100,6 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 | `/coder-powershell` | PowerShell | 一套固定的代码风格 |
 | `/coder-bash-script` | Bash | 面向 Debian 的脚本、函数和函数库 |
 | `/coder-bash-shell` | Bash | 只给一行命令，复制就能用 |
-
-Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函数、类和模块配上 Sphinx 文档字符串；`/coder-python-testing-guidelines` 按项目自己的约定写 `pytest` 测试。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 代码体检
-
-一重构测试就全红？`/sync-unit-test` 🌟 帮你修正过时的断言、测试夹具和快照。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
-
-快发版了？先用 `/review-gaps` ⭐ 把整个仓库过一遍。它会赶在用户之前，把遗漏、跑偏和没收尾的地方都找出来，逐个打上标记，等你处理。
 
 
 
@@ -120,9 +117,11 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 
 三个小技能，专管代码打印出来的文字：
 
-- `/coder-command-usage-message`：给 `--help` 和报错信息写简洁的用法说明
-- `/coder-comment-banner-in-code-comment`：在源码里用分级横幅注释标出文件标题、章节和小节
-- `/coder-comment-banner-in-print-out`：在程序输出里用分级横幅，把日志、演示和测试过程分成清楚的阶段
+| 技能 | 能带来什么 |
+|---|---|
+| `/coder-command-usage-message` | 给 `--help` 和报错信息写简洁的用法说明 |
+| `/coder-comment-banner-in-code-comment` | 在源码里用分级横幅注释标出文件标题、章节和小节 |
+| `/coder-comment-banner-in-print-out` | 在程序输出里用分级横幅，把日志、演示和测试过程分成清楚的阶段 |
 
 
 

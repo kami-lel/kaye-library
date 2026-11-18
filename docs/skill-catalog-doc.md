@@ -6,14 +6,12 @@ English | [简体中文](skill-catalog-doc.zh-CN.md)
 
 Meet every skill in kaye-library. 📚 Grouped just like the [README](../README.md).
 
-Use any skill two ways:
+Use any skill two ways (eg in Claude Desktop):
 
 - Call It: type its name, eg `/commit-sense`
 - Ask for It: just say what you want, eg "commit this"; your agent picks the right skill
 
-New here? Start with the 🌟 top picks, then try the ⭐ favorites.
-
-Jump to a group: [💻 Coder](#-coder), [📝 Repository & Project](#-repository--project), [🎨 Style](#-style), [🗓️ Secretary](#️-secretary), [🎮 Unity Engine](#-unity-engine), [🖋️ Amanuensis](#️-amanuensis), [🧱 Elements](#-elements), [🐙 Git](#-git), [🤖 Agentic](#-agentic), [🪄 Meta Prompt](#-meta-prompt), [📖 Glossaries](#-glossaries).
+New here? Start with the 🌟 Top Picks, then try the ⭐ Favorites.
 
 
 
@@ -52,9 +50,25 @@ Jump to a group: [💻 Coder](#-coder), [📝 Repository & Project](#-repository
 
 Clean, consistent code in every language. No more tidying up after your AI.
 
-It all starts with `/coder`: the house rules for all code. Lines stay under 80 characters. Names stay consistent. Comments explain why, not how. Tests run only where the change lands, not the whole suite every time.
+It all starts with `/coder`: the house rules for all code, such as 80-character lines and consistent names. You rarely call it yourself. It **triggers on its own** whenever your agent writes code, and every language profile builds on it.
 
-You rarely call `/coder` yourself. Every language profile calls it first, then adds its own rules. Python and C# share one set of habits, yet each reads like it was written by a native.
+
+
+
+
+
+
+
+
+
+
+
+
+### Keeping Code Healthy
+
+Tests red after a refactor? `/sync-unit-test` 🌟 fixes **stale assertions, fixtures, and snapshots**. When the code is what broke, it says so. Real bugs never get papered over.
+
+Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds **gaps, drift, and half-finished seams** before your users do, and tags each one for you to fix.
 
 
 
@@ -74,7 +88,9 @@ Pick your language. Most profiles even load themselves the moment your agent ope
 
 | Skill | Language | What You Get |
 |---|---|---|
-| `/coder-python` ⭐ | Python | PEP 8, consistent names, Sphinx docstrings, comments that explain intent |
+| `/coder-python` ⭐ | Python | PEP 8, consistent names, comments that explain intent |
+| `/coder-python-docstring-style` | Python | a Sphinx docstring on every function, class, and module, by default |
+| `/coder-python-testing-guidelines` | Python | `pytest` tests that match your project |
 | `/coder-c` | C | C99 and clean brace placement |
 | `/coder-cpp` | C++ | one house style, built on the C profile |
 | `/coder-ue` | Unreal Engine C++ | Unreal conventions, built on the C++ profile |
@@ -85,26 +101,6 @@ Pick your language. Most profiles even load themselves the moment your agent ope
 | `/coder-powershell` | PowerShell | one fixed code style |
 | `/coder-bash-script` | Bash | scripts, functions, and libraries for Debian |
 | `/coder-bash-shell` | Bash | the bare command line, ready to paste |
-
-Python gets two extras. `/coder-python-docstring-style` adds a Sphinx docstring to every function, class, and module, by default. `/coder-python-testing-guidelines` writes `pytest` tests that match your project.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Keeping Code Healthy
-
-Tests red after a refactor? `/sync-unit-test` 🌟 fixes stale assertions, fixtures, and snapshots. When the code is what broke, it says so. Real bugs never get papered over.
-
-Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds gaps, drift, and half-finished seams before your users do, and tags each one for you to fix.
 
 
 
@@ -122,9 +118,11 @@ Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds ga
 
 Three small skills for the text your code prints:
 
-- `/coder-command-usage-message`: a crisp usage message for `--help` and errors
-- `/coder-comment-banner-in-code-comment`: ranked banner comments for file titles, sections, and subsections
-- `/coder-comment-banner-in-print-out`: ranked banners that split logs, demos, and test runs into clear phases
+| Skill | What You Get |
+|---|---|
+| `/coder-command-usage-message` | a crisp usage message for `--help` and errors |
+| `/coder-comment-banner-in-code-comment` | ranked banner comments for file titles, sections, and subsections |
+| `/coder-comment-banner-in-print-out` | ranked banners that split logs, demos, and test runs into clear phases |
 
 
 
