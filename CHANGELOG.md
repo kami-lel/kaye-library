@@ -32,6 +32,8 @@ todo good morning incl finance report
 - `persona-kaye` takes the whole Kaye node less its speech habit, so a consumer's nested Kaye sections ride along, gated by their sidecars
 - `scan-event-radar-daily` drops the whole week gather Bar, so a node a consumer nests beneath it leaves the daily skill too
 - registration helpers (`register_node`, `register_leaf`, `glossary_blueprint`, `register_md_file_dynamic_substitution`, consumer registrars) come from `kaye-engine`; `_common.py` keeps the consumer name, one `bind_registrars` line & `register_children`; 7 local `_register_internal` copies & every post-registration `entry.blueprint =` write gone, renders unchanged
+- skill catalog doc reworked for newcomers: groups reordered most-used first (Agentic, Repository & Project, Git, Coder; supporting groups last) in README & catalog; tables, plain-language intros, bolded key terms; exact skill count dropped
+- zh-CN README, skill catalog & Claude usage docs reworded into native Chinese developer phrasing
 
 > [!WARNING]
 > Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat-kaye`; Claude & Codex setup names `chat-kaye` & `coder`
