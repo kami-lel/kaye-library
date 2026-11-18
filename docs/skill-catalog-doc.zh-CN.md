@@ -2,7 +2,7 @@
 
 [English](skill-catalog-doc.md) | 简体中文
 
-kaye-library 的 148 个技能，全在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
+kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.zh-CN.md) 保持一致。
 
 用法有两种：
 
