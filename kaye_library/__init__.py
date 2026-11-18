@@ -5,9 +5,9 @@ the shareable layer over kaye-engine: style, element, git, repository,
 agent, coder, meta, Amanuensis, and Secretary prompts; importing this module alone loads nothing
 
 a consumer package, or ``setup_kaye_library_for_kaye_engine`` standalone,
-calls the six steps below in this order: consumer, abbr glossaries, abbr
-data (``get_kaye_library_abbrs_json_path``), dynamic substitutions,
-corpus, then blueprints once the corpus tree is loaded
+calls the five steps below in this order: consumer, abbr glossaries, abbr
+data (``get_kaye_library_abbrs_json_path``), corpus, then blueprints once
+the corpus tree is loaded
 """
 
 from importlib.metadata import version
@@ -39,7 +39,6 @@ __all__ = (
     "register_kaye_library_blueprints",
     "register_kaye_library_consumer",
     "register_kaye_library_corpus",
-    "register_kaye_library_dynamic_substitutions",
     "setup_kaye_library_for_kaye_engine",
 )
 
@@ -121,17 +120,6 @@ def get_kaye_library_abbrs_json_path():
     return _ABBRS_JSON_FILE_PATH
 
 
-def register_kaye_library_dynamic_substitutions():
-    """
-    register every kaye-library dynamic substitution
-    """
-    from kaye_library.registrations import (  # pylint: disable=C0415
-        register_kaye_library_dynamic_substitutions as register_substitutions,
-    )
-
-    register_substitutions()
-
-
 def register_kaye_library_corpus():
     """
     record every kaye-library corpus file under its node of the tree, the
@@ -175,16 +163,15 @@ def _register_standalone_dynamic_substitutions():
 
 def setup_kaye_library_for_kaye_engine():
     """
-    run the six steps in order, then the extras only a standalone process
+    run the five steps in order, then the extras only a standalone process
     needs:
 
     1. the consumer record and its ``Kaye Library vX`` comment line
     2. every abbr glossary, registered into ``abbr_glossary_registry``
     3. abbr data, from ``abbrs.json``
-    4. every dynamic substitution
-    5. prompt corpus tree, built from the sources registered under the
+    4. prompt corpus tree, built from the sources registered under the
        root, then loaded
-    6. every library blueprint, registered into ``blueprint_registry``
+    5. every library blueprint, registered into ``blueprint_registry``
 
     then the entry consumer via ``set_entry_consumer``, the repo name,
     repo version, and default consumer that name every release asset, and
@@ -193,11 +180,11 @@ def setup_kaye_library_for_kaye_engine():
 
     only this function registers the standalone extra, a default
     ``secretary-email-authuser`` of ``0``, so a package building on the
-    library, calling the six steps instead, never sees it; ``chat-kaye`` and
-    ``coder`` register in step 6, for such a package to take over
+    library, calling the five steps instead, never sees it; ``chat-kaye`` and
+    ``coder`` register in step 5, for such a package to take over
 
     a process runs exactly one setup function: a package building on the
-    library calls the six steps instead, and never this one
+    library calls the five steps instead, and never this one
     """
     logger = kamilog.getLogger(LOGGER_NAME)
 
@@ -206,7 +193,6 @@ def setup_kaye_library_for_kaye_engine():
     try:
         register_kaye_library_abbr_glossaries()
         populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())
-        register_kaye_library_dynamic_substitutions()
         _register_standalone_dynamic_substitutions()
         register_kaye_library_corpus()
         load_corpus_tree()

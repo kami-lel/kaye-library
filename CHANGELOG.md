@@ -45,6 +45,11 @@ todo good morning incl finance report
 
 ### Removed
 
+- `register_kaye_library_dynamic_substitutions`, an empty setup step: the library now has 5 setup steps, not 6; `registrations/_dynamic_substitution.py` stays as a helper for consumers
+
+> [!WARNING]
+> Breaking: a consumer package calling `kaye_library.register_kaye_library_dynamic_substitutions()` raises `AttributeError`; drop the call, & renumber any step comments
+
 ### Fixed
 
 - Claude usage docs: build-it-yourself routes run `kaye-library claude ...`, not bare `kaye-engine`, which exports nothing; zip named `kaye-library-claude-VERSION.zip`

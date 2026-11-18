@@ -2,7 +2,9 @@
 kaye_library.registrations._dynamic_substitution.py
 
 binds the engine's ``register_md_file_dynamic_substitution`` to the
-library logger; kept apart from ``_common`` since it needs no corpus tree
+library logger; a helper kept for consumers, which import it, though no
+setup step calls it; kept apart from ``_common`` since it needs no corpus
+tree
 """
 
 import functools

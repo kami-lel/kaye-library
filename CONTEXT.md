@@ -29,28 +29,27 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 
 ```
 kaye_library/
-  __init__.py       the six steps, the consumer record, standalone setup
+  __init__.py       the five steps, the consumer record, standalone setup
   __main__.py       console entry point
   abbrs.json        abbreviation entries of the glossaries library text splices
   registrations/    one folder per feature group: corpus .md beside its registrations
     _common.py      consumer name, `bind_registrars` line, `register_children`; engine helpers re-exported
-    _dynamic_substitution.py  engine md-file dynamic substitution bound to the library logger
+    _dynamic_substitution.py  engine md-file dynamic substitution bound to the library logger; a helper for consumers, no setup step calls it
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
 .github/workflows/  tag-triggered release build
 ```
 
 ## Integration Points
 
-A host calls the six steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
+A host calls the five steps in this order, or `setup_kaye_library_for_kaye_engine()` standalone:
 
 1. `register_kaye_library_consumer()`: the `kaye-library` consumer record and the `Kaye Library vX` comment line
 2. `register_kaye_library_abbr_glossaries()`: every abbr glossary
 3. `populate_abbr_data_with_json_file(get_kaye_library_abbrs_json_path())`: the abbr data, once the glossaries exist
-4. `register_kaye_library_dynamic_substitutions()`
-5. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
-6. `register_kaye_library_blueprints()`, once the tree is loaded
+4. `register_kaye_library_corpus()`: records every corpus file under its node; the host then registers its own sources and calls `load_corpus_tree()` once
+5. `register_kaye_library_blueprints()`, once the tree is loaded
 
-Step 6 registers the chat stack (`registrations/chat/`) in every setup: internal `chat-basic` (the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, the `Chat Agent` corpus), internal `chat` (`chat-basic` alone, persona-free), internal `chat-basic-kaye` (`chat-basic` + `persona-kaye`, the Hermes soul) and exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, rendering `for Kaye`). A host replaces `chat` in place with `override_blueprint` and re-homes `chat-kaye` with `override_exportable`, no blueprint passed. `coder`, Kaye Peer Coder, depends on `chat-kaye` by name, so a host's `chat` replacement reaches it too. `persona-kaye` takes the whole Kaye node less its speech habit, so a host's sections nested beneath it ride along, gated by their sidecars. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat-kaye` and `coder`, and Hermes with the `chat-basic-kaye` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
+Step 5 registers the chat stack (`registrations/chat/`) in every setup: internal `chat-basic` (the Markdown style, chat sequence numbering, Agentic and Turn Progress Dispatch, the `Chat Agent` corpus), internal `chat` (`chat-basic` alone, persona-free), internal `chat-basic-kaye` (`chat-basic` + `persona-kaye`, the Hermes soul) and exportable `chat-kaye` (`chat` + `persona-kaye`, always applied, rendering `for Kaye`). A host replaces `chat` in place with `override_blueprint` and re-homes `chat-kaye` with `override_exportable`, no blueprint passed. `coder`, Kaye Peer Coder, depends on `chat-kaye` by name, so a host's `chat` replacement reaches it too. `persona-kaye` takes the whole Kaye node less its speech habit, so a host's sections nested beneath it ride along, gated by their sidecars. Standalone setup then adds the default `secretary-email-authuser` of `0`, names `kaye-library` the entry consumer, and configures the Claude CLI and Codex (`kaye-library codex`, alias `o`) with `chat-kaye` and `coder`, and Hermes with the `chat-basic-kaye` soul. A process runs exactly one setup: a host composing the steps never calls the standalone function.
 
 Every exportable names its consumer at registration (`kaye-library`), so each consumer exports as its own plugin. A host may replace a library skill with `override_exportable(name, blueprint, consumer=...)` built over the library skill's own blueprint object, taken before the override: `commit-sense` and `coder` are each one library entry, and the skill keeps its name and moves to the host's plugin.
 
@@ -63,7 +62,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 | root | holds |
 |---|---|
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
-| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the six steps, taken by `chat-basic` |
+| Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |

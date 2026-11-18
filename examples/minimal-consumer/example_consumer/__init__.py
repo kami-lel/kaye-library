@@ -1,7 +1,7 @@
 """
 example_consumer.__init__.py
 
-a minimal package built on kaye-library: it composes the library's six
+a minimal package built on kaye-library: it composes the library's five
 steps, adds its own corpus and values, takes one library skill over, and
 names itself the entry consumer
 """
@@ -55,9 +55,8 @@ def setup_example_consumer():
     )
     populate_abbr_data_with_json_file(_FOLDER / "abbrs.json")
 
-    # 3. substitutions: the library registers none a consumer must supply,
-    #    so this package registers the personal one, its Gmail account
-    kaye_library.register_kaye_library_dynamic_substitutions()
+    # 3. substitutions: the library has no step for them, so this package
+    #    registers the personal one a skill needs, its Gmail account
     register_dynamic_substitution(
         "secretary-email-authuser", StringDynamicSubstitution("1")
     )

@@ -33,7 +33,6 @@ _SCRIPT = textwrap.dedent(
     populate_abbr_data_with_json_file(
         kaye_library.get_kaye_library_abbrs_json_path()
     )
-    kaye_library.register_kaye_library_dynamic_substitutions()
     kaye_library.register_kaye_library_corpus()
 
     # the third consumer: under the root, under its own node, and under a

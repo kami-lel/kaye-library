@@ -19,7 +19,7 @@ kaye-library --help                         # verify the console script resolves
 kaye-library blueprint list                 # every registered blueprint
 ```
 
-Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_library_for_kaye_engine()` (the console command and `tests/conftest.py` do) or compose the six steps in `kaye_library/__init__.py`.
+Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_library_for_kaye_engine()` (the console command and `tests/conftest.py` do) or compose the five steps in `kaye_library/__init__.py`.
 
 ## Layout & Naming
 
