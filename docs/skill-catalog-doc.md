@@ -161,7 +161,7 @@ Three small skills for the text your code prints:
 
 Every project file, written right and kept current.
 
-A good project speaks to **five readers**: the README greets visitors, the CHANGELOG tells users what changed, `AGENTS.md` gives AI agents their rules, `CONTEXT.md` explains the architecture, and `docs/` goes deep. Optional `CREDITS.md` and `DEVLOG.md` cover third-party credits and the team's journal. Each file has its own writer.
+A good project speaks to **five readers**: the README greets visitors, the CHANGELOG tells users what changed, `AGENTS.md` gives AI agents their rules, `CONTEXT.md` explains the architecture, and `docs/` goes deep. Optional `CREDITS.md` and `DEVLOG.md` cover third-party credits and a public development journal, a favorite for games. Each file has its own writer.
 
 Most writers have two workflows: **Create** builds the file from nothing, **Maintain** updates it in place as the code moves on.
 
@@ -173,13 +173,13 @@ Most writers have two workflows: **Create** builds the file from nothing, **Main
 | `AGENTS.md` in any project | AI agents | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
 | `CONTEXT.md` | new developers and AI | `/repo-context-writer` | ➖ | ➖ |
 | `CREDITS.md` | credited creators, license checkers | `/repo-credits-writer` | `/create-credits` | `/maintain-credits` |
-| `DEVLOG.md` | the team, reviewers | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
+| `DEVLOG.md` | followers of the dev process (eg players tracking a game or app in the making) | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
 | `docs/` in a repository | readers wanting depth | `/repo-doc-writer` | `/create-repo-docs` | `/maintain-repo-docs` |
 | `docs/` in any project | readers wanting depth | `/proj-doc-writer` | `/create-project-docs` | `/maintain-project-docs` |
 
 `repo-` skills are for code repositories. `proj-` skills fit any project: a game design, a research archive, a codebase.
 
-A few highlights:
+A few **highlights**:
 
 - `/repo-readme-writer` turns a bare repository into a landing page people actually read, like this library's own README
 - `/repo-changelog-writer` follows Keep a Changelog, with an `[Unreleased]` section and version links; `/create-changelog` even rebuilds one from git history
@@ -201,14 +201,15 @@ A few highlights:
 
 ### Setting Up and Keeping Tidy
 
-New repository? `/initialize-repo` 🌟 writes the whole starter set in one pass: README, CHANGELOG, AGENTS, CONTEXT, and `docs/`. No overlap, no gaps. Just need agent rules? `/equip-proj-for-agent` writes and keeps up `AGENTS.md`. Both follow `/repo-structure`, one standard layout for every folder and top-level file.
+Start a repository right, keep its files lean, and never lose what a long session learned. The two setup skills follow `/repo-structure`, one **standard layout** for every folder and top-level file.
 
-Files bloat. Two skills trim them:
-
-- `/condense-agents-and-context`: cuts finished plans and stale detail from `AGENTS.md` and `CONTEXT.md`, adds nothing
-- `/condense-changelog`: tightens `[Unreleased]` for release and flags breaking changes
-
-Long session? `/maintenance-before-compact` ⭐ saves every lasting change to CHANGELOG, AGENTS, and CONTEXT before the context window compacts. Nothing learned gets lost.
+| Skill | What You Get |
+|---|---|
+| `/initialize-repo` 🌟 | the whole **starter set** in one pass: README, CHANGELOG, AGENTS, CONTEXT, and `docs/`, no overlap, no gaps |
+| `/equip-proj-for-agent` | just the **agent rules**: writes and keeps up `AGENTS.md` |
+| `/condense-agents-and-context` | trims bloated files: cuts finished plans and stale detail from `AGENTS.md` and `CONTEXT.md`, adds nothing |
+| `/condense-changelog` | tightens `[Unreleased]` for release and flags breaking changes |
+| `/maintenance-before-compact` ⭐ | saves every lasting change to CHANGELOG, AGENTS, and CONTEXT **before the context window compacts**, so nothing learned is lost |
 
 
 
@@ -226,12 +227,19 @@ Long session? `/maintenance-before-compact` ⭐ saves every lasting change to CH
 
 Two workflows, each with a ready half before the merge and a scrub half after it:
 
-| Prepare | Clean Up | Prepare, Merge, and Clean Up | What Merging Adds |
+| Prepare, Merge, and Clean Up | Prepare | Clean Up | What Merging Adds |
 |---|---|---|---|
-| `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | merge into `dev` with a clear message |
-| `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | merge to `main` and tag the release |
+| `/land-feature` | `/ready-land-feature` | `/scrub-landed-feature` | merge into `dev` with a clear message |
+| `/release-version` ⭐ | `/ready-release-version` | `/scrub-released-version` | merge to `main` and tag the release |
 
-The ready half logs changes in the CHANGELOG and syncs every doc. For releases, it also dates the version and bumps it in every metadata file. The scrub half pushes the result, then clears what the merge left behind: the merged branch and its linked worktree after a landing, merged branches and a lagging `dev` after a release, which then moves on to the next alpha version, each only once you approve. Prefer to merge by hand? Run the ready half, merge, then the scrub half. Want a pull request instead? See `/submit-pr` under [Git](#-git).
+Each workflow has two halves:
+
+- Ready Half: logs changes in the CHANGELOG and syncs every doc; for a release, it also dates the version and bumps it in every metadata file
+- Scrub Half: pushes the result, then clears what the merge left behind, **each step only once you approve**:
+  - after a landing: the merged branch and its linked worktree
+  - after a release: merged branches and a lagging `dev`, then `dev` moves on to the next alpha version
+
+Prefer to merge by hand? Run the ready half, merge, then run the scrub half. Want a **pull request** instead? See `/submit-pr` under [Git](#-git).
 
 
 
@@ -247,9 +255,10 @@ The ready half logs changes in the CHANGELOG and syncs every doc. For releases, 
 
 ### Versioning
 
-- `proj-version`: semantic versioning rules, ie when MAJOR, MINOR, and PATCH go up; loads on its own, stays out of the slash menu
-- `/proj-version-extended`: `alpha`, `beta`, and `rc` numbering, build tags, and the right version for each stage of development
-- `/proj-version-title`: a release title from the old and new versions
+Supporting skills for the release workflows above:
+
+- `/proj-version-extended`: numbers every pre-release for you, eg `1.0.0-beta.2` for the second beta and `1.0.0-rc.1` for the first release candidate, plus build tags
+- `/proj-version-title`: titles a release from its old and new versions, eg going from `1.3.2` to `1.4.0` gives `Minor Stable Release 1.4.0`
 
 
 
@@ -302,7 +311,6 @@ One voice, whatever your agent writes.
 
 ### Markdown
 
-- `style-markdown`: clean GitHub Flavored Markdown with consistent bold and italics; applied automatically, stays out of the slash menu
 - `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
 - `/style-markdown-footnotes`: each footnote right beside the text that cites it
 - `/style-markdown-endnotes`: every definition gathered in one block at the end

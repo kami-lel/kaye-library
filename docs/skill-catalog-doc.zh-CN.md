@@ -160,7 +160,7 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 项目里的每份文件，都写得对、跟得上。
 
-一个好项目要照顾**五类读者**：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。可选的 `CREDITS.md` 和 `DEVLOG.md` 分别管第三方署名和团队开发日志。每份文件都有专门的写作技能。
+一个好项目要照顾**五类读者**：README 给访客看，CHANGELOG 告诉用户改了什么，`AGENTS.md` 给 AI 智能体立规矩，`CONTEXT.md` 讲清架构，`docs/` 负责深入细节。可选的 `CREDITS.md` 和 `DEVLOG.md` 分别管第三方署名和对外公开的开发日志，游戏项目尤其适合。每份文件都有专门的写作技能。
 
 大多数写作技能有两个工作流：**创建**从零写出文件，**维护**在代码更新后就地改好。
 
@@ -172,13 +172,13 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 | `AGENTS.md`（任意项目） | AI 智能体 | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
 | `CONTEXT.md` | 新加入的开发者和 AI | `/repo-context-writer` | ➖ | ➖ |
 | `CREDITS.md` | 被署名的创作者、核查授权的人 | `/repo-credits-writer` | `/create-credits` | `/maintain-credits` |
-| `DEVLOG.md` | 团队、评审者 | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
+| `DEVLOG.md` | 想看开发幕后的人（比如追更新游戏、新应用的玩家） | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
 | `docs/`（代码仓库） | 想深入了解的读者 | `/repo-doc-writer` | `/create-repo-docs` | `/maintain-repo-docs` |
 | `docs/`（任意项目） | 想深入了解的读者 | `/proj-doc-writer` | `/create-project-docs` | `/maintain-project-docs` |
 
 `repo-` 系列面向代码仓库，`proj-` 系列什么项目都能用：游戏策划、研究资料、代码库都行。
 
-几个亮点：
+几个**亮点**：
 
 - `/repo-readme-writer` 能把光秃秃的仓库变成有人愿意看的首页，本库的 README 就是这么来的
 - `/repo-changelog-writer` 遵循 Keep a Changelog 规范，带 `[Unreleased]` 区块和版本链接；`/create-changelog` 甚至能从 git 历史里重建一份
@@ -200,14 +200,15 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 起步与整理
 
-新建仓库？`/initialize-repo` 🌟 一次写齐全套起步文档：README、CHANGELOG、AGENTS、CONTEXT 和 `docs/`，不重复，不遗漏。只想给智能体立规矩？`/equip-proj-for-agent` 负责写好并维护 `AGENTS.md`。两者都遵循 `/repo-structure`，所有文件夹和顶层文件都按同一套布局摆放。
+新仓库起好步，文件保持精简，长会话攒下的信息也不丢。前两个起步技能都遵循 `/repo-structure`，所有文件夹和顶层文件按同一套**标准布局**摆放。
 
-文件用久了会越来越臃肿，这两个技能帮它瘦身：
-
-- `/condense-agents-and-context`：删掉 `AGENTS.md` 和 `CONTEXT.md` 里已完成的计划和过时内容，只减不增
-- `/condense-changelog`：发版前精简 `[Unreleased]`，顺便标出破坏性变更
-
-会话拉得很长？`/maintenance-before-compact` ⭐ 会在上下文压缩之前，把所有长期有效的改动记进 CHANGELOG、AGENTS 和 CONTEXT，辛苦攒下的信息一点不丢。
+| 技能 | 能带来什么 |
+|---|---|
+| `/initialize-repo` 🌟 | 一次写齐全套**起步文档**：README、CHANGELOG、AGENTS、CONTEXT 和 `docs/`，不重复，不遗漏 |
+| `/equip-proj-for-agent` | 只想给智能体立规矩：写好并维护 `AGENTS.md` |
+| `/condense-agents-and-context` | 给臃肿的文件瘦身：删掉 `AGENTS.md` 和 `CONTEXT.md` 里已完成的计划和过时内容，只减不增 |
+| `/condense-changelog` | 发版前精简 `[Unreleased]`，顺便标出破坏性变更 |
+| `/maintenance-before-compact` ⭐ | 在**上下文压缩之前**，把所有长期有效的改动记进 CHANGELOG、AGENTS 和 CONTEXT，攒下的信息一点不丢 |
 
 
 
@@ -225,12 +226,19 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 两个工作流，合并前有准备的一半，合并后有清理的一半：
 
-| 只做准备 | 只做清理 | 准备、合并加清理 | 合并多做什么 |
+| 准备、合并加清理 | 只做准备 | 只做清理 | 合并多做什么 |
 |---|---|---|---|
-| `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | 合并到 `dev`，附上清晰的合并信息 |
-| `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | 合并到 `main`，打上版本标签 |
+| `/land-feature` | `/ready-land-feature` | `/scrub-landed-feature` | 合并到 `dev`，附上清晰的合并信息 |
+| `/release-version` ⭐ | `/ready-release-version` | `/scrub-released-version` | 合并到 `main`，打上版本标签 |
 
-准备阶段会把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号。清理阶段先推送结果，再收拾合并留下的东西：合入功能后是已合并的分支和它的关联工作树，发版后是已合并的分支和落后的 `dev`，随后把 `dev` 升到下一个 alpha 版本，每一步都等你批准才做。想自己手动合并？先跑准备那一半，合并，再跑清理那一半。想走 PR？见 [Git](#-git) 分组里的 `/submit-pr`。
+每个工作流分两半：
+
+- 准备阶段：把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号
+- 清理阶段：先推送结果，再收拾合并留下的东西，**每一步都等你批准才做**：
+  - 合入功能后：已合并的分支和它的关联工作树
+  - 发版后：已合并的分支和落后的 `dev`，随后把 `dev` 升到下一个 alpha 版本
+
+想自己手动合并？先跑准备那一半，合并，再跑清理那一半。想走 **PR**？见 [Git](#-git) 分组里的 `/submit-pr`。
 
 
 
@@ -246,9 +254,10 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### 版本号
 
-- `proj-version`：语义化版本规则，也就是 MAJOR、MINOR、PATCH 什么时候该升；自动加载，斜杠菜单里看不到
-- `/proj-version-extended`：`alpha`、`beta`、`rc` 预发布编号、构建标签，以及每个开发阶段该用什么版本号
-- `/proj-version-title`：根据新旧版本号起发布标题
+上面发版流程的配套技能：
+
+- `/proj-version-extended`：帮你给预发布版本定号，比如第二个 beta 是 `1.0.0-beta.2`，第一个候选版本是 `1.0.0-rc.1`，还能加构建标签
+- `/proj-version-title`：根据新旧版本号起发布标题，比如从 `1.3.2` 升到 `1.4.0`，标题就是 `Minor Stable Release 1.4.0`
 
 
 
@@ -301,7 +310,6 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 ### Markdown
 
-- `style-markdown`：规范的 GitHub Flavored Markdown，粗体、斜体用法统一；自动生效，斜杠菜单里看不到
 - `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
 - `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
 - `/style-markdown-endnotes`：所有注释统一放到文末
