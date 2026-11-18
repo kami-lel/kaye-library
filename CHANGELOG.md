@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO very basic kaye persona
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
