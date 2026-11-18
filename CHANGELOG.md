@@ -16,6 +16,7 @@ fixme support hotfix & release branch
 
 ### Changed
 
+- `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
 
 > [!WARNING]
