@@ -76,6 +76,44 @@ Retelling commits or listing files.
 
 
 
+## hotfix branch
+
+A **hotfix branch** is a branch cut from `main` to fix a released defect, then merged into `main` and back into `dev`.
+
+Name it `hotfix/` plus the version it ships, eg `hotfix/1.2.1`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## release branch
+
+A **release branch** is a branch cut from `dev` to stabilize one release, then merged into `main` and back into `dev`.
+
+Name it `release/` plus the version it ships, eg `release/1.3.0`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

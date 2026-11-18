@@ -4,7 +4,6 @@
 Todo very basic kaye persona
 TODO add basic finance report
 FIXME plan for suite support parallel, w/ WT
-FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
 -->
 
@@ -21,6 +20,7 @@ todo support layered CONTEXT/AGENTS
 ### Changed
 
 - `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills
+- `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
 
 > [!WARNING]

@@ -101,6 +101,9 @@ flowchart LR
     git_sense_per_file_change_sigil --> git_sense_core
     git_sense_per_file_summary --> git_sense_core
     commit_sense_branch_merging["commit-sense-branch-merging"] --> git_sense_core
+    commit_sense_branch_merging --> git_feature_branch["git-feature-branch"]
+    commit_sense_branch_merging --> git_hotfix_branch["git-hotfix-branch"]
+    commit_sense_branch_merging --> git_release_branch["git-release-branch"]
     commit_sense_branch_merging --> git_feature_summary["git-feature-summary"]
     commit_sense_branch_merging --> proj_version_title["proj-version-title"]
     git_sense_dify_primary["git-sense-dify-primary"] --> git_sense_primary_summary
@@ -108,7 +111,7 @@ flowchart LR
     git_sense_dify_per_file --> git_sense_per_file_summary
     git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
     ready_land_feature["ready-land-feature"] --> git_feature_discover
-    scrub_landed_feature["scrub-landed-feature"] --> git_feature_branch["git-feature-branch"]
+    scrub_landed_feature["scrub-landed-feature"] --> git_feature_branch
     submit_pr["submit-pr"] --> ready_land_feature
     submit_pr --> git_feature_summary
     tend_linked_wt["tend-linked-wt"] --> plant_linked_wt["plant-linked-wt"]
