@@ -2,12 +2,12 @@
 
 <!--
 Todo very basic kaye persona
-Todo add basic finance report
-Todo add dev lop writer
-Fixme plan for suite support parallel, w/ WT
-Fixme clean up steps for post feature branch landed as its own exportable
+TODO add basic finance report
+TODO add dev lop writer
+FIXME plan for suite support parallel, w/ WT
+FIXME clean up steps for post feature branch landed as its own exportable
+FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
-fixme support hotfix & release branch
 -->
 
 ## [Unreleased]
