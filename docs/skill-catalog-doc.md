@@ -1,7 +1,5 @@
 # Kaye Library: Skill Catalog Documentation
 
-<!-- Fixme manually update the catalog doc -->
-
 English | [简体中文](skill-catalog-doc.zh-CN.md)
 
 Meet every skill in kaye-library. 📚 Grouped just like the [README](../README.md).
