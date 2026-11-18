@@ -178,7 +178,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                   '### per-file summary',
                   '### Commit Sense',
                   'Commit the indexed changes: draw the message from the '
-                  'conversation'],
+                  'conversation',
+                  '`Co-authored-by: Kaye LeL '
+                  '<341862645+kaye-lel@users.noreply.github.com>`'],
  'condense-agents-and-context': ['## Condense AGENTS and CONTEXT',
                                  'You work from the **files alone**: no '
                                  'change set, no conversation to draw on, '

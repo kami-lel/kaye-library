@@ -7,6 +7,7 @@ register Git related blueprints
 import functools
 
 from kaye_engine import register_blueprint
+from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint,
@@ -15,6 +16,7 @@ from kaye_engine.prompt.blueprint import (
 )
 
 from .._common import (
+    SIDECAR_FOR_KAYE,
     mark_as_leaf,
     register_exportable,
     register_node,
@@ -26,6 +28,9 @@ __all__ = ("register_git_blueprints",)
 # internal, not exportable: building blocks of the commit sense skill and
 # its Dify prompts
 _register_internal = functools.partial(register_blueprint, is_exportable=False)
+
+# each commit skill signs its co-author trailer as Kaye
+_SIGNED_AS_KAYE = RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,))
 
 _COMMIT_SENSE_PATH = ("Git", "commit sensing")
 _SIGIL_PATH = (*_COMMIT_SENSE_PATH, "per-file change sigil")
@@ -163,7 +168,8 @@ def _register_commit_sense_leaf(
 def register_git_commit_sense_blueprints():
     """
     register the internal ``git-sense-*`` blueprints and the exportable
-    ``commit-sense`` skill built on them
+    ``commit-sense`` and ``commit-sense-branch-merging`` skills built on
+    them, each signing its ``Co-author Trailer`` as Kaye
 
     a package building on the library may take the skill over with
     ``override_exportable("commit-sense", ...)``, building its own blueprint
@@ -219,6 +225,7 @@ def register_git_commit_sense_blueprints():
         extra_checkmarks=(_ORDINARY_EDIT_SIGIL_PATH,),
         description_node=(*commit_sense_path, "{description}"),
         when_to_use_node=(*commit_sense_path, "{when_to_use}"),
+        render_profile=_SIGNED_AS_KAYE,
     )
 
     # merge titles: the version bump and release title rules come from the
@@ -238,6 +245,7 @@ def register_git_commit_sense_blueprints():
         ],
         description_node=(*merging_path, "{description}"),
         when_to_use_node=(*merging_path, "{when_to_use}"),
+        render_profile=_SIGNED_AS_KAYE,
     )
 
     # Dify prompts

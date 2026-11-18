@@ -17,10 +17,11 @@ todo good morning incl finance report
 - `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 - `Personality` root w/ Personality Formatting rule; `person-signifier` glossary w/ the Kaye signifier, which a consumer extends w/ its own personas
 - internal `persona-kaye` blueprint, over internal `persona-kaye-speech-habit`: Kaye persona under Personality Formatting rule & its address-free speech habits
-- `Display Name` & `Persona Co-author Trailer` under `Personality`, moved in from consumer: Kaye's values behind `{for Kaye}` sidecar (`SIDECAR_FOR_KAYE`); internal `personality-persona-identity` blueprint over both; a consumer nests other personas' values under same headings
+- `Personality Signature` under `Personality`: each persona's name, Kaye's behind `{for Kaye}` sidecar (`SIDECAR_FOR_KAYE`), carried by `persona-kaye`; a consumer nests other personas' names under same heading
 
 ### Changed
 
+- `Co-author Trailer`: trailer only for changes you wrote, none for a message alone; never a generic AI trailer; each persona's full trailer behind its `{for <persona>}` sidecar, moved in from consumer; `commit-sense`, `commit-sense-branch-merging` sign as Kaye via `{for Kaye}`
 - `kamilog` pin `v3.0.0` -> `v3.0.1`, which adds the native `tmp` badge
 - `land-feature`, `release-version`: final approval & push Movements delegate to scrub skills
 - `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`

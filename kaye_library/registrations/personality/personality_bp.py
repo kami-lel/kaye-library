@@ -7,7 +7,6 @@ register Personality related blueprints
 from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
-    create_blueprint,
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
@@ -23,10 +22,7 @@ def register_personality_blueprints():
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
     - ``persona-kaye``: the Kaye persona under the Personality formatting
-      rule, over its speech habits
-    - ``personality-persona-identity``: the Display Name and the Persona
-      Co-author Trailer rule, each holding one ``{for <persona>}`` section
-      per persona: Kaye's here, others' from a package
+      rule, with the Personality Signature section, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
     register_blueprint(
@@ -42,36 +38,23 @@ def register_personality_blueprints():
     )
 
     # the Personality root alone: the rule separating Personality Content
-    # from Task Content, which every persona speaks under
-    kaye = create_blueprint_from_node(
-        kaye_node, dependencies=["persona-kaye-speech-habit"]
+    # from Task Content, which every persona speaks under; the signature
+    # whole, each persona's name behind its {for <persona>} sidecar
+    kaye = checkmark_nodes(
+        create_blueprint_from_node(
+            kaye_node, dependencies=["persona-kaye-speech-habit"]
+        ),
+        ("Personality",),
+    )
+    kaye = checkmark_nodes(
+        kaye, ("Personality", "Personality Signature"), is_recursive=True
     )
     register_blueprint(
         "persona-kaye",
         replace_meta(
-            checkmark_nodes(kaye, ("Personality",)),
+            kaye,
             display_name="Kaye",
             description="composed, exacting assistant persona",
-        ),
-        is_exportable=False,
-    )
-
-    # recursive, so each persona's {for <persona>} values a package
-    # registers under these headings come along
-    identity = create_blueprint()
-    for name in ("Display Name", "Persona Co-author Trailer"):
-        identity = checkmark_nodes(
-            identity, ("Personality", name), is_recursive=True
-        )
-    register_blueprint(
-        "personality-persona-identity",
-        replace_meta(
-            identity,
-            display_name="Persona Identity",
-            description=(
-                "each persona's display name and co-author trailer, under"
-                " the rule for when to sign"
-            ),
         ),
         is_exportable=False,
     )
