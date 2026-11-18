@@ -203,6 +203,7 @@ flowchart LR
     execute_plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
     coder --> cascade_all_movements["cascade-all-movements"]
     coder --> halt_each_movement["halt-each-movement"]
+    coder --> tend_linked_wt["tend-linked-wt"]
     working_with_git["working-with-git"] --> commit_sense["commit-sense"]
     good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
     good_morning --> recap_yesterday["recap-yesterday"]
