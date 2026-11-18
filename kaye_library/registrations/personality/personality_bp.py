@@ -24,6 +24,9 @@ def register_personality_blueprints():
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
     - ``persona-kaye``: the Kaye persona, over its speech habits
+    - ``personality-persona-identity``: the Persona Trailer rule, plus
+      the Display Name and GitHub Bot Account Email headings a package
+      fills with one ``{for <persona>}`` section per persona
     """
     register_blueprint(
         "personality-formatting",
@@ -58,6 +61,24 @@ def register_personality_blueprints():
             ),
             display_name="Kaye",
             description="composed, exacting assistant persona",
+        ),
+        is_exportable=False,
+    )
+
+    # recursive, so each persona's {for <persona>} values a package
+    # registers under these headings come along
+    register_blueprint(
+        "personality-persona-identity",
+        replace_meta(
+            create_blueprint_from_node(
+                get_corpus_node("Personality", "Persona Identity"),
+                is_recursive=True,
+            ),
+            display_name="Persona Identity",
+            description=(
+                "the persona co-author trailer rule, with each persona's"
+                " display name and bot account email"
+            ),
         ),
         is_exportable=False,
     )

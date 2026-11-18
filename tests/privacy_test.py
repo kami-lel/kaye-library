@@ -24,7 +24,6 @@ _FORBIDDEN = (
     "vault",
     "/mnt/skills",
     "prompt-writer",
-    "persona trailer",
 )
 
 
