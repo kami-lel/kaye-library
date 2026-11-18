@@ -195,6 +195,12 @@ flowchart LR
     rapid --> style_markdown
 ```
 
+## Registration
+
+Every blueprint registers in `kaye_library/registrations/<group>/<group>_bp.py` through the helpers of `registrations/_common.py`: `register_exportable`, `register_prompt`, `register_internal` and `register_abbr_glossary`, bound to the `kaye-library` consumer by the engine's `bind_registrars`, plus the engine's `register_node`, `register_leaf` and `glossary_blueprint`, which `_common.py` re-exports. They are `kaye-engine` public API, so a third consumer builds its own the same way; see the engine's [Registration Helpers](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md#registration-helpers). A blueprint is built whole before it registers, never edited afterwards.
+
+`chat` is chat alone, persona-free and internal; `chat-kaye` is `chat` plus `persona-kaye`, the exported skill. A consumer replaces `chat` in place with `override_blueprint`, so `chat-kaye`, its own persona chats and `coder` pick up its version by name, and re-homes `chat-kaye` into its plugin with `override_exportable`, passing no blueprint. `persona-kaye` takes the whole Kaye node less its speech habit, so a section a consumer nests beneath it renders when the consumer's sidecar profile names it.
+
 ## Blueprint Invocation Graph
 
 Every `Invoke ... skill via Skill tool` call a skill's own text makes, dependencies' calls left to them; `A --> B` reads "A invokes B" at runtime.
