@@ -4,7 +4,6 @@ kaye_library.registrations.personality.personality_bp.py
 register Personality related blueprints
 """
 
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
     create_blueprint_from_node,
@@ -12,6 +11,8 @@ from kaye_engine.prompt.blueprint import (
     replace_meta,
     uncheckmark_nodes,
 )
+
+from .._common import register_internal
 
 __all__ = ("register_personality_blueprints",)
 
@@ -28,9 +29,7 @@ def register_personality_blueprints():
       rule, with the Personality Signature section, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
-    # FIXME bypasses register_internal, so no consumer bound; also in
-    # style_bp, general_bp, element_bp
-    register_blueprint(
+    register_internal(
         "persona-kaye-speech-habit",
         replace_meta(
             create_blueprint_from_node(
@@ -39,7 +38,6 @@ def register_personality_blueprints():
             display_name="Kaye Speech Habit",
             description="Kaye's speech habits, free of any form of address",
         ),
-        is_exportable=False,
     )
 
     # the whole Kaye node, so a package's sections nested beneath it ride
@@ -61,12 +59,11 @@ def register_personality_blueprints():
         (*_SIGNATURE_PATH, "{for Kaye}"),
     ):
         kaye = checkmark_nodes(kaye, path)
-    register_blueprint(
+    register_internal(
         "persona-kaye",
         replace_meta(
             kaye,
             display_name="Kaye",
             description="composed, exacting assistant persona",
         ),
-        is_exportable=False,
     )

@@ -4,14 +4,18 @@ kaye_library.registrations.style.style_bp.py
 register Style related blueprints
 """
 
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
 )
 
-from .._common import register_exportable, register_leaf, register_node
+from .._common import (
+    register_exportable,
+    register_internal,
+    register_leaf,
+    register_node,
+)
 
 __all__ = ("register_style_blueprints",)
 
@@ -52,13 +56,12 @@ def register_style_blueprints():
     """
     style_node = get_corpus_node("Style Guide")
 
-    register_blueprint(
+    register_internal(
         "style",
         replace_meta(
             create_blueprint_from_node(style_node, is_recursive=True),
             display_name="Style Guide",
         ),
-        is_exportable=False,
     )
 
     register_exportable(
