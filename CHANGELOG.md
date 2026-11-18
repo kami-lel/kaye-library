@@ -6,6 +6,7 @@ TODO add basic finance report
 TODO add dev lop writer
 FIXME plan for suite support parallel, w/ WT
 FIXME clean up steps for post feature branch landed as its own exportable
+TODO clean up w/ version bump
 FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
 -->
