@@ -27,16 +27,16 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 | | Group | What Your Agent Learns |
 |---|---|---|
-| 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |
-| 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
-| 🎨 | Style | Markdown, heading spacing, every letter case, briefness, good writing |
-| 🗓️ | Secretary | email drafting and sweeping, calendar and task sync, event radar, daily recaps, morning and weekly check-ins, job hunt |
-| 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
-| 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
-| 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
 | 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, linked worktrees for parallel tasks, PRs, Git and Perforce terms |
+| 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
+| 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |
 | 🤖 | Agentic | chat rules, Movement and Suite planning: big tasks split into reviewable steps |
+| 🗓️ | Secretary | email drafting and sweeping, calendar and task sync, event radar, daily recaps, morning and weekly check-ins, job hunt |
+| 🖋️ | Amanuensis | Chicago citations and bibliographies, redaction, notes, configs, keybindings, meeting minutes |
+| 🎮 | Unity Engine | Unity 6 C# naming, inspector fields, input, activation, game tuning, asset placement |
 | 🪄 | Meta Prompt | writers for LLM system prompts and skill descriptions |
+| 🎨 | Style | Markdown, heading spacing, every letter case, briefness, good writing |
+| 🧱 | Elements | date and time formats, units, triage tags, phonetic alphabet |
 | 📖 | Glossaries | units, weekdays, language codes, coder abbreviations |
 
 #### 🌟 Start with the Top Picks

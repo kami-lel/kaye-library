@@ -44,30 +44,11 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
+## 🐙 Git
 
-## 💻 编程
+提交信息值得一读，合并干干净净，并行开发互不打架。
 
-不管什么语言，代码都干净统一。再也不用替 AI 收拾烂摊子。
-
-一切从 `/coder` 开始，它是所有代码共用的基本规范，比如每行不超过 80 个字符、命名前后一致。一般不用你亲自调用：智能体只要写代码，它就会**自动触发**，各语言规范也都建立在它之上。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 代码体检
-
-一重构测试就全红？`/sync-unit-test` 🌟 帮你修正**过时的断言、测试夹具和快照**。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
-
-快发版了？先用 `/review-gaps` ⭐ 把整个仓库过一遍。它会赶在用户之前，把**遗漏、跑偏和没收尾的地方**都找出来，逐个打上标记，等你处理。
+`/working-with-git` 先把规矩立好：没有你点头，智能体**绝不推送，也绝不改写历史**。在用 Perforce？`/working-with-p4v` 给每个 Perforce 术语都标上对应的 Git 说法，不用在脑子里来回翻译。
 
 
 
@@ -81,25 +62,15 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-### 语言规范
+### 提交与合并
 
-挑你要写的语言就行。大多数规范还会在智能体打开对应文件时自动加载。
+`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。说一句“commit this”，就能拿到一行**精准的摘要**，外加**逐个文件的改动清单**，写清改了什么、为什么改。`/commit-sense-branch-merging` 则负责合并时的提交信息。
 
-| 技能 | 语言 | 能带来什么 |
-|---|---|---|
-| `/coder-python` ⭐ | Python | 遵循 PEP 8，命名统一，注释讲清意图 |
-| `/coder-python-docstring-style` | Python | 默认给每个函数、类和模块配上 Sphinx 文档字符串 |
-| `/coder-python-testing-guidelines` | Python | 按项目自己的约定写 `pytest` 测试 |
-| `/coder-c` | C | C99，大括号风格统一 |
-| `/coder-cpp` | C++ | 统一的 C++ 风格，以 C 规范为基础 |
-| `/coder-ue` | Unreal Engine C++ | Unreal 的编码约定，以 C++ 规范为基础 |
-| `/coder-c-sharp` | C# | 统一的大括号风格，配 XML 文档注释 |
-| `/coder-javascript-and-typescript` | JavaScript、TypeScript | 以 ES11 为准，camelCase 命名，JSDoc 注释 |
-| `/coder-html` | HTML | 规范的 HTML5 结构和语义化标签 |
-| `/coder-gdscript` | GDScript | 地道的 Godot 4 写法 |
-| `/coder-powershell` | PowerShell | 一套固定的代码风格 |
-| `/coder-bash-script` | Bash | 面向 Debian 的脚本、函数和函数库 |
-| `/coder-bash-shell` | Bash | 只给一行命令，复制就能用 |
+分支生命周期的其他环节：
+
+- `/resolve-merge-conflict` ⭐：理顺卡住的合并，两边的改动都兼顾到，冲突标记清理干净
+- `/prune-merged-branches`：删掉已经合并的分支，并告诉你删了哪些、留了哪些
+- `/submit-pr`：准备好文档，向 `dev` 发起 PR，标题和描述都替你写好
 
 
 
@@ -113,15 +84,9 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-### 输出小帮手
+### 用工作树并行开发
 
-三个小技能，专管代码打印出来的文字：
-
-| 技能 | 能带来什么 |
-|---|---|
-| `/coder-command-usage-message` | 给 `--help` 和报错信息写简洁的用法说明 |
-| `/coder-comment-banner-in-code-comment` | 在源码里用分级横幅注释标出文件标题、章节和小节 |
-| `/coder-comment-banner-in-print-out` | 在程序输出里用分级横幅，把日志、演示和测试过程分成清楚的阶段 |
+三个功能同时开发，谁也不碍着谁。**关联工作树**就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
 
 
 
@@ -292,32 +257,11 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-## 🎨 风格
+## 💻 编程
 
-不管写什么，智能体都是同一种**文风**。
+不管什么语言，代码都干净统一。再也不用替 AI 收拾烂摊子。
 
-大多数风格技能都是配套的：其他技能会替你加载它们，一条规则管住所有文档。只想用某条规则时，才需要单独调用。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Markdown
-
-- `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
-- `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
-- `/style-markdown-endnotes`：所有注释统一放到文末
-- `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
-
-长文档要**留白**才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
+一切从 `/coder` 开始，它是所有代码共用的基本规范，比如每行不超过 80 个字符、命名前后一致。一般不用你亲自调用：智能体只要写代码，它就会**自动触发**，各语言规范也都建立在它之上。
 
 
 
@@ -331,19 +275,43 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-### 大小写格式
+### 代码体检
 
-每种格式**单独一个技能**，其他规则引用时一指一个准。
+一重构测试就全红？`/sync-unit-test` 🌟 帮你修正**过时的断言、测试夹具和快照**。要是真正出问题的是代码，它会直接告诉你，绝不把真 bug 糊弄过去。
 
-| 技能 | 格式 | 示例 |
+快发版了？先用 `/review-gaps` ⭐ 把整个仓库过一遍。它会赶在用户之前，把**遗漏、跑偏和没收尾的地方**都找出来，逐个打上标记，等你处理。
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 语言规范
+
+挑你要写的语言就行。大多数规范还会在智能体打开对应文件时自动加载。
+
+| 技能 | 语言 | 能带来什么 |
 |---|---|---|
-| `/style-letter-case-title-case` | 实词首字母大写，虚词小写 | `The Lord of the Rings` |
-| `/style-letter-case-commentary-case` | 句首小写，句末不加句号 | `check the Config first` |
-| `/style-letter-case-snake-case` | 小写单词用下划线连接 | `total_price` |
-| `/style-letter-case-kebab-case` | 小写单词用连字符连接 | `total-price` |
-| `/style-letter-case-camel-case` | 首个单词小写，后面每个单词首字母大写 | `totalPrice` |
-| `/style-letter-case-pascal-case` | 每个单词首字母大写，不加分隔符 | `TotalPrice` |
-| `/style-letter-case-all-caps` | 全大写，单词之间用下划线连接 | `TOTAL_PRICE` |
+| `/coder-python` ⭐ | Python | 遵循 PEP 8，命名统一，注释讲清意图 |
+| `/coder-python-docstring-style` | Python | 默认给每个函数、类和模块配上 Sphinx 文档字符串 |
+| `/coder-python-testing-guidelines` | Python | 按项目自己的约定写 `pytest` 测试 |
+| `/coder-c` | C | C99，大括号风格统一 |
+| `/coder-cpp` | C++ | 统一的 C++ 风格，以 C 规范为基础 |
+| `/coder-ue` | Unreal Engine C++ | Unreal 的编码约定，以 C++ 规范为基础 |
+| `/coder-c-sharp` | C# | 统一的大括号风格，配 XML 文档注释 |
+| `/coder-javascript-and-typescript` | JavaScript、TypeScript | 以 ES11 为准，camelCase 命名，JSDoc 注释 |
+| `/coder-html` | HTML | 规范的 HTML5 结构和语义化标签 |
+| `/coder-gdscript` | GDScript | 地道的 Godot 4 写法 |
+| `/coder-powershell` | PowerShell | 一套固定的代码风格 |
+| `/coder-bash-script` | Bash | 面向 Debian 的脚本、函数和函数库 |
+| `/coder-bash-shell` | Bash | 只给一行命令，复制就能用 |
 
 
 
@@ -357,11 +325,75 @@ kaye-library 的全部技能，都在这里。📚 分组和 [README](../README.
 
 
 
-### 文风
+### 输出小帮手
 
-两个技能，方向正好相反。`/style-briefness-style` ⭐ 把啰嗦的草稿压成**干脆的标题式笔记**，写状态、摘要、注释都合适。
+三个小技能，专管代码打印出来的文字：
 
-`/style-good-writing` 则只做**最小改动**的校对：拼写、语法、标点、表达是否清楚，原有的语气和用词都保留。
+| 技能 | 能带来什么 |
+|---|---|
+| `/coder-command-usage-message` | 给 `--help` 和报错信息写简洁的用法说明 |
+| `/coder-comment-banner-in-code-comment` | 在源码里用分级横幅注释标出文件标题、章节和小节 |
+| `/coder-comment-banner-in-print-out` | 在程序输出里用分级横幅，把日志、演示和测试过程分成清楚的阶段 |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🤖 智能体
+
+决定智能体怎么和你一轮一轮地配合。对话规则以 Kaye 的口吻自动生效：用什么语言回复，对话中各个环节怎么称呼，提问怎么标记才不会被你漏看。
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Movement 与 Suite
+
+大任务得有章法。**Suite** 指整个多轮任务，**Movement** 是其中可以单独审阅的一步，小到扫一眼就能判断好坏。`/agent-movement-and-suite` 定义了这两个概念；`/agent-movement-and-suite-with-count` 再把每个 Movement 细分成若干 Count，进度一看就是几分之几。
+
+`/plan-for-suite` 🌟 把这套方法落到实处。智能体不会再一口气改 30 个文件，而是先摸清仓库，写出编号的计划，等你批准后才动手。
+
+- `/execute-plan-for-suite`：每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题
+- `/rework-plan-for-suite`：计划跟不上实际情况了？它会先停下来，改好计划，再等你重新批准
+
+**节奏你说了算**。`/halt-each-movement` 每做完一步就停，等你审阅；`/cascade-all-movements` 把剩下的步骤一口气做完，只有全部完成或需要你拍板时才停。
 
 
 
@@ -492,56 +524,6 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 
 
-## 🎮 Unity 引擎
-
-一整套 Unity 6 C# **编码规范**。`/u3d` 打底，它本身又建立在 `/coder-c-sharp` 之上。每个主题都是独立技能，智能体只加载当前任务需要的那部分。
-
-| 技能 | 能带来什么 |
-|---|---|
-| `/u3d-coding` | 统一的 Unity C# 写法，调试时一步步读下来像看故事 |
-| `/u3d-naming` ⭐ | 类、资源、文件夹、GameObject 全按同一套规则命名，从此告别 `Hero_final2` |
-| `/u3d-common-type-and-suffix` | 每个类、脚本、GameObject 和资源只担一个职责，看后缀就知道它是干什么的 |
-| `/u3d-if` | Inspector 字段任由策划调整、改名，存好的数值也不会丢 |
-| `/u3d-mb` | 所有 `MonoBehaviour` 都用同一种结构，Inspector 里漏拖的引用启动时就会报出来 |
-| `/u3d-so` | 所有 `ScriptableObject` 都用同一种结构，运行时数据只读且始终有效 |
-| `/u3d-pfb` | 尽早做成预制体和变体，改一处，所有副本跟着变 |
-| `/u3d-game-tuning` | 把游戏数值从代码里搬到策划可编辑的数据中，调平衡不用重新编译 |
-| `/u3d-owner-driven-activation` | 临时出现的对象统一交给一个“主人”来生成、显示和隐藏，闲着时零开销 |
-| `/u3d-assets-management` | `Assets/` 下每个资源都有固定位置，不用搜也能找到 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🖋️ 文书
 
 你的**学术秘书**：引注、笔记、会议纪要、文字修订，样样细致。
@@ -623,164 +605,22 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 
 
 
-## 🧱 基础元素
+## 🎮 Unity 引擎
 
-撑起其他所有技能的**小部件**，小而精确。它们全是配套技能：其他技能会替你调用，一条规则处处一致。只想用某条规则时，才需要单独调用。
+一整套 Unity 6 C# **编码规范**。`/u3d` 打底，它本身又建立在 `/coder-c-sharp` 之上。每个主题都是独立技能，智能体只加载当前任务需要的那部分。
 
-日期和时间，处处一个格式：
-
-| 技能 | 作用 |
+| 技能 | 能带来什么 |
 |---|---|
-| `/element-dt-year-month-day-format` | 带年份的日期，星期可选 |
-| `/element-dt-month-day-format` | 不带年份的日期，星期可选 |
-| `/element-dt-time-format` | 24 小时制时间，可以精确到分钟，也可以细到秒的小数位 |
-| `/element-dt-watch-day` ⭐ | 30 小时制的“一天”，过了午夜还算今天，夜猫子专用 |
-| `/element-dt-watch-week` | 规划用的一周，总是在周日结束 |
-
-还有这些：
-
-- `/element-numerical-values-with-units`：公制和美制单位并列，缩写规范
-- `/element-international-phonetic-alphabet`：在难读的词后面标上国际音标，什么语言都行
-- `/element-alphabetical-sequence-numbering`：用圆圈字母（ⓐ、ⓑ、ⓒ）标选项，回答时说一个字母就行
-- `/element-triage-tags`：`BUG`、`FIXME`、`TODO`、`HACK` 四种标签，各分三档“音量”
-- `/sort-and-group-triage-tag`：把文件里已有的标签分组排好，其他内容一概不动
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🐙 Git
-
-提交信息值得一读，合并干干净净，并行开发互不打架。
-
-`/working-with-git` 先把规矩立好：没有你点头，智能体**绝不推送，也绝不改写历史**。在用 Perforce？`/working-with-p4v` 给每个 Perforce 术语都标上对应的 Git 说法，不用在脑子里来回翻译。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 提交与合并
-
-`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。说一句“commit this”，就能拿到一行**精准的摘要**，外加**逐个文件的改动清单**，写清改了什么、为什么改。`/commit-sense-branch-merging` 则负责合并时的提交信息。
-
-分支生命周期的其他环节：
-
-- `/resolve-merge-conflict` ⭐：理顺卡住的合并，两边的改动都兼顾到，冲突标记清理干净
-- `/prune-merged-branches`：删掉已经合并的分支，并告诉你删了哪些、留了哪些
-- `/submit-pr`：准备好文档，向 `dev` 发起 PR，标题和描述都替你写好
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 用工作树并行开发
-
-三个功能同时开发，谁也不碍着谁。**关联工作树**就是另开的一个工作目录，有自己的分支。`/tend-linked-wt` 🌟 管它的整个生命周期：用 `/plant-linked-wt` 创建，工作合并后用 `/uproot-linked-wt` 移除。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🤖 智能体
-
-决定智能体怎么和你一轮一轮地配合。对话规则以 Kaye 的口吻自动生效：用什么语言回复，对话中各个环节怎么称呼，提问怎么标记才不会被你漏看。
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Movement 与 Suite
-
-大任务得有章法。**Suite** 指整个多轮任务，**Movement** 是其中可以单独审阅的一步，小到扫一眼就能判断好坏。`/agent-movement-and-suite` 定义了这两个概念；`/agent-movement-and-suite-with-count` 再把每个 Movement 细分成若干 Count，进度一看就是几分之几。
-
-`/plan-for-suite` 🌟 把这套方法落到实处。智能体不会再一口气改 30 个文件，而是先摸清仓库，写出编号的计划，等你批准后才动手。
-
-- `/execute-plan-for-suite`：每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题
-- `/rework-plan-for-suite`：计划跟不上实际情况了？它会先停下来，改好计划，再等你重新批准
-
-**节奏你说了算**。`/halt-each-movement` 每做完一步就停，等你审阅；`/cascade-all-movements` 把剩下的步骤一口气做完，只有全部完成或需要你拍板时才停。
+| `/u3d-coding` | 统一的 Unity C# 写法，调试时一步步读下来像看故事 |
+| `/u3d-naming` ⭐ | 类、资源、文件夹、GameObject 全按同一套规则命名，从此告别 `Hero_final2` |
+| `/u3d-common-type-and-suffix` | 每个类、脚本、GameObject 和资源只担一个职责，看后缀就知道它是干什么的 |
+| `/u3d-if` | Inspector 字段任由策划调整、改名，存好的数值也不会丢 |
+| `/u3d-mb` | 所有 `MonoBehaviour` 都用同一种结构，Inspector 里漏拖的引用启动时就会报出来 |
+| `/u3d-so` | 所有 `ScriptableObject` 都用同一种结构，运行时数据只读且始终有效 |
+| `/u3d-pfb` | 尽早做成预制体和变体，改一处，所有副本跟着变 |
+| `/u3d-game-tuning` | 把游戏数值从代码里搬到策划可编辑的数据中，调平衡不用重新编译 |
+| `/u3d-owner-driven-activation` | 临时出现的对象统一交给一个“主人”来生成、显示和隐藏，闲着时零开销 |
+| `/u3d-assets-management` | `Assets/` 下每个资源都有固定位置，不用搜也能找到 |
 
 
 
@@ -824,6 +664,165 @@ GTD 是 *Getting Things Done* 的缩写，一种经典的任务管理方法。
 - `/write-skill-description`：写技能的 `description`，开头就点明它做什么
 - `/write-skill-when-to-use`：写技能的 `when_to_use`，列出触发说法，并划清适用边界
 - `/write-skill-description-and-when-to-use`：两项一起写
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🎨 风格
+
+不管写什么，智能体都是同一种**文风**。
+
+大多数风格技能都是配套的：其他技能会替你加载它们，一条规则管住所有文档。只想用某条规则时，才需要单独调用。
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Markdown
+
+- `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
+- `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
+- `/style-markdown-endnotes`：所有注释统一放到文末
+- `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
+
+长文档要**留白**才好读。`/style-heading-separation` 按标题层级和文件长短安排空行；`/style-heading-separation-medium` 和 `/style-heading-separation-long` 则直接套用中篇和长篇的间距。
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 大小写格式
+
+每种格式**单独一个技能**，其他规则引用时一指一个准。
+
+| 技能 | 格式 | 示例 |
+|---|---|---|
+| `/style-letter-case-title-case` | 实词首字母大写，虚词小写 | `The Lord of the Rings` |
+| `/style-letter-case-commentary-case` | 句首小写，句末不加句号 | `check the Config first` |
+| `/style-letter-case-snake-case` | 小写单词用下划线连接 | `total_price` |
+| `/style-letter-case-kebab-case` | 小写单词用连字符连接 | `total-price` |
+| `/style-letter-case-camel-case` | 首个单词小写，后面每个单词首字母大写 | `totalPrice` |
+| `/style-letter-case-pascal-case` | 每个单词首字母大写，不加分隔符 | `TotalPrice` |
+| `/style-letter-case-all-caps` | 全大写，单词之间用下划线连接 | `TOTAL_PRICE` |
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 文风
+
+两个技能，方向正好相反。`/style-briefness-style` ⭐ 把啰嗦的草稿压成**干脆的标题式笔记**，写状态、摘要、注释都合适。
+
+`/style-good-writing` 则只做**最小改动**的校对：拼写、语法、标点、表达是否清楚，原有的语气和用词都保留。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🧱 基础元素
+
+撑起其他所有技能的**小部件**，小而精确。它们全是配套技能：其他技能会替你调用，一条规则处处一致。只想用某条规则时，才需要单独调用。
+
+日期和时间，处处一个格式：
+
+| 技能 | 作用 |
+|---|---|
+| `/element-dt-year-month-day-format` | 带年份的日期，星期可选 |
+| `/element-dt-month-day-format` | 不带年份的日期，星期可选 |
+| `/element-dt-time-format` | 24 小时制时间，可以精确到分钟，也可以细到秒的小数位 |
+| `/element-dt-watch-day` ⭐ | 30 小时制的“一天”，过了午夜还算今天，夜猫子专用 |
+| `/element-dt-watch-week` | 规划用的一周，总是在周日结束 |
+
+还有这些：
+
+- `/element-numerical-values-with-units`：公制和美制单位并列，缩写规范
+- `/element-international-phonetic-alphabet`：在难读的词后面标上国际音标，什么语言都行
+- `/element-alphabetical-sequence-numbering`：用圆圈字母（ⓐ、ⓑ、ⓒ）标选项，回答时说一个字母就行
+- `/element-triage-tags`：`BUG`、`FIXME`、`TODO`、`HACK` 四种标签，各分三档“音量”
+- `/sort-and-group-triage-tag`：把文件里已有的标签分组排好，其他内容一概不动
 
 
 

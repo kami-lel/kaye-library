@@ -46,29 +46,11 @@ New here? Start with the 🌟 Top Picks, then try the ⭐ Favorites.
 
 
 
-## 💻 Coder
+## 🐙 Git
 
-Clean, consistent code in every language. No more tidying up after your AI.
+Commits worth reading. Clean merges. Parallel work without collisions.
 
-It all starts with `/coder`: the house rules for all code, such as 80-character lines and consistent names. You rarely call it yourself. It **triggers on its own** whenever your agent writes code, and every language profile builds on it.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Keeping Code Healthy
-
-Tests red after a refactor? `/sync-unit-test` 🌟 fixes **stale assertions, fixtures, and snapshots**. When the code is what broke, it says so. Real bugs never get papered over.
-
-Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds **gaps, drift, and half-finished seams** before your users do, and tags each one for you to fix.
+`/working-with-git` sets the ground rules: your agent **never pushes or rewrites history** without your say-so. On Perforce? `/working-with-p4v` pairs every Perforce term with its Git equivalent. No translating in your head.
 
 
 
@@ -82,25 +64,15 @@ Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds **
 
 
 
-### Language Profiles
+### Commits and Merges
 
-Pick your language. Most profiles even load themselves the moment your agent opens a matching file.
+`/commit-sense` 🌟 ends "fix stuff" commits. Say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why. `/commit-sense-branch-merging` does the same for merge messages.
 
-| Skill | Language | What You Get |
-|---|---|---|
-| `/coder-python` ⭐ | Python | PEP 8, consistent names, comments that explain intent |
-| `/coder-python-docstring-style` | Python | a Sphinx docstring on every function, class, and module, by default |
-| `/coder-python-testing-guidelines` | Python | `pytest` tests that match your project |
-| `/coder-c` | C | C99 and clean brace placement |
-| `/coder-cpp` | C++ | one house style, built on the C profile |
-| `/coder-ue` | Unreal Engine C++ | Unreal conventions, built on the C++ profile |
-| `/coder-c-sharp` | C# | clean braces and XML documentation comments |
-| `/coder-javascript-and-typescript` | JavaScript, TypeScript | ES11, camelCase names, JSDoc comments |
-| `/coder-html` | HTML | HTML5 structure and semantic markup |
-| `/coder-gdscript` | GDScript | idiomatic Godot 4 code |
-| `/coder-powershell` | PowerShell | one fixed code style |
-| `/coder-bash-script` | Bash | scripts, functions, and libraries for Debian |
-| `/coder-bash-shell` | Bash | the bare command line, ready to paste |
+The rest of the branch lifecycle:
+
+- `/resolve-merge-conflict` ⭐: a halted merge untangled, both sides reconciled, markers gone
+- `/prune-merged-branches`: merged branches deleted, with a report of what went and what stayed
+- `/submit-pr`: docs readied and a pull request into `dev` opened, title and body written for you
 
 
 
@@ -114,15 +86,9 @@ Pick your language. Most profiles even load themselves the moment your agent ope
 
 
 
-### Output Helpers
+### Parallel Work in Worktrees
 
-Three small skills for the text your code prints:
-
-| Skill | What You Get |
-|---|---|
-| `/coder-command-usage-message` | a crisp usage message for `--help` and errors |
-| `/coder-comment-banner-in-code-comment` | ranked banner comments for file titles, sections, and subsections |
-| `/coder-comment-banner-in-print-out` | ranked banners that split logs, demos, and test runs into clear phases |
+Run three features at once. None collide. A **linked worktree** is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
 
 
 
@@ -293,32 +259,11 @@ Supporting skills for the release workflows above:
 
 
 
-## 🎨 Style
+## 💻 Coder
 
-One **voice**, whatever your agent writes.
+Clean, consistent code in every language. No more tidying up after your AI.
 
-Most style skills are supporting: other skills load them for you, so one rule shapes every document. Call one directly only when you want just that rule.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Markdown
-
-- `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
-- `/style-markdown-footnotes`: each footnote right beside the text that cites it
-- `/style-markdown-endnotes`: every definition gathered in one block at the end
-- `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
-
-Long documents need **room to breathe**. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
+It all starts with `/coder`: the house rules for all code, such as 80-character lines and consistent names. You rarely call it yourself. It **triggers on its own** whenever your agent writes code, and every language profile builds on it.
 
 
 
@@ -332,19 +277,43 @@ Long documents need **room to breathe**. `/style-heading-separation` spaces head
 
 
 
-### Letter Case
+### Keeping Code Healthy
 
-One skill per **convention**, so any rule can point to exactly one.
+Tests red after a refactor? `/sync-unit-test` 🌟 fixes **stale assertions, fixtures, and snapshots**. When the code is what broke, it says so. Real bugs never get papered over.
 
-| Skill | Convention | Example |
+Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds **gaps, drift, and half-finished seams** before your users do, and tags each one for you to fix.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Language Profiles
+
+Pick your language. Most profiles even load themselves the moment your agent opens a matching file.
+
+| Skill | Language | What You Get |
 |---|---|---|
-| `/style-letter-case-title-case` | major words capitalized, minor words lowercase | `The Lord of the Rings` |
-| `/style-letter-case-commentary-case` | lowercase opening, no final period | `check the Config first` |
-| `/style-letter-case-snake-case` | lowercase words joined by underscores | `total_price` |
-| `/style-letter-case-kebab-case` | lowercase words joined by hyphens | `total-price` |
-| `/style-letter-case-camel-case` | first word lowercase, later words capitalized | `totalPrice` |
-| `/style-letter-case-pascal-case` | every word capitalized, no separators | `TotalPrice` |
-| `/style-letter-case-all-caps` | uppercase words joined by underscores | `TOTAL_PRICE` |
+| `/coder-python` ⭐ | Python | PEP 8, consistent names, comments that explain intent |
+| `/coder-python-docstring-style` | Python | a Sphinx docstring on every function, class, and module, by default |
+| `/coder-python-testing-guidelines` | Python | `pytest` tests that match your project |
+| `/coder-c` | C | C99 and clean brace placement |
+| `/coder-cpp` | C++ | one house style, built on the C profile |
+| `/coder-ue` | Unreal Engine C++ | Unreal conventions, built on the C++ profile |
+| `/coder-c-sharp` | C# | clean braces and XML documentation comments |
+| `/coder-javascript-and-typescript` | JavaScript, TypeScript | ES11, camelCase names, JSDoc comments |
+| `/coder-html` | HTML | HTML5 structure and semantic markup |
+| `/coder-gdscript` | GDScript | idiomatic Godot 4 code |
+| `/coder-powershell` | PowerShell | one fixed code style |
+| `/coder-bash-script` | Bash | scripts, functions, and libraries for Debian |
+| `/coder-bash-shell` | Bash | the bare command line, ready to paste |
 
 
 
@@ -358,11 +327,75 @@ One skill per **convention**, so any rule can point to exactly one.
 
 
 
-### Prose
+### Output Helpers
 
-Two skills, opposite jobs. `/style-briefness-style` ⭐ cuts wordy drafts down to **tight, headline-style notes**. Perfect for status lines, summaries, and comments.
+Three small skills for the text your code prints:
 
-`/style-good-writing` proofreads with the **lightest touch**: spelling, grammar, punctuation, clarity. Your voice stays yours.
+| Skill | What You Get |
+|---|---|
+| `/coder-command-usage-message` | a crisp usage message for `--help` and errors |
+| `/coder-comment-banner-in-code-comment` | ranked banner comments for file titles, sections, and subsections |
+| `/coder-comment-banner-in-print-out` | ranked banners that split logs, demos, and test runs into clear phases |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🤖 Agentic
+
+How your agent works with you, turn by turn. The conversation rules apply on their own, in Kaye's voice: reply language, shared terms for each step, and clearly marked questions you can't miss.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Movements and Suites
+
+Big tasks need structure. A **Suite** is the whole multi-round task. A **Movement** is one reviewable step, small enough to judge at a glance. `/agent-movement-and-suite` defines both. `/agent-movement-and-suite-with-count` splits Movements into Counts, so progress reads as a fraction.
+
+`/plan-for-suite` 🌟 puts it to work. No more 30-file rewrites in one go. Your agent surveys the repository, writes a numbered plan, and waits for your approval.
+
+- `/execute-plan-for-suite`: one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session
+- `/rework-plan-for-suite`: plan no longer fits reality? It halts, rewrites the plan, and waits for your approval again
+
+**You set the pace.** `/halt-each-movement` stops after every step for your review. `/cascade-all-movements` runs everything left and stops only when done or when it needs you.
 
 
 
@@ -493,56 +526,6 @@ GTD stands for *Getting Things Done*, the task-management method.
 
 
 
-## 🎮 Unity Engine
-
-A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so your agent loads only what the task needs.
-
-| Skill | What You Get |
-|---|---|
-| `/u3d-coding` | Unity C# in one house idiom; debug sessions read like a story |
-| `/u3d-naming` ⭐ | one naming rule for every class, asset, folder, and GameObject; goodbye, `Hero_final2` |
-| `/u3d-common-type-and-suffix` | one clear role per class, script, GameObject, and asset, named by its suffix |
-| `/u3d-if` | Inspector fields designers can tune and rename without losing saved values |
-| `/u3d-mb` | one layout for every `MonoBehaviour`; missing Inspector links caught at startup |
-| `/u3d-so` | one layout for every `ScriptableObject`; data stays read-only and valid |
-| `/u3d-pfb` | prefabs and variants early; one edit updates every copy |
-| `/u3d-game-tuning` | gameplay numbers in designer-editable data; rebalance without a recompile |
-| `/u3d-owner-driven-activation` | one owner spawns, shows, and hides each short-lived object; zero cost while idle |
-| `/u3d-assets-management` | a home for every asset under `Assets/`; find anything without searching |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🖋️ Amanuensis
 
 Your **scholarly scribe**: citations, notes, minutes, and careful revision.
@@ -624,164 +607,22 @@ And `/redactor` revises your text, keeps your intent and style, and iterates unt
 
 
 
-## 🧱 Elements
+## 🎮 Unity Engine
 
-The small, exact **building blocks** behind every other skill. They are all supporting: other skills call them for you, so one rule stays the same everywhere. Call one directly only when you want just that rule.
+A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so your agent loads only what the task needs.
 
-Dates and times look the same everywhere:
-
-| Skill | What It Does |
+| Skill | What You Get |
 |---|---|
-| `/element-dt-year-month-day-format` | a date with a year, weekday optional |
-| `/element-dt-month-day-format` | a date without a year, weekday optional |
-| `/element-dt-time-format` | 24-hour time, from minutes to fractions of a second |
-| `/element-dt-watch-day` ⭐ | a day that runs past midnight on a 30-hour clock, built for night owls |
-| `/element-dt-watch-week` | a planning week that always ends on Sunday |
-
-More building blocks:
-
-- `/element-numerical-values-with-units`: metric and US units side by side, correctly abbreviated
-- `/element-international-phonetic-alphabet`: IPA pronunciation after any tricky word, in any language
-- `/element-alphabetical-sequence-numbering`: circled letters (ⓐ, ⓑ, ⓒ) for choices, so you answer with one letter
-- `/element-triage-tags`: `BUG`, `FIXME`, `TODO`, and `HACK` in three loudness tiers
-- `/sort-and-group-triage-tag`: sorts existing tags into tidy groups, changes nothing else
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🐙 Git
-
-Commits worth reading. Clean merges. Parallel work without collisions.
-
-`/working-with-git` sets the ground rules: your agent **never pushes or rewrites history** without your say-so. On Perforce? `/working-with-p4v` pairs every Perforce term with its Git equivalent. No translating in your head.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Commits and Merges
-
-`/commit-sense` 🌟 ends "fix stuff" commits. Say "commit this" and get a sharp **summary line** plus a **per-file ledger** of what changed and why. `/commit-sense-branch-merging` does the same for merge messages.
-
-The rest of the branch lifecycle:
-
-- `/resolve-merge-conflict` ⭐: a halted merge untangled, both sides reconciled, markers gone
-- `/prune-merged-branches`: merged branches deleted, with a report of what went and what stayed
-- `/submit-pr`: docs readied and a pull request into `dev` opened, title and body written for you
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Parallel Work in Worktrees
-
-Run three features at once. None collide. A **linked worktree** is a second working folder on its own branch. `/tend-linked-wt` 🌟 handles its whole life: `/plant-linked-wt` creates it, `/uproot-linked-wt` removes it once the work is merged.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🤖 Agentic
-
-How your agent works with you, turn by turn. The conversation rules apply on their own, in Kaye's voice: reply language, shared terms for each step, and clearly marked questions you can't miss.
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Movements and Suites
-
-Big tasks need structure. A **Suite** is the whole multi-round task. A **Movement** is one reviewable step, small enough to judge at a glance. `/agent-movement-and-suite` defines both. `/agent-movement-and-suite-with-count` splits Movements into Counts, so progress reads as a fraction.
-
-`/plan-for-suite` 🌟 puts it to work. No more 30-file rewrites in one go. Your agent surveys the repository, writes a numbered plan, and waits for your approval.
-
-- `/execute-plan-for-suite`: one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session
-- `/rework-plan-for-suite`: plan no longer fits reality? It halts, rewrites the plan, and waits for your approval again
-
-**You set the pace.** `/halt-each-movement` stops after every step for your review. `/cascade-all-movements` runs everything left and stops only when done or when it needs you.
+| `/u3d-coding` | Unity C# in one house idiom; debug sessions read like a story |
+| `/u3d-naming` ⭐ | one naming rule for every class, asset, folder, and GameObject; goodbye, `Hero_final2` |
+| `/u3d-common-type-and-suffix` | one clear role per class, script, GameObject, and asset, named by its suffix |
+| `/u3d-if` | Inspector fields designers can tune and rename without losing saved values |
+| `/u3d-mb` | one layout for every `MonoBehaviour`; missing Inspector links caught at startup |
+| `/u3d-so` | one layout for every `ScriptableObject`; data stays read-only and valid |
+| `/u3d-pfb` | prefabs and variants early; one edit updates every copy |
+| `/u3d-game-tuning` | gameplay numbers in designer-editable data; rebalance without a recompile |
+| `/u3d-owner-driven-activation` | one owner spawns, shows, and hides each short-lived object; zero cost while idle |
+| `/u3d-assets-management` | a home for every asset under `Assets/`; find anything without searching |
 
 
 
@@ -825,6 +666,165 @@ Three more write the metadata that tells an agent **when to load** a skill:
 - `/write-skill-description`: what the skill does, main verb first
 - `/write-skill-when-to-use`: trigger phrases, plus where the skill stops
 - `/write-skill-description-and-when-to-use`: both at once
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🎨 Style
+
+One **voice**, whatever your agent writes.
+
+Most style skills are supporting: other skills load them for you, so one rule shapes every document. Call one directly only when you want just that rule.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Markdown
+
+- `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
+- `/style-markdown-footnotes`: each footnote right beside the text that cites it
+- `/style-markdown-endnotes`: every definition gathered in one block at the end
+- `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
+
+Long documents need **room to breathe**. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Letter Case
+
+One skill per **convention**, so any rule can point to exactly one.
+
+| Skill | Convention | Example |
+|---|---|---|
+| `/style-letter-case-title-case` | major words capitalized, minor words lowercase | `The Lord of the Rings` |
+| `/style-letter-case-commentary-case` | lowercase opening, no final period | `check the Config first` |
+| `/style-letter-case-snake-case` | lowercase words joined by underscores | `total_price` |
+| `/style-letter-case-kebab-case` | lowercase words joined by hyphens | `total-price` |
+| `/style-letter-case-camel-case` | first word lowercase, later words capitalized | `totalPrice` |
+| `/style-letter-case-pascal-case` | every word capitalized, no separators | `TotalPrice` |
+| `/style-letter-case-all-caps` | uppercase words joined by underscores | `TOTAL_PRICE` |
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Prose
+
+Two skills, opposite jobs. `/style-briefness-style` ⭐ cuts wordy drafts down to **tight, headline-style notes**. Perfect for status lines, summaries, and comments.
+
+`/style-good-writing` proofreads with the **lightest touch**: spelling, grammar, punctuation, clarity. Your voice stays yours.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🧱 Elements
+
+The small, exact **building blocks** behind every other skill. They are all supporting: other skills call them for you, so one rule stays the same everywhere. Call one directly only when you want just that rule.
+
+Dates and times look the same everywhere:
+
+| Skill | What It Does |
+|---|---|
+| `/element-dt-year-month-day-format` | a date with a year, weekday optional |
+| `/element-dt-month-day-format` | a date without a year, weekday optional |
+| `/element-dt-time-format` | 24-hour time, from minutes to fractions of a second |
+| `/element-dt-watch-day` ⭐ | a day that runs past midnight on a 30-hour clock, built for night owls |
+| `/element-dt-watch-week` | a planning week that always ends on Sunday |
+
+More building blocks:
+
+- `/element-numerical-values-with-units`: metric and US units side by side, correctly abbreviated
+- `/element-international-phonetic-alphabet`: IPA pronunciation after any tricky word, in any language
+- `/element-alphabetical-sequence-numbering`: circled letters (ⓐ, ⓑ, ⓒ) for choices, so you answer with one letter
+- `/element-triage-tags`: `BUG`, `FIXME`, `TODO`, and `HACK` in three loudness tiers
+- `/sort-and-group-triage-tag`: sorts existing tags into tidy groups, changes nothing else
 
 
 
