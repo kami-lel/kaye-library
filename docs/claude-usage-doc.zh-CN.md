@@ -1,4 +1,4 @@
-# kaye-library：Claude 使用文档
+# Kaye Library：Claude 使用文档
 
 [English](claude-usage-doc.md) | 简体中文
 

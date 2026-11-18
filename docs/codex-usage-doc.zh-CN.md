@@ -1,4 +1,4 @@
-# kaye-library：Codex 使用文档
+# Kaye Library：Codex 使用文档
 
 [English](codex-usage-doc.md) | 简体中文
 

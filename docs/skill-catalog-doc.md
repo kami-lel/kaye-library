@@ -1,4 +1,6 @@
-# kaye-library: Skill Catalog Documentation
+# Kaye Library: Skill Catalog Documentation
+
+<!-- Fixme manually update the catalog doc -->
 
 English | [简体中文](skill-catalog-doc.zh-CN.md)
 

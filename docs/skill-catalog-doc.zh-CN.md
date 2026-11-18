@@ -1,4 +1,4 @@
-# kaye-library：技能目录
+# Kaye Library：技能目录
 
 [English](skill-catalog-doc.md) | 简体中文
 
