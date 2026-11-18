@@ -193,28 +193,92 @@ flowchart LR
 
 ## Blueprint Invocation Graph
 
-Every `Invoke ... skill via Skill tool` call; `A --> B` reads "A invokes B" at runtime.
+Every `Invoke ... skill via Skill tool` call a skill's own text makes, dependencies' calls left to them; `A --> B` reads "A invokes B" at runtime.
+
+#### Agentic & Coder
 
 ```mermaid
 flowchart LR
     coder_profiles["coder-* language profiles"] --> coder
     coder_ue["coder-ue"] --> coder_c["coder-c"]
     coder --> sync_unit_test["sync-unit-test"]
-    coder --> execute_plan_for_suite["execute-plan-for-suite"]
-    execute_plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
-    coder --> cascade_all_movements["cascade-all-movements"]
-    coder --> halt_each_movement["halt-each-movement"]
-    coder --> tend_linked_wt["tend-linked-wt"]
+    plan_for_suite["plan-for-suite"] --> execute_plan_for_suite["execute-plan-for-suite"]
+    plan_for_suite --> cascade_all_movements["cascade-all-movements"]
+    plan_for_suite --> halt_each_movement["halt-each-movement"]
+    plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
+    plan_for_suite --> tend_linked_wt["tend-linked-wt"]
+    plan_for_suite --> commit_sense["commit-sense"]
+    execute_plan_for_suite --> cascade_all_movements
+    execute_plan_for_suite --> halt_each_movement
+    execute_plan_for_suite --> rework_plan_for_suite
+    execute_plan_for_suite --> commit_sense
+```
+
+#### Git & Repository
+
+```mermaid
+flowchart LR
     working_with_git["working-with-git"] --> commit_sense["commit-sense"]
+    initialize_repo["initialize-repo"] --> create_readme["create-readme"]
+    initialize_repo --> create_changelog["create-changelog"]
+    initialize_repo --> create_repo_agents["create-repo-agents"]
+    initialize_repo --> create_repo_docs["create-repo-docs"]
+    maintenance_before_compact["maintenance-before-compact"] --> maintain_changelog["maintain-changelog"]
+    maintenance_before_compact --> maintain_repo_agents["maintain-repo-agents"]
+    repo_changelog_writer["repo-changelog-writer"] --> sync_unit_test["sync-unit-test"]
+    repo_devlog_writer["repo-devlog-writer"] --> proj_version_title["proj-version-title"]
+    equip_proj_for_agent["equip-proj-for-agent"] --> proj_agents_writer["proj-agents-writer"]
+    submit_pr["submit-pr"] --> ready_land_feature["ready-land-feature"]
+    ready_land_feature --> sync_unit_test
+    ready_land_feature --> maintain_changelog
+    ready_land_feature --> maintain_repo_agents
+    ready_land_feature --> commit_sense
+    land_feature["land-feature"] --> ready_land_feature
+    land_feature --> commit_sense_branch_merging["commit-sense-branch-merging"]
+    land_feature --> resolve_merge_conflict["resolve-merge-conflict"]
+    land_feature --> scrub_landed_feature["scrub-landed-feature"]
+    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
+    ready_release_version["ready-release-version"] --> maintain_readme["maintain-readme"]
+    ready_release_version --> maintain_credits["maintain-credits"]
+    ready_release_version --> condense_changelog["condense-changelog"]
+    ready_release_version --> condense_agents_and_context["condense-agents-and-context"]
+    ready_release_version --> maintain_repo_docs["maintain-repo-docs"]
+    release_version["release-version"] --> ready_release_version
+    release_version --> commit_sense
+    release_version --> commit_sense_branch_merging
+    release_version --> resolve_merge_conflict
+    release_version --> scrub_released_version["scrub-released-version"]
+    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
+    scrub_released_version --> commit_sense
+```
+
+#### Secretary & Amanuensis
+
+```mermaid
+flowchart LR
     good_morning["good-morning"] --> sweep_email_inbox["sweep-email-inbox"]
     good_morning --> recap_yesterday["recap-yesterday"]
     good_morning --> scan_event_radar_daily["scan-event-radar-daily"]
     good_morning --> hunt_job_opportunity["hunt-job-opportunity"]
     good_week["good-week"] --> scan_event_radar_weekly["scan-event-radar-weekly"]
     good_week --> hunt_job_opportunity
-    land_feature["land-feature"] --> scrub_landed_feature["scrub-landed-feature"]
-    scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
-    release_version["release-version"] --> scrub_released_version["scrub-released-version"]
-    scrub_released_version --> prune_merged_branches["prune-merged-branches"]
-    scrub_released_version --> commit_sense
+    recap_today["recap-today"] --> pull_task_from_gtd["pull-task-from-gtd"]
+    recap_yesterday --> pull_task_from_gtd
+    bibliographer --> amanuensis_chicago_note["amanuensis-chicago-note"]
+```
+
+#### Unity
+
+Each Unity skill may invoke its siblings "if needed"; the entry points are shown, the sibling web is in `u3d.md`.
+
+```mermaid
+flowchart LR
+    u3d --> u3d_coding["u3d-coding"]
+    u3d --> u3d_naming["u3d-naming"]
+    u3d --> u3d_assets_management["u3d-assets-management"]
+    u3d --> coder_c_sharp["coder-c-sharp"]
+    u3d_coding --> coder_comment_banner["coder-comment-banner-in-code-comment"]
+    u3d_naming --> coder
+    u3d_naming --> style_letter_case_pascal_case["style-letter-case-pascal-case"]
+    u3d_assets_management --> style_letter_case_pascal_case
 ```
