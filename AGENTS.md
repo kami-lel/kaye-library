@@ -32,7 +32,7 @@ Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_
 
 - follow PEP 8 within 80 characters; Sphinx docstrings; test files end `_test.py` under `tests/`
 - `*_bp.py` imports of the corpus tree stay function-local: the tree loads after `kaye_library` is imported
-- create a blueprint only in `registrations/`, through the helpers of `registrations/_common.py` (`register_exportable`, `register_prompt`, `register_abbr_glossary`), which bind this package's consumer; never call `register_blueprint` with `is_exportable=True` elsewhere
+- create a blueprint only in `registrations/`, through the helpers of `registrations/_common.py` (`register_exportable`, `register_prompt`, `register_internal`, `register_abbr_glossary`), which bind this package's consumer via the engine's `bind_registrars`; build node and leaf blueprints with the engine's `register_node`, `register_leaf`, `glossary_blueprint`, never a local copy; build a blueprint whole before registering, never assign `entry.blueprint` afterwards; never call `register_blueprint` with `is_exportable=True` elsewhere
 - a skill-backing corpus section needs `{description}` and `{when_to_use}` sidecars; blank spacer lines between sections are deliberate, keep them
 
 ## Content Rules

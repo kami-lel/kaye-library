@@ -47,17 +47,19 @@ def register_u3d_blueprints():
     u3d_node = get_corpus_node("Unity Engine")
 
     # Unity core, own content only
-    u3d = register_exportable(
+    register_exportable(
         "u3d",
         replace_meta(
-            create_blueprint_from_node(
-                u3d_node,
-                dependencies=["coder-c-sharp"],
+            checkmark_nodes(
+                create_blueprint_from_node(
+                    u3d_node,
+                    dependencies=["coder-c-sharp"],
+                ),
+                coder_node["Brace Style"],
             ),
             display_name="Unity Engine",
         ),
     )
-    u3d.blueprint = checkmark_nodes(u3d.blueprint, coder_node["Brace Style"])
 
     # Unity coding, own content only; the
     # Inspector Field, MonoBehaviour & Scriptable Object children are skills

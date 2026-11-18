@@ -4,16 +4,16 @@ kaye_library.registrations.project.project_bp.py
 register Project related blueprints
 """
 
-import functools
-
-from kaye_engine import register_blueprint
 from kaye_engine.prompt.blueprint import get_corpus_node
 
-from .._common import register_exportable, register_leaf, register_node
+from .._common import (
+    register_exportable,
+    register_internal,
+    register_leaf,
+    register_node,
+)
 
 __all__ = ("register_project_blueprints",)
-
-_register_internal = functools.partial(register_blueprint, is_exportable=False)
 
 
 def _register_semantic_version_extended():
@@ -94,7 +94,7 @@ def register_project_blueprints():
     _register_semantic_version_extended()
 
     register_node(
-        _register_internal,
+        register_internal,
         "proj-version-bump",
         proj_node["Project Semantic Version"],
         "semantic version bump",
@@ -110,21 +110,21 @@ def register_project_blueprints():
     )
 
     register_node(
-        _register_internal,
+        register_internal,
         "proj-agents",
         proj_node,
         "agents writer",
     )
 
     register_node(
-        _register_internal,
+        register_internal,
         "proj-docs",
         proj_node,
         "doc writer",
     )
 
     register_node(
-        _register_internal,
+        register_internal,
         "proj-context-engineering",
         proj_node,
         "Project Context Engineering",

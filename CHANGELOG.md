@@ -28,6 +28,7 @@ todo good morning incl finance report
 - `commit-sense-branch-merging`: links feature, hotfix, release branch definitions; hotfix & release named `hotfix/VERSION`, `release/VERSION`
 - `plan-for-suite`: Plan may mark independent Movements for parallel run, each in own linked worktree & feature branch via `tend-linked-wt`; optional, never required
 - Claude marketplace named `kaye-library`, not `kaye-engine`, since kaye-engine names a marketplace by repo name; usage docs & console test follow
+- registration helpers (`register_node`, `register_leaf`, `glossary_blueprint`, `register_md_file_dynamic_substitution`, consumer registrars) come from `kaye-engine`; `_common.py` keeps the consumer name, one `bind_registrars` line & `register_children`; 7 local `_register_internal` copies & every post-registration `entry.blueprint =` write gone, renders unchanged
 
 > [!WARNING]
 > Breaking: marketplace `kaye-engine` gone; `enabledPlugins` key `kaye-library@kaye-engine` goes stale, re-run `kaye-library a v`, delete `~/.claude/kaye-engine/` & old keys. `chat-coder` gone: `coder` now carries `chat`; Claude & Codex setup names `chat` & `coder`

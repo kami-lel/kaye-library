@@ -33,8 +33,8 @@ kaye_library/
   __main__.py       console entry point
   abbrs.json        abbreviation entries of the glossaries library text splices
   registrations/    one folder per feature group: corpus .md beside its registrations
-    _common.py      consumer-bound registration helpers, generic leaf helpers
-    _dynamic_substitution.py  md-file dynamic substitution helper
+    _common.py      consumer name, `bind_registrars` line, `register_children`; engine helpers re-exported
+    _dynamic_substitution.py  engine md-file dynamic substitution bound to the library logger
 tests/              mirrors the shipped surfaces; data.py holds the wording each skill renders
 .github/workflows/  tag-triggered release build
 ```
@@ -84,7 +84,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 
 ## Registration Helpers
 
-`registrations/_common.py` binds the `kaye-library` consumer; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
+`registrations/_common.py` binds the `kaye-library` consumer with the engine's `bind_registrars`, and re-exports the engine's `register_node`, `register_leaf` and `glossary_blueprint`; blueprints register only through it, in `registrations/<group>/<group>_bp.py`, after every blueprint they depend on (a missing dependency raises at registration):
 
 | helper | registers |
 |---|---|
@@ -92,7 +92,7 @@ Twelve authored root nodes plus two dynamic placements; every root has exactly o
 | `register_prompt` | an exportable skill the assistant does not surface on its own (`llm_invokable=False`) |
 | `register_node` | a node (optionally recursive) under a slug, through any of the above |
 | `register_leaf` | one leaf with its ancestor headings, descriptors included |
-| `register_blueprint(..., is_exportable=False)` | an internal building block, never exported |
+| `register_internal` | an internal building block, never exported |
 
 Glossaries register in `registrations/<group>/<group>_glossary.py` through `register_abbr_glossary`, named `-abbr` (decode-only), `-shorthand` (the assistant may replace words) or `-decorative` (the assistant accompanies text). List skills with `kaye-library x ls`, glossaries with `kaye-library g ls`, a blueprint's wiring with `kaye-library bp show`; the full graph is in the [blueprint documentation](docs/blueprint-doc.md).
 

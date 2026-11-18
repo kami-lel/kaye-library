@@ -77,22 +77,20 @@ def register_coder_blueprints():
     ]
     plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
 
-    plan_for_suite = register_prompt(
-        "plan-for-suite",
-        replace_meta(
+    plan_for_suite_bp = checkmark_nodes(
+        checkmark_nodes(
             create_blueprint_from_node(
                 plan_for_suite_node,
                 is_recursive=True,
                 dependencies=["agent-movement-and-suite"],
             ),
-            display_name="Plan for Suite",
+            plan_for_suite_execution_node,
         ),
+        plan_for_suite_rework_node,
     )
-    plan_for_suite.blueprint = checkmark_nodes(
-        plan_for_suite.blueprint, plan_for_suite_execution_node
-    )
-    plan_for_suite.blueprint = checkmark_nodes(
-        plan_for_suite.blueprint, plan_for_suite_rework_node
+    register_prompt(
+        "plan-for-suite",
+        replace_meta(plan_for_suite_bp, display_name="Plan for Suite"),
     )
 
     # Execute Plan for Suite
@@ -153,27 +151,27 @@ def register_coder_blueprints():
     cb_node = coder_node["Comment Banner"]
 
     # Code Comment Banner in Code Comment
-    cb_in_code_comment = register_exportable(
+    register_exportable(
         "coder-comment-banner-in-code-comment",
         replace_meta(
-            create_blueprint_from_node(cb_node["CB in Code Comment"]),
+            checkmark_nodes(
+                create_blueprint_from_node(cb_node["CB in Code Comment"]),
+                cb_node,
+            ),
             display_name="Code Comment Banner in Code Comment",
         ),
     )
-    cb_in_code_comment.blueprint = checkmark_nodes(
-        cb_in_code_comment.blueprint, cb_node
-    )
 
     # Code Comment Banner in Print Out
-    cb_in_print_out = register_exportable(
+    register_exportable(
         "coder-comment-banner-in-print-out",
         replace_meta(
-            create_blueprint_from_node(cb_node["CB in Print Out"]),
+            checkmark_nodes(
+                create_blueprint_from_node(cb_node["CB in Print Out"]),
+                cb_node,
+            ),
             display_name="Code Comment Banner in Print Out",
         ),
-    )
-    cb_in_print_out.blueprint = checkmark_nodes(
-        cb_in_print_out.blueprint, cb_node
     )
 
     # Code Command Usage Message

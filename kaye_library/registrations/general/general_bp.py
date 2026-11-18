@@ -24,7 +24,7 @@ def register_general_blueprints():
     # Rapid
     # depends on Style Guide Markdown Format, reusing its own
     # standalone registered blueprint instead of re-inlining it
-    rapid = register_blueprint(
+    register_blueprint(
         "rapid",
         replace_meta(
             checkmark_nodes(
@@ -32,12 +32,9 @@ def register_general_blueprints():
                 ("Style Guide",),
             ),
             display_name="Rapid",
+            description=(
+                "quick, mechanical text or data tasks with no persona or role"
+            ),
         ),
         is_exportable=False,
-    )
-    rapid.blueprint = replace_meta(
-        rapid.blueprint,
-        description=(
-            "quick, mechanical text or data tasks with no persona or role"
-        ),
     )
