@@ -229,7 +229,7 @@ Two workflows, each with a ready half before the merge and a scrub half after it
 | `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | merge into `dev` with a clear message |
 | `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | merge to `main` and tag the release |
 
-The ready half logs changes in the CHANGELOG and syncs every doc. For releases, it also dates the version and bumps it in every metadata file. The scrub half pushes the result, then clears what the merge left behind: the merged branch and its linked worktree after a landing, merged branches and a lagging `dev` after a release, each only once you approve. Prefer to merge by hand? Run the ready half, merge, then the scrub half. Want a pull request instead? See `/submit-pr` under [Git](#-git).
+The ready half logs changes in the CHANGELOG and syncs every doc. For releases, it also dates the version and bumps it in every metadata file. The scrub half pushes the result, then clears what the merge left behind: the merged branch and its linked worktree after a landing, merged branches and a lagging `dev` after a release, which then moves on to the next alpha version, each only once you approve. Prefer to merge by hand? Run the ready half, merge, then the scrub half. Want a pull request instead? See `/submit-pr` under [Git](#-git).
 
 
 

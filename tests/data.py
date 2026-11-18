@@ -502,17 +502,18 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                  '#### Using Triage Tags',
                  '#### Findings'],
  'scrub-landed-feature': ['## Scrub After Feature Landing',
-                          'Once the current [feature '
-                          'branch](#feature-branch) is merged into `dev`',
+                          'Once the [feature branch](#feature-branch) has '
+                          'landed on `dev`',
                           '#### Movement 1: Report and Ask Approval',
                           '#### Movement 2: Push and Delete',
                           '- ⓒ `git branch -d FEATURE`, never `-D`'],
  'scrub-released-version': ['## Scrub After Version Release',
-                            'Once a release is merged into `main` and '
+                            'Once the release is merged into `main` and '
                             'tagged',
                             '### Semantic Version Title',
                             '#### Movement 1: Report and Ask Approval',
-                            '#### Movement 2: Push, Prune, and Sync Dev'],
+                            '#### Movement 2: Push, Prune, and Sync Dev',
+                            'eg `1.2.5` opens `1.2.6-alpha`'],
  'style-briefness-style': ['## Style Guide Briefness Style',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',

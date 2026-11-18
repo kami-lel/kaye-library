@@ -191,13 +191,12 @@ Load `sync-unit-test`, `maintain-changelog`, `maintain-repo-agents`, and `commit
 
 ## Scrub After Feature Landing
 
-Once the current [feature branch](#feature-branch) is merged into `dev`, scrub what the landing leaves behind: publish `dev`, then remove the merged branch and its linked worktree. Each step runs only on the user's approval, since a push publishes and a deletion cannot be undone.
+Once the [feature branch](#feature-branch) has landed on `dev`, scrub what it left behind: publish `dev`, then remove the merged branch and its linked worktree. Each step waits for the user's approval, since a push publishes and a deletion cannot be undone.
 
 Learn the landing first:
 
-- the feature branch is the one just merged: named in the current conversation, else the second parent of the merge commit at `dev`'s tip
-- the headline is the first line of the [feature branch summary](#feature-branch-summary) in that merge commit's message
-- if `dev`'s tip is no merge of a feature branch, say so in one line and stop: nothing has landed to scrub after
+- branch: named in the conversation, else the second parent of the merge commit at `dev`'s tip
+- headline: the first line of the [feature branch summary](#feature-branch-summary) in that merge commit's message
 
 
 
@@ -442,25 +441,27 @@ Load `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and
 
 ## Scrub After Version Release
 
-Once a release is merged into `main` and tagged, scrub what it leaves behind: publish `main` and the tag, prune merged branches, and bring `dev` level with `main`. Each step runs only on the user's approval, since a push publishes and a pruned branch cannot be recovered by name.
+Once the release is merged into `main` and tagged, scrub what it left behind: publish `main` and the tag, prune merged branches, bring `dev` level with `main`, and open the next version on `dev`. Each step waits for the user's approval, since a push publishes and a pruned branch cannot be recovered by name.
 
 Learn the release first:
 
-- the version is the one settled in the current conversation, else the `v` tag on `main`'s tip, read with `git describe --tags --exact-match main`
-- the title is that version's [Semantic Version Title](#semantic-version-title), eg `Minor Release 1.1.0`
-- if `main`'s tip carries no `v` tag, say so in one line and stop: nothing has been released to scrub after
+- version: settled in the conversation, else the `v` tag on `main`'s tip, read with `git describe --tags --exact-match main`
+- title: that version's [Semantic Version Title](#semantic-version-title), eg `Minor Release 1.1.0`
 
 
 
 #### Movement 1: Report and Ask Approval
 
-Reply as below, asking 3 approvals: push `main` and the tag, prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)), and fast-forward `dev` to `main`, local and remote.
+Reply as below, asking 4 approvals: push `main` and the tag, prune merged branches, naming each branch to prune (the candidates of [Prune Merged Branches](#prune-merged-branches)), fast-forward `dev` to `main`, local and remote, and bump `dev` to the next alpha, naming that version.
+
+The next alpha raises the released patch by 1 and appends `-alpha`, eg `1.2.5` opens `1.2.6-alpha`, so `dev` never claims a released version.
 
 <post-release-output-example>
 🚩🐙 Minor Release 1.1.0
 ✍️ ⓑ push `main` and `v1.1.0` to origin?
 ✍️ ⓒ prune merged branches `add-search-filter`, `fix-login-redirect`?
 ✍️ ⓓ fast-forward `dev` to `main`, local and origin?
+✍️ ⓔ bump `dev` to `1.1.1-alpha`, local and origin?
 ⓐ all of above
 </post-release-output-example>
 
@@ -468,11 +469,12 @@ Reply as below, asking 3 approvals: push `main` and the tag, prune merged branch
 
 #### Movement 2: Push, Prune, and Sync Dev
 
-Run only the approved actions, in order; ⓐ approves all three:
+Run only the approved actions, in order; ⓐ approves all four:
 
 - ⓑ `git push origin main vVERSION`
 - ⓒ invoke `prune-merged-branches`
 - ⓓ fast-forward `dev` to `main`, local and origin; if it cannot fast-forward, report in one line and stop
+- ⓔ only after ⓓ succeeds (else skip, saying why): on `dev`, set the next alpha in every version metadata file, commit per [Commit Sense](#commit-sense), then `git push origin dev`
 
 Reply once, after all are done:
 
@@ -480,27 +482,28 @@ Reply once, after all are done:
 🚩🐙 pushed `main` and `v1.1.0` to origin
 🚩🐙 pruned `add-search-filter`, `fix-login-redirect`
 🚩🐙 fast-forwarded `dev` to `main`, local and origin
+🚩🐙 bumped `dev` to `1.1.1-alpha`, local and origin
 </post-push-prune-output-example>
 
 
 
 ### {description}
 
-Scrubs up after a version release: reports the release, then, each on approval, pushes `main` and its `v` tag, prunes merged branches, and fast-forwards `dev` to `main`.
+Scrubs up after a version release: reports the release, then, each on approval, pushes `main` and its `v` tag, prunes merged branches, fast-forwards `dev` to `main`, and bumps `dev` to the next patch alpha.
 
 ### {when_to_use}
 
-Reach for this once a release is merged into `main` and tagged: "push the release," "clean up after the release," "sync dev with main." Not for cutting the release itself (use the release-version skill) or pruning branches alone (use the prune-merged-branches skill).
+Reach for this once a release is merged into `main` and tagged: "push the release," "clean up after the release," "sync dev with main," "open the next alpha on dev." Not for cutting the release itself (use the release-version skill) or pruning branches alone (use the prune-merged-branches skill).
 
 
 
 ### {[Claude:Skill] Usage}
 
-Invoke `prune-merged-branches` skill via `Skill` tool.
+Invoke `prune-merged-branches` and `commit-sense` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `prune-merged-branches` skill with `skill_view`.
+Load `prune-merged-branches` and `commit-sense` skills with `skill_view`.
 
 
 

@@ -5,7 +5,6 @@ Todo very basic kaye persona
 TODO add basic finance report
 TODO add dev lop writer
 FIXME plan for suite support parallel, w/ WT
-TODO clean up w/ version bump
 FIXME support hotfix & release branch
 todo support layered CONTEXT/AGENTS
 -->
@@ -14,7 +13,7 @@ todo support layered CONTEXT/AGENTS
 
 ### Added
 
-- `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev`
+- `scrub-landed-feature`, `scrub-released-version`: post-merge clean-up as own skills; report, then on approval push, delete/prune merged branches, uproot worktree or fast-forward `dev` & bump it to next patch alpha, eg `1.2.5` -> `1.2.6-alpha`
 
 ### Changed
 

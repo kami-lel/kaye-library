@@ -195,4 +195,5 @@ flowchart LR
     scrub_landed_feature --> uproot_linked_wt["uproot-linked-wt"]
     release_version["release-version"] --> scrub_released_version["scrub-released-version"]
     scrub_released_version --> prune_merged_branches["prune-merged-branches"]
+    scrub_released_version --> commit_sense
 ```

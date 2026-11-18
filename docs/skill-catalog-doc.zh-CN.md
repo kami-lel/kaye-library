@@ -229,7 +229,7 @@ Python 还有两个搭档：`/coder-python-docstring-style` 默认给每个函�
 | `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | 合并到 `dev`，附上清晰的合并信息 |
 | `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | 合并到 `main`，打上版本标签 |
 
-准备阶段会把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号。清理阶段先推送结果，再收拾合并留下的东西：合入功能后是已合并的分支和它的关联工作树，发版后是已合并的分支和落后的 `dev`，每一步都等你批准才做。想自己手动合并？先跑准备那一半，合并，再跑清理那一半。想走 PR？见 [Git](#-git) 分组里的 `/submit-pr`。
+准备阶段会把改动记进 CHANGELOG，并同步所有相关文档；发版时还会给版本标上日期，并在所有元数据文件里升好版本号。清理阶段先推送结果，再收拾合并留下的东西：合入功能后是已合并的分支和它的关联工作树，发版后是已合并的分支和落后的 `dev`，随后把 `dev` 升到下一个 alpha 版本，每一步都等你批准才做。想自己手动合并？先跑准备那一半，合并，再跑清理那一半。想走 PR？见 [Git](#-git) 分组里的 `/submit-pr`。
 
 
 
