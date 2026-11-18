@@ -14,6 +14,8 @@ from kaye_engine.prompt.blueprint import (
 
 __all__ = ("register_personality_blueprints",)
 
+_SIGNATURE_PATH = ("Personality", "Personality Signature")
+
 
 def register_personality_blueprints():
     """
@@ -38,17 +40,18 @@ def register_personality_blueprints():
     )
 
     # the Personality root alone: the rule separating Personality Content
-    # from Task Content, which every persona speaks under; the signature
-    # whole, each persona's name behind its {for <persona>} sidecar
-    kaye = checkmark_nodes(
-        create_blueprint_from_node(
-            kaye_node, dependencies=["persona-kaye-speech-habit"]
-        ),
+    # from Task Content, which every persona speaks under; then the
+    # signature heading with Kaye's own section only, so a package's other
+    # personas nested beside it stay out of this blueprint
+    kaye = create_blueprint_from_node(
+        kaye_node, dependencies=["persona-kaye-speech-habit"]
+    )
+    for path in (
         ("Personality",),
-    )
-    kaye = checkmark_nodes(
-        kaye, ("Personality", "Personality Signature"), is_recursive=True
-    )
+        _SIGNATURE_PATH,
+        (*_SIGNATURE_PATH, "{for Kaye}"),
+    ):
+        kaye = checkmark_nodes(kaye, path)
     register_blueprint(
         "persona-kaye",
         replace_meta(

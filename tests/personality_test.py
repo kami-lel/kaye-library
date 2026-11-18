@@ -3,7 +3,7 @@ personality_test.py
 
 Unit Tests (using pytest) for: the library's internal ``persona-kaye``
 blueprint, which carries the Personality formatting rule and the
-Personality Signature section, Kaye's name behind its ``{for Kaye}`` sidecar
+Personality Signature heading with Kaye's ``{for Kaye}`` section alone
 """
 
 import pytest
@@ -57,8 +57,16 @@ class TestContent:
         assert "Co-author Trailer" not in kaye_content
         assert "kaye-lel@users.noreply.github.com" not in kaye_content
 
-    def test_kaye_name_hides_without_sidecar(_, content):
-        assert "Kaye LeL" not in content
+    def test_kaye_name_shows_in_kaye_s_own_persona(_, content):
+        # taken by name, so no sidecar is needed to render it
+        assert "Kaye LeL" in content
 
-    def test_kaye_name_shows_with_sidecar(_, kaye_content):
-        assert "Kaye LeL" in kaye_content
+    def test_takes_kaye_s_signature_only(_):
+        bp = blueprint_registry[_NAME].blueprint
+        paths = {tuple(p) for p in bp.nodes}
+
+        assert ("Personality", "Personality Signature", "{for Kaye}") in paths
+        assert ("Personality", "Personality Signature") in paths
+        assert not bp.subtrees or all(
+            "Personality Signature" not in p for p in bp.subtrees
+        )
