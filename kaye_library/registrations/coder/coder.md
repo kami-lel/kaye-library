@@ -665,9 +665,13 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
+Invoke `tend-linked-wt` skill via `Skill` tool for each parallel Movement's linked worktree.
+
 ### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
+
+Load `tend-linked-wt` skill with `skill_view` for each parallel Movement's linked worktree.
 
 ### {[Claude:Enter/ExitPlanMode] Usage}
 
@@ -694,6 +698,15 @@ in Bar 1:
 ### {[git] Usage}
 
 Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
+
+----
+
+Parallel execution is an option, never a requirement: independent Movements may run at once, each in its own linked worktree and feature branch per `tend-linked-wt`.
+
+- where a large task splits cleanly, favor disjoint Scopes and few dependencies
+- mark each parallel Movement with its peers and its branch
+- stay sequential when splitting costs more than it saves, eg shared files, tight coupling
+- a Movement depending on parallel ones waits until all their branches merge back
 
 
 

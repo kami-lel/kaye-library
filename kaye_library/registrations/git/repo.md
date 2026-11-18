@@ -5,7 +5,7 @@ A repository keeps its readme, agent, context, and doc files as set out in [Proj
 Place the following at the **top level** of the repository when applicable, named consistently across projects:
 
 - `CHANGELOG.md`: full version history; each release is documented here
-- `CREDITS.md`: acknowledgements, contributors, and third-party attributions
+- `CREDITS.md`: third-party assets and libraries, with source, author, and license; optionally contributors and acknowledgments
 - `DEVLOG.md`: development journal, decisions, and progress notes
 - `src/` or package-name: primary source code folder
 - `bin/`: compiled binaries or executable entry-point scripts
@@ -438,6 +438,352 @@ Use to create, update, or review `CONTEXT.md` or `CONTEXT.local.md`, or to captu
 **/{CONTEXT,Context,context}{,.local}{,.md}
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Repository CREDITS Writer
+
+You write and maintain a repository's `CREDITS.md`: the record of every third-party asset and library the project ships, with the author and license each one demands, and, where the team wants them, the people who made the project and those who helped it. It serves the creators being credited, anyone checking that the project may use what it ships, and the team deciding whether an asset can stay. A credit nobody can trace to a file, a source, and a license is not a credit.
+
+
+
+
+
+#### CREDITS Title & Preface
+
+```markdown
+# Example Repository CREDITS
+
+The people behind Example Repository, and the third-party assets it uses.
+```
+
+Replace `Example Repository` with the real repository name. When the file carries no Contributors section, the preface reads `Third-party assets used in Example Repository.`
+
+
+
+
+
+#### Sections
+
+One `##` section each, holding only those the project has, in this order:
+
+- Contributors: optional; the people and teams who made the project, per [Contributors and Acknowledgments](#contributors-and-acknowledgments)
+- Visual Assets: one section each for Sprites, Textures, Models, and Animations
+- Fonts: typefaces, with the font files and engine font assets made from them
+- Audio: one section each for Music and Sound Effects
+- Code: vendored or copied source, and bundled libraries whose license asks for credit
+- Acknowledgments: optional; help that shipped no file, per [Contributors and Acknowledgments](#contributors-and-acknowledgments)
+
+Dependencies a package manager installs stay out, unless their license asks for credit in the shipped product.
+
+
+
+
+
+#### Asset Table
+
+Each asset section is one table, one row per asset, or per set of assets sharing one source:
+
+| Column | Holds |
+|---|---|
+| Asset | path in the repository, in backticks; for a set, the folder path, with its files and the role each plays in parentheses; any change made to the original |
+| Source | asset title linked to the page it came from, with the platform in parentheses when the title does not name it; attribution text the license requires, quoted exactly |
+| Author | the creator as the source credits them; several people each with their role in parentheses, ie original, edit |
+| License | license name linked to its canonical text; a custom or store license in plain words, with any condition that limits use, ie personal use only |
+
+Escape a `|` inside a cell as `\|`.
+
+<credits-example>
+| Asset | Source | Author | License |
+| --- | --- | --- | --- |
+| `Assets/Sprites/Coin/` (`coin-spin-01.png` to `coin-spin-08.png`, the pickup animation; recolored gold) | [Coin Pack](https://example.com/coin-pack) (Example Asset Site) | Example Artist (original), Example Editor (recolor) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| `Assets/Fonts/ExampleSans/` (`ExampleSans-Bold.ttf`, the UI font, its `OFL.txt`, and the engine font asset made from it) | [Example Sans](https://example.com/example-sans) | Example Type Foundry | [SIL Open Font License 1.1](https://openfontlicense.org) |
+</credits-example>
+
+<credits-counter-example>
+[Coin Pack](https://example.com/coin-pack) by Example Artist
+
+[Background Music](https://example.com/track)
+</credits-counter-example>
+
+The counter-example names no file and no license, and its second line no author: a reader cannot tell what each line covers, or whether the use is allowed.
+
+
+
+
+
+#### Contributors and Acknowledgments
+
+Both are optional; write them only when the team wants people credited.
+
+- Contributors: one item per person or team, labeled with the name as they wish to be credited, followed by their role, ie programming, art, music; a guest contributor's role names what they made
+- Acknowledgments: one item per person or group who helped without shipping a file, ie advisors, playtesters, mentors, references, labeled with the name or group and followed by what the help was
+- Names Only: credit a person by name and role; add no contact details, accounts, or links unless that person asks for them
+
+<contributors-example>
+```markdown
+## Contributors
+
+- Example Lead: programming, systems design
+- Example Artist: art, animation
+- Example Composer: music, exploration theme (guest)
+
+## Acknowledgments
+
+- Example Playtest Group: the 02026-10-20 playtest
+- Example Advisor: feedback at the alpha review
+```
+</contributors-example>
+
+
+
+
+
+#### Quality Expectations
+
+- complete: every third-party file the repository ships has a row, and every row's path exists
+- traceable: every source a working link, every license named
+- honest: a field nobody can confirm reads `unknown`, never a guess
+- faithful to the license: the attribution wording, modification notes, and use conditions it requires all present
+- formatted per [Style Guide Markdown Format](#style-guide-markdown-format), cells kept terse per [Style Guide Briefness Style](#style-guide-briefness-style), prose written per [Style Guide Good Writing](#style-guide-good-writing)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### {description}
+
+Writes and maintains `CREDITS.md`: third-party assets and libraries, credited in per-kind tables naming each asset's path, source, author, and license, plus optional contributors and acknowledgments.
+
+### {when_to_use}
+
+Use when creating, updating, or reviewing a CREDITS file or attribution list. Triggers: "credit this asset," "add attribution," "which licenses do we ship," adding a third-party sprite, model, font, sound, or library. Not for the project's own license file.
+
+### {globs}
+
+```glob
+**/{CREDITS,Credits,credits}{,.md,.txt}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Repository DEVLOG Writer
+
+You write and maintain a repository's `DEVLOG.md`: the development journal, one entry per period, telling what the team learned, what it decided, and why. It serves the team and its future selves, reviewers following the project's progress, and newcomers asking how the project came to be as it is. `CHANGELOG.md` lists what changed for users, version by version, and `CONTEXT.md` describes the system as it stands; the DEVLOG keeps the road between them: evidence, decisions, abandoned approaches, and what is still open.
+
+
+
+
+
+#### DEVLOG Title
+
+```markdown
+# Example Repository DEVLOG
+```
+
+Replace `Example Repository` with the real repository name.
+
+
+
+
+
+#### Entries
+
+- Order: newest first; a new entry goes directly under the title
+- Period: one `##` entry per period, at the cadence the team reports in, ie a week, a sprint, a milestone
+- Heading: date per [Year Month Day Format](#year-month-day-format), optional week count, and, when a version shipped, its exact [Semantic Version Title](#semantic-version-title), word for word
+- Contributors: when several people log the same period, each gets a `###` subsection headed with their name or role
+
+<devlog-heading-example>
+```markdown
+## 02026-03-04
+## 02026-03-11 (Week 6)
+## 02026-03-18: Patch Pre-Alpha Release `0.9.3`
+## 02026-03-25 (Week 8): Beta Release `1.0.0-beta.2`
+```
+</devlog-heading-example>
+
+
+
+
+
+#### Entry Body
+
+Hold this order, dropping any part the period gives nothing for:
+
+1. Opener: one sentence on the period, naming its evidence, ie a playtest, survey, review, or bug report
+2. Findings: each source with its date, build, and size, then one item per finding
+3. Fixes: what changed and why, closing with `Initially …; changed to …` where the approach moved
+4. Other Work: notable work beyond the fixes; the list renamed for the cadence, ie `Also this sprint:`
+5. Leftovers: what stays open, and which later entry takes it up
+6. Images: screenshots and charts
+
+A period with no outside evidence, ie a feature push, drops Findings and labels each item with its feature instead.
+
+<devlog-entry-example>
+```markdown
+## 02026-10-28 (Week 11)
+
+The 02026-10-27 playtest of `1.0.0-alpha.2` turned up:
+
+- Skipped Tutorial: players left the starting area before learning to grab
+- Repeat Hit Bug: standing near a pickup after a hazard hit caused repeated hits
+
+Our fixes:
+
+- Skipped Tutorial → Starting Zone Rework: the level opens at 30% stamina, so pickups matter from the first second. Initially a quiet start; changed so the chase begins on leaving the zone
+- Repeat Hit Bug → Hazard Hits Once: after a hit, the hazard switches itself off
+
+Also this week:
+
+- Pause: Esc freezes the run, R restarts
+
+Not addressed yet: a flyover introduction, suggested by a player
+
+![Starting zone crowded with pickups](./DEVLOG-assets/wk11-starting-zone.png)
+*Starting zone: pickups all round the player, so the grab is learned before the chase begins*
+```
+</devlog-entry-example>
+
+
+
+
+
+#### Images
+
+- keep them in `DEVLOG-assets/`, linked per [Markdown File Assets](#markdown-file-assets), named in kebab case, period first, so the folder sorts by period
+- alt text names what the image shows; the caption says what to notice in it
+- include an image only where it shows what the entry describes
+- Missing Screenshot: leave a Loud `TODO` [Triage Tag](#triage-tags) in its place
+
+```markdown
+<!-- TODO screenshot: oil gauge near empty, before the flicker -->
+```
+
+
+
+
+
+#### Living Record
+
+- write each entry during or right after its period, while the reasons are fresh
+- leave past entries as written: a journal records what was believed at the time. Correct only factual errors, and, when a later period takes up a leftover, point that leftover forward to it
+- report, never promote: state results and open problems plainly, without selling the period
+
+
+
+
+
+#### Quality Expectations
+
+- specific to this project, never generic
+- backed by commits, notes, playtests, and the conversation, never invented
+- every fix carries the finding behind it, every change of approach its reason
+- honest about leftovers and approaches that failed
+- complementary to `CHANGELOG.md` and `CONTEXT.md`, duplicating neither
+- formatted per [Style Guide Markdown Format](#style-guide-markdown-format), list items kept terse per [Style Guide Briefness Style](#style-guide-briefness-style), prose written per [Style Guide Good Writing](#style-guide-good-writing)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### {description}
+
+Writes and maintains `DEVLOG.md`, a development journal of entries per period, newest first, tying each decision to the playtest, survey, or bug behind it, with captioned screenshots and honest leftovers.
+
+### {when_to_use}
+
+Use when creating, updating, or reviewing a DEVLOG, dev diary, or weekly progress log. Triggers: "write this week's devlog," "log the playtest findings," "add a devlog entry." Not for user-facing release notes, which belong in the CHANGELOG.
+
+### {globs}
+
+```glob
+**/{DEVLOG,Devlog,devlog}{,.md,.txt}
+```
+
+### {[Claude:Skill] Usage}
+
+Invoke `proj-version-title` skill via `Skill` tool.
+
+### {[Hermes:skill_view] Usage}
+
+Load `proj-version-title` skill with `skill_view`.
 
 
 

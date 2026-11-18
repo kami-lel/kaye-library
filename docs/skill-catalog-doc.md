@@ -2,7 +2,7 @@
 
 English | [简体中文](skill-catalog-doc.zh-CN.md)
 
-Meet all 141 skills in kaye-library. 📚 Grouped just like the [README](../README.md).
+Meet all 148 skills in kaye-library. 📚 Grouped just like the [README](../README.md).
 
 Use any skill two ways:
 
@@ -163,7 +163,7 @@ Three small skills for the text your code prints:
 
 Every project file, written right and kept current.
 
-A good project speaks to five readers. The README greets visitors. The CHANGELOG tells users what changed. `AGENTS.md` gives AI agents their rules. `CONTEXT.md` explains the architecture. `docs/` goes deep. kaye-library has a writer for each.
+A good project speaks to five readers. The README greets visitors. The CHANGELOG tells users what changed. `AGENTS.md` gives AI agents their rules. `CONTEXT.md` explains the architecture. `docs/` goes deep. Two optional files round it out: `CREDITS.md` credits every third-party asset, and `DEVLOG.md` keeps the team's journal. kaye-library has a writer for each.
 
 Most writers come with two workflows. Create builds the file from nothing. Maintain updates it in place after the code moves on.
 
@@ -174,6 +174,8 @@ Most writers come with two workflows. Create builds the file from nothing. Maint
 | `AGENTS.md` in a repository | AI coding agents | `/repo-agents-writer` | `/create-repo-agents` | `/maintain-repo-agents` |
 | `AGENTS.md` in any project | AI agents | `/proj-agents-writer` | `/create-project-agents` | `/maintain-project-agents` |
 | `CONTEXT.md` | new developers and AI | `/repo-context-writer` | ➖ | ➖ |
+| `CREDITS.md` | credited creators, license checkers | `/repo-credits-writer` | `/create-credits` | `/maintain-credits` |
+| `DEVLOG.md` | the team, reviewers | `/repo-devlog-writer` | `/create-devlog` | `/maintain-devlog` |
 | `docs/` in a repository | readers wanting depth | `/repo-doc-writer` | `/create-repo-docs` | `/maintain-repo-docs` |
 | `docs/` in any project | readers wanting depth | `/proj-doc-writer` | `/create-project-docs` | `/maintain-project-docs` |
 
@@ -184,6 +186,8 @@ A few highlights:
 - `/repo-readme-writer` turns a bare repository into a landing page people actually read, like this library's own README
 - `/repo-changelog-writer` follows Keep a Changelog, with an `[Unreleased]` section and version links; `/create-changelog` even rebuilds one from git history
 - `/repo-agents-writer` and `/repo-context-writer` keep rules and knowledge apart: `AGENTS.md` says what to do, `CONTEXT.md` says how things work, and personal notes stay in a private `.local.md` file
+- `/repo-credits-writer` gives every third-party asset a row: its path, source, author, and license, so nothing ships uncredited
+- `/repo-devlog-writer` ties each change to the playtest, survey, or bug that prompted it, with captioned screenshots and honest leftovers
 
 
 
@@ -222,14 +226,14 @@ Long session? `/maintenance-before-compact` ⭐ saves every lasting change to CH
 
 ### Landing Features and Shipping Releases
 
-Two workflows, each in two halves:
+Two workflows, each with a ready half before the merge and a scrub half after it:
 
-| Prepare | Prepare and Finish | What Finishing Adds |
-|---|---|---|
-| `/ready-land-feature` | `/land-feature` | merge into `dev` with a clear message |
-| `/ready-release-version` | `/release-version` ⭐ | merge to `main` and tag the release |
+| Prepare | Clean Up | Prepare, Merge, and Clean Up | What Merging Adds |
+|---|---|---|---|
+| `/ready-land-feature` | `/scrub-landed-feature` | `/land-feature` | merge into `dev` with a clear message |
+| `/ready-release-version` | `/scrub-released-version` | `/release-version` ⭐ | merge to `main` and tag the release |
 
-The ready half logs changes in the CHANGELOG and syncs every doc. For releases, it also dates the version and bumps it in every metadata file. Prefer to merge by hand? Run the ready half alone. Want a pull request instead? See `/submit-pr` under [Git](#-git).
+The ready half logs changes in the CHANGELOG and syncs every doc. For releases, it also dates the version and bumps it in every metadata file. The scrub half pushes the result, then clears what the merge left behind: the merged branch and its linked worktree after a landing, merged branches and a lagging `dev` after a release, which then moves on to the next alpha version, each only once you approve. Prefer to merge by hand? Run the ready half, merge, then the scrub half. Want a pull request instead? See `/submit-pr` under [Git](#-git).
 
 
 
@@ -304,6 +308,7 @@ One voice, whatever your agent writes.
 - `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
 - `/style-markdown-footnotes`: each footnote right beside the text that cites it
 - `/style-markdown-endnotes`: every definition gathered in one block at the end
+- `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
 
 Long documents need room to breathe. `/style-heading-separation` spaces headings by level and file length. `/style-heading-separation-medium` and `/style-heading-separation-long` lock in the spacing for medium and long files.
 

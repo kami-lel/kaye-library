@@ -230,6 +230,9 @@ def register_git_commit_sense_blueprints():
         "Commit Sense For Branch Merging",
         dependencies=[
             "git-sense-core",
+            "git-feature-branch",
+            "git-hotfix-branch",
+            "git-release-branch",
             "git-feature-summary",
             "proj-version-title",
         ],

@@ -42,11 +42,14 @@ def _register_changelog_writer():
 def register_repo_blueprints():
     """
     register Repository Structure and the Repository README/CHANGELOG/
-    CONTEXT Writers, leaving both AGENTS Writers to ``project_bp.py``,
-    and the Submit Pull Request prompt
+    CONTEXT/CREDITS/DEVLOG Writers, leaving both AGENTS Writers to
+    ``project_bp.py``, and the Submit Pull Request prompt
 
 
-    :raises KeyError: ``style-briefness-style``, ``proj-version-extended``,
+    :raises KeyError: ``style-briefness-style``, ``style-good-writing``,
+            ``proj-version-extended``,
+            ``element-dt-year-month-day-format``, ``proj-version-title``,
+            ``style-markdown-file-assets``, ``element-triage-tags``,
             ``ready-land-feature``, or ``git-feature-summary`` is not yet
             registered
     """
@@ -75,6 +78,29 @@ def register_repo_blueprints():
     )
 
     _register_changelog_writer()
+
+    register_node(
+        register_exportable,
+        "repo-credits-writer",
+        repo_node,
+        "Repository CREDITS Writer",
+        dependencies=["style-briefness-style", "style-good-writing"],
+    )
+
+    register_node(
+        register_exportable,
+        "repo-devlog-writer",
+        repo_node,
+        "Repository DEVLOG Writer",
+        dependencies=[
+            "style-briefness-style",
+            "style-good-writing",
+            "element-dt-year-month-day-format",
+            "proj-version-title",
+            "style-markdown-file-assets",
+            "element-triage-tags",
+        ],
+    )
 
     # Prune Merged Branches
     register_node(
