@@ -437,12 +437,15 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            'Date',
                            '- require both a version number and a release '
                            'date; if either is missing',
-                           '#### Movement 2: Maintain the README',
-                           '#### Movement 3: Condense AGENTS and CONTEXT',
-                           '#### Movement 4: Maintain the Docs Directory',
-                           '#### Movement 5: Condense the Changelog',
-                           '#### Movement 6: Close Out the Changelog',
-                           '#### Movement 7: Bump the Repository Version'],
+                           '#### Movement 2: Maintain the README and '
+                           'CREDITS',
+                           '- [Maintain CREDITS](#maintain-credits): '
+                           'third-party assets added, moved, or removed',
+                           '#### Movement 3: Maintain the Docs Directory',
+                           '#### Movement 4: Condense AGENTS and CONTEXT',
+                           '#### Movement 5: Condense and Close Out the '
+                           'Changelog',
+                           '#### Movement 6: Bump the Repository Version'],
  'repo-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',

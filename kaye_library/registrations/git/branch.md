@@ -349,13 +349,22 @@ Cut a new release: bring all docs current, finalize the changelog, and bump the 
 
 
 
-#### Movement 2: Maintain the README
+#### Movement 2: Maintain the README and CREDITS
 
-Run [Maintain README](#maintain-readme): overview, features, setup, usage, version-dependent details.
+Run each in turn, skipping any whose file the repository lacks:
+
+- [Maintain README](#maintain-readme): overview, features, setup, usage, version-dependent details
+- [Maintain CREDITS](#maintain-credits): third-party assets added, moved, or removed since the last release
 
 
 
-#### Movement 3: Condense AGENTS and CONTEXT
+#### Movement 3: Maintain the Docs Directory
+
+Run [Maintain Repository Docs](#maintain-repository-docs): affected files under `docs/`.
+
+
+
+#### Movement 4: Condense AGENTS and CONTEXT
 
 Run [Condense AGENTS and CONTEXT](#condense-agents-and-context): changed commands, conventions, constraints, architecture.
 
@@ -363,27 +372,16 @@ While in `CONTEXT.md`, prune as well as update: keep only what describes the rel
 
 
 
-#### Movement 4: Maintain the Docs Directory
+#### Movement 5: Condense and Close Out the Changelog
 
-Run [Maintain Repository Docs](#maintain-repository-docs): affected files under `docs/`.
-
-
-
-#### Movement 5: Condense the Changelog
-
-Run [Condense CHANGELOG](#condense-changelog) to reword `[Unreleased]` entries into changelog style and settle any Admonitions for Breaks and Hazards.
+1. run [Condense CHANGELOG](#condense-changelog) to reword `[Unreleased]` entries into changelog style and settle any Admonitions for Breaks and Hazards
+2. move every now-condensed `[Unreleased]` entry, admonitions included, into a new versioned section headed with the version and date from Movement 1, keeping only non-empty subsections
+3. leave a fresh `[Unreleased]` section above it, carrying every standard subsection heading with no entries beneath
+4. update the GitHub comparison links so every version, including the new tag, stays referenced
 
 
 
-#### Movement 6: Close Out the Changelog
-
-1. move every (now-condensed) `[Unreleased]` entry, admonitions included, into a new versioned section headed with the version and date from Movement 1, keeping only non-empty subsections
-2. leave a fresh `[Unreleased]` section above it, carrying every standard subsection heading with no entries beneath
-3. update the GitHub comparison links so every version, including the new tag, stays referenced
-
-
-
-#### Movement 7: Bump the Repository Version
+#### Movement 6: Bump the Repository Version
 
 Set the version to match Movement 1 exactly, in whichever metadata files apply — `setup.cfg`, `pyproject.toml`, `package.json`, `Cargo.toml`, and the like.
 
@@ -401,7 +399,7 @@ Set the version to match Movement 1 exactly, in whichever metadata files apply �
 
 ### {description}
 
-Cuts a project release: brings `README.md`, `CHANGELOG.md`, `AGENTS.md`, `CONTEXT.md`, and `docs/` current, moves `[Unreleased]` changelog entries into a dated versioned section, and bumps the version across metadata files like `package.json`, `pyproject.toml`, `Cargo.toml`, or `setup.cfg`.
+Cuts a project release: brings `README.md`, `CREDITS.md`, `CHANGELOG.md`, `AGENTS.md`, `CONTEXT.md`, and `docs/` current, moves `[Unreleased]` changelog entries into a dated versioned section, and bumps the version across metadata files like `package.json`, `pyproject.toml`, `Cargo.toml`, or `setup.cfg`.
 
 ### {when_to_use}
 
@@ -413,11 +411,11 @@ Reach for this on release requests — "ship v1.2.3," "cut a release," "tag a ve
 
 ### {[Claude:Skill] Usage}
 
-Invoke `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills via `Skill` tool.
+Invoke `maintain-readme`, `maintain-credits`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills via `Skill` tool.
 
 ### {[Hermes:skill_view] Usage}
 
-Load `maintain-readme`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills with `skill_view`.
+Load `maintain-readme`, `maintain-credits`, `condense-changelog`, `condense-agents-and-context`, and `maintain-repo-docs` skills with `skill_view`.
 
 ### {[Claude:AskUserQuestion] Usage}
 
@@ -544,19 +542,19 @@ Release the project: ready it, merge it into `main`, then tag the merge, so ever
 
 
 
-#### Movement 1~7: Ready the Release
+#### Movement 1~6: Ready the Release
 
-Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 9~12.
-
-
-
-#### Movement 8: Commit the Work
-
-Index the changes Movement 1~7 made, then run [Commit Sense](#commit-sense) to commit them.
+Run [Ready for Version Release](#ready-for-version-release) whole. Keep the version it settles for Movement 8~11.
 
 
 
-#### Movement 9: Merge into Main
+#### Movement 7: Commit the Work
+
+Index the changes Movement 1~6 made, then run [Commit Sense](#commit-sense) to commit them.
+
+
+
+#### Movement 8: Merge into Main
 
 Merge the current branch per [Commit Sense For Branch Merging](#commit-sense-for-branch-merging) (into main):
 
@@ -566,13 +564,13 @@ Merge the current branch per [Commit Sense For Branch Merging](#commit-sense-for
 
 
 
-#### Movement 10: Tag the Release
+#### Movement 9: Tag the Release
 
 Tag the merge commit with `v` plus the version: `git tag vVERSION`, eg `git tag v1.0.0`.
 
 
 
-#### Movement 11~12: Scrub After the Release
+#### Movement 10~11: Scrub After the Release
 
 Run [Scrub After Version Release](#scrub-after-version-release) whole, once the tag lands. If any earlier Movement halts, report where and why in one line, then stop.
 
