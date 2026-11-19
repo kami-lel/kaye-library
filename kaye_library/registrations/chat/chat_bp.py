@@ -73,7 +73,7 @@ def register_chat_blueprints():
       skill, always applied
 
 
-    :raises KeyError: ``style-markdown``, ``persona-kaye`` or
+    :raises KeyError: ``style-markdown``, ``persona`` or
             ``element-alphabetical-sequence-numbering-in-chat`` is not yet
             registered
     """
@@ -108,7 +108,7 @@ def register_chat_blueprints():
     register_internal(
         "chat-basic-kaye",
         replace_meta(
-            create_blueprint(dependencies=["chat-basic", "persona-kaye"]),
+            create_blueprint(dependencies=["chat-basic", "persona"]),
             display_name="Chat Basic Kaye",
             **_CHAT_META,
         ),
@@ -119,7 +119,7 @@ def register_chat_blueprints():
     register_exportable(
         "chat-kaye",
         replace_meta(
-            create_blueprint(dependencies=["chat", "persona-kaye"]),
+            create_blueprint(dependencies=["chat", "persona"]),
             display_name="Chat Kaye",
             **_CHAT_META,
         ),

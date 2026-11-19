@@ -6,8 +6,7 @@ register Personality related blueprints
 
 from kaye_engine.prompt.blueprint import (
     checkmark_nodes,
-    create_blueprint_from_node,
-    get_corpus_node,
+    create_blueprint,
     replace_meta,
 )
 
@@ -15,57 +14,39 @@ from .._common import register_internal
 
 __all__ = ("register_personality_blueprints",)
 
-_SIGNATURE_PATH = ("Personality", "Signature")
-
-_DIATHESIS_PATH = ("Personality", "Diathesis Public")
-
-_SPEECH_HABIT_PATH = ("Personality", "Speech Habit Public")
-
-_IN_CHAT_PATH = ("Personality", "{in chat}")
+# every persona kind node ``persona`` takes whole; each holds one
+# ``{for NAME}`` section per persona, so the entry's profile picks one
+_PERSONA_PATHS = (
+    ("Personality", "Signature"),
+    ("Personality", "Diathesis Public"),
+    ("Personality", "Speech Habit Public"),
+    ("Personality", "{in chat}"),
+)
 
 
 def register_personality_blueprints():
     """
-    register the internal, not exportable Personality blueprints:
+    register the internal, not exportable ``persona``: the Personality root
+    with its Signature, Diathesis Public, Speech Habit Public and
+    ``{in chat}`` nodes, each whole
 
-    - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
-      form of address
-    - ``persona-kaye``: Kaye's Diathesis Public with the Signature section
-      and the ``{in chat}`` formatting rule, over its speech habits
+    persona-free: it names no persona of its own, so an entry renders the
+    one its render profile turns on (``for Kaye``), and a package nesting
+    another persona's ``{for NAME}`` sections beneath these nodes never
+    leaks it into a Kaye entry; a package replaces it in place, by name,
+    with ``override_blueprint``
     """
+    bp = checkmark_nodes(create_blueprint(), ("Personality",))
+    for path in _PERSONA_PATHS:
+        bp = checkmark_nodes(bp, path, is_recursive=True)
     register_internal(
-        "persona-kaye-speech-habit",
+        "persona",
         replace_meta(
-            create_blueprint_from_node(
-                get_corpus_node(*_SPEECH_HABIT_PATH), is_recursive=True
+            bp,
+            display_name="Persona",
+            description=(
+                "the persona layer, its persona picked by the entry's "
+                "render profile"
             ),
-            display_name="Kaye Speech Habit",
-            description="Kaye's speech habits, free of any form of address",
-        ),
-    )
-
-    # the whole Diathesis Public node, so a package's sections nested
-    # beneath it ride along, gated by their sidecars; the Personality root
-    # and the signature heading with Kaye's own section only, so a
-    # package's other personas nested beside it stay out of this blueprint
-    kaye = create_blueprint_from_node(
-        get_corpus_node(*_DIATHESIS_PATH),
-        is_recursive=True,
-        dependencies=["persona-kaye-speech-habit"],
-    )
-    for path in (
-        ("Personality",),
-        _SIGNATURE_PATH,
-        (*_SIGNATURE_PATH, "{for Kaye}"),
-    ):
-        kaye = checkmark_nodes(kaye, path)
-    # the chat-only format, gated by the entry's ``in chat``
-    kaye = checkmark_nodes(kaye, _IN_CHAT_PATH, is_recursive=True)
-    register_internal(
-        "persona-kaye",
-        replace_meta(
-            kaye,
-            display_name="Kaye",
-            description="composed, exacting assistant persona",
         ),
     )

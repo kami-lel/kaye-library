@@ -1,10 +1,10 @@
 """
 personality_test.py
 
-Unit Tests (using pytest) for: the library's internal ``persona-kaye``
-blueprint, which carries the Signature heading with Kaye's ``{for Kaye}``
-section alone and the ``{in chat}`` formatting rule, which only an entry
-turning ``in chat`` on renders
+Unit Tests (using pytest) for: the library's internal, persona-free
+``persona`` blueprint, which takes every persona kind node whole and
+renders only the persona the entry's profile turns on, its ``{in chat}``
+formatting rule only where the entry turns ``in chat`` on
 """
 
 import pytest
@@ -16,7 +16,7 @@ from kaye_library.registrations._common import (
     SIDECAR_IN_CHAT,
 )
 
-_NAME = "persona-kaye"
+_NAME = "persona"
 
 
 @pytest.fixture(scope="module")
@@ -42,9 +42,11 @@ class TestStructure:
             "personality-formatting",
             "personality-persona-identity",
             "personality-signature",
+            "persona-kaye",
+            "persona-kaye-speech-habit",
         ],
     )
-    def test_folds_into_kaye(_, name):
+    def test_folds_into_persona(_, name):
         assert name not in blueprint_registry
 
 
@@ -61,19 +63,28 @@ class TestContent:
         assert "Co-author Trailer" not in kaye_content
         assert "kaye-lel@users.noreply.github.com" not in kaye_content
 
-    def test_kaye_name_shows_in_kaye_s_own_persona(_, content):
-        # taken by name, so no sidecar is needed to render it
-        assert "Kaye LeL" in content
+    def test_kaye_name_shows_for_kaye(_, kaye_content):
+        # persona-free: Kaye's name needs the entry's ``for Kaye``
+        assert "Kaye LeL" in kaye_content
 
-    def test_takes_kaye_s_signature_only(_):
+    def test_takes_every_kind_node_whole(_):
         bp = blueprint_registry[_NAME].blueprint
-        paths = {tuple(p) for p in bp.nodes}
 
-        assert ("Personality", "Signature", "{for Kaye}") in paths
-        assert ("Personality", "Signature") in paths
-        assert not bp.subtrees or all(
-            "Signature" not in p for p in bp.subtrees
-        )
+        assert {tuple(p) for p in bp.nodes} == {("Personality",)}
+        assert {tuple(p) for p in bp.subtrees} == {
+            ("Personality", "Signature"),
+            ("Personality", "Diathesis Public"),
+            ("Personality", "Speech Habit Public"),
+            ("Personality", "{in chat}"),
+        }
+        assert not bp.dependencies
+
+    def test_names_no_persona_of_its_own(_):
+        profile = RenderProfile(conditional_sidecars=("for Ria",))
+        content = blueprint_registry[_NAME].content(profile=profile)
+
+        assert "Kaye LeL" not in content
+        assert "You are **Kaye**" not in content
 
 
 class TestInChat:

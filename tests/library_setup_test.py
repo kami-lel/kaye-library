@@ -86,7 +86,7 @@ class TestChatBase:
         )
         assert blueprint_registry["chat-kaye"].blueprint.dependencies == (
             "chat",
-            "persona-kaye",
+            "persona",
         )
 
     def test_chat_basic_is_persona_free(_):
