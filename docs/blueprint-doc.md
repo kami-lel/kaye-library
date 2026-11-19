@@ -186,12 +186,12 @@ flowchart LR
     chat_basic --> element_alphabetical_sequence_numbering_in_chat["element-alphabetical-sequence-numbering-in-chat"]
     chat --> chat_basic
     chat_basic_kaye["chat-basic-kaye"] --> chat_basic
-    chat_basic_kaye --> persona_kaye["persona-kaye"]
+    chat_basic_kaye --> persona
     chat_kaye["chat-kaye"] --> chat
-    chat_kaye --> persona_kaye
-    persona_kaye --> persona_kaye_speech_habit["persona-kaye-speech-habit"]
+    chat_kaye --> persona
     element_alphabetical_sequence_numbering_in_chat --> element_alphabetical_sequence_numbering["element-alphabetical-sequence-numbering"]
-    coder --> chat_kaye
+    coder --> chat
+    coder --> persona
     rapid --> style_markdown
 ```
 
@@ -199,7 +199,7 @@ flowchart LR
 
 Every blueprint registers in `kaye_library/registrations/<group>/<group>_bp.py` through the helpers of `registrations/_common.py`: `register_exportable`, `register_prompt`, `register_internal` and `register_abbr_glossary`, bound to the `kaye-library` consumer by the engine's `bind_registrars`, plus the engine's `register_node`, `register_leaf` and `glossary_blueprint`, which `_common.py` re-exports. They are `kaye-engine` public API, so a third consumer builds its own the same way; see the engine's [Registration Helpers](https://github.com/kami-lel/kaye-engine/blob/dev/docs/prompt-doc.md#registration-helpers). A blueprint is built whole before it registers, never edited afterwards.
 
-`chat` is chat alone, persona-free and internal; `chat-kaye` is `chat` plus `persona-kaye`, the exported skill. A consumer replaces `chat` in place with `override_blueprint`, so `chat-kaye`, its own persona chats and `coder` pick up its version by name, and re-homes `chat-kaye` into its plugin with `override_exportable`, passing no blueprint. `persona-kaye` takes the whole Kaye node less its speech habit, so a section a consumer nests beneath it renders when the consumer's sidecar profile names it.
+`chat` and `persona` are internal and persona-free; `chat-kaye`, `chat-basic-kaye` and `coder` stack on them and turn `for Kaye` and `in chat` on, so the entry's render profile picks the persona and the chat format. A consumer replaces `chat` or `persona` in place with `override_blueprint`, so every entry picks up its version by name, and re-homes `chat-kaye` into its plugin with `override_exportable`; `coder` never depends on `chat-kaye`, so what a consumer adds there stays out of `coder`.
 
 ## Blueprint Invocation Graph
 
