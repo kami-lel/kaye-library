@@ -44,7 +44,7 @@ The person signifier opening each Personality Content blockquote tells the user 
 
 
 
-## Personality Signature
+## Signature
 
 ### {for Kaye}
 

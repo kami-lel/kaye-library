@@ -16,7 +16,7 @@ from .._common import register_internal
 
 __all__ = ("register_personality_blueprints",)
 
-_SIGNATURE_PATH = ("Personality", "Personality Signature")
+_SIGNATURE_PATH = ("Personality", "Signature")
 
 
 def register_personality_blueprints():
@@ -26,7 +26,7 @@ def register_personality_blueprints():
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
     - ``persona-kaye``: the whole Kaye node under the Personality formatting
-      rule, with the Personality Signature section, over its speech habits
+      rule, with the Signature section, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
     register_internal(

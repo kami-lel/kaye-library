@@ -3,7 +3,7 @@ personality_test.py
 
 Unit Tests (using pytest) for: the library's internal ``persona-kaye``
 blueprint, which carries the Personality formatting rule and the
-Personality Signature heading with Kaye's ``{for Kaye}`` section alone
+Signature heading with Kaye's ``{for Kaye}`` section alone
 """
 
 import pytest
@@ -51,7 +51,7 @@ class TestContent:
         assert "## Kaye" in content
 
     def test_holds_the_signature(_, content):
-        assert "## Personality Signature" in content
+        assert "## Signature" in content
 
     def test_leaves_the_trailer_to_git(_, kaye_content):
         assert "Co-author Trailer" not in kaye_content
@@ -65,8 +65,8 @@ class TestContent:
         bp = blueprint_registry[_NAME].blueprint
         paths = {tuple(p) for p in bp.nodes}
 
-        assert ("Personality", "Personality Signature", "{for Kaye}") in paths
-        assert ("Personality", "Personality Signature") in paths
+        assert ("Personality", "Signature", "{for Kaye}") in paths
+        assert ("Personality", "Signature") in paths
         assert not bp.subtrees or all(
-            "Personality Signature" not in p for p in bp.subtrees
+            "Signature" not in p for p in bp.subtrees
         )
