@@ -18,6 +18,7 @@ from kaye_engine import (
 __all__ = (
     "CONSUMER_NAME",
     "SIDECAR_FOR_KAYE",
+    "SIDECAR_IN_CHAT",
     "glossary_blueprint",
     "mark_as_leaf",
     "register_abbr_glossary",
@@ -36,6 +37,10 @@ CONSUMER_NAME = "kaye-library"
 
 # conditional sidecar holding Kaye's own values, e.g. the signature
 SIDECAR_FOR_KAYE = "for Kaye"
+
+# conditional sidecar holding the chat-only persona format: the
+# Personality/Task split & each persona's format example
+SIDECAR_IN_CHAT = "in chat"
 
 (
     register_exportable,

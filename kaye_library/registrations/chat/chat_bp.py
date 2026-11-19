@@ -22,6 +22,7 @@ from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 
 from .._common import (
     SIDECAR_FOR_KAYE,
+    SIDECAR_IN_CHAT,
     register_exportable,
     register_internal,
 )
@@ -101,7 +102,9 @@ def register_chat_blueprints():
         llm_invokable=False,
     )
 
-    kaye_profile = RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,))
+    kaye_profile = RenderProfile(
+        conditional_sidecars=(SIDECAR_FOR_KAYE, SIDECAR_IN_CHAT)
+    )
     register_internal(
         "chat-basic-kaye",
         replace_meta(

@@ -18,6 +18,8 @@ __all__ = ("register_personality_blueprints",)
 
 _SIGNATURE_PATH = ("Personality", "Signature")
 
+_IN_CHAT_PATH = ("Personality", "{in chat}")
+
 
 def register_personality_blueprints():
     """
@@ -25,8 +27,8 @@ def register_personality_blueprints():
 
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
-    - ``persona-kaye``: the whole Kaye node under the Personality formatting
-      rule, with the Signature section, over its speech habits
+    - ``persona-kaye``: the whole Kaye node with the Signature section and
+      the ``{in chat}`` formatting rule, over its speech habits
     """
     kaye_node = get_corpus_node("Personality", "Kaye")
     register_internal(
@@ -59,6 +61,8 @@ def register_personality_blueprints():
         (*_SIGNATURE_PATH, "{for Kaye}"),
     ):
         kaye = checkmark_nodes(kaye, path)
+    # the chat-only format, gated by the entry's ``in chat``
+    kaye = checkmark_nodes(kaye, _IN_CHAT_PATH, is_recursive=True)
     register_internal(
         "persona-kaye",
         replace_meta(

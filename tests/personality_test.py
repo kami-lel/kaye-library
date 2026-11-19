@@ -2,15 +2,19 @@
 personality_test.py
 
 Unit Tests (using pytest) for: the library's internal ``persona-kaye``
-blueprint, which carries the Personality formatting rule and the
-Signature heading with Kaye's ``{for Kaye}`` section alone
+blueprint, which carries the Signature heading with Kaye's ``{for Kaye}``
+section alone and the ``{in chat}`` formatting rule, which only an entry
+turning ``in chat`` on renders
 """
 
 import pytest
 from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
 from kaye_engine.prompt.blueprint.render_profile import RenderProfile
-from kaye_library.registrations._common import SIDECAR_FOR_KAYE
+from kaye_library.registrations._common import (
+    SIDECAR_FOR_KAYE,
+    SIDECAR_IN_CHAT,
+)
 
 _NAME = "persona-kaye"
 
@@ -70,3 +74,27 @@ class TestContent:
         assert not bp.subtrees or all(
             "Signature" not in p for p in bp.subtrees
         )
+
+
+class TestInChat:
+
+    _RULE = "You speak as a persona, so each response mixes two content types"
+    _EXAMPLE = "> 🫖 I hope this reads clearly."
+
+    def test_chat_kaye_renders_the_rule_and_example(self):
+        content = exportable_registry["chat-kaye"].content()
+
+        assert "## {in chat}" in content
+        assert self._RULE in content
+        assert self._EXAMPLE in content
+
+    def test_persona_alone_leaves_them_out(self, kaye_content):
+        assert self._RULE not in kaye_content
+        assert self._EXAMPLE not in kaye_content
+
+    @pytest.mark.parametrize("name", ["chat-kaye", "chat-basic-kaye", "coder"])
+    def test_entry_profile_turns_in_chat_on(_, name):
+        sidecars = blueprint_registry[name].render_profile.conditional_sidecars
+
+        assert SIDECAR_FOR_KAYE in sidecars
+        assert SIDECAR_IN_CHAT in sidecars

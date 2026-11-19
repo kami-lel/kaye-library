@@ -17,6 +17,7 @@ from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 
 from .._common import (
     SIDECAR_FOR_KAYE,
+    SIDECAR_IN_CHAT,
     glossary_blueprint,
     register_exportable,
     register_node,
@@ -66,7 +67,9 @@ def register_coder_blueprints():
             description_node=("Coder", "{description}"),
             when_to_use_node=("Coder", "{when_to_use}"),
         ),
-        render_profile=RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,)),
+        render_profile=RenderProfile(
+            conditional_sidecars=(SIDECAR_FOR_KAYE, SIDECAR_IN_CHAT)
+        ),
         always_apply=True,
     )
 
