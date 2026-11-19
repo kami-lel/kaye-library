@@ -65,7 +65,7 @@ class TestSignedAsKaye:
     def test_leaves_the_persona_out(_, name):
         content = exportable_registry[name].content()
 
-        assert "## Kaye" not in content
+        assert "## Diathesis Public" not in content
         assert "# Personality" not in content
 
     @pytest.mark.parametrize(

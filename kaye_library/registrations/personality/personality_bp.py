@@ -9,7 +9,6 @@ from kaye_engine.prompt.blueprint import (
     create_blueprint_from_node,
     get_corpus_node,
     replace_meta,
-    uncheckmark_nodes,
 )
 
 from .._common import register_internal
@@ -17,6 +16,10 @@ from .._common import register_internal
 __all__ = ("register_personality_blueprints",)
 
 _SIGNATURE_PATH = ("Personality", "Signature")
+
+_DIATHESIS_PATH = ("Personality", "Diathesis Public")
+
+_SPEECH_HABIT_PATH = ("Personality", "Speech Habit Public")
 
 _IN_CHAT_PATH = ("Personality", "{in chat}")
 
@@ -27,33 +30,28 @@ def register_personality_blueprints():
 
     - ``persona-kaye-speech-habit``: Kaye's speech habits, free of any
       form of address
-    - ``persona-kaye``: the whole Kaye node with the Signature section and
-      the ``{in chat}`` formatting rule, over its speech habits
+    - ``persona-kaye``: Kaye's Diathesis Public with the Signature section
+      and the ``{in chat}`` formatting rule, over its speech habits
     """
-    kaye_node = get_corpus_node("Personality", "Kaye")
     register_internal(
         "persona-kaye-speech-habit",
         replace_meta(
             create_blueprint_from_node(
-                kaye_node["Speech Habit Public"], is_recursive=True
+                get_corpus_node(*_SPEECH_HABIT_PATH), is_recursive=True
             ),
             display_name="Kaye Speech Habit",
             description="Kaye's speech habits, free of any form of address",
         ),
     )
 
-    # the whole Kaye node, so a package's sections nested beneath it ride
-    # along, gated by their sidecars, less the speech habit, which comes by
-    # its own blueprint; the Personality root and the signature heading
-    # with Kaye's own section only, so a package's other personas nested
-    # beside it stay out of this blueprint
+    # the whole Diathesis Public node, so a package's sections nested
+    # beneath it ride along, gated by their sidecars; the Personality root
+    # and the signature heading with Kaye's own section only, so a
+    # package's other personas nested beside it stay out of this blueprint
     kaye = create_blueprint_from_node(
-        kaye_node,
+        get_corpus_node(*_DIATHESIS_PATH),
         is_recursive=True,
         dependencies=["persona-kaye-speech-habit"],
-    )
-    kaye = uncheckmark_nodes(
-        kaye, kaye_node["Speech Habit Public"], is_recursive=True
     )
     for path in (
         ("Personality",),

@@ -99,7 +99,7 @@ class TestRender:
         content = exportable_registry["coder"].content()
 
         assert "# Chat Agent" in content
-        assert "## Kaye" in content
+        assert "## Diathesis Public" in content
         assert "Kaye LeL" in content
 
     @pytest.mark.parametrize("needle", ["Kami", "Sir"])

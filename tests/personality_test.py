@@ -52,7 +52,7 @@ class TestContent:
 
     def test_opens_with_the_formatting_rule(_, content):
         assert content.startswith("# Personality")
-        assert "## Kaye" in content
+        assert "## Diathesis Public" in content
 
     def test_holds_the_signature(_, content):
         assert "## Signature" in content
