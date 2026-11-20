@@ -1,6 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
+Fixme upd doc for deal w/ system prompt
+
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
