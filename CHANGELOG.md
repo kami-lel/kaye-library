@@ -1,6 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
+Fixme use of bold is lacking in generally, especially in docs
 Fixme release more system prompt content as skills
 Fixme upd doc for deal w/ system prompt
 
