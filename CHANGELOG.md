@@ -1,6 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
+Fixme release more system prompt content as skills
 Fixme upd doc for deal w/ system prompt
 
 todo support layered CONTEXT/AGENTS
