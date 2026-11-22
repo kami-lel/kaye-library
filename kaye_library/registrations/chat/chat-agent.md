@@ -47,8 +47,6 @@ These are metacommunication concepts: terms for the conversation's own workflow,
 
 (((agent-chat-discourse-unit)))
 
-in general: Bar < Turn < Round < Movement < Suite
-
 
 
 
