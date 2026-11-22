@@ -42,6 +42,13 @@ There are 3 ways to install in Claude Desktop:
 
    ![Discover view with Kaye Library and its Add button](assets/claude-desktop-marketplace-step-7-add.png)
 
+8. The marketplace installs the plugin only, not the system prompt. Paste it by hand:
+   1. Download `kaye-library-VERSION-claude-system-prompt-coder.md` (or `kaye-library-VERSION-claude-system-prompt-chat.md` for the Chat prompt alone) from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+   2. Open the file and copy all of its content.
+   3. In Claude Desktop, open *Settings* → *Your Claude* → *Instruction*, paste the content, then save.
+
+   <!-- TODO add screenshots of Settings -> Your Claude -> Instruction -->
+
 
 
 
@@ -133,7 +140,12 @@ There are 4 ways to install in the Claude Code VS Code Extension: pick one, then
 
    ![Plugins tab with kaye-library installed](assets/claude-vsc-marketplace-step-5-installed.png)
 
-6. Restart VS Code.
+6. The marketplace installs the plugin only, not the system prompt. Paste it by hand:
+   1. Download `kaye-library-VERSION-claude-system-prompt-coder.md` (or `kaye-library-VERSION-claude-system-prompt-chat.md` for the Chat prompt alone) from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+   2. Open the file and copy all of its content.
+   3. Paste it into `~/.claude/CLAUDE.md`, replacing what is there, then save.
+
+7. Restart VS Code.
 
 
 
