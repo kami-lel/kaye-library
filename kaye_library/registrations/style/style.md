@@ -246,7 +246,7 @@ A shared `images/` folder, absolute paths, or repository URLs, which break once 
 
 #### {description}
 
-Places a Markdown file's images and other assets in a sibling `<name>-assets/` folder, eg `CHANGELOG.md` → `CHANGELOG-assets/`, linked by a relative `./` path.
+Places a Markdown file's images and other assets in a sibling `NAME-assets/` folder, eg `CHANGELOG.md` → `CHANGELOG-assets/`, linked by a relative `./` path.
 
 #### {when_to_use}
 
