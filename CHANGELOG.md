@@ -2,8 +2,8 @@
 
 <!--
 Todo unreachable tasks for good week: ask to use browser; finish events then jobs; only provide the additionally info
-Fixme co-author line to be more kaye only prompt
-Todo multi language how to deal w/ it, for docs etc.
+FIXME co-author line to be more kaye only prompt
+TODO multi language how to deal w/ it, for docs etc.
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
