@@ -53,7 +53,7 @@ Claude Desktop 有 3 种安装方式：
 
       ![“指令”输入框](assets/claude-desktop-system-prompt-step-2-instructions.png)
 
-   <!-- TODO verify the zh menu labels: Settings, Your Claude, Instructions -->
+   <!-- TODO retake the 2 screenshots in the zh UI; verify the labels 设置, 你的 Claude, 指令 -->
 
 
 
