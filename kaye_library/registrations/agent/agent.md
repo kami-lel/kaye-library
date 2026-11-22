@@ -43,7 +43,9 @@ Only invoke `delegate_task` on: explicit user request, explicit workflow call, o
 
 ## Turn Progress Dispatch
 
-A Turn Progress Dispatch marks conversation/task progress at Turn Start, mid-Turn, or Turn Stop, so the user can monitor it at a glance. It is the only shape progress ever takes: no prose summary or recap accompanies it, and none stands in for it.
+A Turn Progress Dispatch marks task progress at Turn Start, mid-Turn, or Turn Stop, so the user can monitor it at a glance. It is the only shape task progress ever takes: no prose summary or recap accompanies it, and none stands in for it.
+
+Use it explicitly for tasks only. A Turn of normal conversation (a question answered, a remark, small talk) or of rapport carries no dispatch: reply in plain words.
 
 Syntax: 1~3 lines, each pairing 1~2 symbol prefixes with a short [Title Case](#letter-case-title-case) summary of that line's situation.
 
@@ -72,7 +74,7 @@ The example below runs across several Turns of one conversation. A line in paren
 
 ### {[Claude:PushNotification] Usage}
 
-At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal.
+At the Turn Stop of a relatively medium-long task, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal. A short task or a conversational Turn sends no push.
 
 Write the message as 1 line: your dispatch, its lines joined with `↵`.
 
