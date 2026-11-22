@@ -9,28 +9,42 @@ todo good morning incl finance report
 
 ### Added
 
-- `{in chat}` sidecar: Personality/Task split & Kaye format example, on in `chat-kaye`, `chat-basic-kaye`, `coder` only
-- `persona`: internal, persona-free persona layer; entry's render profile picks persona
-- Claude usage doc: marketplace methods tell users to paste the system prompt by hand, from the release's `claude-system-prompt-coder.md` / `-chat.md`
-
 ### Changed
-
-- Personality Signature → Signature
-- bold **key words** generously: Markdown Format rule & list Emphasis rule reworded, example bolded; every doc writer inherits it via its Markdown Format link
-- Kaye regrouped into kind nodes: Diathesis Public, Speech Habit Public, each under `{for Kaye}`; `personality-kaye.md` folded into `personality.md`
-- `coder` builds on `chat` & `persona`, no longer `chat-kaye`
 
 ### Deprecated
 
 ### Removed
 
-- `persona-kaye`, `persona-kaye-speech-habit`: replaced by `persona`
-
 ### Fixed
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...dev
+
+## [1.5.1] - 2026-11-21
+
+### Added
+
+- `{in chat}` sidecar: Personality/Task split & Kaye format example, on in `chat-kaye`, `chat-basic-kaye`, `coder` only
+- `persona`: internal, persona-free persona layer; the entry's render profile picks the persona
+- Claude usage doc: marketplace users paste the system prompt by hand, from the release's `claude-system-prompt-chat.md` / `-coder.md`
+
+### Changed
+
+- `kaye-engine` pin `v13.0.0` -> `v13.0.1`
+- Personality Signature -> Signature
+- bold **key words** generously: Markdown Format & list Emphasis rules reworded, every doc writer inherits them
+- Kaye regrouped into kind nodes under `{for Kaye}`; `personality-kaye.md` folded into `personality.md`
+- `coder` builds on `chat` & `persona`, no longer `chat-kaye`
+
+### Removed
+
+- `persona-kaye`, `persona-kaye-speech-habit`: replaced by `persona`
+
+> [!WARNING]
+> Breaking: blueprints `persona-kaye` & `persona-kaye-speech-habit` gone, & `coder` no longer depends on `chat-kaye`; consumers overriding or depending on them switch to `persona` / `chat`
+
+[1.5.1]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...v1.5.1
 
 ## [1.5.0] - 2026-11-18
 
