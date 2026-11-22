@@ -1098,7 +1098,11 @@ Bar 1~3, in strict order: each fully finished, with nothing skipped or reordered
 
 ----
 
-The weekly view carries the whole week entire, an event or job opportunity a daily run already surfaced included.
+When both Bar 1 and Bar 2 meet an [unreachable task](#unreachable-task-workaround), proceed in this order:
+
+1. present the partial report first
+2. then clear all of Bar 1's
+3. then clear all of Bar 2's
 
 
 
