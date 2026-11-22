@@ -19,7 +19,8 @@ todo good morning incl finance report
 
 ### Changed
 
-- Turn Progress Dispatch: the 🎏 Movement finished decorative & its 2 examples move under Movement and Suite, in the new `agent-movement-and-suite-decorative` glossary; the `PushNotification` example no longer uses 🎏
+- Turn Progress Dispatch: every Movement and Suite mention moves under Movement and Suite: the 🎏 Movement finished & 🏁 Suite completed decoratives, in the new `agent-movement-and-suite-decorative` glossary, and the 3 examples using them; a new example covers every remaining decorative; the `PushNotification` example no longer uses 🎏
+- Discourse Unit: `movement`, `🧩`, `suite` move under Movement and Suite, in the new `agent-movement-and-suite-discourse-unit` glossary; chat keeps Turn, Round, Bar
 - `agent-movement-and-suite`: now a dependency of every Movement-structured workflow: feature landing & version release (ready, perform, scrub), `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
 - `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
 - `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
