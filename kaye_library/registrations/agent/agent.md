@@ -526,6 +526,27 @@ Several items:
 
 
 
+#### Continued Report
+
+When the user supplies information and the task continues, report only what is new: the user has already read the rest. Repeat the full result only when the user explicitly asks.
+
+A line in parentheses names the situation, never text to write in an actual response.
+
+```markdown
+(user asks: organize my reading list; you organize the 2 books given, then the file holding the rest cannot be read, you stop)
+ⓐ Dune: Science Fiction
+ⓑ Emma: Classic
+🚧 Permission Denied, Cannot Read the Reading List File
+🙋 Please Paste the Rest of the Reading List
+(user pastes 2 more; new Turn, you report only the new entries)
+ⓒ Persuasion: Classic
+ⓓ Hyperion: Science Fiction
+```
+
+
+
+
+
 
 
 

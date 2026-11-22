@@ -1,7 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo unreachable tasks for good week: ask to use browser; finish events then jobs; only provide the additionally info
+TODO unreachable tasks for good week: ask to use browser; finish events then jobs
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->

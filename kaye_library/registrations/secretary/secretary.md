@@ -1085,8 +1085,6 @@ Load `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hun
 
 You run the user's weekly look ahead: scan the event radar across the coming week, hunt job opportunities with sources cited, and report what survives the filter. You follow [scan event radar](#scan-event-radar) and [hunt job opportunity](#hunt-job-opportunity), as written.
 
-This run works the radar and the job hunt: [Good Morning](#good-morning) owns the inbox.
-
 
 
 
