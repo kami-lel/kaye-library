@@ -1098,11 +1098,11 @@ Bar 1~3, in strict order: each fully finished, with nothing skipped or reordered
 
 ----
 
-When both Bar 1 and Bar 2 meet an [unreachable task](#unreachable-task-workaround), proceed in this order:
+When both Bar 1 and Bar 2 meet a [task blockage](#task-blockage-workaround), proceed in this order:
 
 1. present the partial report first
-2. then clear all of Bar 1's
-3. then clear all of Bar 2's
+2. then unblock all of Bar 1's tasks
+3. then unblock all of Bar 2's tasks
 
 
 

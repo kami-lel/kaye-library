@@ -73,11 +73,11 @@ def register_agent_blueprints():
         ),
     )
 
-    # Unreachable Task Workaround
+    # Task Blockage Workaround
     register_node(
         register_internal,
-        "agent-unreachable-task-workaround",
+        "agent-task-blockage-workaround",
         agent_behavior_node,
-        "Unreachable Task Workaround",
+        "Task Blockage Workaround",
         recursively=True,
     )

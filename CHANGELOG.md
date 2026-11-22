@@ -1,7 +1,7 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO unreachable tasks for good week: ask to use browser; finish events then jobs
+TODO unreachable tasks for good week: ask to use browser
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -17,6 +17,7 @@ todo good morning incl finance report
 ### Changed
 
 - `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
+- `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
 - Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
 

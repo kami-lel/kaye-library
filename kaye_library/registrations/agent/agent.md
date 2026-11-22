@@ -489,11 +489,11 @@ Open Movement 2 — resend whole list, 1 item's marker changes:
 
 
 
-## Unreachable Task Workaround
+## Task Blockage Workaround
 
-A task is **unreachable** when you need information you cannot obtain, eg network down, connection refused, permission denied.
+A task is **blocked** when you need information you cannot obtain, eg network down, connection refused, permission denied.
 
-When a task is unreachable:
+When a task is blocked:
 
 1. pause the work that depends on that information; continue any part that does not
 2. ask the user for it, in the reply format below
@@ -505,7 +505,7 @@ When a task is unreachable:
 
 #### Reply Format
 
-Each line carries exactly one emoji: 🚧 lines name what is unreachable, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
+Each line carries exactly one emoji: 🚧 lines name what is blocking, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
 
 One item:
 
@@ -526,9 +526,9 @@ Several items:
 
 
 
-#### Continued Report
+#### Unblocked Report
 
-When the user supplies information and the task continues, report only what is new: the user has already read the rest. Repeat the full result only when the user explicitly asks.
+A task is **unblocked** when the user supplies the information it was missing and the work resumes. Report only what is new: the user has already read the rest. Repeat the full result only when the user explicitly asks.
 
 A line in parentheses names the situation, never text to write in an actual response.
 
