@@ -12,6 +12,8 @@ todo good morning incl finance report
 - `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers and the README Writer depend on it
 - Simplified Chinese docs: English key terms glossed in `[]` per the new skill
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
+- `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
+- `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
 
 ### Changed
 
