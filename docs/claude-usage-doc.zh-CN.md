@@ -42,6 +42,17 @@ Claude Desktop 有 3 种安装方式：
 
    ![“发现”视图里的 Kaye Library 和它的“添加”按钮](assets/claude-desktop-marketplace-step-7-add.png)
 
+8. 插件市场只安装插件，不含系统提示词，需要手动粘贴：
+   1. 从 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-system-prompt-coder.md`（只要 Chat 提示词则下载 `kaye-library-VERSION-claude-system-prompt-chat.md`）。
+   2. 打开文件，复制全部内容。
+   3. 在 Claude Desktop 中打开 *设置*，选择 *你的 Claude*。
+
+      ![“设置”里的“你的 Claude”](assets/claude-desktop-system-prompt-step-1-your-claude.png)
+
+   4. 把内容粘贴到 *指令* 中，然后保存。
+
+      ![“指令”输入框](assets/claude-desktop-system-prompt-step-2-instructions.png)
+
 
 
 
@@ -133,7 +144,12 @@ VS Code 扩展有 4 种安装方式，任选一种即可。装好后，按 [检�
 
    ![已装好 kaye-library 的“插件”标签页](assets/claude-vsc-marketplace-step-5-installed.png)
 
-6. 重启 VS Code。
+6. 插件市场只安装插件，不含系统提示词，需要手动粘贴：
+   1. 从 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-system-prompt-coder.md`（只要 Chat 提示词则下载 `kaye-library-VERSION-claude-system-prompt-chat.md`）。
+   2. 打开文件，复制全部内容。
+   3. 粘贴到 `~/.claude/CLAUDE.md`，替换原有内容后保存。
+
+7. 重启 VS Code。
 
 
 

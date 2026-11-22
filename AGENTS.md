@@ -64,7 +64,7 @@ Scope each run to the area touched; run everything only before a merge.
 - `tests/invocation_test.py` fails when library text tells the assistant to invoke a skill the library does not register: point it at a library skill, never at one a downstream package supplies
 - `tests/docs_test.py` checks every relative link and anchor in the root documents
 - never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`; `vs-code-extension` also edits its `settings.json`
-- `kaye-library build-github-release-assets` takes one required `OUTPUT` folder and writes all 3 release assets there
+- `kaye-library build-github-release-assets` takes one required `OUTPUT` folder and writes every release asset there: the plugin zip, 2 installers, 2 system prompt `.md` files
 - `kaye-library build-github-marketplace OUTPUT` writes the marketplace repo root; `scripts/sync-marketplace-paths.sh SRC DEST` replaces only `.claude-plugin/`, `.agents/`, `plugins/` in DEST, so rehearse a push against a scratch `git init` folder, never the real repo
 
 ## PR & Commit Instructions

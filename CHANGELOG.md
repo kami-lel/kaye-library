@@ -1,9 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Fixme release more system prompt content as skills
-Fixme upd doc for deal w/ system prompt
-
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -14,6 +11,7 @@ todo good morning incl finance report
 
 - `{in chat}` sidecar: Personality/Task split & Kaye format example, on in `chat-kaye`, `chat-basic-kaye`, `coder` only
 - `persona`: internal, persona-free persona layer; entry's render profile picks persona
+- Claude usage doc: marketplace methods tell users to paste the system prompt by hand, from the release's `claude-system-prompt-coder.md` / `-chat.md`
 
 ### Changed
 
