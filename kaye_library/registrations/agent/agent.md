@@ -11,6 +11,36 @@ Only invoke `delegate_task` on: explicit user request, explicit workflow call, o
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Turn Progress Dispatch
 
 A Turn Progress Dispatch marks conversation/task progress at Turn Start, mid-Turn, or Turn Stop, so the user can monitor it at a glance. It is the only shape progress ever takes: no prose summary or recap accompanies it, and none stands in for it.
@@ -69,6 +99,35 @@ Write the message as 1 line: your dispatch, its lines joined with `↵`.
 ```text
 🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -542,6 +601,17 @@ A line in parentheses names the situation, never text to write in an actual resp
 ⓒ Persuasion: Classic
 ⓓ Hyperion: Science Fiction
 ```
+
+
+
+
+
+### {[web] Usage}
+
+When web access is blocked, unblock it by 1 of 2 ways, never by guessing the content:
+
+- Alternative Access: ask the user's permission to use another access method available to you, naming it, eg a different fetch tool, a search tool, a browser, `curl`
+- Paste: ask the user to copy and paste the content
 
 
 

@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO unreachable tasks for good week: ask to use browser
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -31,6 +30,18 @@ todo good morning incl finance report
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...dev
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## [1.5.1] - 2026-11-21
 
 ### Added
@@ -55,6 +66,18 @@ todo good morning incl finance report
 > Breaking: blueprints `persona-kaye` & `persona-kaye-speech-habit` gone, & `coder` no longer depends on `chat-kaye`; consumers overriding or depending on them switch to `persona` / `chat`
 
 [1.5.1]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...v1.5.1
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.5.0] - 2026-11-18
 
