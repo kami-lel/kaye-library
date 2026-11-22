@@ -45,9 +45,15 @@ Claude Desktop 有 3 种安装方式：
 8. 插件市场只安装插件，不含系统提示词，需要手动粘贴：
    1. 从 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-system-prompt-coder.md`（只要 Chat 提示词则下载 `kaye-library-VERSION-claude-system-prompt-chat.md`）。
    2. 打开文件，复制全部内容。
-   3. 在 Claude Desktop 中打开 *设置* → *你的 Claude* → *指令*，粘贴内容后保存。
+   3. 在 Claude Desktop 中打开 *设置*，选择 *你的 Claude*。
 
-   <!-- TODO add screenshots of Settings -> Your Claude -> Instruction; verify the zh menu labels -->
+      ![“设置”里的“你的 Claude”](assets/claude-desktop-system-prompt-step-1-your-claude.png)
+
+   4. 把内容粘贴到 *指令* 中，然后保存。
+
+      ![“指令”输入框](assets/claude-desktop-system-prompt-step-2-instructions.png)
+
+   <!-- TODO verify the zh menu labels: Settings, Your Claude, Instructions -->
 
 
 

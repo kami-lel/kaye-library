@@ -45,9 +45,13 @@ There are 3 ways to install in Claude Desktop:
 8. The marketplace installs the plugin only, not the system prompt. Paste it by hand:
    1. Download `kaye-library-VERSION-claude-system-prompt-coder.md` (or `kaye-library-VERSION-claude-system-prompt-chat.md` for the Chat prompt alone) from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
    2. Open the file and copy all of its content.
-   3. In Claude Desktop, open *Settings* → *Your Claude* → *Instruction*, paste the content, then save.
+   3. In Claude Desktop, open *Settings* and choose *Your Claude*.
 
-   <!-- TODO add screenshots of Settings -> Your Claude -> Instruction -->
+      ![Settings with Your Claude](assets/claude-desktop-system-prompt-step-1-your-claude.png)
+
+   4. Paste the content into *Instructions*, then save.
+
+      ![Instructions field](assets/claude-desktop-system-prompt-step-2-instructions.png)
 
 
 
