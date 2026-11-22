@@ -64,7 +64,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
 | Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
-| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
+| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, Secondary Language Marking, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |

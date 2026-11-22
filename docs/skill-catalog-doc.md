@@ -881,6 +881,7 @@ More building blocks:
 
 - `/element-numerical-values-with-units`: metric and US units side by side, correctly abbreviated
 - `/element-international-phonetic-alphabet`: IPA pronunciation after any tricky word, in any language
+- `/element-secondary-language-marking`: key terms glossed in a second language, in `[]`; the doc writers use it
 - `/element-alphabetical-sequence-numbering`: circled letters (ⓐ, ⓑ, ⓒ) for choices, so you answer with one letter
 - `/element-triage-tags`: `BUG`, `FIXME`, `TODO`, and `HACK` in three loudness tiers
 - `/sort-and-group-triage-tag`: sorts existing tags into tidy groups, changes nothing else

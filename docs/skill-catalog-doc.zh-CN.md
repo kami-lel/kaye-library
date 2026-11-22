@@ -879,6 +879,7 @@ GTD 是 *Getting Things Done*（中译《搞定》）的缩写，一套经典的
 
 - `/element-numerical-values-with-units`：公制和美制单位并列，缩写规范
 - `/element-international-phonetic-alphabet`：在难读的词后面标上国际音标，什么语言都行
+- `/element-secondary-language-marking`：关键词的第二语言对照放进 `[]`，文档撰写技能会用到它
 - `/element-alphabetical-sequence-numbering`：用圆圈字母（ⓐ、ⓑ、ⓒ）标选项，回答时说一个字母就行
 - `/element-triage-tags`：`BUG`、`FIXME`、`TODO`、`HACK` 四种标签，每种按大小写分三档“音量”
 - `/sort-and-group-triage-tag`：把文件里已有的标签分组排好，其他内容一概不动

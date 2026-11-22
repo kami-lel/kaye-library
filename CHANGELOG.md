@@ -3,7 +3,6 @@
 <!--
 Todo unreachable tasks for good week: ask to use browser; finish events then jobs; only provide the additionally info
 FIXME co-author line to be more kaye only prompt
-TODO multi language how to deal w/ it, for docs etc.
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -12,6 +11,7 @@ todo good morning incl finance report
 
 ### Added
 
+- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers depend on it
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
 
 ### Changed
