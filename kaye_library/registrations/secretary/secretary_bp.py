@@ -61,7 +61,7 @@ def _register_scan_event_radar(slug, name, description, dropped_gather_node):
         is_recursive=True,
         dependencies=[
             "secretary-event-brief-format",
-            "agent-unreachable-task-workaround",
+            "agent-task-blockage-workaround",
         ],
     )
     try:
@@ -267,7 +267,7 @@ def register_secretary_blueprints():
         "hunt job opportunity",
         recursively=True,
         dependencies=[
-            "agent-unreachable-task-workaround",
+            "agent-task-blockage-workaround",
             "style-briefness-style",
             "secretary-report-info-field-date-time",
             "secretary-report-info-field-deadline",

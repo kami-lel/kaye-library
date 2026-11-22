@@ -166,9 +166,9 @@ flowchart LR
     sweep_email_inbox --> field_source["...-field-source"]
     scan_event_radar_daily["scan-event-radar-daily"] --> secretary_event_brief_format
     scan_event_radar_weekly["scan-event-radar-weekly"] --> secretary_event_brief_format
-    scan_event_radar_daily --> agent_unreachable_task_workaround["agent-unreachable-task-workaround"]
-    scan_event_radar_weekly --> agent_unreachable_task_workaround
-    hunt_job_opportunity["hunt-job-opportunity"] --> agent_unreachable_task_workaround
+    scan_event_radar_daily --> agent_task_blockage_workaround["agent-task-blockage-workaround"]
+    scan_event_radar_weekly --> agent_task_blockage_workaround
+    hunt_job_opportunity["hunt-job-opportunity"] --> agent_task_blockage_workaround
     hunt_job_opportunity --> style_briefness_style
     hunt_job_opportunity --> field_date_time
     hunt_job_opportunity --> field_deadline

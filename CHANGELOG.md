@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Todo unreachable tasks for good week: ask to use browser; finish events then jobs; only provide the additionally info
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -13,10 +12,13 @@ todo good morning incl finance report
 - `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers and the README Writer depend on it
 - Simplified Chinese docs: English key terms glossed in `[]` per the new skill
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
+- `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
+- `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
 
 ### Changed
 
 - `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
+- `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
 - Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
 
@@ -29,6 +31,18 @@ todo good morning incl finance report
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.5.1] - 2026-11-21
 
@@ -54,6 +68,18 @@ todo good morning incl finance report
 > Breaking: blueprints `persona-kaye` & `persona-kaye-speech-habit` gone, & `coder` no longer depends on `chat-kaye`; consumers overriding or depending on them switch to `persona` / `chat`
 
 [1.5.1]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...v1.5.1
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.5.0] - 2026-11-18
 
