@@ -101,7 +101,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override; one public persona, Kaye, under the `Personality` root, its display name behind its `{for Kaye}` sidecar
 - stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, a host's own personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
-- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
+- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer` and of their own node, which holds the examples, so they sign as Kaye; the merge skill always appends the trailer; a host's personas add their own `{for <persona>}` trailers under that heading
 - the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat` and `persona`, never `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
 
 ## Abbreviation Database

@@ -16,6 +16,10 @@ todo good morning incl finance report
 
 ### Changed
 
+- `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
+- `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
+- Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
+
 ### Deprecated
 
 ### Removed
