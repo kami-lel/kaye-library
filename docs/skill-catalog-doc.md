@@ -290,6 +290,12 @@ Commits worth reading. Clean merges. Parallel work without collisions.
 - a sharp **summary line**: the one-line headline of the change
 - a **per-file ledger**: what changed in each file, and why
 
+Or type a single letter or two in chat to invoke this skill:
+
+- `g`: commit this chat's changes
+- `gi`: commit what's indexed
+- `ig`: index everything, then commit
+
 `/commit-sense-branch-merging` does the same for merge messages. A merge joins one branch, a separate line of work, back into another.
 
 The rest of the branch lifecycle:
