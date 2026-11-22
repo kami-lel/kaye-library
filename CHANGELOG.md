@@ -1,7 +1,6 @@
 # kaye-library CHANGELOG
 
 <!--
-Fixme use of bold is lacking in generally, especially in docs
 Fixme release more system prompt content as skills
 Fixme upd doc for deal w/ system prompt
 
@@ -19,6 +18,7 @@ todo good morning incl finance report
 ### Changed
 
 - Personality Signature → Signature
+- bold **key words** generously: Markdown Format rule & list Emphasis rule reworded, example bolded; every doc writer inherits it via its Markdown Format link
 - Kaye regrouped into kind nodes: Diathesis Public, Speech Habit Public, each under `{for Kaye}`; `personality-kaye.md` folded into `personality.md`
 - `coder` builds on `chat` & `persona`, no longer `chat-kaye`
 
