@@ -300,6 +300,8 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                                       '`H 02015-01-15`, `02015-01-15`, `A '
                                       '01984-12-31`',
                                       'Day of week codes:'],
+ 'element-secondary-language-marking': ['## Secondary Language Marking',
+                                        '[config file]'],
  'element-international-phonetic-alphabet': ['## International Phonetic '
                                              'Alphabet',
                                              'Always use slashes: /wɜːrd/',
@@ -684,6 +686,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'element-dt-year-month-day-format': 'Formats a date carrying a year, day '
                                      'of week prefix optional',
  'element-international-phonetic-alphabet': 'IPA transcription',
+ 'element-secondary-language-marking': 'Glosses a key term in a secondary language',
  'element-numerical-values-with-units': 'Presents numerical values in both metric and US units',
  'element-triage-tags': 'defect/note labels spanning code and docs across '
                         '3 case tiers (Loud/Steady/Quiet), with per-tag '

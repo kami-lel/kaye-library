@@ -2,8 +2,6 @@
 
 <!--
 Todo unreachable tasks for good week: ask to use browser; finish events then jobs; only provide the additionally info
-Fixme co-author line to be more kaye only prompt
-Todo multi language how to deal w/ it, for docs etc.
 todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
@@ -12,9 +10,15 @@ todo good morning incl finance report
 
 ### Added
 
+- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers and the README Writer depend on it
+- Simplified Chinese docs: English key terms glossed in `[]` per the new skill
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
 
 ### Changed
+
+- `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
+- `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
+- Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
 
 ### Deprecated
 

@@ -53,7 +53,11 @@ def _register_doc_writer(slug, leaf_name):
         get_corpus_node("Projects")["doc writer"],
         leaf_name,
         recursively=True,
-        dependencies=["proj-docs", "style-good-writing"],
+        dependencies=[
+            "proj-docs",
+            "style-good-writing",
+            "element-secondary-language-marking",
+        ],
     )
 
 

@@ -9,7 +9,6 @@ signed as Kaye
 import pytest
 from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
-from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 
 
 @pytest.fixture(scope="module")
@@ -34,12 +33,14 @@ class TestOwnership:
 
 class TestContent:
 
-    def test_generic_co_author_trailer(_, content):
+    def test_co_author_trailer_example_signs_as_kaye(_, content):
         assert "3. Co-author Trailer: optional" in content
-        assert "Co-authored-by: Example Bot <bot@example.com>" in content
+        # the sidecar line plus the example under the Kaye node
+        assert content.count(_KAYE_TRAILER_PLAIN) >= 2
+        assert "Example Bot" not in content
 
     def test_keeps_the_trailer_last(_, content):
-        assert "It is the **last line** of the message" in content
+        assert "as the **last line**" in content
 
     def test_names_no_generic_ai(_, content):
         assert "Claude" not in content
@@ -51,10 +52,10 @@ class TestContent:
         assert "per-file change sigil" in content
 
 
-_KAYE_TRAILER = (
-    "`Co-authored-by: Kaye LeL"
-    " <341862645+kaye-lel@users.noreply.github.com>`"
+_KAYE_TRAILER_PLAIN = (
+    "Co-authored-by: Kaye LeL <341862645+kaye-lel@users.noreply.github.com>"
 )
+_KAYE_TRAILER = f"`{_KAYE_TRAILER_PLAIN}`"
 
 
 class TestSignedAsKaye:
@@ -78,11 +79,12 @@ class TestSignedAsKaye:
 
     def test_signs_only_changes_the_persona_wrote(_, content):
         assert "When you wrote the changes a commit records" in content
-        assert "end it with no trailer" in content
+        assert "add no trailer" in content
 
-    def test_avoids_a_generic_ai_trailer(_):
-        # every surface renders {avoid}; a bare render needs it named
-        profile = RenderProfile(conditional_sidecars=("avoid",))
-        text = exportable_registry["commit-sense"].content(profile=profile)
+    def test_bans_a_generic_model_or_provider_trailer(_, content):
+        assert "**never** write a generic model or provider name" in content
 
-        assert "A generic AI trailer naming a tool or model" in text
+    def test_merge_message_always_carries_the_trailer(_):
+        content = exportable_registry["commit-sense-branch-merging"].content()
+
+        assert "**always** append your [Co-author Trailer]" in content

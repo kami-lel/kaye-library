@@ -64,7 +64,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
 | Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
-| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
+| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, Secondary Language Marking, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
@@ -101,7 +101,7 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override; one public persona, Kaye, under the `Personality` root, its display name behind its `{for Kaye}` sidecar
 - stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, a host's own personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
-- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
+- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer` and of their own node, which holds the examples, so they sign as Kaye; the merge skill always appends the trailer; a host's personas add their own `{for <persona>}` trailers under that heading
 - the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat` and `persona`, never `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
 
 ## Abbreviation Database

@@ -111,6 +111,14 @@ def register_element_blueprints():
         "International Phonetic Alphabet",
     )
 
+    # Secondary Language Marking
+    register_node(
+        register_exportable,
+        "element-secondary-language-marking",
+        get_corpus_node("Elements"),
+        "Secondary Language Marking",
+    )
+
     # Alphabetical Sequence Numbering
     register_node(
         register_exportable,

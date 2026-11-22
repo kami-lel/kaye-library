@@ -67,7 +67,10 @@ def register_repo_blueprints():
         "repo-readme-writer",
         repo_node,
         "Repository README Writer",
-        dependencies=["style-briefness-style"],
+        dependencies=[
+            "style-briefness-style",
+            "element-secondary-language-marking",
+        ],
     )
 
     register_node(
