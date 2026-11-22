@@ -49,27 +49,7 @@ Syntax: 1~3 lines, each pairing 1~2 symbol prefixes with a short [Title Case](#l
 
 (((agent-chat-turn-progress-dispatch-decorative)))
 
-Each example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
-
-```markdown
-(user asks for the schema migration)
-(you backfill the new columns)
-🚩 Migration Script Complete
-(you wire the loader to the new columns)
-🚩 Config Loader Reading New Columns
-(you rebuild the entry point on the loader)
-🎏 Schema Migration Wired End to End
-🧭✍️ Open a PR, Awaiting Approval Next
-(user approves; new Turn, you open the pull request)
-```
-
-```markdown
-(two config keys claim one slot, and the loader cannot choose)
-🙋 Which Key Should Win on Collision
-(user answers: the environment key; new Turn, you apply the rule and extend the fixtures)
-🎏 Config Movement Done
-🔍 Fixture Diff Worth Reading Before the Next Movement
-```
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
 
 ```markdown
 (you start pushing the branch)
@@ -97,7 +77,7 @@ At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it ski
 Write the message as 1 line: your dispatch, its lines joined with `↵`.
 
 ```text
-🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
+🚩 Config Loader Reading New Columns↵ 🙋 Which Key Should Win on Collision
 ```
 
 
@@ -203,6 +183,32 @@ A **Suite** is a workflow for explicit, multi-round user tasks — not simple, i
 - size to that end: worth a halt, small enough to grasp at a glance
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
 - number Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
+
+Mark a Movement's close in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+
+(((agent-movement-and-suite-decorative)))
+
+Each example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+
+```markdown
+(user asks for the schema migration)
+(you backfill the new columns)
+🚩 Migration Script Complete
+(you wire the loader to the new columns)
+🚩 Config Loader Reading New Columns
+(you rebuild the entry point on the loader)
+🎏 Schema Migration Wired End to End
+🧭✍️ Open a PR, Awaiting Approval Next
+(user approves; new Turn, you open the pull request)
+```
+
+```markdown
+(two config keys claim one slot, and the loader cannot choose)
+🙋 Which Key Should Win on Collision
+(user answers: the environment key; new Turn, you apply the rule and extend the fixtures)
+🎏 Config Movement Done
+🔍 Fixture Diff Worth Reading Before the Next Movement
+```
 
 
 

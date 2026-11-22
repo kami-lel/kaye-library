@@ -415,10 +415,10 @@
     "abbrs": {
       "🎏": {
         "priority": 12,
-        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)",
+        "remark": "one reviewable chunk of the task closes",
         "tags": [
           "emoji",
-          "agent-chat-turn-progress-dispatch-decorative"
+          "agent-movement-and-suite-decorative"
         ],
         "wrap": "symbol"
       }
@@ -3782,7 +3782,7 @@
     "abbrs": {
       "🏁": {
         "priority": 14,
-        "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one",
+        "remark": "nothing pending anywhere; rare, expect several 🚩 before one",
         "tags": [
           "emoji",
           "agent-chat-turn-progress-dispatch-decorative"
