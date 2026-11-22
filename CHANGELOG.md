@@ -15,9 +15,11 @@ todo good morning incl finance report
 - `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
 - `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
 - `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format, now an `h3` under Markdown Format with its own description and when to use
+- `agent-files-and-folders` skill: the Files & Folders rules on their own; `plan-for-suite`, `dispositor`, and the Project & Repository Doc Writers depend on it
 
 ### Changed
 
+- `agent-movement-and-suite`: now a dependency of every Movement-structured workflow: feature landing & version release (ready, perform, scrub), `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
 - `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
 - `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer

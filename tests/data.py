@@ -572,6 +572,9 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
                            '- keep sentences short, direct, drop filler'],
+ 'agent-files-and-folders': ['## Files & Folders',
+                             'treat them as intentional user edits',
+                             '`020260826-weekly-standup.md`'],
  'style-markdown-heading': ['### Markdown Heading Format',
                             'A **local heading** is a skipped-level '
                             'heading'],

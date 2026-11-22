@@ -16,6 +16,10 @@ flowchart LR
     execute_plan_for_suite["execute-plan-for-suite"] --> agent_movement_and_suite
     rework_plan_for_suite["rework-plan-for-suite"] --> agent_movement_and_suite
     sync_unit_test["sync-unit-test"] --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
+    plan_for_suite --> agent_files_and_folders["agent-files-and-folders"]
+    agent_files_and_folders --> style_letter_case_kebab_case["style-letter-case-kebab-case"]
+    agent_files_and_folders --> style_letter_case_pascal_case["style-letter-case-pascal-case"]
+    agent_files_and_folders --> element_dt_year_month_day_format["element-dt-year-month-day-format"]
     sync_unit_test --> element_triage_tags["element-triage-tags"]
     review_gaps["review-gaps"] --> element_triage_tags
     coder --> element_triage_tags
@@ -44,6 +48,8 @@ flowchart LR
     repo_doc_writer --> style_good_writing
     proj_doc_writer --> element_secondary_language_marking["element-secondary-language-marking"]
     repo_doc_writer --> element_secondary_language_marking
+    proj_doc_writer --> agent_files_and_folders["agent-files-and-folders"]
+    repo_doc_writer --> agent_files_and_folders
     equip_proj_for_agent["equip-proj-for-agent"] --> proj_context_engineering["proj-context-engineering"]
     repo_readme_writer["repo-readme-writer"] --> style_briefness_style["style-briefness-style"]
     repo_readme_writer --> element_secondary_language_marking
@@ -60,6 +66,9 @@ flowchart LR
     repo_devlog_writer --> element_triage_tags["element-triage-tags"]
     ready_release_version["ready-release-version"] --> proj_version_extended
     scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
+    ready_release_version --> agent_movement_and_suite["agent-movement-and-suite"]
+    scrub_released_version --> agent_movement_and_suite
+    release_version["release-version"] --> agent_movement_and_suite
     proj_version_title["proj-version-title"] --> proj_version_bump["proj-version-bump"]
     proj_version_bump --> proj_version["proj-version"]
     proj_version_extended --> proj_version
@@ -115,6 +124,9 @@ flowchart LR
     git_feature_summary["git-feature-summary"] --> git_feature_discover["git-feature-discover"]
     ready_land_feature["ready-land-feature"] --> git_feature_discover
     scrub_landed_feature["scrub-landed-feature"] --> git_feature_branch
+    ready_land_feature --> agent_movement_and_suite["agent-movement-and-suite"]
+    scrub_landed_feature --> agent_movement_and_suite
+    land_feature["land-feature"] --> agent_movement_and_suite
     submit_pr["submit-pr"] --> ready_land_feature
     submit_pr --> git_feature_summary
     tend_linked_wt["tend-linked-wt"] --> plant_linked_wt["plant-linked-wt"]
@@ -140,6 +152,7 @@ flowchart LR
     assemble_bibliography["assemble-bibliography"] --> amanuensis_chicago_bibliography["amanuensis-chicago-bibliography"]
     dispositor --> style_heading_separation["style-heading-separation"]
     dispositor --> style_good_writing["style-good-writing"]
+    dispositor --> agent_files_and_folders["agent-files-and-folders"]
     scholiast --> dispositor
     minutes_clerk["minutes-clerk"] --> dispositor
     config_writer["config-writer"] --> dispositor
@@ -164,6 +177,9 @@ flowchart LR
     sweep_email_inbox["sweep-email-inbox"] --> field_deadline
     sweep_email_inbox --> field_link
     sweep_email_inbox --> field_source["...-field-source"]
+    sweep_email_inbox --> agent_movement_and_suite["agent-movement-and-suite"]
+    push_event_to_calendar["push-event-to-calendar"] --> agent_movement_and_suite
+    push_task_to_gtd["push-task-to-gtd"] --> agent_movement_and_suite
     scan_event_radar_daily["scan-event-radar-daily"] --> secretary_event_brief_format
     scan_event_radar_weekly["scan-event-radar-weekly"] --> secretary_event_brief_format
     scan_event_radar_daily --> agent_task_blockage_workaround["agent-task-blockage-workaround"]

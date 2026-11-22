@@ -97,6 +97,7 @@ Supporting skills behind the vocabulary:
 
 - `/agent-movement-and-suite`: defines Suite and Movement
 - `/agent-movement-and-suite-with-count`: splits Movements into Counts, so progress reads as a fraction
+- `/agent-files-and-folders`: names new files in kebab case, folders in Pascal case, dated names led by the date; Plan files and doc writers load it
 
 
 

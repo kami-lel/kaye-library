@@ -95,6 +95,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 - `/agent-movement-and-suite`：定义 Suite 和 Movement
 - `/agent-movement-and-suite-with-count`：把每个 Movement 再拆成若干 Count，进度到了几分之几一目了然
+- `/agent-files-and-folders`：新文件用 kebab case、文件夹用 Pascal case 命名，带日期的名称以日期开头；计划文件和文档写作技能会加载它
 
 
 

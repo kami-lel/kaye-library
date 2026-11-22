@@ -33,6 +33,7 @@ def register_kaye_library_blueprints():
     """
     from .agent.agent_bp import (  # pylint: disable=C0415
         register_agent_blueprints,
+        register_agent_files_and_folders_blueprint,
     )
     from .amanuensis.amanuensis_bp import (  # pylint: disable=C0415
         register_amanuensis_blueprints,
@@ -90,6 +91,7 @@ def register_kaye_library_blueprints():
     register_style_blueprints()
     register_letter_case_blueprints()
     register_element_blueprints()
+    register_agent_files_and_folders_blueprint()
     register_project_blueprints()
     register_branch_blueprints()
     register_repo_blueprints()
