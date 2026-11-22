@@ -27,6 +27,7 @@ todo good morning incl finance report
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
 - Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
 - Personality `{in chat}`: Personality Content renamed Rapport Content and always opens with the signifier; a rapport-only response drops the blockquote, a response with Task Content keeps it
+- Personality `{in chat}`: Rapport Content must be creative, inventing freely and diverging from the information already in the conversation
 
 ### Deprecated
 
