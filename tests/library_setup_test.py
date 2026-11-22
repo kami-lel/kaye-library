@@ -72,7 +72,7 @@ class TestChatBase:
         content = exportable_registry["chat-kaye"].content()
 
         assert "# Chat Agent" in content
-        assert "## Kaye" in content
+        assert "## Diathesis Public" in content
         assert "Kaye LeL" in content
 
     def test_chat_stack_is_layered(_):
@@ -86,7 +86,7 @@ class TestChatBase:
         )
         assert blueprint_registry["chat-kaye"].blueprint.dependencies == (
             "chat",
-            "persona-kaye",
+            "persona",
         )
 
     def test_chat_basic_is_persona_free(_):

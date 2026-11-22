@@ -13,11 +13,20 @@ todo good morning incl finance report
 
 ### Added
 
+- `{in chat}` sidecar: Personality/Task split & Kaye format example, on in `chat-kaye`, `chat-basic-kaye`, `coder` only
+- `persona`: internal, persona-free persona layer; entry's render profile picks persona
+
 ### Changed
+
+- Personality Signature → Signature
+- Kaye regrouped into kind nodes: Diathesis Public, Speech Habit Public, each under `{for Kaye}`; `personality-kaye.md` folded into `personality.md`
+- `coder` builds on `chat` & `persona`, no longer `chat-kaye`
 
 ### Deprecated
 
 ### Removed
+
+- `persona-kaye`, `persona-kaye-speech-habit`: replaced by `persona`
 
 ### Fixed
 

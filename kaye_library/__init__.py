@@ -67,7 +67,6 @@ _CORPUS_SOURCES = [
     (("Git",), "git/branch.md"),
     ((), "p4v/p4v.md"),
     ((), "personality/personality.md"),
-    (("Personality",), "personality/personality-kaye.md"),
     ((), "meta_prompt/meta_prompt.md"),
     ((), "amanuensis/amanuensis.md"),
     ((), "secretary/secretary.md"),

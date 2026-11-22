@@ -17,6 +17,7 @@ from kaye_engine.prompt.blueprint.render_profile import RenderProfile
 
 from .._common import (
     SIDECAR_FOR_KAYE,
+    SIDECAR_IN_CHAT,
     glossary_blueprint,
     register_exportable,
     register_node,
@@ -32,9 +33,11 @@ def register_coder_blueprints():
     register the Coder: the ``coder`` skill, Kaye Peer Coder, its
     workflows, and every per-language coder profile
 
-    ``coder`` is ``chat-kaye`` plus the Coder rules, ``chat-kaye`` named as
-    a string dependency, so a package that re-homes ``chat-kaye`` reaches
-    ``coder`` too; the per-language profiles stay persona-free, invoking ``coder``
+    ``coder`` is ``chat`` and ``persona`` plus the Coder rules, both named
+    as string dependencies, so a package replacing either in place reaches
+    ``coder`` too; never ``chat-kaye``, so what a package adds to
+    ``chat-kaye`` alone stays out of ``coder``; the per-language profiles
+    stay persona-free, invoking ``coder``
 
 
     :raises KeyError: a depended-on blueprint is not yet registered
@@ -42,8 +45,8 @@ def register_coder_blueprints():
     coder_node = get_corpus_node("Coder")
 
     # Coder
-    # Kaye Peer Coder: the conversation rules and persona of chat-kaye, plus
-    # the Coder rules and glossaries
+    # Kaye Peer Coder: the conversation rules and persona, plus the Coder
+    # rules and glossaries
     register_exportable(
         "coder",
         replace_meta(
@@ -51,7 +54,8 @@ def register_coder_blueprints():
                 create_blueprint_from_node(
                     coder_node,
                     dependencies=[
-                        "chat-kaye",
+                        "chat",
+                        "persona",
                         "element-triage-tags",
                         "repo-structure",
                         "proj-context-engineering",
@@ -66,7 +70,9 @@ def register_coder_blueprints():
             description_node=("Coder", "{description}"),
             when_to_use_node=("Coder", "{when_to_use}"),
         ),
-        render_profile=RenderProfile(conditional_sidecars=(SIDECAR_FOR_KAYE,)),
+        render_profile=RenderProfile(
+            conditional_sidecars=(SIDECAR_FOR_KAYE, SIDECAR_IN_CHAT)
+        ),
         always_apply=True,
     )
 
