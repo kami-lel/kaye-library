@@ -11,7 +11,8 @@ todo good morning incl finance report
 
 ### Added
 
-- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers depend on it
+- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers and the README Writer depend on it
+- Simplified Chinese docs: English key terms glossed in `[]` per the new skill
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
 
 ### Changed

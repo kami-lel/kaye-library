@@ -46,6 +46,7 @@ flowchart LR
     repo_doc_writer --> element_secondary_language_marking
     equip_proj_for_agent["equip-proj-for-agent"] --> proj_context_engineering["proj-context-engineering"]
     repo_readme_writer["repo-readme-writer"] --> style_briefness_style["style-briefness-style"]
+    repo_readme_writer --> element_secondary_language_marking
     repo_changelog_writer["repo-changelog-writer"] --> style_briefness_style
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
     repo_changelog_writer --> style_good_writing
