@@ -12,6 +12,8 @@ _LIBRARY_GLOSSARIES = (
     "agent-chat-directive-abbr",
     "agent-chat-discourse-unit",
     "agent-chat-turn-progress-dispatch-decorative",
+    "agent-movement-and-suite-decorative",
+    "agent-movement-and-suite-discourse-unit",
     "amanuensis-config-writer-shorthand",
     "amanuensis-config-keybinding-keyboards",
     "amanuensis-config-keybinding-controller",

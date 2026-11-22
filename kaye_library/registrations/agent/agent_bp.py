@@ -13,7 +13,10 @@ from kaye_engine.prompt.blueprint import (
 
 from .._common import register_internal, register_exportable, register_node
 
-__all__ = ("register_agent_blueprints",)
+__all__ = (
+    "register_agent_blueprints",
+    "register_agent_files_and_folders_blueprint",
+)
 
 
 def register_agent_blueprints():
@@ -80,4 +83,28 @@ def register_agent_blueprints():
         agent_behavior_node,
         "Task Blockage Workaround",
         recursively=True,
+    )
+
+
+def register_agent_files_and_folders_blueprint():
+    """
+    register ``agent-files-and-folders``, apart from the rest: its
+    letter case & date dependencies register after the Agent group
+
+
+    :raises ValueError: ``style-letter-case-kebab-case``,
+            ``style-letter-case-pascal-case`` or
+            ``element-dt-year-month-day-format`` is not yet registered
+    """
+    register_node(
+        register_exportable,
+        "agent-files-and-folders",
+        get_corpus_node("Agentic"),
+        "Files & Folders",
+        display_name="Agent Files and Folders",
+        dependencies=[
+            "style-letter-case-kebab-case",
+            "style-letter-case-pascal-case",
+            "element-dt-year-month-day-format",
+        ],
     )

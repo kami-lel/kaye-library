@@ -57,6 +57,7 @@ def _register_doc_writer(slug, leaf_name):
             "proj-docs",
             "style-good-writing",
             "element-secondary-language-marking",
+            "agent-files-and-folders",
         ],
     )
 

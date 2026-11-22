@@ -97,6 +97,7 @@ Supporting skills behind the vocabulary:
 
 - `/agent-movement-and-suite`: defines Suite and Movement
 - `/agent-movement-and-suite-with-count`: splits Movements into Counts, so progress reads as a fraction
+- `/agent-files-and-folders`: names new files in kebab case, folders in Pascal case, dated names led by the date; Plan files and doc writers load it
 
 
 
@@ -779,7 +780,11 @@ Most style skills are supporting: other skills load them for you, so one rule sh
 
 ### Markdown
 
-- `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
+- `/style-markdown-heading`: heading levels by real nesting, plus skipped-level local headings
+- `/style-markdown-list`: dash lists with Title Case labels, shorthand table cells
+- `/style-markdown-math`: LaTeX math, each formula glossed symbol by symbol
+- `/style-markdown-diagrams`: Mermaid diagrams and flowcharts
+- `/style-markdown-reference-link`: links woven into the sentence naming their topic
 - `/style-markdown-footnotes`: each footnote right beside the text that cites it
 - `/style-markdown-endnotes`: every definition gathered in one block at the end
 - `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path

@@ -78,7 +78,7 @@ def _register_scan_event_radar(slug, name, description, dropped_gather_node):
     )
 
 
-def _register_manage_calendar_leaf(slug, name, leaf_name):
+def _register_manage_calendar_leaf(slug, name, leaf_name, dependencies=None):
     """
     register a Calendar Management leaf with its parent
     """
@@ -88,11 +88,12 @@ def _register_manage_calendar_leaf(slug, name, leaf_name):
         ["Secretary", "calendar management"],
         leaf_name,
         display_name=name,
+        dependencies=dependencies,
         llm_invokable=False,
     )
 
 
-def _register_manage_gtd_leaf(slug, name, leaf_name):
+def _register_manage_gtd_leaf(slug, name, leaf_name, dependencies=None):
     """
     register a GTD Management leaf with its parent
     """
@@ -102,6 +103,7 @@ def _register_manage_gtd_leaf(slug, name, leaf_name):
         ["Secretary", "getting-things-done management"],
         leaf_name,
         display_name=name,
+        dependencies=dependencies,
         llm_invokable=False,
     )
 
@@ -210,6 +212,7 @@ def register_secretary_blueprints():
             "secretary-report-info-field-deadline",
             "secretary-report-info-field-link",
             "secretary-report-info-field-source",
+            "agent-movement-and-suite",
         ],
     )
 
@@ -233,6 +236,7 @@ def register_secretary_blueprints():
         "push-event-to-calendar",
         "Push Event to Calendar",
         "Push Event to Calendar",
+        dependencies=["agent-movement-and-suite"],
     )
 
     _register_manage_calendar_leaf(
@@ -242,7 +246,10 @@ def register_secretary_blueprints():
     )
 
     _register_manage_gtd_leaf(
-        "push-task-to-gtd", "Push Task to GTD", "Push Task to GTD"
+        "push-task-to-gtd",
+        "Push Task to GTD",
+        "Push Task to GTD",
+        dependencies=["agent-movement-and-suite"],
     )
 
     _register_manage_gtd_leaf(

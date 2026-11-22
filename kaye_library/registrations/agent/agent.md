@@ -49,41 +49,21 @@ Syntax: 1~3 lines, each pairing 1~2 symbol prefixes with a short [Title Case](#l
 
 (((agent-chat-turn-progress-dispatch-decorative)))
 
-Each example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
 
 ```markdown
-(user asks for the schema migration)
-(you backfill the new columns)
-🚩 Migration Script Complete
-(you wire the loader to the new columns)
-🚩 Config Loader Reading New Columns
-(you rebuild the entry point on the loader)
-🎏 Schema Migration Wired End to End
-🧭✍️ Open a PR, Awaiting Approval Next
-(user approves; new Turn, you open the pull request)
-```
-
-```markdown
+(user asks for a config loader that reads the new columns)
+(you write the parser)
+🚩 Parser Reading New Columns
 (two config keys claim one slot, and the loader cannot choose)
 🙋 Which Key Should Win on Collision
-(user answers: the environment key; new Turn, you apply the rule and extend the fixtures)
-🎏 Config Movement Done
-🔍 Fixture Diff Worth Reading Before the Next Movement
-```
-
-```markdown
-(you start pushing the branch)
-(user interrupts: run the linter first)
-(the linter comes back clean)
-🧭 Resume the Interrupted Push Next
-(user: continue)
-🥁 Resuming the Interrupted Push
-(you push the branch, start the integration suite, and dispatch a subagent for the release notes)
-💤 Awaiting the Integration Suite and the Notes Subagent
-(both report back, the suite red on the migration test)
-🥁 Resuming Once Both Reported
-(you remove the migration script behind the failures)
-🏁 Schema Migration Suite Complete
+(user answers: the environment key; new Turn, you apply the rule, then start the integration tests)
+💤 Awaiting the Integration Tests
+(the tests come back green)
+🥁 Resuming Once the Tests Passed
+(you finish the loader)
+🔍 Loader Diff Worth Reading
+🧭✍️ Open a PR, Awaiting Approval Next
 ```
 
 
@@ -97,7 +77,7 @@ At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it ski
 Write the message as 1 line: your dispatch, its lines joined with `↵`.
 
 ```text
-🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
+🚩 Config Loader Reading New Columns↵ 🙋 Which Key Should Win on Collision
 ```
 
 
@@ -153,6 +133,18 @@ When no specific naming format is required — for documents, resources, media, 
 
 
 
+### {description}
+
+Governs files & folders an agent touches: treats between-round changes as intentional user edits, names new non-code files in Kebab Case, folders in Pascal Case, dated names led by `0YYYYMMDD`
+
+### {when_to_use}
+
+Creating, naming, or renaming a document, resource, media file, or folder, or meeting a file changed since last round: "new file", "what to call this", "name the folder", dated notes or reports. Not for code identifiers or a project's fixed file names, eg `README.md`
+
+
+
+
+
 
 
 
@@ -191,6 +183,26 @@ A **Suite** is a workflow for explicit, multi-round user tasks — not simple, i
 - size to that end: worth a halt, small enough to grasp at a glance
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
 - number Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
+
+These extend the discourse units with the Suite's own terms. Abbreviations are decode-only: always use the full term in your response:
+
+(((agent-movement-and-suite-discourse-unit)))
+
+in general: Round < Movement < Suite
+
+Mark a Movement's close, or the whole Suite's, in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+
+(((agent-movement-and-suite-decorative)))
+
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+
+```markdown
+(you wire the loader to the new columns, closing Movement 1)
+🎏 Config Loader Reading New Columns
+(new Turn, you rebuild the entry point on the loader, the last Movement)
+🎏 Entry Point Rebuilt on the Loader
+🏁 Schema Migration Suite Complete
+```
 
 
 

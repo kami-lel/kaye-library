@@ -14,17 +14,25 @@ todo good morning incl finance report
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
 - `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
 - `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
+- `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format, now an `h3` under Markdown Format with its own description and when to use
+- `agent-files-and-folders` skill: the Files & Folders rules on their own; `plan-for-suite`, `dispositor`, and the Project & Repository Doc Writers depend on it
 
 ### Changed
 
+- Turn Progress Dispatch: every Movement and Suite mention moves under Movement and Suite: the 🎏 Movement finished & 🏁 Suite completed decoratives, in the new `agent-movement-and-suite-decorative` glossary, and the 3 examples using them; a new example covers every remaining decorative; the `PushNotification` example no longer uses 🎏
+- Discourse Unit: `movement`, `🧩`, `suite` move under Movement and Suite, in the new `agent-movement-and-suite-discourse-unit` glossary; chat keeps Turn, Round, Bar; the `in general: Bar < Turn < Round < Movement < Suite` ordering line is dropped
+- `agent-movement-and-suite`: now a dependency of every Movement-structured workflow: feature landing & version release (ready, perform, scrub), `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
 - `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
 - `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
 - Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
+- Personality `{in chat}`: Personality Content renamed Rapport Content and always opens with the signifier; a rapport-only response drops the blockquote, a response with Task Content keeps it
 
 ### Deprecated
 
 ### Removed
+
+- `style-markdown-extended` skill and its `Extended Markdown Format` heading: depend on the 5 `style-markdown-*` rule skills instead
 
 ### Fixed
 
