@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-18, v1.5.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-21, v1.5.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -22,7 +22,7 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
 | runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.1`) |
-| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 3 assets are the Desktop plugin zip and the Windows and Linux VS Code installers, named `kaye-library-VERSION-TYPE[-OS].ext`; a stable tag also runs `kaye-library build-github-marketplace market` and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there, so its README.md stays |
+| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 5 assets are the Desktop plugin zip, the Windows and Linux VS Code installers, and the Chat and Chat + Coder system prompts as `.md` files for marketplace users to paste by hand, named `kaye-library-VERSION-TYPE[-X].ext`; a stable tag also runs `kaye-library build-github-marketplace market` and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there, so its README.md stays |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
 ## Repository Layout
