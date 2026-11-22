@@ -777,7 +777,11 @@ GTD 是 *Getting Things Done*（中译《搞定》）的缩写，一套经典的
 
 ### Markdown
 
-- `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
+- `/style-markdown-heading`：标题层级按内容实际嵌套来定，另有跳级的局部标题
+- `/style-markdown-list`：短横线列表配 Title Case 标签，表格单元格用速记符号
+- `/style-markdown-math`：LaTeX 公式，逐个符号注释
+- `/style-markdown-diagrams`：Mermaid 图表与流程图
+- `/style-markdown-reference-link`：链接织入点明其主题的句子中
 - `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
 - `/style-markdown-endnotes`：所有注释统一作为尾注放在文末
 - `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接

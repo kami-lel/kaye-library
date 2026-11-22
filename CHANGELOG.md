@@ -14,6 +14,7 @@ todo good morning incl finance report
 - skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
 - `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
 - `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
+- `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format, now an `h3` under Markdown Format with its own description and when to use
 
 ### Changed
 
@@ -26,6 +27,8 @@ todo good morning incl finance report
 ### Deprecated
 
 ### Removed
+
+- `style-markdown-extended` skill and its `Extended Markdown Format` heading: depend on the 5 `style-markdown-*` rule skills instead
 
 ### Fixed
 

@@ -572,6 +572,20 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
                            '- keep sentences short, direct, drop filler'],
+ 'style-markdown-heading': ['### Markdown Heading Format',
+                            'A **local heading** is a skipped-level '
+                            'heading'],
+ 'style-markdown-list': ['### List Format',
+                         'Use `-` (dash) for bullet point lists',
+                         '<list-format-example>'],
+ 'style-markdown-math': ['### Math Formatting',
+                         'Use LaTeX for all mathematical expressions'],
+ 'style-markdown-diagrams': ['### Diagrams',
+                             'Use **Mermaid** syntax inside fenced code '
+                             'blocks'],
+ 'style-markdown-reference-link': ['### Reference Link Format',
+                                   'Weave reference links, relative or '
+                                   'external'],
  'style-markdown-file-assets': ['### Markdown File Assets',
                                 '`CHANGELOG.md` → `CHANGELOG-assets/`',
                                 'a relative path opening with `./`',
