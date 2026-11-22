@@ -42,16 +42,7 @@ Claude Desktop 有 3 种安装方式：
 
    ![“发现”视图里的 Kaye Library 和它的“添加”按钮](assets/claude-desktop-marketplace-step-7-add.png)
 
-8. 插件市场只安装插件，不含系统提示词，需要手动粘贴：
-   1. 从 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-system-prompt-coder.md`（只要 Chat 提示词则下载 `kaye-library-VERSION-claude-system-prompt-chat.md`）。
-   2. 打开文件，复制全部内容。
-   3. 在 Claude Desktop 中打开 *设置*，选择 *你的 Claude*。
-
-      ![“设置”里的“你的 Claude”](assets/claude-desktop-system-prompt-step-1-your-claude.png)
-
-   4. 把内容粘贴到 *指令* 中，然后保存。
-
-      ![“指令”输入框](assets/claude-desktop-system-prompt-step-2-instructions.png)
+8. 插件市场只安装插件，不含系统提示词：按照 [粘贴系统提示词](#粘贴系统提示词) 里的步骤添加。
 
 
 
@@ -63,6 +54,7 @@ Claude Desktop 有 3 种安装方式：
 
 1. 到 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-desktop-plugin.zip`。
 2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤上传。
+3. zip 包只安装插件，不含系统提示词：按照 [粘贴系统提示词](#粘贴系统提示词) 里的步骤添加。
 
 
 
@@ -79,6 +71,7 @@ Claude Desktop 有 3 种安装方式：
    ```
 
 2. 按照 [上传插件 Zip 文件](#上传插件-zip-文件) 里的步骤，上传当前目录下生成的 `kaye-library-claude-VERSION.zip`。
+3. zip 包只安装插件，不含系统提示词：按照 [粘贴系统提示词](#粘贴系统提示词) 里的步骤添加。
 
 
 
@@ -101,6 +94,22 @@ Claude Desktop 有 3 种安装方式：
 4. 把 zip 包拖进对话框，或者点击浏览并选择文件，然后点击 *上传*。
 
    ![“上传插件”对话框](assets/claude-desktop-step-4-upload-dialog.png)
+
+
+
+
+
+### 粘贴系统提示词
+
+1. 从 [GitHub Releases 页面](https://github.com/kami-lel/kaye-library/releases) 下载 `kaye-library-VERSION-claude-system-prompt-coder.md`（只要 Chat 提示词则下载 `kaye-library-VERSION-claude-system-prompt-chat.md`）。
+2. 打开文件，复制全部内容。
+3. 在 Claude Desktop 中打开 *设置*，选择 *你的 Claude*。
+
+   ![“设置”里的“你的 Claude”](assets/claude-desktop-system-prompt-step-1-your-claude.png)
+
+4. 把内容粘贴到 *指令* 中，然后保存。
+
+   ![“指令”输入框](assets/claude-desktop-system-prompt-step-2-instructions.png)
 
 
 
