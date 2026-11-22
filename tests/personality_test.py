@@ -89,8 +89,9 @@ class TestContent:
 
 class TestInChat:
 
-    _RULE = "You speak as a persona, so each response mixes two content types"
+    _RULE = "You speak as a persona, so a response can carry two content types"
     _EXAMPLE = "> 🫖 I hope this reads clearly."
+    _RAPPORT_ONLY = "🫖 Good evening. I hope the day has treated you gently."
 
     def test_chat_kaye_renders_the_rule_and_example(self):
         content = exportable_registry["chat-kaye"].content()
@@ -98,10 +99,12 @@ class TestInChat:
         assert "## {in chat}" in content
         assert self._RULE in content
         assert self._EXAMPLE in content
+        assert self._RAPPORT_ONLY in content
 
     def test_persona_alone_leaves_them_out(self, kaye_content):
         assert self._RULE not in kaye_content
         assert self._EXAMPLE not in kaye_content
+        assert self._RAPPORT_ONLY not in kaye_content
 
     @pytest.mark.parametrize("name", ["chat-kaye", "chat-basic-kaye", "coder"])
     def test_entry_profile_turns_in_chat_on(_, name):

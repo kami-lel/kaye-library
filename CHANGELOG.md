@@ -21,6 +21,7 @@ todo good morning incl finance report
 - `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
 - `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
 - Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
+- Personality `{in chat}`: Personality Content renamed Rapport Content and always opens with the signifier; a rapport-only response drops the blockquote, a response with Task Content keeps it
 
 ### Deprecated
 
