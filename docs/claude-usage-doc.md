@@ -42,6 +42,8 @@ There are 3 ways to install in Claude Desktop:
 
    ![Discover view with Kaye Library and its Add button](assets/claude-desktop-marketplace-step-7-add.png)
 
+8. The marketplace installs the plugin only, not the system prompt: add it as in [Paste the System Prompt](#paste-the-system-prompt).
+
 
 
 
@@ -52,6 +54,7 @@ Download a ready-made plugin file, then upload it.
 
 1. Download `kaye-library-VERSION-claude-desktop-plugin.zip` from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
 2. Upload it as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+3. The zip installs the plugin only, not the system prompt: add it as in [Paste the System Prompt](#paste-the-system-prompt).
 
 
 
@@ -68,6 +71,7 @@ Make the plugin file yourself, then upload it.
    ```
 
 2. Upload `kaye-library-claude-VERSION.zip` from the current directory, as in [Upload Plugin as Zip File](#upload-plugin-as-zip-file).
+3. The zip installs the plugin only, not the system prompt: add it as in [Paste the System Prompt](#paste-the-system-prompt).
 
 
 
@@ -90,6 +94,22 @@ Make the plugin file yourself, then upload it.
 4. Drop the zip into the dialog, or browse for it, then click *Upload*.
 
    ![Upload a plugin dialog](assets/claude-desktop-step-4-upload-dialog.png)
+
+
+
+
+
+### Paste the System Prompt
+
+1. Download `kaye-library-VERSION-claude-system-prompt-coder.md` (or `kaye-library-VERSION-claude-system-prompt-chat.md` for the Chat prompt alone) from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+2. Open the file and copy all of its content.
+3. In Claude Desktop, open *Settings* and choose *Your Claude*.
+
+   ![Settings with Your Claude](assets/claude-desktop-system-prompt-step-1-your-claude.png)
+
+4. Paste the content into *Instructions*, then save.
+
+   ![Instructions field](assets/claude-desktop-system-prompt-step-2-instructions.png)
 
 
 
@@ -133,7 +153,12 @@ There are 4 ways to install in the Claude Code VS Code Extension: pick one, then
 
    ![Plugins tab with kaye-library installed](assets/claude-vsc-marketplace-step-5-installed.png)
 
-6. Restart VS Code.
+6. The marketplace installs the plugin only, not the system prompt. Paste it by hand:
+   1. Download `kaye-library-VERSION-claude-system-prompt-coder.md` (or `kaye-library-VERSION-claude-system-prompt-chat.md` for the Chat prompt alone) from the [GitHub Releases page](https://github.com/kami-lel/kaye-library/releases).
+   2. Open the file and copy all of its content.
+   3. Paste it into `~/.claude/CLAUDE.md`, replacing what is there, then save.
+
+7. Restart VS Code.
 
 
 

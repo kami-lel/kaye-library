@@ -77,7 +77,9 @@ class TestEngineSubcommands:
 
         assert result.returncode == 0
         names = [p.name for p in tmp_path.iterdir()]
-        assert len(names) == 1 and names[0].startswith("kaye-library-claude-")
+        assert len(names) == 1
+        assert names[0].startswith("kaye-library-")
+        assert names[0].endswith("-claude-desktop-plugin.zip")
 
     def test_marketplace_is_engine_named_with_library_plugin_only(
         _, tmp_path
