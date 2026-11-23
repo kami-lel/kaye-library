@@ -9,51 +9,53 @@ todo good morning incl finance report
 
 ### Added
 
-- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers and the README Writer depend on it
-- Simplified Chinese docs: English key terms glossed in `[]` per the new skill
-- skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
-- `agent-task-blockage-workaround`: `Unblocked Report` reports only what is new when a blocked task resumes; `[web] Usage` unblocks web access by asking permission for an alternative access method or for pasted content
-- `good-week`: when Bar 1 and Bar 2 both meet a task blockage, the partial report comes first, then Bar 1, then Bar 2
-- `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format, now an `h3` under Markdown Format with its own description and when to use
-- `agent-files-and-folders` skill: the Files & Folders rules on their own; `plan-for-suite`, `dispositor`, and the Project & Repository Doc Writers depend on it
-
 ### Changed
-
-- `{[ClaudeVSC]}` sidecars in Coder and Meta Prompt renamed `{[for Claude VSC]}`, following the engine's renamed `claude-vsc` identity sidecar
-- Meta Prompt: the never-rendered `{[ClaudeVSC] Usage}` block becomes a `{[for Claude VSC]}` child of `{[Claude:Read/Write/Edit~] Usage}`, holding only the closing prompt file link, so Claude VSC now gets that link
-- Turn Progress Dispatch: every Movement and Suite mention moves under Movement and Suite: the 🎏 Movement finished & 🏁 Suite completed decoratives, in the new `agent-movement-and-suite-decorative` glossary, and the 3 examples using them; a new example covers every remaining decorative; the `PushNotification` example no longer uses 🎏
-- Discourse Unit: `movement`, `🧩`, `suite` move under Movement and Suite, in the new `agent-movement-and-suite-discourse-unit` glossary; chat keeps Turn, Round, Bar; the `in general: Bar < Turn < Round < Movement < Suite` ordering line is dropped
-- `agent-movement-and-suite`: now a dependency of every Movement-structured workflow: feature landing & version release (ready, perform, scrub), `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
-- `Co-author Trailer`: bans a generic model or provider name in a trailer, even when a harness instructs one; the `{avoid}` sidecar is gone
-- `agent-unreachable-task-workaround` blueprint: renamed `agent-task-blockage-workaround` (heading `Task Blockage Workaround`); the body speaks of a blocked task
-- `commit-sense`, `commit-sense-branch-merging`: examples moved under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries the trailer
-- Meta Prompt: `Explain Constraints` replaced by `Instruct Directly`, plain commands with minimal explanation
-- Personality `{in chat}`: Personality Content renamed Rapport Content and always opens with the signifier; a rapport-only response drops the blockquote, a response with Task Content keeps it
-- Personality `{in chat}`: Rapport Content must be creative, inventing freely and diverging from the information already in the conversation
 
 ### Deprecated
 
 ### Removed
 
-- `style-markdown-extended` skill and its `Extended Markdown Format` heading: depend on the 5 `style-markdown-*` rule skills instead
-
 ### Fixed
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
 
+## [1.6.0] - 2026-11-23
 
+### Added
 
+- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers & README Writer depend on it
+- Simplified Chinese docs: English key terms glossed in `[]`
+- skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
+- `agent-task-blockage-workaround`: `Unblocked Report` states only what is new on resume; `[web] Usage` unblocks web access by asking permission for an alternative method or pasted content
+- `good-week`: when Bar 1 & Bar 2 both meet a task blockage, the partial report comes first
+- `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format as its own skill
+- `agent-files-and-folders` skill: the Files & Folders rules alone; `plan-for-suite`, `dispositor` & the Project & Repository Doc Writers depend on it
 
+### Changed
 
+- `kaye-engine` pin `v13.0.1` -> `v13.0.2`
+- `{[ClaudeVSC]}` sidecars in Coder & Meta Prompt renamed `{[for Claude VSC]}`, following the engine; Meta Prompt's closing prompt file link now reaches Claude VSC
+- Turn Progress Dispatch: Movement & Suite decoratives (🎏, 🏁) & Discourse Unit terms move under Movement and Suite, in new glossaries `agent-movement-and-suite-decorative` & `agent-movement-and-suite-discourse-unit`; chat keeps Turn, Round, Bar
+- `agent-movement-and-suite` is a dependency of every Movement-structured workflow: feature landing, version release, `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
+- `Co-author Trailer` bans a generic model or provider name, even when a harness instructs one
+- `agent-unreachable-task-workaround` blueprint renamed `agent-task-blockage-workaround`
+- `commit-sense`, `commit-sense-branch-merging`: examples sit under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries it
+- Meta Prompt: `Explain Constraints` -> `Instruct Directly`, plain commands with minimal explanation
+- Personality `{in chat}`: Rapport Content (formerly Personality Content) always opens with the signifier & must be creative; a rapport-only response drops the blockquote
 
+> [!WARNING]
+> Breaking: blueprint `agent-unreachable-task-workaround` renamed `agent-task-blockage-workaround`, & `{[ClaudeVSC]}` sidecars renamed `{[for Claude VSC]}`; consumers selecting or keying on the old names switch to the new
 
+### Removed
 
+- `style-markdown-extended` skill & its `Extended Markdown Format` heading: depend on the 5 `style-markdown-*` skills instead
 
+> [!WARNING]
+> Breaking: skill `style-markdown-extended` gone; consumers depending on it switch to the 5 `style-markdown-*` skills
 
-
-
+[1.6.0]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...v1.6.0
 
 ## [1.5.1] - 2026-11-21
 

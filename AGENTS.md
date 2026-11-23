@@ -37,8 +37,9 @@ Requires Python 3.11+. Importing `kaye_library` loads nothing: call `setup_kaye_
 
 ## Content Rules
 
-- keep every prompt free of the user's personal data: no names, contact data, accounts, or schedules; a persona the library ships may carry its public identity (display name, bot account email) behind its `{for <persona>}` sidecar; a personal taste expressed as a rule ships as a default a consumer overrides with `override_exportable`; a generic default list (the Secretary calendar, GTD project, and email category glossaries) ships as a registered glossary; a value only a consumer can know, spliced by a `(((placeholder)))`, is registered by the consumer only, since a second registration of a glossary or substitution raises `ValueError`, so the library skill renders that placeholder literally when run alone
-- the standalone setup alone registers a default for each such placeholder (`secretary-email-authuser` is `0`, in `registrations/chat/chat_bp.py`), so a standalone export leaves no `(((placeholder)))` behind; a composing host registers its own
+- keep every prompt free of the user's personal data: no names, contact data, accounts, or schedules; the one shipped persona may carry its public identity (display name, bot account email) behind its `{for <persona>}` sidecar
+- a personal taste expressed as a rule ships as a default a consumer overrides with `override_exportable`; a generic default list (the Secretary calendar, GTD project, and email category glossaries) ships as a registered glossary
+- a value only a consumer can know, spliced by a `(((placeholder)))`, is registered by the consumer only: a second registration of a glossary or substitution raises `ValueError`. Only the standalone setup registers a default for each (`secretary-email-authuser` is `0`, in `registrations/chat/chat_bp.py`), so a standalone export leaves none behind
 - never name a downstream package in code, corpus, docs, tests, or commit messages
 - an abbreviation entry belongs in `kaye_library/abbrs.json` only when a glossary that library text splices needs it; name only glossaries this package registers
 - `tests/privacy_test.py` scans every shipped file for private strings: extend its generic list, never trim it; personal strings (names, emails, ids, domains) go in the gitignored `tests/privacy-forbidden.local.txt`, 1 per line, never in a committed file
@@ -64,8 +65,7 @@ Scope each run to the area touched; run everything only before a merge.
 - `tests/invocation_test.py` fails when library text tells the assistant to invoke a skill the library does not register: point it at a library skill, never at one a downstream package supplies
 - `tests/docs_test.py` checks every relative link and anchor in the root documents
 - never run `kaye-library claude code`, `vs-code-extension`, or `marketplace` without a folder argument while testing: they write into the real `~/.claude/`; `vs-code-extension` also edits its `settings.json`
-- `kaye-library build-github-release-assets` takes one required `OUTPUT` folder and writes every release asset there: the plugin zip, 2 installers, 2 system prompt `.md` files
-- `kaye-library build-github-marketplace OUTPUT` writes the marketplace repo root; `scripts/sync-marketplace-paths.sh SRC DEST` replaces only `.claude-plugin/`, `.agents/`, `plugins/` in DEST, so rehearse a push against a scratch `git init` folder, never the real repo
+- `kaye-library build-github-release-assets OUTPUT` and `build-github-marketplace OUTPUT` each take one required folder; `scripts/sync-marketplace-paths.sh SRC DEST` replaces only `.claude-plugin/`, `.agents/`, `plugins/` in DEST, so rehearse a push against a scratch `git init` folder, never the real repo
 
 ## PR & Commit Instructions
 
