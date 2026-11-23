@@ -55,15 +55,15 @@ class TestTurnProgressDispatch:
         assert "DNT" not in text
 
 
-class TestUnreachableTaskWorkaround:
+class TestTaskBlockageWorkaround:
 
     def test_node_under_agentic(_):
         names = {c.name for c in _agentic().children}
 
-        assert "Unreachable Task Workaround" in names
+        assert "Task Blockage Workaround" in names
 
     def test_blueprint_is_internal(_):
-        entry = blueprint_registry["agent-unreachable-task-workaround"]
+        entry = blueprint_registry["agent-task-blockage-workaround"]
 
         assert not entry.is_exportable
-        assert "agent-unreachable-task-workaround" not in exportable_registry
+        assert "agent-task-blockage-workaround" not in exportable_registry

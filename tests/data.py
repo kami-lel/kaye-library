@@ -300,6 +300,8 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                                       '`H 02015-01-15`, `02015-01-15`, `A '
                                       '01984-12-31`',
                                       'Day of week codes:'],
+ 'element-secondary-language-marking': ['## Secondary Language Marking',
+                                        '[config file]'],
  'element-international-phonetic-alphabet': ['## International Phonetic '
                                              'Alphabet',
                                              'Always use slashes: /wɜːrd/',
@@ -570,6 +572,23 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                            '- omit articles (a, an, the) and helper '
                            'verbs, ',
                            '- keep sentences short, direct, drop filler'],
+ 'agent-files-and-folders': ['## Files & Folders',
+                             'treat them as intentional user edits',
+                             '`020260826-weekly-standup.md`'],
+ 'style-markdown-heading': ['### Markdown Heading Format',
+                            'A **local heading** is a skipped-level '
+                            'heading'],
+ 'style-markdown-list': ['### List Format',
+                         'Use `-` (dash) for bullet point lists',
+                         '<list-format-example>'],
+ 'style-markdown-math': ['### Math Formatting',
+                         'Use LaTeX for all mathematical expressions'],
+ 'style-markdown-diagrams': ['### Diagrams',
+                             'Use **Mermaid** syntax inside fenced code '
+                             'blocks'],
+ 'style-markdown-reference-link': ['### Reference Link Format',
+                                   'Weave reference links, relative or '
+                                   'external'],
  'style-markdown-file-assets': ['### Markdown File Assets',
                                 '`CHANGELOG.md` → `CHANGELOG-assets/`',
                                 'a relative path opening with `./`',
@@ -684,6 +703,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'element-dt-year-month-day-format': 'Formats a date carrying a year, day '
                                      'of week prefix optional',
  'element-international-phonetic-alphabet': 'IPA transcription',
+ 'element-secondary-language-marking': 'Glosses a key term in a secondary language',
  'element-numerical-values-with-units': 'Presents numerical values in both metric and US units',
  'element-triage-tags': 'defect/note labels spanning code and docs across '
                         '3 case tiers (Loud/Steady/Quiet), with per-tag '

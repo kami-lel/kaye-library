@@ -44,7 +44,11 @@ def _register_dispositor_family(amanuensis_node):
         replace_meta(
             create_blueprint_from_node(
                 dispositor_node,
-                dependencies=["style-heading-separation", "style-good-writing"],
+                dependencies=[
+                    "style-heading-separation",
+                    "style-good-writing",
+                    "agent-files-and-folders",
+                ],
             ),
             display_name="Dispositor",
         ),

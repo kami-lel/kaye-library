@@ -30,7 +30,8 @@ def register_branch_blueprints():
     version release workflow prompts
 
 
-    :raises KeyError: ``proj-version-extended``, ``proj-version-title``,
+    :raises KeyError: ``agent-movement-and-suite``,
+            ``proj-version-extended``, ``proj-version-title``,
             ``style-briefness-style``, or
             ``style-letter-case-commentary-case`` is not yet registered
     """
@@ -92,7 +93,7 @@ def register_branch_blueprints():
         "ready-land-feature",
         git_node,
         "Ready for Feature Landing",
-        dependencies=["git-feature-discover"],
+        dependencies=["git-feature-discover", "agent-movement-and-suite"],
     )
 
     # Ready Release Version
@@ -101,7 +102,7 @@ def register_branch_blueprints():
         "ready-release-version",
         git_node,
         "Ready for Version Release",
-        dependencies=["proj-version-extended"],
+        dependencies=["proj-version-extended", "agent-movement-and-suite"],
     )
 
     # Scrub Landed Feature
@@ -110,7 +111,7 @@ def register_branch_blueprints():
         "scrub-landed-feature",
         git_node,
         "Scrub After Feature Landing",
-        dependencies=["git-feature-branch"],
+        dependencies=["git-feature-branch", "agent-movement-and-suite"],
     )
 
     # Scrub Released Version
@@ -119,7 +120,7 @@ def register_branch_blueprints():
         "scrub-released-version",
         git_node,
         "Scrub After Version Release",
-        dependencies=["proj-version-title"],
+        dependencies=["proj-version-title", "agent-movement-and-suite"],
     )
 
     # Land Feature
@@ -128,6 +129,7 @@ def register_branch_blueprints():
         "land-feature",
         git_node,
         "Perform Feature Landing",
+        dependencies=["agent-movement-and-suite"],
     )
 
     # Release Version
@@ -136,4 +138,5 @@ def register_branch_blueprints():
         "release-version",
         git_node,
         "Perform Version Release",
+        dependencies=["agent-movement-and-suite"],
     )

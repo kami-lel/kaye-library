@@ -785,7 +785,7 @@ Except when the entire Plan is completed — then end with a 1-line Turn Progres
 🏁 Auth Refactor
 ```
 
-##### {[ClaudeVSC]}
+##### {[for Claude VSC]}
 
 Link each line to the Plan file, at the line number of that Movement's heading — or to the Plan file itself when naming a completed Plan:
 

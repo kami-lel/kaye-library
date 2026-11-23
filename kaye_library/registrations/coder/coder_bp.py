@@ -88,7 +88,10 @@ def register_coder_blueprints():
             create_blueprint_from_node(
                 plan_for_suite_node,
                 is_recursive=True,
-                dependencies=["agent-movement-and-suite"],
+                dependencies=[
+                    "agent-movement-and-suite",
+                    "agent-files-and-folders",
+                ],
             ),
             plan_for_suite_execution_node,
         ),

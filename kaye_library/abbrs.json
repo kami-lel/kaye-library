@@ -415,10 +415,10 @@
     "abbrs": {
       "🎏": {
         "priority": 12,
-        "remark": "one reviewable chunk of the task closes, per [Movement and Suite](#movement-and-suite)",
+        "remark": "one reviewable chunk of the task closes",
         "tags": [
           "emoji",
-          "agent-chat-turn-progress-dispatch-decorative"
+          "agent-movement-and-suite-decorative"
         ],
         "wrap": "symbol"
       }
@@ -2144,16 +2144,16 @@
     "abbrs": {
       "mvmt": {
         "priority": 40,
-        "remark": "self-contained, reviewable unit of a task, per [Movement and Suite](#movement-and-suite); usually Movement=Turn, sometimes spans multiple Rounds",
+        "remark": "self-contained, reviewable unit of a task; usually Movement=Turn, sometimes spans multiple Rounds",
         "tags": [
-          "agent-chat-discourse-unit"
+          "agent-movement-and-suite-discourse-unit"
         ],
         "wrap": "word"
       },
       "🧩": {
         "priority": 41,
         "tags": [
-          "agent-chat-discourse-unit"
+          "agent-movement-and-suite-discourse-unit"
         ],
         "wrap": "symbol"
       }
@@ -3732,9 +3732,9 @@
     "abbrs": {
       "suite": {
         "priority": 60,
-        "remark": "unit contains 1+ Movements; per [Movement and Suite](#movement-and-suite)",
+        "remark": "unit contains 1+ Movements",
         "tags": [
-          "agent-chat-discourse-unit",
+          "agent-movement-and-suite-discourse-unit",
           "term_definition"
         ],
         "wrap": "word"
@@ -3785,7 +3785,7 @@
         "remark": "nothing pending anywhere; rare, expect several 🚩/🎏 before one",
         "tags": [
           "emoji",
-          "agent-chat-turn-progress-dispatch-decorative"
+          "agent-movement-and-suite-decorative"
         ],
         "wrap": "symbol"
       }

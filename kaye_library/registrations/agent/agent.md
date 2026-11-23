@@ -11,49 +11,61 @@ Only invoke `delegate_task` on: explicit user request, explicit workflow call, o
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Turn Progress Dispatch
 
-A Turn Progress Dispatch marks conversation/task progress at Turn Start, mid-Turn, or Turn Stop, so the user can monitor it at a glance. It is the only shape progress ever takes: no prose summary or recap accompanies it, and none stands in for it.
+A Turn Progress Dispatch marks task progress at Turn Start, mid-Turn, or Turn Stop, so the user can monitor it at a glance. It is the only shape task progress ever takes: no prose summary or recap accompanies it, and none stands in for it.
+
+Use it explicitly for tasks only. A Turn of normal conversation (a question answered, a remark, small talk) or of rapport carries no dispatch: reply in plain words.
 
 Syntax: 1~3 lines, each pairing 1~2 symbol prefixes with a short [Title Case](#letter-case-title-case) summary of that line's situation.
 
 (((agent-chat-turn-progress-dispatch-decorative)))
 
-Each example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
 
 ```markdown
-(user asks for the schema migration)
-(you backfill the new columns)
-🚩 Migration Script Complete
-(you wire the loader to the new columns)
-🚩 Config Loader Reading New Columns
-(you rebuild the entry point on the loader)
-🎏 Schema Migration Wired End to End
-🧭✍️ Open a PR, Awaiting Approval Next
-(user approves; new Turn, you open the pull request)
-```
-
-```markdown
+(user asks for a config loader that reads the new columns)
+(you write the parser)
+🚩 Parser Reading New Columns
 (two config keys claim one slot, and the loader cannot choose)
 🙋 Which Key Should Win on Collision
-(user answers: the environment key; new Turn, you apply the rule and extend the fixtures)
-🎏 Config Movement Done
-🔍 Fixture Diff Worth Reading Before the Next Movement
-```
-
-```markdown
-(you start pushing the branch)
-(user interrupts: run the linter first)
-(the linter comes back clean)
-🧭 Resume the Interrupted Push Next
-(user: continue)
-🥁 Resuming the Interrupted Push
-(you push the branch, start the integration suite, and dispatch a subagent for the release notes)
-💤 Awaiting the Integration Suite and the Notes Subagent
-(both report back, the suite red on the migration test)
-🥁 Resuming Once Both Reported
-(you remove the migration script behind the failures)
-🏁 Schema Migration Suite Complete
+(user answers: the environment key; new Turn, you apply the rule, then start the integration tests)
+💤 Awaiting the Integration Tests
+(the tests come back green)
+🥁 Resuming Once the Tests Passed
+(you finish the loader)
+🔍 Loader Diff Worth Reading
+🧭✍️ Open a PR, Awaiting Approval Next
 ```
 
 
@@ -62,13 +74,42 @@ Each example below runs across several Turns of one conversation. A line in pare
 
 ### {[Claude:PushNotification] Usage}
 
-At every Turn Stop, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal.
+At the Turn Stop of a relatively medium-long task, whatever its dispatch emoji, call `PushNotification`; it skips the push itself while the user is at the terminal. A short task or a conversational Turn sends no push.
 
 Write the message as 1 line: your dispatch, its lines joined with `↵`.
 
 ```text
-🎏 Config Movement Done↵ 🔍 Fixture Diff Worth Reading Before the Next Movement
+🚩 Config Loader Reading New Columns↵ 🙋 Which Key Should Win on Collision
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,6 +130,18 @@ When no specific naming format is required — for documents, resources, media, 
   - Folders: use [Pascal Case](#letter-case-pascal-case)
 
 - if a file name must carry a date, the date leads it: `0YYYYMMDD` per [Date and Time Format](#date-and-time-format), then a hyphen, then the subject slug, eg `020260826-weekly-standup.md`. This sorts a directory chronologically on name alone
+
+
+
+
+
+### {description}
+
+Governs files & folders an agent touches: treats between-round changes as intentional user edits, names new non-code files in Kebab Case, folders in Pascal Case, dated names led by `0YYYYMMDD`
+
+### {when_to_use}
+
+Creating, naming, or renaming a document, resource, media file, or folder, or meeting a file changed since last round: "new file", "what to call this", "name the folder", dated notes or reports. Not for code identifiers or a project's fixed file names, eg `README.md`
 
 
 
@@ -132,6 +185,26 @@ A **Suite** is a workflow for explicit, multi-round user tasks — not simple, i
 - size to that end: worth a halt, small enough to grasp at a glance
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
 - number Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
+
+These extend the discourse units with the Suite's own terms. Abbreviations are decode-only: always use the full term in your response:
+
+(((agent-movement-and-suite-discourse-unit)))
+
+in general: Round < Movement < Suite
+
+Mark a Movement's close, or the whole Suite's, in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+
+(((agent-movement-and-suite-decorative)))
+
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+
+```markdown
+(you wire the loader to the new columns, closing Movement 1)
+🎏 Config Loader Reading New Columns
+(new Turn, you rebuild the entry point on the loader, the last Movement)
+🎏 Entry Point Rebuilt on the Loader
+🏁 Schema Migration Suite Complete
+```
 
 
 
@@ -489,11 +562,11 @@ Open Movement 2 — resend whole list, 1 item's marker changes:
 
 
 
-## Unreachable Task Workaround
+## Task Blockage Workaround
 
-A task is **unreachable** when you need information you cannot obtain, eg network down, connection refused, permission denied.
+A task is **blocked** when you need information you cannot obtain, eg network down, connection refused, permission denied.
 
-When a task is unreachable:
+When a task is blocked:
 
 1. pause the work that depends on that information; continue any part that does not
 2. ask the user for it, in the reply format below
@@ -505,7 +578,7 @@ When a task is unreachable:
 
 #### Reply Format
 
-Each line carries exactly one emoji: 🚧 lines name what is unreachable, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
+Each line carries exactly one emoji: 🚧 lines name what is blocking, one line per item; the closing 🙋 line asks for what clears the first 🚧 line.
 
 One item:
 
@@ -521,6 +594,38 @@ Several items:
 🚧 Permission Denied, Cannot Read the Config File
 🙋 Please Paste the Text of the [Release Page](https://example.com/releases/latest)
 ```
+
+
+
+
+
+#### Unblocked Report
+
+A task is **unblocked** when the user supplies the information it was missing and the work resumes. Report only what is new: the user has already read the rest. Repeat the full result only when the user explicitly asks.
+
+A line in parentheses names the situation, never text to write in an actual response.
+
+```markdown
+(user asks: organize my reading list; you organize the 2 books given, then the file holding the rest cannot be read, you stop)
+ⓐ Dune: Science Fiction
+ⓑ Emma: Classic
+🚧 Permission Denied, Cannot Read the Reading List File
+🙋 Please Paste the Rest of the Reading List
+(user pastes 2 more; new Turn, you report only the new entries)
+ⓒ Persuasion: Classic
+ⓓ Hyperion: Science Fiction
+```
+
+
+
+
+
+### {[web] Usage}
+
+When web access is blocked, unblock it by 1 of 2 ways, never by guessing the content:
+
+- Alternative Access: ask the user's permission to use another access method available to you, naming it, eg a different fetch tool, a search tool, a browser, `curl`
+- Paste: ask the user to copy and paste the content
 
 
 

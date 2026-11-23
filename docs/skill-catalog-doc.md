@@ -97,6 +97,7 @@ Supporting skills behind the vocabulary:
 
 - `/agent-movement-and-suite`: defines Suite and Movement
 - `/agent-movement-and-suite-with-count`: splits Movements into Counts, so progress reads as a fraction
+- `/agent-files-and-folders`: names new files in kebab case, folders in Pascal case, dated names led by the date; Plan files and doc writers load it
 
 
 
@@ -289,6 +290,12 @@ Commits worth reading. Clean merges. Parallel work without collisions.
 
 - a sharp **summary line**: the one-line headline of the change
 - a **per-file ledger**: what changed in each file, and why
+
+Or type a single letter or two in chat to invoke this skill:
+
+- `g`: commit this chat's changes
+- `gi`: commit what's indexed
+- `ig`: index everything, then commit
 
 `/commit-sense-branch-merging` does the same for merge messages. A merge joins one branch, a separate line of work, back into another.
 
@@ -773,7 +780,11 @@ Most style skills are supporting: other skills load them for you, so one rule sh
 
 ### Markdown
 
-- `/style-markdown-extended`: labeled lists, LaTeX math, Mermaid diagrams
+- `/style-markdown-heading`: heading levels by real nesting, plus skipped-level local headings
+- `/style-markdown-list`: dash lists with Title Case labels, shorthand table cells
+- `/style-markdown-math`: LaTeX math, each formula glossed symbol by symbol
+- `/style-markdown-diagrams`: Mermaid diagrams and flowcharts
+- `/style-markdown-reference-link`: links woven into the sentence naming their topic
 - `/style-markdown-footnotes`: each footnote right beside the text that cites it
 - `/style-markdown-endnotes`: every definition gathered in one block at the end
 - `/style-markdown-file-assets`: each file's images in its own sibling folder, eg `CHANGELOG-assets/`, linked by relative path
@@ -875,6 +886,7 @@ More building blocks:
 
 - `/element-numerical-values-with-units`: metric and US units side by side, correctly abbreviated
 - `/element-international-phonetic-alphabet`: IPA pronunciation after any tricky word, in any language
+- `/element-secondary-language-marking`: key terms glossed in a second language, in `[]`; the doc writers use it
 - `/element-alphabetical-sequence-numbering`: circled letters (ⓐ, ⓑ, ⓒ) for choices, so you answer with one letter
 - `/element-triage-tags`: `BUG`, `FIXME`, `TODO`, and `HACK` in three loudness tiers
 - `/sort-and-group-triage-tag`: sorts existing tags into tidy groups, changes nothing else

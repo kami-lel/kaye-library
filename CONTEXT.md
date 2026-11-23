@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-21, v1.5.1. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-23, v1.6.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -22,7 +22,7 @@ The dependency runs one way: `kaye_library` imports `kaye_engine`, never a consu
 | language | Python, 3.11 or newer |
 | packaging | setuptools; console script `kaye-library`; `registrations/**/*.md` and `abbrs.json` ship as package data |
 | runtime dependencies | `kaye-engine` (git reference at an exact tag, not on PyPI), `kamilog` (git, pinned at `v3.0.1`) |
-| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches all of `dist/` to a GitHub Release, a pre-release for `-alpha` and `-beta`; the 5 assets are the Desktop plugin zip, the Windows and Linux VS Code installers, and the Chat and Chat + Coder system prompts as `.md` files for marketplace users to paste by hand, named `kaye-library-VERSION-TYPE[-X].ext`; a stable tag also runs `kaye-library build-github-marketplace market` and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there, so its README.md stays |
+| release | `.github/workflows/release.yml`: a `v*` tag equal to the `pyproject.toml` version runs `kaye-library build-github-release-assets dist` and attaches `dist/` to a GitHub Release (a pre-release for `-alpha` and `-beta`): the Desktop plugin zip, the Windows and Linux VS Code installers, and the Chat and Chat + Coder system prompts as `.md`, named `kaye-library-VERSION-TYPE[-X].ext`; a stable tag also builds the marketplace and pushes it to `kami-lel/kaye-library-marketplace` through `scripts/sync-marketplace-paths.sh` and the `MARKETPLACE_DEPLOY_KEY` deploy key, committing `release vX.Y.Z` and tagging it when changed; only `.claude-plugin/`, `.agents/`, `plugins/` are replaced there |
 | test dependencies | `pytest`, `pydantic`, `pyyaml` |
 
 ## Repository Layout
@@ -64,7 +64,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 | Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
 | Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
-| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, ASCII only, Alphabetical Sequence Numbering |
+| Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, Secondary Language Marking, ASCII only, Alphabetical Sequence Numbering |
 | Projects | Semantic Version, AGENTS and doc writers, Project Context Engineering |
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
@@ -101,8 +101,8 @@ Glossaries register in `registrations/<group>/<group>_glossary.py` through `regi
 - ships: reusable craft and conventions, written persona-free; a personal taste expressed as a rule ships as a default any consumer can override; one public persona, Kaye, under the `Personality` root, its display name behind its `{for Kaye}` sidecar
 - stays out: the user's identity, contact data, accounts, schedules, finance, media libraries, a host's own personas and their routers, and any corpus no library blueprint selects
 - `tests/privacy_test.py` enforces the boundary over every shipped file; without the gitignored `tests/privacy-forbidden.local.txt` only its generic check runs
-- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer`, so they sign as Kaye; a host's personas add their own `{for <persona>}` trailers under that heading
-- the `Coder` root carries no conversation rules: the `coder` skill, Kaye Peer Coder, adds them by depending on `chat` and `persona`, never `chat-kaye`, while every language profile invokes `coder` and stays persona-free; a host that re-homes `chat-kaye` may re-home `coder` too, only to move it into its own plugin
+- `commit-sense` and `commit-sense-branch-merging` render the `for Kaye` sidecar of their `Co-author Trailer` and of their own node (the examples), so they sign as Kaye; the merge skill always appends the trailer; a host's personas add their own `{for <persona>}` trailers under that heading
+- the `Coder` root carries no conversation rules: the `coder` skill adds them through `chat` and `persona`, while every language profile invokes `coder` and stays persona-free
 
 ## Abbreviation Database
 

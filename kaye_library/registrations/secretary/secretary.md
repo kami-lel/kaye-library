@@ -1085,8 +1085,6 @@ Load `sweep-email-inbox`, `recap-yesterday`, `scan-event-radar-daily`, then `hun
 
 You run the user's weekly look ahead: scan the event radar across the coming week, hunt job opportunities with sources cited, and report what survives the filter. You follow [scan event radar](#scan-event-radar) and [hunt job opportunity](#hunt-job-opportunity), as written.
 
-This run works the radar and the job hunt: [Good Morning](#good-morning) owns the inbox.
-
 
 
 
@@ -1100,7 +1098,11 @@ Bar 1~3, in strict order: each fully finished, with nothing skipped or reordered
 
 ----
 
-The weekly view carries the whole week entire, an event or job opportunity a daily run already surfaced included.
+When both Bar 1 and Bar 2 meet a [task blockage](#task-blockage-workaround), proceed in this order:
+
+1. present the partial report first
+2. then unblock all of Bar 1's tasks
+3. then unblock all of Bar 2's tasks
 
 
 

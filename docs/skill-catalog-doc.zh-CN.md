@@ -95,6 +95,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 - `/agent-movement-and-suite`：定义 Suite 和 Movement
 - `/agent-movement-and-suite-with-count`：把每个 Movement 再拆成若干 Count，进度到了几分之几一目了然
+- `/agent-files-and-folders`：新文件用 kebab case、文件夹用 Pascal case 命名，带日期的名称以日期开头；计划文件和文档写作技能会加载它
 
 
 
@@ -283,12 +284,18 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 ### 提交与合并
 
-`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。提交（commit）就是给你的改动存一份快照，提交信息得说清改了什么。说一句“提交一下”，就能得到：
+`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。提交[commit]就是给你的改动存一份快照，提交信息得说清改了什么。说一句“提交一下”，就能得到：
 
 - 一行**精准的摘要**：这次改动的标题
 - **逐文件的改动清单**：每个文件改了什么、为什么改
 
-`/commit-sense-branch-merging` 则负责合并提交的信息。合并（merge）就是把一条分支（一条独立的开发线）并入另一条。
+也可以在聊天中输入一两个字母来调用这个技能：
+
+- `g`：提交本次对话的改动
+- `gi`：提交已加入暂存区[index]的内容
+- `ig`：全部加入暂存区[index]，再提交
+
+`/commit-sense-branch-merging` 则负责合并提交的信息。合并[merge]就是把一条分支（一条独立的开发线）并入另一条。
 
 分支生命周期的其他环节：
 
@@ -312,7 +319,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 三个功能同时开发，谁也不碍着谁。
 
-通常一个目录同一时间只能检出一条分支，做到一半切分支，工作区就乱了。**关联工作树**（linked worktree）是同一仓库额外检出的一个工作目录，固定在自己的分支上。每个任务一个目录，改动互不影响。
+通常一个目录同一时间只能检出一条分支，做到一半切分支，工作区就乱了。**关联工作树**[linked worktree]是同一仓库额外检出的一个工作目录，固定在自己的分支上。每个任务一个目录，改动互不影响。
 
 - `/tend-linked-wt` 🌟：管一棵工作树的整个生命周期，从创建到移除
 - `/plant-linked-wt`：为新任务创建一棵
@@ -670,7 +677,7 @@ GTD 是 *Getting Things Done*（中译《搞定》）的缩写，一套经典的
 | `/u3d-if` | Inspector 字段策划可以放心调；字段改名后，已保存的数值也不会丢 |
 | `/u3d-mb` | 所有 `MonoBehaviour` 都用同一种结构，Inspector 里漏拖的引用启动时就会报出来 |
 | `/u3d-so` | 所有 `ScriptableObject` 都用同一种结构，运行时数据只读且始终有效 |
-| `/u3d-pfb` | 尽早做成预制体（Prefab）和变体，改一处，所有实例跟着变 |
+| `/u3d-pfb` | 尽早做成预制体[Prefab]和变体，改一处，所有实例跟着变 |
 | `/u3d-game-tuning` | 把游戏数值从代码里搬到策划可编辑的数据中，调平衡不用重新编译 |
 | `/u3d-owner-driven-activation` | 临时出现的对象统一交给一个“主人”来生成、显示和隐藏，闲置时零开销 |
 | `/u3d-assets-management` | `Assets/` 下每个资源都有固定位置，不用搜也能找到 |
@@ -771,7 +778,11 @@ GTD 是 *Getting Things Done*（中译《搞定》）的缩写，一套经典的
 
 ### Markdown
 
-- `/style-markdown-extended`：带标签的列表、LaTeX 公式、Mermaid 图表
+- `/style-markdown-heading`：标题层级按内容实际嵌套来定，另有跳级的局部标题
+- `/style-markdown-list`：短横线列表配 Title Case 标签，表格单元格用速记符号
+- `/style-markdown-math`：LaTeX 公式，逐个符号注释
+- `/style-markdown-diagrams`：Mermaid 图表与流程图
+- `/style-markdown-reference-link`：链接织入点明其主题的句子中
 - `/style-markdown-footnotes`：脚注就近放在引用它的文字旁边
 - `/style-markdown-endnotes`：所有注释统一作为尾注放在文末
 - `/style-markdown-file-assets`：每个文件的图片放进它专属的同级文件夹，如 `CHANGELOG-assets/`，用相对路径链接
@@ -873,6 +884,7 @@ GTD 是 *Getting Things Done*（中译《搞定》）的缩写，一套经典的
 
 - `/element-numerical-values-with-units`：公制和美制单位并列，缩写规范
 - `/element-international-phonetic-alphabet`：在难读的词后面标上国际音标，什么语言都行
+- `/element-secondary-language-marking`：关键词的第二语言对照放进 `[]`，文档撰写技能会用到它
 - `/element-alphabetical-sequence-numbering`：用圆圈字母（ⓐ、ⓑ、ⓒ）标选项，回答时说一个字母就行
 - `/element-triage-tags`：`BUG`、`FIXME`、`TODO`、`HACK` 四种标签，每种按大小写分三档“音量”
 - `/sort-and-group-triage-tag`：把文件里已有的标签分组排好，其他内容一概不动

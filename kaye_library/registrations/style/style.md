@@ -33,9 +33,7 @@ Any Markdown reply or file: bold and italic emphasis, headings, lists, tables, o
 
 
 
-### Extended Markdown Format
-
-##### Markdown Heading Format
+### Markdown Heading Format
 
 Heading level reflects the real nesting of the content, not a fixed template.
 
@@ -47,7 +45,27 @@ A **local heading** is a skipped-level heading — `h3` straight to `h5` — rea
 
 
 
-##### List Format
+#### {description}
+
+Sets Markdown heading levels by the content's real nesting: 1 h1 title, h2 primary sections, deeper levels only as deep as content goes, skipped-level local headings for 1-off sub-cases
+
+#### {when_to_use}
+
+Choosing heading levels in any Markdown reply or file: "which heading level", "restructure the headings", "outline this doc", nested sections, a 1-off sub-case needing its own label. Not for blank-line spacing before headings, see Header Separation
+
+
+
+
+
+
+
+
+
+
+
+
+
+### List Format
 
 Use `-` (dash) for bullet point lists
 
@@ -88,7 +106,29 @@ the tools on the bench:
 
 
 
-##### Math Formatting
+
+
+#### {description}
+
+Formats Markdown lists and table cells: dash bullets, items in Commentary Case, optional Title Case colon labels with key words bolded, numbering only for intrinsic order, nesting for composite items, shorthand symbols for boolean and n/a cells
+
+#### {when_to_use}
+
+Any bullet list, term/definition pair, key-value label, or table in a reply or Markdown file: "make this a list", "bullet these", "label each item", "add a table". Not for prose paragraphs
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Math Formatting
 
 Use LaTeX for all mathematical expressions. Do not write math in plain text.
 
@@ -102,7 +142,30 @@ $$
 Gloss a formula symbol by symbol: one short bullet per symbol beneath it, never one combined paragraph.
 
 
-##### Diagrams
+
+
+
+#### {description}
+
+Renders math in LaTeX: inline `$…$`, block `$$…$$`, each formula glossed symbol by symbol beneath it
+
+#### {when_to_use}
+
+Any equation, formula, variable, or calculation in a reply or Markdown file, even a short inline expression: "write the formula", "show the math", "derive", "LaTeX". Not for code that computes the values
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Diagrams
 
 Use **Mermaid** syntax inside fenced code blocks to render diagrams, graphs, flowcharts, and visual representations. Eg
 
@@ -115,7 +178,29 @@ Read "Y vs X" as Y on the y axis, X on the x axis, eg "Height vs Time".
 
 
 
-##### Reference Link Format
+
+
+#### {description}
+
+Renders diagrams, graphs, flowcharts, and other visuals as Mermaid code blocks, reading "Y vs X" as Y on the y axis
+
+#### {when_to_use}
+
+Any request to draw or visualize structure, flow, or relationships in a reply or Markdown file: "diagram this", "flowchart", "draw the graph", "show the architecture", "Height vs Time". Not for ASCII art or non-Mermaid diagram formats
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Reference Link Format
 
 Weave reference links, relative or external, into the sentence naming their topic, never a list.
 
@@ -129,11 +214,11 @@ Setup is in the [Setup Guide](docs/setup-guide.md), the API in the [OpenAPI spec
 
 #### {description}
 
-Formats dash-bulleted lists in commentary case, with optional Title-Case colon labels (bold sparingly, never italic); renders math in LaTeX (inline `$…$`, block `$$…$$`); renders diagrams/flowcharts in Mermaid code blocks
+Weaves reference links, relative or external, into the sentence naming their topic, never a separate list
 
 #### {when_to_use}
 
-Any list, equation, or diagram in a response — bullet points, term/definition pairs, key-value labels, formulas, or flowchart/graph requests. Not for numbered/ordered lists, prose, or non-Mermaid diagram formats
+Any reply or Markdown file citing a doc, page, or URL: "link the docs", "add references", "see also" sections, README pointers to `docs/`. Not for footnote or endnote markers, see Markdown Footnotes and Markdown Endnotes
 
 
 

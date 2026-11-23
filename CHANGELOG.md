@@ -19,7 +19,43 @@ todo good morning incl finance report
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
+
+## [1.6.0] - 2026-11-23
+
+### Added
+
+- `element-secondary-language-marking` skill: key term in a secondary language goes in `[]`; the Project & Repository Doc Writers & README Writer depend on it
+- Simplified Chinese docs: English key terms glossed in `[]`
+- skill catalog docs: `g`, `gi`, `ig` commit shorthands explained under `commit-sense`, in English & Simplified Chinese
+- `agent-task-blockage-workaround`: `Unblocked Report` states only what is new on resume; `[web] Usage` unblocks web access by asking permission for an alternative method or pasted content
+- `good-week`: when Bar 1 & Bar 2 both meet a task blockage, the partial report comes first
+- `style-markdown-heading`, `style-markdown-list`, `style-markdown-math`, `style-markdown-diagrams`, `style-markdown-reference-link` skills: each rule of the former Extended Markdown Format as its own skill
+- `agent-files-and-folders` skill: the Files & Folders rules alone; `plan-for-suite`, `dispositor` & the Project & Repository Doc Writers depend on it
+
+### Changed
+
+- `kaye-engine` pin `v13.0.1` -> `v13.0.2`
+- `{[ClaudeVSC]}` sidecars in Coder & Meta Prompt renamed `{[for Claude VSC]}`, following the engine; Meta Prompt's closing prompt file link now reaches Claude VSC
+- Turn Progress Dispatch: Movement & Suite decoratives (🎏, 🏁) & Discourse Unit terms move under Movement and Suite, in new glossaries `agent-movement-and-suite-decorative` & `agent-movement-and-suite-discourse-unit`; chat keeps Turn, Round, Bar
+- `agent-movement-and-suite` is a dependency of every Movement-structured workflow: feature landing, version release, `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
+- `Co-author Trailer` bans a generic model or provider name, even when a harness instructs one
+- `agent-unreachable-task-workaround` blueprint renamed `agent-task-blockage-workaround`
+- `commit-sense`, `commit-sense-branch-merging`: examples sit under `{for Kaye}` nodes with Kaye's trailer; a merge message always carries it
+- Meta Prompt: `Explain Constraints` -> `Instruct Directly`, plain commands with minimal explanation
+- Personality `{in chat}`: Rapport Content (formerly Personality Content) always opens with the signifier & must be creative; a rapport-only response drops the blockquote
+
+> [!WARNING]
+> Breaking: blueprint `agent-unreachable-task-workaround` renamed `agent-task-blockage-workaround`, & `{[ClaudeVSC]}` sidecars renamed `{[for Claude VSC]}`; consumers selecting or keying on the old names switch to the new
+
+### Removed
+
+- `style-markdown-extended` skill & its `Extended Markdown Format` heading: depend on the 5 `style-markdown-*` skills instead
+
+> [!WARNING]
+> Breaking: skill `style-markdown-extended` gone; consumers depending on it switch to the 5 `style-markdown-*` skills
+
+[1.6.0]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...v1.6.0
 
 ## [1.5.1] - 2026-11-21
 
@@ -45,6 +81,18 @@ todo good morning incl finance report
 > Breaking: blueprints `persona-kaye` & `persona-kaye-speech-habit` gone, & `coder` no longer depends on `chat-kaye`; consumers overriding or depending on them switch to `persona` / `chat`
 
 [1.5.1]: https://github.com/kami-lel/kaye-library/compare/v1.5.0...v1.5.1
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [1.5.0] - 2026-11-18
 

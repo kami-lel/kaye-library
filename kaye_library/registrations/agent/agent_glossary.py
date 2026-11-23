@@ -13,8 +13,9 @@ def register_agent_abbr_glossaries():
     """
     register ``agent-chat-decorative``, ``agent-chat-directive-abbr``,
     ``agent-chat-discourse-unit``,
-    ``agent-chat-turn-progress-dispatch-decorative``, and
-    ``natural-language-codes``
+    ``agent-chat-turn-progress-dispatch-decorative``,
+    ``agent-movement-and-suite-decorative``,
+    ``agent-movement-and-suite-discourse-unit``, and ``natural-language-codes``
     """
     register_abbr_glossary(
         "agent-chat-decorative", False, is_dyn_substitution=True
@@ -46,6 +47,18 @@ def register_agent_abbr_glossaries():
     )
     register_abbr_glossary(
         "agent-chat-turn-progress-dispatch-decorative",
+        False,
+        is_sorted=True,
+        is_dyn_substitution=True,
+    )
+    register_abbr_glossary(
+        "agent-movement-and-suite-decorative",
+        False,
+        is_sorted=True,
+        is_dyn_substitution=True,
+    )
+    register_abbr_glossary(
+        "agent-movement-and-suite-discourse-unit",
         False,
         is_sorted=True,
         is_dyn_substitution=True,

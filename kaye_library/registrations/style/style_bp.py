@@ -20,16 +20,14 @@ from .._common import (
 __all__ = ("register_style_blueprints",)
 
 
-def _register_markdown_extended():
-    """
-    register Markdown Format with its Extended child
-    """
-    register_leaf(
-        register_exportable,
-        "style-markdown-extended",
-        ["Style Guide", "Style Guide Markdown Format"],
-        "Extended Markdown Format",
-    )
+# Markdown Format children registered alone, each its own skill
+_MARKDOWN_RULES = (
+    ("style-markdown-heading", "Markdown Heading Format"),
+    ("style-markdown-list", "List Format"),
+    ("style-markdown-math", "Math Formatting"),
+    ("style-markdown-diagrams", "Diagrams"),
+    ("style-markdown-reference-link", "Reference Link Format"),
+)
 
 
 def _register_heading_separation_leaf(slug, leaf_name):
@@ -47,7 +45,8 @@ def _register_heading_separation_leaf(slug, leaf_name):
 def register_style_blueprints():
     """
     register Style Guide and its sub-styles: Briefness Style, Good
-    Writing, Markdown Format, Markdown Extended, Markdown Footnotes,
+    Writing, Markdown Format, its Heading, List, Math, Diagrams and
+    Reference Link rules, Markdown Footnotes,
     Markdown Endnotes, Markdown File Assets, Header Separation (plus its
     Long File and Medium File leaves)
 
@@ -89,7 +88,13 @@ def register_style_blueprints():
         is_user_invokable=False,
     )
 
-    _register_markdown_extended()
+    for slug, name in _MARKDOWN_RULES:
+        register_node(
+            register_exportable,
+            slug,
+            style_node["Style Guide Markdown Format"],
+            name,
+        )
 
     register_node(
         register_exportable,
