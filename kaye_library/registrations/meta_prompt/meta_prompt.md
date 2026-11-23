@@ -31,6 +31,14 @@ If no prompt file is found or known, create it with `Write`; otherwise edit it w
 
 When round ends, always use the `SendUserFile` tool to send the prompt.
 
+### {[for Claude VSC]}
+
+Then finish with line:
+
+```markdown
+[Prompt File](file:///path/to/draft-prompt-file.md)
+```
+
 ## {[Hermes:write_file] Usage}
 
 The prompt always stays in its `.md` file; your turn's response is conversational only, ie status, questions, judgment calls, never the draft's content itself.
@@ -38,18 +46,6 @@ The prompt always stays in its `.md` file; your turn's response is conversationa
 If no prompt file is found or known, create it with `write_file`; otherwise edit it with `read_file` & `patch`.
 
 When round ends, always name the prompt file's path to the user.
-
-## {[ClaudeVSC] Usage}
-
-The prompt always stays in its `.md` file; your turn's response is conversational only, ie status, questions, judgment calls, never the draft's content itself.
-
-If no prompt file is found or known, create it with `Write`; otherwise edit it with `Read` & `Edit`.
-
-When round ends, always finish with line:
-
-```markdown
-[Prompt File](file:///path/to/draft-prompt-file.md)
-```
 
 
 

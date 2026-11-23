@@ -19,6 +19,8 @@ todo good morning incl finance report
 
 ### Changed
 
+- `{[ClaudeVSC]}` sidecars in Coder and Meta Prompt renamed `{[for Claude VSC]}`, following the engine's renamed `claude-vsc` identity sidecar
+- Meta Prompt: the never-rendered `{[ClaudeVSC] Usage}` block becomes a `{[for Claude VSC]}` child of `{[Claude:Read/Write/Edit~] Usage}`, holding only the closing prompt file link, so Claude VSC now gets that link
 - Turn Progress Dispatch: every Movement and Suite mention moves under Movement and Suite: the 🎏 Movement finished & 🏁 Suite completed decoratives, in the new `agent-movement-and-suite-decorative` glossary, and the 3 examples using them; a new example covers every remaining decorative; the `PushNotification` example no longer uses 🎏
 - Discourse Unit: `movement`, `🧩`, `suite` move under Movement and Suite, in the new `agent-movement-and-suite-discourse-unit` glossary; chat keeps Turn, Round, Bar; the `in general: Bar < Turn < Round < Movement < Suite` ordering line is dropped
 - `agent-movement-and-suite`: now a dependency of every Movement-structured workflow: feature landing & version release (ready, perform, scrub), `push-event-to-calendar`, `push-task-to-gtd`, `sweep-email-inbox`
