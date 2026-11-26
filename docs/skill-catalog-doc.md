@@ -233,7 +233,7 @@ Prefer to merge by hand? Run the ready half, merge, then run the scrub half. Wan
 Supporting skills for the release workflows above:
 
 - `/proj-version-extended`: numbers every pre-release for you, eg `1.0.0-beta.2` for the second beta and `1.0.0-rc.1` for the first release candidate, plus build tags
-- `/proj-version-title`: titles a release from its old and new versions, eg going from `1.3.2` to `1.4.0` gives `Minor Stable Release 1.4.0`
+- `/proj-version-title`: titles a release from its old and new versions, eg going from `1.3.2` to `1.4.0` gives `Minor Release 1.4.0`
 
 
 

@@ -55,6 +55,7 @@ flowchart LR
     repo_readme_writer --> element_secondary_language_marking
     repo_changelog_writer["repo-changelog-writer"] --> style_briefness_style
     repo_changelog_writer --> proj_version_extended["proj-version-extended"]
+    repo_changelog_writer --> proj_version_title
     repo_changelog_writer --> style_good_writing
     repo_credits_writer["repo-credits-writer"] --> style_briefness_style
     repo_credits_writer --> style_good_writing

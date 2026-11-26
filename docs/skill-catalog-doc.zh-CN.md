@@ -231,7 +231,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 上面发版流程的配套技能：
 
 - `/proj-version-extended`：帮你给预发布版本定版本号，比如第二个 beta 是 `1.0.0-beta.2`，第一个候选版本是 `1.0.0-rc.1`，还能附加构建标签
-- `/proj-version-title`：根据新旧版本号生成发布标题，比如从 `1.3.2` 升到 `1.4.0`，标题就是 `Minor Stable Release 1.4.0`
+- `/proj-version-title`：根据新旧版本号生成发布标题，比如从 `1.3.2` 升到 `1.4.0`，标题就是 `Minor Release 1.4.0`
 
 
 

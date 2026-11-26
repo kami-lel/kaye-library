@@ -215,6 +215,7 @@ Structure:
 Versions:
 - carry every version, latest first, numbered per [Project Semantic Version](#project-semantic-version)
 - show the release date beside each version
+- head each release `## <date>: <title>`, the title per [Semantic Version Title](#semantic-version-title) with its version as the link, eg `## 2026-11-23: Minor Release [1.6.0]`
 
 
 
@@ -248,7 +249,7 @@ Versions:
 
 [unreleased]: https://github.com/example-user/example-project/compare/v2.0.0...dev
 
-## [2.0.0] - 2024-01-15
+## 2024-01-15: Major Release [2.0.0]
 
 ### Removed
 
@@ -258,14 +259,14 @@ Versions:
 > Drops support for Node 14; upgrade before updating
 [2.0.0]: https://github.com/example-user/example-project/compare/v1.5.7...v2.0.0
 
-## [1.5.7] - 2023-12-04
+## 2023-12-04: Patch Release [1.5.7]
 
 ### Fixed
 - Profile picture not rendering correctly on Safari
 
 [1.5.7]: https://github.com/example-user/example-project/compare/v1.5.6...v1.5.7
 
-## [1.5.6] - 2023-11-02
+## 2023-11-02: Patch Release [1.5.6]
 
 ### Added
 
@@ -667,7 +668,7 @@ Replace `Example Repository` with the real repository name.
 ## 02026-03-04
 ## 02026-03-11 (Week 6)
 ## 02026-03-18: Patch Pre-Alpha Release `0.9.3`
-## 02026-03-25 (Week 8): Beta Release `1.0.0-beta.2`
+## 02026-03-25 (Week 8): Major Beta Release `1.0.0-beta.2`
 ```
 </devlog-heading-example>
 
