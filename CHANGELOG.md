@@ -12,6 +12,7 @@ todo good morning incl finance report
 ### Changed
 
 - `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits; writer depends on `style-markdown-diagrams`
+- `repo-changelog-writer`: release heading `## DATE: TITLE`, title per Semantic Version Title, its version the link; writer depends on `proj-version-title`
 
 ### Deprecated
 
@@ -23,7 +24,7 @@ todo good morning incl finance report
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
 
-## [1.6.0] - 2026-11-23
+## 2026-11-23: Minor Stable Release [1.6.0]
 
 ### Added
 
@@ -59,7 +60,7 @@ todo good morning incl finance report
 
 [1.6.0]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...v1.6.0
 
-## [1.5.1] - 2026-11-21
+## 2026-11-21: Patch Stable Release [1.5.1]
 
 ### Added
 
@@ -96,7 +97,7 @@ todo good morning incl finance report
 
 
 
-## [1.5.0] - 2026-11-18
+## 2026-11-18: Minor Stable Release [1.5.0]
 
 ### Added
 
@@ -161,7 +162,7 @@ todo good morning incl finance report
 
 
 
-## [1.4.1] - 2026-11-16
+## 2026-11-16: Patch Stable Release [1.4.1]
 
 ### Added
 
@@ -192,7 +193,7 @@ todo good morning incl finance report
 
 
 
-## [1.4.0] - 2026-11-15
+## 2026-11-15: Minor Stable Release [1.4.0]
 
 ### Added
 
@@ -232,7 +233,7 @@ todo good morning incl finance report
 
 
 
-## [1.3.1] - 2026-11-13
+## 2026-11-13: Patch Stable Release [1.3.1]
 
 ### Added
 
@@ -256,7 +257,7 @@ todo good morning incl finance report
 
 
 
-## [1.3.0] - 2026-11-13
+## 2026-11-13: Minor Stable Release [1.3.0]
 
 ### Added
 
@@ -308,7 +309,7 @@ todo good morning incl finance report
 
 
 
-## [1.2.1] - 2026-11-09
+## 2026-11-09: Patch Stable Release [1.2.1]
 
 ### Added
 
@@ -353,7 +354,7 @@ todo good morning incl finance report
 
 
 
-## [1.2.0] - 2026-11-06
+## 2026-11-06: Minor Stable Release [1.2.0]
 
 ### Added
 
@@ -373,7 +374,7 @@ todo good morning incl finance report
 
 [1.2.0]: https://github.com/kami-lel/kaye-library/compare/v1.1.1...v1.2.0
 
-## [1.1.1] - 2026-10-30
+## 2026-10-30: Patch Stable Release [1.1.1]
 
 ### Changed
 
@@ -394,7 +395,7 @@ todo good morning incl finance report
 
 
 
-## [1.1.0] - 2026-10-30
+## 2026-10-30: Minor Stable Release [1.1.0]
 
 ### Added
 
@@ -433,7 +434,7 @@ todo good morning incl finance report
 
 
 
-## [1.0.0] - 2026-10-19
+## 2026-10-19: Stable Release [1.0.0]
 
 ### Added
 
