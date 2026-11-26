@@ -244,7 +244,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                         '## Triage Tags',
                         'its exact [Semantic Version '
                         'Title](#semantic-version-title), word for word',
-                        '## 02026-03-25 (Week 8): Beta Release '
+                        '## 02026-03-25 (Week 8): Major Beta Release '
                         '`1.0.0-beta.2`',
                         '### Year Month Day Format',
                         '### Semantic Version Title'],
