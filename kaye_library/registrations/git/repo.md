@@ -215,6 +215,7 @@ Structure:
 Versions:
 - carry every version, latest first, numbered per [Project Semantic Version](#project-semantic-version)
 - show the release date beside each version
+- head each release `## [<version>] <title minus version> <date>`, the title per [Semantic Version Title](#semantic-version-title) with its trailing version dropped, since the link already states it
 
 
 
@@ -248,7 +249,7 @@ Versions:
 
 [unreleased]: https://github.com/example-user/example-project/compare/v2.0.0...dev
 
-## [2.0.0] - 2024-01-15
+## [2.0.0] Major Stable Release 2024-01-15
 
 ### Removed
 
@@ -258,14 +259,14 @@ Versions:
 > Drops support for Node 14; upgrade before updating
 [2.0.0]: https://github.com/example-user/example-project/compare/v1.5.7...v2.0.0
 
-## [1.5.7] - 2023-12-04
+## [1.5.7] Patch Stable Release 2023-12-04
 
 ### Fixed
 - Profile picture not rendering correctly on Safari
 
 [1.5.7]: https://github.com/example-user/example-project/compare/v1.5.6...v1.5.7
 
-## [1.5.6] - 2023-11-02
+## [1.5.6] Patch Stable Release 2023-11-02
 
 ### Added
 
