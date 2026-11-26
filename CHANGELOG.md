@@ -1,7 +1,9 @@
 # kaye-library CHANGELOG
 
 <!--
-todo support layered CONTEXT/AGENTS
+Todo support parallel working plan / agent only plan
+Fixme commit per movement
+Todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
 
