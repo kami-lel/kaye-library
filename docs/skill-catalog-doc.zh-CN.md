@@ -157,7 +157,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 - `/repo-readme-writer` 能把空荡荡的仓库变成让人愿意读下去的首页，本库的 README 就是这么写出来的
 - `/repo-changelog-writer` 遵循 Keep a Changelog 规范，带 `[Unreleased]` 区块和版本链接；`/create-changelog` 甚至能从 Git 历史里重建一份
 - `/repo-credits-writer` 为每项第三方素材记一行：路径、来源、作者、许可证，绝不让任何素材不署名就上线
-- `/repo-devlog-writer` 把每项改动和促成它的试玩反馈、问卷或 bug 一一对应，配上带说明的截图，并如实记录遗留问题
+- `/repo-devlog-writer` 把每项改动和促成它的试玩反馈、问卷或 bug 一一对应，配上带说明的截图，数据适合时画成 Mermaid 图表，并如实记录遗留问题
 - `/repo-agents-writer` 和 `/repo-context-writer` 让规则和知识各归各位：`AGENTS.md` 写该怎么做，`CONTEXT.md` 写系统怎么运作，个人笔记则放进只属于你自己的 `.local.md` 文件
 
 

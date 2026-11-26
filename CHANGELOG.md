@@ -11,6 +11,8 @@ todo good morning incl finance report
 
 ### Changed
 
+- `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits; writer depends on `style-markdown-diagrams`
+
 ### Deprecated
 
 ### Removed

@@ -160,7 +160,7 @@ A few **highlights**:
 - `/repo-changelog-writer` follows Keep a Changelog, with an `[Unreleased]` section and version links; `/create-changelog` even rebuilds one from git history
 - `/repo-agents-writer` and `/repo-context-writer` keep rules and knowledge apart: `AGENTS.md` says what to do, `CONTEXT.md` says how things work, and personal notes stay in a private `.local.md` file
 - `/repo-credits-writer` gives every third-party asset a row: its path, source, author, and license, so nothing ships uncredited
-- `/repo-devlog-writer` ties each change to the playtest, survey, or bug that prompted it, with captioned screenshots and honest leftovers
+- `/repo-devlog-writer` ties each change to the playtest, survey, or bug that prompted it, with captioned screenshots, Mermaid charts where data fits, and honest leftovers
 
 
 

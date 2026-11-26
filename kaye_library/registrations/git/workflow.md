@@ -493,7 +493,7 @@ Trigger on "start a devlog", "create a DEVLOG", "write a dev diary from the hist
 1. take the period's work from the conversation, the commits since the newest entry, `[Unreleased]` in the CHANGELOG, and any new playtest, survey, or review notes
 2. add a new entry directly under the title, or extend the newest entry when it covers the current period
 3. tie every fix to its finding and every change of approach to its reason; ask for a reason the record does not give, never invent one
-4. save each screenshot the user supplies into `DEVLOG-assets/`, named and captioned per [Repository DEVLOG Writer](#repository-devlog-writer), leaving a Loud `TODO` wherever a needed screenshot is missing
+4. save each screenshot the user supplies into `DEVLOG-assets/`, named and captioned per [Repository DEVLOG Writer](#repository-devlog-writer), leaving a Loud `TODO` wherever a needed screenshot is missing; chart the period's data in Mermaid where it fits
 5. leave past entries as written, except to correct a factual error or point a leftover forward to the entry that takes it up
 6. update the DEVLOG in place, then return a brief summary of the changes, per [Repository DEVLOG Writer](#repository-devlog-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing)
 

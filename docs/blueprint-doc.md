@@ -64,6 +64,7 @@ flowchart LR
     repo_devlog_writer --> proj_version_title
     repo_devlog_writer --> style_markdown_file_assets["style-markdown-file-assets"]
     repo_devlog_writer --> element_triage_tags["element-triage-tags"]
+    repo_devlog_writer --> style_markdown_diagrams["style-markdown-diagrams"]
     ready_release_version["ready-release-version"] --> proj_version_extended
     scrub_released_version["scrub-released-version"] --> proj_version_title["proj-version-title"]
     ready_release_version --> agent_movement_and_suite["agent-movement-and-suite"]

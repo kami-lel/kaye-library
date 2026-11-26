@@ -102,6 +102,7 @@ def register_repo_blueprints():
             "proj-version-title",
             "style-markdown-file-assets",
             "element-triage-tags",
+            "style-markdown-diagrams",
         ],
     )
 

@@ -684,7 +684,7 @@ Hold this order, dropping any part the period gives nothing for:
 3. Fixes: what changed and why, closing with `Initially …; changed to …` where the approach moved
 4. Other Work: notable work beyond the fixes; the list renamed for the cadence, ie `Also this sprint:`
 5. Leftovers: what stays open, and which later entry takes it up
-6. Images: screenshots and charts
+6. Images and Charts: screenshots, then Mermaid charts of the period's data
 
 A period with no outside evidence, ie a feature push, drops Findings and labels each item with its feature instead.
 
@@ -732,6 +732,29 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 
 
+#### Charts
+
+- chart data whose shape reads faster as a picture than as a list, ie a metric across builds or periods, a survey's split, a before-and-after count; draw it in Mermaid per [Diagrams](#diagrams), never as a screenshot of a spreadsheet
+- pick the form by the data: `xychart-beta` for a measure vs build or period, `pie` for shares of one whole, `flowchart` for a flow a fix changed
+- title it "Y vs X", and caption it like an image, saying what to notice
+- keep the finding in words: the chart shows the evidence, the entry states the conclusion
+- skip the chart for fewer than 3 data points, or where one sentence says it all
+
+<devlog-chart-example>
+```mermaid
+xychart-beta
+  title "Tutorial Completion vs Build"
+  x-axis ["alpha.1", "alpha.2", "alpha.3"]
+  y-axis "Completion (%)" 0 --> 100
+  bar [42, 58, 81]
+```
+*Tutorial completion: up with each starting-zone pass, past 80% in `alpha.3`*
+</devlog-chart-example>
+
+
+
+
+
 #### Living Record
 
 - write each entry during or right after its period, while the reasons are fresh
@@ -765,7 +788,7 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 ### {description}
 
-Writes and maintains `DEVLOG.md`, a development journal of entries per period, newest first, tying each decision to the playtest, survey, or bug behind it, with captioned screenshots and honest leftovers.
+Writes and maintains `DEVLOG.md`, a development journal of entries per period, newest first, tying each decision to the playtest, survey, or bug behind it, with captioned screenshots, Mermaid charts where data fits, and honest leftovers.
 
 ### {when_to_use}
 
