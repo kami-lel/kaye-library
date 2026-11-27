@@ -7,6 +7,18 @@ Todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## [Unreleased]
 
 ### Added
@@ -26,6 +38,18 @@ todo good morning incl finance report
 ### Security
 
 [unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 2026-11-23: Minor Release [1.6.0]
 
@@ -62,6 +86,18 @@ todo good morning incl finance report
 > Breaking: skill `style-markdown-extended` gone; consumers depending on it switch to the 5 `style-markdown-*` skills
 
 [1.6.0]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...v1.6.0
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 2026-11-21: Patch Release [1.5.1]
 
