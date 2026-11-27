@@ -26,13 +26,18 @@ def register_agent_blueprints():
     agent_behavior_node = get_corpus_node("Agentic")
     movement_and_suite_node = agent_behavior_node["Movement, Voice, and Suite"]
 
+    dispatch_marks_node = movement_and_suite_node["Dispatch Marks"]
+
     # Movement, Voice, and Suite
     register_exportable(
         "agent-movement-and-suite",
         replace_meta(
             checkmark_nodes(
-                create_blueprint_from_node(movement_and_suite_node),
-                movement_and_suite_node["Movement Notation"],
+                checkmark_nodes(
+                    create_blueprint_from_node(movement_and_suite_node),
+                    movement_and_suite_node["Movement Notation"],
+                ),
+                dispatch_marks_node,
             ),
             display_name="Agent Movement, Voice, and Suite",
         ),
@@ -43,10 +48,13 @@ def register_agent_blueprints():
         "agent-movement-and-suite-with-count",
         replace_meta(
             checkmark_nodes(
-                create_blueprint_from_node(
-                    movement_and_suite_node["Movement with Count"]
+                checkmark_nodes(
+                    create_blueprint_from_node(
+                        movement_and_suite_node["Movement with Count"]
+                    ),
+                    movement_and_suite_node,
                 ),
-                movement_and_suite_node,
+                dispatch_marks_node,
             ),
             display_name="Agent Movement, Voice, and Suite with Count",
         ),

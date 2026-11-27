@@ -67,3 +67,36 @@ class TestTaskBlockageWorkaround:
 
         assert not entry.is_exportable
         assert "agent-task-blockage-workaround" not in exportable_registry
+
+
+class TestMovementVoiceAndSuite:
+
+    def _node(_):
+        return _agentic()["Movement, Voice, and Suite"]
+
+    def test_dispatch_marks_is_a_child_node(self):
+        names = {c.name for c in self._node().children}
+
+        assert "Dispatch Marks" in names
+
+    def test_core_body_carries_no_dispatch(self):
+        text = "\n".join(self._node().content_lines())
+
+        assert "🎏" not in text
+        assert "Turn Progress Dispatch" not in text
+
+    def test_notation_carries_no_total(self):
+        node = self._node()["Movement Notation"]
+        text = "\n".join(node.content_lines())
+
+        assert "🧩a\\b" not in text
+        assert "🧩a SUMMARY" in text
+
+    @pytest.mark.parametrize(
+        "name",
+        ["agent-movement-and-suite", "agent-movement-and-suite-with-count"],
+    )
+    def test_blueprint_checkmarks_dispatch_marks(_, name):
+        nodes = blueprint_registry[name].blueprint.nodes
+
+        assert any(path[-1] == "Dispatch Marks" for path in nodes)

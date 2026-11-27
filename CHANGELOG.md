@@ -37,6 +37,7 @@ todo good morning incl finance report
 - `condense-agents-and-context`: covers every AGENTS & CONTEXT pair in tree; cuts scoped content restating its parent
 - `review-gaps`: reads scoped AGENTS & CONTEXT layers as claimed contract; flags scoped file contradicting its parent
 - `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
+- Movement Notation drops the total: `🧩a`, `🎻a` in a Voice, counted per Voice; only a Main Voice 🎏 line writes `🧩a\b`; trackers list every Voice, 1 in progress per open Voice, no prefix rewrite; Movement with Count is `a\b🧩c`; dispatch decoratives & example move to new Dispatch Marks node, leaving a dispatch-free core
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated
