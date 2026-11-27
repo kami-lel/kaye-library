@@ -2,7 +2,7 @@
 
 <!--
 Todo support parallel working plan / agent only plan
-Todo support layered CONTEXT/AGENTS
+Todo linked wt & feature branch usage for plan suite
 todo good morning incl finance report
 -->
 
@@ -27,6 +27,14 @@ todo good morning incl finance report
 - `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits; writer depends on `style-markdown-diagrams`
 - `repo-changelog-writer`: release heading `## DATE: TITLE`, title per Semantic Version Title, its version the link; writer depends on `proj-version-title`
 - `proj-version-title`: rewritten as `BUMP TYPE VERSION`, TYPE never dropped; a plain `x.y.z` is `Release`, Prototype & Vertical Slice drop `Release`, & the bump word applies to alpha, beta & release candidate titles too, eg `Major Beta Release 1.0.0-beta.2`; examples in `repo-changelog-writer`, `repo-devlog-writer`, skill catalog docs & this file's headings follow
+- Project Context Engineering: Explore walks scoped agent/context files from root to the edited folder; closest file wins, chat overrides all
+- agents & CONTEXT writers: scoped & local files follow root format, standard, style; local title-line examples dropped
+- agents writer: root `AGENTS.md` links each scoped file, "when working in X, read Y"
+- `maintain-project-agents`, `maintain-repo-agents`: edit nearest layer covering changed path; promote to root only when project-wide
+- `ready-land-feature`, `maintenance-before-compact`: sync AGENTS & CONTEXT layer nearest changed files; `ready-release-version` condenses every layer
+- `condense-agents-and-context`: covers every AGENTS & CONTEXT pair in tree; cuts scoped content restating its parent
+- `review-gaps`: reads scoped AGENTS & CONTEXT layers as claimed contract; flags scoped file contradicting its parent
+- `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated

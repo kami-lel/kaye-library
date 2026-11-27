@@ -608,10 +608,10 @@ Trigger on "condense the changelog", "tidy the Unreleased section", "reword the 
 
 You work from the **files alone**: no change set, no conversation to draw on, nothing new to add. Every line already there is read once and then kept, shortened, moved, or dropped.
 
-1. read each file whole, judging every section on whether it still earns the space it takes
+1. find every AGENTS and CONTEXT pair in the tree, the root and each scoped layer; read each file whole, judging every section on whether it still earns the space it takes
 2. drop what has gone stale: a workflow nobody follows now, a plan already landed or abandoned, a migration finished, an implementation detail the code has since moved past
 3. drop what the code already answers on its own — restated file trees, signatures, config values, anything a reader would check in the source before believing the document
-4. merge what repeats within a file, and move anything sitting on the wrong side of the pair to its counterpart rather than restating it
+4. merge what repeats within a file, and move anything sitting on the wrong side of the pair to its counterpart rather than restating it; cut from a scoped file anything its parent already states
 5. shorten what survives: same meaning, fewer words, AGENTS directive and imperative, CONTEXT descriptive and explanatory
 6. hold AGENTS lean enough to stay in context: the commands an agent must run and the rules it must obey, nothing more
 7. hold CONTEXT to what explains the system as it stands, never to how it came to stand that way
@@ -623,7 +623,7 @@ You work from the **files alone**: no change set, no conversation to draw on, no
 
 ### {description}
 
-Shrinks an existing AGENTS and CONTEXT pair: reads both whole, drops finished plans, dead workflows, superseded detail, anything the code already answers, tightens the rest, adds nothing
+Shrinks an existing AGENTS and CONTEXT pair, root and scoped layers alike: reads each whole, drops finished plans, dead workflows, superseded detail, anything the code already answers, tightens the rest, adds nothing
 
 ### {when_to_use}
 
@@ -680,8 +680,8 @@ Before context is compacted, capture this session's durable changes so nothing i
 
 - identify the session's changes once, from the conversation, working diffs, and existing `[Unreleased]` entries, then reuse that set below
 - [Maintain CHANGELOG](#maintain-changelog) → record those changes; the unreleased-only and deduplication rules come from that skill
-- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved
-- update `CONTEXT.md` directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
+- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved, in the layer nearest the changed files
+- update the `CONTEXT.md` nearest the changed files directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
 - skip a step the session gives nothing relevant to
 
 

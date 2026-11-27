@@ -1085,7 +1085,7 @@ During Movement 3: update the markdown task list when:
 
 ## Gap Review
 
-Inspect the repository and surface every inconsistency, gap, or unfinished seam likely to become user-visible after a public release. Read docs (`README`, `CHANGELOG`, `CONTEXT`, `AGENTS`, `docs/`) as the *claimed* contract, then code, tests, and packaging metadata as the *actual* one — every divergence is a candidate finding. Apply [Coder](#coder) when reading code, so findings rest on project convention rather than generic expectation.
+Inspect the repository and surface every inconsistency, gap, or unfinished seam likely to become user-visible after a public release. Read docs (`README`, `CHANGELOG`, `CONTEXT`, `AGENTS`, each scoped `AGENTS`/`CONTEXT` layer, `docs/`) as the *claimed* contract, flagging a scoped file that contradicts its parent, then code, tests, and packaging metadata as the *actual* one — every divergence is a candidate finding. Apply [Coder](#coder) when reading code, so findings rest on project convention rather than generic expectation.
 
 Read-only, with one exception: inserting a *Loud TT* at every newly found gap. Never fix a finding unless asked in a later turn.
 
