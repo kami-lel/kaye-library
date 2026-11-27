@@ -23,7 +23,7 @@ class TestStructure:
         [
             "Turn Progress Dispatch",
             "Files & Folders",
-            "Movement and Suite",
+            "Movement, Voice, and Suite",
             "Halt Each Movement",
             "Cascade All Movements",
         ],

@@ -584,7 +584,7 @@ fires on "usage line", "usage message", "synopsis", `--help` text, argument synt
 
 ## Plan for Suite
 
-This uses the [Movement and Suite](#movement-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
+This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
 Three *Bars*:
 
@@ -929,7 +929,7 @@ The suite and the codebase have fallen out of agreement. Restore it.
 
 If an environment or tool setup issue arises during test execution, stop immediately and ask the user how to resolve it.
 
-Three Movements: triage, consult, repair. Repair runs as Movements and Counts, per [Movement and Suite](#movement-and-suite); triage determines their number.
+Three Movements: triage, consult, repair. Repair runs as Movements and Counts, per [Movement, Voice, and Suite](#movement-voice-and-suite); triage determines their number.
 
 
 

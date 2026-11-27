@@ -737,6 +737,19 @@
       }
     }
   },
+  "Voice finished": {
+    "abbrs": {
+      "🎌": {
+        "priority": 13,
+        "remark": "agent-only Voice merges back into the Suite's branch",
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-decorative"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "Wednesday": {
     "abbrs": {
       "E": {
@@ -795,6 +808,18 @@
           "letters_only"
         ],
         "wrap": "word"
+      }
+    }
+  },
+  "accordion": {
+    "abbrs": {
+      "🪗": {
+        "priority": 8,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
       }
     }
   },
@@ -1009,6 +1034,18 @@
         "tags": [
           "amanuensis-config-keybinding-keyboards",
           "single_character"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "banjo": {
+    "abbrs": {
+      "🪕": {
+        "priority": 5,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
         ],
         "wrap": "symbol"
       }
@@ -2054,6 +2091,18 @@
       }
     }
   },
+  "flute": {
+    "abbrs": {
+      "🪈": {
+        "priority": 6,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "foot": {
     "abbrs": {
       "ft": {
@@ -2135,6 +2184,18 @@
         "tags": [
           "agent-chat-decorative",
           "emoji"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
+  "guitar": {
+    "abbrs": {
+      "🎸": {
+        "priority": 4,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
         ],
         "wrap": "symbol"
       }
@@ -3178,6 +3239,18 @@
     },
     "remark": "ie superclass, base class"
   },
+  "piano": {
+    "abbrs": {
+      "🎹": {
+        "priority": 7,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "pint": {
     "abbrs": {
       "pt": {
@@ -3529,6 +3602,18 @@
       }
     }
   },
+  "saxophone": {
+    "abbrs": {
+      "🎷": {
+        "priority": 3,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "search": {
     "abbrs": {
       "sch": {
@@ -3732,7 +3817,7 @@
     "abbrs": {
       "suite": {
         "priority": 60,
-        "remark": "unit contains 1+ Movements",
+        "remark": "unit contains 1+ Voices",
         "tags": [
           "agent-movement-and-suite-discourse-unit",
           "term_definition"
@@ -3928,6 +4013,18 @@
       }
     }
   },
+  "trumpet": {
+    "abbrs": {
+      "🎺": {
+        "priority": 2,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "turn": {
     "abbrs": {
       "turn": {
@@ -4095,6 +4192,18 @@
       }
     }
   },
+  "violin": {
+    "abbrs": {
+      "🎻": {
+        "priority": 1,
+        "tags": [
+          "emoji",
+          "agent-movement-and-suite-voice-instrument"
+        ],
+        "wrap": "symbol"
+      }
+    }
+  },
   "visual effects": {
     "abbrs": {
       "VFX": {
@@ -4102,6 +4211,19 @@
         "tags": [
           "letters_only",
           "u3d-identifier"
+        ],
+        "wrap": "word"
+      }
+    }
+  },
+  "voice": {
+    "abbrs": {
+      "voice": {
+        "priority": 50,
+        "remark": "line of Movements within a Suite; any but the Main Voice is agent only, runs in parallel on its voice branch, then merges back into the feature branch",
+        "tags": [
+          "agent-movement-and-suite-discourse-unit",
+          "term_definition"
         ],
         "wrap": "word"
       }

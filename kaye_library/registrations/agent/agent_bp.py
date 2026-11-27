@@ -24,9 +24,9 @@ def register_agent_blueprints():
     register every Agent Behavior blueprint
     """
     agent_behavior_node = get_corpus_node("Agentic")
-    movement_and_suite_node = agent_behavior_node["Movement and Suite"]
+    movement_and_suite_node = agent_behavior_node["Movement, Voice, and Suite"]
 
-    # Movement and Suite
+    # Movement, Voice, and Suite
     register_exportable(
         "agent-movement-and-suite",
         replace_meta(
@@ -34,11 +34,11 @@ def register_agent_blueprints():
                 create_blueprint_from_node(movement_and_suite_node),
                 movement_and_suite_node["Movement Notation"],
             ),
-            display_name="Agent Movement and Suite",
+            display_name="Agent Movement, Voice, and Suite",
         ),
     )
 
-    # Movement and Suite with Count
+    # Movement, Voice, and Suite with Count
     register_exportable(
         "agent-movement-and-suite-with-count",
         replace_meta(
@@ -48,7 +48,7 @@ def register_agent_blueprints():
                 ),
                 movement_and_suite_node,
             ),
-            display_name="Agent Movement and Suite with Count",
+            display_name="Agent Movement, Voice, and Suite with Count",
         ),
     )
 

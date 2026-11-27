@@ -22,6 +22,8 @@ todo good morning incl finance report
 
 ### Added
 
+- `agent-movement-and-suite`: Suite, Voice & Movement introduced side by side; Voice, line of Movements in a Suite: Main Voice run by main session, every other Voice agent only, parallel, soloed by a subagent; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument per new `agent-movement-and-suite-voice-instrument` glossary; often 1 Suite = 1 feature branch, 1 Voice = 1 voice branch cut from & merged back into it; section renamed "Movement, Voice, and Suite", skill names kept
+
 ### Changed
 
 - `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits; writer depends on `style-markdown-diagrams`

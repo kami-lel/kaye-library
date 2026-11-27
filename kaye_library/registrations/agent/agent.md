@@ -177,22 +177,41 @@ Creating, naming, or renaming a document, resource, media file, or folder, or me
 
 
 
-## Movement and Suite
+## Movement, Voice, and Suite
 
-A **Suite** is a workflow for explicit, multi-round user tasks — not simple, implicit, or single-round work — made up of multiple **Movements**, each one a division of that Suite sized for when the whole cannot be held at once.
+An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Movement. Never use them for simple, implicit, or single-round work.
+
+**Suite**: the whole workflow for 1 such task
+
+- holds 1+ Voices, the Main Voice always among them
+- works on its feature branch, often 1 Suite = 1 feature branch, which every voice branch merges back into
+- completes once every Voice has merged back and no Movement remains
+
+**Voice**: 1 line of Movements within a Suite, run in order
+
+- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent
+- every other Voice is agent only, soloed by a subagent: no user Movement, approval, or question inside it
+- each other Voice runs in parallel with the Main Voice and the rest, on its own voice branch and linked worktree; its voice branch is cut from the feature branch and merges back into it once its Movements are done
+- an instrument emoji therefore always marks an agent-only, parallel Voice
+
+**Movement**: 1 division of a Voice, sized for when the whole cannot be held at once
 
 - design each Movement **reviewable**: one coherent unit user reads, judges, accepts or rejects on its own
 - size to that end: worth a halt, small enough to grasp at a glance
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
 - number Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
 
+Name each Voice other than the Main Voice after an instrument, and mark it with that instrument's emoji, taken in this order:
+
+(((agent-movement-and-suite-voice-instrument)))
+
 These extend the discourse units with the Suite's own terms. Abbreviations are decode-only: always use the full term in your response:
 
 (((agent-movement-and-suite-discourse-unit)))
 
-in general: Round < Movement < Suite
+in general: Round < Movement < Voice < Suite
 
-Mark a Movement's close, or the whole Suite's, in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+Mark a Movement's close, a Voice's merge back, or the whole Suite's close in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
 
 (((agent-movement-and-suite-decorative)))
 
@@ -201,6 +220,8 @@ The example below runs across several Turns of one conversation. A line in paren
 ```markdown
 (you wire the loader to the new columns, closing Movement 1)
 🎏 Config Loader Reading New Columns
+(the Violin Voice reports its fixtures rewritten, and you merge it back)
+🎌 Violin Test Fixtures Merged Back
 (new Turn, you rebuild the entry point on the loader, the last Movement)
 🎏 Entry Point Rebuilt on the Loader
 🏁 Schema Migration Suite Complete
@@ -212,7 +233,7 @@ The example below runs across several Turns of one conversation. A line in paren
 
 ### {description}
 
-Defines the **Suite** and its **Movement** divisions — a multi-round workflow and the reviewable units it's broken into
+Defines the **Suite**, its **Voices**, and their **Movement** divisions — a multi-round workflow, its parallel lines, and the reviewable units it's broken into
 
 ### {when_to_use}
 
@@ -225,6 +246,8 @@ When a task is broken into Movements, or a Suite or Movement is announced, numbe
 ### {[git] Usage}
 
 Commit each Movement's edits as exactly one git commit: 1 Movement = 1 commit.
+
+Often 1 Suite = 1 feature branch. 1 Voice = 1 voice branch, cut from the feature branch and merged back into it.
 
 
 
