@@ -1,8 +1,8 @@
 # kaye-library CHANGELOG
 
 <!--
-TODO support parallel working plan / agent only plan
-TODO linked wt & feature branch usage for plan suite
+Todo support parallel working plan / agent only plan
+Todo linked wt & feature branch usage for plan suite
 todo good morning incl finance report
 -->
 
