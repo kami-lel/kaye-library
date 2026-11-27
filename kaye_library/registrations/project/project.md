@@ -441,7 +441,7 @@ You work from a **change set**: what the conversation and the project have alter
 
 1. edit in place: fold new material into the section it belongs to, correct what the change set falsified, delete only what it retired
 2. leave sound wording, structure, and length alone
-3. verify facts against the project; keep the root generic and scoped files scoped
+3. verify facts against the project; edit the nearest layer covering the changed path, per [Project Context Engineering](#project-context-engineering), and promote a rule to the root only when it holds project-wide
 4. create a missing file only where the change set requires it
 5. follow [Project AGENTS Writer](#project-agents-writer) and [Style Guide Markdown Format](#style-guide-markdown-format), then return a brief summary of the changes
 
@@ -495,7 +495,7 @@ You work from a **change set**: what the conversation and the repository have al
 
 1. edit in place: fold moved commands, conventions, and constraints into the sections already there, correct what the change set falsified, delete only what it retired
 2. leave sound wording, structure, and length alone; descriptive knowledge belongs in `CONTEXT.md`
-3. verify facts against the codebase; keep the root file primary and nested files scoped to their package
+3. verify facts against the codebase; edit the nearest layer covering the changed path, per [Project Context Engineering](#project-context-engineering), and promote a rule to the root only when it holds repository-wide
 4. create a missing file only where the change set requires it
 5. follow [Repository AGENTS Writer](#repository-agents-writer) and [Style Guide Markdown Format](#style-guide-markdown-format), then return a brief summary of the changes
 

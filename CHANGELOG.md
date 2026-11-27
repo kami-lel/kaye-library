@@ -31,6 +31,7 @@ todo good morning incl finance report
 - Project Context Engineering: Explore walks scoped agent/context files from root to the edited folder; closest file wins, chat overrides all
 - agents & CONTEXT writers: scoped & local files follow root format, standard, style; local title-line examples dropped
 - agents writer: root `AGENTS.md` links each scoped file, "when working in X, read Y"
+- `maintain-project-agents`, `maintain-repo-agents`: edit nearest layer covering changed path; promote to root only when project-wide
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated
