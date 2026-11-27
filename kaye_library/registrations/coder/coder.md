@@ -847,7 +847,7 @@ use `clarify` tool to confirm each step or the End State of a user Movement, car
 
 #### {[git] Usage}
 
-Each Movement lands as one git commit, performed as the chosen skill directs. A Movement that changes no workspace file, such as a user Movement, commits nothing.
+1 Movement = 1 commit. A Movement that edits no workspace file, such as a user Movement, commits nothing.
 
 
 

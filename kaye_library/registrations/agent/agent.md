@@ -224,7 +224,7 @@ When a task is broken into Movements, or a Suite or Movement is announced, numbe
 
 ### {[git] Usage}
 
-A single Movement often corresponds to one git commit.
+Commit each Movement's edits as exactly one git commit: 1 Movement = 1 commit.
 
 
 
