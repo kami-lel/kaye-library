@@ -290,11 +290,7 @@ Prescriptive rules for agents working in this project.
 
 Replace `Example Project` with the real project name. Copy the preface exactly, word for word.
 
-The personal layer's title line, marked as local:
-
-```markdown
-# Example Project local AGENTS
-```
+A scoped `AGENTS.md` or a local `AGENTS.local.md` follows the same format, standard, and style, per [Project Context Engineering](#project-context-engineering).
 
 
 

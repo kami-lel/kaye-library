@@ -364,11 +364,7 @@ Descriptive knowledge of this repository for agents and developers.
 
 Replace `Example Repository` with the real repository name. Copy the preface exactly, word for word.
 
-The personal layer's title line, marked as local:
-
-```markdown
-# Example Repository local CONTEXT
-```
+A scoped `CONTEXT.md` or a local `CONTEXT.local.md` follows the same format, standard, and style, per [Project Context Engineering](#project-context-engineering).
 
 
 
