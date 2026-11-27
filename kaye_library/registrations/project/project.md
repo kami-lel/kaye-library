@@ -266,7 +266,7 @@ Apply these rules to `AGENTS.md`, formatting it per [Style Guide Markdown Format
 
 Suggested Sections go under clear `##` headings: use what fits, omit rather than pad, and add any section carrying a project-specific behavioral rule. Keep content to rules and constraints an agent acts on. Each writer below lists its own.
 
-The root `AGENTS.md` links every file under `docs/`, per [Reference Link Format](#reference-link-format), each phrased to send an agent there when its topic arises.
+The root `AGENTS.md` links every file under `docs/`, per [Reference Link Format](#reference-link-format), each phrased to send an agent there when its topic arises. It also links each scoped `AGENTS.md` and `CONTEXT.md`, phrased "when working in `Frontend/`, read `Frontend/AGENTS.md`".
 
 
 

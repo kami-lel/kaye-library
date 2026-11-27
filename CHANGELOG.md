@@ -30,6 +30,7 @@ todo good morning incl finance report
 - `proj-version-title`: rewritten as `BUMP TYPE VERSION`, TYPE never dropped; a plain `x.y.z` is `Release`, Prototype & Vertical Slice drop `Release`, & the bump word applies to alpha, beta & release candidate titles too, eg `Major Beta Release 1.0.0-beta.2`; examples in `repo-changelog-writer`, `repo-devlog-writer`, skill catalog docs & this file's headings follow
 - Project Context Engineering: Explore walks scoped agent/context files from root to the edited folder; closest file wins, chat overrides all
 - agents & CONTEXT writers: scoped & local files follow root format, standard, style; local title-line examples dropped
+- agents writer: root `AGENTS.md` links each scoped file, "when working in X, read Y"
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated
