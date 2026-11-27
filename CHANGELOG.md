@@ -32,6 +32,7 @@ todo good morning incl finance report
 - agents & CONTEXT writers: scoped & local files follow root format, standard, style; local title-line examples dropped
 - agents writer: root `AGENTS.md` links each scoped file, "when working in X, read Y"
 - `maintain-project-agents`, `maintain-repo-agents`: edit nearest layer covering changed path; promote to root only when project-wide
+- `ready-land-feature`, `maintenance-before-compact`: sync AGENTS & CONTEXT layer nearest changed files; `ready-release-version` condenses every layer
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated

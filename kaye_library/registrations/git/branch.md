@@ -181,7 +181,7 @@ Run [Maintain CHANGELOG](#maintain-changelog), recording the change set per [Rep
 
 #### Movement 6: Sync AGENTS and CONTEXT
 
-Run [Maintain Repository AGENTS](#maintain-repository-agents), updating any command, convention, or constraint the branch moved, per [Repository AGENTS Writer](#repository-agents-writer). Then update `CONTEXT.md` directly for any architecture the branch moved, per [Repository CONTEXT Writer](#repository-context-writer).
+Run [Maintain Repository AGENTS](#maintain-repository-agents), updating any command, convention, or constraint the branch moved in the layer nearest the changed files, per [Repository AGENTS Writer](#repository-agents-writer). Then update the `CONTEXT.md` nearest the changed files directly for any architecture the branch moved, per [Repository CONTEXT Writer](#repository-context-writer).
 
 
 
@@ -404,9 +404,9 @@ Run [Maintain Repository Docs](#maintain-repository-docs): affected files under 
 
 #### Movement 4: Condense AGENTS and CONTEXT
 
-Run [Condense AGENTS and CONTEXT](#condense-agents-and-context): changed commands, conventions, constraints, architecture.
+Run [Condense AGENTS and CONTEXT](#condense-agents-and-context) on every AGENTS and CONTEXT layer in the tree: record changed commands, conventions, constraints, and architecture in the layer nearest the changed files.
 
-While in `CONTEXT.md`, prune as well as update: keep only what describes the released state, and cut superseded plans, stale notes, and history no longer worth a reader's time. The file should end up smaller, not just newer.
+While in each `CONTEXT.md`, prune as well as update: keep only what describes the released state, and cut superseded plans, stale notes, and history no longer worth a reader's time. The file should end up smaller, not just newer.
 
 
 

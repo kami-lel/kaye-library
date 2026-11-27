@@ -680,8 +680,8 @@ Before context is compacted, capture this session's durable changes so nothing i
 
 - identify the session's changes once, from the conversation, working diffs, and existing `[Unreleased]` entries, then reuse that set below
 - [Maintain CHANGELOG](#maintain-changelog) → record those changes; the unreleased-only and deduplication rules come from that skill
-- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved
-- update `CONTEXT.md` directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
+- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved, in the layer nearest the changed files
+- update the `CONTEXT.md` nearest the changed files directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
 - skip a step the session gives nothing relevant to
 
 
