@@ -34,6 +34,7 @@ todo good morning incl finance report
 - `maintain-project-agents`, `maintain-repo-agents`: edit nearest layer covering changed path; promote to root only when project-wide
 - `ready-land-feature`, `maintenance-before-compact`: sync AGENTS & CONTEXT layer nearest changed files; `ready-release-version` condenses every layer
 - `condense-agents-and-context`: covers every AGENTS & CONTEXT pair in tree; cuts scoped content restating its parent
+- `review-gaps`: reads scoped AGENTS & CONTEXT layers as claimed contract; flags scoped file contradicting its parent
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated
