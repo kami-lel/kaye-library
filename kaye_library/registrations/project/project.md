@@ -416,7 +416,7 @@ Creating, updating, reviewing `AGENTS.md`, `AGENTS.local.md`, `CLAUDE.md`, simil
 ### Create Project AGENTS
 
 1. ground the file in the project's own material and the conversation; write only what they support
-2. keep the root file generic; add a scoped file only where a subfolder's rules differ
+2. keep the root file generic; add a scoped file only where a subfolder's rules differ; gitignore `**/AGENTS.local.md` and `**/CONTEXT.local.md` in the same pass
 3. create `AGENTS.md` per [Project AGENTS Writer](#project-agents-writer), formatted per [Style Guide Markdown Format](#style-guide-markdown-format)
 
 
@@ -470,7 +470,7 @@ Triggers: "update AGENTS.md", "AGENTS.md is out of date", changed member, deadli
 ### Create Repository AGENTS
 
 1. ground the file in the repository itself and the conversation; write only what they support
-2. in a monorepo, nest a file per package; gitignore any `AGENTS.local.md` in the same pass
+2. in a monorepo, nest a file per package; gitignore `**/AGENTS.local.md` and `**/CONTEXT.local.md` in the same pass
 3. create `AGENTS.md` per [Repository AGENTS Writer](#repository-agents-writer), formatted per [Style Guide Markdown Format](#style-guide-markdown-format)
 
 
