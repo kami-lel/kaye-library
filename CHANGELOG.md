@@ -20,33 +20,7 @@ todo good morning incl finance report
 
 ### Added
 
-- `agent-movement-and-suite`: Suite, Voice & Movement introduced side by side; Voice, line of Movements in a Suite: Main Voice run by main session, every other Voice an instrumental Voice: agent only, parallel, soloed by a subagent or run in its own session; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument per new `agent-movement-and-suite-voice-instrument` glossary; often 1 Suite = 1 feature branch, 1 Voice = 1 voice branch cut from & merged back into it; section renamed "Movement, Voice, and Suite", skill names kept
-- `solo-voice` skill: runs 1 instrumental Voice whole, agent only, as a subagent or in its own session: its Movements in order in its worktree on its voice branch, 1 commit each, never merging, never asking; ends w/ 1 report, sent via `ListAgents` & `SendMessage` where present, else for the user to carry back; carries the Movement core w/o Dispatch Marks
-
 ### Changed
-
-- `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits; writer depends on `style-markdown-diagrams`
-- `repo-changelog-writer`: release heading `## DATE: TITLE`, title per Semantic Version Title, its version the link; writer depends on `proj-version-title`
-- `proj-version-title`: rewritten as `BUMP TYPE VERSION`, TYPE never dropped; a plain `x.y.z` is `Release`, Prototype & Vertical Slice drop `Release`, & the bump word applies to alpha, beta & release candidate titles too, eg `Major Beta Release 1.0.0-beta.2`; examples in `repo-changelog-writer`, `repo-devlog-writer`, skill catalog docs & this file's headings follow
-- Project Context Engineering: Explore walks scoped agent/context files from root to the edited folder; closest file wins, chat overrides all
-- agents & CONTEXT writers: scoped & local files follow root format, standard, style; local title-line examples dropped
-- agents writer: root `AGENTS.md` links each scoped file, "when working in X, read Y"
-- `maintain-project-agents`, `maintain-repo-agents`: edit nearest layer covering changed path; promote to root only when project-wide
-- `ready-land-feature`, `maintenance-before-compact`: sync AGENTS & CONTEXT layer nearest changed files; `ready-release-version` condenses every layer
-- `condense-agents-and-context`: covers every AGENTS & CONTEXT pair in tree; cuts scoped content restating its parent
-- `review-gaps`: reads scoped AGENTS & CONTEXT layers as claimed contract; flags scoped file contradicting its parent
-- `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
-- Movement Notation drops the total: `🧩a`, `🎻a` in a Voice, counted per Voice; only a Main Voice 🎏 line writes `🧩a\b`; trackers list every Voice, 1 in progress per open Voice, no prefix rewrite; Movement with Count is `a\b🧩c`; dispatch decoratives & example move to new Dispatch Marks node, leaving a dispatch-free core
-- `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; an instrumental Voice, soloed by a subagent or run in its own session, runs whole whatever its session loads, its report returned, sent, or relayed by the user; reviewed & marked 🎌 at merge back, voice branch merged into feature branch first; only main session writes Dispatch Marks; 🧭 lines drop the total
-- `plan-for-suite`: new Bar 2: Decide, after Gather, picks feature branch, linked worktree & Voices, unasked, approved w/ Plan; Write the Plan → Bar 3; an instrumental Voice needs a feature branch & 3+ agent-only Movements w/ disjoint Scopes
-- `plan-for-suite`: Bar 3 drops the Movement Order field, numbering or `## Order` Mermaid graph gives order; Plan states each yes decision of Bar 2 after preface, optional opening branch/worktree Movement & closing `land-feature` Movement; Voices in the Plan replace the parallel paragraph: 1 Plan file, `## Main Voice` & `## 🎻 Violin Voice` sections; headings drop the total, `🎻a Violin: Title` in a Voice; depends on `style-markdown-diagrams`
-- `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree holds 1 branch of any kind, feature, voice, hotfix, release; folder `REPO-WT-BRANCH`; each instrumental Voice gets its own worktree on its voice branch, the 1 split allowed; plant cuts a missing branch from the branch it merges back into; uproot waits for that merge
-- Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
-- Plan for Suite Execution splits: shared rules in `### Plan for Suite: Execution`, internal `plan-for-suite-execution`; Main Voice rules in `### Play Suite`, skill `play-suite`, renamed from `execute-plan-for-suite`; `solo-voice` shares the rules; intro reads "Three *Bars*, then Execution"; Plan preface invokes `play-suite`
-- `play-suite`: starts each instrumental Voice after its dependencies: plants its worktree, picks subagent mode by default, else its own session opened by the user, w/ 1 prompt naming Plan file, Voice, worktree & `solo-voice`; on report merges the voice branch back, uproots, marks 🎌, or reworks; opening Movement plants or cuts, closing runs `land-feature`; resume checks branches & worktrees; 🧭 Recap lines drop the total
-
-> [!WARNING]
-> Breaking: skill `execute-plan-for-suite` renamed `play-suite`, no alias; a Plan file whose preface names the old skill needs the new name; content keyed on node `Plan for Suite: Bar 4: Execution` or `Plan for Suite: Solo Voice` no longer renders
 
 ### Deprecated
 
@@ -56,7 +30,44 @@ todo good morning incl finance report
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.1...dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2026-11-27: Patch Release [1.6.1]
+
+### Added
+
+- `agent-movement-and-suite`: Voice joins Suite & Movement; Main Voice run by main session, instrumental Voices agent-only & parallel, each on own voice branch & linked worktree, soloed by a subagent or run in its own session; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument via new `agent-movement-and-suite-voice-instrument` glossary
+- `solo-voice` skill: runs 1 instrumental Voice whole, Movements in order, 1 commit each, never merging or asking; ends w/ 1 report
+
+### Changed
+
+- `play-suite`: starts each instrumental Voice after its dependencies, merges voice branch back on report, marks 🎌, uproots worktree
+- `plan-for-suite`: new Bar 2 Decide picks feature branch, linked worktree & Voices; Plan holds 1 section per Voice, order from numbering or `## Order` Mermaid graph; Movement Order field dropped
+- `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; instrumental Voice runs whole, reviewed at merge back; only main session writes Dispatch Marks
+- Movement Notation drops the total: `🧩a`, `🎻a` per Voice; only a Main Voice 🎏 line writes `🧩a\b`; dispatch marks move to own node
+- `1 Movement = 1 commit`, was "often" one
+- `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree holds 1 branch of any kind, folder `REPO-WT-BRANCH`; each instrumental Voice gets its own
+- Plan for Suite Execution split: shared rules in `Plan for Suite: Execution`, Main Voice rules in `Play Suite`, shared w/ `solo-voice`
+- `proj-version-title`: rewritten as `BUMP TYPE VERSION`, TYPE never dropped; `repo-changelog-writer` headings `## DATE: TITLE` w/ version as link
+- Project Context Engineering: Explore walks scoped AGENTS & CONTEXT files root to edited folder, closest wins; writers, maintainers, `condense-agents-and-context`, `review-gaps` & `ready-*` skills cover every layer; local layers gitignored
+- `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits
+
+> [!WARNING]
+> Breaking: skill `execute-plan-for-suite` renamed `play-suite`, no alias; a Plan file whose preface names the old skill needs the new name; content keyed on node `Plan for Suite: Bar 4: Execution` or `Plan for Suite: Solo Voice` no longer renders
+
+[1.6.1]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...v1.6.1
 
 
 
