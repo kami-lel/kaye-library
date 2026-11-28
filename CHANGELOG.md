@@ -40,10 +40,14 @@ todo good morning incl finance report
 - `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
 - Movement Notation drops the total: `🧩a`, `🎻a` in a Voice, counted per Voice; only a Main Voice 🎏 line writes `🧩a\b`; trackers list every Voice, 1 in progress per open Voice, no prefix rewrite; Movement with Count is `a\b🧩c`; dispatch decoratives & example move to new Dispatch Marks node, leaving a dispatch-free core
 - `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; an instrumental Voice, soloed by a subagent or run in its own session, runs whole whatever its session loads, its report returned, sent, or relayed by the user; reviewed & marked 🎌 at merge back, voice branch merged into feature branch first; only main session writes Dispatch Marks; 🧭 lines drop the total
-- `plan-for-suite`: new Bar 2: Decide, after Gather, picks feature branch, linked worktree & Voices, unasked, approved w/ Plan; Write the Plan → Bar 3, Execution → Bar 4; an instrumental Voice needs a feature branch & 3+ agent-only Movements w/ disjoint Scopes
+- `plan-for-suite`: new Bar 2: Decide, after Gather, picks feature branch, linked worktree & Voices, unasked, approved w/ Plan; Write the Plan → Bar 3; an instrumental Voice needs a feature branch & 3+ agent-only Movements w/ disjoint Scopes
 - `plan-for-suite`: Bar 3 drops the Movement Order field, numbering or `## Order` Mermaid graph gives order; Plan states each yes decision of Bar 2 after preface, optional opening branch/worktree Movement & closing `land-feature` Movement; Voices in the Plan replace the parallel paragraph: 1 Plan file, `## Main Voice` & `## 🎻 Violin Voice` sections; headings drop the total, `🎻a Violin: Title` in a Voice; depends on `style-markdown-diagrams`
 - `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree holds 1 branch of any kind, feature, voice, hotfix, release; folder `REPO-WT-BRANCH`; each instrumental Voice gets its own worktree on its voice branch, the 1 split allowed; plant cuts a missing branch from the branch it merges back into; uproot waits for that merge
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
+- Plan for Suite Execution splits: shared rules in `### Plan for Suite: Execution`, internal `plan-for-suite-execution`; Main Voice rules in `### Play Suite`, skill `play-suite`, renamed from `execute-plan-for-suite`; `solo-voice` shares the rules; intro reads "Three *Bars*, then Execution"; Plan preface invokes `play-suite`
+
+> [!WARNING]
+> Breaking: skill `execute-plan-for-suite` renamed `play-suite`, no alias; a Plan file whose preface names the old skill needs the new name; content keyed on node `Plan for Suite: Bar 4: Execution` or `Plan for Suite: Solo Voice` no longer renders
 
 ### Deprecated
 

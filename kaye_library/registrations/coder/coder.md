@@ -586,7 +586,7 @@ fires on "usage line", "usage message", "synopsis", `--help` text, argument synt
 
 This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
-Four *Bars*:
+Three *Bars*, then Execution:
 
 
 
@@ -647,7 +647,7 @@ Record no Order field. With only the Main Voice, the Movement numbers give the o
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
 <plan-for-suite-preface>
-Before working from this file, invoke `execute-plan-for-suite` skill through the `Skill` tool.
+Before working from this file, invoke `play-suite` skill through the `Skill` tool.
 
 Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
 </plan-for-suite-preface>
@@ -756,18 +756,53 @@ Never index or commit the [Plan File](#plan-file), unless the user explicitly as
 
 
 
-### Plan for Suite: Bar 4: Execution
+### Plan for Suite: Execution
 
 Starts only after the user approves the Plan. Follow Plan order — nothing skipped, nothing combined.
 
-If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
-
 Each Movement runs these steps in order:
 
-1. Movement In: enter the Movement the Plan names next, or on resume the one Status names
-2. Task: do its work, touching nothing outside the Movement's boundary
+1. Movement In: enter the Movement next in order
+2. Task: do its work, touching nothing outside the Movement's boundary, until its End State holds
+
+
+
+
+#### {[Claude:Skill] Usage}
+
+For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+For each Movement's git commit, load `commit-sense` with `skill_view`.
+
+#### {[git] Usage}
+
+1 Movement = 1 commit. A Movement that edits no workspace file, such as a user Movement, commits nothing.
+
+
+
+
+
+
+
+
+
+
+
+
+### Play Suite
+
+You play the Main Voice of an approved Plan.
+
+If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
+
+Run each Movement's steps per [Plan for Suite: Execution](#plan-for-suite-execution), then close it:
+
 3. [Movement Recap](#movement-recap)
 4. Movement Out: return control to user
+
+On resume, Movement In to the Movement its Status names, per [Saved State](#saved-state).
 
 Check the Movement's Party at Movement In. Your own Movements run as above; any other party follows [Movement Parties in Execution](#movement-parties-in-execution).
 
@@ -838,11 +873,11 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 #### {description}
 
-Executes approved Plan file, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
+Plays approved Plan file's Main Voice, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
 
 #### {when_to_use}
 
-On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`) or reworking them (`rework-plan-for-suite`)
+On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`), reworking them (`rework-plan-for-suite`), or running an instrumental Voice (`solo-voice`)
 
 
 
@@ -851,15 +886,11 @@ On Plan file preface; on instruction to begin, continue, pause, or resume; on an
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
-
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), invoke `rework-plan-for-suite` via `Skill` tool.
 
 #### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
-
-For each Movement's git commit, load `commit-sense` with `skill_view`.
 
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-plan-for-suite` with `skill_view`.
 
@@ -881,9 +912,6 @@ Write 1 line: emoji + Suite name
 
 use `clarify` tool to confirm each step or the End State of a user Movement, carrying likely replies as options
 
-#### {[git] Usage}
-
-1 Movement = 1 commit. A Movement that edits no workspace file, such as a user Movement, commits nothing.
 
 
 
@@ -908,7 +936,7 @@ Reworks running Plan file when reality stops matching it: halts, rewrites Plan, 
 
 #### {when_to_use}
 
-Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`execute-plan-for-suite`)
+Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`play-suite`)
 
 
 
@@ -930,13 +958,13 @@ use `clarify` tool to ask user during the rework
 
 
 
-### Plan for Suite: Solo Voice
+### Solo Voice
 
 You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its voice branch, and names the Plan file and the Voice.
 
 - work only in the Voice's linked worktree, on its voice branch
 - read the Voice's Movements from the Plan file, and leave the Plan file untouched
-- run the Voice's Movements in order, each to its End State, then commit it as exactly 1 commit
+- run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution)
 - never merge the voice branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
 - never ask the user anything, nor wait for an approval
 - on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report; never work around it
@@ -958,18 +986,10 @@ Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its 
 
 #### {when_to_use}
 
-When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session opened in that Voice's linked worktree. Not for the Main Voice (`execute-plan-for-suite`) or drafting Plans (`plan-for-suite`)
+When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session opened in that Voice's linked worktree. Not for the Main Voice (`play-suite`) or drafting Plans (`plan-for-suite`)
 
 
 
-
-#### {[Claude:Skill] Usage}
-
-For each Movement's commit, invoke `commit-sense` via `Skill` tool.
-
-#### {[Hermes:skill_view] Usage}
-
-For each Movement's commit, load `commit-sense` with `skill_view`.
 
 #### {[Claude:Agent~] Usage}
 

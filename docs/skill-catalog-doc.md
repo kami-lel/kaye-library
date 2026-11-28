@@ -78,7 +78,7 @@ Plan the work, then run it:
 | Skill | What You Get |
 |---|---|
 | `/plan-for-suite` 🌟 | a numbered, reviewable plan before any edit; nothing runs until you approve |
-| `/execute-plan-for-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
+| `/play-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
 | `/rework-plan-for-suite` | plan no longer fits reality? it halts, rewrites the plan, and waits for your approval again |
 | `/solo-voice` | runs one instrumental Voice of a Suite on its own voice branch, as a subagent or in its own session, then reports back; the main session dispatches it |
 
@@ -90,7 +90,7 @@ Then set the pace:
 | `/cascade-all-movements` | runs every remaining Movement in one go, stopping only when the Suite is done or when it needs you |
 
 > [!TIP]
-> When executing plans, pair `/execute-plan-for-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
+> When executing plans, pair `/play-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
 
 ----
 

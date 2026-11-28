@@ -400,15 +400,14 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'state each Bar 2 decision that came out yes',
                     '##### Voices in the Plan',
                     '##### Movement Heading',
-                    '### Plan for Suite: Bar 4: Execution'],
- 'execute-plan-for-suite': ['### Plan for Suite: Bar 4: Execution',
-                              'Starts only after the user approves the '
-                              'Plan.',
-                              'ask whether to run under '
-                              '`cascade-all-movements` or '
-                              '`halt-each-movement`.',
-                              '##### Movement Parties in '
-                              'Execution'],
+                    '### Plan for Suite: Execution',
+                    '### Play Suite'],
+ 'play-suite': ['### Plan for Suite: Execution',
+                'Starts only after the user approves the Plan.',
+                '### Play Suite',
+                'ask whether to run under `cascade-all-movements` or '
+                '`halt-each-movement`.',
+                '##### Movement Parties in Execution'],
  'proj-agents-writer': ['## agents writer',
                         '#### AGENTS Title & Preface',
                         '# Example Project AGENTS',
@@ -549,7 +548,8 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     '- `tools/`: project-specific developer tooling, '
                     'distinct from `scripts/`'],
  'solo-voice': ['## Movement, Voice, and Suite',
-                '### Plan for Suite: Solo Voice',
+                '### Plan for Suite: Execution',
+                '### Solo Voice',
                 'work only in the Voice\'s linked worktree',
                 'never merge the voice branch',
                 'End with 1 report, and nothing after it:'],
@@ -764,6 +764,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
  'solo-voice': 'Runs 1 instrumental Voice of a Suite whole, agent only',
+ 'play-suite': 'Plays approved Plan file\'s Main Voice',
  'rework-plan-for-suite': 'Reworks running Plan file when reality stops '
                           'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
@@ -883,8 +884,7 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                     'runs before any edit is possible',
                     'delivers the finished Plan through `ExitPlanMode` '
                     'tool, which is where the user approves it'],
- 'execute-plan-for-suite': ['invoke `rework-plan-for-suite` via `Skill` '
-                            'tool'],
+ 'play-suite': ['invoke `rework-plan-for-suite` via `Skill` tool'],
  'solo-voice': ['invoke `commit-sense` via `Skill` tool',
                 'find it with `ListAgents`, then send the report with '
                 '`SendMessage`'],

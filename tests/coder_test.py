@@ -216,4 +216,33 @@ class TestSoloVoice:
     def test_plan_for_suite_leaves_it_out(_):
         content = exportable_registry["plan-for-suite"].content()
 
-        assert "### Plan for Suite: Solo Voice" not in content
+        assert "### Solo Voice" not in content
+
+
+class TestExecutionSplit:
+
+    def test_execution_blueprint_is_internal(_):
+        assert not blueprint_registry["plan-for-suite-execution"].is_exportable
+
+    def test_execute_plan_for_suite_is_gone(_):
+        assert "execute-plan-for-suite" not in blueprint_registry
+
+    def test_play_suite_carries_execution_and_dispatch_marks(_):
+        content = exportable_registry["play-suite"].content()
+
+        assert "### Plan for Suite: Execution" in content
+        assert "### Play Suite" in content
+        assert "### Dispatch Marks" in content
+
+    def test_solo_voice_shares_execution_only(_):
+        deps = blueprint_registry["solo-voice"].blueprint.dependencies
+        content = exportable_registry["solo-voice"].content()
+
+        assert list(deps) == ["plan-for-suite-execution"]
+        assert "### Plan for Suite: Execution" in content
+        assert "### Play Suite" not in content
+
+    def test_preface_names_play_suite(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "invoke `play-suite` skill through the `Skill` tool" in content
