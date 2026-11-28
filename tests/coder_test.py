@@ -166,7 +166,6 @@ class TestPlanForSuiteWrite:
         names = [n.name for n in node["Bar 2: Write the Plan"].children]
 
         assert names == [
-            "Movement Record",
             "Plan File",
             "Housekeeping Movements",
         ]
@@ -182,7 +181,7 @@ class TestPlanForSuiteWrite:
             "then scrubs up per [Scrub After Feature Landing]",
             "`## Order`",
             "`## Main Voice`",
-            "`🎻a Violin: Title`",
+            "`🎻a: Title`",
         ],
     )
     def test_plans_decisions_and_voices(self, needle):

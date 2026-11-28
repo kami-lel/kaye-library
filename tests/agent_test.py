@@ -101,12 +101,13 @@ class TestMovementVoiceAndSuite:
 
         assert any(path[-1] == "Dispatch Marks" for path in nodes)
 
-    def test_defines_instrumental_voice_in_2_modes(self):
+    def test_defines_instrumental_voice_as_parallel(self):
         text = "\n".join(self._node().content_lines())
 
         assert "**instrumental Voice**" in text
-        assert "soloed by a subagent" in text
-        assert "run in its own session" in text
+        assert "agent only" in text
+        assert "run in parallel with the rest" in text
+        assert "soloed by a subagent" not in text
 
     def test_dispatch_marks_kept_to_main_session(self):
         node = self._node()["Dispatch Marks"]
