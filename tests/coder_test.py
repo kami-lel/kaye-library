@@ -287,9 +287,9 @@ class TestPlaySuiteDispatch:
         "needle",
         [
             "##### Instrumental Voices",
-            "merge its instrumental branch into the feature branch",
+            "merging its instrumental branch into the feature branch",
             "each open instrumental branch, and their linked worktrees still exist",
-            "lands it per `land-feature`",
+            "the instrumental Voice cuts its instrumental branch",
             "🎌 Violin Test Fixtures Merged Back",
         ],
     )

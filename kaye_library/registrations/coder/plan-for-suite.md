@@ -213,6 +213,14 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 Starts only after the user approves the Plan. Follow Plan order — nothing skipped, nothing combined.
 
+The Plan file holds the context and Terrain: start from it, read your Movements there, and explore the repository only when a Movement needs more. Leave the Plan file untouched unless a rule says to write it.
+
+Never work around a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone.
+
+Each Voice works only on its own branch and in its own worktree, and never touches another Voice's.
+
+Housekeeping splits by Voice: the instrumental Voice cuts its instrumental branch and plants its linked worktree, as its own opening Movement; the Main Voice merges, uproots, and prunes, as its own closing Movement. Any other housekeeping Movement is an ordinary Movement.
+
 Each Movement runs these steps in order:
 
 1. Movement In: enter the Movement next in order
@@ -225,9 +233,13 @@ Each Movement runs these steps in order:
 
 For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
 
+Run a housekeeping Movement through the skill its Statement names, invoked via `Skill` tool: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `scrub-landed-feature` to scrub up after landing, `prune-merged-branches` to prune.
+
 #### {[Hermes:skill_view] Usage}
 
 For each Movement's git commit, load `commit-sense` with `skill_view`.
+
+Run a housekeeping Movement through the skill its Statement names, loaded with `skill_view`: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `scrub-landed-feature` to scrub up after landing, `prune-merged-branches` to prune.
 
 #### {[git] Usage}
 
@@ -261,22 +273,19 @@ Check the Movement's Party at Movement In. Your own Movements run as above; any 
 
 Movement order binds your judgement, not the user's. Out of sequence, several at once, one skipped, the Plan set aside — obey without protest, noting which Movements are left.
 
-The optional opening Movement plants the linked worktree on the feature branch per `tend-linked-wt`, or only cuts the feature branch; the optional closing Movement lands it per `land-feature`.
-
 
 
 ##### Instrumental Voices
 
 Start each instrumental Voice once every Movement it depends on is done:
 
-1. plant its linked worktree on its instrumental branch, per `tend-linked-wt`
-2. choose its mode: a subagent by default, wherever a subagent tool exists; its own session when the Voice outgrows a subagent's budget, when the user wants to watch it, or when no subagent tool exists
-3. start it with 1 prompt naming the Plan file, the Voice, its worktree path, and `solo-voice`; in session mode, ask the user to open a new session in the Voice's worktree and give it that prompt
-4. go on with the Main Voice on the feature branch; a Main Voice Movement that depends on the Voice waits for its merge back
+1. choose its mode: a subagent by default, wherever a subagent tool exists; its own session when the Voice outgrows a subagent's budget, when the user wants to watch it, or when no subagent tool exists
+2. start it with 1 prompt naming the Plan file and the Voice, and nothing else: the Voice reads the Plan and starts on its own with `solo-voice`; in session mode, ask the user to open a new session and give it that prompt
+3. go on with the Main Voice on the feature branch; a Main Voice Movement that depends on the Voice waits for its closing Movement
 
 On the Voice's report:
 
-- every End State met: merge its instrumental branch into the feature branch, uproot its linked worktree per `tend-linked-wt`, and mark the merge back with 🎌 in the Movement Recap
+- every End State met: run the Voice's closing Movement, merging its instrumental branch into the feature branch, uprooting its linked worktree, and pruning the merged branch, then mark the merge back with 🎌 in the Movement Recap
 - a stop or a mismatch: halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 
@@ -285,7 +294,6 @@ On the Voice's report:
 
 The Plan file doubles as the run's saved state, so a run survives the end of a session:
 
-- Normal Execution: leave the Plan file untouched, no Status update between Movements
 - Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
 - Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; check that the feature branch, each open instrumental branch, and their linked worktrees still exist; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
@@ -365,31 +373,22 @@ Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-m
 
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), invoke `rework-plan-for-suite` via `Skill` tool.
 
-To plant or uproot a linked worktree, invoke `tend-linked-wt` skill via `Skill` tool; in the closing Movement, invoke `land-feature` skill via `Skill` tool.
-
 #### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
 
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-plan-for-suite` with `skill_view`.
 
-To plant or uproot a linked worktree, load `tend-linked-wt` with `skill_view`; in the closing Movement, load `land-feature` with `skill_view`.
 
 
-
-
-<!--
-FIXME more details agent usage: ie what passed into agents
-FIXME define who is responsible for merge & linked wt
--->
 
 #### {[Claude:Agent~] Usage}
 
-Start a subagent-mode Voice with 1 `Agent` call in the background, carrying its prompt.
+Start a subagent-mode Voice with 1 `Agent` call in the background, its prompt naming the Plan file and the Voice, and carrying nothing else.
 
 #### {[Hermes:delegate_task] Usage}
 
-Start a subagent-mode Voice with 1 `delegate_task` call, its prompt split across `goal` and `context`; state the worktree path, since a child shares your working directory.
+Start a subagent-mode Voice with 1 `delegate_task` call: `goal` names the Voice, `context` names the Plan file, and nothing else goes in. A child shares your working directory, so the Voice enters its own linked worktree by absolute path.
 
 #### {[agent] Fallback}
 
@@ -415,6 +414,68 @@ Write 1 line: emoji + Suite name
 #### {[Hermes:clarify] Usage}
 
 use `clarify` tool to confirm each step or the End State of a user Movement, carrying likely replies as options
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Solo Voice
+
+You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session names the Plan file and the Voice, and nothing else.
+
+- run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution), its opening Movement first
+- work only in the Voice's linked worktree, on its instrumental branch
+- never merge or prune the instrumental branch: the main session merges the Voice back
+- never ask the user anything, nor wait for an approval
+- on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report
+- write no Turn Progress Dispatch and no Movement Recap
+
+End with 1 report, and nothing after it:
+
+- each commit on 1 line: its short hash and its Movement
+- each Movement's End State: met, or why not
+- anything left: where you stopped, why, and the Movements not run
+
+As a subagent, your final reply is the report.
+
+
+
+
+
+#### {[Claude:Agent~] Usage}
+
+In your own session, send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`.
+
+#### {[Claude:Agent~] Lack}
+
+In your own session, end your last reply with the report, for the user to carry back to the main session.
+
+
+
+
+
+#### {description}
+
+Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its instrumental branch, 1 commit each, then 1 report to the main session
+
+#### {when_to_use}
+
+When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session that names the Plan file and the Voice. Not for the Main Voice (`play-suite`) or drafting Plans (`plan-for-suite`)
+
+
+
+
+
+
+
 
 
 
@@ -457,48 +518,3 @@ use `AskUserQuestion` tool to ask user during the rework
 #### {[Hermes:clarify] Usage}
 
 use `clarify` tool to ask user during the rework
-
-
-
-
-
-### Solo Voice
-
-You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its instrumental branch, and names the Plan file and the Voice.
-
-- work only in the Voice's linked worktree, on its instrumental branch
-- read the Voice's Movements from the Plan file, and leave the Plan file untouched
-- run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution)
-- never merge the instrumental branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
-- never ask the user anything, nor wait for an approval
-- on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report; never work around it
-- write no Turn Progress Dispatch and no Movement Recap
-
-End with 1 report, and nothing after it:
-
-- each commit on 1 line: its short hash and its Movement
-- each Movement's End State: met, or why not
-- anything left: where you stopped, why, and the Movements not run
-
-As a subagent, your final reply is the report.
-
-
-
-#### {description}
-
-Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its instrumental branch, 1 commit each, then 1 report to the main session
-
-#### {when_to_use}
-
-When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session opened in that Voice's linked worktree. Not for the Main Voice (`play-suite`) or drafting Plans (`plan-for-suite`)
-
-
-
-
-#### {[Claude:Agent~] Usage}
-
-In your own session, send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`.
-
-#### {[Claude:Agent~] Lack}
-
-In your own session, end your last reply with the report, for the user to carry back to the main session.

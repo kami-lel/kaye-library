@@ -550,7 +550,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                 '### Plan for Suite: Execution',
                 '### Solo Voice',
                 'work only in the Voice\'s linked worktree',
-                'never merge the instrumental branch',
+                'never merge or prune the instrumental branch',
                 'End with 1 report, and nothing after it:'],
  'rework-plan-for-suite': ['### Plan for Suite: Rework',
                            'Halt the moment reality stops matching the '
