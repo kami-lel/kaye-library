@@ -10,6 +10,9 @@ import pytest
 from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt import get_corpus_tree
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
+from kaye_engine.prompt.blueprint.render_profile_registry import (
+    render_profile_registry,
+)
 
 _LANGUAGE_NODES = (
     "Bash",
@@ -180,3 +183,37 @@ class TestPlanForSuiteWrite:
         deps = blueprint_registry["plan-for-suite"].blueprint.dependencies
 
         assert "style-markdown-diagrams" in deps
+
+
+class TestSoloVoice:
+
+    @staticmethod
+    def _content(surface):
+        profile = render_profile_registry[surface].profile
+        return exportable_registry["solo-voice"].content(profile=profile)
+
+    @pytest.mark.parametrize("surface", ["claude-vsc", "hermes"])
+    def test_carries_no_dispatch(self, surface):
+        content = self._content(surface)
+
+        for mark in ("🎏", "🎌", "🏁"):
+            assert mark not in content
+
+    def test_reports_through_send_message_on_claude_vsc(self):
+        assert "`SendMessage`" in self._content("claude-vsc")
+
+    def test_user_carries_report_on_hermes(self):
+        content = self._content("hermes")
+
+        assert "for the user to carry back" in content
+        assert "`SendMessage`" not in content
+
+    def test_takes_core_not_dispatch_marks(_):
+        nodes = blueprint_registry["solo-voice"].blueprint.nodes
+
+        assert not any(path[-1] == "Dispatch Marks" for path in nodes)
+
+    def test_plan_for_suite_leaves_it_out(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "### Plan for Suite: Solo Voice" not in content

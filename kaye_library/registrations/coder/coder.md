@@ -930,6 +930,59 @@ use `clarify` tool to ask user during the rework
 
 
 
+### Plan for Suite: Solo Voice
+
+You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its voice branch, and names the Plan file and the Voice.
+
+- work only in the Voice's linked worktree, on its voice branch
+- read the Voice's Movements from the Plan file, and leave the Plan file untouched
+- run the Voice's Movements in order, each to its End State, then commit it as exactly 1 commit
+- never merge the voice branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
+- never ask the user anything, nor wait for an approval
+- on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report; never work around it
+- write no Turn Progress Dispatch and no Movement Recap
+
+End with 1 report, and nothing after it:
+
+- each commit on 1 line: its short hash and its Movement
+- each Movement's End State: met, or why not
+- anything left: where you stopped, why, and the Movements not run
+
+As a subagent, your final reply is the report.
+
+
+
+#### {description}
+
+Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its voice branch, 1 commit each, then 1 report to the main session
+
+#### {when_to_use}
+
+When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session opened in that Voice's linked worktree. Not for the Main Voice (`execute-plan-for-suite`) or drafting Plans (`plan-for-suite`)
+
+
+
+
+#### {[Claude:Skill] Usage}
+
+For each Movement's commit, invoke `commit-sense` via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+For each Movement's commit, load `commit-sense` with `skill_view`.
+
+#### {[Claude:Agent~] Usage}
+
+In your own session, send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`.
+
+#### {[Claude:Agent~] Lack}
+
+In your own session, end your last reply with the report, for the user to carry back to the main session.
+
+
+
+
+
 
 
 

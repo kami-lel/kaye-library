@@ -11,6 +11,7 @@ from kaye_engine.prompt.blueprint import (
     get_corpus_node,
     merge_blueprints,
     replace_meta,
+    uncheckmark_nodes,
 )
 
 from kaye_engine.prompt.blueprint.render_profile import RenderProfile
@@ -82,6 +83,9 @@ def register_coder_blueprints():
         "Plan for Suite: Bar 4: Execution"
     ]
     plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
+    plan_for_suite_solo_voice_node = plan_for_suite_node[
+        "Plan for Suite: Solo Voice"
+    ]
 
     plan_for_suite_bp = checkmark_nodes(
         checkmark_nodes(
@@ -97,6 +101,10 @@ def register_coder_blueprints():
             plan_for_suite_execution_node,
         ),
         plan_for_suite_rework_node,
+    )
+    # the planner's main session never runs a Voice itself
+    plan_for_suite_bp = uncheckmark_nodes(
+        plan_for_suite_bp, plan_for_suite_solo_voice_node, is_recursive=True
     )
     register_prompt(
         "plan-for-suite",
@@ -126,6 +134,26 @@ def register_coder_blueprints():
                 dependencies=["agent-movement-and-suite"],
             ),
             display_name="Rework Plan for Suite",
+        ),
+    )
+
+    # Solo Voice: the dispatch-free Movement core, never Dispatch Marks
+    movement_and_suite_node = get_corpus_node("Agentic")[
+        "Movement, Voice, and Suite"
+    ]
+    register_exportable(
+        "solo-voice",
+        replace_meta(
+            checkmark_nodes(
+                checkmark_nodes(
+                    create_blueprint_from_node(
+                        plan_for_suite_solo_voice_node, is_recursive=True
+                    ),
+                    movement_and_suite_node,
+                ),
+                movement_and_suite_node["Movement Notation"],
+            ),
+            display_name="Solo Voice",
         ),
     )
 

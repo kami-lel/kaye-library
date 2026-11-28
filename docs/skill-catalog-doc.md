@@ -80,6 +80,7 @@ Plan the work, then run it:
 | `/plan-for-suite` 🌟 | a numbered, reviewable plan before any edit; nothing runs until you approve |
 | `/execute-plan-for-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
 | `/rework-plan-for-suite` | plan no longer fits reality? it halts, rewrites the plan, and waits for your approval again |
+| `/solo-voice` | runs one instrumental Voice of a Suite on its own voice branch, as a subagent or in its own session, then reports back; the main session dispatches it |
 
 Then set the pace:
 

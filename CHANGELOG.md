@@ -23,6 +23,7 @@ todo good morning incl finance report
 ### Added
 
 - `agent-movement-and-suite`: Suite, Voice & Movement introduced side by side; Voice, line of Movements in a Suite: Main Voice run by main session, every other Voice an instrumental Voice: agent only, parallel, soloed by a subagent or run in its own session; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument per new `agent-movement-and-suite-voice-instrument` glossary; often 1 Suite = 1 feature branch, 1 Voice = 1 voice branch cut from & merged back into it; section renamed "Movement, Voice, and Suite", skill names kept
+- `solo-voice` skill: runs 1 instrumental Voice whole, agent only, as a subagent or in its own session: its Movements in order in its worktree on its voice branch, 1 commit each, never merging, never asking; ends w/ 1 report, sent via `ListAgents` & `SendMessage` where present, else for the user to carry back; carries the Movement core w/o Dispatch Marks
 
 ### Changed
 

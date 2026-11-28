@@ -548,6 +548,11 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
                     'code',
                     '- `tools/`: project-specific developer tooling, '
                     'distinct from `scripts/`'],
+ 'solo-voice': ['## Movement, Voice, and Suite',
+                '### Plan for Suite: Solo Voice',
+                'work only in the Voice\'s linked worktree',
+                'never merge the voice branch',
+                'End with 1 report, and nothing after it:'],
  'rework-plan-for-suite': ['### Plan for Suite: Rework',
                            'Halt the moment reality stops matching the '
                            'Plan',
@@ -758,6 +763,7 @@ DESCRIPTION_CONTENT = {'coder-bash-script': 'writes Bash script files, functions
  'repo-structure': 'naming conventions and placement for top-level '
                    'documentation files and source, build, docs, test, and '
                    'tooling folders.',
+ 'solo-voice': 'Runs 1 instrumental Voice of a Suite whole, agent only',
  'rework-plan-for-suite': 'Reworks running Plan file when reality stops '
                           'matching it',
  'resolve-merge-conflict': 'Resolves conflicts in a halted Git merge',
@@ -868,6 +874,7 @@ WHEN_TO_USE_CONTENT = {'coder-bash-script': 'fires on durable shell artifacts: `
  'plant-linked-wt': 'Trigger on starting a task on its own branch',
  'uproot-linked-wt': 'Trigger on finishing a task in a linked worktree',
  'tend-linked-wt': 'Trigger on starting, continuing, or finishing a task',
+ 'solo-voice': 'When dispatched to run an instrumental Voice',
  'working-with-git': 'Trigger on any work in a Git repository',
  'working-with-p4v': 'Trigger on any explanation or action in Perforce',
 }
@@ -878,6 +885,9 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                     'tool, which is where the user approves it'],
  'execute-plan-for-suite': ['invoke `rework-plan-for-suite` via `Skill` '
                             'tool'],
+ 'solo-voice': ['invoke `commit-sense` via `Skill` tool',
+                'find it with `ListAgents`, then send the report with '
+                '`SendMessage`'],
  'rework-plan-for-suite': ['Immediate `EnterPlanMode` tool on halt',
                            'present the revised plan to user thru '
                            '`ExitPlanMode` tool',

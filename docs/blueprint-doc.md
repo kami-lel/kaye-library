@@ -244,6 +244,7 @@ flowchart LR
     execute_plan_for_suite --> halt_each_movement
     execute_plan_for_suite --> rework_plan_for_suite
     execute_plan_for_suite --> commit_sense
+    solo_voice["solo-voice"] --> commit_sense
 ```
 
 #### Git & Repository
