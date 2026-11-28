@@ -120,20 +120,27 @@ class TestRender:
             assert needle not in content, name
 
 
+def _text_with_descendants(node):
+    nodes = [node, *node.descendants]
+    return "\n".join("\n".join(n.content_lines()) for n in nodes)
+
+
 class TestPlanForSuiteDecide:
 
     def _text(_):
-        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 2: Decide"]
-        return "\n".join(node.content_lines())
+        node = get_corpus_tree()["Coder"]["Plan for Suite"][
+            "Bar 2: Write the Plan"
+        ]
+        return _text_with_descendants(node)
 
     @pytest.mark.parametrize(
         "needle",
         [
-            "**Feature branch**",
-            "**Linked worktree**",
-            "**Voices**",
+            "feature branch: when",
+            "linked worktree: when",
+            "favor the Main Voice",
             "stretch of 3+ agent-only Movements",
-            "the user approves them with the Plan",
+            "The user approves them with the Plan",
         ],
     )
     def test_decides_branch_worktree_and_voices(self, needle):
@@ -146,14 +153,26 @@ class TestPlanForSuiteDecide:
         node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
         text = "\n".join(node.content_lines())
 
-        assert "**Feature branch**" not in text
+        assert "feature branch: when" not in text
 
 
 class TestPlanForSuiteWrite:
 
     def _text(_):
         node = get_corpus_tree()["Coder"]["Plan for Suite"]
-        return "\n".join(node["Bar 3: Write the Plan"].content_lines())
+        return _text_with_descendants(node["Bar 2: Write the Plan"])
+
+    def test_write_bar_holds_its_topics_as_nodes(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]
+        names = [n.name for n in node["Bar 2: Write the Plan"].children]
+
+        assert names == [
+            "Movement Record",
+            "Plan File",
+            "Voices in the Plan",
+            "Housekeeping Movements",
+            "Movement Heading",
+        ]
 
     def test_record_has_no_order_field(self):
         assert "- Order:" not in self._text()
@@ -161,8 +180,10 @@ class TestPlanForSuiteWrite:
     @pytest.mark.parametrize(
         "needle",
         [
-            "each Bar 2 decision that came out yes",
-            "runs `land-feature`",
+            "each [Housekeeping Movements](#housekeeping-movements) decision",
+            "cut its voice branch",
+            "uproots the linked worktree",
+            "Closing Movement: land the feature branch",
             "`## Order`",
             "`## Main Voice`",
             "`🎻a Violin: Title`",

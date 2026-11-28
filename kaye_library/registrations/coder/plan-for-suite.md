@@ -2,7 +2,16 @@
 
 This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
-Three *Bars*, then Execution:
+Two *Bars*, then Execution:
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,38 +30,51 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 
 
-### Bar 2: Decide
+#### {[Claude:Enter/ExitPlanMode] Usage}
 
-<!-- HACK rm this as a bar -->
+- opens with `EnterPlanMode` tool, so all discovery runs before any edit is possible
 
-Decide, from the repository state gathered in Bar 1, whether the Suite uses a feature branch, a linked worktree, and Voices. Decide these yourself, without asking; the user approves them with the Plan.
+#### {[Claude:AskUserQuestion] Usage}
 
-**Feature branch**:
+- use `AskUserQuestion` tool to ask user
 
-- cut one when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together
-- reuse the current branch when it is already a feature branch serving this task
-- skip it when no Movement edits a tracked file, or the user has said to work on the current branch
+#### {[Hermes:clarify] Usage}
 
-**Linked worktree**:
-
-- plant one when the main worktree is dirty or busy with other work, the user keeps working there meanwhile, or the user has asked to leave it untouched
-- skip it when the main worktree is clean and free; cut the feature branch there instead
-
-**Voices**: favor the Main Voice, and keep the Voice count low.
-
-- form an instrumental Voice only when the Suite has a feature branch, since its voice branch is cut from it
-- form one only for a stretch of 3+ agent-only Movements whose Scopes share no file with the Main Voice or any other Voice
-- keep a shorter stretch, or one sharing a file, in the Main Voice
+- use `clarify` tool to ask user
 
 
 
 
 
-### Bar 3: Write the Plan
 
-<!-- FIXME mvmt incl: plant/uproot wt, feature/voice branch creation/del, push -->
+
+
+
+
+
+
+
+### Bar 2: Write the Plan
 
 The Plan divides the task into Movements.
+
+The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
+
+<plan-for-suite-preface>
+Before working from this file, invoke `play-suite` skill through the `Skill` tool.
+
+Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
+</plan-for-suite-preface>
+
+Right after the preface, state each [Housekeeping Movements](#housekeeping-movements) decision that came out yes, with a one-line reason: the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name.
+
+Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
+
+
+
+
+
+#### Movement Record
 
 The Plan must be **readable at a glance** and **workable in order**. Any layout serving both is fine. Record for each Movement:
 
@@ -64,34 +86,85 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 
 Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, the graph in `## Order` holds every dependency.
 
-The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
-<plan-for-suite-preface>
-Before working from this file, invoke `play-suite` skill through the `Skill` tool.
 
-Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
-</plan-for-suite-preface>
 
-Right after the preface, state each Bar 2 decision that came out yes, with a one-line reason: the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name.
 
-With a feature branch, open the Plan with a Movement that plants the linked worktree on it, or only cuts the feature branch when no linked worktree is decided. Close the Plan with 1 Movement that runs `land-feature`. Mark both `(optional)` after their titles.
-
-Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
-
-##### Plan File
+#### Plan File
 
 - Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
 - Location: first available of workspace root, repository root, your own temporary location
 - 1 Plan file holds the whole Suite, every Voice included
 
-##### Voices in the Plan
+
+##### {[Claude:Skill] Usage}
+
+Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
+
+##### {[Hermes:skill_view] Usage}
+
+Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
+
+##### {[Claude:Enter/ExitPlanMode] Usage}
+
+delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
+
+##### {[git] Usage}
+
+Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
+
+
+
+
+
+#### Voices in the Plan
 
 - give an instrumental Voice only Movements you perform, their Scopes sharing no file with the Main Voice or any other Voice
 - a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch
 - with Voices, open the Plan body with `## Order`: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); follow it with `## Main Voice`, then 1 `## 🎻 Violin Voice` per instrumental Voice in instrument order, each holding its Movements
 - without Voices, keep the Plan flat, with no graph
 
-##### Movement Heading
+
+
+
+
+#### Housekeeping Movements
+
+Branch, worktree, merge, and push work is Plan work, never an unrecorded side step: decide each piece yourself from the repository state gathered in Bar 1, without asking, and realize each yes as a Movement of the Main Voice. The user approves them with the Plan. Mark a Movement `(optional)` after its title when it only serves a decision the user may veto. Some of it may share 1 Movement; keep each reviewable.
+
+Opening Movement: cut the feature branch and, when decided, plant its linked worktree on it.
+
+- feature branch: when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together; reuse a current branch that already serves this task; skip it when no Movement edits a tracked file or the user said to work on the current branch
+- linked worktree: when the main worktree is dirty or busy, the user keeps working there meanwhile, or the user asked to leave it untouched; otherwise cut the feature branch in the main worktree
+
+Closing Movement: land the feature branch, which also pushes the integration branch to origin, uproots the linked worktree, and deletes the merged feature branch. Skipped with the branch.
+
+- add 1 more Movement that prunes merged branches only when stale ones are already in the way
+
+Each instrumental [Voice](#movement-voice-and-suite) brings 2 more Movements, since the main session performs them:
+
+- opening: cut its voice branch from the feature branch and plant its linked worktree
+- closing: after the Voice's report, merge its voice branch into the feature branch, uproot its linked worktree, and delete the voice branch
+- form the Voice only when the Suite has a feature branch and a stretch of 3+ agent-only Movements whose Scopes share no file with the Main Voice or any other Voice; keep anything shorter, or sharing a file, in the Main Voice
+- favor the Main Voice and keep the Voice count low
+
+
+
+##### {[Claude:Skill] Usage}
+
+Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to invoke via `Skill` tool: `tend-linked-wt` to plant or uproot a linked worktree, `land-feature` to land, `prune-merged-branches` to prune.
+
+
+
+##### {[Hermes:skill_view] Usage}
+
+Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to load with `skill_view`: `tend-linked-wt` to plant or uproot a linked worktree, `land-feature` to land, `prune-merged-branches` to prune.
+
+
+
+
+
+#### Movement Heading
 
 In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` in a flat Plan and an `h4` under a Voice's `h2`. Between number and colon, add, in order and only when they apply:
 
@@ -121,44 +194,6 @@ Splits oversized task into ordered, numbered Movements, then runs them under rev
 ### {when_to_use}
 
 On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers: plan this, break into Movements, go step by step. Start before any edit, so survey precedes Plan, Plan precedes 1st change. Not for 1-turn tasks
-
-
-
-
-
-### {[Claude:Skill] Usage}
-
-Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
-
-### {[Hermes:skill_view] Usage}
-
-Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
-
-### {[Claude:Enter/ExitPlanMode] Usage}
-
-in Bar 1:
-
-- opens with `EnterPlanMode` tool, so all discovery runs before any edit is possible
-
-in Bar 3:
-
-- delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
-
-### {[Claude:AskUserQuestion] Usage}
-
-in Bar 1:
-
-- use `AskUserQuestion` tool to ask user
-
-### {[Hermes:clarify] Usage}
-
-in Bar 1:
-
-- use `clarify` tool to ask user
-
-### {[git] Usage}
-
-Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
 
 
 
@@ -390,9 +425,9 @@ Halt the moment reality stops matching the Plan — a bug, a false assumption, a
 
 1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
 2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
-3. set every Movement's Status keyword per [Bar 3: Write the Plan](#bar-3-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
+3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
-5. present the revised Plan and hold for approval, as in [Bar 3: Write the Plan](#bar-3-write-the-plan)
+5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
 6. once approved, Movement In to the earliest unfinished Movement, and not sooner
 
 
