@@ -79,7 +79,7 @@ def register_coder_blueprints():
     # Plan for Suite
     plan_for_suite_node = coder_node["Plan for Suite"]
     plan_for_suite_execution_node = plan_for_suite_node[
-        "Plan for Suite: Bar 3: Execution"
+        "Plan for Suite: Bar 4: Execution"
     ]
     plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
 

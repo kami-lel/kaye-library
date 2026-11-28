@@ -39,6 +39,7 @@ todo good morning incl finance report
 - `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
 - Movement Notation drops the total: `🧩a`, `🎻a` in a Voice, counted per Voice; only a Main Voice 🎏 line writes `🧩a\b`; trackers list every Voice, 1 in progress per open Voice, no prefix rewrite; Movement with Count is `a\b🧩c`; dispatch decoratives & example move to new Dispatch Marks node, leaving a dispatch-free core
 - `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; an instrumental Voice, soloed by a subagent or run in its own session, runs whole whatever its session loads, its report returned, sent, or relayed by the user; reviewed & marked 🎌 at merge back, voice branch merged into feature branch first; only main session writes Dispatch Marks; 🧭 lines drop the total
+- `plan-for-suite`: new Bar 2: Decide, after Gather, picks feature branch, linked worktree & Voices, unasked, approved w/ Plan; Write the Plan → Bar 3, Execution → Bar 4; an instrumental Voice needs a feature branch & 3+ agent-only Movements w/ disjoint Scopes
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated

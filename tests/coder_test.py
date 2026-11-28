@@ -115,3 +115,32 @@ class TestRender:
         assert content.strip()
         for needle in ("Kaye", "Persona", "Kami"):
             assert needle not in content, name
+
+
+class TestPlanForSuiteDecide:
+
+    def _text(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 2: Decide"]
+        return "\n".join(node.content_lines())
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "**Feature branch**",
+            "**Linked worktree**",
+            "**Voices**",
+            "stretch of 3+ agent-only Movements",
+            "the user approves them with the Plan",
+        ],
+    )
+    def test_decides_branch_worktree_and_voices(self, needle):
+        assert needle in self._text()
+
+    def test_leaves_voice_mode_to_execution(self):
+        assert "**Mode**" not in self._text()
+
+    def test_gather_decides_nothing(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
+        text = "\n".join(node.content_lines())
+
+        assert "**Feature branch**" not in text

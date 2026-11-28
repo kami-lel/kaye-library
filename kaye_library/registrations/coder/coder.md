@@ -586,7 +586,7 @@ fires on "usage line", "usage message", "synopsis", `--help` text, argument synt
 
 This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
-Three *Bars*:
+Four *Bars*:
 
 
 
@@ -605,7 +605,32 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 
 
-### Bar 2: Write the Plan
+### Bar 2: Decide
+
+Decide, from the repository state gathered in Bar 1, whether the Suite uses a feature branch, a linked worktree, and Voices. Decide these yourself, without asking; the user approves them with the Plan.
+
+**Feature branch**:
+
+- cut one when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together
+- reuse the current branch when it is already a feature branch serving this task
+- skip it when no Movement edits a tracked file, or the user has said to work on the current branch
+
+**Linked worktree**:
+
+- plant one when the main worktree is dirty or busy with other work, the user keeps working there meanwhile, or the user has asked to leave it untouched
+- skip it when the main worktree is clean and free; cut the feature branch there instead
+
+**Voices**: favor the Main Voice, and keep the Voice count low.
+
+- form an instrumental Voice only when the Suite has a feature branch, since its voice branch is cut from it
+- form one only for a stretch of 3+ agent-only Movements whose Scopes share no file with the Main Voice or any other Voice
+- keep a shorter stretch, or one sharing a file, in the Main Voice
+
+
+
+
+
+### Bar 3: Write the Plan
 
 The Plan divides the task into Movements.
 
@@ -679,7 +704,7 @@ in Bar 1:
 
 - opens with `EnterPlanMode` tool, so all discovery runs before any edit is possible
 
-in Bar 2:
+in Bar 3:
 
 - delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
 
@@ -720,7 +745,7 @@ Parallel execution is an option, never a requirement: independent Movements may 
 
 
 
-### Plan for Suite: Bar 3: Execution
+### Plan for Suite: Bar 4: Execution
 
 Starts only after the user approves the Plan. Follow Plan order — nothing skipped, nothing combined.
 
@@ -859,9 +884,9 @@ Halt the moment reality stops matching the Plan — a bug, a false assumption, a
 
 1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
 2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
-3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
+3. set every Movement's Status keyword per [Bar 3: Write the Plan](#bar-3-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
-5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
+5. present the revised Plan and hold for approval, as in [Bar 3: Write the Plan](#bar-3-write-the-plan)
 6. once approved, Movement In to the earliest unfinished Movement, and not sooner
 
 
