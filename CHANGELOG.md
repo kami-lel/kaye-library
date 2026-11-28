@@ -22,7 +22,7 @@ todo good morning incl finance report
 
 ### Added
 
-- `agent-movement-and-suite`: Suite, Voice & Movement introduced side by side; Voice, line of Movements in a Suite: Main Voice run by main session, every other Voice agent only, parallel, soloed by a subagent; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument per new `agent-movement-and-suite-voice-instrument` glossary; often 1 Suite = 1 feature branch, 1 Voice = 1 voice branch cut from & merged back into it; section renamed "Movement, Voice, and Suite", skill names kept
+- `agent-movement-and-suite`: Suite, Voice & Movement introduced side by side; Voice, line of Movements in a Suite: Main Voice run by main session, every other Voice an instrumental Voice: agent only, parallel, soloed by a subagent or run in its own session; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument per new `agent-movement-and-suite-voice-instrument` glossary; often 1 Suite = 1 feature branch, 1 Voice = 1 voice branch cut from & merged back into it; section renamed "Movement, Voice, and Suite", skill names kept
 
 ### Changed
 
@@ -38,6 +38,7 @@ todo good morning incl finance report
 - `review-gaps`: reads scoped AGENTS & CONTEXT layers as claimed contract; flags scoped file contradicting its parent
 - `create-project-agents`, `create-repo-agents`: gitignore `**/AGENTS.local.md` & `**/CONTEXT.local.md`
 - Movement Notation drops the total: `🧩a`, `🎻a` in a Voice, counted per Voice; only a Main Voice 🎏 line writes `🧩a\b`; trackers list every Voice, 1 in progress per open Voice, no prefix rewrite; Movement with Count is `a\b🧩c`; dispatch decoratives & example move to new Dispatch Marks node, leaving a dispatch-free core
+- `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; an instrumental Voice, soloed by a subagent or run in its own session, runs whole whatever its session loads, its report returned, sent, or relayed by the user; reviewed & marked 🎌 at merge back, voice branch merged into feature branch first; only main session writes Dispatch Marks; 🧭 lines drop the total
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 
 ### Deprecated

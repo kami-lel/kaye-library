@@ -741,7 +741,7 @@
     "abbrs": {
       "🎌": {
         "priority": 13,
-        "remark": "agent-only Voice merges back into the Suite's branch",
+        "remark": "instrumental Voice merges back into the feature branch",
         "tags": [
           "emoji",
           "agent-movement-and-suite-decorative"
@@ -4220,7 +4220,7 @@
     "abbrs": {
       "voice": {
         "priority": 50,
-        "remark": "line of Movements within a Suite; any but the Main Voice is agent only, runs in parallel on its voice branch, then merges back into the feature branch",
+        "remark": "line of Movements within a Suite; any but the Main Voice is an instrumental Voice: agent only, soloed by a subagent or run in its own session, in parallel on its voice branch, then merged back into the feature branch",
         "tags": [
           "agent-movement-and-suite-discourse-unit",
           "term_definition"

@@ -189,10 +189,11 @@ An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Mov
 
 **Voice**: 1 line of Movements within a Suite, run in order
 
-- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent
-- every other Voice is agent only, soloed by a subagent: no user Movement, approval, or question inside it
-- each other Voice runs in parallel with the Main Voice and the rest, on its own voice branch and linked worktree; its voice branch is cut from the feature branch and merges back into it once its Movements are done
-- an instrument emoji therefore always marks an agent-only, parallel Voice
+- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent or another session
+- every other Voice is an **instrumental Voice**: agent only, with no user Movement, approval, or question inside it
+- an instrumental Voice runs in 1 of 2 modes, both following `solo-voice`: soloed by a subagent of the main session, or run in its own session
+- each instrumental Voice runs in parallel with the Main Voice and the rest, on its own voice branch and linked worktree; its voice branch is cut from the feature branch and merges back into it once its Movements are done
+- an instrument emoji therefore always marks an instrumental Voice
 
 **Movement**: 1 division of a Voice, sized for when the whole cannot be held at once
 
@@ -201,7 +202,7 @@ An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Mov
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
 - number each Voice's Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
 
-Name each Voice other than the Main Voice after an instrument, and mark it with that instrument's emoji, taken in this order:
+Name each instrumental Voice after an instrument, and mark it with that instrument's emoji, taken in this order:
 
 (((agent-movement-and-suite-voice-instrument)))
 
@@ -239,7 +240,7 @@ Often 1 Suite = 1 feature branch. 1 Voice = 1 voice branch, cut from the feature
 
 ### {[Claude:TodoWrite] Usage}
 
-One `TodoWrite` entry per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's entries first, then each other Voice's in instrument order, each Voice's in Movement order.
+One `TodoWrite` entry per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's entries first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - `content`: prefix + Movement imperative
 - `activeForm`: prefix + present continuous
@@ -248,12 +249,12 @@ Status flow: `pending` at Seed (before Movement 1 opens) → `in_progress` on Op
 
 Rules:
 
-- exactly 1 entry `in_progress` in the Main Voice, plus 1 per open Voice
+- exactly 1 entry `in_progress` in the Main Voice, plus 1 per open instrumental Voice
 - Movement added or dropped mid-Suite: edit the array in the call that closes the current Movement
 
 ### {[Hermes:todo_list] Usage}
 
-One `todo_list` item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each other Voice's in instrument order, each Voice's in Movement order.
+One `todo_list` item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - item text: prefix + Movement imperative
 
@@ -261,14 +262,14 @@ Status flow: not started at Seed (before Movement 1 opens) → in progress on Op
 
 Rules:
 
-- exactly 1 item in progress in the Main Voice, plus 1 per open Voice
+- exactly 1 item in progress in the Main Voice, plus 1 per open instrumental Voice
 - Movement added or dropped mid-Suite: edit the list in the call that closes the current Movement
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 
-One markdown task-list item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each other Voice's in instrument order, each Voice's in Movement order.
+One markdown task-list item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - item text: prefix + Movement imperative
 
@@ -276,7 +277,7 @@ Status flow: unchecked, undecorated at Seed (before Movement 1 opens) → unchec
 
 Rules:
 
-- exactly 1 item marked current in the Main Voice, plus 1 per open Voice
+- exactly 1 item marked current in the Main Voice, plus 1 per open instrumental Voice
 - Movement added or dropped mid-Suite: edit the list in the same reply that closes the current Movement
 
 
@@ -292,11 +293,13 @@ Rules:
 
 ### Dispatch Marks
 
-Mark a Movement's close, a Voice's merge back, or the whole Suite's close in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+Mark a Movement's close, an instrumental Voice's merge back, or the whole Suite's close in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
 
 (((agent-movement-and-suite-decorative)))
 
 On a 🎏 line closing a Main Voice Movement, and only there, write the Movement prefix as `🧩a\b`, `b` the Main Voice's total Movement count. Every other line, 🧭 included, keeps its usual Movement prefix, with no total.
+
+Only the main session writes these marks. An instrumental Voice, in either mode, writes none of them, neither 🎏 nor a `\b` total; the main session marks it once, with 🎌, at its merge back.
 
 The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
 
@@ -742,11 +745,20 @@ Stop the Turn once 1 Movement is done; the next Movement begins only when user o
 6. next Turn start
 7. repeat from step 2, one Movement per Turn, until no Movement remains
 
-**Movement-Turn Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation):
+Halt the Main Voice only. An instrumental Voice runs whole in either mode, never halted inside, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. Once the report arrives, merge it back and halt there as at a Movement's close, so its review comes then.
+
+**Movement-Turn Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
-🧭 🧩4\7 Wire Up the Config Loader
+🧭 🧩4 Wire Up the Config Loader
+```
+
+At an instrumental Voice's merge back:
+
+```
+🎌 Violin Test Fixtures Merged Back
+🧭 🧩5 Rebuild the Entry Point
 ```
 
 Except when the entire Suite is completed — then name the Suite instead:
@@ -776,6 +788,8 @@ Trigger on "halt after each Movement", "one Movement at a time", "stop after eve
 
 Index the Movement's edits before the Turn stop. Commit them at the next Turn start, once user approves (eg "git commit" or "g").
 
+Merge a finished instrumental Voice's voice branch into the feature branch before the Turn stop that marks it 🎌.
+
 
 
 
@@ -786,6 +800,7 @@ Invoke `TodoWrite` when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 ### {[Hermes:todo_list] Usage}
 
@@ -793,6 +808,7 @@ Invoke `todo_list` when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
@@ -802,6 +818,7 @@ Update the markdown task list when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 
 
@@ -845,16 +862,19 @@ Keep working across Movements until the whole Suite is done; stop only once no M
 
 If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn, unless the Party in charge turns to the user.
 
+Cascade the Main Voice only. An instrumental Voice runs whole in either mode, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. When the next Main Voice Movement depends on an open instrumental Voice, wait for its report, merge it back, then go on; when only the user can relay that report, stop the Turn and wait for it.
+
 1. Turn start
 2. perform tasks of Movement 1
 3. **Movement Dispatch**
 4. perform tasks of Movement 2
 5. repeat for remaining Movements
 
-**Movement Dispatch**: mark each closed Movement with the [Movement Notation](#movement-notation) prefix:
+**Movement Dispatch**: mark each closed Movement, and each instrumental Voice's merge back, per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
+🎌 Violin Test Fixtures Merged Back
 ```
 
 Once all Movements are done, **Suite Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch) naming the Suite:
@@ -883,6 +903,8 @@ Trigger on "run all Movements", "cascade", "keep going until the Suite is done",
 
 Index and commit at each Movement's close, before its Movement Dispatch: 1 commit per Movement.
 
+Merge a finished instrumental Voice's voice branch into the feature branch before its 🎌 line.
+
 
 
 
@@ -901,14 +923,14 @@ When the Party in charge turns to the user and you stop the Turn, call `PushNoti
 
 ### {[Claude:TodoWrite] Usage}
 
-Invoke `TodoWrite` **every time** after Movement finished, before the Movement Dispatch
+Invoke `TodoWrite` **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch
 
 ### {[Hermes:todo_list] Usage}
 
-Invoke `todo_list` **every time** after Movement finished, before the Movement Dispatch
+Invoke `todo_list` **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 
-Update the markdown task list **every time** after Movement finished, before the Movement Dispatch
+Update the markdown task list **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch

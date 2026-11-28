@@ -100,3 +100,38 @@ class TestMovementVoiceAndSuite:
         nodes = blueprint_registry[name].blueprint.nodes
 
         assert any(path[-1] == "Dispatch Marks" for path in nodes)
+
+    def test_defines_instrumental_voice_in_2_modes(self):
+        text = "\n".join(self._node().content_lines())
+
+        assert "**instrumental Voice**" in text
+        assert "soloed by a subagent" in text
+        assert "run in its own session" in text
+
+    def test_dispatch_marks_kept_to_main_session(self):
+        node = self._node()["Dispatch Marks"]
+        text = "\n".join(node.content_lines())
+
+        assert "Only the main session writes these marks" in text
+
+
+class TestHaltAndCascadeVoices:
+
+    @pytest.mark.parametrize(
+        "name", ["Halt Each Movement", "Cascade All Movements"]
+    )
+    def test_governs_main_voice_only(_, name):
+        text = "\n".join(_agentic()[name].content_lines())
+
+        assert "Main Voice only" in text
+        assert "🎌 Violin" in text
+        assert "🧩4\\7" not in text
+
+    @pytest.mark.parametrize(
+        "name", ["Halt Each Movement", "Cascade All Movements"]
+    )
+    def test_states_session_case(_, name):
+        text = "\n".join(_agentic()[name].content_lines())
+
+        assert "whatever halt mode its own session loads" in text
+        assert "sent from its session" in text
