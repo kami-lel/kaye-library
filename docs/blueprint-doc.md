@@ -245,6 +245,9 @@ flowchart LR
     play_suite --> cascade_all_movements
     play_suite --> halt_each_movement
     play_suite --> rework_plan_for_suite
+    play_suite --> tend_linked_wt
+    play_suite --> land_feature["land-feature"]
+    play_suite --> solo_voice["solo-voice"]
     plan_for_suite_execution["plan-for-suite-execution"] --> commit_sense
 ```
 

@@ -45,6 +45,7 @@ todo good morning incl finance report
 - `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree holds 1 branch of any kind, feature, voice, hotfix, release; folder `REPO-WT-BRANCH`; each instrumental Voice gets its own worktree on its voice branch, the 1 split allowed; plant cuts a missing branch from the branch it merges back into; uproot waits for that merge
 - Movement git usage in `agent-movement-and-suite` & Plan for Suite: `1 Movement = 1 commit`, was "often" one; a Movement that edits no file still commits nothing
 - Plan for Suite Execution splits: shared rules in `### Plan for Suite: Execution`, internal `plan-for-suite-execution`; Main Voice rules in `### Play Suite`, skill `play-suite`, renamed from `execute-plan-for-suite`; `solo-voice` shares the rules; intro reads "Three *Bars*, then Execution"; Plan preface invokes `play-suite`
+- `play-suite`: starts each instrumental Voice after its dependencies: plants its worktree, picks subagent mode by default, else its own session opened by the user, w/ 1 prompt naming Plan file, Voice, worktree & `solo-voice`; on report merges the voice branch back, uproots, marks 🎌, or reworks; opening Movement plants or cuts, closing runs `land-feature`; resume checks branches & worktrees; 🧭 Recap lines drop the total
 
 > [!WARNING]
 > Breaking: skill `execute-plan-for-suite` renamed `play-suite`, no alias; a Plan file whose preface names the old skill needs the new name; content keyed on node `Plan for Suite: Bar 4: Execution` or `Plan for Suite: Solo Voice` no longer renders

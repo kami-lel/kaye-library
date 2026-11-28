@@ -246,3 +246,38 @@ class TestExecutionSplit:
         content = exportable_registry["plan-for-suite"].content()
 
         assert "invoke `play-suite` skill through the `Skill` tool" in content
+
+
+class TestPlaySuiteDispatch:
+
+    @staticmethod
+    def _content(surface):
+        profile = render_profile_registry[surface].profile
+        return exportable_registry["play-suite"].content(profile=profile)
+
+    @pytest.mark.parametrize(
+        "surface, needle",
+        [
+            ("claude-vsc", "1 `Agent` call in the background"),
+            ("hermes", "1 `delegate_task` call"),
+            ("codex", "With no subagent tool, run every instrumental Voice"),
+        ],
+    )
+    def test_dispatch_route_per_surface(self, surface, needle):
+        assert needle in self._content(surface)
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "##### Instrumental Voices",
+            "merge its voice branch into the feature branch",
+            "each open voice branch, and their linked worktrees still exist",
+            "lands it per `land-feature`",
+            "🎌 Violin Test Fixtures Merged Back",
+        ],
+    )
+    def test_states_voice_lifecycle(self, needle):
+        assert needle in self._content("claude-vsc")
+
+    def test_next_line_drops_total(self):
+        assert "🧭 🧩4\\7" not in self._content("claude-vsc")

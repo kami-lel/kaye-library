@@ -884,7 +884,9 @@ CLAUDE_TOOL_CONTENT = {'plan-for-suite': ['opens with `EnterPlanMode` tool, so a
                     'runs before any edit is possible',
                     'delivers the finished Plan through `ExitPlanMode` '
                     'tool, which is where the user approves it'],
- 'play-suite': ['invoke `rework-plan-for-suite` via `Skill` tool'],
+ 'play-suite': ['invoke `rework-plan-for-suite` via `Skill` tool',
+                'invoke `tend-linked-wt` skill via `Skill` tool',
+                'Start a subagent-mode Voice with 1 `Agent` call'],
  'solo-voice': ['invoke `commit-sense` via `Skill` tool',
                 'find it with `ListAgents`, then send the report with '
                 '`SendMessage`'],

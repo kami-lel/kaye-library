@@ -710,13 +710,9 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-Invoke `tend-linked-wt` skill via `Skill` tool for each parallel Movement's linked worktree.
-
 ### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
-
-Load `tend-linked-wt` skill with `skill_view` for each parallel Movement's linked worktree.
 
 ### {[Claude:Enter/ExitPlanMode] Usage}
 
@@ -808,6 +804,24 @@ Check the Movement's Party at Movement In. Your own Movements run as above; any 
 
 Movement order binds your judgement, not the user's. Out of sequence, several at once, one skipped, the Plan set aside — obey without protest, noting which Movements are left.
 
+The optional opening Movement plants the linked worktree on the feature branch per `tend-linked-wt`, or only cuts the feature branch; the optional closing Movement lands it per `land-feature`.
+
+
+
+##### Instrumental Voices
+
+Start each instrumental Voice once every Movement it depends on is done:
+
+1. plant its linked worktree on its voice branch, per `tend-linked-wt`
+2. choose its mode: a subagent by default, wherever a subagent tool exists; its own session when the Voice outgrows a subagent's budget, when the user wants to watch it, or when no subagent tool exists
+3. start it with 1 prompt naming the Plan file, the Voice, its worktree path, and `solo-voice`; in session mode, ask the user to open a new session in the Voice's worktree and give it that prompt
+4. go on with the Main Voice on the feature branch; a Main Voice Movement that depends on the Voice waits for its merge back
+
+On the Voice's report:
+
+- every End State met: merge its voice branch into the feature branch, uproot its linked worktree per `tend-linked-wt`, and mark the merge back with 🎌 in the Movement Recap
+- a stop or a mismatch: halt per [Plan for Suite: Rework](#plan-for-suite-rework)
+
 
 
 ##### Saved State
@@ -816,7 +830,7 @@ The Plan file doubles as the run's saved state, so a run survives the end of a s
 
 - Normal Execution: leave the Plan file untouched, no Status update between Movements
 - Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
-- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
+- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; check that the feature branch, each open voice branch, and their linked worktrees still exist; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 Status keywords, written only on a pause or a rework. Each Movement carries exactly one keyword at any moment:
 
@@ -843,11 +857,17 @@ For another party, hand over steps and End State, await its report, then verify.
 
 #### Movement Recap
 
-Always end the Turn with a 2-line [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation):
+Always end the Turn with a 2-line [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
-🧭 🧩4\7 Wire Up the Config Loader
+🧭 🧩4 Wire Up the Config Loader
+```
+
+At an instrumental Voice's merge back, add its line:
+
+```
+🎌 Violin Test Fixtures Merged Back
 ```
 
 Except when the entire Plan is completed — then end with a 1-line Turn Progress Dispatch naming the Plan instead:
@@ -862,7 +882,7 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 ```markdown
 🎏 [🧩3\7 Rewrote the Entry Point](file:///path/to/plan-file.md#L42)
-🧭 [🧩4\7 Wire Up the Config Loader](file:///path/to/plan-file.md#L58)
+🧭 [🧩4 Wire Up the Config Loader](file:///path/to/plan-file.md#L58)
 ```
 
 ```markdown
@@ -888,11 +908,27 @@ Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-m
 
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), invoke `rework-plan-for-suite` via `Skill` tool.
 
+To plant or uproot a linked worktree, invoke `tend-linked-wt` skill via `Skill` tool; in the closing Movement, invoke `land-feature` skill via `Skill` tool.
+
 #### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
 
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-plan-for-suite` with `skill_view`.
+
+To plant or uproot a linked worktree, load `tend-linked-wt` with `skill_view`; in the closing Movement, load `land-feature` with `skill_view`.
+
+#### {[Claude:Agent~] Usage}
+
+Start a subagent-mode Voice with 1 `Agent` call in the background, carrying its prompt.
+
+#### {[Hermes:delegate_task] Usage}
+
+Start a subagent-mode Voice with 1 `delegate_task` call, its prompt split across `goal` and `context`; state the worktree path, since a child shares your working directory.
+
+#### {[agent] Fallback}
+
+With no subagent tool, run every instrumental Voice in session mode.
 
 #### {[Claude:AskUserQuestion] Usage}
 
