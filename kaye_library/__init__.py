@@ -57,6 +57,7 @@ _ABBRS_JSON_FILE_PATH = Path(__file__).resolve().parent / "abbrs.json"
 _CORPUS_SOURCES = [
     ((), "dynamic_nodes/dynamic_nodes.md"),
     ((), "agent/agent.md"),
+    (("Agentic",), "agent/suite.md"),
     ((), "chat/chat-agent.md"),
     ((), "style/style.md"),
     ((), "element/element.md"),
@@ -71,6 +72,7 @@ _CORPUS_SOURCES = [
     ((), "amanuensis/amanuensis.md"),
     ((), "secretary/secretary.md"),
     ((), "coder/coder.md"),
+    (("Coder",), "coder/plan-for-suite.md"),
     (("Coder",), "coder/coder-bash.md"),
     (("Coder",), "coder/coder-powershell.md"),
     (("Coder",), "coder/coder-c-and-cpp.md"),
