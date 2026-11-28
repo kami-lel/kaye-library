@@ -158,7 +158,7 @@ class TestPlanForSuiteWrite:
     @pytest.mark.parametrize(
         "needle",
         [
-            "`Decisions` block",
+            "each Bar 2 decision that came out yes",
             "runs `land-feature`",
             "`## Order`",
             "`## Main Voice`",

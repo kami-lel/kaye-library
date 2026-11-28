@@ -652,11 +652,7 @@ Before working from this file, invoke `execute-plan-for-suite` skill through the
 Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
 </plan-for-suite-preface>
 
-Right after the preface, record Bar 2's decisions in a `Decisions` block, each with a one-line reason:
-
-- Feature branch: yes, with its name, or no
-- Linked worktree: yes, with its path, or no
-- Voices: none, or each instrumental Voice with its voice branch name
+Right after the preface, state each Bar 2 decision that came out yes, with a one-line reason: the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name.
 
 With a feature branch, open the Plan with a Movement that plants the linked worktree on it, or only cuts the feature branch when no linked worktree is decided. Close the Plan with 1 Movement that runs `land-feature`. Mark both `(optional)` after their titles.
 
