@@ -66,9 +66,7 @@ Hand the Plan to the user and **stop**. The codebase stays exactly as it is unti
 
 
 
-
-
-#### Movement Record
+##### Movement Record
 
 The Plan must be **readable at a glance** and **workable in order**. Any layout serving both is fine. Record for each Movement:
 
@@ -79,6 +77,16 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Status: always write `Pending` when first writing the Plan
 
 Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, `## Order` holds every dependency.
+
+
+
+##### Voice Split
+
+Deciding how many Voices to run is a balance: more Voices means more parallel work, so the Suite finishes sooner.
+
+- Default to more Voices: split the work into as many parallel Voices as its dependencies allow
+- Do not split too fine: every Voice holds at least 5 Movements; below that, combine its tasks into another Voice
+- When both pull against each other, take the most Voices that still keep every Voice at 5 or more Movements
 
 
 
