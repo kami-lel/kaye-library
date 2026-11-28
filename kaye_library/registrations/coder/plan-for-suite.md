@@ -93,9 +93,9 @@ Record no Order field. With only the Main Voice, the Movement numbers give the o
 Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
 <plan-for-suite-preface>
-Before working from this file, invoke `play-suite` skill through the `Skill` tool.
+Before working from this file, invoke the skill for the Voice you run: `play-suite` if you run the Main Voice, `solo-voice` if you run an instrumental Voice.
 
-Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
+If you run the Main Voice, ask the user whether to run under `cascade-all-movements` or `halt-each-movement`, then follow the chosen skill.
 </plan-for-suite-preface>
 
 Top-level headings, all `##`, in this order after the preface:
@@ -260,7 +260,7 @@ Run a housekeeping Movement through the skill its Statement names, loaded with `
 
 You play the Main Voice of an approved Plan.
 
-If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
+If not already answered, ask whether the Main Voice runs under `cascade-all-movements` or `halt-each-movement`.
 
 Run each Movement's steps per [Plan for Suite: Execution](#plan-for-suite-execution), then close it:
 

@@ -259,10 +259,12 @@ class TestExecutionSplit:
         assert "### Plan for Suite: Execution" in content
         assert "### Play Suite" not in content
 
-    def test_preface_names_play_suite(_):
+    def test_preface_names_play_suite_and_solo_voice(_):
         content = exportable_registry["plan-for-suite"].content()
 
-        assert "invoke `play-suite` skill through the `Skill` tool" in content
+        assert "`play-suite` if you run the Main Voice" in content
+        assert "`solo-voice` if you run an instrumental Voice" in content
+        assert "through the `Skill` tool" not in content
 
 
 class TestPlaySuiteDispatch:

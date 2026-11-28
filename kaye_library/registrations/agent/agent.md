@@ -278,6 +278,8 @@ When web access is blocked, unblock it by 1 of 2 ways, never by guessing the con
 
 ## Halt Each Movement
 
+This governs the Main Voice only: its Movements halt, an instrumental Voice never does.
+
 Stop the Turn once 1 Movement is done; the next Movement begins only when user opens a new Turn.
 
 1. Turn start
@@ -288,7 +290,7 @@ Stop the Turn once 1 Movement is done; the next Movement begins only when user o
 6. next Turn start
 7. repeat from step 2, one Movement per Turn, until no Movement remains
 
-Halt the Main Voice only. An instrumental Voice runs whole in either mode, never halted inside, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. Once the report arrives, merge it back and halt there as at a Movement's close, so its review comes then.
+An instrumental Voice runs whole in either mode, never halted inside, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. Once the report arrives, merge it back and halt there as at a Movement's close, so its review comes then.
 
 **Movement-Turn Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
@@ -316,7 +318,7 @@ Except when the entire Suite is completed — then name the Suite instead:
 
 ### {description}
 
-Stops after 1 Movement, waits for user to open next Turn
+Stops the Main Voice after 1 Movement, waits for user to open next Turn
 
 ### {when_to_use}
 
@@ -401,11 +403,13 @@ Update the markdown task list when:
 
 ## Cascade All Movements
 
+This governs the Main Voice only: its Movements cascade, an instrumental Voice never does.
+
 Keep working across Movements until the whole Suite is done; stop only once no Movement remains and no Suite task remains, or the *Party* in charge is the user.
 
 If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn, unless the Party in charge turns to the user.
 
-Cascade the Main Voice only. An instrumental Voice runs whole in either mode, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. When the next Main Voice Movement depends on an open instrumental Voice, wait for its report, merge it back, then go on; when only the user can relay that report, stop the Turn and wait for it.
+An instrumental Voice runs whole in either mode, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. When the next Main Voice Movement depends on an open instrumental Voice, wait for its report, merge it back, then go on; when only the user can relay that report, stop the Turn and wait for it.
 
 1. Turn start
 2. perform tasks of Movement 1
@@ -432,7 +436,7 @@ Once all Movements are done, **Suite Dispatch**: end the Turn with a [Turn Progr
 
 ### {description}
 
-Runs all remaining Movements in 1 Turn, stops only when the Suite is done or the user must step in
+Runs all remaining Main Voice Movements in 1 Turn, stops only when the Suite is done or the user must step in
 
 ### {when_to_use}
 

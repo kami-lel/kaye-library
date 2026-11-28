@@ -404,7 +404,7 @@ FILE_CONTENT = {'scan-event-radar-daily': ['### Bar 1: Gather event for today',
  'play-suite': ['### Plan for Suite: Execution',
                 'Starts only after the user approves the Plan.',
                 '### Play Suite',
-                'ask whether to run under `cascade-all-movements` or '
+                'ask whether the Main Voice runs under `cascade-all-movements` or '
                 '`halt-each-movement`.',
                 '##### Movement Parties in Execution'],
  'proj-agents-writer': ['## agents writer',
