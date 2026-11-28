@@ -584,9 +584,9 @@ fires on "usage line", "usage message", "synopsis", `--help` text, argument synt
 
 ## Plan for Suite
 
-This uses the [Movement and Suite](#movement-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
+This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
-Three *Bars*:
+Three *Bars*, then Execution:
 
 
 
@@ -605,7 +605,32 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 
 
-### Bar 2: Write the Plan
+### Bar 2: Decide
+
+Decide, from the repository state gathered in Bar 1, whether the Suite uses a feature branch, a linked worktree, and Voices. Decide these yourself, without asking; the user approves them with the Plan.
+
+**Feature branch**:
+
+- cut one when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together
+- reuse the current branch when it is already a feature branch serving this task
+- skip it when no Movement edits a tracked file, or the user has said to work on the current branch
+
+**Linked worktree**:
+
+- plant one when the main worktree is dirty or busy with other work, the user keeps working there meanwhile, or the user has asked to leave it untouched
+- skip it when the main worktree is clean and free; cut the feature branch there instead
+
+**Voices**: favor the Main Voice, and keep the Voice count low.
+
+- form an instrumental Voice only when the Suite has a feature branch, since its voice branch is cut from it
+- form one only for a stretch of 3+ agent-only Movements whose Scopes share no file with the Main Voice or any other Voice
+- keep a shorter stretch, or one sharing a file, in the Main Voice
+
+
+
+
+
+### Bar 3: Write the Plan
 
 The Plan divides the task into Movements.
 
@@ -614,17 +639,22 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Scope: the files it touches, all named, and few
 - Statement: what changes and why, in a line or two — never a code dump
 - **End State**: what *Working* means once the Movement closes, so review can stop there
-- Order: what it depends on, which may only be Movements already done
 - Party (who performs it): you, the user, or another party by name; give the user what lies beyond your reach, eg a GUI step, a login, a device, an approval
 - Status: always write `Pending` when first writing the Plan
+
+Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, the graph in `## Order` holds every dependency.
 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
 <plan-for-suite-preface>
-Before working from this file, invoke `execute-plan-for-suite` skill through the `Skill` tool.
+Before working from this file, invoke `play-suite` skill through the `Skill` tool.
 
 Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
 </plan-for-suite-preface>
+
+Right after the preface, state each Bar 2 decision that came out yes, with a one-line reason: the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name.
+
+With a feature branch, open the Plan with a Movement that plants the linked worktree on it, or only cuts the feature branch when no linked worktree is decided. Close the Plan with 1 Movement that runs `land-feature`. Mark both `(optional)` after their titles.
 
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
 
@@ -632,10 +662,18 @@ Hand the Plan to the user and **stop**. The codebase stays exactly as it is unti
 
 - Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
 - Location: first available of workspace root, repository root, your own temporary location
+- 1 Plan file holds the whole Suite, every Voice included
+
+##### Voices in the Plan
+
+- give an instrumental Voice only Movements you perform, their Scopes sharing no file with the Main Voice or any other Voice
+- a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch
+- with Voices, open the Plan body with `## Order`: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); follow it with `## Main Voice`, then 1 `## 🎻 Violin Voice` per instrumental Voice in instrument order, each holding its Movements
+- without Voices, keep the Plan flat, with no graph
 
 ##### Movement Heading
 
-In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, between number and colon, in order and only when they apply:
+In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` in a flat Plan and an `h4` under a Voice's `h2`. Between number and colon, add, in order and only when they apply:
 
 - `{party}`: for a Movement that is not yours, never for your own
 - `[workspace]`: when the task spans several workspaces or repositories
@@ -643,8 +681,15 @@ In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, bet
 The user is a party too, by their own name, eg `{John}`.
 
 ```
-### 🧩5\8 [api]: Wire Up the Config Loader
-### 🧩6\8 {John} [api]: Approve the Staging Deploy
+### 🧩5 [api]: Wire Up the Config Loader
+### 🧩6 {John} [api]: Approve the Staging Deploy
+```
+
+With Voices:
+
+```
+#### 🧩5 [api]: Wire Up the Config Loader
+#### 🎻2 Violin [api]: Rewrite the Test Fixtures
 ```
 
 
@@ -665,13 +710,9 @@ On large, multi-file, multi-concern work wanted reviewable, not 1 pass. Triggers
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-Invoke `tend-linked-wt` skill via `Skill` tool for each parallel Movement's linked worktree.
-
 ### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
-
-Load `tend-linked-wt` skill with `skill_view` for each parallel Movement's linked worktree.
 
 ### {[Claude:Enter/ExitPlanMode] Usage}
 
@@ -679,7 +720,7 @@ in Bar 1:
 
 - opens with `EnterPlanMode` tool, so all discovery runs before any edit is possible
 
-in Bar 2:
+in Bar 3:
 
 - delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
 
@@ -699,14 +740,6 @@ in Bar 1:
 
 Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
 
-----
-
-Parallel execution is an option, never a requirement: independent Movements may run at once, each in its own linked worktree and feature branch per `tend-linked-wt`.
-
-- where a large task splits cleanly, favor disjoint Scopes and few dependencies
-- mark each parallel Movement with its peers and its branch
-- stay sequential when splitting costs more than it saves, eg shared files, tight coupling
-- a Movement depending on parallel ones waits until all their branches merge back
 
 
 
@@ -719,23 +752,75 @@ Parallel execution is an option, never a requirement: independent Movements may 
 
 
 
-
-### Plan for Suite: Bar 3: Execution
+### Plan for Suite: Execution
 
 Starts only after the user approves the Plan. Follow Plan order — nothing skipped, nothing combined.
 
-If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
-
 Each Movement runs these steps in order:
 
-1. Movement In: enter the Movement the Plan names next, or on resume the one Status names
-2. Task: do its work, touching nothing outside the Movement's boundary
+1. Movement In: enter the Movement next in order
+2. Task: do its work, touching nothing outside the Movement's boundary, until its End State holds
+
+
+
+
+#### {[Claude:Skill] Usage}
+
+For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
+
+#### {[Hermes:skill_view] Usage}
+
+For each Movement's git commit, load `commit-sense` with `skill_view`.
+
+#### {[git] Usage}
+
+1 Movement = 1 commit. A Movement that edits no workspace file, such as a user Movement, commits nothing.
+
+
+
+
+
+
+
+
+
+
+
+
+### Play Suite
+
+You play the Main Voice of an approved Plan.
+
+If not already answered, ask whether to run under `cascade-all-movements` or `halt-each-movement`.
+
+Run each Movement's steps per [Plan for Suite: Execution](#plan-for-suite-execution), then close it:
+
 3. [Movement Recap](#movement-recap)
 4. Movement Out: return control to user
+
+On resume, Movement In to the Movement its Status names, per [Saved State](#saved-state).
 
 Check the Movement's Party at Movement In. Your own Movements run as above; any other party follows [Movement Parties in Execution](#movement-parties-in-execution).
 
 Movement order binds your judgement, not the user's. Out of sequence, several at once, one skipped, the Plan set aside — obey without protest, noting which Movements are left.
+
+The optional opening Movement plants the linked worktree on the feature branch per `tend-linked-wt`, or only cuts the feature branch; the optional closing Movement lands it per `land-feature`.
+
+
+
+##### Instrumental Voices
+
+Start each instrumental Voice once every Movement it depends on is done:
+
+1. plant its linked worktree on its voice branch, per `tend-linked-wt`
+2. choose its mode: a subagent by default, wherever a subagent tool exists; its own session when the Voice outgrows a subagent's budget, when the user wants to watch it, or when no subagent tool exists
+3. start it with 1 prompt naming the Plan file, the Voice, its worktree path, and `solo-voice`; in session mode, ask the user to open a new session in the Voice's worktree and give it that prompt
+4. go on with the Main Voice on the feature branch; a Main Voice Movement that depends on the Voice waits for its merge back
+
+On the Voice's report:
+
+- every End State met: merge its voice branch into the feature branch, uproot its linked worktree per `tend-linked-wt`, and mark the merge back with 🎌 in the Movement Recap
+- a stop or a mismatch: halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 
 
@@ -745,7 +830,7 @@ The Plan file doubles as the run's saved state, so a run survives the end of a s
 
 - Normal Execution: leave the Plan file untouched, no Status update between Movements
 - Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
-- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
+- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; check that the feature branch, each open voice branch, and their linked worktrees still exist; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 Status keywords, written only on a pause or a rework. Each Movement carries exactly one keyword at any moment:
 
@@ -772,11 +857,17 @@ For another party, hand over steps and End State, await its report, then verify.
 
 #### Movement Recap
 
-Always end the Turn with a 2-line [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation):
+Always end the Turn with a 2-line [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
-🧭 🧩4\7 Wire Up the Config Loader
+🧭 🧩4 Wire Up the Config Loader
+```
+
+At an instrumental Voice's merge back, add its line:
+
+```
+🎌 Violin Test Fixtures Merged Back
 ```
 
 Except when the entire Plan is completed — then end with a 1-line Turn Progress Dispatch naming the Plan instead:
@@ -791,7 +882,7 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 ```markdown
 🎏 [🧩3\7 Rewrote the Entry Point](file:///path/to/plan-file.md#L42)
-🧭 [🧩4\7 Wire Up the Config Loader](file:///path/to/plan-file.md#L58)
+🧭 [🧩4 Wire Up the Config Loader](file:///path/to/plan-file.md#L58)
 ```
 
 ```markdown
@@ -802,11 +893,11 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 #### {description}
 
-Executes approved Plan file, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
+Plays approved Plan file's Main Voice, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
 
 #### {when_to_use}
 
-On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`) or reworking them (`rework-plan-for-suite`)
+On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`), reworking them (`rework-plan-for-suite`), or running an instrumental Voice (`solo-voice`)
 
 
 
@@ -815,17 +906,29 @@ On Plan file preface; on instruction to begin, continue, pause, or resume; on an
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
 
-For each Movement's git commit, invoke `commit-sense` via `Skill` tool.
-
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), invoke `rework-plan-for-suite` via `Skill` tool.
+
+To plant or uproot a linked worktree, invoke `tend-linked-wt` skill via `Skill` tool; in the closing Movement, invoke `land-feature` skill via `Skill` tool.
 
 #### {[Hermes:skill_view] Usage}
 
 Load the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — with `skill_view`.
 
-For each Movement's git commit, load `commit-sense` with `skill_view`.
-
 When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-plan-for-suite` with `skill_view`.
+
+To plant or uproot a linked worktree, load `tend-linked-wt` with `skill_view`; in the closing Movement, load `land-feature` with `skill_view`.
+
+#### {[Claude:Agent~] Usage}
+
+Start a subagent-mode Voice with 1 `Agent` call in the background, carrying its prompt.
+
+#### {[Hermes:delegate_task] Usage}
+
+Start a subagent-mode Voice with 1 `delegate_task` call, its prompt split across `goal` and `context`; state the worktree path, since a child shares your working directory.
+
+#### {[agent] Fallback}
+
+With no subagent tool, run every instrumental Voice in session mode.
 
 #### {[Claude:AskUserQuestion] Usage}
 
@@ -845,9 +948,6 @@ Write 1 line: emoji + Suite name
 
 use `clarify` tool to confirm each step or the End State of a user Movement, carrying likely replies as options
 
-#### {[git] Usage}
-
-Each Movement lands as one git commit, performed as the chosen skill directs. A Movement that changes no workspace file, such as a user Movement, commits nothing.
 
 
 
@@ -859,9 +959,9 @@ Halt the moment reality stops matching the Plan — a bug, a false assumption, a
 
 1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
 2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
-3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
+3. set every Movement's Status keyword per [Bar 3: Write the Plan](#bar-3-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
-5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)
+5. present the revised Plan and hold for approval, as in [Bar 3: Write the Plan](#bar-3-write-the-plan)
 6. once approved, Movement In to the earliest unfinished Movement, and not sooner
 
 
@@ -872,7 +972,7 @@ Reworks running Plan file when reality stops matching it: halts, rewrites Plan, 
 
 #### {when_to_use}
 
-Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`execute-plan-for-suite`)
+Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for work, user redirect, workspace mismatch on resume — even unprompted. Triggers: rework the Plan, replan, Plan no longer fits. Not for drafting Plans (`plan-for-suite`) or running Movements (`play-suite`)
 
 
 
@@ -889,6 +989,51 @@ use `AskUserQuestion` tool to ask user during the rework
 #### {[Hermes:clarify] Usage}
 
 use `clarify` tool to ask user during the rework
+
+
+
+
+
+### Solo Voice
+
+You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its voice branch, and names the Plan file and the Voice.
+
+- work only in the Voice's linked worktree, on its voice branch
+- read the Voice's Movements from the Plan file, and leave the Plan file untouched
+- run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution)
+- never merge the voice branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
+- never ask the user anything, nor wait for an approval
+- on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report; never work around it
+- write no Turn Progress Dispatch and no Movement Recap
+
+End with 1 report, and nothing after it:
+
+- each commit on 1 line: its short hash and its Movement
+- each Movement's End State: met, or why not
+- anything left: where you stopped, why, and the Movements not run
+
+As a subagent, your final reply is the report.
+
+
+
+#### {description}
+
+Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its voice branch, 1 commit each, then 1 report to the main session
+
+#### {when_to_use}
+
+When dispatched to run an instrumental Voice (🎻 Violin, 🎺 Trumpet, ~) of a Suite, by a subagent prompt or in a session opened in that Voice's linked worktree. Not for the Main Voice (`play-suite`) or drafting Plans (`plan-for-suite`)
+
+
+
+
+#### {[Claude:Agent~] Usage}
+
+In your own session, send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`.
+
+#### {[Claude:Agent~] Lack}
+
+In your own session, end your last reply with the report, for the user to carry back to the main session.
 
 
 
@@ -929,7 +1074,7 @@ The suite and the codebase have fallen out of agreement. Restore it.
 
 If an environment or tool setup issue arises during test execution, stop immediately and ask the user how to resolve it.
 
-Three Movements: triage, consult, repair. Repair runs as Movements and Counts, per [Movement and Suite](#movement-and-suite); triage determines their number.
+Three Movements: triage, consult, repair. Repair runs as Movements and Counts, per [Movement, Voice, and Suite](#movement-voice-and-suite); triage determines their number.
 
 
 
@@ -1085,7 +1230,7 @@ During Movement 3: update the markdown task list when:
 
 ## Gap Review
 
-Inspect the repository and surface every inconsistency, gap, or unfinished seam likely to become user-visible after a public release. Read docs (`README`, `CHANGELOG`, `CONTEXT`, `AGENTS`, `docs/`) as the *claimed* contract, then code, tests, and packaging metadata as the *actual* one — every divergence is a candidate finding. Apply [Coder](#coder) when reading code, so findings rest on project convention rather than generic expectation.
+Inspect the repository and surface every inconsistency, gap, or unfinished seam likely to become user-visible after a public release. Read docs (`README`, `CHANGELOG`, `CONTEXT`, `AGENTS`, each scoped `AGENTS`/`CONTEXT` layer, `docs/`) as the *claimed* contract, flagging a scoped file that contradicts its parent, then code, tests, and packaging metadata as the *actual* one — every divergence is a candidate finding. Apply [Coder](#coder) when reading code, so findings rest on project convention rather than generic expectation.
 
 Read-only, with one exception: inserting a *Loud TT* at every newly found gap. Never fix a finding unless asked in a later turn.
 

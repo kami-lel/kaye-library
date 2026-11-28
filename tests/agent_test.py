@@ -23,7 +23,7 @@ class TestStructure:
         [
             "Turn Progress Dispatch",
             "Files & Folders",
-            "Movement and Suite",
+            "Movement, Voice, and Suite",
             "Halt Each Movement",
             "Cascade All Movements",
         ],
@@ -67,3 +67,71 @@ class TestTaskBlockageWorkaround:
 
         assert not entry.is_exportable
         assert "agent-task-blockage-workaround" not in exportable_registry
+
+
+class TestMovementVoiceAndSuite:
+
+    def _node(_):
+        return _agentic()["Movement, Voice, and Suite"]
+
+    def test_dispatch_marks_is_a_child_node(self):
+        names = {c.name for c in self._node().children}
+
+        assert "Dispatch Marks" in names
+
+    def test_core_body_carries_no_dispatch(self):
+        text = "\n".join(self._node().content_lines())
+
+        assert "🎏" not in text
+        assert "Turn Progress Dispatch" not in text
+
+    def test_notation_carries_no_total(self):
+        node = self._node()["Movement Notation"]
+        text = "\n".join(node.content_lines())
+
+        assert "🧩a\\b" not in text
+        assert "🧩a SUMMARY" in text
+
+    @pytest.mark.parametrize(
+        "name",
+        ["agent-movement-and-suite", "agent-movement-and-suite-with-count"],
+    )
+    def test_blueprint_checkmarks_dispatch_marks(_, name):
+        nodes = blueprint_registry[name].blueprint.nodes
+
+        assert any(path[-1] == "Dispatch Marks" for path in nodes)
+
+    def test_defines_instrumental_voice_in_2_modes(self):
+        text = "\n".join(self._node().content_lines())
+
+        assert "**instrumental Voice**" in text
+        assert "soloed by a subagent" in text
+        assert "run in its own session" in text
+
+    def test_dispatch_marks_kept_to_main_session(self):
+        node = self._node()["Dispatch Marks"]
+        text = "\n".join(node.content_lines())
+
+        assert "Only the main session writes these marks" in text
+
+
+class TestHaltAndCascadeVoices:
+
+    @pytest.mark.parametrize(
+        "name", ["Halt Each Movement", "Cascade All Movements"]
+    )
+    def test_governs_main_voice_only(_, name):
+        text = "\n".join(_agentic()[name].content_lines())
+
+        assert "Main Voice only" in text
+        assert "🎌 Violin" in text
+        assert "🧩4\\7" not in text
+
+    @pytest.mark.parametrize(
+        "name", ["Halt Each Movement", "Cascade All Movements"]
+    )
+    def test_states_session_case(_, name):
+        text = "\n".join(_agentic()[name].content_lines())
+
+        assert "whatever halt mode its own session loads" in text
+        assert "sent from its session" in text

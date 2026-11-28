@@ -78,8 +78,9 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | 技能 | 能带来什么 |
 |---|---|
 | `/plan-for-suite` 🌟 | 动手前先有一份编号、可审阅的计划；你批准之前什么都不会执行 |
-| `/execute-plan-for-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
+| `/play-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
 | `/rework-plan-for-suite` | 计划跟不上变化了？它会先叫停，改好计划，再等你重新批准 |
+| `/solo-voice` | 在自己的 voice branch 上独立跑完 Suite 中的一个 instrumental Voice，以子智能体或独立会话运行，完成后向主会话汇报；由主会话派发 |
 
 节奏你说了算：
 
@@ -89,7 +90,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | `/cascade-all-movements` | 把剩下的 Movement 一口气做完，只有整个 Suite 完成或需要你拍板时才停 |
 
 > [!TIP]
-> 执行计划时，可以把 `/execute-plan-for-suite` 和 `/tend-linked-wt` 搭配起来并行开发：每份计划独占一个关联工作树，多个 Suite 同时推进也互不冲突。
+> 执行计划时，可以把 `/play-suite` 和 `/tend-linked-wt` 搭配起来并行开发：每份计划独占一个关联工作树，多个 Suite 同时推进也互不冲突。
 
 下面两个配套技能负责定义这些概念：
 
@@ -157,7 +158,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 - `/repo-readme-writer` 能把空荡荡的仓库变成让人愿意读下去的首页，本库的 README 就是这么写出来的
 - `/repo-changelog-writer` 遵循 Keep a Changelog 规范，带 `[Unreleased]` 区块和版本链接；`/create-changelog` 甚至能从 Git 历史里重建一份
 - `/repo-credits-writer` 为每项第三方素材记一行：路径、来源、作者、许可证，绝不让任何素材不署名就上线
-- `/repo-devlog-writer` 把每项改动和促成它的试玩反馈、问卷或 bug 一一对应，配上带说明的截图，并如实记录遗留问题
+- `/repo-devlog-writer` 把每项改动和促成它的试玩反馈、问卷或 bug 一一对应，配上带说明的截图，数据适合时画成 Mermaid 图表，并如实记录遗留问题
 - `/repo-agents-writer` 和 `/repo-context-writer` 让规则和知识各归各位：`AGENTS.md` 写该怎么做，`CONTEXT.md` 写系统怎么运作，个人笔记则放进只属于你自己的 `.local.md` 文件
 
 
@@ -231,7 +232,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 上面发版流程的配套技能：
 
 - `/proj-version-extended`：帮你给预发布版本定版本号，比如第二个 beta 是 `1.0.0-beta.2`，第一个候选版本是 `1.0.0-rc.1`，还能附加构建标签
-- `/proj-version-title`：根据新旧版本号生成发布标题，比如从 `1.3.2` 升到 `1.4.0`，标题就是 `Minor Stable Release 1.4.0`
+- `/proj-version-title`：根据新旧版本号生成发布标题，比如从 `1.3.2` 升到 `1.4.0`，标题就是 `Minor Release 1.4.0`
 
 
 

@@ -177,34 +177,40 @@ Creating, naming, or renaming a document, resource, media file, or folder, or me
 
 
 
-## Movement and Suite
+## Movement, Voice, and Suite
 
-A **Suite** is a workflow for explicit, multi-round user tasks — not simple, implicit, or single-round work — made up of multiple **Movements**, each one a division of that Suite sized for when the whole cannot be held at once.
+An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Movement. Never use them for simple, implicit, or single-round work.
+
+**Suite**: the whole workflow for 1 such task
+
+- holds 1+ Voices, the Main Voice always among them
+- works on its feature branch, often 1 Suite = 1 feature branch, which every voice branch merges back into
+- completes once every Voice has merged back and no Movement remains
+
+**Voice**: 1 line of Movements within a Suite, run in order
+
+- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent or another session
+- every other Voice is an **instrumental Voice**: agent only, with no user Movement, approval, or question inside it
+- an instrumental Voice runs in 1 of 2 modes, both following `solo-voice`: soloed by a subagent of the main session, or run in its own session
+- each instrumental Voice runs in parallel with the Main Voice and the rest, on its own voice branch and linked worktree; its voice branch is cut from the feature branch and merges back into it once its Movements are done
+- an instrument emoji therefore always marks an instrumental Voice
+
+**Movement**: 1 division of a Voice, sized for when the whole cannot be held at once
 
 - design each Movement **reviewable**: one coherent unit user reads, judges, accepts or rejects on its own
 - size to that end: worth a halt, small enough to grasp at a glance
 - a Movement may build on prior work or stand apart; required is not independence but sharp boundary, so where one Movements Out and next Movements In is never in question
-- number Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
+- number each Voice's Movements from `1`, incrementing by 1 — `1`, `2`, `3`.
+
+Name each instrumental Voice after an instrument, and mark it with that instrument's emoji, taken in this order:
+
+(((agent-movement-and-suite-voice-instrument)))
 
 These extend the discourse units with the Suite's own terms. Abbreviations are decode-only: always use the full term in your response:
 
 (((agent-movement-and-suite-discourse-unit)))
 
-in general: Round < Movement < Suite
-
-Mark a Movement's close, or the whole Suite's, in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
-
-(((agent-movement-and-suite-decorative)))
-
-The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
-
-```markdown
-(you wire the loader to the new columns, closing Movement 1)
-🎏 Config Loader Reading New Columns
-(new Turn, you rebuild the entry point on the loader, the last Movement)
-🎏 Entry Point Rebuilt on the Loader
-🏁 Schema Migration Suite Complete
-```
+in general: Round < Movement < Voice < Suite
 
 
 
@@ -212,7 +218,7 @@ The example below runs across several Turns of one conversation. A line in paren
 
 ### {description}
 
-Defines the **Suite** and its **Movement** divisions — a multi-round workflow and the reviewable units it's broken into
+Defines the **Suite**, its **Voices**, and their **Movement** divisions — a multi-round workflow, its parallel lines, and the reviewable units it's broken into
 
 ### {when_to_use}
 
@@ -224,7 +230,9 @@ When a task is broken into Movements, or a Suite or Movement is announced, numbe
 
 ### {[git] Usage}
 
-A single Movement often corresponds to one git commit.
+Commit each Movement's edits as exactly one git commit: 1 Movement = 1 commit.
+
+Often 1 Suite = 1 feature branch. 1 Voice = 1 voice branch, cut from the feature branch and merged back into it.
 
 
 
@@ -232,7 +240,7 @@ A single Movement often corresponds to one git commit.
 
 ### {[Claude:TodoWrite] Usage}
 
-One `TodoWrite` entry per Movement in the Suite — 1:1, never merged or split. Entry index gives Movement number `a`; array length gives total `b`.
+One `TodoWrite` entry per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's entries first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - `content`: prefix + Movement imperative
 - `activeForm`: prefix + present continuous
@@ -241,12 +249,12 @@ Status flow: `pending` at Seed (before Movement 1 opens) → `in_progress` on Op
 
 Rules:
 
-- exactly 1 entry `in_progress` at a time
-- Movement added or dropped mid-Suite: edit the array in the call that closes the current Movement, and rewrite every prefix to the new `b`
+- exactly 1 entry `in_progress` in the Main Voice, plus 1 per open instrumental Voice
+- Movement added or dropped mid-Suite: edit the array in the call that closes the current Movement
 
 ### {[Hermes:todo_list] Usage}
 
-One `todo_list` item per Movement in the Suite — 1:1, never merged or split. Item index gives Movement number `a`; list length gives total `b`.
+One `todo_list` item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - item text: prefix + Movement imperative
 
@@ -254,14 +262,14 @@ Status flow: not started at Seed (before Movement 1 opens) → in progress on Op
 
 Rules:
 
-- exactly 1 item in progress at a time
-- Movement added or dropped mid-Suite: edit the list in the call that closes the current Movement, and rewrite every prefix to the new `b`
+- exactly 1 item in progress in the Main Voice, plus 1 per open instrumental Voice
+- Movement added or dropped mid-Suite: edit the list in the call that closes the current Movement
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 
-One markdown task-list item per Movement in the Suite — 1:1, never merged or split. Item index gives Movement number `a`; list length gives total `b`.
+One markdown task-list item per Movement in the Suite, every Voice included — 1:1, never merged or split. List the Main Voice's items first, then each instrumental Voice's in instrument order, each Voice's in Movement order.
 
 - item text: prefix + Movement imperative
 
@@ -269,8 +277,42 @@ Status flow: unchecked, undecorated at Seed (before Movement 1 opens) → unchec
 
 Rules:
 
-- exactly 1 item marked current at a time
-- Movement added or dropped mid-Suite: edit the list in the same reply that closes the current Movement, and rewrite every prefix to the new `b`
+- exactly 1 item marked current in the Main Voice, plus 1 per open instrumental Voice
+- Movement added or dropped mid-Suite: edit the list in the same reply that closes the current Movement
+
+
+
+
+
+
+
+
+
+
+
+
+### Dispatch Marks
+
+Mark a Movement's close, an instrumental Voice's merge back, or the whole Suite's close in a [Turn Progress Dispatch](#turn-progress-dispatch) with:
+
+(((agent-movement-and-suite-decorative)))
+
+On a 🎏 line closing a Main Voice Movement, and only there, write the Movement prefix as `🧩a\b`, `b` the Main Voice's total Movement count. Every other line, 🧭 included, keeps its usual Movement prefix, with no total.
+
+Only the main session writes these marks. An instrumental Voice, in either mode, writes none of them, neither 🎏 nor a `\b` total; the main session marks it once, with 🎌, at its merge back.
+
+The example below runs across several Turns of one conversation. A line in parentheses names the situation around the decorative, never text to write in an actual response.
+
+```markdown
+(you wire the loader to the new columns, closing Movement 1 of 2)
+🎏 🧩1\2 Config Loader Reading New Columns
+🧭 🧩2 Rebuild the Entry Point
+(the Violin Voice reports its fixtures rewritten, and you merge it back)
+🎌 Violin Test Fixtures Merged Back
+(new Turn, you rebuild the entry point on the loader, the last Movement)
+🎏 🧩2\2 Entry Point Rebuilt on the Loader
+🏁 Schema Migration Suite Complete
+```
 
 
 
@@ -286,15 +328,18 @@ Rules:
 ### Movement Notation
 
 ```
-🧩3\7 Rewrote the Entry Point
+🧩3 Rewrote the Entry Point
 🧩5
+🎻2 Added Parser Tests
 ```
 
-Aggressively use one of these 2 forms for every mention of a Movement in your response: `🧩a\b SUMMARY` or `🧩a`:
+Aggressively use one of these 2 forms for every mention of a Movement in your response: `🧩a SUMMARY` or `🧩a`:
 
-- `a` current Movement number
-- `b` total Movement count
+- `a` Movement number, counted within its own Voice
 - `SUMMARY` short description of the Movement, in [Title Case](#letter-case-title-case)
+- in a Voice other than the Main Voice, put that Voice's instrument emoji in place of 🧩, eg `🎻2`
+
+Write no total Movement count unless a rule names one.
 
 ----
 
@@ -304,7 +349,7 @@ Except in a markdown heading: spell out `Movement a` instead, eg `## Movement 5`
 
 #### {[Claude:TodoWrite] Usage}
 
-`TodoWrite` Examples, with prefix `🧩a\b SUMMARY`
+`TodoWrite` Examples, with prefix `🧩a SUMMARY` or `🎻a SUMMARY`
 
 Seed:
 
@@ -312,43 +357,63 @@ Seed:
 {
   "todos": [
     {
-      "content": "🧩1\\3 Rewrite the Entry Point",
+      "content": "🧩1 Rewrite the Entry Point",
       "status": "pending",
-      "activeForm": "🧩1\\3 Rewriting the Entry Point"
+      "activeForm": "🧩1 Rewriting the Entry Point"
     },
     {
-      "content": "🧩2\\3 Move the Parser to Its Own Module",
+      "content": "🧩2 Move the Parser to Its Own Module",
       "status": "pending",
-      "activeForm": "🧩2\\3 Moving the Parser to Its Own Module"
+      "activeForm": "🧩2 Moving the Parser to Its Own Module"
     },
     {
-      "content": "🧩3\\3 Update the Test Fixtures",
+      "content": "🧩3 Wire the Parser Into the Entry Point",
       "status": "pending",
-      "activeForm": "🧩3\\3 Updating the Test Fixtures"
+      "activeForm": "🧩3 Wiring the Parser Into the Entry Point"
+    },
+    {
+      "content": "🎻1 Update the Test Fixtures",
+      "status": "pending",
+      "activeForm": "🎻1 Updating the Test Fixtures"
+    },
+    {
+      "content": "🎻2 Add Parser Tests",
+      "status": "pending",
+      "activeForm": "🎻2 Adding Parser Tests"
     }
   ]
 }
 ```
 
-Open Movement 2 — resend whole array, 1 status changes:
+Open Movement 2 while the Violin Voice runs — resend whole array, 2 statuses change:
 
 ```json
 {
   "todos": [
     {
-      "content": "🧩1\\3 Rewrite the Entry Point",
+      "content": "🧩1 Rewrite the Entry Point",
       "status": "completed",
-      "activeForm": "🧩1\\3 Rewriting the Entry Point"
+      "activeForm": "🧩1 Rewriting the Entry Point"
     },
     {
-      "content": "🧩2\\3 🥁 Move the Parser to Its Own Module",
+      "content": "🧩2 🥁 Move the Parser to Its Own Module",
       "status": "in_progress",
-      "activeForm": "🧩2\\3 🥁 Moving the Parser to Its Own Module"
+      "activeForm": "🧩2 🥁 Moving the Parser to Its Own Module"
     },
     {
-      "content": "🧩3\\3 Update the Test Fixtures",
+      "content": "🧩3 Wire the Parser Into the Entry Point",
       "status": "pending",
-      "activeForm": "🧩3\\3 Updating the Test Fixtures"
+      "activeForm": "🧩3 Wiring the Parser Into the Entry Point"
+    },
+    {
+      "content": "🎻1 Update the Test Fixtures",
+      "status": "in_progress",
+      "activeForm": "🎻1 Updating the Test Fixtures"
+    },
+    {
+      "content": "🎻2 Add Parser Tests",
+      "status": "pending",
+      "activeForm": "🎻2 Adding Parser Tests"
     }
   ]
 }
@@ -356,40 +421,48 @@ Open Movement 2 — resend whole array, 1 status changes:
 
 #### {[Hermes:todo_list] Usage}
 
-`todo_list` Examples, with prefix `🧩a\b SUMMARY`
+`todo_list` Examples, with prefix `🧩a SUMMARY` or `🎻a SUMMARY`
 
 Seed:
 
-- 🧩1\3 Rewrite the Entry Point
-- 🧩2\3 Move the Parser to Its Own Module
-- 🧩3\3 Update the Test Fixtures
+- 🧩1 Rewrite the Entry Point
+- 🧩2 Move the Parser to Its Own Module
+- 🧩3 Wire the Parser Into the Entry Point
+- 🎻1 Update the Test Fixtures
+- 🎻2 Add Parser Tests
 
-Open Movement 2 — resend whole list, 1 item's status changes (Movement 1 done, Movement 2 in progress):
+Open Movement 2 while the Violin Voice runs — resend whole list, 2 items' statuses change (Movement 1 done, Movement 2 and Violin Movement 1 in progress):
 
-- 🧩1\3 Rewrite the Entry Point (done)
-- 🧩2\3 🥁 Move the Parser to Its Own Module (in progress)
-- 🧩3\3 Update the Test Fixtures
+- 🧩1 Rewrite the Entry Point (done)
+- 🧩2 🥁 Move the Parser to Its Own Module (in progress)
+- 🧩3 Wire the Parser Into the Entry Point
+- 🎻1 Update the Test Fixtures (in progress)
+- 🎻2 Add Parser Tests
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 #### {[task-tracking] Fallback}
 
-Markdown task-list Examples, with prefix `🧩a\b SUMMARY`
+Markdown task-list Examples, with prefix `🧩a SUMMARY` or `🎻a SUMMARY`
 
 Seed:
 
 ```markdown
-- [ ] 🧩1\3 Rewrite the Entry Point
-- [ ] 🧩2\3 Move the Parser to Its Own Module
-- [ ] 🧩3\3 Update the Test Fixtures
+- [ ] 🧩1 Rewrite the Entry Point
+- [ ] 🧩2 Move the Parser to Its Own Module
+- [ ] 🧩3 Wire the Parser Into the Entry Point
+- [ ] 🎻1 Update the Test Fixtures
+- [ ] 🎻2 Add Parser Tests
 ```
 
-Open Movement 2 — resend whole list, 1 item's marker changes:
+Open Movement 2 while the Violin Voice runs — resend whole list, 3 items' markers change:
 
 ```markdown
-- [x] 🧩1\3 Rewrite the Entry Point
-- [ ] 🧩2\3 🥁 Move the Parser to Its Own Module
-- [ ] 🧩3\3 Update the Test Fixtures
+- [x] 🧩1 Rewrite the Entry Point
+- [ ] 🧩2 🥁 Move the Parser to Its Own Module
+- [ ] 🧩3 Wire the Parser Into the Entry Point
+- [ ] 🎻1 🥁 Update the Test Fixtures
+- [ ] 🎻2 Add Parser Tests
 ```
 
 
@@ -411,27 +484,26 @@ individually, and a Movement of many Counts still closes as one Movement.
 
 ----
 
-Every mention of a Movement takes the form `a\b🧩c\d SUMMARY`:
+Every mention of a Movement takes the form `a\b🧩c SUMMARY`:
 
 - `a` Counts closed to date — all Counts of prior Movements, plus this Movement's own
 - `b` total Counts across all Movements
-- `c` current Movement number
-- `d` total Movement count
+- `c` Movement number, counted within its own Voice; in a Voice other than the Main Voice, its instrument emoji replaces 🧩, eg `4\12🎻1`
 - `SUMMARY` short description of the Movement, in [Title Case](#letter-case-title-case)
 
 *Example — 3 Movements holding 4, 5, 3 Counts, 12 total:*
 
 ```
-4\12🧩1\3 Cleared First 4
-9\12🧩2\3 5 More Closed
-12\12🧩3\3 Last 3
+4\12🧩1 Cleared First 4
+9\12🧩2 5 More Closed
+12\12🧩3 Last 3
 ```
 
 
 
 #### {description}
 
-Defines the **Movement** and its inner **Count** — reviewable division of large work, atomic action measuring progress — with naming, sizing, boundaries, and `a\b🧩c\d` prefix
+Defines the **Movement** and its inner **Count** — reviewable division of large work, atomic action measuring progress — with naming, sizing, boundaries, and `a\b🧩c` prefix
 
 #### {when_to_use}
 
@@ -441,7 +513,7 @@ When work is split into Movements or Counts, or either is announced, numbered, t
 
 #### {[Claude:TodoWrite] Usage}
 
-`TodoWrite` Examples, with prefix `a\b🧩c\d SUMMARY`
+`TodoWrite` Examples, with prefix `a\b🧩c SUMMARY`
 
 Seed:
 
@@ -449,19 +521,19 @@ Seed:
 {
   "todos": [
     {
-      "content": "4\\12🧩1\\3 Rewrite the Entry Point",
+      "content": "4\\12🧩1 Rewrite the Entry Point",
       "status": "pending",
-      "activeForm": "4\\12🧩1\\3 Rewriting the Entry Point"
+      "activeForm": "4\\12🧩1 Rewriting the Entry Point"
     },
     {
-      "content": "9\\12🧩2\\3 Move the Parser to Its Own Module",
+      "content": "9\\12🧩2 Move the Parser to Its Own Module",
       "status": "pending",
-      "activeForm": "9\\12🧩2\\3 Moving the Parser to Its Own Module"
+      "activeForm": "9\\12🧩2 Moving the Parser to Its Own Module"
     },
     {
-      "content": "12\\12🧩3\\3 Update the Test Fixtures",
+      "content": "12\\12🧩3 Update the Test Fixtures",
       "status": "pending",
-      "activeForm": "12\\12🧩3\\3 Updating the Test Fixtures"
+      "activeForm": "12\\12🧩3 Updating the Test Fixtures"
     }
   ]
 }
@@ -473,19 +545,19 @@ Open Movement 2 — resend whole array, 1 status changes:
 {
   "todos": [
     {
-      "content": "4\\12🧩1\\3 Rewrite the Entry Point",
+      "content": "4\\12🧩1 Rewrite the Entry Point",
       "status": "completed",
-      "activeForm": "4\\12🧩1\\3 Rewriting the Entry Point"
+      "activeForm": "4\\12🧩1 Rewriting the Entry Point"
     },
     {
-      "content": "9\\12🧩2\\3 🥁 Move the Parser to Its Own Module",
+      "content": "9\\12🧩2 🥁 Move the Parser to Its Own Module",
       "status": "in_progress",
-      "activeForm": "9\\12🧩2\\3 🥁 Moving the Parser to Its Own Module"
+      "activeForm": "9\\12🧩2 🥁 Moving the Parser to Its Own Module"
     },
     {
-      "content": "12\\12🧩3\\3 Update the Test Fixtures",
+      "content": "12\\12🧩3 Update the Test Fixtures",
       "status": "pending",
-      "activeForm": "12\\12🧩3\\3 Updating the Test Fixtures"
+      "activeForm": "12\\12🧩3 Updating the Test Fixtures"
     }
   ]
 }
@@ -493,40 +565,40 @@ Open Movement 2 — resend whole array, 1 status changes:
 
 #### {[Hermes:todo_list] Usage}
 
-`todo_list` Examples, with prefix `a\b🧩c\d SUMMARY`
+`todo_list` Examples, with prefix `a\b🧩c SUMMARY`
 
 Seed:
 
-- 4\12🧩1\3 Rewrite the Entry Point
-- 9\12🧩2\3 Move the Parser to Its Own Module
-- 12\12🧩3\3 Update the Test Fixtures
+- 4\12🧩1 Rewrite the Entry Point
+- 9\12🧩2 Move the Parser to Its Own Module
+- 12\12🧩3 Update the Test Fixtures
 
 Open Movement 2 — resend whole list, 1 item's status changes (Movement 1 done, Movement 2 in progress):
 
-- 4\12🧩1\3 Rewrite the Entry Point (done)
-- 9\12🧩2\3 🥁 Move the Parser to Its Own Module (in progress)
-- 12\12🧩3\3 Update the Test Fixtures
+- 4\12🧩1 Rewrite the Entry Point (done)
+- 9\12🧩2 🥁 Move the Parser to Its Own Module (in progress)
+- 12\12🧩3 Update the Test Fixtures
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 #### {[task-tracking] Fallback}
 
-Markdown task-list Examples, with prefix `a\b🧩c\d SUMMARY`
+Markdown task-list Examples, with prefix `a\b🧩c SUMMARY`
 
 Seed:
 
 ```markdown
-- [ ] 4\12🧩1\3 Rewrite the Entry Point
-- [ ] 9\12🧩2\3 Move the Parser to Its Own Module
-- [ ] 12\12🧩3\3 Update the Test Fixtures
+- [ ] 4\12🧩1 Rewrite the Entry Point
+- [ ] 9\12🧩2 Move the Parser to Its Own Module
+- [ ] 12\12🧩3 Update the Test Fixtures
 ```
 
 Open Movement 2 — resend whole list, 1 item's marker changes:
 
 ```markdown
-- [x] 4\12🧩1\3 Rewrite the Entry Point
-- [ ] 9\12🧩2\3 🥁 Move the Parser to Its Own Module
-- [ ] 12\12🧩3\3 Update the Test Fixtures
+- [x] 4\12🧩1 Rewrite the Entry Point
+- [ ] 9\12🧩2 🥁 Move the Parser to Its Own Module
+- [ ] 12\12🧩3 Update the Test Fixtures
 ```
 
 
@@ -673,11 +745,20 @@ Stop the Turn once 1 Movement is done; the next Movement begins only when user o
 6. next Turn start
 7. repeat from step 2, one Movement per Turn, until no Movement remains
 
-**Movement-Turn Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation):
+Halt the Main Voice only. An instrumental Voice runs whole in either mode, never halted inside, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. Once the report arrives, merge it back and halt there as at a Movement's close, so its review comes then.
+
+**Movement-Turn Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch), each line prefixed per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
-🧭 🧩4\7 Wire Up the Config Loader
+🧭 🧩4 Wire Up the Config Loader
+```
+
+At an instrumental Voice's merge back:
+
+```
+🎌 Violin Test Fixtures Merged Back
+🧭 🧩5 Rebuild the Entry Point
 ```
 
 Except when the entire Suite is completed — then name the Suite instead:
@@ -707,6 +788,8 @@ Trigger on "halt after each Movement", "one Movement at a time", "stop after eve
 
 Index the Movement's edits before the Turn stop. Commit them at the next Turn start, once user approves (eg "git commit" or "g").
 
+Merge a finished instrumental Voice's voice branch into the feature branch before the Turn stop that marks it 🎌.
+
 
 
 
@@ -717,6 +800,7 @@ Invoke `TodoWrite` when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 ### {[Hermes:todo_list] Usage}
 
@@ -724,6 +808,7 @@ Invoke `todo_list` when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
@@ -733,6 +818,7 @@ Update the markdown task list when:
 
 - when Turn start, before Movement start; often directly after user continue
 - after Movement finished, before the Movement-Turn Dispatch
+- when an instrumental Voice opens, and when it merges back, before the Movement-Turn Dispatch
 
 
 
@@ -776,16 +862,19 @@ Keep working across Movements until the whole Suite is done; stop only once no M
 
 If a Suite is already in progress, pick up from the leftover Movements and finish the Suite in this Turn, unless the Party in charge turns to the user.
 
+Cascade the Main Voice only. An instrumental Voice runs whole in either mode, whatever halt mode its own session loads. Its report tells you it has ended: returned by its subagent, sent from its session, or relayed by the user. When the next Main Voice Movement depends on an open instrumental Voice, wait for its report, merge it back, then go on; when only the user can relay that report, stop the Turn and wait for it.
+
 1. Turn start
 2. perform tasks of Movement 1
 3. **Movement Dispatch**
 4. perform tasks of Movement 2
 5. repeat for remaining Movements
 
-**Movement Dispatch**: mark each closed Movement with the [Movement Notation](#movement-notation) prefix:
+**Movement Dispatch**: mark each closed Movement, and each instrumental Voice's merge back, per [Movement Notation](#movement-notation) and [Dispatch Marks](#dispatch-marks):
 
 ```
 🎏 🧩3\7 Rewrote the Entry Point
+🎌 Violin Test Fixtures Merged Back
 ```
 
 Once all Movements are done, **Suite Dispatch**: end the Turn with a [Turn Progress Dispatch](#turn-progress-dispatch) naming the Suite:
@@ -814,6 +903,8 @@ Trigger on "run all Movements", "cascade", "keep going until the Suite is done",
 
 Index and commit at each Movement's close, before its Movement Dispatch: 1 commit per Movement.
 
+Merge a finished instrumental Voice's voice branch into the feature branch before its 🎌 line.
+
 
 
 
@@ -832,14 +923,14 @@ When the Party in charge turns to the user and you stop the Turn, call `PushNoti
 
 ### {[Claude:TodoWrite] Usage}
 
-Invoke `TodoWrite` **every time** after Movement finished, before the Movement Dispatch
+Invoke `TodoWrite` **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch
 
 ### {[Hermes:todo_list] Usage}
 
-Invoke `todo_list` **every time** after Movement finished, before the Movement Dispatch
+Invoke `todo_list` **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch
 
 `todo_list` is a deferred tool: reach it through `tool_search`, `tool_describe`, `tool_call`.
 
 ### {[task-tracking] Fallback}
 
-Update the markdown task list **every time** after Movement finished, before the Movement Dispatch
+Update the markdown task list **every time** after Movement finished, and when an instrumental Voice opens or merges back, before the Movement Dispatch

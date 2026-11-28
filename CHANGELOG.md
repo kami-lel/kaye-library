@@ -1,9 +1,20 @@
 # kaye-library CHANGELOG
 
 <!--
-todo support layered CONTEXT/AGENTS
 todo good morning incl finance report
 -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [Unreleased]
 
@@ -19,9 +30,58 @@ todo good morning incl finance report
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.1...dev
 
-## [1.6.0] - 2026-11-23
+
+
+
+
+
+
+
+
+
+
+
+
+## 2026-11-27: Patch Release [1.6.1]
+
+### Added
+
+- `agent-movement-and-suite`: Voice joins Suite & Movement; Main Voice run by main session, instrumental Voices agent-only & parallel, each on own voice branch & linked worktree, soloed by a subagent or run in its own session; hierarchy `Round < Movement < Voice < Suite`; 🎌 marks Voice merge back; Voices named by instrument via new `agent-movement-and-suite-voice-instrument` glossary
+- `solo-voice` skill: runs 1 instrumental Voice whole, Movements in order, 1 commit each, never merging or asking; ends w/ 1 report
+
+### Changed
+
+- `play-suite`: starts each instrumental Voice after its dependencies, merges voice branch back on report, marks 🎌, uproots worktree
+- `plan-for-suite`: new Bar 2 Decide picks feature branch, linked worktree & Voices; Plan holds 1 section per Voice, order from numbering or `## Order` Mermaid graph; Movement Order field dropped
+- `halt-each-movement`, `cascade-all-movements`: govern Main Voice only; instrumental Voice runs whole, reviewed at merge back; only main session writes Dispatch Marks
+- Movement Notation drops the total: `🧩a`, `🎻a` per Voice; only a Main Voice 🎏 line writes `🧩a\b`; dispatch marks move to own node
+- `1 Movement = 1 commit`, was "often" one
+- `tend-linked-wt`, `plant-linked-wt`, `uproot-linked-wt`: a linked worktree holds 1 branch of any kind, folder `REPO-WT-BRANCH`; each instrumental Voice gets its own
+- Plan for Suite Execution split: shared rules in `Plan for Suite: Execution`, Main Voice rules in `Play Suite`, shared w/ `solo-voice`
+- `proj-version-title`: rewritten as `BUMP TYPE VERSION`, TYPE never dropped; `repo-changelog-writer` headings `## DATE: TITLE` w/ version as link
+- Project Context Engineering: Explore walks scoped AGENTS & CONTEXT files root to edited folder, closest wins; writers, maintainers, `condense-agents-and-context`, `review-gaps` & `ready-*` skills cover every layer; local layers gitignored
+- `repo-devlog-writer`, `maintain-devlog`: period data charted in Mermaid where it fits
+
+> [!WARNING]
+> Breaking: skill `execute-plan-for-suite` renamed `play-suite`, no alias; a Plan file whose preface names the old skill needs the new name; content keyed on node `Plan for Suite: Bar 4: Execution` or `Plan for Suite: Solo Voice` no longer renders
+
+[1.6.1]: https://github.com/kami-lel/kaye-library/compare/v1.6.0...v1.6.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2026-11-23: Minor Release [1.6.0]
 
 ### Added
 
@@ -57,7 +117,19 @@ todo good morning incl finance report
 
 [1.6.0]: https://github.com/kami-lel/kaye-library/compare/v1.5.1...v1.6.0
 
-## [1.5.1] - 2026-11-21
+
+
+
+
+
+
+
+
+
+
+
+
+## 2026-11-21: Patch Release [1.5.1]
 
 ### Added
 
@@ -94,7 +166,7 @@ todo good morning incl finance report
 
 
 
-## [1.5.0] - 2026-11-18
+## 2026-11-18: Minor Release [1.5.0]
 
 ### Added
 
@@ -159,7 +231,7 @@ todo good morning incl finance report
 
 
 
-## [1.4.1] - 2026-11-16
+## 2026-11-16: Patch Release [1.4.1]
 
 ### Added
 
@@ -190,7 +262,7 @@ todo good morning incl finance report
 
 
 
-## [1.4.0] - 2026-11-15
+## 2026-11-15: Minor Release [1.4.0]
 
 ### Added
 
@@ -230,7 +302,7 @@ todo good morning incl finance report
 
 
 
-## [1.3.1] - 2026-11-13
+## 2026-11-13: Patch Release [1.3.1]
 
 ### Added
 
@@ -254,7 +326,7 @@ todo good morning incl finance report
 
 
 
-## [1.3.0] - 2026-11-13
+## 2026-11-13: Minor Release [1.3.0]
 
 ### Added
 
@@ -306,7 +378,7 @@ todo good morning incl finance report
 
 
 
-## [1.2.1] - 2026-11-09
+## 2026-11-09: Patch Release [1.2.1]
 
 ### Added
 
@@ -351,7 +423,7 @@ todo good morning incl finance report
 
 
 
-## [1.2.0] - 2026-11-06
+## 2026-11-06: Minor Release [1.2.0]
 
 ### Added
 
@@ -371,7 +443,7 @@ todo good morning incl finance report
 
 [1.2.0]: https://github.com/kami-lel/kaye-library/compare/v1.1.1...v1.2.0
 
-## [1.1.1] - 2026-10-30
+## 2026-10-30: Patch Release [1.1.1]
 
 ### Changed
 
@@ -392,7 +464,7 @@ todo good morning incl finance report
 
 
 
-## [1.1.0] - 2026-10-30
+## 2026-10-30: Minor Release [1.1.0]
 
 ### Added
 
@@ -431,7 +503,7 @@ todo good morning incl finance report
 
 
 
-## [1.0.0] - 2026-10-19
+## 2026-10-19: Release [1.0.0]
 
 ### Added
 

@@ -10,6 +10,9 @@ import pytest
 from kaye_engine.exportable import exportable_registry
 from kaye_engine.prompt import get_corpus_tree
 from kaye_engine.prompt.blueprint.registry import blueprint_registry
+from kaye_engine.prompt.blueprint.render_profile_registry import (
+    render_profile_registry,
+)
 
 _LANGUAGE_NODES = (
     "Bash",
@@ -115,3 +118,166 @@ class TestRender:
         assert content.strip()
         for needle in ("Kaye", "Persona", "Kami"):
             assert needle not in content, name
+
+
+class TestPlanForSuiteDecide:
+
+    def _text(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 2: Decide"]
+        return "\n".join(node.content_lines())
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "**Feature branch**",
+            "**Linked worktree**",
+            "**Voices**",
+            "stretch of 3+ agent-only Movements",
+            "the user approves them with the Plan",
+        ],
+    )
+    def test_decides_branch_worktree_and_voices(self, needle):
+        assert needle in self._text()
+
+    def test_leaves_voice_mode_to_execution(self):
+        assert "**Mode**" not in self._text()
+
+    def test_gather_decides_nothing(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
+        text = "\n".join(node.content_lines())
+
+        assert "**Feature branch**" not in text
+
+
+class TestPlanForSuiteWrite:
+
+    def _text(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]
+        return "\n".join(node["Bar 3: Write the Plan"].content_lines())
+
+    def test_record_has_no_order_field(self):
+        assert "- Order:" not in self._text()
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "each Bar 2 decision that came out yes",
+            "runs `land-feature`",
+            "`## Order`",
+            "`## Main Voice`",
+            "`🎻a Violin: Title`",
+        ],
+    )
+    def test_plans_decisions_and_voices(self, needle):
+        assert needle in self._text()
+
+    def test_movement_heading_drops_total(self):
+        assert "🧩5\\8" not in self._text()
+
+    def test_parallel_paragraph_is_gone(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "Parallel execution" not in content
+
+    def test_depends_on_diagrams(_):
+        deps = blueprint_registry["plan-for-suite"].blueprint.dependencies
+
+        assert "style-markdown-diagrams" in deps
+
+
+class TestSoloVoice:
+
+    @staticmethod
+    def _content(surface):
+        profile = render_profile_registry[surface].profile
+        return exportable_registry["solo-voice"].content(profile=profile)
+
+    @pytest.mark.parametrize("surface", ["claude-vsc", "hermes"])
+    def test_carries_no_dispatch(self, surface):
+        content = self._content(surface)
+
+        for mark in ("🎏", "🎌", "🏁"):
+            assert mark not in content
+
+    def test_reports_through_send_message_on_claude_vsc(self):
+        assert "`SendMessage`" in self._content("claude-vsc")
+
+    def test_user_carries_report_on_hermes(self):
+        content = self._content("hermes")
+
+        assert "for the user to carry back" in content
+        assert "`SendMessage`" not in content
+
+    def test_takes_core_not_dispatch_marks(_):
+        nodes = blueprint_registry["solo-voice"].blueprint.nodes
+
+        assert not any(path[-1] == "Dispatch Marks" for path in nodes)
+
+    def test_plan_for_suite_leaves_it_out(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "### Solo Voice" not in content
+
+
+class TestExecutionSplit:
+
+    def test_execution_blueprint_is_internal(_):
+        assert not blueprint_registry["plan-for-suite-execution"].is_exportable
+
+    def test_execute_plan_for_suite_is_gone(_):
+        assert "execute-plan-for-suite" not in blueprint_registry
+
+    def test_play_suite_carries_execution_and_dispatch_marks(_):
+        content = exportable_registry["play-suite"].content()
+
+        assert "### Plan for Suite: Execution" in content
+        assert "### Play Suite" in content
+        assert "### Dispatch Marks" in content
+
+    def test_solo_voice_shares_execution_only(_):
+        deps = blueprint_registry["solo-voice"].blueprint.dependencies
+        content = exportable_registry["solo-voice"].content()
+
+        assert list(deps) == ["plan-for-suite-execution"]
+        assert "### Plan for Suite: Execution" in content
+        assert "### Play Suite" not in content
+
+    def test_preface_names_play_suite(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "invoke `play-suite` skill through the `Skill` tool" in content
+
+
+class TestPlaySuiteDispatch:
+
+    @staticmethod
+    def _content(surface):
+        profile = render_profile_registry[surface].profile
+        return exportable_registry["play-suite"].content(profile=profile)
+
+    @pytest.mark.parametrize(
+        "surface, needle",
+        [
+            ("claude-vsc", "1 `Agent` call in the background"),
+            ("hermes", "1 `delegate_task` call"),
+            ("codex", "With no subagent tool, run every instrumental Voice"),
+        ],
+    )
+    def test_dispatch_route_per_surface(self, surface, needle):
+        assert needle in self._content(surface)
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "##### Instrumental Voices",
+            "merge its voice branch into the feature branch",
+            "each open voice branch, and their linked worktrees still exist",
+            "lands it per `land-feature`",
+            "🎌 Violin Test Fixtures Merged Back",
+        ],
+    )
+    def test_states_voice_lifecycle(self, needle):
+        assert needle in self._content("claude-vsc")
+
+    def test_next_line_drops_total(self):
+        assert "🧭 🧩4\\7" not in self._content("claude-vsc")

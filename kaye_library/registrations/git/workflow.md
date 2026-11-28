@@ -493,7 +493,7 @@ Trigger on "start a devlog", "create a DEVLOG", "write a dev diary from the hist
 1. take the period's work from the conversation, the commits since the newest entry, `[Unreleased]` in the CHANGELOG, and any new playtest, survey, or review notes
 2. add a new entry directly under the title, or extend the newest entry when it covers the current period
 3. tie every fix to its finding and every change of approach to its reason; ask for a reason the record does not give, never invent one
-4. save each screenshot the user supplies into `DEVLOG-assets/`, named and captioned per [Repository DEVLOG Writer](#repository-devlog-writer), leaving a Loud `TODO` wherever a needed screenshot is missing
+4. save each screenshot the user supplies into `DEVLOG-assets/`, named and captioned per [Repository DEVLOG Writer](#repository-devlog-writer), leaving a Loud `TODO` wherever a needed screenshot is missing; chart the period's data in Mermaid where it fits
 5. leave past entries as written, except to correct a factual error or point a leftover forward to the entry that takes it up
 6. update the DEVLOG in place, then return a brief summary of the changes, per [Repository DEVLOG Writer](#repository-devlog-writer), [Style Guide Markdown Format](#style-guide-markdown-format), and [Style Guide Good Writing](#style-guide-good-writing)
 
@@ -608,10 +608,10 @@ Trigger on "condense the changelog", "tidy the Unreleased section", "reword the 
 
 You work from the **files alone**: no change set, no conversation to draw on, nothing new to add. Every line already there is read once and then kept, shortened, moved, or dropped.
 
-1. read each file whole, judging every section on whether it still earns the space it takes
+1. find every AGENTS and CONTEXT pair in the tree, the root and each scoped layer; read each file whole, judging every section on whether it still earns the space it takes
 2. drop what has gone stale: a workflow nobody follows now, a plan already landed or abandoned, a migration finished, an implementation detail the code has since moved past
 3. drop what the code already answers on its own — restated file trees, signatures, config values, anything a reader would check in the source before believing the document
-4. merge what repeats within a file, and move anything sitting on the wrong side of the pair to its counterpart rather than restating it
+4. merge what repeats within a file, and move anything sitting on the wrong side of the pair to its counterpart rather than restating it; cut from a scoped file anything its parent already states
 5. shorten what survives: same meaning, fewer words, AGENTS directive and imperative, CONTEXT descriptive and explanatory
 6. hold AGENTS lean enough to stay in context: the commands an agent must run and the rules it must obey, nothing more
 7. hold CONTEXT to what explains the system as it stands, never to how it came to stand that way
@@ -623,7 +623,7 @@ You work from the **files alone**: no change set, no conversation to draw on, no
 
 ### {description}
 
-Shrinks an existing AGENTS and CONTEXT pair: reads both whole, drops finished plans, dead workflows, superseded detail, anything the code already answers, tightens the rest, adds nothing
+Shrinks an existing AGENTS and CONTEXT pair, root and scoped layers alike: reads each whole, drops finished plans, dead workflows, superseded detail, anything the code already answers, tightens the rest, adds nothing
 
 ### {when_to_use}
 
@@ -680,8 +680,8 @@ Before context is compacted, capture this session's durable changes so nothing i
 
 - identify the session's changes once, from the conversation, working diffs, and existing `[Unreleased]` entries, then reuse that set below
 - [Maintain CHANGELOG](#maintain-changelog) → record those changes; the unreleased-only and deduplication rules come from that skill
-- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved
-- update `CONTEXT.md` directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
+- [Maintain Repository AGENTS](#maintain-repository-agents) → update for any command, convention, or constraint the session moved, in the layer nearest the changed files
+- update the `CONTEXT.md` nearest the changed files directly for any architecture the session moved, per [Repository CONTEXT Writer](#repository-context-writer)
 - skip a step the session gives nothing relevant to
 
 

@@ -56,13 +56,13 @@ Any version-number decision: "what version is next", "bump the version", semver,
 - alpha: `1.0.0-alpha`, `1.0.0-alpha.2`, ~~
 - beta: `1.0.0-beta`, `1.0.0-beta.2`, ~~
 - Release Candidate (RC): `1.0.0-rc`, `1.0.0-rc.2`
-- first Stable Release: `1.0.0`
+- first major release: `1.0.0`
 
 
 
 #### {description}
 
-Extends semantic versioning with conventions for `alpha`/`beta`/`rc` pre-release numbering, OS/date build-metadata tags, and version-to-dev-stage mapping (toy, vertical slice, pre-alpha, alpha, beta, rc, stable)
+Extends semantic versioning with conventions for `alpha`/`beta`/`rc` pre-release numbering, OS/date build-metadata tags, and version-to-dev-stage mapping (toy, vertical slice, pre-alpha, alpha, beta, rc, release)
 
 #### {when_to_use}
 
@@ -105,44 +105,46 @@ Where none holds (equal, lower, or either side not `x.y.z`), the version has no 
 
 ### Semantic Version Title
 
-A version title names a version release: `<Bump> <Release Type> <version>`. It depends on the [bump word](#semantic-version-bump), which drops out when the new version has no bump.
+Write the title of a version release as `BUMP TYPE VERSION`:
+
+1. Find BUMP: compare the new version with the old one, per [semantic version bump](#semantic-version-bump).
+2. Find TYPE: look up the new version in the table below.
+
+Drop BUMP when the new version has no bump. TYPE is never dropped.
 
 ##### release type
 
-Check the new version against these rows in order; the first match wins:
+Check the new version against the rows from top to bottom. Stop at the first match.
 
-| Version | Release Type |
+| Version | Type |
 |---|---|
 | contains `-alpha` | Alpha Release |
 | contains `-beta` | Beta Release |
 | contains `-rc` | Release Candidate |
 | `0.9.z` | Pre-Alpha Release |
-| `0.5.z`~`0.9.z`, only when Vertical Slice is enabled | Vertical Slice Release |
-| `0.y.z` | Prototype Release |
-| `x.y.z` | Stable Release |
-
-Write no bump word on alpha, beta, or release candidate titles: the tag already states the stage.
+| `0.5.z`~`0.8.z`, only when Vertical Slice is enabled | Vertical Slice |
+| `0.y.z` | Prototype |
+| `x.y.z` | Release |
 
 ##### examples
 
 | New | Old | Title |
 |---|---|---|
-| `0.3.2` | `0.3.1` | `Patch Prototype Release 0.3.2` |
+| `0.3.2` | `0.3.1` | `Patch Prototype 0.3.2` |
 | `0.9.3` | `0.9.2` | `Patch Pre-Alpha Release 0.9.3` |
-| `1.0.0-beta.2` | `0.9.0` | `Beta Release 1.0.0-beta.2` |
-| `1.0.0` | `0.9.0` | `Major Stable Release 1.0.0` |
-| `1.1.0` | `1.0.0` | `Minor Stable Release 1.1.0` |
-| `1.1.1` | `1.1.1` | `Stable Release 1.1.1` |
+| `1.0.0-beta.2` | `0.9.0` | `Major Beta Release 1.0.0-beta.2` |
+| `1.0.0-rc` | `1.0.0-beta.2` | `Release Candidate 1.0.0-rc` |
+| `1.1.0` | `1.0.0` | `Minor Release 1.1.0` |
 
 
 
 #### {description}
 
-Writes a version release title from new vs. old version: bump word, release type, version.
+Writes a version release title from new vs. old version: `BUMP TYPE VERSION`.
 
 #### {when_to_use}
 
-Naming a version release: "title this release", "what do I call 1.0.0", Prototype, Pre-Alpha, Alpha, Beta, Release Candidate, or Stable label, major/minor/patch bump word. Not for choosing the version number itself
+Naming a version release: "title this release", "what do I call 1.0.0", Prototype, Pre-Alpha, Alpha, Beta, or Release Candidate label, major/minor/patch bump word. Not for choosing the version number itself
 
 
 
@@ -183,18 +185,22 @@ Naming a version release: "title this release", "what do I call 1.0.0", Prototyp
 
   - Agent File: `AGENTS.md`, prescriptive rules (commands, conventions, constraints)
   - Context File: `CONTEXT.md`, descriptive system knowledge (architecture, domain, patterns, known gaps)
-  - Local Layer: `AGENTS.local.md`, `CONTEXT.local.md`, personal and private, over its file
+  - Local Layer: `AGENTS.local.md`, `CONTEXT.local.md`, personal and private, read over its file
 
 - For Users First: agents may read too
 
-  - Readme File: `README.md`, landing page (what the project is, how to start, where next); must sit at project root
+  - Readme File: `README.md`, landing page (what the project is, how to start, where next); always at the project root
   - Doc Files: `docs/`, in-depth topic documents beyond the readme
 
 - Project-Specific Skill: reusable instructions for a task only this project performs
 
-A scoped agent/context file is optional: it sits in a subfolder and covers only that folder and beneath with specific information; the root agent/context file holds generic, project-wide information.
+The root agent and context files hold project-wide information. A scoped agent or context file is optional: it sits in a subfolder and holds only what is specific to that folder and beneath.
 
-Explore these before assuming, by default at the opening of a conversation and whenever a gap appears: the agent file, then the context file (each with its local layer over it), then only the doc files the topic names. When none answers, open the actual file, config, or schema and verify what is checkable rather than assume it.
+Explore before you assume, at the opening of a conversation and whenever a gap appears: read the agent file, then the context file, each with its local layer over it, then only the doc files the topic names.
+
+Read the layers from the root down to the folder you are editing, each scoped file over its parent. On a conflict, the closest file wins; the user's word in chat overrides every file.
+
+When no file answers, open the actual source, config, or schema and verify what is checkable.
 
 
 
@@ -260,7 +266,7 @@ Apply these rules to `AGENTS.md`, formatting it per [Style Guide Markdown Format
 
 Suggested Sections go under clear `##` headings: use what fits, omit rather than pad, and add any section carrying a project-specific behavioral rule. Keep content to rules and constraints an agent acts on. Each writer below lists its own.
 
-The root `AGENTS.md` links every file under `docs/`, per [Reference Link Format](#reference-link-format), each phrased to send an agent there when its topic arises.
+The root `AGENTS.md` links every file under `docs/`, per [Reference Link Format](#reference-link-format), each phrased to send an agent there when its topic arises. It also links each scoped `AGENTS.md` and `CONTEXT.md`, phrased "when working in `Frontend/`, read `Frontend/AGENTS.md`".
 
 
 
@@ -284,11 +290,7 @@ Prescriptive rules for agents working in this project.
 
 Replace `Example Project` with the real project name. Copy the preface exactly, word for word.
 
-The personal layer's title line, marked as local:
-
-```markdown
-# Example Project local AGENTS
-```
+A scoped `AGENTS.md` or a local `AGENTS.local.md` follows the same format, standard, and style, per [Project Context Engineering](#project-context-engineering).
 
 
 
@@ -414,7 +416,7 @@ Creating, updating, reviewing `AGENTS.md`, `AGENTS.local.md`, `CLAUDE.md`, simil
 ### Create Project AGENTS
 
 1. ground the file in the project's own material and the conversation; write only what they support
-2. keep the root file generic; add a scoped file only where a subfolder's rules differ
+2. keep the root file generic; add a scoped file only where a subfolder's rules differ; gitignore `**/AGENTS.local.md` and `**/CONTEXT.local.md` in the same pass
 3. create `AGENTS.md` per [Project AGENTS Writer](#project-agents-writer), formatted per [Style Guide Markdown Format](#style-guide-markdown-format)
 
 
@@ -439,7 +441,7 @@ You work from a **change set**: what the conversation and the project have alter
 
 1. edit in place: fold new material into the section it belongs to, correct what the change set falsified, delete only what it retired
 2. leave sound wording, structure, and length alone
-3. verify facts against the project; keep the root generic and scoped files scoped
+3. verify facts against the project; edit the nearest layer covering the changed path, per [Project Context Engineering](#project-context-engineering), and promote a rule to the root only when it holds project-wide
 4. create a missing file only where the change set requires it
 5. follow [Project AGENTS Writer](#project-agents-writer) and [Style Guide Markdown Format](#style-guide-markdown-format), then return a brief summary of the changes
 
@@ -468,7 +470,7 @@ Triggers: "update AGENTS.md", "AGENTS.md is out of date", changed member, deadli
 ### Create Repository AGENTS
 
 1. ground the file in the repository itself and the conversation; write only what they support
-2. in a monorepo, nest a file per package; gitignore any `AGENTS.local.md` in the same pass
+2. in a monorepo, nest a file per package; gitignore `**/AGENTS.local.md` and `**/CONTEXT.local.md` in the same pass
 3. create `AGENTS.md` per [Repository AGENTS Writer](#repository-agents-writer), formatted per [Style Guide Markdown Format](#style-guide-markdown-format)
 
 
@@ -493,7 +495,7 @@ You work from a **change set**: what the conversation and the repository have al
 
 1. edit in place: fold moved commands, conventions, and constraints into the sections already there, correct what the change set falsified, delete only what it retired
 2. leave sound wording, structure, and length alone; descriptive knowledge belongs in `CONTEXT.md`
-3. verify facts against the codebase; keep the root file primary and nested files scoped to their package
+3. verify facts against the codebase; edit the nearest layer covering the changed path, per [Project Context Engineering](#project-context-engineering), and promote a rule to the root only when it holds repository-wide
 4. create a missing file only where the change set requires it
 5. follow [Repository AGENTS Writer](#repository-agents-writer) and [Style Guide Markdown Format](#style-guide-markdown-format), then return a brief summary of the changes
 

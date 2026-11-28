@@ -29,6 +29,7 @@ def _register_changelog_writer():
         dependencies=[
             "style-briefness-style",
             "proj-version-extended",
+            "proj-version-title",
             "style-good-writing",
         ],
     )
@@ -47,8 +48,8 @@ def register_repo_blueprints():
 
 
     :raises KeyError: ``style-briefness-style``, ``style-good-writing``,
-            ``proj-version-extended``,
-            ``element-dt-year-month-day-format``, ``proj-version-title``,
+            ``proj-version-extended``, ``proj-version-title``,
+            ``element-dt-year-month-day-format``,
             ``style-markdown-file-assets``, ``element-triage-tags``,
             ``ready-land-feature``, or ``git-feature-summary`` is not yet
             registered
@@ -102,6 +103,7 @@ def register_repo_blueprints():
             "proj-version-title",
             "style-markdown-file-assets",
             "element-triage-tags",
+            "style-markdown-diagrams",
         ],
     )
 

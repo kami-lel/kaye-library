@@ -215,6 +215,7 @@ Structure:
 Versions:
 - carry every version, latest first, numbered per [Project Semantic Version](#project-semantic-version)
 - show the release date beside each version
+- head each release `## <date>: <title>`, the title per [Semantic Version Title](#semantic-version-title) with its version as the link, eg `## 2026-11-23: Minor Release [1.6.0]`
 
 
 
@@ -248,7 +249,7 @@ Versions:
 
 [unreleased]: https://github.com/example-user/example-project/compare/v2.0.0...dev
 
-## [2.0.0] - 2024-01-15
+## 2024-01-15: Major Release [2.0.0]
 
 ### Removed
 
@@ -258,14 +259,14 @@ Versions:
 > Drops support for Node 14; upgrade before updating
 [2.0.0]: https://github.com/example-user/example-project/compare/v1.5.7...v2.0.0
 
-## [1.5.7] - 2023-12-04
+## 2023-12-04: Patch Release [1.5.7]
 
 ### Fixed
 - Profile picture not rendering correctly on Safari
 
 [1.5.7]: https://github.com/example-user/example-project/compare/v1.5.6...v1.5.7
 
-## [1.5.6] - 2023-11-02
+## 2023-11-02: Patch Release [1.5.6]
 
 ### Added
 
@@ -363,11 +364,7 @@ Descriptive knowledge of this repository for agents and developers.
 
 Replace `Example Repository` with the real repository name. Copy the preface exactly, word for word.
 
-The personal layer's title line, marked as local:
-
-```markdown
-# Example Repository local CONTEXT
-```
+A scoped `CONTEXT.md` or a local `CONTEXT.local.md` follows the same format, standard, and style, per [Project Context Engineering](#project-context-engineering).
 
 
 
@@ -667,7 +664,7 @@ Replace `Example Repository` with the real repository name.
 ## 02026-03-04
 ## 02026-03-11 (Week 6)
 ## 02026-03-18: Patch Pre-Alpha Release `0.9.3`
-## 02026-03-25 (Week 8): Beta Release `1.0.0-beta.2`
+## 02026-03-25 (Week 8): Major Beta Release `1.0.0-beta.2`
 ```
 </devlog-heading-example>
 
@@ -684,7 +681,7 @@ Hold this order, dropping any part the period gives nothing for:
 3. Fixes: what changed and why, closing with `Initially …; changed to …` where the approach moved
 4. Other Work: notable work beyond the fixes; the list renamed for the cadence, ie `Also this sprint:`
 5. Leftovers: what stays open, and which later entry takes it up
-6. Images: screenshots and charts
+6. Images and Charts: screenshots, then Mermaid charts of the period's data
 
 A period with no outside evidence, ie a feature push, drops Findings and labels each item with its feature instead.
 
@@ -732,6 +729,29 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 
 
+#### Charts
+
+- chart data whose shape reads faster as a picture than as a list, ie a metric across builds or periods, a survey's split, a before-and-after count; draw it in Mermaid per [Diagrams](#diagrams), never as a screenshot of a spreadsheet
+- pick the form by the data: `xychart-beta` for a measure vs build or period, `pie` for shares of one whole, `flowchart` for a flow a fix changed
+- title it "Y vs X", and caption it like an image, saying what to notice
+- keep the finding in words: the chart shows the evidence, the entry states the conclusion
+- skip the chart for fewer than 3 data points, or where one sentence says it all
+
+<devlog-chart-example>
+```mermaid
+xychart-beta
+  title "Tutorial Completion vs Build"
+  x-axis ["alpha.1", "alpha.2", "alpha.3"]
+  y-axis "Completion (%)" 0 --> 100
+  bar [42, 58, 81]
+```
+*Tutorial completion: up with each starting-zone pass, past 80% in `alpha.3`*
+</devlog-chart-example>
+
+
+
+
+
 #### Living Record
 
 - write each entry during or right after its period, while the reasons are fresh
@@ -765,7 +785,7 @@ Not addressed yet: a flyover introduction, suggested by a player
 
 ### {description}
 
-Writes and maintains `DEVLOG.md`, a development journal of entries per period, newest first, tying each decision to the playtest, survey, or bug behind it, with captioned screenshots and honest leftovers.
+Writes and maintains `DEVLOG.md`, a development journal of entries per period, newest first, tying each decision to the playtest, survey, or bug behind it, with captioned screenshots, Mermaid charts where data fits, and honest leftovers.
 
 ### {when_to_use}
 

@@ -78,8 +78,9 @@ Plan the work, then run it:
 | Skill | What You Get |
 |---|---|
 | `/plan-for-suite` 🌟 | a numbered, reviewable plan before any edit; nothing runs until you approve |
-| `/execute-plan-for-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
+| `/play-suite` | one Movement per turn; the plan file saves progress, so you pause tonight and resume tomorrow, even in a new session |
 | `/rework-plan-for-suite` | plan no longer fits reality? it halts, rewrites the plan, and waits for your approval again |
+| `/solo-voice` | runs one instrumental Voice of a Suite on its own voice branch, as a subagent or in its own session, then reports back; the main session dispatches it |
 
 Then set the pace:
 
@@ -89,7 +90,7 @@ Then set the pace:
 | `/cascade-all-movements` | runs every remaining Movement in one go, stopping only when the Suite is done or when it needs you |
 
 > [!TIP]
-> When executing plans, pair `/execute-plan-for-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
+> When executing plans, pair `/play-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
 
 ----
 
@@ -160,7 +161,7 @@ A few **highlights**:
 - `/repo-changelog-writer` follows Keep a Changelog, with an `[Unreleased]` section and version links; `/create-changelog` even rebuilds one from git history
 - `/repo-agents-writer` and `/repo-context-writer` keep rules and knowledge apart: `AGENTS.md` says what to do, `CONTEXT.md` says how things work, and personal notes stay in a private `.local.md` file
 - `/repo-credits-writer` gives every third-party asset a row: its path, source, author, and license, so nothing ships uncredited
-- `/repo-devlog-writer` ties each change to the playtest, survey, or bug that prompted it, with captioned screenshots and honest leftovers
+- `/repo-devlog-writer` ties each change to the playtest, survey, or bug that prompted it, with captioned screenshots, Mermaid charts where data fits, and honest leftovers
 
 
 
@@ -233,7 +234,7 @@ Prefer to merge by hand? Run the ready half, merge, then run the scrub half. Wan
 Supporting skills for the release workflows above:
 
 - `/proj-version-extended`: numbers every pre-release for you, eg `1.0.0-beta.2` for the second beta and `1.0.0-rc.1` for the first release candidate, plus build tags
-- `/proj-version-title`: titles a release from its old and new versions, eg going from `1.3.2` to `1.4.0` gives `Minor Stable Release 1.4.0`
+- `/proj-version-title`: titles a release from its old and new versions, eg going from `1.3.2` to `1.4.0` gives `Minor Release 1.4.0`
 
 
 
