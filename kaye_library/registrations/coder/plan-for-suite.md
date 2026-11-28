@@ -356,17 +356,6 @@ Link each line to the Plan file, at the line number of that Movement's heading �
 
 
 
-#### {description}
-
-Plays approved Plan file's Main Voice, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
-
-#### {when_to_use}
-
-On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`), reworking them (`rework-plan-for-suite`), or running an instrumental Voice (`solo-voice`)
-
-
-
-
 #### {[Claude:Skill] Usage}
 
 Invoke the skill chosen for this run — `cascade-all-movements` or `halt-each-movement` — via `Skill` tool.
@@ -417,6 +406,16 @@ use `clarify` tool to confirm each step or the End State of a user Movement, car
 
 
 
+#### {description}
+
+Plays approved Plan file's Main Voice, 1 Movement per turn — Movement In, work, present with link back, Movement Out. Plan file doubles as saved state, so pause and resume carry across sessions
+
+#### {when_to_use}
+
+On Plan file preface; on instruction to begin, continue, pause, or resume; on any *continue* shorthand. Not for drafting Plans (`plan-for-suite`), reworking them (`rework-plan-for-suite`), or running an instrumental Voice (`solo-voice`)
+
+
+
 
 
 
@@ -429,22 +428,15 @@ use `clarify` tool to confirm each step or the End State of a user Movement, car
 
 ### Solo Voice
 
-You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session names the Plan file and the Voice, and nothing else.
+You run 1 instrumental Voice of a Suite whole. The main session names the Plan file and the Voice, and nothing else.
 
 - run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution), its opening Movement first
 - work only in the Voice's linked worktree, on its instrumental branch
 - never merge or prune the instrumental branch: the main session merges the Voice back
 - never ask the user anything, nor wait for an approval
 - on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report
-- write no Turn Progress Dispatch and no Movement Recap
 
-End with 1 report, and nothing after it:
-
-- each commit on 1 line: its short hash and its Movement
-- each Movement's End State: met, or why not
-- anything left: where you stopped, why, and the Movements not run
-
-As a subagent, your final reply is the report.
+End with 1 report, nothing after it: per Movement, its short commit hash and its End State (met, or why not), then where you stopped and what remains unrun.
 
 
 
@@ -452,11 +444,11 @@ As a subagent, your final reply is the report.
 
 #### {[Claude:Agent~] Usage}
 
-In your own session, send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`.
+Send the report to the main session: find it with `ListAgents`, then send the report with `SendMessage`; end your final reply with the same report.
 
 #### {[Claude:Agent~] Lack}
 
-In your own session, end your last reply with the report, for the user to carry back to the main session.
+End your final reply with the report, for the user to carry back to the main session.
 
 
 
