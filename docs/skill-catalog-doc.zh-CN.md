@@ -62,16 +62,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 ### Movement 与 Suite
 
-大任务得有章法，从 `/plan-for-suite` 🌟 开始。
-
-智能体会先摸清仓库，再把任务拆成一份带编号的**计划文件**，等你批准后才动手。
-
-这份文件就是 **Suite**：落盘保存的整个多轮任务。文件里的每个编号步骤是一个 **Movement**：能单独审阅、扫一眼就能判断好坏的一小步。
-
-> [!NOTE]
-> 有 Git 可用时，每个 Movement 都会自动提交一次。
-
-智能体再也不会一口气改 30 个文件：你先过一遍计划、提完意见才开工，而且每次只推进一个 Movement。
+大任务拆成可审阅的小步：智能体先写计划，你批准后，再一次推进一个 **Movement**。从 `/plan-for-suite` 🌟 开始。📖 完整指南：**[Suite 与 Git 使用文档](suite-git-usage-doc.zh-CN.md)**。
 
 先做计划，再动手：
 
@@ -89,8 +80,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | `/halt-each-movement` | 每做完一个 Movement 就停，等你审阅后再做下一个 |
 | `/cascade-all-movements` | 把剩下的 Movement 一口气做完，只有整个 Suite 完成或需要你拍板时才停 |
 
-> [!TIP]
-> 执行计划时，可以把 `/play-suite` 和 `/tend-linked-wt` 搭配起来并行开发：每份计划独占一个关联工作树，多个 Suite 同时推进也互不冲突。
+----
 
 下面两个配套技能负责定义这些概念：
 
@@ -199,21 +189,14 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 ### 合入功能，发布版本
 
-两个工作流，都是合并前做准备、合并后做清理：
+两个工作流，都是合并前做准备、合并后做清理，每次推送或删除都要等你批准：
 
 | 准备 + 合并 + 清理 | 只做准备 | 只做清理 | 合并这一步做什么 |
 |---|---|---|---|
 | `/land-feature` | `/ready-land-feature` | `/scrub-landed-feature` | 合并到 `dev`，附上清晰的合并信息 |
 | `/release-version` ⭐ | `/ready-release-version` | `/scrub-released-version` | 合并到 `main`，打上版本标签 |
 
-两个阶段分别负责：
-
-- 准备阶段：把改动记进 CHANGELOG，并同步所有相关文档；发版时还会标注发布日期，并在所有元数据文件中更新版本号
-- 清理阶段：先推送，再清理合并后的残留，**每一步都要你批准才执行**：
-  - 合入功能后：已合并的分支和它的关联工作树
-  - 发版后：已合并的分支，以及落后于 `main` 的 `dev`；随后把 `dev` 的版本号升到下一个 alpha
-
-想手动合并？先跑准备阶段，自己合并，再跑清理阶段。想走 **PR**？见 [Git](#-git) 分组里的 `/submit-pr`。
+📖 逐步讲解：**[合入功能](suite-git-usage-doc.zh-CN.md#git-合入功能)** 和 **[发布版本](suite-git-usage-doc.zh-CN.md#git-发布版本)**。想走 **PR**？见 [Git](#-git) 分组里的 `/submit-pr`。
 
 
 
@@ -283,67 +266,20 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 
 
 
-### 提交与合并
+在聊天中输入 `g` 提交本次对话的改动，`gi` 提交已暂存的内容，`ig` 全部加入暂存区再提交。📖 每个 Git 技能的完整说明：**[Suite 与 Git 使用文档](suite-git-usage-doc.zh-CN.md#git-规则与提交)**。
 
-`/commit-sense` 🌟 让“fix stuff”式的提交成为历史。提交[commit]就是给你的改动存一份快照，提交信息得说清改了什么。说一句“提交一下”，就能得到：
-
-- 一行**精准的摘要**：这次改动的标题
-- **逐文件的改动清单**：每个文件改了什么、为什么改
-
-也可以在聊天中输入一两个字母来调用这个技能：
-
-- `g`：提交本次对话的改动
-- `gi`：提交已加入暂存区[index]的内容
-- `ig`：全部加入暂存区[index]，再提交
-
-`/commit-sense-branch-merging` 则负责合并提交的信息。合并[merge]就是把一条分支（一条独立的开发线）并入另一条。
-
-分支生命周期的其他环节：
-
-- `/resolve-merge-conflict` ⭐：两条分支改了同一处，合并卡住了？它会帮你理清冲突，保留双方的意图，并把冲突标记清理干净
-- `/prune-merged-branches`：删掉工作已经合并的分支，并告诉你删了哪些、留了哪些
-- `/submit-pr`：先准备好文档，再向 `dev` 提 PR（Pull Request，请求合并你的分支），标题和描述都替你写好
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 用工作树并行开发
-
-三个功能同时开发，谁也不碍着谁。
-
-通常一个目录同一时间只能检出一条分支，做到一半切分支，工作区就乱了。**关联工作树**[linked worktree]是同一仓库额外检出的一个工作目录，固定在自己的分支上。每个任务一个目录，改动互不影响。
-
-- `/tend-linked-wt` 🌟：管一棵工作树的整个生命周期，从创建到移除
-- `/plant-linked-wt`：为新任务创建一棵
-- `/uproot-linked-wt`：工作合并后把它移除
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 基本规矩
-
-它们会自动生效，大多数时候不用手动调用：
-
-- `/working-with-git`：没有你点头，智能体**绝不推送，也绝不改写历史**
-- `/working-with-p4v`：在用 Perforce？每个术语都标上对应的 Git 说法
+| 技能 | 能带来什么 |
+|---|---|
+| `/commit-sense` 🌟 | 提交时附一行精准摘要和逐文件改动清单，告别“fix stuff” |
+| `/commit-sense-branch-merging` | 合并提交的信息也一样讲究 |
+| `/resolve-merge-conflict` ⭐ | 理清中断的合并，保留双方意图，并把冲突标记清理干净 |
+| `/submit-pr` | 先准备好文档，再向 `dev` 提 PR，标题和描述都替你写好 |
+| `/prune-merged-branches` | 删掉已合并的分支，并告诉你删了哪些、留了哪些 |
+| `/tend-linked-wt` 🌟 | 管关联工作树的整个生命周期：每个任务独占一个目录，并行开发互不碰撞 |
+| `/plant-linked-wt` | 为新任务创建一棵关联工作树 |
+| `/uproot-linked-wt` | 工作合并后把它移除 |
+| `/working-with-git` | 自动生效：没有你点头，智能体**绝不推送，也绝不改写历史** |
+| `/working-with-p4v` | 在用 Perforce？每个术语都标上对应的 Git 说法 |
 
 
 

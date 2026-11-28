@@ -66,6 +66,8 @@
 
 📚 想按名称查看全部技能？**[技能目录](docs/skill-catalog-doc.zh-CN.md)** 是**全部技能**的完整清单，逐一说明用途与调用方式。
 
+🎼 刚接触 Suite 和 Git 技能？**[Suite 与 Git 使用文档](docs/suite-git-usage-doc.zh-CN.md)** 深入讲解**每个 Suite 和 Git 技能**，并附一次完整的实战演示。
+
 ## 🚀 快速开始
 
 ### 在 Anthropic Claude 中使用

@@ -1,5 +1,7 @@
 # Kaye Library: Suite and Git Usage Documentation
 
+English | [简体中文](suite-git-usage-doc.zh-CN.md)
+
 Run a big task as a **Suite**: planned first, built in small reviewable steps, safe to pause. Read *Why*, then see *Example* at the end for a worked session.
 
 Every skill involved, the Suite skills and every Git skill, is explained in the [Skill Reference](#skill-reference) below; the [Skill Catalog](skill-catalog-doc.md#movements-and-suites) lists them in brief.

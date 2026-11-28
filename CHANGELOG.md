@@ -18,7 +18,7 @@ todo good morning incl finance report
 
 ## [Unreleased]
 - `agent-chat-directive-abbr` glossary: `n` next, beside `c` continue and `v` verify
-- `docs/suite-git-usage-doc.md`: 🎼 how to plan and run a Suite, and every Git skill in depth: Movements, Voices, pacing, pause and rework, shorthand (`c`, `n`, `g`, `gi`, `ig`), landing, and releasing, with a full worked session
+- `docs/suite-git-usage-doc.md`: 🎼 how to plan and run a Suite, and every Git skill in depth: Movements, Voices, pacing, pause and rework, shorthand (`c`, `n`, `g`, `gi`, `ig`), landing, and releasing, with a full worked session, in English and Simplified Chinese
 
 ### Added
 

@@ -66,6 +66,8 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 📚 Want every skill by name? The **[Skill Catalog](docs/skill-catalog-doc.md)** is the complete list of **every skill**, with what each does and how to call it.
 
+🎼 New to Suites and Git skills? The **[Suite and Git Usage guide](docs/suite-git-usage-doc.md)** explains **every Suite and Git skill** in depth, with a full worked session.
+
 ## 🚀 Getting Started
 
 ### Use with Anthropic Claude
