@@ -62,16 +62,7 @@ How your agent works with you, turn by turn. Chat rules apply on their own, in K
 
 ### Movements and Suites
 
-Big tasks need structure. `/plan-for-suite` 🌟 is where to start.
-
-Your agent first surveys the repository, then writes the work down as a numbered **plan file** and waits for your approval before touching anything.
-
-That file is the **Suite**: the whole multi-round task, saved on disk. Each numbered step in it is a **Movement**, one reviewable unit small enough to judge at a glance.
-
-> [!NOTE]
-> When Git is available, each Movement is committed automatically.
-
-No more 30-file rewrites in one go. You read the plan, adjust it, and only then does the work begin, one Movement at a time.
+Big tasks, split into reviewable steps: your agent writes a plan, you approve it, and the work runs one **Movement** at a time. `/plan-for-suite` 🌟 is where to start. 📖 Full guide: **[Suite and Git Usage](suite-git-usage-doc.md)**.
 
 Plan the work, then run it:
 
@@ -88,9 +79,6 @@ Then set the pace:
 |---|---|
 | `/halt-each-movement` | stops after each Movement and waits for your review before the next |
 | `/cascade-all-movements` | runs every remaining Movement in one go, stopping only when the Suite is done or when it needs you |
-
-> [!TIP]
-> When executing plans, pair `/play-suite` with `/tend-linked-wt` to work in parallel. Each plan gets its own linked worktree, so several Suites can run at once without colliding.
 
 ----
 
@@ -201,21 +189,14 @@ Start a repository right, keep its files lean, and never lose what a long sessio
 
 ### Landing Features and Shipping Releases
 
-Two workflows, each with a ready half before the merge and a scrub half after it:
+Two workflows, each with a ready half before the merge and a scrub half after it, and every push or deletion waits for your approval:
 
 | Prepare, Merge, and Clean Up | Prepare | Clean Up | What Merging Adds |
 |---|---|---|---|
 | `/land-feature` | `/ready-land-feature` | `/scrub-landed-feature` | merge into `dev` with a clear message |
 | `/release-version` ⭐ | `/ready-release-version` | `/scrub-released-version` | merge to `main` and tag the release |
 
-Each workflow has two halves:
-
-- Ready Half: logs changes in the CHANGELOG and syncs every doc; for a release, it also dates the version and bumps it in every metadata file
-- Scrub Half: pushes the result, then clears what the merge left behind, **each step only once you approve**:
-  - after a landing: the merged branch and its linked worktree
-  - after a release: merged branches and a lagging `dev`, then `dev` moves on to the next alpha version
-
-Prefer to merge by hand? Run the ready half, merge, then run the scrub half. Want a **pull request** instead? See `/submit-pr` under [Git](#-git).
+📖 Step by step: **[Landing a Feature](suite-git-usage-doc.md#git-landing-a-feature)** and **[Releasing a Version](suite-git-usage-doc.md#git-releasing-a-version)**. Want a pull request instead? See `/submit-pr` under [Git](#-git).
 
 
 
@@ -285,67 +266,20 @@ Commits worth reading. Clean merges. Parallel work without collisions.
 
 
 
-### Commits and Merges
+Type `g` to commit this chat's changes, `gi` to commit what's indexed, `ig` to index everything and commit. 📖 Every Git skill, explained in full: **[Suite and Git Usage](suite-git-usage-doc.md#git-rules-and-commits)**.
 
-`/commit-sense` 🌟 ends "fix stuff" commits. A commit is a saved snapshot of your work, and its message should say what changed. Say "commit this" and get:
-
-- a sharp **summary line**: the one-line headline of the change
-- a **per-file ledger**: what changed in each file, and why
-
-Or type a single letter or two in chat to invoke this skill:
-
-- `g`: commit this chat's changes
-- `gi`: commit what's indexed
-- `ig`: index everything, then commit
-
-`/commit-sense-branch-merging` does the same for merge messages. A merge joins one branch, a separate line of work, back into another.
-
-The rest of the branch lifecycle:
-
-- `/resolve-merge-conflict` ⭐: two branches edited the same lines and the merge stopped? this untangles it, keeping both sides' intent and clearing the conflict markers
-- `/prune-merged-branches`: deletes branches whose work is already merged, with a report of what went and what stayed
-- `/submit-pr`: readies the docs and opens a pull request into `dev`, a request to merge your branch, with title and body written for you
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Parallel Work in Worktrees
-
-Run three features at once. None collide.
-
-Normally one folder holds one branch at a time, so switching branches mid-task disturbs your files. A **linked worktree** is an extra working folder of the same repository, locked to its own branch. Each task gets its own folder, so edits in one never touch the others.
-
-- `/tend-linked-wt` 🌟: handles a worktree's whole life, from creating it to removing it
-- `/plant-linked-wt`: creates one for a new task
-- `/uproot-linked-wt`: removes it once the work is merged
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Ground Rules
-
-These apply on their own, so you rarely need to call them by hand:
-
-- `/working-with-git`: your agent **never pushes or rewrites history** without your say-so
-- `/working-with-p4v`: on Perforce? every term paired with its Git equivalent
+| Skill | What You Get |
+|---|---|
+| `/commit-sense` 🌟 | commits with a sharp summary line and a per-file ledger, never "fix stuff" |
+| `/commit-sense-branch-merging` | the same care for merge messages |
+| `/resolve-merge-conflict` ⭐ | untangles a halted merge, keeping both sides' intent and clearing the conflict markers |
+| `/submit-pr` | readies the docs and opens a pull request into `dev`, title and body written for you |
+| `/prune-merged-branches` | deletes branches already merged, with a report of what went and what stayed |
+| `/tend-linked-wt` 🌟 | a linked worktree's whole life: its own folder per task, so parallel work never collides |
+| `/plant-linked-wt` | creates a linked worktree for a new task |
+| `/uproot-linked-wt` | removes it once the work is merged |
+| `/working-with-git` | applies on its own: your agent **never pushes or rewrites history** without your say-so |
+| `/working-with-p4v` | on Perforce? every term paired with its Git equivalent |
 
 
 
