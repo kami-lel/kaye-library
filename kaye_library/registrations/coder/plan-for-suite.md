@@ -149,33 +149,41 @@ Never index or commit the [Plan File](#plan-file), unless the user explicitly as
 
 #### Housekeeping Movements
 
-Plan branch, worktree, merge, and push work as ordinary Movements of the Main Voice. Decide each from the repository state gathered in Bar 1, without asking; the user approves them with the Plan. Share 1 Movement where each stays reviewable.
+Housekeeping Movements set up and tear down the Suite's branches and worktrees: cutting, planting, merging, uprooting, pushing. Write one only if the Suite needs it, as an ordinary Movement of the Main Voice, decided from the repository state gathered in Bar 1, without asking; a Suite that needs none gets none.
 
-Opening Movement: cut the [feature branch](#feature-branch) and, when decided, plant its linked worktree on it.
 
-- [feature branch](#feature-branch): cut it when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together; reuse a current branch that already serves this task; skip it when no Movement edits a tracked file or the user said to work on the current branch
-- linked worktree: plant it when the main worktree is dirty or busy, the user keeps working there meanwhile, or the user asked to leave it untouched; otherwise cut the feature branch in the main worktree
+###### Opening Movement
 
-Closing Movement: land the feature branch, which pushes the integration branch to origin, uproots the linked worktree, and deletes the merged feature branch. Omit it when there is no feature branch.
+If the Suite needs a [feature branch](#feature-branch), open with a Movement that cuts it. It is needed when the repository uses git, the Suite's commits should land together, and some Movement edits a tracked file; it is not needed when the user said to work on the current branch.
 
-- prune merged branches in 1 more Movement only when stale ones are in the way
+If the main worktree is busy, or the user asked to leave it untouched, that Movement also plants the linked worktree per [Plant the Linked Worktree](#plant-the-linked-worktree), which cuts the feature branch when missing.
 
-Each instrumental [Voice](#movement-voice-and-suite) adds 2 Movements, performed by the main session:
 
-- opening: cut its instrumental branch from the feature branch and plant its linked worktree
-- closing: after the Voice's report, merge its instrumental branch into the feature branch, uproot its linked worktree, and delete the instrumental branch; place any Movement that depends on the Voice after it, and record the dependency in `## Order`
-- form a Voice only when the Suite has a feature branch and a stretch of 3+ Movements you perform alone whose Scopes share no file with the Main Voice or any other Voice; keep anything shorter, or sharing a file, in the Main Voice
-- favor the Main Voice; keep the Voice count low
+###### Closing Movement
+
+If the Suite has a feature branch, close with a Movement that lands it per [Perform Feature Landing](#perform-feature-landing), then scrubs up per [Scrub After Feature Landing](#scrub-after-feature-landing).
+
+If stale merged branches are in the way, add 1 Movement that prunes them per [Prune Merged Branches](#prune-merged-branches).
+
+
+###### Instrumental Voice Movements
+
+Form an instrumental [Voice](#movement-voice-and-suite) only if the Suite has a feature branch and a stretch of 3+ Movements you perform alone whose Scopes share no file with the Main Voice or any other Voice. Otherwise keep the work in the Main Voice; favor the Main Voice and keep the Voice count low.
+
+Each Voice formed adds 2 housekeeping Movements:
+
+- opening, in the instrumental Voice: plant its linked worktree per [Plant the Linked Worktree](#plant-the-linked-worktree), cutting its instrumental branch from the feature branch
+- closing, in the Main Voice: after the Voice's report, merge its instrumental branch into the feature branch, uproot its linked worktree per [Uproot the Linked Worktree](#uproot-the-linked-worktree), and prune the merged branch per [Prune Merged Branches](#prune-merged-branches); place any Movement that depends on the Voice after it, and record the dependency in `## Order`
 
 
 
 ##### {[Claude:Skill] Usage}
 
-Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to invoke via `Skill` tool: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `prune-merged-branches` to prune.
+Name in each Housekeeping Movement's Statement the skill that performs it, to invoke via `Skill` tool: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `scrub-landed-feature` to scrub up after landing, `prune-merged-branches` to prune.
 
 ##### {[Hermes:skill_view] Usage}
 
-Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to load with `skill_view`: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `prune-merged-branches` to prune.
+Name in each Housekeeping Movement's Statement the skill that performs it, to load with `skill_view`: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `scrub-landed-feature` to scrub up after landing, `prune-merged-branches` to prune.
 
 
 

@@ -95,6 +95,11 @@ def register_coder_blueprints():
             "agent-files-and-folders",
             "style-markdown-diagrams",
             "git-feature-branch",
+            "plant-linked-wt",
+            "uproot-linked-wt",
+            "land-feature",
+            "scrub-landed-feature",
+            "prune-merged-branches",
         ],
     )
     # the planner's main session never runs a Voice itself

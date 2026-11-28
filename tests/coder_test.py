@@ -136,11 +136,10 @@ class TestPlanForSuiteDecide:
     @pytest.mark.parametrize(
         "needle",
         [
-            "[feature branch](#feature-branch): cut it when",
-            "linked worktree: plant it when",
+            "open with a Movement that cuts it",
+            "that Movement also plants the linked worktree",
             "favor the Main Voice",
             "stretch of 3+ Movements you perform alone",
-            "the user approves them with the Plan",
         ],
     )
     def test_decides_branch_worktree_and_voices(self, needle):
@@ -153,7 +152,7 @@ class TestPlanForSuiteDecide:
         node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
         text = "\n".join(node.content_lines())
 
-        assert "[feature branch](#feature-branch): cut it when" not in text
+        assert "open with a Movement that cuts it" not in text
 
 
 class TestPlanForSuiteWrite:
@@ -179,9 +178,8 @@ class TestPlanForSuiteWrite:
         "needle",
         [
             "each [Housekeeping Movements](#housekeeping-movements) decision",
-            "cut its instrumental branch",
-            "uproots the linked worktree",
-            "Closing Movement: land the feature branch",
+            "cutting its instrumental branch from the feature branch",
+            "then scrubs up per [Scrub After Feature Landing]",
             "`## Order`",
             "`## Main Voice`",
             "`🎻a Violin: Title`",
