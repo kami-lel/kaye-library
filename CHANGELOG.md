@@ -18,6 +18,7 @@ todo good morning incl finance report
 
 
 ## [Unreleased]
+- `agent-chat-directive-abbr` glossary: `n` next, beside `c` continue and `v` verify
 
 ### Added
 

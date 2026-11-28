@@ -2933,6 +2933,15 @@
   },
   "next": {
     "abbrs": {
+      "n": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "agent-chat-directive-abbr",
+          "single_character"
+        ],
+        "wrap": "word"
+      },
       "🧭": {
         "priority": 21,
         "remark": "what is planned, or likely, for the next Round",
