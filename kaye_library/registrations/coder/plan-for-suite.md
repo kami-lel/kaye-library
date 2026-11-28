@@ -139,6 +139,8 @@ Load the skill chosen for this run — `cascade-all-movements` or `halt-each-mov
 
 delivers the finished Plan through `ExitPlanMode` tool, which is where the user approves it
 
+If the Plan File is finished while already out of plan mode, never assume the user approved it: still seek approval, by `EnterPlanMode` then `ExitPlanMode`
+
 ##### {[git] Usage}
 
 Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
@@ -502,6 +504,8 @@ Mid-run on bug, false assumption, wrong or unnecessary Movement, unaccounted-for
 
 Immediate `EnterPlanMode` tool on halt,
 and present the revised plan to user thru `ExitPlanMode` tool
+
+If the revised Plan File is finished while already out of plan mode, never assume the user approved it: still seek approval, by `EnterPlanMode` then `ExitPlanMode`
 
 #### {[Claude:AskUserQuestion] Usage}
 
