@@ -7,7 +7,7 @@ Meet every skill in kaye-library. 📚 Grouped just like the [README](../README.
 Use any skill two ways (eg in Claude Desktop):
 
 - Call It: type its name, eg `/commit-sense`
-- Ask for It: just say what you want, eg "commit this"; your agent picks the right skill
+- Ask for It: just say what you want, eg "commit this"; Kaye picks the right skill
 
 New here? Start with the 🌟 Top Picks, then try the ⭐ Favorites.
 
@@ -46,7 +46,7 @@ New here? Start with the 🌟 Top Picks, then try the ⭐ Favorites.
 
 ## 🤖 Agentic
 
-How your agent works with you, turn by turn. Chat rules apply on their own, in Kaye's voice: reply language, shared terms, clearly marked questions.
+How Kaye works with you, turn by turn. Chat rules apply on their own, in Kaye's voice: reply language, shared terms, clearly marked questions.
 
 
 
@@ -62,7 +62,7 @@ How your agent works with you, turn by turn. Chat rules apply on their own, in K
 
 ### Movements and Suites
 
-Big tasks, split into reviewable steps: your agent writes a plan, you approve it, and the work runs one **Movement** at a time. `/plan-for-suite` 🌟 is where to start. 📖 Full guide: **[Suite and Git Usage](suite-git-usage-doc.md)**.
+Big tasks, split into reviewable steps: Kaye writes a plan, you approve it, and the work runs one **Movement** at a time. `/plan-for-suite` 🌟 is where to start. 📖 Full guide: **[Suite and Git Usage](suite-git-usage-doc.md)**.
 
 Plan the work, then run it:
 
@@ -278,7 +278,7 @@ Type `g` to commit this chat's changes, `gi` to commit what's indexed, `ig` to i
 | `/tend-linked-wt` 🌟 | a linked worktree's whole life: its own folder per task, so parallel work never collides |
 | `/plant-linked-wt` | creates a linked worktree for a new task |
 | `/uproot-linked-wt` | removes it once the work is merged |
-| `/working-with-git` | applies on its own: your agent **never pushes or rewrites history** without your say-so |
+| `/working-with-git` | applies on its own: Kaye **never pushes or rewrites history** without your say-so |
 | `/working-with-p4v` | on Perforce? every term paired with its Git equivalent |
 
 
@@ -316,9 +316,9 @@ Type `g` to commit this chat's changes, `gi` to commit what's indexed, `ig` to i
 
 ## 💻 Coder
 
-Clean, consistent code in every language. No more tidying up after your AI.
+Clean, consistent code in every language. No more tidying up after Kaye.
 
-It all starts with `/coder`: the house rules for all code, such as 80-character lines and consistent names. You rarely call it yourself. It **triggers on its own** whenever your agent writes code, and every language profile builds on it.
+It all starts with `/coder`: the house rules for all code, such as 80-character lines and consistent names. You rarely call it yourself. It **triggers on its own** whenever Kaye writes code, and every language profile builds on it.
 
 
 
@@ -352,7 +352,7 @@ Shipping soon? `/review-gaps` ⭐ audits the whole repository first. It finds **
 
 ### Language Profiles
 
-Pick your language. Most profiles even load themselves the moment your agent opens a matching file.
+Pick your language. Most profiles even load themselves the moment Kaye opens a matching file.
 
 | Skill | Language | What You Get |
 |---|---|---|
@@ -427,7 +427,7 @@ Three small skills for the text your code prints:
 
 ## 🗓️ Secretary
 
-A **personal assistant** for your inbox, calendar, to-do list, and job search. It works through the apps your agent is already connected to.
+A **personal assistant** for your inbox, calendar, to-do list, and job search. It works through the apps Kaye is already connected to.
 
 
 
@@ -604,7 +604,7 @@ And `/redactor` revises your text, keeps your intent and style, and iterates unt
 
 ## 🎮 Unity Engine
 
-A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so your agent loads only what the task needs.
+A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/coder-c-sharp`. Every topic is its own skill, so Kaye loads only what the task needs.
 
 | Skill | What You Get |
 |---|---|
@@ -656,7 +656,7 @@ A complete **house style** for Unity 6 C#. `/u3d` sets the baseline, built on `/
 
 **Prompts that write prompts.** `/write-llm-prompt` ⭐ turns a vague system prompt into one that delivers: drafted, graded, sharpened, with JSON schemas and structure left intact.
 
-Three more write the metadata that tells an agent **when to load** a skill:
+Three more write the metadata that tells Kaye **when to load** a skill:
 
 - `/write-skill-description`: what the skill does, main verb first
 - `/write-skill-when-to-use`: trigger phrases, plus where the skill stops
@@ -697,7 +697,7 @@ Three more write the metadata that tells an agent **when to load** a skill:
 
 ## 🎨 Style
 
-One **voice**, whatever your agent writes.
+One **voice**, whatever Kaye writes.
 
 Most style skills are supporting: other skills load them for you, so one rule shapes every document. Call one directly only when you want just that rule.
 
@@ -861,7 +861,7 @@ More building blocks:
 
 ## 📖 Glossaries
 
-**Type less.** Your agent still understands. Each glossary decodes one family of shorthand.
+**Type less.** Kaye still understands. Each glossary decodes one family of shorthand.
 
 They are all supporting: other skills load them for you, so shorthand means the same everywhere. Call one directly only when you want just that decoding.
 

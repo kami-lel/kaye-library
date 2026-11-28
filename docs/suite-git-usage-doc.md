@@ -8,14 +8,14 @@ Every skill involved, the Suite skills and every Git skill, is explained in the 
 
 ## Why
 
-An agent asked for a large change tends to do it all in 1 pass: 30 files edited, 1 giant diff, nothing you can accept in part, and a lost session loses everything.
+Asked for a large change without a Suite, Kaye tends to do it all in 1 pass: 30 files edited, 1 giant diff, nothing you can accept in part, and a lost session loses everything.
 
 A Suite fixes that by splitting **thinking** from **doing**:
 
-- **Plan first**: the agent reads your repository and writes a plan file. You approve it before any edit.
+- **Plan first**: Kaye reads your repository and writes a plan file. You approve it before any edit.
 - **Small steps**: each step (a **Movement**) is 1 reviewable unit and 1 git commit, so you accept, reject, or redirect piece by piece.
 - **Saved state**: the plan file records progress, so you pause tonight and resume tomorrow, even in a new session.
-- **Parallel lines**: independent stretches of work can run at once as agent-only **Voices**.
+- **Parallel lines**: independent stretches of work can run at once as Kaye-only **Voices**.
 
 Use it for explicit, multi-file, multi-round work. For a one-turn task, just ask.
 
@@ -27,10 +27,10 @@ These words mean something specific here, not their everyday sense.
 |---|---|
 | **Suite** | the whole big task, kept in 1 plan file; not a test suite. Often 1 Suite = 1 feature branch |
 | **Movement** | 1 numbered step of a Suite, sized to be judged and accepted or rejected on its own; not a UI motion. 1 Movement = 1 git commit |
-| **Voice** | 1 ordered line of Movements. The **Main Voice** (🧩) is the one you review; an **instrumental Voice** (🎻 Violin, 🎺 Trumpet, ~) is agent only and runs in parallel on its own branch |
+| **Voice** | 1 ordered line of Movements. The **Main Voice** (🧩) is the one you review; an **instrumental Voice** (🎻 Violin, 🎺 Trumpet, ~) is run by Kaye alone, in parallel on its own branch |
 | **Plan file** | the Suite written down as `<task>-suite-plan.md`: the plan **and** the saved progress, which is what lets a run pause and resume |
 | **Halt / Cascade** | the 2 paces: stop after every Movement and wait for you, or keep going until the Suite is done |
-| **Rework** | when reality stops matching the plan, the agent stops, rewrites the plan, and asks you again; it never works around it |
+| **Rework** | when reality stops matching the plan, Kaye stops, rewrites the plan, and asks you again; it never works around it |
 | **Linked worktree** | a second checkout of the repo in its own folder, 1 per task, so your main folder stays untouched |
 
 ## Shorthand
@@ -41,15 +41,15 @@ Single letters you can type in chat instead of whole sentences:
 |---|---|---|
 | `c` | continue | resume the run; under halt, opens the next Movement |
 | `n` | next | move on to the next one: the next Movement or the next item |
-| `g` | git commit | commit **only the changes made in this conversation**, through `/commit-sense`; changes the agent did not make are left alone, and it asks when unsure |
-| `gi` | git commit indexed | commit **only what is already indexed**, changes the agent does not know about included; the workspace is untouched |
+| `g` | git commit | commit **only the changes made in this conversation**, through `/commit-sense`; changes Kaye did not make are left alone, and it asks when unsure |
+| `gi` | git commit indexed | commit **only what is already indexed**, changes Kaye does not know about included; the workspace is untouched |
 | `ig` | index all, commit | index **every** workspace change, unknown ones included, then commit |
 
-*Indexed* means queued for the next commit (what Git calls staged). Pick `g` for "commit my agent's work", `gi` when you indexed files by hand and want exactly those, `ig` for "commit everything in the folder".
+*Indexed* means queued for the next commit (what Git calls staged). Pick `g` for "commit Kaye's work", `gi` when you indexed files by hand and want exactly those, `ig` for "commit everything in the folder".
 
 ## Skill Reference
 
-Every skill in the Suite workflow, what it does, and when it fires. Call one by name (`/play-suite`) or just describe the need; your agent picks it. Most fire on their own once a Suite is running.
+Every skill in the Suite workflow, what it does, and when it fires. Call one by name (`/play-suite`) or just describe the need; Kaye picks it. Most fire on their own once a Suite is running.
 
 ### Plan It
 
@@ -57,18 +57,18 @@ Every skill in the Suite workflow, what it does, and when it fires. Call one by 
 
 Turns an oversized task into a Plan file, then holds for your approval. Runs in 2 phases:
 
-- **Gather**: read-only. The agent reads entry points, conventions, and the files the task touches, establishes what already exists, is half done, or is missing, and asks you about anything ambiguous (scope, priorities, trade-offs). In Claude Code this runs in plan mode, so no edit is possible.
-- **Write the Plan**: the agent splits the task into numbered Movements and saves them to `<task>-suite-plan.md` (workspace root, else repository root). Each Movement records its **Scope** (files, all named, few), **Statement** (what and why, in a line or two), **End State**, **Party** (who performs it: the agent, you, or another party by name), and **Status** (`Pending`).
+- **Gather**: read-only. Kaye reads entry points, conventions, and the files the task touches, establishes what already exists, is half done, or is missing, and asks you about anything ambiguous (scope, priorities, trade-offs). In Claude Code this runs in plan mode, so no edit is possible.
+- **Write the Plan**: Kaye splits the task into numbered Movements and saves them to `<task>-suite-plan.md` (workspace root, else repository root). Each Movement records its **Scope** (files, all named, few), **Statement** (what and why, in a line or two), **End State**, **Party** (who performs it: Kaye, you, or another party by name), and **Status** (`Pending`).
 
 The file opens with a fixed preface telling whoever runs it which skill to load first, then `## Context`, `## Terrain` (technical particulars, relevant files, constraints), and, when needed, `## Design`, `## Order` (a dependency graph, only with Voices), and `## Rework`. Movements sit under `## Main Voice` and one `## 🎻 Violin Voice`-style heading per instrumental Voice.
 
-The agent also decides the housekeeping on its own from the repository state: a Movement that cuts a **feature branch** (when git is in use and some Movement edits a tracked file), one that plants a **linked worktree** (when the main worktree is busy or you asked to leave it untouched), a closing Movement that **lands** the branch, and an instrumental **Voice** only when 3+ Movements of agent-only work share no file with any other Voice. Voice count favors few and large: each Voice holds at least 5 Movements.
+Kaye also decides the housekeeping on its own from the repository state: a Movement that cuts a **feature branch** (when git is in use and some Movement edits a tracked file), one that plants a **linked worktree** (when the main worktree is busy or you asked to leave it untouched), a closing Movement that **lands** the branch, and an instrumental **Voice** only when 3+ Movements of Kaye-only work share no file with any other Voice. Voice count favors few and large: each Voice holds at least 5 Movements.
 
 Fires on "plan this", "break into Movements", "go step by step". Not for one-turn tasks.
 
 #### `/rework-plan-for-suite`
 
-Handles a plan that stopped matching reality: a bug, a false assumption, a wrong or unnecessary Movement, unaccounted-for work, a redirect from you, or a workspace that no longer matches on resume. The agent **halts at once and never works around it**, then:
+Handles a plan that stopped matching reality: a bug, a false assumption, a wrong or unnecessary Movement, unaccounted-for work, a redirect from you, or a workspace that no longer matches on resume. Kaye **halts at once and never works around it**, then:
 
 1. presents the finding: the Plan's assumption, the reality, the cost to the Movements ahead
 2. rewrites the whole plan (never a diff); finished Movements stay untouched and numbered
@@ -83,18 +83,18 @@ Fires mid-run, even unprompted. You can call it yourself: "replan", "the plan no
 
 #### `/play-suite`
 
-Plays the approved Plan's **Main Voice**. The agent enters each Movement in order, does its work inside the Movement's boundary until its End State holds, commits it, recaps, and hands control back. Nothing is skipped or combined; **your word overrides the order**, so skipping ahead, doing several at once, or setting the plan aside is obeyed without protest.
+Plays the approved Plan's **Main Voice**. Kaye enters each Movement in order, does its work inside the Movement's boundary until its End State holds, commits it, recaps, and hands control back. Nothing is skipped or combined; **your word overrides the order**, so skipping ahead, doing several at once, or setting the plan aside is obeyed without protest.
 
-- **Saved state**: the plan file is the run's memory. Say "pause" and each Status is written down; on resume the agent enters the earliest Movement not `Done` or `Dropped` and first checks that the feature branch, instrumental branches, and linked worktrees still exist.
-- **Your own Movements**: for a Movement whose Party is you, the agent never does the work: it states the goal, gives 1 step at a time, waits for your report, then settles the End State by your confirmation or its own check, and says which.
-- **Other parties** get the steps and End State handed over, then the agent verifies their report.
-- **Progress tracking**: the agent's todo list holds 1 entry per Movement, every Voice included, with the current one marked.
+- **Saved state**: the plan file is the run's memory. Say "pause" and each Status is written down; on resume Kaye enters the earliest Movement not `Done` or `Dropped` and first checks that the feature branch, instrumental branches, and linked worktrees still exist.
+- **Your own Movements**: for a Movement whose Party is you, Kaye never does the work: it states the goal, gives 1 step at a time, waits for your report, then settles the End State by your confirmation or its own check, and says which.
+- **Other parties** get the steps and End State handed over, then Kaye verifies their report.
+- **Progress tracking**: Kaye's todo list holds 1 entry per Movement, every Voice included, with the current one marked.
 
 Fires on a Plan file's preface, on "begin", "continue", "pause", "resume", or `c`.
 
 #### `/halt-each-movement` and `/cascade-all-movements`
 
-The two paces for the Main Voice; the agent asks which at the start of a run.
+The two paces for the Main Voice; Kaye asks which at the start of a run.
 
 | | `/halt-each-movement` | `/cascade-all-movements` |
 |---|---|---|
@@ -112,7 +112,7 @@ Triggers: "one Movement at a time", "let me review between Movements" (halt); "r
 
 #### `/solo-voice`
 
-Runs 1 **instrumental Voice** whole, agent only, as a subagent or in its own session. The main session names the Plan file and the Voice, and nothing else; the Voice reads the Plan itself. It works only in its own linked worktree on its own instrumental branch, commits 1 per Movement, **never asks you anything and never merges its branch**. On a mismatch with the Plan or an End State that will not hold, it stops and reports.
+Kaye runs 1 **instrumental Voice** whole, with no one else involved, as a subagent or in its own session. The main session names the Plan file and the Voice, and nothing else; the Voice reads the Plan itself. It works only in its own linked worktree on its own instrumental branch, commits 1 per Movement, **never asks you anything and never merges its branch**. On a mismatch with the Plan or an End State that will not hold, it stops and reports.
 
 It ends with 1 report: per Movement, its commit hash and End State (met, or why not), where it stopped, and what remains. The main session then merges the branch back into the feature branch, uproots the worktree, prunes the branch, and marks `🎌`. A subagent is the default mode; its own session is for a Voice too large for a subagent, or one you want to watch.
 
@@ -124,10 +124,10 @@ The Suite schedules the worktree, landing, and pruning skills as ordinary Moveme
 
 #### `/working-with-git`
 
-Sets the working terms and the limits, so edits stay in the workspace beside you. It loads on its own whenever the agent works in a Git repository.
+Sets the working terms and the limits, so edits stay in the workspace beside you. It loads on its own whenever Kaye works in a Git repository.
 
-- edits go in the workspace; the agent indexes its own changes when done or partly done, and runs `git status` or `git diff` only when the codebase differs from what it expects
-- **you may be working in the same folder**: a change the agent did not make is yours, so it never reverts, indexes, or commits it, and stops to report if it blocks the work
+- edits go in the workspace; Kaye indexes its own changes when done or partly done, and runs `git status` or `git diff` only when the codebase differs from what it expects
+- **you may be working in the same folder**: a change Kaye did not make is yours, so it never reverts, indexes, or commits it, and stops to report if it blocks the work
 - **needs your exact word, in the same Turn**: rewriting history (`commit --amend`, `rebase`, `reset`, `cherry-pick`), discarding work (`reset --hard`, `checkout .`, `restore .`, `clean -f`, `stash drop`, `branch -D`), publishing (`push`, `push --force`, `tag`, `gh pr create`), sweeping or bypassing (`add -A`, `add .`, `--no-verify`)
 - every commit goes through `/commit-sense`, never a message format of its own
 
@@ -142,7 +142,7 @@ restructure commit sense under Git hierarchy
 🧪`__init__.py` update fixtures: heading levels
 ```
 
-The reply is 1 line, eg `🚩🐙 Commit a3f9c21`; if Git rejects the commit, the agent reports its output and stops. Fires on `g`, "commit this", "write a commit message".
+The reply is 1 line, eg `🚩🐙 Commit a3f9c21`; if Git rejects the commit, Kaye reports its output and stops. Fires on `g`, "commit this", "write a commit message".
 
 #### `/commit-sense-branch-merging`
 
@@ -217,7 +217,7 @@ Answer `a` for all, or letters such as `bd`. It runs the approved actions in the
 
 #### `/submit-pr`
 
-The review-first alternative: readies the docs the same 7 Movements, pushes the branch if the remote lacks it, then runs `gh pr create --base dev`, titled with the branch summary's headline and bodied with its changes. The pull request is left unmerged for the reviewer, and the agent replies with its URL.
+The review-first alternative: readies the docs the same 7 Movements, pushes the branch if the remote lacks it, then runs `gh pr create --base dev`, titled with the branch summary's headline and bodied with its changes. The pull request is left unmerged for the reviewer, and Kaye replies with its URL.
 
 #### `/prune-merged-branches`
 
@@ -258,7 +258,7 @@ Supporting skills that carry the terms and notation. They load themselves whenev
 
 ## Example: Adding a Search Filter
 
-One session that touches everything: plan, review, parallel Voice, your own step, rework, pause, resume, finish. Swap in your own task. Quotes marked `You` are what you type; quotes marked `Kaye` (the agent) are what comes back.
+One session that touches everything: plan, review, parallel Voice, your own step, rework, pause, resume, finish. Swap in your own task. Quotes marked `You` are what you type; quotes marked `Kaye` are what comes back.
 
 #### Ask for a Plan
 
