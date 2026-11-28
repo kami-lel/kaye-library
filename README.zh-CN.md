@@ -27,7 +27,7 @@
 
 | | 分组 | 智能体能学到什么 |
 |---|---|---|
-| 🤖 | 智能体 | 对话规则，Movement 与 Suite 规划：把大任务拆成一步步可审阅的小块 |
+| 🤖 | 智能体 | 对话规则，Movement、Voice 与 Suite 规划：把大任务拆成一步步可审阅的小块，纯智能体 Voice 并行推进 |
 | 📝 | 仓库与项目 | README、CHANGELOG、AGENTS、CONTEXT 和 docs 的撰写；功能合入与版本发布流程 |
 | 🐙 | Git | 带逐文件清单的提交信息、合并冲突处理、清理分支、给并行任务用的关联工作树、PR、Git 与 Perforce 术语对照 |
 | 💻 | 编程 | 通用编码规范、规划与代码审查流程、测试同步，外加 Bash、C、C++、C#、GDScript、HTML、JS/TS、PowerShell、Python、Unreal Engine 的语言规范 |

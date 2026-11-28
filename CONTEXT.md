@@ -1,6 +1,6 @@
 # kaye-library CONTEXT
 
-**Last updated:** 2026-11-23, v1.6.0. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
+**Last updated:** 2026-11-27, v1.6.1-alpha. History lives in [CHANGELOG.md](CHANGELOG.md) and `git log`, not here.
 
 System knowledge for the **kaye-library** repository: architecture, boundaries, known gaps. Read alongside [AGENTS.md](AGENTS.md); [README.md](README.md) is the landing page, with a Simplified Chinese translation in [README.zh-CN.md](README.zh-CN.md).
 
@@ -61,7 +61,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 
 | root | holds |
 |---|---|
-| Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement and Suite (Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
+| Agentic | `Agent~` sidecar, Turn Progress Dispatch, Files & Folders, Movement, Voice, and Suite (Dispatch Marks, Movement Notation, Movement with Count), Halt Each Movement, Cascade All Movements |
 | Chat Agent | the persona-free conversation rules: reply Language, Discourse Unit, Directive, Chat Emojis Decorative, letter-labeled options, the question-tool sections; registered with the five steps, taken by `chat-basic` |
 | Style Guide | Markdown Format (Extended, Footnotes, Endnotes, Header Separation), No Markdown Syntax, Letter Case, Briefness Style, Good Writing |
 | Elements | Date and Time Format, Numerical Values with Units, Triage Tags, International Phonetic Alphabet, Secondary Language Marking, ASCII only, Alphabetical Sequence Numbering |
@@ -69,7 +69,7 @@ Thirteen authored root nodes plus two dynamic placements; every root has exactly
 | Git | `git.md`: Working with Git, commit sense, Resolve Merge Conflict; `repo.md`: Repository Structure, README, CHANGELOG, CONTEXT, CREDITS, DEVLOG writers, Prune Merged Branches, Submit Pull Request; `workflow.md`: create and maintain workflows; `branch.md`: feature branch, landing and release workflows |
 | Perforce | Working with Perforce |
 | Personality | the Public Kaye, 1 `{for <persona>}` section per kind node: Signature (display name), Diathesis Public (character), Speech Habit Public (address-free lines), `{in chat}` (the Personality/Task split, its `(((person-signifier)))` list, each persona's format example); taken whole by internal, persona-free `persona`, the entry's render profile picking the persona |
-| Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (with its Execution and Rework sections, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
+| Coder | the coding rules, Brace Style, Comment Banner, Command Usage Message, Plan for Suite (its shared Execution rules, the internal `plan-for-suite-execution`; Play Suite, Rework, and Solo Voice, each an exportable skill), Sync Unit Test, Gap Review; one child per language file |
 | Unity Engine | the Unity 6 C# rules (naming, class-role suffixes, inspector fields, units, input, owner-driven activation, game tuning, logging), Assets Management, MonoBehaviour, Scriptable Object; each section also exports as its own standalone `u3d-*` skill; builds on Coder C Sharp |
 | Amanuensis | Chicago Citation (Note, Bibliography), Bibliographer, assemble bibliography, Redactor, Dispositor with Scholiast, Config Writer (Keybinding Writer under it), Minutes Clerk |
 | Secretary | Common Report Format and its info fields, email management (draft, sweep), scan event radar, calendar and GTD management, daily recap, hunt job opportunity, Good Morning, Good Week |

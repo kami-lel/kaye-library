@@ -27,7 +27,7 @@ Every time you explain your commit style, your Markdown taste, or how a README s
 
 | | Group | What Your Agent Learns |
 |---|---|---|
-| 🤖 | Agentic | chat rules, Movement and Suite planning: big tasks split into reviewable steps |
+| 🤖 | Agentic | chat rules, Movement, Voice, and Suite planning: big tasks split into reviewable steps, agent-only Voices run in parallel |
 | 📝 | Repository & Project | README, CHANGELOG, AGENTS, CONTEXT, and docs writers; feature landing and version release workflows |
 | 🐙 | Git | commit messages with a per-file ledger, merge conflict resolution, branch pruning, linked worktrees for parallel tasks, PRs, Git and Perforce terms |
 | 💻 | Coder | shared coding rules, plan and review workflows, test syncing, profiles for Bash, C, C++, C#, GDScript, HTML, JS/TS, PowerShell, Python, Unreal Engine |

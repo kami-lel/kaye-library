@@ -78,8 +78,9 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | 技能 | 能带来什么 |
 |---|---|
 | `/plan-for-suite` 🌟 | 动手前先有一份编号、可审阅的计划；你批准之前什么都不会执行 |
-| `/execute-plan-for-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
+| `/play-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
 | `/rework-plan-for-suite` | 计划跟不上变化了？它会先叫停，改好计划，再等你重新批准 |
+| `/solo-voice` | 在自己的 voice branch 上独立跑完 Suite 中的一个 instrumental Voice，以子智能体或独立会话运行，完成后向主会话汇报；由主会话派发 |
 
 节奏你说了算：
 
@@ -89,7 +90,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | `/cascade-all-movements` | 把剩下的 Movement 一口气做完，只有整个 Suite 完成或需要你拍板时才停 |
 
 > [!TIP]
-> 执行计划时，可以把 `/execute-plan-for-suite` 和 `/tend-linked-wt` 搭配起来并行开发：每份计划独占一个关联工作树，多个 Suite 同时推进也互不冲突。
+> 执行计划时，可以把 `/play-suite` 和 `/tend-linked-wt` 搭配起来并行开发：每份计划独占一个关联工作树，多个 Suite 同时推进也互不冲突。
 
 下面两个配套技能负责定义这些概念：
 

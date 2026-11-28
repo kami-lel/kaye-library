@@ -11,6 +11,7 @@ from kaye_engine.prompt.blueprint import (
     get_corpus_node,
     merge_blueprints,
     replace_meta,
+    uncheckmark_nodes,
 )
 
 from kaye_engine.prompt.blueprint.render_profile import RenderProfile
@@ -20,6 +21,7 @@ from .._common import (
     SIDECAR_IN_CHAT,
     glossary_blueprint,
     register_exportable,
+    register_internal,
     register_node,
     register_prompt,
 )
@@ -79,39 +81,64 @@ def register_coder_blueprints():
     # Plan for Suite
     plan_for_suite_node = coder_node["Plan for Suite"]
     plan_for_suite_execution_node = plan_for_suite_node[
-        "Plan for Suite: Bar 3: Execution"
+        "Plan for Suite: Execution"
     ]
+    play_suite_node = plan_for_suite_node["Play Suite"]
     plan_for_suite_rework_node = plan_for_suite_node["Plan for Suite: Rework"]
+    solo_voice_node = plan_for_suite_node["Solo Voice"]
 
-    plan_for_suite_bp = checkmark_nodes(
-        checkmark_nodes(
-            create_blueprint_from_node(
-                plan_for_suite_node,
-                is_recursive=True,
-                dependencies=[
-                    "agent-movement-and-suite",
-                    "agent-files-and-folders",
-                ],
-            ),
-            plan_for_suite_execution_node,
-        ),
-        plan_for_suite_rework_node,
+    plan_for_suite_bp = create_blueprint_from_node(
+        plan_for_suite_node,
+        is_recursive=True,
+        dependencies=[
+            "agent-movement-and-suite",
+            "agent-files-and-folders",
+            "style-markdown-diagrams",
+        ],
+    )
+    # the planner's main session never runs a Voice itself
+    plan_for_suite_bp = uncheckmark_nodes(
+        plan_for_suite_bp, solo_voice_node, is_recursive=True
     )
     register_prompt(
         "plan-for-suite",
         replace_meta(plan_for_suite_bp, display_name="Plan for Suite"),
     )
 
-    # Execute Plan for Suite
+    # Plan for Suite Execution: rules every Voice shares, on the
+    # dispatch-free Movement core, never Dispatch Marks
+    movement_and_suite_node = get_corpus_node("Agentic")[
+        "Movement, Voice, and Suite"
+    ]
+    register_internal(
+        "plan-for-suite-execution",
+        replace_meta(
+            checkmark_nodes(
+                checkmark_nodes(
+                    create_blueprint_from_node(
+                        plan_for_suite_execution_node, is_recursive=True
+                    ),
+                    movement_and_suite_node,
+                ),
+                movement_and_suite_node["Movement Notation"],
+            ),
+            display_name="Plan for Suite Execution",
+        ),
+    )
+
+    # Play Suite
     register_exportable(
-        "execute-plan-for-suite",
+        "play-suite",
         replace_meta(
             create_blueprint_from_node(
-                plan_for_suite_execution_node,
+                play_suite_node,
                 is_recursive=True,
-                dependencies=["agent-movement-and-suite"],
+                dependencies=[
+                    "plan-for-suite-execution",
+                    "agent-movement-and-suite",
+                ],
             ),
-            display_name="Execute Plan for Suite",
+            display_name="Play Suite",
         ),
     )
 
@@ -125,6 +152,19 @@ def register_coder_blueprints():
                 dependencies=["agent-movement-and-suite"],
             ),
             display_name="Rework Plan for Suite",
+        ),
+    )
+
+    # Solo Voice
+    register_exportable(
+        "solo-voice",
+        replace_meta(
+            create_blueprint_from_node(
+                solo_voice_node,
+                is_recursive=True,
+                dependencies=["plan-for-suite-execution"],
+            ),
+            display_name="Solo Voice",
         ),
     )
 

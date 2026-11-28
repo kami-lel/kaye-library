@@ -88,3 +88,20 @@ class TestSignedAsKaye:
         content = exportable_registry["commit-sense-branch-merging"].content()
 
         assert "**always** append your [Co-author Trailer]" in content
+
+
+class TestTendLinkedWorktreeAnyBranch:
+
+    @pytest.mark.parametrize(
+        "name", ["tend-linked-wt", "plant-linked-wt", "uproot-linked-wt"]
+    )
+    def test_speaks_of_any_branch(_, name):
+        content = exportable_registry[name].content()
+
+        assert "voice branch" in content
+        assert "REPO-WT-FEATURE" not in content
+
+    def test_names_the_voice_split(_):
+        content = exportable_registry["tend-linked-wt"].content()
+
+        assert "each instrumental Voice of a Suite" in content

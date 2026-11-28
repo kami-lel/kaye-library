@@ -13,10 +13,13 @@ flowchart LR
     halt_each_movement["halt-each-movement"] --> agent_movement_and_suite["agent-movement-and-suite"]
     cascade_all_movements["cascade-all-movements"] --> agent_movement_and_suite
     plan_for_suite["plan-for-suite"] --> agent_movement_and_suite
-    execute_plan_for_suite["execute-plan-for-suite"] --> agent_movement_and_suite
+    play_suite["play-suite"] --> agent_movement_and_suite
+    play_suite --> plan_for_suite_execution["plan-for-suite-execution"]
+    solo_voice["solo-voice"] --> plan_for_suite_execution
     rework_plan_for_suite["rework-plan-for-suite"] --> agent_movement_and_suite
     sync_unit_test["sync-unit-test"] --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
     plan_for_suite --> agent_files_and_folders["agent-files-and-folders"]
+    plan_for_suite --> style_markdown_diagrams["style-markdown-diagrams"]
     agent_files_and_folders --> style_letter_case_kebab_case["style-letter-case-kebab-case"]
     agent_files_and_folders --> style_letter_case_pascal_case["style-letter-case-pascal-case"]
     agent_files_and_folders --> element_dt_year_month_day_format["element-dt-year-month-day-format"]
@@ -233,16 +236,19 @@ flowchart LR
     coder_profiles["coder-* language profiles"] --> coder
     coder_ue["coder-ue"] --> coder_c["coder-c"]
     coder --> sync_unit_test["sync-unit-test"]
-    plan_for_suite["plan-for-suite"] --> execute_plan_for_suite["execute-plan-for-suite"]
+    plan_for_suite["plan-for-suite"] --> play_suite["play-suite"]
     plan_for_suite --> cascade_all_movements["cascade-all-movements"]
     plan_for_suite --> halt_each_movement["halt-each-movement"]
     plan_for_suite --> rework_plan_for_suite["rework-plan-for-suite"]
     plan_for_suite --> tend_linked_wt["tend-linked-wt"]
     plan_for_suite --> commit_sense["commit-sense"]
-    execute_plan_for_suite --> cascade_all_movements
-    execute_plan_for_suite --> halt_each_movement
-    execute_plan_for_suite --> rework_plan_for_suite
-    execute_plan_for_suite --> commit_sense
+    play_suite --> cascade_all_movements
+    play_suite --> halt_each_movement
+    play_suite --> rework_plan_for_suite
+    play_suite --> tend_linked_wt
+    play_suite --> land_feature["land-feature"]
+    play_suite --> solo_voice["solo-voice"]
+    plan_for_suite_execution["plan-for-suite-execution"] --> commit_sense
 ```
 
 #### Git & Repository
