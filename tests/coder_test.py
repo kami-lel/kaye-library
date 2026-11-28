@@ -144,3 +144,39 @@ class TestPlanForSuiteDecide:
         text = "\n".join(node.content_lines())
 
         assert "**Feature branch**" not in text
+
+
+class TestPlanForSuiteWrite:
+
+    def _text(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]
+        return "\n".join(node["Bar 3: Write the Plan"].content_lines())
+
+    def test_record_has_no_order_field(self):
+        assert "- Order:" not in self._text()
+
+    @pytest.mark.parametrize(
+        "needle",
+        [
+            "`Decisions` block",
+            "runs `land-feature`",
+            "`## Order`",
+            "`## Main Voice`",
+            "`🎻a Violin: Title`",
+        ],
+    )
+    def test_plans_decisions_and_voices(self, needle):
+        assert needle in self._text()
+
+    def test_movement_heading_drops_total(self):
+        assert "🧩5\\8" not in self._text()
+
+    def test_parallel_paragraph_is_gone(_):
+        content = exportable_registry["plan-for-suite"].content()
+
+        assert "Parallel execution" not in content
+
+    def test_depends_on_diagrams(_):
+        deps = blueprint_registry["plan-for-suite"].blueprint.dependencies
+
+        assert "style-markdown-diagrams" in deps

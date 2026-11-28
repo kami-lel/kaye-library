@@ -639,9 +639,10 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Scope: the files it touches, all named, and few
 - Statement: what changes and why, in a line or two — never a code dump
 - **End State**: what *Working* means once the Movement closes, so review can stop there
-- Order: what it depends on, which may only be Movements already done
 - Party (who performs it): you, the user, or another party by name; give the user what lies beyond your reach, eg a GUI step, a login, a device, an approval
 - Status: always write `Pending` when first writing the Plan
+
+Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, the graph in `## Order` holds every dependency.
 
 The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
 
@@ -651,16 +652,32 @@ Before working from this file, invoke `execute-plan-for-suite` skill through the
 Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
 </plan-for-suite-preface>
 
+Right after the preface, record Bar 2's decisions in a `Decisions` block, each with a one-line reason:
+
+- Feature branch: yes, with its name, or no
+- Linked worktree: yes, with its path, or no
+- Voices: none, or each instrumental Voice with its voice branch name
+
+With a feature branch, open the Plan with a Movement that plants the linked worktree on it, or only cuts the feature branch when no linked worktree is decided. Close the Plan with 1 Movement that runs `land-feature`. Mark both `(optional)` after their titles.
+
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
 
 ##### Plan File
 
 - Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
 - Location: first available of workspace root, repository root, your own temporary location
+- 1 Plan file holds the whole Suite, every Voice included
+
+##### Voices in the Plan
+
+- give an instrumental Voice only Movements you perform, their Scopes sharing no file with the Main Voice or any other Voice
+- a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch
+- with Voices, open the Plan body with `## Order`: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); follow it with `## Main Voice`, then 1 `## 🎻 Violin Voice` per instrumental Voice in instrument order, each holding its Movements
+- without Voices, keep the Plan flat, with no graph
 
 ##### Movement Heading
 
-In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, between number and colon, in order and only when they apply:
+In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` in a flat Plan and an `h4` under a Voice's `h2`. Between number and colon, add, in order and only when they apply:
 
 - `{party}`: for a Movement that is not yours, never for your own
 - `[workspace]`: when the task spans several workspaces or repositories
@@ -668,8 +685,15 @@ In the Plan file, head each Movement as an `h3`, `### 🧩a\b: Title`, plus, bet
 The user is a party too, by their own name, eg `{John}`.
 
 ```
-### 🧩5\8 [api]: Wire Up the Config Loader
-### 🧩6\8 {John} [api]: Approve the Staging Deploy
+### 🧩5 [api]: Wire Up the Config Loader
+### 🧩6 {John} [api]: Approve the Staging Deploy
+```
+
+With Voices:
+
+```
+#### 🧩5 [api]: Wire Up the Config Loader
+#### 🎻2 Violin [api]: Rewrite the Test Fixtures
 ```
 
 
@@ -723,15 +747,6 @@ in Bar 1:
 ### {[git] Usage}
 
 Never index or commit the [Plan File](#plan-file), unless the user explicitly asks: it is run scratch, not project history.
-
-----
-
-Parallel execution is an option, never a requirement: independent Movements may run at once, each in its own linked worktree and feature branch per `tend-linked-wt`.
-
-- where a large task splits cleanly, favor disjoint Scopes and few dependencies
-- mark each parallel Movement with its peers and its branch
-- stay sequential when splitting costs more than it saves, eg shared files, tight coupling
-- a Movement depending on parallel ones waits until all their branches merge back
 
 
 

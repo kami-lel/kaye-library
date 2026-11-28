@@ -91,6 +91,7 @@ def register_coder_blueprints():
                 dependencies=[
                     "agent-movement-and-suite",
                     "agent-files-and-folders",
+                    "style-markdown-diagrams",
                 ],
             ),
             plan_for_suite_execution_node,
