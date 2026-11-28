@@ -58,15 +58,9 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 The Plan divides the task into Movements.
 
-The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place. Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
+The Plan is a **deliverable** and lives in a **Plan file**, so later Movements can revise it in place.
 
-<plan-for-suite-preface>
-Before working from this file, invoke `play-suite` skill through the `Skill` tool.
-
-Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
-</plan-for-suite-preface>
-
-Right after the preface, state each [Housekeeping Movements](#housekeeping-movements) decision that came out yes, with a one-line reason: the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name.
+Lay the file out per [Plan File](#plan-file).
 
 Hand the Plan to the user and **stop**. The codebase stays exactly as it is until they approve.
 
@@ -84,7 +78,7 @@ The Plan must be **readable at a glance** and **workable in order**. Any layout 
 - Party (who performs it): you, the user, or another party by name; give the user what lies beyond your reach, eg a GUI step, a login, a device, an approval
 - Status: always write `Pending` when first writing the Plan
 
-Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, the graph in `## Order` holds every dependency.
+Record no Order field. With only the Main Voice, the Movement numbers give the order; with instrumental Voices, `## Order` holds every dependency.
 
 
 
@@ -95,6 +89,42 @@ Record no Order field. With only the Main Voice, the Movement numbers give the o
 - Name: [Kebab Case](#letter-case-kebab-case) slug of the task, ending `-suite-plan.md`, eg `auth-refactor-suite-plan.md`
 - Location: first available of workspace root, repository root, your own temporary location
 - 1 Plan file holds the whole Suite, every Voice included
+
+Open the file with the preface below, *verbatim* and ahead of all Plan content, so whoever executes it reads the terms before the first Movement.
+
+<plan-for-suite-preface>
+Before working from this file, invoke `play-suite` skill through the `Skill` tool.
+
+Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and follow the chosen skill for how the Movements proceed.
+</plan-for-suite-preface>
+
+Top-level headings, all `##`, in this order after the preface:
+
+- `## Context`: what a reader needs to grasp the Plan at a glance, high level, as an indented outline: the goal, the state it starts from, each [Housekeeping Movements](#housekeeping-movements) decision that came out yes with a one-line reason (the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name)
+- `## Terrain`: what belongs to this Plan alone, in detail: technical particulars, where to find the relevant files, constraints, anything a Movement leans on
+- `## Design`: optional, only when the Plan brings a complicated new design, eg an API or a data shape; where the design replaces something, compare new against old side by side
+- `## Order`: optional, only with instrumental Voices: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); it holds every dependency, so the Movement record carries no Order field
+- `## Rework`: optional, absent from a first draft; the history of every [rework](#plan-for-suite-rework), oldest first: append 1 numbered entry per rework, never edit or drop an earlier one, even when a later rework reverses it; each entry holds the finding (the Plan's assumption, the reality, the cost) and the Movements it revised, removed, added, or split
+- `## Main Voice`: the Main Voice's Movements
+- `## 🎻 Violin Voice`: 1 per instrumental Voice, in instrument order, each holding its Movements
+
+
+###### Movement Heading
+
+In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` under its Voice's `h2`. Between number and colon, add, in order and only when they apply:
+
+- `{party}`: for a Movement that is not yours, never for your own
+- `[workspace]`: when the task spans several workspaces or repositories
+
+The user is a party too, by their own name, eg `{John}`.
+
+```
+### 🧩5 [api]: Wire Up the Config Loader
+### 🧩6 {John} [api]: Approve the Staging Deploy
+```
+
+
+
 
 
 ##### {[Claude:Skill] Usage}
@@ -120,9 +150,7 @@ Never index or commit the [Plan File](#plan-file), unless the user explicitly as
 #### Voices in the Plan
 
 - give an instrumental Voice only Movements you perform, their Scopes sharing no file with the Main Voice or any other Voice
-- a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch
-- with Voices, open the Plan body with `## Order`: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); follow it with `## Main Voice`, then 1 `## 🎻 Violin Voice` per instrumental Voice in instrument order, each holding its Movements
-- without Voices, keep the Plan flat, with no graph
+- a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch; record that dependency in `## Order`
 
 
 
@@ -159,31 +187,6 @@ Name in each [Housekeeping Movements](#housekeeping-movements) Statement the ski
 ##### {[Hermes:skill_view] Usage}
 
 Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to load with `skill_view`: `tend-linked-wt` to plant or uproot a linked worktree, `land-feature` to land, `prune-merged-branches` to prune.
-
-
-
-
-
-#### Movement Heading
-
-In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` in a flat Plan and an `h4` under a Voice's `h2`. Between number and colon, add, in order and only when they apply:
-
-- `{party}`: for a Movement that is not yours, never for your own
-- `[workspace]`: when the task spans several workspaces or repositories
-
-The user is a party too, by their own name, eg `{John}`.
-
-```
-### 🧩5 [api]: Wire Up the Config Loader
-### 🧩6 {John} [api]: Approve the Staging Deploy
-```
-
-With Voices:
-
-```
-#### 🧩5 [api]: Wire Up the Config Loader
-#### 🎻2 Violin [api]: Rewrite the Test Fixtures
-```
 
 
 
@@ -424,7 +427,7 @@ use `clarify` tool to confirm each step or the End State of a user Movement, car
 Halt the moment reality stops matching the Plan — a bug, a false assumption, a wrong or unnecessary Movement, unaccounted-for work, a user redirect, anything unanticipated. Never work around it.
 
 1. present the finding: the Plan's assumption, the reality, and the cost to the Movements still ahead
-2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands
+2. rewrite the Plan whole — edit it in place, or author an entirely new file — never a diff, excerpt, or the rework alone. Keep completed Movements untouched and numbered; revise, remove, or add the rest as the finding demands, and append the rework to the history in `## Rework`
 3. set every Movement's Status keyword per [Bar 2: Write the Plan](#bar-2-write-the-plan), so the file reads cold as exactly how far the run got and what the finding cost
 4. never renumber to make room. A split Movement keeps its number and gains sub-Movements beneath it — `Movement 1` becomes `Movement 1.1` and `Movement 1.2`
 5. present the revised Plan and hold for approval, as in [Bar 2: Write the Plan](#bar-2-write-the-plan)

@@ -171,7 +171,6 @@ class TestPlanForSuiteWrite:
             "Plan File",
             "Voices in the Plan",
             "Housekeeping Movements",
-            "Movement Heading",
         ]
 
     def test_record_has_no_order_field(self):
