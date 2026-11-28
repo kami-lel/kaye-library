@@ -196,7 +196,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | `/land-feature` | `/ready-land-feature` | `/scrub-landed-feature` | 合并到 `dev`，附上清晰的合并信息 |
 | `/release-version` ⭐ | `/ready-release-version` | `/scrub-released-version` | 合并到 `main`，打上版本标签 |
 
-📖 逐步讲解：**[合入功能](suite-git-usage-doc.zh-CN.md#git-合入功能)** 和 **[发布版本](suite-git-usage-doc.zh-CN.md#git-发布版本)**。想走 **PR**？见 [Git](#-git) 分组里的 `/submit-pr`。
+📖 逐步讲解：**[合并功能分支](suite-git-usage-doc.zh-CN.md#git-合并功能分支)** 和 **[发布版本](suite-git-usage-doc.zh-CN.md#git-发布版本)**。想走 **PR**？见 [Git](#-git) 分组里的 `/submit-pr`。
 
 
 
