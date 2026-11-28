@@ -10,11 +10,10 @@ An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Mov
 
 **Voice**: 1 line of Movements within a Suite, run in order
 
-- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent or another session
-- every other Voice is an **instrumental Voice**: agent only, with no user Movement, approval, or question inside it
-- an instrumental Voice runs in 1 of 2 modes, both following `solo-voice`: soloed by a subagent of the main session, or run in its own session
-- each instrumental Voice runs in parallel with the Main Voice and the rest, on its own instrumental branch and linked worktree; its instrumental branch is cut from the feature branch and merges back into it once its Movements are done
-- an instrument emoji therefore always marks an instrumental Voice
+- the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; only the main session runs it
+- every other Voice is an **instrumental Voice**, marked by its instrument emoji: agent only, with no user Movement, approval, or question inside it
+- every Voice must be able to run in parallel with the rest, never waiting on another Voice's unmerged work
+- each instrumental Voice works on its own instrumental branch and linked worktree, cut from the feature branch and merged back into it once its Movements are done
 
 **Movement**: 1 division of a Voice, sized for when the whole cannot be held at once
 
