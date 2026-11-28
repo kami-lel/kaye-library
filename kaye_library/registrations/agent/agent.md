@@ -179,6 +179,10 @@ Creating, naming, or renaming a document, resource, media file, or folder, or me
 
 ## Movement, Voice, and Suite
 
+<!--
+FIXME mvmt content a its own.md
+-->
+
 An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Movement. Never use them for simple, implicit, or single-round work.
 
 **Suite**: the whole workflow for 1 such task

@@ -584,6 +584,8 @@ fires on "usage line", "usage message", "synopsis", `--help` text, argument synt
 
 ## Plan for Suite
 
+<!-- FIXME plan for suite as its own .md -->
+
 This uses the [Movement, Voice, and Suite](#movement-voice-and-suite) concepts on a Plan file — a Plan is a Suite, so it holds multiple Movements.
 
 Three *Bars*, then Execution:
@@ -606,6 +608,8 @@ Where the reading leaves intent unclear — scope, priorities, trade-offs, which
 
 
 ### Bar 2: Decide
+
+<!-- HACK rm this as a bar -->
 
 Decide, from the repository state gathered in Bar 1, whether the Suite uses a feature branch, a linked worktree, and Voices. Decide these yourself, without asking; the user approves them with the Plan.
 
@@ -631,6 +635,8 @@ Decide, from the repository state gathered in Bar 1, whether the Suite uses a fe
 
 
 ### Bar 3: Write the Plan
+
+<!-- FIXME mvmt incl: plant/uproot wt, feature/voice branch creation/del, push -->
 
 The Plan divides the task into Movements.
 
@@ -918,6 +924,14 @@ When halting for [Plan for Suite: Rework](#plan-for-suite-rework), load `rework-
 
 To plant or uproot a linked worktree, load `tend-linked-wt` with `skill_view`; in the closing Movement, load `land-feature` with `skill_view`.
 
+
+
+
+<!--
+FIXME more details agent usage: ie what passed into agents
+FIXME define who is responsible for merge & linked wt
+-->
+
 #### {[Claude:Agent~] Usage}
 
 Start a subagent-mode Voice with 1 `Agent` call in the background, carrying its prompt.
@@ -929,6 +943,9 @@ Start a subagent-mode Voice with 1 `delegate_task` call, its prompt split across
 #### {[agent] Fallback}
 
 With no subagent tool, run every instrumental Voice in session mode.
+
+
+
 
 #### {[Claude:AskUserQuestion] Usage}
 
