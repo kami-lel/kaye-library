@@ -111,7 +111,7 @@ Top-level headings, all `##`, in this order after the preface:
 
 ###### Movement Heading
 
-In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a Violin: Title` in an instrumental Voice, with its own emoji and name, as an `h3` under its Voice's `h2`. Between number and colon, add, in order and only when they apply:
+In the Plan file, head each Movement `🧩a: Title` in the Main Voice and `🎻a: Title` in an instrumental Voice, with its Voice's own emoji, as an `h3` under its Voice's `h2`. Between number and colon, add, in order and only when they apply:
 
 - `{party}`: for a Movement that is not yours, never for your own
 - `[workspace]`: when the task spans several workspaces or repositories
@@ -121,6 +121,7 @@ The user is a party too, by their own name, eg `{John}`.
 ```
 ### 🧩5 [api]: Wire Up the Config Loader
 ### 🧩6 {John} [api]: Approve the Staging Deploy
+### 🎻2 [api]: Add the Retry Wrapper
 ```
 
 
