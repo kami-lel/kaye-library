@@ -20,6 +20,7 @@ flowchart LR
     sync_unit_test["sync-unit-test"] --> agent_movement_and_suite_with_count["agent-movement-and-suite-with-count"]
     plan_for_suite --> agent_files_and_folders["agent-files-and-folders"]
     plan_for_suite --> style_markdown_diagrams["style-markdown-diagrams"]
+    plan_for_suite --> git_feature_branch["git-feature-branch"]
     agent_files_and_folders --> style_letter_case_kebab_case["style-letter-case-kebab-case"]
     agent_files_and_folders --> style_letter_case_pascal_case["style-letter-case-pascal-case"]
     agent_files_and_folders --> element_dt_year_month_day_format["element-dt-year-month-day-format"]

@@ -94,6 +94,7 @@ def register_coder_blueprints():
             "agent-movement-and-suite",
             "agent-files-and-folders",
             "style-markdown-diagrams",
+            "git-feature-branch",
         ],
     )
     # the planner's main session never runs a Voice itself

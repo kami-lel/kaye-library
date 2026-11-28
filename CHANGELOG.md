@@ -23,6 +23,9 @@ todo good morning incl finance report
 
 ### Changed
 
+- `plan-for-suite`: the Plan file defines its `##` layout (Context, Terrain, Design, Order, Rework, Main Voice, instrumental Voices); branch, worktree, merge, and push work are Housekeeping Movements
+- a voice branch is now an instrumental branch
+
 ### Deprecated
 
 ### Removed

@@ -5,7 +5,7 @@ An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Mov
 **Suite**: the whole workflow for 1 such task
 
 - holds 1+ Voices, the Main Voice always among them
-- works on its feature branch, often 1 Suite = 1 feature branch, which every voice branch merges back into
+- works on its feature branch, often 1 Suite = 1 feature branch, which every instrumental branch merges back into
 - completes once every Voice has merged back and no Movement remains
 
 **Voice**: 1 line of Movements within a Suite, run in order
@@ -13,7 +13,7 @@ An explicit, multi-round user task runs as 3 nested units: Suite, Voice, and Mov
 - the **Main Voice** is the Suite's own line, marked 🧩: every Movement outside the other Voices, user Movements included; the main session runs it, never a subagent or another session
 - every other Voice is an **instrumental Voice**: agent only, with no user Movement, approval, or question inside it
 - an instrumental Voice runs in 1 of 2 modes, both following `solo-voice`: soloed by a subagent of the main session, or run in its own session
-- each instrumental Voice runs in parallel with the Main Voice and the rest, on its own voice branch and linked worktree; its voice branch is cut from the feature branch and merges back into it once its Movements are done
+- each instrumental Voice runs in parallel with the Main Voice and the rest, on its own instrumental branch and linked worktree; its instrumental branch is cut from the feature branch and merges back into it once its Movements are done
 - an instrument emoji therefore always marks an instrumental Voice
 
 **Movement**: 1 division of a Voice, sized for when the whole cannot be held at once
@@ -53,7 +53,7 @@ When a task is broken into Movements, or a Suite or Movement is announced, numbe
 
 Commit each Movement's edits as exactly one git commit: 1 Movement = 1 commit.
 
-Often 1 Suite = 1 feature branch. 1 Voice = 1 voice branch, cut from the feature branch and merged back into it.
+Often 1 Suite = 1 feature branch. 1 Voice = 1 instrumental branch, cut from the feature branch and merged back into it.
 
 
 

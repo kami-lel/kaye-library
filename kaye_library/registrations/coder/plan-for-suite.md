@@ -100,7 +100,7 @@ Ask whether to run under `cascade-all-movements` or `halt-each-movement`, and fo
 
 Top-level headings, all `##`, in this order after the preface:
 
-- `## Context`: what a reader needs to grasp the Plan at a glance, high level, as an indented outline: the goal, the state it starts from, each [Housekeeping Movements](#housekeeping-movements) decision that came out yes with a one-line reason (the feature branch with its name, the linked worktree with its path, each instrumental Voice with its voice branch name)
+- `## Context`: what a reader needs to grasp the Plan at a glance, high level, as an indented outline: the goal, the state it starts from, each [Housekeeping Movements](#housekeeping-movements) decision that came out yes with a one-line reason (the feature branch with its name, the linked worktree with its path, each instrumental Voice with its instrumental branch name)
 - `## Terrain`: what belongs to this Plan alone, in detail: technical particulars, where to find the relevant files, constraints, anything a Movement leans on
 - `## Design`: optional, only when the Plan brings a complicated new design, eg an API or a data shape; where the design replaces something, compare new against old side by side
 - `## Order`: optional, only with instrumental Voices: a Mermaid graph of every Movement's dependencies, each instrumental Voice a subgraph, per [Diagrams](#diagrams); it holds every dependency, so the Movement record carries no Order field
@@ -147,46 +147,37 @@ Never index or commit the [Plan File](#plan-file), unless the user explicitly as
 
 
 
-#### Voices in the Plan
-
-- give an instrumental Voice only Movements you perform, their Scopes sharing no file with the Main Voice or any other Voice
-- a Movement that depends on an instrumental Voice waits until its voice branch merges back into the feature branch; record that dependency in `## Order`
-
-
-
-
-
 #### Housekeeping Movements
 
-Branch, worktree, merge, and push work is Plan work, never an unrecorded side step: decide each piece yourself from the repository state gathered in Bar 1, without asking, and realize each yes as a Movement of the Main Voice. The user approves them with the Plan. Mark a Movement `(optional)` after its title when it only serves a decision the user may veto. Some of it may share 1 Movement; keep each reviewable.
+Plan branch, worktree, merge, and push work as ordinary Movements of the Main Voice. Decide each from the repository state gathered in Bar 1, without asking; the user approves them with the Plan. Share 1 Movement where each stays reviewable.
 
-Opening Movement: cut the feature branch and, when decided, plant its linked worktree on it.
+Opening Movement: cut the [feature branch](#feature-branch) and, when decided, plant its linked worktree on it.
 
-- feature branch: when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together; reuse a current branch that already serves this task; skip it when no Movement edits a tracked file or the user said to work on the current branch
-- linked worktree: when the main worktree is dirty or busy, the user keeps working there meanwhile, or the user asked to leave it untouched; otherwise cut the feature branch in the main worktree
+- [feature branch](#feature-branch): cut it when the repository uses git, the current branch is an integration branch (eg `dev`, `main`), and the Suite's commits should land, be reviewed, or be reverted together; reuse a current branch that already serves this task; skip it when no Movement edits a tracked file or the user said to work on the current branch
+- linked worktree: plant it when the main worktree is dirty or busy, the user keeps working there meanwhile, or the user asked to leave it untouched; otherwise cut the feature branch in the main worktree
 
-Closing Movement: land the feature branch, which also pushes the integration branch to origin, uproots the linked worktree, and deletes the merged feature branch. Skipped with the branch.
+Closing Movement: land the feature branch, which pushes the integration branch to origin, uproots the linked worktree, and deletes the merged feature branch. Omit it when there is no feature branch.
 
-- add 1 more Movement that prunes merged branches only when stale ones are already in the way
+- prune merged branches in 1 more Movement only when stale ones are in the way
 
-Each instrumental [Voice](#movement-voice-and-suite) brings 2 more Movements, since the main session performs them:
+Each instrumental [Voice](#movement-voice-and-suite) adds 2 Movements, performed by the main session:
 
-- opening: cut its voice branch from the feature branch and plant its linked worktree
-- closing: after the Voice's report, merge its voice branch into the feature branch, uproot its linked worktree, and delete the voice branch
-- form the Voice only when the Suite has a feature branch and a stretch of 3+ agent-only Movements whose Scopes share no file with the Main Voice or any other Voice; keep anything shorter, or sharing a file, in the Main Voice
-- favor the Main Voice and keep the Voice count low
+- opening: cut its instrumental branch from the feature branch and plant its linked worktree
+- closing: after the Voice's report, merge its instrumental branch into the feature branch, uproot its linked worktree, and delete the instrumental branch; place any Movement that depends on the Voice after it, and record the dependency in `## Order`
+- form a Voice only when the Suite has a feature branch and a stretch of 3+ Movements you perform alone whose Scopes share no file with the Main Voice or any other Voice; keep anything shorter, or sharing a file, in the Main Voice
+- favor the Main Voice; keep the Voice count low
 
 
 
 ##### {[Claude:Skill] Usage}
 
-Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to invoke via `Skill` tool: `tend-linked-wt` to plant or uproot a linked worktree, `land-feature` to land, `prune-merged-branches` to prune.
-
-
+Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to invoke via `Skill` tool: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `prune-merged-branches` to prune.
 
 ##### {[Hermes:skill_view] Usage}
 
-Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to load with `skill_view`: `tend-linked-wt` to plant or uproot a linked worktree, `land-feature` to land, `prune-merged-branches` to prune.
+Name in each [Housekeeping Movements](#housekeeping-movements) Statement the skill that performs it, to load with `skill_view`: `plant-linked-wt` to plant a linked worktree, `uproot-linked-wt` to uproot it, `land-feature` to land, `prune-merged-branches` to prune.
+
+
 
 
 
@@ -270,14 +261,14 @@ The optional opening Movement plants the linked worktree on the feature branch p
 
 Start each instrumental Voice once every Movement it depends on is done:
 
-1. plant its linked worktree on its voice branch, per `tend-linked-wt`
+1. plant its linked worktree on its instrumental branch, per `tend-linked-wt`
 2. choose its mode: a subagent by default, wherever a subagent tool exists; its own session when the Voice outgrows a subagent's budget, when the user wants to watch it, or when no subagent tool exists
 3. start it with 1 prompt naming the Plan file, the Voice, its worktree path, and `solo-voice`; in session mode, ask the user to open a new session in the Voice's worktree and give it that prompt
 4. go on with the Main Voice on the feature branch; a Main Voice Movement that depends on the Voice waits for its merge back
 
 On the Voice's report:
 
-- every End State met: merge its voice branch into the feature branch, uproot its linked worktree per `tend-linked-wt`, and mark the merge back with 🎌 in the Movement Recap
+- every End State met: merge its instrumental branch into the feature branch, uproot its linked worktree per `tend-linked-wt`, and mark the merge back with 🎌 in the Movement Recap
 - a stop or a mismatch: halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 
@@ -288,7 +279,7 @@ The Plan file doubles as the run's saved state, so a run survives the end of a s
 
 - Normal Execution: leave the Plan file untouched, no Status update between Movements
 - Pause: only when the user explicitly states "pause", never on a halt; then set each Movement's Status keyword to where the run stands
-- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; check that the feature branch, each open voice branch, and their linked worktrees still exist; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
+- Resume: read each Movement's Status, Movement In to the earliest not `Done` or `Dropped`; check that the feature branch, each open instrumental branch, and their linked worktrees still exist; on a mismatch with the workspace, halt per [Plan for Suite: Rework](#plan-for-suite-rework)
 
 Status keywords, written only on a pause or a rework. Each Movement carries exactly one keyword at any moment:
 
@@ -465,12 +456,12 @@ use `clarify` tool to ask user during the rework
 
 ### Solo Voice
 
-You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its voice branch, and names the Plan file and the Voice.
+You run 1 instrumental Voice of a Suite whole, in either mode: as a subagent of the main session, or in your own session. The main session has planted the Voice's linked worktree on its instrumental branch, and names the Plan file and the Voice.
 
-- work only in the Voice's linked worktree, on its voice branch
+- work only in the Voice's linked worktree, on its instrumental branch
 - read the Voice's Movements from the Plan file, and leave the Plan file untouched
 - run the Voice's Movements per [Plan for Suite: Execution](#plan-for-suite-execution)
-- never merge the voice branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
+- never merge the instrumental branch, and never touch the feature branch or any other worktree: the main session merges the Voice back
 - never ask the user anything, nor wait for an approval
 - on a mismatch with the Plan, an End State that will not hold, or anything a Movement cannot settle alone, stop and report; never work around it
 - write no Turn Progress Dispatch and no Movement Recap
@@ -487,7 +478,7 @@ As a subagent, your final reply is the report.
 
 #### {description}
 
-Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its voice branch, 1 commit each, then 1 report to the main session
+Runs 1 instrumental Voice of a Suite whole, agent only, as a subagent or in its own session: its Movements in order on its instrumental branch, 1 commit each, then 1 report to the main session
 
 #### {when_to_use}
 

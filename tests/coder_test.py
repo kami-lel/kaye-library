@@ -136,11 +136,11 @@ class TestPlanForSuiteDecide:
     @pytest.mark.parametrize(
         "needle",
         [
-            "feature branch: when",
-            "linked worktree: when",
+            "[feature branch](#feature-branch): cut it when",
+            "linked worktree: plant it when",
             "favor the Main Voice",
-            "stretch of 3+ agent-only Movements",
-            "The user approves them with the Plan",
+            "stretch of 3+ Movements you perform alone",
+            "the user approves them with the Plan",
         ],
     )
     def test_decides_branch_worktree_and_voices(self, needle):
@@ -153,7 +153,7 @@ class TestPlanForSuiteDecide:
         node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
         text = "\n".join(node.content_lines())
 
-        assert "feature branch: when" not in text
+        assert "[feature branch](#feature-branch): cut it when" not in text
 
 
 class TestPlanForSuiteWrite:
@@ -169,7 +169,6 @@ class TestPlanForSuiteWrite:
         assert names == [
             "Movement Record",
             "Plan File",
-            "Voices in the Plan",
             "Housekeeping Movements",
         ]
 
@@ -180,7 +179,7 @@ class TestPlanForSuiteWrite:
         "needle",
         [
             "each [Housekeeping Movements](#housekeeping-movements) decision",
-            "cut its voice branch",
+            "cut its instrumental branch",
             "uproots the linked worktree",
             "Closing Movement: land the feature branch",
             "`## Order`",
@@ -290,8 +289,8 @@ class TestPlaySuiteDispatch:
         "needle",
         [
             "##### Instrumental Voices",
-            "merge its voice branch into the feature branch",
-            "each open voice branch, and their linked worktrees still exist",
+            "merge its instrumental branch into the feature branch",
+            "each open instrumental branch, and their linked worktrees still exist",
             "lands it per `land-feature`",
             "🎌 Violin Test Fixtures Merged Back",
         ],

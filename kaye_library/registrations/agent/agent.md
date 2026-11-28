@@ -331,7 +331,7 @@ Trigger on "halt after each Movement", "one Movement at a time", "stop after eve
 
 Index the Movement's edits before the Turn stop. Commit them at the next Turn start, once user approves (eg "git commit" or "g").
 
-Merge a finished instrumental Voice's voice branch into the feature branch before the Turn stop that marks it 🎌.
+Merge a finished instrumental Voice's instrumental branch into the feature branch before the Turn stop that marks it 🎌.
 
 
 
@@ -446,7 +446,7 @@ Trigger on "run all Movements", "cascade", "keep going until the Suite is done",
 
 Index and commit at each Movement's close, before its Movement Dispatch: 1 commit per Movement.
 
-Merge a finished instrumental Voice's voice branch into the feature branch before its 🎌 line.
+Merge a finished instrumental Voice's instrumental branch into the feature branch before its 🎌 line.
 
 
 

@@ -80,7 +80,7 @@ kaye-library 的全部技能都在这里 📚，分组与 [README](../README.zh-
 | `/plan-for-suite` 🌟 | 动手前先有一份编号、可审阅的计划；你批准之前什么都不会执行 |
 | `/play-suite` | 每轮只做一个 Movement；进度记在计划文件里，今晚停下，明天接着干，换个会话也没问题 |
 | `/rework-plan-for-suite` | 计划跟不上变化了？它会先叫停，改好计划，再等你重新批准 |
-| `/solo-voice` | 在自己的 voice branch 上独立跑完 Suite 中的一个 instrumental Voice，以子智能体或独立会话运行，完成后向主会话汇报；由主会话派发 |
+| `/solo-voice` | 在自己的 instrumental branch 上独立跑完 Suite 中的一个 instrumental Voice，以子智能体或独立会话运行，完成后向主会话汇报；由主会话派发 |
 
 节奏你说了算：
 
