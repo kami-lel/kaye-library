@@ -2933,6 +2933,15 @@
   },
   "next": {
     "abbrs": {
+      "n": {
+        "priority": 6,
+        "tags": [
+          "letters_only",
+          "agent-chat-directive-abbr",
+          "single_character"
+        ],
+        "wrap": "word"
+      },
       "🧭": {
         "priority": 21,
         "remark": "what is planned, or likely, for the next Round",
@@ -4220,7 +4229,7 @@
     "abbrs": {
       "voice": {
         "priority": 50,
-        "remark": "line of Movements within a Suite; any but the Main Voice is an instrumental Voice: agent only, soloed by a subagent or run in its own session, in parallel on its voice branch, then merged back into the feature branch",
+        "remark": "line of Movements within a Suite; any but the Main Voice is an instrumental Voice: agent only, soloed by a subagent or run in its own session, in parallel on its instrumental branch, then merged back into the feature branch",
         "tags": [
           "agent-movement-and-suite-discourse-unit",
           "term_definition"

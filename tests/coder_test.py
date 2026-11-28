@@ -120,20 +120,26 @@ class TestRender:
             assert needle not in content, name
 
 
+def _text_with_descendants(node):
+    nodes = [node, *node.descendants]
+    return "\n".join("\n".join(n.content_lines()) for n in nodes)
+
+
 class TestPlanForSuiteDecide:
 
     def _text(_):
-        node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 2: Decide"]
-        return "\n".join(node.content_lines())
+        node = get_corpus_tree()["Coder"]["Plan for Suite"][
+            "Bar 2: Write the Plan"
+        ]
+        return _text_with_descendants(node)
 
     @pytest.mark.parametrize(
         "needle",
         [
-            "**Feature branch**",
-            "**Linked worktree**",
-            "**Voices**",
-            "stretch of 3+ agent-only Movements",
-            "the user approves them with the Plan",
+            "open with a Movement that cuts it",
+            "that Movement also plants the linked worktree",
+            "favor the Main Voice",
+            "stretch of 3+ Movements you perform alone",
         ],
     )
     def test_decides_branch_worktree_and_voices(self, needle):
@@ -146,14 +152,23 @@ class TestPlanForSuiteDecide:
         node = get_corpus_tree()["Coder"]["Plan for Suite"]["Bar 1: Gather"]
         text = "\n".join(node.content_lines())
 
-        assert "**Feature branch**" not in text
+        assert "open with a Movement that cuts it" not in text
 
 
 class TestPlanForSuiteWrite:
 
     def _text(_):
         node = get_corpus_tree()["Coder"]["Plan for Suite"]
-        return "\n".join(node["Bar 3: Write the Plan"].content_lines())
+        return _text_with_descendants(node["Bar 2: Write the Plan"])
+
+    def test_write_bar_holds_its_topics_as_nodes(_):
+        node = get_corpus_tree()["Coder"]["Plan for Suite"]
+        names = [n.name for n in node["Bar 2: Write the Plan"].children]
+
+        assert names == [
+            "Plan File",
+            "Housekeeping Movements",
+        ]
 
     def test_record_has_no_order_field(self):
         assert "- Order:" not in self._text()
@@ -161,11 +176,12 @@ class TestPlanForSuiteWrite:
     @pytest.mark.parametrize(
         "needle",
         [
-            "each Bar 2 decision that came out yes",
-            "runs `land-feature`",
+            "each [Housekeeping Movements](#housekeeping-movements) decision",
+            "cutting its instrumental branch from the feature branch",
+            "then scrubs up per [Scrub After Feature Landing]",
             "`## Order`",
             "`## Main Voice`",
-            "`🎻a Violin: Title`",
+            "`🎻a: Title`",
         ],
     )
     def test_plans_decisions_and_voices(self, needle):
@@ -242,10 +258,12 @@ class TestExecutionSplit:
         assert "### Plan for Suite: Execution" in content
         assert "### Play Suite" not in content
 
-    def test_preface_names_play_suite(_):
+    def test_preface_names_play_suite_and_solo_voice(_):
         content = exportable_registry["plan-for-suite"].content()
 
-        assert "invoke `play-suite` skill through the `Skill` tool" in content
+        assert "`play-suite` if you run the Main Voice" in content
+        assert "`solo-voice` if you run an instrumental Voice" in content
+        assert "through the `Skill` tool" not in content
 
 
 class TestPlaySuiteDispatch:
@@ -270,9 +288,9 @@ class TestPlaySuiteDispatch:
         "needle",
         [
             "##### Instrumental Voices",
-            "merge its voice branch into the feature branch",
-            "each open voice branch, and their linked worktrees still exist",
-            "lands it per `land-feature`",
+            "merging its instrumental branch into the feature branch",
+            "each open instrumental branch, and their linked worktrees still exist",
+            "the instrumental Voice cuts its instrumental branch",
             "🎌 Violin Test Fixtures Merged Back",
         ],
     )

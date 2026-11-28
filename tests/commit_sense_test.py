@@ -98,7 +98,7 @@ class TestTendLinkedWorktreeAnyBranch:
     def test_speaks_of_any_branch(_, name):
         content = exportable_registry[name].content()
 
-        assert "voice branch" in content
+        assert "instrumental branch" in content
         assert "REPO-WT-FEATURE" not in content
 
     def test_names_the_voice_split(_):

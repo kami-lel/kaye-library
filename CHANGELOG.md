@@ -30,19 +30,22 @@ todo good morning incl finance report
 
 ### Security
 
-[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.1...dev
+[unreleased]: https://github.com/kami-lel/kaye-library/compare/v1.6.2...dev
 
+## 2026-11-28: Patch Release [1.6.2]
 
+### Added
 
+- Suite and Git usage guide: how to plan and run a Suite and every Git skill, with a worked session, in English and Simplified Chinese
+- chat directive `n` (next), beside `c` and `v`
 
+### Changed
 
+- `plan-for-suite`: Plan file fixes its `##` layout; branch, worktree, merge, and push work become Housekeeping Movements
+- voice branch renamed instrumental branch
+- README and docs name the assistant Kaye
 
-
-
-
-
-
-
+[1.6.2]: https://github.com/kami-lel/kaye-library/compare/v1.6.1...v1.6.2
 
 ## 2026-11-27: Patch Release [1.6.1]
 
